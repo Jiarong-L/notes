@@ -1,5 +1,4 @@
-# MkDocs
-
+# MkDocs-静态网站构建
 MkDocs: <https://www.mkdocs.org/>    
 Setup MkDocs: <https://squidfunk.github.io/mkdocs-material/> 
 
@@ -22,29 +21,7 @@ mkdocs -h          #Print help message and exit.
 
 
 ## Git Pages部署
-.github/workflows/notes.yml中：
-```
-name: notes 
-on:
-  push:
-    branches:
-      - main
-permissions:
-  contents: write
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.x
-      - uses: actions/cache@v2
-        with:
-          key: ${{ github.ref }}
-          path: .cache
-      - run: pip install mkdocs-material 
-      - run: mkdocs gh-deploy --force
-```
-随后参考：<https://docs.github.com/en/actions/quickstart>
+1. 参考：<https://docs.github.com/en/actions/quickstart>，生成 [.github/workflows/notes.yml](https://github.com/Jiarong-L/notes/blob/main/.github/workflows/notes.yml)
+2. git action 运行完成后，生成内容位于gh-pages分支，去Settings-Pages设置一下Build and deployment的分支即可。
+
 
