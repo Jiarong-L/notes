@@ -11,7 +11,7 @@ img{
 
 
 
-![bar_of_pie_plot](Gallary/bar_of_pie_plot.png)  
-![donut_pie_plot](Gallary/donut_pie_plot.png)  
+![bar_of_pie_plot](Gallary/img/bar_of_pie_plot.png)  
+![donut_pie_plot](Gallary/img/donut_pie_plot.png)  
 
 
