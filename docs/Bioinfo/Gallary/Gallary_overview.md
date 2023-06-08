@@ -23,7 +23,7 @@ img{
 [![TimeSeries](R/TimeSeries/img/7.png)](../R/TimeSeries)
 [![Heatmap](R/Heatmap/img/2.png)](../R/Heatmap)
 [![Heatmap](R/Heatmap/img/7.png)](../R/Heatmap)
-
+[![UpSet](R/UpSet/img/1.png)](../R/UpSet)
 
 
 
