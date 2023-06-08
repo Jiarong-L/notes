@@ -4,20 +4,26 @@ img{
 }
 </style>
 
+导航到相关图片的制作笔记
 
 
 ## Python 
-![bar_of_pie_plot](python/img/bar_of_pie_plot.png)
-![donut_pie_plot](python/img/donut_pie_plot.png)
+[![bar_of_pie_plot](python/img/bar_of_pie_plot.png)](../python/python_plot)
+[![donut_pie_plot](python/img/donut_pie_plot.png)](../python/python_plot)
 
 
 
 
-## R 
 
-![Bar_Alluvium](R/Bar_Alluvium/img/1.png)
-![Point](R/Point/img/9.png)
-![TimeSeries](R/TimeSeries/img/7.png)
+
+## R
+[![Bar_Alluvium](R/Bar_Alluvium/img/1.png)](../R/Bar_Alluvium)
+[![Point](R/Point/img/9.png)](../R/Point)
+[![TimeSeries](R/TimeSeries/img/7.png)](../R/TimeSeries)
+[![Heatmap](R/Heatmap/img/2.png)](../R/Heatmap)
+[![Heatmap](R/Heatmap/img/7.png)](../R/Heatmap)
+
+
 
 
 
