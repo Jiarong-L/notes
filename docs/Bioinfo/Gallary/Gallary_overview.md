@@ -17,6 +17,7 @@ img{
 
 
 ## R
+[![ColorMap](R/ColorMap/BrewerPal.png)](../R/ColorMap)
 [![Bar_Alluvium](R/Bar_Alluvium/img/1.png)](../R/Bar_Alluvium)
 [![Point](R/Point/img/9.png)](../R/Point)
 [![TimeSeries](R/TimeSeries/img/7.png)](../R/TimeSeries)
