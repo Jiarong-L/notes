@@ -6,12 +6,12 @@ img{
 </style>
 
 ## circlize
-### Data
+### Data：bed/Cytoband
 bed-format-like / Cytoband
 ```
 library(circlize)
 
-df = read.cytoband()$df                             ## generateRandomBed(10）
+df = read.cytoband()$df                             
 colnames(df) = c('chr','start','end','name','stain')
 
 sector_data = as.factor(df$chr)
@@ -30,7 +30,7 @@ df$GC = runif(nrow(df))
 
 circular_layout,依次设定 sector - xlim - ylim
 
-#### Option-1 
+#### Opt-1 Basic
 
 可以直接输入vector，会自己计算 sectors xlim ylim；也可以输入sector_lvls xlim ylim
 ```
@@ -67,7 +67,7 @@ circos.trackPlotRegion(sectors = c('chr1','chr10'),
 ![1](Circos/img/1.png)
 
 
-#### Option-2 基因组
+#### Opt-2 Genome
 必须带有Cytoband信息
 ```
 circos.genomicInitialize(
@@ -83,7 +83,7 @@ circos.genomicInitialize(
 ![2](Circos/img/2.png)
 
 
-#### Option-3 基因组 + Ideogram
+#### Opt-3 Genome + Ideogram
 ```
 circos.initializeWithIdeogram(
   cytoband = df,                       ## or: cytoband_file_dir
@@ -258,6 +258,11 @@ circos.clear()
 还可以设置par
 ```
 circos.par()
+```
+
+随机生成bed数据
+```
+generateRandomBed(10)
 ```
 
 
