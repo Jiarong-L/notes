@@ -7,9 +7,9 @@ img{
 
 ## circlize
 ### Data：bed/Cytoband
-bed-format-like / Cytoband
 ```
 library(circlize)
+library(dplyr)
 
 df = read.cytoband()$df                             
 colnames(df) = c('chr','start','end','name','stain')
@@ -28,7 +28,7 @@ df$GC = runif(nrow(df))
 
 ### Initialize
 
-circular_layout,依次设定 sector - xlim - ylim
+<font color='red'> 设定坐标系, 依次设定 sector - xlim - ylim</font> 
 
 #### Opt-1 Basic
 
@@ -68,7 +68,8 @@ circos.trackPlotRegion(sectors = c('chr1','chr10'),
 
 
 #### Opt-2 Genome
-必须带有Cytoband信息
+必须带有Cytoband信息。
+<font color='red'> 本例中，每个sector的xlim通过df自动计算，实际使用中init这一步应当输入各个chr的总长度bed_df（每一行： chr_name   0  chr_length  ...）</font> 
 ```
 circos.genomicInitialize(
   data = df,
@@ -304,7 +305,7 @@ https://www.ncbi.nlm.nih.gov/Class/MLACourse/Modules/Genomes/map_cytogenetic_ban
 https://www.jianshu.com/p/9491901e3a9b     
 https://zhuanlan.zhihu.com/p/284010321      
 
-
+R: https://www.jianshu.com/p/cd957b3d6d4b
 
 
 染色体显带及命名： https://zhuanlan.zhihu.com/p/284010321
