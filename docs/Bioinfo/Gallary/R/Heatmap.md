@@ -47,7 +47,7 @@ heatmap(as.matrix(df),
         )
 ## dist: "euclidean", "maximum", "manhattan", "canberra", "binary" or "minkowski"
 ```
-![1](img/1.png)
+![1](Heatmap/img/1.png)
 
 
 
@@ -83,7 +83,7 @@ pheatmap(df,
 
 ## dist: "euclidean", "maximum", "manhattan", "canberra", "binary" or "minkowski"
 ```
-![2](img/2.png)
+![2](Heatmap/img/2.png)
 
 
 
@@ -108,14 +108,14 @@ Heatmap(df,
 
 plot(color_branches(row_dend, k = 4))        
 ```
-![3](img/3.png)![4](img/4.png)
+![3](Heatmap/img/3.png)![4](Heatmap/img/4.png)
 
 
 Example 2： K-means clustering --- conflict with cluster_rows/cluster_columns
 ```
 Heatmap(df, name = "legend title - Color Range", row_km = 4)  ## column_km
 ```
-![5](img/5.png)
+![5](Heatmap/img/5.png)
 
 Example 3： Split column/row given group list
 ```
@@ -125,7 +125,7 @@ Heatmap(df,
         column_split = rep(c(1,2),100)[1:ncol(df)],     ## split columns 
         row_names_gp = gpar(fontsize = 7))
 ```
-![6](img/6.png)
+![6](Heatmap/img/6.png)
 
 
 Example 4： Annotated & Combined Heatmap
@@ -145,7 +145,7 @@ right_anno = HeatmapAnnotation(
 
 Heatmap(df, top_annotation = top_anno) + right_anno
 ```
-![7](img/7.png)
+![7](Heatmap/img/7.png)
 
 
 
@@ -163,7 +163,7 @@ draw(h1 + h1 + h2,
     )
 
 ```
-![8](img/8.png)
+![8](Heatmap/img/8.png)
 
 
 

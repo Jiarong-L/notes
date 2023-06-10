@@ -32,7 +32,6 @@ img{
 [![CMplot](R/CMplot/img/1.png)](../R/CMplot)
 [![CMplot](R/CMplot/img/2.png)](../R/CMplot)
 [![CMplot](R/CMplot/img/3.png)](../R/CMplot)
-
-
-
-
+[![RIdeogram](R/RIdeogram/img/3.png)](../R/RIdeogram)
+[![RIdeogram](R/RIdeogram/img/5.png)](../R/RIdeogram)
+[![RIdeogram](R/RIdeogram/img/6.png)](../R/RIdeogram)
