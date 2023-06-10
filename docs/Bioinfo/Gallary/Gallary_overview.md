@@ -7,8 +7,8 @@ img{
 导航到相关图片的制作笔记
 
 
-## CLI
-
+## GUI
+[![Krona](GUI/Krona/img/1.png)](../GUI/Krona)
 
 
 
