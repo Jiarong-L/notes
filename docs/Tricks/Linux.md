@@ -1,0 +1,56 @@
+
+
+
+## .bashrc
+此处可设置各种简写（e.g.你自己写的小工具脚本、工作目录），R librarys ...
+```
+alias cdd='cd /mnt/d/WSL_dir/workdir/'
+```
+
+
+
+## PATH
+```
+export PATH=...../anaconda3/bin/:$PATH
+```
+
+
+## ssh
+### 简单使用
+本地.ssh/config文件示例
+```
+Host vm1
+    HostName <ip>
+    User user_name
+    Port 10007
+    LocalForward 8888 localhost:8888
+```
+命令行中：
+```
+ssh vm1
+```
+第一次登陆有可能需要设置：不使用主机公钥确认
+```
+ssh -o StrictHostKeyChecking=no vm1
+```
+### 如果不想每次都输密码
+清除本地电脑上旧的公钥信息
+```
+ssh-keygen -R vm1
+### or
+rm ~/.ssh/known_hosts
+```
+
+生成id_dsa并拷贝给远程机器的authorized_keys,此后可以免密登录/拷贝
+```
+ssh-keygen                                    ## generate id_dsa
+ssh-copy-id  -i ~/.ssh/id_rsa.pub  vm1
+```
+### PuTTy
+有时候可能需要运行带有GUI或者display图片，这种情况需要通过PuTTy + PuTTy；方法：[link](https://blog.csdn.net/Yinyaowei/article/details/108303562)
+
+
+
+
+
+

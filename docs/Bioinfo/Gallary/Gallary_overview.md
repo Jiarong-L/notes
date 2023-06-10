@@ -7,11 +7,14 @@ img{
 导航到相关图片的制作笔记
 
 
+## CLI
+
+
+
+
 ## Python 
-[![bar_of_pie_plot](python/img/bar_of_pie_plot.png)](../python/python_plot)
-[![donut_pie_plot](python/img/donut_pie_plot.png)](../python/python_plot)
-
-
+[![bar_of_pie_plot](Python/img/bar_of_pie_plot.png)](../Python/python_plot)
+[![donut_pie_plot](Python/img/donut_pie_plot.png)](../Python/python_plot)
 
 
 
@@ -29,5 +32,7 @@ img{
 [![CMplot](R/CMplot/img/1.png)](../R/CMplot)
 [![CMplot](R/CMplot/img/2.png)](../R/CMplot)
 [![CMplot](R/CMplot/img/3.png)](../R/CMplot)
+
+
 
 
