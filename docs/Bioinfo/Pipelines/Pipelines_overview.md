@@ -2,7 +2,7 @@
 
 
 ## Meta
-[![Meta](../img/Meta.png)](.)
+[![Meta](../img/meta.png)](.)
 
 
 ## Single Cell
