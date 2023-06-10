@@ -69,7 +69,7 @@ circos.trackPlotRegion(sectors = c('chr1','chr10'),
 
 #### Opt-2 Genome
 必须带有Cytoband信息。
-<font color='red'> 本例中，每个sector的xlim通过df自动计算，实际使用中init这一步应当输入各个chr的总长度bed_df（每一行： chr_name   0  chr_length  ...）</font> 
+<font color='red'> 本例中，每个sector的xlim通过df自动计算，故而范围决定于表中基因位置的边界；实际使用中init这一步应当输入各个chr的总长度bed_df（每一行： chr_name   0  chr_length  ...）</font> 
 ```
 circos.genomicInitialize(
   data = df,
