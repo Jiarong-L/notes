@@ -167,8 +167,51 @@ draw(h1 + h1 + h2,
 
 
 
+### 4-ClusterGVis
+
+```
+
+library(ClusterGVis)
+
+
+exps = scale(mtcars,center=F)
+markGenes = rownames(exps)[sample(1:nrow(exps),30,replace = F)]
+termanno = data.frame(
+  'id' = rep(c('C1','C2','C3','C4'),each = 2),         
+  'term' = rep(c('C1 anno','C2 anno','C3 anno','C4 anno'),each = 2),
+  'pval' = runif(8)
+)
+## Note: optimal cluster numbers decided by getClusters()
+##       in this case k = 4
+
+
+
+
+getClusters(exp = exps)         ## plot SS within groups of various group number
+
+ck <- clusterData(
+  exp = exps,
+  cluster.method = "kmeans",    ## mfuzz(not working)
+  cluster.num = 4)
+
+
+
+visCluster(
+  object = ck,
+  plot.type = "both",           ## line, heatmap, both
+  markGenes = markGenes,
+  annoTerm.data = termanno,
+  column_names_rot = 45
+  )
+
+```
+![9](Heatmap/img/9.png)
+
+
+
 ### 参考
 ComplexHeatmap：https://mp.weixin.qq.com/s/idbsiOPtdsQ0p7xD6HxGKg
 pheatmap：https://www.jianshu.com/p/86ae39a227f4
+ClusterGVis：https://github.com/junjunlab/ClusterGVis
 
 
