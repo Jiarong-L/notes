@@ -1,5 +1,10 @@
 # 
 
+**本网站主要用于记录我的学习历程，便于复习时查找资料**  
+**This website serves as the navigator to my learning records/resources.**
+
+
+
 ## Bioinfo
 生物信息学习记录，  
 

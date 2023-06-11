@@ -11,10 +11,20 @@
 
 
 
+## Spatial 
+10x visium
+
+
 
 
 
 ## HiC
+
+
+
+
+
+
 
 
 

@@ -5,6 +5,9 @@
 
 
 
+
+
+
 识别药效团 (by ligand or by protein receptor)
 
 

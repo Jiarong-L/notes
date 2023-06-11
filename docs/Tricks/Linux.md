@@ -15,6 +15,18 @@ export PATH=...../anaconda3/bin/:$PATH
 ```
 
 
+
+## For / if / awk(TBA) / sed(TBA)
+```
+for dd in {1..5}; do echo $dd ; done
+for dd in {1..30}; do echo "my_${dd}_word" ; done   ## must be ""
+for dd in {1..5}; do if [ $((dd))+1 != $((3)) ];then echo $((dd +10)) ; fi; done   ## $((string)) convert str to num
+
+```
+
+
+
+
 ## ssh
 ### 简单使用
 本地.ssh/config文件示例
