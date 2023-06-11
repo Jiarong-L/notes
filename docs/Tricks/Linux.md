@@ -15,6 +15,17 @@ export PATH=...../anaconda3/bin/:$PATH
 ```
 
 
+## Convert img
+ref: https://www.cnblogs.com/yymn/p/4479805.html
+```
+## ImageMagick:  sudo apt install graphicsmagick-imagemagick-compat
+
+convert  in.pdf  out.png
+convert -resize  50%x50%  in.png  out.png
+```
+
+
+
 
 ## For / if / awk(TBA) / sed(TBA)
 ```
@@ -22,6 +33,7 @@ for dd in {1..5}; do echo $dd ; done
 for dd in {1..30}; do echo "my_${dd}_word" ; done   ## must be ""
 for dd in {1..5}; do if [ $((dd))+1 != $((3)) ];then echo $((dd +10)) ; fi; done   ## $((string)) convert str to num
 
+ls img/ | while read dd ; do convert -resize 10%x10% img/$dd img_resize/$dd ; done
 ```
 
 
