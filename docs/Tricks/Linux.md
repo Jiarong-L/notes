@@ -71,7 +71,7 @@ ssh-keygen                                    ## generate id_dsa
 ssh-copy-id  -i ~/.ssh/id_rsa.pub  vm1
 ```
 ### PuTTy
-有时候可能需要运行带有GUI或者display图片，这种情况需要通过PuTTy + PuTTy；方法：[link](https://blog.csdn.net/Yinyaowei/article/details/108303562)
+有时候可能需要运行带有GUI或者display图片，这种情况需要通过PuTTy + Xming；方法：[link](https://blog.csdn.net/Yinyaowei/article/details/108303562)
 
 
 

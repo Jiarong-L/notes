@@ -21,7 +21,7 @@ pip install gensim
 ```
 
 
-## 参考资料
+## 参考
 
 [1-原文] https://arxiv.org/pdf/1301.3781.pdf  
 [2-优化Skip-gram] https://arxiv.org/pdf/1310.4546.pdf  
