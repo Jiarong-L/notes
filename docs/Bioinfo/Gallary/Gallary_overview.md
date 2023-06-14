@@ -9,13 +9,15 @@ img{
 
 ## GUI
 [![Krona](GUI/Krona/img/1.png)](../GUI/Krona)
+[![PyMOL](GUI/PyMOL/img/1.png)](../GUI/PyMOL)
 
 
 
 ## Python 
-[![bar_of_pie_plot](Python/img/bar_of_pie_plot.png)](../Python/python_plot)
-[![donut_pie_plot](Python/img/donut_pie_plot.png)](../Python/python_plot)
-
+[![bar_of_pie_plot](Python/matplotlib/img/bar_of_pie_plot.png)](../Python/matplotlib)
+[![donut_pie_plot](Python/matplotlib/img/donut_pie_plot.png)](../Python/matplotlib)
+[![NGLView](Python/NGLView/img/2.png)](../Python/NGLView)
+[![RDKit](../../Blocks/RDKit/img/2.png)](../../Blocks/RDKit)
 
 
 

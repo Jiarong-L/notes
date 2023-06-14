@@ -1,3 +1,4 @@
+<style>
 img{
     width: 30%;
 }
@@ -5,7 +6,8 @@ img{
 
 
 
-2D、3D结构之间的转换，操作详情见 [RDKit_Doc](http://www.rdkit.org/docs/GettingStartedInPython.html)；**ToDo：复习化学后更新此页面**。
+2D、3D结构之间的转换，操作详情见 [RDKit_Doc](http://www.rdkit.org/docs/GettingStartedInPython.html)；**ToDo：复习化学后更新此页面**。   
+懒人代码： [RDKit.ipynb](RDKit/RDKit.ipynb)  
 
 
 ### 结构文件
@@ -76,7 +78,7 @@ Chem.Draw.MolToImage(m)
 
 
 ### Edit
-Some: 
+部分操作: 
 ```
 m = Chem.Kekulize(m)                 ## 清除芳香环信息，但输出smile后再返回会恢复该信息
 
@@ -104,5 +106,5 @@ mw.RemoveAtom(0)
 
 ## 参考
 **RDKit**: http://www.rdkit.org/docs/GettingStartedInPython.html  
-
+RDKit: https://zhuanlan.zhihu.com/p/82497166  
 
