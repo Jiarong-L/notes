@@ -6,6 +6,7 @@ img{
 
 
 基因组相似性计算:
+
 * ANI(Average **Nucleotide** Identity): FastANI
 * AAI(Average **Amino acid** Identity): compareM
 * DDH(DNA-DNA hybridization): GGDC    
