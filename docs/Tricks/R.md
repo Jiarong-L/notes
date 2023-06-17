@@ -19,7 +19,7 @@ a b c
 ```
 
 
-### 2 Save plot
+### Save plot
 ```
 pdf('xxx.pdf',height = 10,width = 10)
 ## ...ploting

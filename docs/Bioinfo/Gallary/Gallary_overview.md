@@ -14,9 +14,10 @@ img{
 
 
 
-## GUI
-[![Krona](GUI/Krona/img/1.png)](../GUI/Krona)
-[![PyMOL](GUI/PyMOL/img/1.png)](../GUI/PyMOL)
+## Toolkit
+[![Krona](Toolkit/Krona/img/1.png)](../Toolkit/Krona)
+[![PyMOL](Toolkit/PyMOL/img/1.png)](../Toolkit/PyMOL)
+[![nucmerO](../Blocks/Mummer/img/nucmerO.png)](../../Blocks/Mummer)
 
 
 

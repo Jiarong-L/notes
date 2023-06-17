@@ -41,7 +41,7 @@ img{
 
 ### 可视化工具
 * Discovery Studio
-* [PyMOL](../../Bioinfo/Gallary/GUI/PyMOL)
+* [PyMOL](../../Bioinfo/Gallary/Toolkit/PyMOL)
 * Maestro (Schrödinger)
 * ICM Browser
 * UCSF Chimera

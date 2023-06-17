@@ -27,19 +27,24 @@ convert -resize  50%x50%  in.png  out.png
 
 
 
-## For / if / awk(TBA) / sed(TBA)
+## Bash
 ```
 for dd in {1..5}; do echo $dd ; done
 for dd in {1..30}; do echo "my_${dd}_word" ; done   ## must be ""
 for dd in {1..5}; do if [ $((dd))+1 != $((3)) ];then echo $((dd +10)) ; fi; done   ## $((string)) convert str to num
 
 ls img/ | while read dd ; do convert -resize 10%x10% img/$dd img_resize/$dd ; done
+
+sed -n 's/from/to/g' xx.fa | less
+
 ```
+* sed: https://www.runoob.com/linux/linux-comm-sed.html
+* awk: https://www.runoob.com/linux/linux-comm-awk.html
+* grep: https://www.runoob.com/linux/linux-comm-grep.html  
 
 
 
-
-## ssh
+## SSH
 ### 简单使用
 本地.ssh/config文件示例
 ```
@@ -57,7 +62,7 @@ ssh vm1
 ```
 ssh -o StrictHostKeyChecking=no vm1
 ```
-### 如果不想每次都输密码
+### 免密码
 清除本地电脑上旧的公钥信息
 ```
 ssh-keygen -R vm1
@@ -70,10 +75,14 @@ rm ~/.ssh/known_hosts
 ssh-keygen                                    ## generate id_dsa
 ssh-copy-id  -i ~/.ssh/id_rsa.pub  vm1
 ```
-### PuTTy
-有时候可能需要运行带有GUI或者display图片，这种情况需要通过PuTTy + Xming；方法：[link](https://blog.csdn.net/Yinyaowei/article/details/108303562)
 
 
+## Graphic
+有时候可能需要运行带有GUI或者display/gnuplot，这种情况需要通过 PuTTy/WSL + Xming；方法：[link1](https://blog.csdn.net/Yinyaowei/article/details/108303562),[link2](https://blog.csdn.net/sihsd/article/details/124261374)
+
+```
+export DISPLAY=localhost:0
+```
 
 
 
