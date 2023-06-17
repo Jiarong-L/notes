@@ -22,7 +22,7 @@
 
 * **Medical Topics:** Immunology, Cancer Biology, Pathophysiology, CADD
 
-* **Statistics/Math:** Causal Inference, Real Analysis (lifesaver), Convex Optimization, Machine Learning (Zhou), GNN
+* **Statistics/Math:** Causal Inference(bradyneal), Real Analysis(lifesaver), Convex Optimization(CVX101), Machine Learning(Zhou), GNN(CS224w)
 
 * **Tools:** PyTorch,OpenCV,MAKE
 
