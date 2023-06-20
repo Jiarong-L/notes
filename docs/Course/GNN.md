@@ -15,7 +15,7 @@ MathJax = {
 
 <style>
 img{
-    width: 80%;
+    width: 60%;
 }
 </style>
 
@@ -33,8 +33,15 @@ img{
 此处查看一些计算示例：[concepts.py](GNN/concepts.py),[pagerank.py](GNN/pagerank.py)  
 
 ## Traditional
+Uses Hand-designed features for:
 
-### Graph
+- Graph-level Task: Find features that characterize the structure of an entire graph
+- Node-level Task: Node classification
+- Link-level Task: Predict new links based on existing links
+    - Form 1: 随机删除一些Edges，然后尝试复原  
+    - Form 2: 依据t0时刻的图，预测t1时刻的Edges
+
+### Concepts
 
 - **G=(V,E)** -- V为顶点(Node)集合，E为边(Edge)集合
 
@@ -68,8 +75,8 @@ Matrix 元素 a<sub>ij</sub> 表示 (i 行，j 列) 的值
 
 
 
-### Node Features
-Importance-based / Structure-based
+### Node-level Feature
+Importance-based / Structure-based Features
 
 - **度(Degree):** 与顶点v接触的边的数目；有向图中分为出度、入度
 
@@ -94,12 +101,44 @@ Importance-based / Structure-based
 ![GVD](GNN/img/GVD.png) 
 
 
+### Link-level Feature
+2个nodes间的link的feature: 
+
+- Distance-based Features
+    - 最短路径的长度
+
+- Local neighborhood overlap    
+![LocalNOverlap](GNN/img/LocalNOverlap.png) 
+
+- Global neighborhood overlap
+    - Katz index: 邻接矩阵$A^k$中a<sub>ij</sub>就是$v_i$与$v_j$间长度K的Path的频次，Katz index = $v_i$与$v_j$间(1到无穷)长度Path的频次总和  
+    ![Katz](GNN/img/Katz.png) 
+
+
+### Graph-level Feature
+Kernel Methods: 基于种种kernel计算出feature频次vector、其dot product就是kernel similarity
+
+- Bag-of-Nodes  
+![Bag-of-Nodes](GNN/img/Bag-of-Nodes.png) 
+
+- Bag-of-Node-Degrees  
+![Bag-of-Node-Degrees](GNN/img/Bag-of-Node-Degrees.png) 
+
+- **Graphlet kernel:** Bag-of-Graphlets (**unrooted**，这点不同于GVD)， worst case NP-hard   
+![Bag-of-Graphlets-1](GNN/img/Bag-of-Graphlets-1.png) 
+![Bag-of-Graphlets-2](GNN/img/Bag-of-Graphlets-2.png) 
+
+- **Weisfeiler-Lehman kernel:** k+1时刻顶点v的颜色=HASH(k时刻顶点v的颜色、k时刻顶点v所有邻居的颜色); HASH可以是定义的任何操作(e.g. sum, 取余)。HASH完成后，统计两个G的颜色分布vector、计算WL kernel similarity。
+
 
 
 
 
 ## Graph Embedding
 
+- 随机游走
+    - 
+    - 
 
 ### Deepwalk
 G中随机游走生成序列，以此序列集为SkipGram的训练资料，达成Node embedding。
@@ -130,5 +169,5 @@ pagerank: https://zhuanlan.zhihu.com/p/120962803
 
 
 
-
+![](GNN/img/.png) 
 
