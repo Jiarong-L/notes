@@ -12,7 +12,7 @@ img{
 
 
 
-### 手写笔记-个人留念 [PDF](Immunology/img/PDF/Immunology_notes.pdf)
+### 手写笔记-个人留念 [PDF](Immunology/PDF/Immunology_notes.pdf)
 
 [![1](Immunology/img_resize/1.png)](Immunology/img/1.png)
 [![2](Immunology/img_resize/2.png)](Immunology/img/2.png)
