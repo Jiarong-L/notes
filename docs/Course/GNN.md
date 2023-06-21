@@ -135,26 +135,98 @@ Kernel Methods: 基于种种kernel计算出feature频次vector、其dot product�
 
 
 ## Graph Embedding
+- encoder: 将nodes表示为向量（representation vector）
+- decoder：计算embedding间的similarity   
+- similarity：可以是embedding vectors间的dot product
 
-- 随机游走
-    - 
-    - 
+- 特质相似的nodes的embedding应该更加相似。
+    - 同质性(homophily)：节点与其邻居的embedding应该很相似   
+    - 结构等价性(structural equivalence)：节点若在图上处于相似的结构位置，其embedding应该很相似
+
+- **一些Embedding算法：** 
+    - https://github.com/shenweichen/GraphEmbedding
+    - https://zhuanlan.zhihu.com/p/56733145
+    - DeepWalk、LINE、Node2Vec、Struc2Vec、SDNE
 
 ### Deepwalk
-G中随机游走生成序列，以此序列集为SkipGram的训练资料，达成Node embedding。
-![Deepwalk](GNN/img/Deepwalk.png) ![SkipGram](GNN/img/SkipGram.png)    
+G中随机游走生成序列，以此序列集为SkipGram的训练资料，达成Node embedding。  
+![Deepwalk](GNN/img/Deepwalk.png)   
+![SkipGram](GNN/img/SkipGram.png)    
 
 
 ### LINE
+- 一阶：考虑节点的边
+      - 联合概率分布 $p_1(v_i,v_j) = \frac{1}{1+exp(-u_i^T*u_j)}$，其中$u_i$是顶点$v_i$的low-dimensional vector representation
+    - 经验概率分布 $\tilde{p}_1(v_i,v_j) = \frac{w_{ij}}{W}$，其中$w_{ij}$是Edge(i,j)的权重(若无设定，则都是1)，W是G中所有w之和
+    - $O_1 = \sum _{(i,j) \in E} distance(\tilde{p}_1(*,*)||p_1(*,*))$ 为两个分布的距离，distance可以是KL-divergence  
+    ![KL](GNN/img/KL.png)   
+    ![LINE1](GNN/img/LINE1.png) 
+
+- 二阶：考虑节点的Neighbor
+    - $u_j$: 该顶点本身的representation vector
+    - $u_j'$: 该顶点作为其它节点邻居时的representation vector
+    - $p_2(v_j|v_i) = \frac{exp({u'}_j^T*u_i)}{\sum_{k=1}^{|V|}{exp({u'}_k^T*u_i)}}$
+    - $\tilde{p}_2(v_j|v_i) = \frac{w_{ij}}{W_i}$ W是$v_i$所有出链的w之和
+    - $O_2 = \sum _{(i,j) \in E} \lambda_i * distance(\tilde{p}_2(*,*)||p_2(*,*))$ 为两个分布的距离，$\lambda_i$是控制节点重要性的因子，distance可以是KL-divergence  
+    ![LINE2](GNN/img/LINE2.png) 
 
 
 
 
 ### node2vec
+Biased Walks生成序列(p大-倾向于DFS，q大-倾向于BFS)，以此序列集为SkipGram的训练资料   
+![biasedWalks](GNN/img/biasedWalks.png)   
+![node2vec](GNN/img/node2vec.png)  
 
-### Struc2vec
+### Struc2Vec
+基于空间结构相似性    
+
+![Struc2Vec1](GNN/img/Struc2Vec1.png) 
+
+- $f_{k}(u,v) = f_{k-1}(u,v) +  g( s(R_k(u)),s(R_k(v)) ) $
+    - $f_{k}(u,v)$为顶点u、v间k-hop结构距离
+    - $R_k(u)$为顶点u的k-hop邻居集，例如：$R_1(u)$ = {A,C,F,D}
+    - $s(R_k(u))$为顶点u的k-hop邻居集对应的度，例如：$s(R_1(u))$ = {1,2,2,2}
+    - $g(D1,D2)$为D1,D2之间距离函数，可用DWT
+- 根据$f_{k}(u,v)$距离，构建k-hop Weighted Graph，每个hop为一个layer、layer之间也由weighted edge
+    - hop内边的权重$w_k(u,v)=e^{-f_{k}(u,v)}$
+    - hop之间边的权重
+        - $w(u_{k},u_{k+1}) = log(\Gamma_k(u) + e)$, k= 0...k*-1
+        - $w(u_{k},u_{k-1}) = 1 $     k= 1...k*    
+        - $\Gamma_k(u)$ : layer k 中, 与顶点u链接、且$w$大于$\overline w_k$的边的数量    
+- 随机游走采样，p表示本层游走的概率，(p-1)表示游走至其它layer的概率  
+![Struc2Vec3](GNN/img/Struc2Vec3.png)   
+
 
 ### SDNE
+简单的来说就是用邻接矩阵的每一行作为输入，训练一个Auto Encoder来进行embedding。
+
+### Embed Entire Graph
+
+- sum / average Node Embeddings
+- 用一个横跨(sub)graph的'virtal node'来表示(sub)graph，然后embed这个node
+- **Anonymous Walk**: 设定node index为在随机游走中第一次被访问时候的index。匿名方法有助于得到网络的全局拓扑结构    
+    ![AnonymousWalk](GNN/img/AnonymousWalk.png) 
+    - 一次Anonymous Walk后得到一条图示index vector
+    - **feature-based model:** 统计index vector pattern为feature，有点统计graphlet这样的感觉  
+    - **data-driven model:** 借鉴NLP思想，将一次walk视为一个word，将G视为一篇document，经过同一node的walk视为co-occurring。对于每一个节点u，采样一组co-occurring SET，训练G的embedding，目标函数：$\underset{G_{embedding}}{max} \sum_{i \in coSET}{P(word_i | words_{cooccurring}, G_{embedding})}$    
+
+
+### Use Embedding
+![useEmbed](GNN/img/useEmbed.png) 
+
+
+
+## GNN
+
+### GCN
+
+
+### GraphSAGE
+
+
+### GAT
+
 
 
 
@@ -166,6 +238,9 @@ G中随机游走生成序列，以此序列集为SkipGram的训练资料，达�
 networkx: https://networkx.org/documentation/stable/tutorial.html   
 pagerank: https://zhuanlan.zhihu.com/p/137561088     
 pagerank: https://zhuanlan.zhihu.com/p/120962803   
+**Graph Embedding：** https://zhuanlan.zhihu.com/p/56733145     
+
+
 
 
 
