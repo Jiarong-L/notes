@@ -49,8 +49,7 @@ cellranger mkref
   --fasta=<ref1.fa>             ## Path(s) to FASTA file; if multiple fa, specifying --fasta multiple times
   --genes=<filtered.gtf>        ## Path(s) to genes GTF file; if multiple gtf, specifying --genes multiple times
 ```
-*详见[link](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/advanced/references#header)*；其中attribute可参考：[gene_biotype](https://www.gencodegenes.org/pages/biotypes.html),[GTF attributes](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/advanced/references#input-gene)  
-![1](CellRanger/img/1.png)
+*详见[link](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/advanced/references#header)*；其中attribute可参考：[gene_biotype](https://www.gencodegenes.org/pages/biotypes.html), [GTF attributes](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/advanced/references#input-gene)  
 
 
 ## count
@@ -182,18 +181,57 @@ cellranger targeted-compare
 
 ## Other Opt
 ```
-    vdj                 Assembles single-cell VDJ receptor sequences from 10x Immune Profiling libraries
-    reanalyze           Re-run secondary analysis (dimensionality reduction, clustering, etc)
-    mkvdjref            Prepare a reference for use with CellRanger VDJ
-    mat2csv             Convert a gene count matrix to CSV format
+vdj                 Assembles single-cell VDJ receptor sequences from 10x Immune Profiling libraries
+reanalyze           Re-run secondary analysis (dimensionality reduction, clustering, etc)
+mkvdjref            Prepare a reference for use with CellRanger VDJ
+mat2csv             Convert a gene count matrix to CSV format
 ```
+
+
+## 10x Fastq格式示例
+* I1：Sample Index (opt.)
+```
+@A00228:279:HFWFVDMXX:1:1101:8486:1000 1:N:0:NCATTACT
+NCATTACT
++
+#FFFFFFF
+@A00228:279:HFWFVDMXX:1:1101:10782:1000 1:N:0:NCATTACT
+NCATTACT
++
+#FFFFFFF
+```
+
+* R1：cell barcode + UMI (16bp + 12bp)
+```
+@A00228:279:HFWFVDMXX:1:1101:8486:1000 1:N:0:NCATTACT
+NGTGATTAGCTGTACTCGTATGTAAGGT
++
+#FFFFFFFFFFFFFFFFFFFFFFFFFFF
+@A00228:279:HFWFVDMXX:1:1101:10782:1000 1:N:0:NCATTACT
+NTCATGAAGTTTGGCTAGTTATGTTCAT
++
+#FFFFFFFFFFFFFFFFFFFFFFFFFFF
+```
+
+* R2：插入片段
+```
+@A00228:279:HFWFVDMXX:1:1101:8486:1000 2:N:0:NCATTACT
+NACAAAGTCCCCCCCATAATACAGGGGGAGCCACTTGGGCAGGAGGCAGGGAGGGGTCCATTCCCCCTGGTGGGGCTGGTGGGGAGCTGTA
++
+#FFFFFFFFFFFFFFF:FFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFF
+@A00228:279:HFWFVDMXX:1:1101:10782:1000 2:N:0:NCATTACT
+NTTGCAGCTGAACTGGTAAACTTGTCCCTAAAGAGACATAAGAATGGTCAACTGGAATGTGGATTCATCTGTAACATTACTCAGTGGGCCT
++
+#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+```
+
 
 
 ## 参考导航
 
 比较有用的导航：[Tutorial](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_ov), [Outputs解释](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/output/overview ), [Glossary of Terms](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/glossary), [Matrix HDF5 Format](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/2.0/advanced/h5_matrices)  
 
-之后需要了解的: [vdj(T/B Cell)](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/using/vdj), ... 
+之后需要了解的: [vdj(T/B Cell)](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/using/vdj), LoupeBrowser, ... 
 
 
 
