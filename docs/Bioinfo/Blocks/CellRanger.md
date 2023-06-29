@@ -1,3 +1,9 @@
+<style>
+img{
+    width: 60%;
+}
+</style>
+
 
 10x Genomics 单细胞测序数据处理工具
 
@@ -28,7 +34,7 @@ cellranger mkfastq
 
 
 ## mkgtf/mkref
-生成 10x-compatible transcriptome reference；其中attribute可参考：[gene_biotype](https://www.gencodegenes.org/pages/biotypes.html)
+生成 10x-compatible transcriptome reference
 ```
 ## Filter GTF
 cellranger mkgtf <input.gtf> <filtered.gtf>  
@@ -43,7 +49,8 @@ cellranger mkref
   --fasta=<ref1.fa>             ## Path(s) to FASTA file; if multiple fa, specifying --fasta multiple times
   --genes=<filtered.gtf>        ## Path(s) to genes GTF file; if multiple gtf, specifying --genes multiple times
 ```
-*详见[link](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/advanced/references#header)*
+*详见[link](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/advanced/references#header)*；其中attribute可参考：[gene_biotype](https://www.gencodegenes.org/pages/biotypes.html),[GTF attributes](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/advanced/references#input-gene)  
+![1](CellRanger/img/1.png)
 
 
 ## count
