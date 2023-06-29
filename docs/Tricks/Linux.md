@@ -24,7 +24,23 @@ convert  in.pdf  out.png
 convert -resize  50%x50%  in.png  out.png
 ```
 
+## strings
+查看二进制文件
+```
+strings /lib/x86_64-linux-gnu/libm.so.6 |grep GLIBC_
+```
 
+## GLIBC
+系统版本的GLIBC版本过低，于是添加一个高级版本系统的源，[参考](https://blog.csdn.net/huazhang_001/article/details/128828999)
+```
+sudo vi /etc/apt/sources.list
+
+## ADD TO FILE:   
+## deb http://th.archive.ubuntu.com/ubuntu jammy main
+
+sudo apt update
+sudo apt install libc6
+```
 
 
 ## Bash
