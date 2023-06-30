@@ -26,8 +26,10 @@ conda create --name myenv
 conda activate myenv
 conda install -c conda-forge r-base
 ```
-删除环境 或 环境中的包
+查看环境 删除环境 或 环境中的包
 ```
+conda info --envs
+
 conda remove -n $env_name --all
 conda remove --name $env_name $package_name
 ```

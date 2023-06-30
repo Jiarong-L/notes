@@ -42,9 +42,34 @@ sudo apt update
 sudo apt install libc6
 ```
 
+## nohup & 中止
+```
+nohup xx.sh & 
+
+jobs -l   只能列出当前窗口的
+ps -aux   查看所有人的任务
+
+kill -9 <PID>
+```
+
+## qsub
+```
+qsub -l h=hpc0[12345],vf=30G,p=15  xx.sh
+qdel：取消作业
+qhold：挂起作业
+qstat: 查看情况
+```
+
+## find
+```
+find  <dir> -name '**'
+```
+
 
 ## Bash
 ```
+echo -n    ## 不换行输出
+
 for dd in {1..5}; do echo $dd ; done
 for dd in {1..30}; do echo "my_${dd}_word" ; done   ## must be ""
 for dd in {1..5}; do if [ $((dd))+1 != $((3)) ];then echo $((dd +10)) ; fi; done   ## $((string)) convert str to num
