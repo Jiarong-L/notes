@@ -26,3 +26,12 @@ pdf('xxx.pdf',height = 10,width = 10)
 dev.off()
 ```
 
+
+### patchwork 排版
+https://zhuanlan.zhihu.com/p/384456335
+```
+wrap_plots(list(p1, p2, p3, p4))
+p1 / (p2 | p3)
+```
+
+
