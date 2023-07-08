@@ -11,9 +11,6 @@
 
 ## Pipeline (mainly Seurat)
 * QC
-    * Batch Correction
-        * Opt.1: CCA+MNN (Seurat: merge())
-        * Opt.2: Harmony
     * Filter off Genes
         * Appear in >3 Cells
     * Filter off Cells
@@ -33,6 +30,9 @@
        ```
         * minGeneNum > 200-500 
         * maxGeneNum < X, X decided via 'VlnPlot()'; Droplets may contain more genes
+* Batch Correction
+    * Opt.1: CCA+MNN --- Seurat: FindIntegrationAnchors()+IntegrateData()
+    * Opt.2: Harmony
 * Normalize & Scale
     * NormalizeData() --- "LogNormalize"
     * FindVariableFeatures() --- HVGs: GeneA_cellA v.s. GeneA_Overall
