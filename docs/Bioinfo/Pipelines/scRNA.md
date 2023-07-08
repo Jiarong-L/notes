@@ -30,9 +30,6 @@
        ```
         * minGeneNum > 200-500 
         * maxGeneNum < X, X decided via 'VlnPlot()'; Droplets may contain more genes
-* Batch Correction
-    * Opt.1: CCA+MNN --- Seurat: FindIntegrationAnchors()+IntegrateData()
-    * Opt.2: Harmony
 * Normalize & Scale
     * NormalizeData() --- "LogNormalize"
     * FindVariableFeatures() --- HVGs: GeneA_cellA v.s. GeneA_Overall
@@ -48,6 +45,9 @@
         * Opt.2: vars.to.regress = c("CC.Difference")；CC.Difference = S.Score - G2M.Score
         * 注意，Opt.1不适合关注细胞分化的实验，因为会完全消除非周期细胞和周期细胞之间的区别；Opt.2 将保持二者间细胞周期差异，仅消除二者内部细胞周期差异
         * Tips：可以通过查看对PC贡献最多的基因是否是细胞周期相关基因来判断影响
+* Batch Correction
+    * Opt.1: CCA+MNN --- Seurat: FindIntegrationAnchors()+IntegrateData()
+    * Opt.2: Harmony
 * Clustering
     * PCA
     * UMAP/tSNE (PCA result as input)
@@ -91,5 +91,5 @@ HVGs: https://www.jianshu.com/p/3d40c56e5fc8
 
 Cell Circle： https://zhuanlan.zhihu.com/p/82654538   
 
-
+Batch: https://www.jianshu.com/p/ebc328f9fb73   
 
