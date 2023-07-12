@@ -75,6 +75,8 @@ fig = donut_pie_plot(pie_values,pie_labels,title_text,
 ### Heatmap
 ![heatmap](Matplotlib/img/heatmap.png)
 ```
+import seaborn as sns
+import pandas as pd
 df = pd.DataFrame(np.random.randint(1,100,size = (8, 5)),
                   columns=['col_{}'.format(i) for i in range(5)],
                   index=['idx_{}'.format(i) for i in range(8)])
