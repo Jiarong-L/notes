@@ -25,3 +25,5 @@ mkdocs -h          #Print help message and exit.
 2. git action 运行完成后，生成内容位于gh-pages分支，去Settings-Pages设置一下Build and deployment的分支即可。
 
 
+## 其它平台
+Gitee: https://help.gitee.com/services/gitee-pages/  
