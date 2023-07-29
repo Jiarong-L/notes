@@ -1,5 +1,5 @@
 
-快速进行序列去重/序列相似性聚类，
+快速进行序列去重/序列相似性聚类，原理：
 
 1. words：若需要xx%相似度，则至少有yy个长度为zz的相同word
 2. index table for words
@@ -49,22 +49,27 @@ export PATH=$PATH:/mnt/d/WSL_dir/workdir/cdhit/:/mnt/d/WSL_dir/workdir/cdhit/cd-
             4      for thresholds 0.75 ~ 0.8 
 ```
 
-### cd-hit
-Clusters a **protein** dataset，每个cluster会有一个代表序列
+* local/global sequence identity
 ```
-cd-hit -i input.faa -o cdhit.faa -c 0.9 -G 1 -n 5 -M 16000 -T 8 -bak 1
-```
--h: 
-```
--i   input.fa(.gz)*
--o   output.fa*
--c   sequence identity threshold, default 0.9
 -G   If 1 (default)："global sequence identity" = 
             total length of all co-linear and non-overlapping HSPs 
             divided by length of the shorter sequence;
      If 0: "local sequence identity" = 
             identity of the top high score HSP; 
         Only use -G 0 when using alignment coverage controls -aL, -AL, -aS, -AS
+```
+
+
+
+### cd-hit
+Clusters a **protein** dataset，每个cluster会有一个代表序列
+```
+cd-hit -i input.faa -o cdhit.faa -c 0.9 -G 1 -n 5 -M 16000 -T 8 -bak 1
+
+-i   input.fa(.gz)*
+-o   output.fa*
+-c   sequence identity threshold, default 0.9
+-G   sequence identity；1:global (default), 0:local
 -n   word_length (default 5), selection method see above
 -M   memory limit (in MB)
 -T   number of threads
@@ -110,17 +115,15 @@ PSI-CD-HIT clusters **proteins at very low threshold** (cd-hit support threshold
 ```
 psi-cd-hit.pl -i input.faa -o psicdhit.faa -c 0.3 -prog blastp
 psi-cd-hit.pl -i Long_contigs.fa -o Long_contigs_dRep.fa -c 0.9 -prog blastn
+
+
+-prog    blastp(default), blastn, megablast, psiblast
+-circle  treat sequences as circular sequence (0:no-default, 1:yes)
+-g       a seq clustered to the first fitted cluster (1:fast-default) or the most similar cluster (0:slow)
+-exec    qsub, local
+-s       blast para, "-seg yes -evalue 0.000001 -max_target_seqs 100000" (default)
 ```
 (need BLAST) & apply it via Hierarchical clustering!!
-
--h: 
-```
-### -prog    blastp(default), blastn, megablast, psiblast
-### -circle  treat sequences as circular sequence (0:no-default, 1:yes)
-### -g       a seq clustered to the first fitted cluster (1:fast-default) or the most similar cluster (0:slow)
-### -exec    qsub, local
-### -s       blast para, "-seg yes -evalue 0.000001 -max_target_seqs 100000" (default)
-```
 
 
 ### Sequencing reads
@@ -278,7 +281,7 @@ clstr_rev.pl nr80-60.clstr nr30.clstr > nr80-60-30.clstr
 ```
 可以0.9-0.6-0.3，总之不要一下子降很快
 
-## Reference
+## 参考
 https://github.com/weizhongli/cdhit/wiki/3.-User's-Guide  
 
 

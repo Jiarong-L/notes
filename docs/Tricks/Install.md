@@ -14,6 +14,8 @@ apt upgrade
 apt install <package_name>
 
 apt remove <package_name>
+
+apt-cache madison <package_name>    ## list version
 ```
 
 ### conda
@@ -25,6 +27,11 @@ conda update --all -y # update packages
 conda create --name myenv
 conda activate myenv
 conda install -c conda-forge r-base
+
+
+## same as: 
+## conda install -n myenv -c conda-forge r-base
+## conda create -n myenv -c conda-forge r-base
 ```
 查看环境 删除环境 或 环境中的包
 ```
@@ -33,13 +40,31 @@ conda info --envs
 conda remove -n $env_name --all
 conda remove --name $env_name $package_name
 ```
-conda配置清华源
+conda配置源
 ```
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
 conda config --set show_channel_urls yes
+
+### or
+
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/ 
+conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda/ 
+conda config --add channels http://mirrors.aliyun.com/anaconda/cloud/bioconda/ 
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/ 
+conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/ 
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --set show_channel_urls yes
+```
+
+conda搜寻/安装/特定版本
+```
+conda search -c bioconda diamond 
+conda install -c bioconda diamond=2.1.6
 ```
 
 
