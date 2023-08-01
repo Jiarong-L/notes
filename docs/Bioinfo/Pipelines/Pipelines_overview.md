@@ -1,11 +1,22 @@
+<style>
+img{
+    width: 80%;
+}
+</style>
+
+
+
+
 
 Unfinished
 
 ## Meta
-[![Meta](../img/meta.png)](.)
+[![Meta](../Pipelines_overview/img/meta.png)](.)
 
 
 ## scRNA
+
+
 
 
 

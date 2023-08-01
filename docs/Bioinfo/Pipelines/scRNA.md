@@ -1,4 +1,8 @@
-
+<style>
+img{
+    width: 30%;
+}
+</style>
 
 
 ## Links
@@ -30,9 +34,9 @@
        ```
         * minGeneNum > 200-500 
         * maxGeneNum < X, X decided via 'VlnPlot()'; Droplets may contain more genes
-* Normalize & Scale
+* Normalize & Scale & HVGs
     * NormalizeData() --- "LogNormalize"
-    * FindVariableFeatures() --- HVGs: GeneA_cellA v.s. GeneA_Overall
+    * FindVariableFeatures() --- **HVGs:** GeneA_cellA v.s. GeneA_Overall
         * Opt. If dataset is large, use HVGs for afterward analysis
     * ScaleData() --- Zero-centered or Mean-subtraction
     * SCTransform() = NormalizeData() + FindVariableFeatures() + ScaleData()
@@ -57,7 +61,7 @@
     scRNA <- FindClusters(scRNA, resolution = 0.5)
     ```
 * Cell-type Annotation
-    * Find marker genes --- Diff-expr genes: cluster v.s. clusters
+    * Find marker genes --- **Diff-expr genes:** cluster v.s. clusters
     * Annotate clusters (cell types) based on marker genes
         * SingleR() + HumanPrimaryCellAtlasData(label.main)/CellMarker/PanglaoDB/Papers...
     * Tips：在这个水平上进行一些常规的分析(cluster间的比较)，比方说KEGG、GO富集分析，差异基因表达分析（cell-type间），etc.
@@ -85,7 +89,6 @@
 NBIS: https://www.jianshu.com/p/1e29e3b9a4ab  
 
 Doublet: https://zhuanlan.zhihu.com/p/376439628
-
 
 HVGs: https://www.jianshu.com/p/3d40c56e5fc8
 
