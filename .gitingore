@@ -3,5 +3,7 @@
 ./docs/Bioinfo/Blocks/Scanpy.md
 ./docs/Bioinfo/Blocks/Seurat.md
 
+./docs/Bioinfo/Statistics/*
 
-
+./docs/Notes/pygame.md
+./docs/Notes/Crawler.md
