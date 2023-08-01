@@ -96,5 +96,5 @@ git add .
 git commit -m "update .gitignore"
 git push
 ```
-删除所有本地缓存后重新commit
+删除所有本地缓存后重新commit,**Still not working,why?**
 
