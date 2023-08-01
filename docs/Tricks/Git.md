@@ -96,5 +96,5 @@ git add .
 git commit -m "update .gitignore"
 git push
 ```
-删除所有本地缓存后重新commit，Q: 如果已经上传的文件希望只保留在本地怎么办？
+删除所有本地缓存后重新commit，**Still Not Working, Why?**
 
