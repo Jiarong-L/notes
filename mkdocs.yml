@@ -1,9 +1,0 @@
-site_name: Notes
-theme:
-  name: material
-  features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - search.suggest
-plugins:
-  - search
