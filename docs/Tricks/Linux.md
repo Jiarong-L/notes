@@ -15,6 +15,18 @@ export PATH=...../anaconda3/bin/:$PATH
 ```
 
 
+## STD
+Linux 中三种标准输入输出，分别是STDIN，STDOUT，STDERR，对应的数字是0，1，2
+```
+do_Something.pl   >  STDOUT.txt    2> STDERR.agp
+
+## below put both 1 and 2 into same file
+do_Something.pl &> STDOUT_STDERR.txt
+do_Something.pl >STDOUT_STDERR.txt 2>&1
+```
+https://blog.csdn.net/tonglin12138/article/details/88263867
+
+
 ## Convert img
 ref: https://www.cnblogs.com/yymn/p/4479805.html
 ```
