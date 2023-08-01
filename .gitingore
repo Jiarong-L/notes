@@ -1,5 +1,9 @@
-./docs/Bioinfo/Blocks/Scanpy/*
+
 ./docs/Bioinfo/Blocks/MaSuRCA.md
+./docs/Bioinfo/Blocks/FastQC.md
+./docs/Bioinfo/Blocks/Trimmomatic.md
+./docs/Bioinfo/Blocks/Jellyfish.md
+./docs/Bioinfo/Blocks/Scanpy/*
 ./docs/Bioinfo/Blocks/Scanpy.md
 ./docs/Bioinfo/Blocks/Seurat.md
 

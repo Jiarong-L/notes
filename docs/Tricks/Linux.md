@@ -138,5 +138,13 @@ export DISPLAY=localhost:0
 ```
 
 
+## LANG
+遇见```Fontconfig warning: ignoring C.UTF-8: not a valid language tag```,听说Debian已经修理了这个bug？？没用的操作如下：
+```
+locale -a  ## 查看语言环境
+fc-list :lang=zh
+
+export LANG="C.UTF-8"
+```
 
 

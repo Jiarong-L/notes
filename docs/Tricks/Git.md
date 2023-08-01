@@ -91,7 +91,7 @@ git show xxxxVersionCOdexxxx
 ### .gitignore
 只需在repo的根目录生成.gitignore文件，列出希望不希望上传的文件即可。若没有生效，是因为它只能忽略那些原来没有被track的文件，此时需要:
 ```
-git rm -r --cached .
+git rm -r --cached .     ## or: git rm -r --cached xx/yy.md
 git add .
 git commit -m "update .gitignore"
 git push
