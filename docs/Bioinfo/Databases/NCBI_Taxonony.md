@@ -4,9 +4,9 @@ date: 2022-01-01 19:32:55
 tags:
 ---
 
-## NCBI Taxonony 
+# NCBI Taxonony 
 
-1. 下载(taxdump)[ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz]
+1. 下载 [taxdump.tar.gz](ftp://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz) 
 2. 简化一下将要使用的文件。提取names中储存学名的行，nodes的taxid、parent_id、tax_level列
 ```
 grep 'scientific name'  names.dmp > names.dmp.scientific
