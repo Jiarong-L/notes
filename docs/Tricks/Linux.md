@@ -147,4 +147,32 @@ fc-list :lang=zh
 export LANG="C.UTF-8"
 ```
 
+## WSL
+WSL出现错误:
+```
+Cannot extract package to a case-insensitive file system
+```
+需要在window中设置wsl目录的大小写（win不分文件名称大小写）；若被拒绝，需先至“Windows功能”-勾选“适用于Linux的Windows子系统”,重启电脑
+```
+fsutil.exe file setCaseSensitiveInfo D:\WSL_dir enable
+```
+随后进入wsl，sudo vi /etc/wsl.conf
+```
+[automount]
+options = "case=dir"
+```
+重启电脑，mount 查看case是否修改成功
+| | case=dir | case=off | case=force |
+| --- | --- | --- | --- |
+| Flag为enable的目录 | Case Sensitive | Case Sensitive | Case Sensitive | 
+| Flag为disable的目录 | Case Insensitive | Case Insensitive | Case Sensitive | 
+| wsl中创建目录的Flag | Enabled | Disabled | Enabled | 
+```
+...
+C:\ on /mnt/c type drvfs (rw,noatime,uid=1000,gid=1000,case=dir)
+D:\ on /mnt/d type drvfs (rw,noatime,uid=1000,gid=1000,case=dir)
+```
+参考：https://blog.csdn.net/niino/article/details/97296810  
+
+
 
