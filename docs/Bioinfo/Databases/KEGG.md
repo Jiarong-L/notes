@@ -1,10 +1,10 @@
 
 
 
-ko - reference pathway map linked to KO entries (K numbers)
-rn - reference pathway map linked to REACTION entries (R numbers)
-ec - reference pathway map linked to ENZYME entries (EC numbers)
-org (three- or four-letter organism code) - organism-specific pathway map linked to GENES entries (gene IDs)
+* ko - reference pathway map linked to KO entries (K numbers)
+* rn - reference pathway map linked to REACTION entries (R numbers)
+* ec - reference pathway map linked to ENZYME entries (EC numbers)
+* org (three- or four-letter organism code) - organism-specific pathway map linked to GENES entries (gene IDs)
 
 
 ## Download & Install
@@ -39,6 +39,7 @@ conda create -n kofam -c bioconda kofamscan     ##  hmmer parallel ruby
 conda activate kofam
 ```
 ### K, ko, layers
+[Collect_pathway_info.py](./KEGG/Collect_pathway_info.py)
 ```
 wget -c http://rest.kegg.jp/list/ko
 wget -c http://rest.kegg.jp/list/pathway
@@ -104,8 +105,9 @@ TBA
 ### KGML
 [理解KGML](https://cloud.tencent.com/developer/article/1626035),下载示例
 ```
-mkdir KGML;cd KGML;
-for dd in hsa00600; do 
+cd /mnt/d/WSL_dir/home/miniconda3/envs/r-base/lib/R/library/pathview/extdata/
+
+for dd in ko00010 ko00600 ko04110; do 
 wget https://rest.kegg.jp/get/$dd/kgml -O $dd.kgml;
 wget https://rest.kegg.jp/get/$dd/image -O $dd.png;
 done
@@ -123,26 +125,44 @@ BiocManager::install("pathview")
 browseVignettes("pathview")
 ```
 
-Usage:
+Usage: https://www.rdocumentation.org/packages/pathview/versions/1.12.0/topics/pathview
 ```
 library("pathview")
 
+KGML_PATH = "/mnt/d/WSL_dir/workdir/KEGG/tt/ko04110.kgml"
+IMG_FOLDER = "."
+ko_ID = "ko04110"                ## ko_ID.kgml must in IMG_FOLDER
+OUT_SUFFIX = "myRed"
+
+node.data=node.info(KGML_PATH)
+plot.data.gene = node.map(mol.data=NULL, node.data, node.types="ortholog")   ## ortholog/gene/...
+COLOR_LIST = rep('red',length(plot.data.gene$x))
+
+keggview.native(
+     plot.data.gene = plot.data.gene, 
+     cols.ts.gene = COLOR_LIST,   ## Color List by the order of plot.data.gene
+     node.data, 
+     pathway.name = ko_ID,
+     out.suffix = OUT_SUFFIX, 
+     kegg.dir = IMG_FOLDER)
 ```
 
-### keggtools
 
-```
-pip install keggtools
-pip install graphviz
-```
 
+### [graphviz](https://graphviz.readthedocs.io/en/stable/manual.html)
+[kegg_graphviz.py](./KEGG/kegg_graphviz.py)
 ```
-import keggtools
+TBA
 
 ```
 
+### [KEGGscape](https://keggscape.readthedocs.io/en/latest/pythonscripting.html)
+[py4cytoscape](https://keggscape.readthedocs.io/en/latest/pythonscripting.html),[Dash Cytoscape](https://dash.plotly.com/cytoscape)
+```
+conda create -n cytoscape -c conda-forge openjdk -c bioconda cytoscape  
 
-
+TBA
+```
 
 
 
@@ -170,4 +190,4 @@ KGML下载: https://www.kegg.jp/kegg/rest/keggapi.html
 
 理解KGML：https://cloud.tencent.com/developer/article/1626035 
 
-
+https://www.genome.jp/kegg/pathway.html
