@@ -12,7 +12,7 @@ img{
 Host vm1
     HostName xx.xx.xx.xx
     User L001
-    IdentityFile C:\Users\12990\.ssh\azure001_key.pem
+    IdentityFile azure001_key.pem
     Compression yes
     DynamicForward 1080
     ServerAliveCountMax 60
@@ -21,17 +21,23 @@ Host vm1
 
 
 ## 设置代理
-火狐浏览器中，网址栏输入"about:preferences"，随后下拉至最下方"网络设置"-->"设置"-->"手动配置代理"-->填写"SOCKS主机" & 勾选"DNS"
-![1](SSH_Tunnel/1.png)
+### 火狐浏览器
+火狐浏览器中，网址栏输入"about:preferences"，随后下拉至最下方"网络设置"-->"设置"-->"手动配置代理"  
+![1](SSH_Tunnel/1.png)  
+### 所有浏览器(Win10)
+网络设置-->连接  
+![2](SSH_Tunnel/2.png)  
+然后此处会显示   
+![3](SSH_Tunnel/3.png)   
+注意，不能直接搜索代理、然后设置，否则不生效
 
 ## 链接
-浏览网页的过程中，保持与vm的链接
+保持与vm的链接，正常使用(火狐)浏览器就行了
 ```
-ssh vm1
+ssh -vvv vm1
 ```
 
-
-## 查看ip
+## 查看IP
 vm中: 
 ```
 ## 外网
@@ -55,7 +61,7 @@ python3 -m pip install sshtunnel
 ssh-keygen              ## /home/L001/.ssh/id_rsa
 ```
 
-### Code
+### Example
 ```py
 from sshtunnel import SSHTunnelForwarder
 
@@ -72,8 +78,7 @@ print(server.local_bind_port)
 ```
 ### 其余参考
 * SSH Tunnel: https://zhuanlan.zhihu.com/p/46243205
-* SSH Tunnel: http://www.voidcc.com/project/sshtunnel
-* SSH Tunnel: https://blog.csdn.net/qq_17328759/article/details/90729077
+* SSH Forwarder: http://www.voidcc.com/project/sshtunnel
 
 ```
 server = SSHTunnelForwarder(
@@ -105,5 +110,3 @@ server = SSHTunnelForwarder(
 
 ## 参考
 ProxyChains https://zhuanlan.zhihu.com/p/166375631
-
-
