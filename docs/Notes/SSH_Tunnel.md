@@ -10,7 +10,7 @@ img{
 创建一个azure linux vm, ./ssh/config示例:
 ```
 Host vm1
-    HostName 20.231.71.59
+    HostName xx.xx.xx.xx
     User L001
     IdentityFile C:\Users\12990\.ssh\azure001_key.pem
     Compression yes
