@@ -56,12 +56,12 @@ span {
 * width/height的100%是相较于其父元素；但浏览器处理时会再加上padding，于是实际呈现的宽会超出父容器；为了避免这个问题，需要再加上```box-sizing: border-box;```
 
 * 一些浏览器有默认设置，为了避免影响，于开头声明
-    ```
-    * {
-        margin: 0;
-        padding: 0;
-    }
-    ```
+```
+* {
+    margin: 0;
+    padding: 0;
+}
+```
 
 
 ## 文本属性
@@ -157,7 +157,7 @@ span {
 ```
 * grid-template-columns：设定每一列的宽度或权重，也可固定几列、余下的自适应
 * grid-template-rows：设定每一行的高度/权重
-* 如果grid-container限定了height，items堆叠后超出了范围，grid-template-rows会失效；此时需要设定```overflow: hidden``` 断面展示
+* 如果grid-container限定了height，items堆叠后超出了范围，grid-template-rows会失效；此时需要设定```overflow: hidden``` 截断展示
 
 
 ## 动画展示
@@ -208,7 +208,7 @@ span {
 
 
 ### 3d变换
-为了展示3d效果，在transform-box外部套一个transform-container；届时旋转container展示效果
+为了展示3d效果，在transform-box外部套一个transform-container、再加一个Z轴-100px的transform-box-innerZ；届时旋转container展示效果
 ```html
 <div class="transform-container">
     <div class="transform-box"></div>
