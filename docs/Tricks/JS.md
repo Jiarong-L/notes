@@ -22,7 +22,7 @@ window.alert('xxx')
 
 数据类型示例
 ```js
-var myNum = 8
+var myNum = 100_000.56
 var myStr = "5"
 var myBool = true 
 var myNull = null
@@ -70,8 +70,12 @@ function myFunc (a,b) {
 }
 var myFuncRes = myFunc(1,'2')
 ```
+匿名函数(ES6)
 ```js
 myDOM.onclick = () => {alert('clicked!')}
+
+// (input_parameters) => {what_to_do}
+// (input_parameters) => (return_parameters)
 ```
 
 array示例
