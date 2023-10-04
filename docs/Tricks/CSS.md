@@ -35,7 +35,9 @@ span {
 | div {} | 所有div |
 | .myclass {} | class="myclass"者 |
 | #myid {} | id="myid"者 |
-| .myclass p {} | class="myclass"者中的p |
+| p.myclass {} | class="myclass"的p标签 |
+| .myclass p {} | class="myclass"的标签内的子标签p |
+| .myclass p.active {} | class="myclass"的标签内、class="active"的子标签p |
 | div:hover {} | 所有div经历hover事件时 |
 
 
