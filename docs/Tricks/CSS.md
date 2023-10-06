@@ -41,7 +41,7 @@ span {
 | div:hover {} | 所有div经历hover事件时 |
 
 
-## 通用属性
+## 外观属性
 
 | 参数 | 功能 | 示例 |
 | -- | -- | -- |
@@ -84,14 +84,46 @@ span {
 
 
 
+## 属性继承
+下例中em会继承p的**可继承属性**color；但**不可继承属性**border不能被继承，使用的是border-style属性的**初始值**。
+```css
+p {
+    color: green;
+    border: medium solid;
+}
+```
+```html
+<p>xxx<em>yyy</em></p>
+```
+
+如果想要显式声明继承性/初始值，可使用如下关键字：
+
+| 关键字 | 作用 |
+| -- | -- |
+| [initial](https://developer.mozilla.org/zh-CN/docs/Web/CSS/initial) | 属性的初始值 (不是浏览器的默认值!) |
+| [inherit](https://developer.mozilla.org/zh-CN/docs/Web/CSS/inherit) | 继承其父元素的值 |
+| [unset](https://developer.mozilla.org/zh-CN/docs/Web/CSS/unset) | 对于可继承属性，继承父元素值；对于不可继承属性，设置为初始值 |
+| [revert](https://developer.mozilla.org/en-US/docs/Web/CSS/revert) | 属性未修改时的值（初始值或浏览器的默认值） |
+
+```css
+em {
+    color: inherit;
+}
+```
+[all简写属性](https://developer.mozilla.org/zh-CN/docs/Web/CSS/all)将除了 unicode-bidi 与 direction 之外的所有属性重设至其初始值，或继承值。
+```css
+em {
+    all: inherit;
+}
+```
+
+
 ## 布局
  
 | 参数 | 功能 | 示例 |
 | -- | -- | -- |
 | position | 模式 | absolute 子标签绝对定位（参考外部relative标签） <br> relative 父标签设定后，其子标签可以其为参考(否则子标签以body为参考)  <br> fixed 固定在视窗的某处 <br> |
 | top/left | 相对于参考元素距离 | 200px |
-
-
 
 
 
@@ -284,9 +316,21 @@ transform-container {
 
 * @keyframes函数 + animation属性
 
+## At 规则
+详情参考[MDN: At-rule](https://developer.mozilla.org/zh-CN/docs/Web/CSS/At-rule)
+```css
+/* 一般结构 */
+@identifier (RULE);
 
+@identifier (RULE) {
+}
+
+
+/* 通知浏览器使用 UTF-8 字符集 */
+@charset "utf-8";
+```
 
 
 ## 参考
-https://www.runoob.com/css/css-tutorial.html
+MDN: https://developer.mozilla.org/zh-CN/docs/Web/CSS
 
