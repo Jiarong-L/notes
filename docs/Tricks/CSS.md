@@ -39,6 +39,7 @@ span {
 | .myclass p {} | class="myclass"的标签内的子标签p |
 | .myclass p.active {} | class="myclass"的标签内、class="active"的子标签p |
 | div:hover {} | 所有div经历hover事件时 |
+| div:hover:last-child {} | [伪类(:)](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-classes)可以链式拼接；[伪元素(::)](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Pseudo-elements)只能同时用一个 |
 
 
 ## 外观属性
@@ -332,5 +333,5 @@ transform-container {
 
 
 ## 参考
-MDN: https://developer.mozilla.org/zh-CN/docs/Web/CSS
-
+MDN: https://developer.mozilla.org/zh-CN/docs/Web/CSS   
+伪类和伪元素: https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements

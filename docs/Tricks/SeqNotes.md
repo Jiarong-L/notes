@@ -1,5 +1,5 @@
 
-
+一些常用的序列处理脚本/工具 TBA
 
 ### [Fasta_Header_Rename.py](Scripts/Fasta_Header_Rename.py)
 Turn header line to: >new_header_1, >new_header_2,...
@@ -21,4 +21,14 @@ pattern = re.compile(r'\[(.*)\]', re.S)     #贪婪匹配[]
 
 re.findall(pattern, mystr)
 ```
+
+
+
+### C# String v.s. Char
+```
+String ss = "ss"
+Char cc = 'cc'
+```
+
+
 

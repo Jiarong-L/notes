@@ -111,5 +111,6 @@ devtools::update_packages()
 
 ```
 
-
+### JAVA
+用Maven管理依赖包；IntelliJ IDEA设置一下maven地址
 

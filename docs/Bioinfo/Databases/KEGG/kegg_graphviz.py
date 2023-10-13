@@ -23,6 +23,7 @@ def parse_entry(entry):
 
 
 
+
 # def parse_relation(relation):
 #     tpm_dict = {}
 #     tpm_dict["entry1"] = relation.getAttribute('entry1')
