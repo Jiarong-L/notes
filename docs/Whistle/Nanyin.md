@@ -175,7 +175,7 @@ function mainFunc(fullTable,key,ifshowHalf){
         var text_Keynote = ``;
         var keys = ['G-Key','C-Key','D-Key','F-Key','bB-Key']
         keys.forEach(
-            (kk,index) => {text_Keynote += trElementStr(kk[0],getValueByIndex(select_Idx,fullTable,kk),"");}
+            (kk,index) => {text_Keynote += trElementStr(kk.split('-')[0],getValueByIndex(select_Idx,fullTable,kk),"");}
         )
     }else{
         var text_Keynote =   trElementStr("简",getValueByIndex(select_Idx,fullTable,key),"");

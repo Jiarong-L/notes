@@ -58,24 +58,26 @@ var fullTable = {
     "G-Key" : ["5.","#5.","6.","#6.","7.","1","#1","2","#2","3","4","#4",  
                "5","#5","6","#6","7","^1","#^1","^2","#^2","^3","^4","^4","#^4", 
                "^5","#^5","^6","#^6","^7","^@1","#^@1","^@2","#^@2","^@3","^@4","#^@4","^@5"],
-    "C-Key" : ["","","","","","","","","","","","",  
-               "","","","","","","","","","","","","", 
-               "","","","","","","","","","","","",""],
-    "D-Key" : ["","","","","","","","","","","","",  
-               "","","","","","","","","","","","","", 
-               "","","","","","","","","","","","",""],
-    "F-Key" : ["","","","","","","","","","","","",  
-               "","","","","","","","","","","","","", 
-               "","","","","","","","","","","","",""],
-    "bB-Key": ["","","","","","","","","","","","",  
-               "","","","","","","","","","","","","", 
-               "","","","","","","","","","","","",""],
-    "pressBack": [2,2,2,2,2,2,2,2,0,0,0,0,  2,0,2,2,2,2,2,2,2,2,2,0,2,  0,0,0,2,2,0,0,2,2],
-    "press1":    [2,2,2,2,2,2,0,0,2,2,2,0,  2,2,2,2,2,2,2,2,0,0,0,0,2,  0,2,0,2,0,0,0,2,2],
-    "press2":    [2,2,2,2,2,0,2,0,2,2,2,0,  2,2,2,2,2,2,2,0,2,2,2,0,2,  2,2,2,0,2,2,2,0,0],
-    "press3":    [2,2,2,2,0,0,0,0,0,2,0,0,  2,2,2,2,2,0,0,0,0,2,2,0,2,  2,0,1,0,2,0,0,2,2],
-    "press4":    [2,2,0,0,0,0,2,0,0,0,0,0,  2,2,2,0,0,2,0,0,0,2,1,0,0,  0,0,0,0,0,0,0,2,2],
-    "press5":    [2,0,2,0,0,0,2,0,0,2,2,0,  2,2,0,2,0,2,0,0,0,2,0,0,0,  0,0,0,2,2,2,0,2,0],
+    "C-Key" : ["2.","#2.","3.","4.","#4.","5.","#5.","6.","#6.","7.","1","#1",  
+               "2","#2","3","4","#4","5","#5","6","#6","7","^1","^1","#^1", 
+               "^2","#^2","^3","^4","#^4","^5","#^5","^6","#^6","^7","^@1","#^@1","^@2"],
+    "D-Key" : ["1.","#1.","2.","#2.","3.","4.","#4.","5.","#5.","6.","#6.","7.",  
+               "1","#1","2","#2","3","4","#4","5","#5","6","#6","#6","7", 
+               "^1","^#1","^2","^#2","^3","^4","^#4","^5","^#5","^6","^#6","^7","^@1"],
+    "F-Key" : ["6.","b7.","z7.","1","b2","z2","b3","z3","4","b5","z5","b6",  
+               "6","b7","z7","^1","^b2","^z2","^b3","^z3","^4","^b5","^z5","^z5","^b6", 
+               "^z6","^b7","^z7","^@1","^@b2","^@z2","^@b3","^@z3","^@4","^@b5","^@z5","^@b6","^@z6"],
+    "bB-Key": ["3.","4.","b5.","z5.","b6.","z6.","b7.","z7.","1","b2","z2","b3",  
+               "3","4","b5","z5","b6","6","b7","z7","^1","^b2","^z2","^z2","^b3", 
+               "^z3","^4","^b5","^z5","^b6","^z6","^b7","^z7","^@1","^@b2","^@z2","^@b3","^@z3"],
+    "pressBack": [2,2,2,2,2,2,2,2,2,2,0,0,  0,2,2,2,2,2,2,2,2,2,2,0,0,  0,2,2,2,2,2,0,0,0,2,2,0,0],
+    "press1":    [2,2,2,2,2,2,2,2,2,0,2,0,  2,2,2,2,2,2,2,2,2,0,0,2,0,  2,2,2,2,2,0,0,2,2,1,0,0,2],
+    "press2":    [2,2,2,2,2,2,2,2,0,2,2,2,  2,2,2,2,2,2,2,2,0,2,2,2,2,  2,2,2,0,0,2,2,2,2,0,2,2,2],
+    "press3":    [2,2,2,2,2,2,1,0,0,0,2,0,  2,2,2,2,2,2,1,0,0,0,2,0,0,  2,1,0,0,2,2,2,2,0,0,2,2,0],
+    "press4":    [2,2,2,2,2,0,0,0,0,0,0,0,  2,2,2,2,2,0,0,0,0,0,2,0,0,  0,0,0,0,2,0,0,2,2,2,0,2,2],
+    "press5":    [2,2,2,2,0,0,0,0,0,0,0,0,  2,2,2,2,0,0,0,0,0,0,2,0,0,  0,0,0,0,2,2,2,2,2,0,2,2,0],
+    "press6":    [2,2,2,0,2,2,2,2,2,2,2,2,  2,2,2,0,2,2,2,2,2,2,0,2,2,  2,2,2,2,2,2,2,2,2,0,2,2,2],
+    "press7":    [2,1,0,0,0,0,0,0,0,0,0,0,  2,1,0,0,0,0,0,0,0,0,0,0,0,  0,0,2,2,2,2,2,0,0,0,0,0,2],
 }
 
 
@@ -91,11 +93,11 @@ function fillCircle(mycanvas,r,type,fillColor) {
     if (type === "2") {ctx.fill()} else {ctx.stroke()};
 }
 
-function processStr(myTdStr){
-    clean_str = myTdStr.replace(/#/g, "").replace(/_/g, "").replace(/\./g, "").replace(/\^/g, "");
+function processStr(myTdStr){  //
+    clean_str = myTdStr.replace(/#/g, "").replace(/b/g, "").replace(/z/g, "").replace(/_/g, "").replace(/\./g, "").replace(/\^/g, "");
     pound_str = ""
     myTdStr.split('').forEach(function (value,index){
-        if (value === "#") {pound_str = `<sup>#</sup>`;};
+        if (value === "#" || value === "b"  || value === "z" ) {pound_str = `<sup>${value}</sup>`;};
         if (value === "_") {clean_str = `<u>${clean_str}</u>.`;};    // 双下划标识  _  -->   _ .
         if (value === ".") {clean_str = `<u>${clean_str}</u>`;}      //   下划标识  .  -->   _
         if (value === "^") {clean_str = `<span style="text-decoration: overline">${clean_str}</span>`;};  //   上划标识  -   -->  -
@@ -165,19 +167,21 @@ function mainFunc(fullTable,key,ifshowHalf){
         var text_Keynote = ``;
         var keys = ['G-Key','C-Key','D-Key','F-Key','bB-Key']
         keys.forEach(
-            (kk,index) => {text_Keynote += trElementStr(kk[0],getValueByIndex(select_Idx,fullTable,kk),"");}
+            (kk,index) => {text_Keynote += trElementStr(kk.split('-')[0],getValueByIndex(select_Idx,fullTable,kk),"");}
         )
     }else{
         var text_Keynote =   trElementStr("简",getValueByIndex(select_Idx,fullTable,key),"");
     }
     var text_pressBack = trElementStr("后",getValueByIndex(select_Idx,fullTable,'pressBack'),"firstCircle");
-    var text_press1 = trElementStr("一",getValueByIndex(select_Idx,fullTable,'press1'),"Circle");
-    var text_press2 = trElementStr("二",getValueByIndex(select_Idx,fullTable,'press2'),"Circle");
-    var text_press3 = trElementStr("三",getValueByIndex(select_Idx,fullTable,'press3'),"Circle");
+    var text_press1 = trElementStr("七",getValueByIndex(select_Idx,fullTable,'press1'),"Circle");
+    var text_press2 = trElementStr("六",getValueByIndex(select_Idx,fullTable,'press2'),"Circle");
+    var text_press3 = trElementStr("五",getValueByIndex(select_Idx,fullTable,'press3'),"Circle");
     var text_press4 = trElementStr("四",getValueByIndex(select_Idx,fullTable,'press4'),"Circle");
-    var text_press5 = trElementStr("五",getValueByIndex(select_Idx,fullTable,'press5'),"Circle");
+    var text_press5 = trElementStr("三",getValueByIndex(select_Idx,fullTable,'press5'),"Circle");
+    var text_press6 = trElementStr("二",getValueByIndex(select_Idx,fullTable,'press6'),"Circle");
+    var text_press7 = trElementStr("一",getValueByIndex(select_Idx,fullTable,'press7'),"Circle");
 
-    document.getElementById("Key-Table").innerHTML = `${text_BlowType}${text_Keynote}${text_pressBack}${text_press1}${text_press2}${text_press3}${text_press4}${text_press5}`;
+    document.getElementById("Key-Table").innerHTML = `${text_BlowType}${text_Keynote}${text_pressBack}${text_press1}${text_press2}${text_press3}${text_press4}${text_press5}${text_press6}${text_press7}`;
     
     canvasObjs = document.querySelectorAll('canvas.Circle');    // canvasObjs = document.getElementsByTagName('canvas')
     for (k=0;k<canvasObjs.length;k++) {
