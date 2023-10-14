@@ -165,3 +165,21 @@ setTimeout( ()=>{clearInterval(myTimer)} ,6000)
 // clearInterval()
 ```
 
+## [Canvas](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API)
+绘制简单图形，示例见[link](https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes);  
+
+首先有canvas对象，注意，canvas的width、height必须如下设置(不能在css中设置)，否则图形会随着border形状调整而变形
+```html
+<canvas id="mycanvas" width="100px" height="100px"></canvas>
+```
+
+选取canvas对象，画图
+```js
+var canvas = document.getElementById("mycanvas");
+var ctx = canvas.getContext("2d");
+ctx.moveTo(0, 0)                 // 移动笔触
+ctx.beginPath();                 // 绘画开始
+ctx.arc(75, 75, 50, 0, Math.PI * 2, true); 
+ctx.stroke(); //ctx.fill()       // 显示/填充图形
+```
+
