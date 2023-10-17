@@ -3,6 +3,6 @@ Lough_Guitane
 网络备份
 
 ### 简谱
-![Lough_Guitane](Lough_Guitane/1.gif)
-![Lough_Guitane](Lough_Guitane/2.gif)
+![Lough_Guitane](WebSource/Lough_Guitane_1.gif)
+![Lough_Guitane](WebSource/Lough_Guitane_2.gif)
 

@@ -11,5 +11,5 @@
 ### 指法谱截图
 
 
-![The_Wolven_Storm_notes](The_Wolven_Storm/The_Wolven_Storm_notes.png)
+![The_Wolven_Storm_notes](WebSource/The_Wolven_Storm_notes.png)
 
