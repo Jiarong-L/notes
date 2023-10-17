@@ -1,6 +1,8 @@
 JavaScript基本功能备忘；[jsDemo.zip](./JS/jsDemo.zip)
 
-记得给vscode安装es6插件；ES6新增的特性见[ES6](ES6.md)
+记得给vscode安装es6插件；ES6新增的特性见 [ES6](ES6.md)；  
+
+其它关联：[TS](TS.md)，[Vue](Vue.md)
 
 ## 基本操作
 
@@ -26,7 +28,9 @@ var myNum = 100_000.56
 var myStr = "5"
 var myBool = true 
 var myNull = null
-var myUndefined
+var myUndefined  // 不写，或 = void 0
+                 // 不能 = undefined；因为：
+                 // 如果在函数中 var undefined = 1，优先级会高于全局变量 undefined
 var myObj = {
     name: "ObjName",
     value: "ObjValue"
