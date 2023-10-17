@@ -1,14 +1,20 @@
 
-犬夜叉: 哀歌/半妖
+犬夜叉: 哀歌
 
 
 ### 示例
-一：https://www.bilibili.com/video/BV1VN41117bK/   
+一：https://www.bilibili.com/video/BV1VN41117bK   
 二：https://www.bilibili.com/video/BV1gE411s7yj  
 
 
 ### 旋律
-<p>67123——235——423——235——42321<u>6</u> <u>567653</u></p>
+
+
+6 7 <span style="text-decoration: overline">1 2 3</span>——
+<span style="text-decoration: overline">2 3 5</span>——
+<span style="text-decoration: overline">4 2 3</span>——
+<span style="text-decoration: overline">2 3 5</span>——
+<span style="text-decoration: overline">4 2 3 2 1</span> 6——5 6 7 6 5 3 —— 6
 
 C调哨笛，全按2   
 
