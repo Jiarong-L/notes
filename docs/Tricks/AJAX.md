@@ -149,4 +149,4 @@ Postman 是一款常用的 HTTP API 测试工具；后端开发也常用
 
 
 ## 参考
-MDN，《图解HTTP》
+MDN，《图解HTTP》， Postman：https://zhuanlan.zhihu.com/p/328205974   
