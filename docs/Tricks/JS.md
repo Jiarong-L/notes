@@ -187,3 +187,52 @@ ctx.arc(75, 75, 50, 0, Math.PI * 2, true);
 ctx.stroke(); //ctx.fill()       // 显示/填充图形
 ```
 
+
+
+
+### 库
+一些封装好的特定集合
+
+## [jQuery](https://jquery.com/)
+
+‘\$’ 是jQuery的别称/顶级对象（相当于JS的window）；使用示例：
+```js
+$(document).ready(                    // 等页面DOM加载完毕后
+    () => {
+        $('#myid').click(()=>{})             // 点击'#myid'后...
+        $('div:eq(2)').css('color','red')   // css('属性','值')
+        $('div').eq(2)      // 第二个div，选择效果同上
+        $('div').click(
+            () = { $(this).siblings("button").hide() } 
+        )          // 点击后隐藏同级的button
+
+        $.get( url, [dataObj_opt], [callbackfunc_opt]) // AJAX
+        $.post(url, [dataObj_opt], [callbackfunc_opt]) // AJAX
+        $.ajax({                        // 综合
+            type: '',                // GET POST
+            url: '',                 // url
+            data: {},                // 请求所带的数据
+            auccess: callbackfunc 
+        })
+
+    }
+)
+
+```
+
+jQuery对象与DOM对象略有不同但可以互相转换:  
+
+| -- | 示例 | 方法 | 说明 | 
+| -- | -- | -- | -- | 
+| DOM对象 | ```var myDom = document.querySelectorAll('div')``` | ```myDom.style.display = 'none'``` | -- | 
+| jQuery对象 | ```var myjQuery = $('div')``` | ```myjQuery.hide()``` | jQuery对象是伪数组的形式；应用方法时将遍历其内所有DOM元素，此过程称为**隐式迭代** | 
+| DOM -> jQuery  | ```$(myDom)``` | -- | -- | 
+| jQuery -> DOM | ```myjQuery[index]``` <br> ```myjQuery.get(index)``` | index是个数字，e.g. 0 | -- | 
+
+
+* 更多样式操纵、动画功能、Ajax 请参考 [jQuery官方文档](https://api.jquery.com/)
+
+
+
+
+
