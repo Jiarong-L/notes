@@ -1,7 +1,6 @@
-# MkDocs 静态网站构建
-MkDocs: <https://www.mkdocs.org/>    
-Setup MkDocs: <https://squidfunk.github.io/mkdocs-material/> 
+# MkDocs 
 
+静态网站构建，链接：[MkDocs官网](https://www.mkdocs.org/), [Setup MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
 ## 简单使用
 1.安装
