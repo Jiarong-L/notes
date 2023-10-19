@@ -114,19 +114,3 @@ devtools::update_packages()
 ### JAVA
 用Maven管理依赖包；IntelliJ IDEA设置一下maven地址
 
-
-### NodeJS
-npm是node.js的装包工具
-```
-npm install @vue/cli 
-npm i @vue/cli         // 在当前项目目录下安装@vue/cli
-npm i @vue/cli -g      // 在node全局安装@vue/cli
-```
-随后使用vue/cli生成项目 ```vue create myproj``` ，进入项目目录后可:
-```bash
-npm run serve   // 打开静态资源服务器，本地运行项目
-npm run build   // 生成以'/'为根目录的打包文件夹 dist
-npm run lint    // 修复错误的配置
-```
-打包文件夹 dist 不能直接打开，需要安装serve [```npm i serve -g```]，然后运行 ```serve dist```
-
