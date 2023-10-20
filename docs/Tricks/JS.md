@@ -82,9 +82,11 @@ myDOM.onclick = () => {alert('clicked!')}
 // (input_parameters) => (return_parameters)
 ```
 
-array示例
+array示例，详情请见ES6相关段落
 ```js
 var myArr = [1,2,3,4,5]
+    // idx:  0 1 2 3 4
+myArr.splice(1,3)        // 从idx 1开始切取3个元素：返回[2, 3, 4]；myArr=[1,5]
 myArr.push(100)          // add to end
 myArr.unshift(100)       // add to start
 myArr.forEach(function (value,index) {
