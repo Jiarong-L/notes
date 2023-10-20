@@ -1,6 +1,6 @@
 <style>
 img{
-    width: 30%;
+    width: 60%;
 }
 </style>
 
@@ -13,8 +13,9 @@ img{
     * SingleR datasets
 
 
-## Pipeline (mainly Seurat)
-* QC
+## Basic Pipeline (mainly Seurat)
+* CellRanger ...
+* Data QC
     * Filter off Genes
         * Appear in >3 Cells
     * Filter off Cells
@@ -71,11 +72,21 @@ img{
     * Tips：假设这些sub-type都来自同一个cell-type，在这个水平上进行一些更加细致的操作，比如：对免疫细胞细致分类，拟时序分析，RNA velocity，etc.
     
 
+## Meta scRNA (Testing)
+对宏基因组使用scRNA与Basic Pipeline不同；Basic Pipeline中已知样本来自某一生物，所以可以很简单的使用参考基因组进行每个细胞内、每个基因的定量；而宏基因组的潜在参考基因集过于庞大，耗费过量资源；且宏基因组使用scRNA技术的目的之一是希望得到更准确的细胞组成信息（现有Binning有时准确度堪忧），需求是对每一个cell进行准确的物种注释。
 
+为了尽量缩小潜在参考基因集范围，可以参考相似研究的Meta Bulk注释提到的基因组；Tips: GTDB使用ANI进行分类，可以使用本地储存的文件，不用去NCBI再下载
 
+其单细胞QC步骤一如前文所述。有两种或许可行的注释、定量方法： 
+    * Anno via FastANI：当需要注释的细胞数量较少时，可以将其比对参考DB，根据ANI确定可能Taxa范围
+    * Anno via Mapping：通过cdhit等对参考基因集进行去重，然后将scRNA数据map上去，根据细胞的mapping信息决定其物种注释(也许可以使用cellranger)
 
+Tips：有时如果物种注释结果不理想，我们也可以进行单细胞水平的功能注释(GO,ARG,pathway...)
 
+## 其它
 
+* scATAC: 基于scRNA得到某种亚细胞的转录谱，或已知reference情况下；可以分析10x平台产生的单细胞水平ATAC数据
+* Bulk mRNA 数据可以帮助验证scRNA数据的完整性；如果还有其它bulk多组学数据，可以尝试算一下相关性
 
 
 
