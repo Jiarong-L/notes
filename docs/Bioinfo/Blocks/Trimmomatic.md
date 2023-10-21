@@ -1,4 +1,6 @@
 
+去除adapter；
+相关：[trim_galore (Cutadapt + FastQC)](https://github.com/FelixKrueger/TrimGalore)
 
 ## Install
 ```

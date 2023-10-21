@@ -15,6 +15,8 @@ conda install -c bioconda bwa
 conda install -c bioconda samtools=1.18 --force-reinstall
 conda install -c bioconda bowtie
 conda install -c bioconda bowtie2 
+
+conda install -c bioconda sambamba
 ```
 Ubuntu直接装也行，不过samtools需要手动安装一些依赖：
 ```
@@ -114,18 +116,23 @@ samtools view --input-fmt-option 'filter=(mapq >= 30)' aln.bam | less
 samtools collate -O aln.bam > collate.bam   ## sort by name
 samtools fixmate collate.bam - > fixmate.bam ## repairs PE mate info；需要先collate
 samtools sort fixmate.bam > fixmate.sorted.bam
-samtools markdup fixmate.sorted.bam - > markdup.bam
+samtools markdup fixmate.sorted.bam - > rmdup.bam
 ```
 
 写成pipe格式：
 ```bash
 ## PE reads
-samtools collate -O aln.bam | samtools fixmate - - | samtools sort - | samtools markdup - markdup.bam
+samtools collate -O aln.bam | samtools fixmate - - | samtools sort - | samtools markdup - rmdup.bam
 
 ## SE reads
-samtools sort aln.bam | samtools markdup - markdup.bam
+samtools sort aln.bam | samtools markdup - rmdup.bam
 ```
 
+tips: 此外还有picard MarkDuplicates等；个人PC内存较小，可以使用[sambamba](http://lomereiter.github.io/sambamba/docs/sambamba-markdup.html):
+```bash
+ulimit -n 8000    ## 限制同一时间最多可开启的文件数
+sambamba markdup -r aln.bam rmdup.bam --tmpdir=./ -t 2
+```
 
 ## SAM
 sam文件格式示例：
