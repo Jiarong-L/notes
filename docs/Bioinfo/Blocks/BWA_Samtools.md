@@ -1,9 +1,9 @@
 
 BWA: mapping low-divergent sequences against a large reference genome
 
-Samtools是一个用来处理sam/bam格式的工具
+ATAC、RNA 的教程常常用 Bowtie2 进行mapping，不过其实 BWA 可以搞定一切；此外极短数据仍可以尝试 Bowtie1
 
-ATAC、RNA 的教程常常用 Bowtie 2，不过其实 BWA 可以搞定一切；此外极短数据仍可以尝试 Bowtie 1
+Samtools是一个用来处理sam/bam文件的工具
 
 ## Install
 Conda：samtools需要强制控制版本(不然也许会是1.9版本);此外，源的设置不对可能会导致lib报错
@@ -65,8 +65,7 @@ bowtie2 -x idxPerfix -U R1.fq          -S aln.SE.sam
 ### Samtools
 
 
-#### SAM/BAM转换
-bam是sam的二进制格式，可以使用 view 相互转换它们；   
+#### SAM/BAM转换   
 当输入的SAM的开头有 @SQ lines 时:
 ```bash
 samtools view -b aln.sam > aln.bam
@@ -134,7 +133,9 @@ ulimit -n 8000    ## 限制同一时间最多可开启的文件数
 sambamba markdup -r aln.bam rmdup.bam --tmpdir=./ -t 2
 ```
 
-## SAM
+
+## 文件格式
+### [SAM](https://samtools.github.io/hts-specs/SAMv1.pdf)
 sam文件格式示例：
 ```
 @SQ     SN:X17276.1     LN:556
@@ -176,13 +177,13 @@ I     = 插入
 
 3S6M1P1I4M 依次为：3bp被剪去，6bp match，1bp缺口，1bp插入，4bp match
 ```
-
+### BAM
+bam是sam的二进制格式（且丢失开头的@SQ lines），可以使用 view 相互转换它们；
 
 
 ## 参考
 BWA：https://bio-bwa.sourceforge.net/   
 BWA使用手册：https://bio-bwa.sourceforge.net/bwa.shtml  
 samtools：https://www.htslib.org/doc/samtools.html#flags  
-SAM格式: https://samtools.github.io/hts-specs/SAMv1.pdf   
 Bowtie：https://bowtie-bio.sourceforge.net/manual.shtml  
-Bowtie2：https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml 
+Bowtie2：https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml   
