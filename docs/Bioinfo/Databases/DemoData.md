@@ -3,7 +3,7 @@
 
 ## SRA
 下载[sra-tools](https://github.com/ncbi/sra-tools)
-```
+```bash
 wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.6/sratoolkit.3.0.6-ubuntu64.tar.gz
 tar -xzf sratoolkit.3.0.6-ubuntu64.tar.gz
 export PATH=$PWD/sratoolkit.3.0.6-ubuntu64/bin:$PATH
@@ -11,7 +11,7 @@ export PATH=$PWD/sratoolkit.3.0.6-ubuntu64/bin:$PATH
 
 
 查找文章中SRRxxxxx编号进行下载, 或参考[link](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/)
-```
+```bash
 echo "SRR22097888\nSRR3156163\nSRR3157034\nSRR3156160\n" > SraAccList.txt
 export HOME=$PWD/SRRtmp/
 
@@ -34,7 +34,7 @@ SRR22097888: The complete chloroplast genome of Triplophysa bombifrons
 Spatial Gene Expression， In Situ Gene Expression， Single Cell Gene Expression Flex， Single Cell Immune Profiling
 
 例如：
-```
+```bash
 wget http://cf.10xgenomics.com/samples/cell-exp/1.1.0/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz
 tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
 ```

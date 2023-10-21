@@ -70,6 +70,15 @@ conda search -c bioconda diamond
 conda install -c bioconda diamond=2.1.6
 ```
 
+conda打包yml
+```
+activate myenv
+conda env export > environment.yml
+```
+conda根据yml生成环境
+```
+conda env create -f environment.yml
+```
 
 
 ### R
