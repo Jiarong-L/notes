@@ -40,25 +40,28 @@ conda info --envs
 conda remove -n $env_name --all
 conda remove --name $env_name $package_name
 ```
+删除单个包（uninstall 时常出错，改用 remove）；如果再删不了，就直接删除conda bin里的程序吧
+```
+conda uninstall $package_name
+```
+
+
 conda配置源
 ```
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+conda config --add channels https://mirrors.sjtug.sjtu.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.sjtug.sjtu.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.sjtug.sjtu.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels https://mirrors.sjtug.sjtu.edu.cn/anaconda/cloud/bioconda/
 conda config --set show_channel_urls yes
 
-### or
+conda config --show channels
+```
 
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/conda-forge/ 
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/main/ 
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/pkgs/free/ 
-conda config --add channels https://mirrors.bfsu.edu.cn/anaconda/cloud/bioconda/ 
-conda config --add channels http://mirrors.aliyun.com/anaconda/cloud/bioconda/ 
-conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/ 
-conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/ 
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-conda config --set show_channel_urls yes
+conda删除源 （源过多会导致错误），如果 ```conda config --set channel_priority flexible``` 也无法解决，就需要手动删除以前配置的源 （也可直接修改~/.condarc）
+```
+conda config --show channels   ## 查看已安装的源
+
+conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 ```
 
 conda搜寻/安装/特定版本

@@ -4,9 +4,10 @@
 ## .bashrc
 此处可设置各种简写（e.g.你自己写的小工具脚本、工作目录），R librarys ...
 ```
+alias ll='ls -alF --block-size=M'
 alias cdd='cd /mnt/d/WSL_dir/workdir/'
 ```
-
+每次修改后记得 ```source .bashrc``` 或重启 session
 
 
 ## PATH
@@ -41,6 +42,13 @@ convert -resize  50%x50%  in.png  out.png
 ```
 strings /lib/x86_64-linux-gnu/libm.so.6 |grep GLIBC_
 ```
+
+## less
+查看表格时显示得整齐些：
+```
+less -S
+```
+
 
 ## GLIBC
 系统版本的GLIBC版本过低，于是添加一个高级版本系统的源，[参考](https://blog.csdn.net/huazhang_001/article/details/128828999)
@@ -81,6 +89,8 @@ find  <dir> -name '**'
 ## Bash
 ```
 echo -n    ## 不换行输出
+ls ref.fa.* |cut -d '.' -f3 | while read dd; do echo -n "$dd "; done
+
 
 for dd in {1..5}; do echo $dd ; done
 for dd in {1..30}; do echo "my_${dd}_word" ; done   ## must be ""
@@ -89,12 +99,11 @@ for dd in {1..5}; do if [ $((dd))+1 != $((3)) ];then echo $((dd +10)) ; fi; done
 ls img/ | while read dd ; do convert -resize 10%x10% img/$dd img_resize/$dd ; done
 
 sed -n 's/from/to/g' xx.fa | less
-
 ```
 * sed: https://www.runoob.com/linux/linux-comm-sed.html
 * awk: https://www.runoob.com/linux/linux-comm-awk.html
 * grep: https://www.runoob.com/linux/linux-comm-grep.html  
-
+* ```cut -d'_' -f2``` 输出以'_'分隔的第二列
 
 
 ## SSH
