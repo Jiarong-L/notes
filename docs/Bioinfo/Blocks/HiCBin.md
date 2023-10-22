@@ -4,7 +4,7 @@
 结合HiC数据与Taxa信息、辅助Binning   
 
 ## Install:
-**Bug**: 有时候必须在hicbin.py的中才能call ./hicbin.py，因为要call hiczin.r ; export path + chmod 777 无用
+**Bug**: 有时候必须在./hicbin.py的安装目录运行```python3 ./hicbin.py```才能成功，直接```hicbin.py```会有路径错误; export path + chmod 777 无用
 ```bash
 git clone https://github.com/dyxstat/HiCBin.git
 cd HiCBin
