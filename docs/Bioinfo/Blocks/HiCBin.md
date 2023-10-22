@@ -1,5 +1,5 @@
 
-# [HiCBin](https://github.com/dyxstat/HiCBin)
+# HiCBin
 
 结合HiC数据与Taxa信息、辅助Binning   
 
@@ -84,3 +84,6 @@ with open('Contaminated_BinID.txt','w') as f:
     for item in df['Bin Id'].values:
         f.write('{}\n'.format(item))
 ```
+
+## 参考
+[HiCBin](https://github.com/dyxstat/HiCBin)：https://github.com/dyxstat/HiCBin
