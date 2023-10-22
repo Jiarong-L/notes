@@ -4,17 +4,18 @@ img{
 }
 </style>
 
-# Genome *de novo*
+TBA
 
+## QC
 
-
+vecscreen去除载体序列
 
 
 ## Survey分析
 
 
 
-## 组装
+## *de novo* 组装
 
 | 软件 | 数据 | 适用场景 | 其它 |
 | ----------- | ----------- | ----------- | ----------- | 
@@ -26,8 +27,6 @@ img{
 | [Canu](../Blocks/Canu.md) | 三代 | -- | 资源消耗大 |
 
 
-
-vecscreen去除载体序列
 
 
 ## 注释
