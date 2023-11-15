@@ -2,7 +2,7 @@
 GNU： 一个 自由软件操作系统   
 GCC： GNU **Compiler** Collection   
 Make工具： 通过调用makefile文件中用户指定的命令来进行编译和链接   
-
+CMake： 跨平台生成对应平台的makefile
 
 
 ## GCC
@@ -42,7 +42,7 @@ gcc -shared  add.o  minus.o -o libname.so   ##  libname.so
 
 ## use .so lib
 ###  gcc [.c] -o [exec_file] -l [libname] -L [lib PATH]; 
-###                    for makefile:-Wl,rpath[lib PATH]
+###                 add in makefile:-Wl,rpath[lib PATH]
 gcc hello.c -o hello_so -l name -L ./
 ```
 
@@ -176,6 +176,7 @@ ${var2}:
 * ```=```是简单的赋值符号，左值将随右值而改变；```:=```立即赋值，右值改变但左值不会随之更改；```?=```对未定义变量进行赋值 (i.e.若此变量已有赋值，```?=```将不做改变)
 * ```+=``` 累加：str或int
 * ```\``` 续行符：当代码过长时
+* ```val := AA```时, ```$(val:%=XX%)``` 返回 ```XXAA```；相当于在val变量前加上某些短句
 
 ### 函数
 函数调用方法：
@@ -198,14 +199,70 @@ callfn := $(fn  args)         ## ${fn  args}
 | basename | ```$(basename aa.ao bb.bo)```<br> output: aa bb | ```$(basename <names>)```<br> 去除后缀 |
 
 
-## cmake
-可以跨平台生成对应平台的makefile
-TBA
-### CMakeLists.txt
-TBA
-``` ```
-``` ```
-``` ```
+### C/C++编译
+
+| 选项 | 说明 | 其它 |
+| -- | -- | -- |
+| ```-m64``` | 编译为64位程序 | -- |
+| ```-std=``` | 编译标准 | ```-std=c++11```,```-std=c++14``` |
+| ```-g``` | 包含调试信息 | -- |
+| ```-w``` | 不显示警告 | -- |
+| ```-O``` | 优化等级 | c++通常 -O3 |
+| ```-I``` | header文件路径 | -- |
+| ```fPIC``` | 全使用相对地址 | 无绝对地址；代码可以被加载到内存的任意位置执行(共享库所要求的，其被加载时于内存的位置不固定) |
+| ```-l``` | 库名 | libxxx.so，-l 应填写xxx |
+| ```-L``` | 库路径 | libxxx.so所在的文件夹 |
+| ```-Wl,<option>``` | -- | 将','分隔的option传递给ld |
+| ```rpath=``` | -- | 运行时去此目录下寻找.so文件 |
+
+[**Implicit Rules**](https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html)
+
+* 当 targets/prerequisties 没有被明确的规则定义的时候，Make会使用相应的隐含规则来实现，e.g. 语句```x: y.o z.o```需要的.o文件当前不存在且没指定生成，make会生成 x/y/z.o 再 ```cc x.o y.o z.o -o x```
+* CC, CXX, CFLAGS, CXXFLAGS, CPPFLAGS, LDFLAGS
+
+
+C编译步骤示例：(动/静态库同样参考上文，其中动态库增加```-Wl,rpath=```)
+```makefile
+c_srcs := $(shell find . -name '*.c')
+c_objs := $(patsubst %.c, %.o, $(c_srcs))
+
+%.o : %.c
+	@gcc -c $< -o $@                  ##c++ add flags: -g -O3 -std=c++ -L 
+	@echo 'Generating ' $@
+
+exec : $(c_objs)
+	@gcc $^ -o $@
+	@echo 'Generating ' $@ ' from ' $^
+
+run : exec
+	@./$<
+	@echo 'running ' $<
+
+.PHONY : clean
+clean :
+	@rm *.o exec
+```
+
+
+## CMake
+
+* VSCode中安装 CMake、CMake Tools插件，```Ctrl+Shift+p``` 打开指令面板，输入 ```cmake:q``` 快速启动项目，可以得到 main.c 与 CMakeLists.txt 文件
+* 对照 [CMake Docs](https://cmake.org/cmake/help/v2.8.12/cmake.html) 可知其含义
+* CTest为当前目录，test为设定的项目名称
+```
+cmake_minimum_required(VERSION 3.0.0)
+project(test VERSION 0.1.0 LANGUAGES C)
+
+include(CTest)
+enable_testing()
+
+add_executable(test main.c)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
+```
+随后运行```cmake CMakeLists.txt``` 可得到 Makefile
 
 
 ## 参考
@@ -213,4 +270,6 @@ makefile, autoconf, automake, libtool: https://blog.csdn.net/zhizhengguan/articl
 GCC: https://gcc.gnu.org/onlinedocs/   
 GCC Option-Summary: https://gcc.gnu.org/onlinedocs/gcc-13.2.0/gcc/Option-Summary.html    
 Make: https://makefiletutorial.com/     
- 
+CMake : https://cmake.org/documentation/   
+CMake easy: https://zhuanlan.zhihu.com/p/371257515  
+
