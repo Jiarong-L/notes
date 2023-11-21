@@ -1,0 +1,99 @@
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+
+<style>
+img{
+    width: 60%;
+}
+</style>
+
+
+CS285 - 2019  
+http://rail.eecs.berkeley.edu/deeprlcourse/resources/#prev-off
+
+
+
+## Notations
+*t* - timestep *t*  
+$s_t$ - state     
+$o_t$ - observation   
+$a_t$ - action   
+$\pi_\theta(a_t|o_t)$ - policy (partially observed)  
+$\pi_\theta(a_t|s_t)$ - policy (fully observed)    
+$p_{data}(o_t)$ - 符合data分布的数据，i.e. 采样得到的observation   
+$p_{\pi_\theta}(o_t)$ - 符合$\pi_\theta$分布的数据，i.e. 运行model得到的新observation    
+$\tau$ - Trajectory，运行model得到的一系列($s_t$,$a_t$)组合
+
+
+* On Policy - 一旦policy改变，就必须重新采样
+* Off Policy - 可以使用旧样本，不过最好配合 Importance Sampling 使用
+
+## Imitation Learning
+
+准备好数据集，进行supervised learning；然而随着timestep推进，训练集与实际state的细微差别会越来越大：  
+![2-1](./RL/2-1.png) 
+
+为了尽量使 $p_{data}(o_t) = p_{\pi_\theta}(o_t)$，有智能驾驶的两个实例：
+
+* DAgger：直接安装$p_{\pi_\theta}(o_t)$收集数据，i.e.运行 policy 生成新 observation 后再人工加上注释
+* Stable Controller：车两侧各加上摄像头，提供了轻微偏离 Trajectory 的数据，一旦有偏离是苗条就可以及时修正
+
+
+有时训练的 model 并不能很好的模仿训练数据，原因可能有：
+
+* non-markovian: $\pi_\theta(a_t|o_t) \neq \pi_\theta(a_t|o_1 ... o_t)$；此时应改用state
+* causal confution: e.g. 训练自动驾驶时见人应停，但事实上模型误以为见刹车灯亮起应停
+* Multimodel behavior：
+
+| 模型 | -- | -- |
+| -- | -- | -- |
+| Gaussian Models | $\pi_\theta(a_t\|o_t)=\sum_i{w_iN(\mu_i,\Sigma_i)}$ | NN最外层输出n组$w_i,\mu_i,\Sigma_i$；缺点是action space有限 |
+| Latent variable models | 依据某种分布生成随机输入训练NN，希望能够展示不同 modes | VAE |
+| Autoregressive Discretization | 将高维 action space 离散化 <br> 单层dim可以加softmax来离散化 <br> 可以是RNN模型  |  img作为NN输入 <br> 输出的Dim_1离散化后得到Val_1 <br> img+Val_1作为NN输入 <br> 输出的Dim_2离散化后得到Value_3 <br> ...  |
+
+
+
+### Cost/Reward
+
+$c(s,a)=$ 0 if $a=\pi^*(s)$ otherwise 1  
+$r(s,a) = logp(a=\pi^*(s)|s)$
+
+
+(Naive) **Assume** for all $s \in D_{train}$, $\pi_{\theta}(a \neq \pi^*(s)|s) \leq \epsilon$,   
+$E[\sum_tc(s_t,a_t)] \leq \epsilon T + (1-\epsilon)(\epsilon (T-1)+(1-\epsilon)(...))$   
+T terms, each $O(\epsilon T)$  *-- >*  $O(\epsilon T^2)$
+
+
+(Dagger) **Assume** for all $s \in p_{train}(s)$, $\pi_{\theta}(a \neq \pi^*(s)|s) \leq \epsilon$,   
+$E[\sum_tc(s_t,a_t)] \leq \epsilon T $   
+-- > $O(\epsilon T)$
+
+
+(Behavial Cloning) **Assume** $p_{train}(s) \neq p_{\theta}(s)$,   
+Step1: $p_{\theta}(s_t) = (1-\epsilon)^tp_{train}(s_t) + (1-(1-\epsilon)^t)p_{mistake}(s_t)$  
+Step2: $|p_{\theta}(s_t)-p_{train}(s_t)| = (1-(1-\epsilon)^t)|p_{mistake}(s_t)-p_{train}(s_t)|$   
+$\qquad  \leq (1-(1-\epsilon)^t)*2$  $\qquad  \because p\in[0,1]$   
+$\qquad  \leq 2\epsilon t$    
+Step3: $\sum_tE_{p_{\theta}(s_t)}[c_t]=\sum_t{\sum_{s_t}p_{\theta}(s_t)c_t(s_t)}$   
+$\qquad \leq\sum_t{p_{tr}*c_{max} + (p_{\theta}-p_{tr})*c_{max}} $  
+$\qquad \leq\sum_t{p_{tr}*1 + (p_{\theta}-p_{tr})*1} $  
+$\qquad \leq \sum_t{\epsilon+ 2\epsilon t}$  
+$\qquad \leq \ \epsilon T+ 2\epsilon T^2$    
+-- > $O(2\epsilon T^2)$
+
+
+
+
+
