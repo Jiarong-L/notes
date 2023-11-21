@@ -21,7 +21,7 @@ img{
 
 
 CS285 - 2019  
-http://rail.eecs.berkeley.edu/deeprlcourse/resources/#prev-off
+http://rail.eecs.berkeley.edu/deeprlcourse/resources
 
 
 
@@ -68,30 +68,30 @@ $\tau$ - Trajectory，运行model得到的一系列($s_t$,$a_t$)组合
 ### Cost/Reward
 
 $c(s,a)=$ 0 if $a=\pi^*(s)$ otherwise 1  
+
 $r(s,a) = logp(a=\pi^*(s)|s)$
 
 
-(Naive) **Assume** for all $s \in D_{train}$, $\pi_{\theta}(a \neq \pi^*(s)|s) \leq \epsilon$,   
-$E[\sum_tc(s_t,a_t)] \leq \epsilon T + (1-\epsilon)(\epsilon (T-1)+(1-\epsilon)(...))$   
-T terms, each $O(\epsilon T)$  *-- >*  $O(\epsilon T^2)$
+(Naive: $O(\epsilon T^2)$) **Assume** for all $s \in D_{train}$, $\pi_{\theta}(a \neq \pi^*(s)|s) \leq \epsilon$,   
+$E[\sum_tc(s_t,a_t)] \leq \epsilon T + (1-\epsilon)(\epsilon (T-1)+(1-\epsilon)(...))$    ----> T terms, each $O(\epsilon T)$ 
 
 
-(Dagger) **Assume** for all $s \in p_{train}(s)$, $\pi_{\theta}(a \neq \pi^*(s)|s) \leq \epsilon$,   
+
+(Dagger: $O(\epsilon T)$) **Assume** for all $s \in p_{train}(s)$, $\pi_{\theta}(a \neq \pi^*(s)|s) \leq \epsilon$,   
 $E[\sum_tc(s_t,a_t)] \leq \epsilon T $   
--- > $O(\epsilon T)$
 
 
-(Behavial Cloning) **Assume** $p_{train}(s) \neq p_{\theta}(s)$,   
-Step1: $p_{\theta}(s_t) = (1-\epsilon)^tp_{train}(s_t) + (1-(1-\epsilon)^t)p_{mistake}(s_t)$  
+(Behavial Cloning: $O(2\epsilon T^2)$) **Assume** $p_{train}(s) \neq p_{\theta}(s)$,  
+Step1: $p_{\theta}(s_t) = (1-\epsilon)^tp_{train}(s_t) + (1-(1-\epsilon)^t)p_{mistake}(s_t)$   
 Step2: $|p_{\theta}(s_t)-p_{train}(s_t)| = (1-(1-\epsilon)^t)|p_{mistake}(s_t)-p_{train}(s_t)|$   
-$\qquad  \leq (1-(1-\epsilon)^t)*2$  $\qquad  \because p\in[0,1]$   
-$\qquad  \leq 2\epsilon t$    
+$\qquad  \leq (1-(1-\epsilon)^t) \times 2$  $\qquad  \because p\in[0,1]$  
+$\qquad  \leq 2\epsilon t$  
 Step3: $\sum_tE_{p_{\theta}(s_t)}[c_t]=\sum_t{\sum_{s_t}p_{\theta}(s_t)c_t(s_t)}$   
-$\qquad \leq\sum_t{p_{tr}*c_{max} + (p_{\theta}-p_{tr})*c_{max}} $  
-$\qquad \leq\sum_t{p_{tr}*1 + (p_{\theta}-p_{tr})*1} $  
+$\qquad \leq(\sum_t{p_{tr} + (p_{\theta}-p_{tr})}) \times c_{max} $  
+$\qquad \leq(\sum_t{p_{tr} + (p_{\theta}-p_{tr})}) \times 1 $  
 $\qquad \leq \sum_t{\epsilon+ 2\epsilon t}$  
-$\qquad \leq \ \epsilon T+ 2\epsilon T^2$    
--- > $O(2\epsilon T^2)$
+$\qquad \leq \ \epsilon T+ 2\epsilon T^2$   
+
 
 
 
