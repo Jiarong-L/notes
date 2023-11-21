@@ -20,6 +20,14 @@ Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 ## Chapter 7 (TBA)
 ## Chapter 8 (TBA)
 ## Chapter 9 (TBA)
+### Heart Anatomy
+![Figure 9-1](Physiology/9-1.png)  
+肌肉纤维由 Intercalated discs 互相连通，传递 ion signals 以保持节律。
+
+
+
+
+
 ## Chapter 10 (TBA)
 ## Chapter 11 (TBA)
 ## Chapter 12 (TBA)
@@ -50,6 +58,7 @@ Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听�
 
 ### Phonocardiograms
 Heart valves 病变可以导致心音变化：  
+
 * Rheumatic fever：Autoimmune 使 valves 渗漏/粘连 (C/E)，通常因 streptococcal toxin 引起
 * 主动脉瓣狭窄：或因衰老导致主动脉瓣肥大 (B)
 
@@ -66,13 +75,16 @@ Heart valves 病变可以导致心音变化：
 | E | 二尖瓣狭窄 | left atrium 流向 left ventricle 的单向阀门打开不完全  | left atrium / Pulmonary artery 高压，可能导致肺水肿 | 
 | F | 动脉导管未闭 | 主动脉和肺动脉之间存在异常通道，发生分流 | Ductus arteriosus 应在出生后4-5天闭合 | 
 
+
 **B/D情况都使 net stroke volume output 减小，因而导致：**
+
 * 左心室肥厚（代偿）；若最终左心室衰竭无法泵出血液，压力传导至左心房中，进一步传导导致肺动脉高压
 * Increase in blood volume （kidney对血流减小的反应）
 * Increase in red blood cell mass （tissue轻微的缺氧）
 
 
 **TETRALOGY OF FALLOT (法洛四联症):**室间隔缺损、肺动脉狭窄 --> 持续缺氧状态
+
 * 左右心室无间隔，导致动、静脉血液混合
 * 由于肺动脉狭窄，大部分血液绕过肺部、直接进入主动脉
 * 右心室原先对接肺动脉，此时也直面主动脉的高压，代偿下右心室增大
