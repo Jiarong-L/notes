@@ -11,7 +11,40 @@ Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
 
 
-## Chapter 1 (TBA)
+## Chapter 1
+
+* **Human Physiology**: explain the specific characteristics and mechanisms of the human body that make it a living being
+* The basic living unit of the body is the **cell**. Each **tissue or organ** is an aggregate of many different cells held together by intercellular supporting structures (相同微环境).
+* 人体60%是液体，包含：
+    - Intracellular fluid：相对静止的；potassium, magnesium, phosphate ions
+    - Extracellular fluid：持续流动的；sodium, chloride, bicarbonate ions, nutrients (oxygen, glucose, fatty acids, amino acids), waste products (carbon dioxide, wastes to kidneys....)
+        * Interstitial fluid
+        * Circulatory system：血液、淋巴液系统
+* **Homeostasis**: maintenance of nearly constant conditions in the internal
+environment (extracellular fluid)
+* **Disease**: A disruption to homeostasis；Extreme dysfunction leads to death; moderate dysfunction leads to sickness
+* 代偿：身体为了回归稳态所尝试的努力；有时为了某个tissue的稳态可能会打破另一个地方的稳态，因此有时难以区分primary cause与代偿反应
+* 获取nutrients
+    - Respiratory System：oxygen
+    - Gastrointestinal Tract：carbohydrates, fatty acids, amino acids
+    - Liver and Other Organs That Perform Primarily Metabolic Functions：分泌酶、储存 
+    - Musculoskeletal System：获取食物
+* 排出waste products
+    - Lungs：Carbon Dioxide
+    - Kidneys：血液中大部分wastes
+    - Gastrointestinal Tract：Undigested materials
+    - Liver：drugs and chemicals
+* 身体机能的调控系统
+    - Nervous System：sensory input portion + central nervous system (or integrative portion) + motor output portion
+    - Hormone Systems：transported in the extracellular fluid to other parts of the body to help regulate cellular function
+* Control Systems
+    - Negative Feedback Loop：超出正常范围会有抑制机制；维持稳态
+    - Positive Feedback Loop：其提升会刺激进一步提升；(e.g. 受伤召唤凝血因子、Childbirth、nerve signals)；受Negative Feedback抑制、防止升级至危险状态
+* Adaptive Control：大脑发送前馈信号控制peripheral parts进行动作，即，信号传递至外围部位后，活动部位返回sensory nerve signals，大脑会依据状况修正后续动作
+
+![Figure 1-1](Physiology/1-1.png)  
+
+
 ## Chapter 2 (TBA)
 ## Chapter 3 (TBA)
 ## Chapter 4 (TBA)
