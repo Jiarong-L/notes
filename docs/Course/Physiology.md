@@ -1,6 +1,6 @@
 <style>
 img{
-    width: 50%;
+    width: 49%;
 }
 </style>
 
@@ -45,7 +45,33 @@ environment (extracellular fluid)
 ![Figure 1-1](Physiology/1-1.png)  
 
 
-## Chapter 2 (TBA)
+## Chapter 2
+![Figure 2-2](Physiology/2-2.png)    
+
+* Protoplasm
+    - water: 占70%~85%
+    - electrolytes: potassium, magnesium, phosphate, sulfate, bicarbonate, and sodium, chloride, and calcium
+    - proteins: structural, functional
+    - lipids: phospholipids, cholesterol
+    - carbohydrates: 提供能量或合成glycoprotein
+* Cell Membrane：双重磷脂     
+![Figure 2-3](Physiology/2-3.png)
+* Endoplasmic Reticulum：Rough ER 合成蛋白，Smooth ER 合成 lipids   
+![Figure 2-4](Physiology/2-4.png)
+* Golgi apparatus：接收ER生成物，生成碳水化合物，下一步可形成 Lysosomes 等分泌小泡   
+![Figure 2-14](Physiology/2-14.png)
+* Mitochondria：数量不定，生成ATP   
+![Figure 2-15](Physiology/2-15.png)
+* Cytoskeleton：Filament and Tubular Structures   
+![Figure 2-8](Physiology/2-8.png)
+* Nucleus：遗传物质   
+![Figure 2-9](Physiology/2-9.png)
+* Endocytosis（胞吞）：Pinocytosis（胞饮），Phagocytosis（胞吃/吞噬）
+* Autophagy（自噬）：移除老化organelles
+* 细胞移动：
+    - Ameboid motion：细胞一端伸出假足将自己固定到新的区域，向这个方向形变（后方发生吞噬、于前方Exocytosis，则成功挪动这一部分细胞膜）
+    - Cillary movement 纤毛运动，需要ATP与appropriate ionic conditions；e.g. 呼吸系统分泌粘液
+
 ## Chapter 3 (TBA)
 ## Chapter 4 (TBA)
 ## Chapter 5 (TBA)
@@ -56,7 +82,6 @@ environment (extracellular fluid)
 ### Heart Anatomy
 ![Figure 9-1](Physiology/9-1.png)  
 肌肉纤维由 Intercalated discs 互相连通，传递 ion signals 以保持节律。
-
 
 
 
