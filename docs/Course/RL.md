@@ -137,7 +137,27 @@ V Function- 自$s_t$后的总累计reward
 | Actor-critic | 对 current policy 预测 V or Q 后, 更新policy: $\theta \leftarrow  \theta + \nabla_{\theta}E[Q(s,a)]$ | -- |
 | Model-based | 预测transitional model: $p(s_{t+1} \| s_t,a_t)$，然后... | 1. planning (no explicit policy) <br> 2. improva policy <br> 3. learn V or Q function <br> ... |
 
-## Direct Policy Gradients
+### Direct Policy Gradients
+类似 Maximum Likelihood -- make high reward Trajectory more probable
+![Direct Policy Gradients](./RL/5-1.png) 
+
+由于$\nabla_{\theta}J(\theta)$非线性，$r(\tau)+constant$可能影响拟合的(虚线) policy 曲线 (probablity & reward)；因此当取样数目小时，会有这样的 **High Variance** 问题    
+![High Variance](./RL/5-2.png) 
+
+解决 High Variance 问题：  
+1. Causality: $\theta_{t'}$不能影响 $t<t'$ 时的reward  
+![Causality](./RL/5-3.png)   
+2. Baselines: make 'better than average' more probable  
+![Baselines](./RL/5-4.png)   
+
+此外，On policy 取样需要每次更新样本，但越 non-linear，每次 gradient 越小；因此可**假设** locally $\pi' = \pi$，用 Important Sampling 将 On policy 改编为 Off policy
+
+![Important Sampling](./RL/5-5.png)
+
+
+
+
+
 
 
 
