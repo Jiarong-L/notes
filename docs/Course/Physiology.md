@@ -72,15 +72,44 @@ environment (extracellular fluid)
     - Ameboid motion：细胞一端伸出假足将自己固定到新的区域，向这个方向形变（后方发生吞噬、于前方Exocytosis，则成功挪动这一部分细胞膜）
     - Cillary movement 纤毛运动，需要ATP与appropriate ionic conditions；e.g. 呼吸系统分泌粘液
 
-## Chapter 3 (TBA)
+## Chapter 3
+<!-- ![Figure 3-1](Physiology/3-1.png)   -->
+
+* Small nuclear RNA (snRNA) directs the splicing of pre-mRNA
+to form mRNA
+* MicroRNAs (miRNAs) 与mRNA结合(blocking)，调节转录和翻译
+* pre-mRNA去除introns形成mRNA，随后指导合成蛋白（消耗ATP）：Transfer RNA (tRNA) 运输AA，Ribosomal RNA (rRNA) 提供核糖体结构框架
+<!-- ![Figure 3-9](Physiology/3-9.png)    -->
+* Polyribosomes：由多个核糖体串连在一条mRNA分子上高效地进行肽链的合成
+<!-- ![Figure 3-11](Physiology/3-11.png)    -->
+* ATCG化学式  
+![Figure 3-3](Physiology/3-3.png)    
+* Codon Table 详见 [NCBI-The Genetic Codes](https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi)，同一种氨基酸具有两个或更多个密码子（简并密码子）  
+![Codon Table](Physiology/3-1t.png)   
+* Gene transcription in eukaryotic cells  
+![Figure 3-13](Physiology/3-13.png)  
+* 细胞通过 Mitosis 进行复制  
+    - ![Figure 3-14 mitosis](Physiology/3-14.png)  
+    - Interphase：interval between mitosis，其占细胞95%以上生命周期。DNA在分裂开始前约10h开始复制，并且需要通过 Proofreading (是否与模板一致) 与 DNA Repair 以降低错误率。不过，假定人类30年一代，预计依旧会累计10个以上的Mutation 给下一代
+    - Prophase 前期：纺锤体形成，染色体被压缩
+    - Prometaphase 前中期：核膜消失，microtubule aster 结合着丝粒，将成对的chromatids 向两极施加拉力
+    - Metaphase 中期：asters 相互挤压、形成纺锤体，chromatids 于赤道面排列
+    - Anaphase 后期：chromatids 被拉开
+    - Telophase 末期：两边各自形成新的核膜，microfilaments 形成 contractile ring 将细胞分开
+    - Mitosis的调节：Growth Factors，细胞密度（相互挤压、环境中 cell's own secretion 的浓度） 
+* 细胞寿命：每次复制端粒（Telomeres）会变短，骨髓中的端粒酶可修复端粒长度
+* Apoptosis：细胞程序性死亡：shrink，condense，disassemble cytoskeleton，在表白加上标记、以便免疫细胞及时清除
+* Necrosis：细胞被动死亡，内容物释放到微环境
+* Oncogene 一般是促进细胞生长的基因、缺乏抑制，因此 Cancer 中细胞无度生长、与正常细胞争夺养分；Cancer 可能来源：Ionizing radiation，Chemical substances，Physical irritants 如持续磨损，家族遗传，Certain types of oncoviruses
+
 ## Chapter 4 (TBA)
 ## Chapter 5 (TBA)
 ## Chapter 6 (TBA)
 ## Chapter 7 (TBA)
 ## Chapter 8 (TBA)
 ## Chapter 9 (TBA)
-### Heart Anatomy
-![Figure 9-1](Physiology/9-1.png)  
+
+![Figure 9-1 Heart Anatomy](Physiology/9-1.png)  
 肌肉纤维由 Intercalated discs 互相连通，传递 ion signals 以保持节律。
 
 
