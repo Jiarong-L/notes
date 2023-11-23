@@ -97,6 +97,29 @@ console.log(myArr[0])
 ```
 
 
+正则格式常见：```/ /g```，斜杠间定义查找模式，g修饰符表示全局匹配多处（否则默认只匹配第一个match）；```mystr.match(reg)```进行匹配，或```mystr.match(reg,'newstr')```进行替换
+```js
+const reg = /abc|cde/g        //匹配abc或cde
+const reg = /(abc|cde) is/g   //匹配abc is或cde is
+const reg = /^abc/g        //匹配在开头的abc
+const reg = /abc$/g        //匹配在末尾的abc
+const reg = /c?/g          //c可以出现 0 或 1 次
+const reg = /c*/g          //c可以出现 0 或 N 次
+const reg = /c+/g          //c可以出现 1 或 N 次
+const reg = /c{5,8}/g      //c可以出现 5 到 8 次
+const reg = /[a-zA-z]/g    //匹配字母集
+const reg = /[^a-zA-z]/g   //匹配除字母集外的其它字符
+const reg = /\[/g          //转义匹配[，
+                    // 或触发预定义模式: 
+                    // \d 数字，\D 除数字外的其它字符 [^0-9]
+                    // \w 单词字符，\W 除单词外的其它字符
+
+```
+
+* ``` | [] ^ $ ? * + {,} []  ``` 是常见的特殊功能字符，见上方示例
+* regexr.com 进行练习
+
+
 ## DOM
 ### 元素获取
 ```js
