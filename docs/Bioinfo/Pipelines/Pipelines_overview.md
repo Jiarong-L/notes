@@ -18,7 +18,7 @@ img{
 [![Meta](./Pipelines_overview/img/meta.png)](.)
 
 ## Metabolomics
-[![Metabolomics](./Pipelines_overview/img/metabolomics.png)](.)
+[![Metabolomics](./Pipelines_overview/img/metabolomics.png)](./Metabolomics.md)
 
 
 ## RNA
