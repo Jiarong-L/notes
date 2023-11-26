@@ -15,20 +15,20 @@ img{
 [![Genome](./Pipelines_overview/img/Genome.png)](.)
 
 ## Meta
-[![Meta](./Pipelines_overview/img/meta.png)](.)
+[![Meta](./Pipelines_overview/img/Meta.png)](.)
 
 ## Metabolomics
-[![Metabolomics](./Pipelines_overview/img/metabolomics.png)](./Metabolomics.md)
+[![Metabolomics](./Pipelines_overview/img/Metabolomics.png)](./Metabolomics.md)
 
 
-## RNA
+## Bulk RNA
 [![RNA](./Pipelines_overview/img/RNA.png)](./RNA.md)
 
 ## scRNA
 [![scRNA](./Pipelines_overview/img/scRNA.png)](./scRNA.md)
 
 
-## Spatial 
+## Spatial RNA
 Space Ranger(10x Visium; each spot contains several cells) + Seurat.   
 Seurat provides methods for clustering, gene expr viewing, marker detection and ‘anchor’ between scRNA datasets (e.g., scRNA data & deconvoluted Visium data).
 
