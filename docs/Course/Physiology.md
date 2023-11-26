@@ -73,15 +73,17 @@ environment (extracellular fluid)
     - Cillary movement 纤毛运动，需要ATP与appropriate ionic conditions；e.g. 呼吸系统分泌粘液
 
 ## Chapter 3
-<!-- ![Figure 3-1](Physiology/3-1.png)   -->
 
-* Small nuclear RNA (snRNA) directs the splicing of pre-mRNA
-to form mRNA
-* MicroRNAs (miRNAs) 与mRNA结合(blocking)，调节转录和翻译
-* pre-mRNA去除introns形成mRNA，随后指导合成蛋白（消耗ATP）：Transfer RNA (tRNA) 运输AA，Ribosomal RNA (rRNA) 提供核糖体结构框架
+<!-- ![Figure 3-1](Physiology/3-1.png)   -->
 <!-- ![Figure 3-9](Physiology/3-9.png)    -->
-* Polyribosomes：由多个核糖体串连在一条mRNA分子上高效地进行肽链的合成
 <!-- ![Figure 3-11](Physiology/3-11.png)    -->
+
+* RNAs
+    - Small nuclear RNA (**snRNA**) directs the splicing of pre-mRNA
+to form mRNA（去除introns）
+    - **mRNA** 指导合成蛋白（消耗ATP）：Transfer RNA (**tRNA**) 运输AA，Ribosomal RNA (**rRNA**) 提供核糖体结构框架
+    - MicroRNAs (**miRNAs**) 与mRNA结合(blocking)，调节转录和翻译
+* Polyribosomes：由多个核糖体串连在一条mRNA分子上高效地进行肽链的合成
 * ATCG化学式  
 ![Figure 3-3](Physiology/3-3.png)    
 * Codon Table 详见 [NCBI-The Genetic Codes](https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi)，同一种氨基酸具有两个或更多个密码子（简并密码子）  
@@ -89,7 +91,7 @@ to form mRNA
 * Gene transcription in eukaryotic cells  
 ![Figure 3-13](Physiology/3-13.png)  
 * 细胞通过 Mitosis 进行复制  
-    - ![Figure 3-14 mitosis](Physiology/3-14.png)  
+![Figure 3-14 mitosis](Physiology/3-14.png)  
     - Interphase：interval between mitosis，其占细胞95%以上生命周期。DNA在分裂开始前约10h开始复制，并且需要通过 Proofreading (是否与模板一致) 与 DNA Repair 以降低错误率。不过，假定人类30年一代，预计依旧会累计10个以上的Mutation 给下一代
     - Prophase 前期：纺锤体形成，染色体被压缩
     - Prometaphase 前中期：核膜消失，microtubule aster 结合着丝粒，将成对的chromatids 向两极施加拉力
@@ -102,8 +104,45 @@ to form mRNA
 * Necrosis：细胞被动死亡，内容物释放到微环境
 * Oncogene 一般是促进细胞生长的基因、缺乏抑制，因此 Cancer 中细胞无度生长、与正常细胞争夺养分；Cancer 可能来源：Ionizing radiation，Chemical substances，Physical irritants 如持续磨损，家族遗传，Certain types of oncoviruses
 
-## Chapter 4 (TBA)
+## Chapter 4
+
+![Figure 4-2](Physiology/4-2.png)![Figure 4-7](Physiology/4-7.png)   
+
+* Diffusion 由物质浓度、电离浓度综合驱动
+    - 脂类可通过细胞膜扩散；水溶性小分子可通过 protein “pores” (aquaporins) 渗透，比水大20%，渗透效率降低1000倍
+    - Protein channels 有两个特性：
+        1. selectively permeable（e.g. K离子专用通道）
+        2. electrical signals / chemicals 控制 gates 开合（voltage-gated / ligand-gated）
+    - 受限于Carrier protein 的形变速度，Facilitated diffusion 有速度上限（上图所示Vmax）
+    - Nernst equation：EMF (in millivolts) = ±61*log(C1/C2)；EMF 指细胞膜内外 voltage；C1、C2 指细胞膜内外待扩散物质的浓度；此式满足则达成扩散平衡
+    - Osmosis：水分子也可以渗透通过细胞膜；由渗透压驱动
+        * 1 osmole = 1mol osmotically active solute 存在于1L溶剂中；e.g. 1mol某物质溶于水形成 2mol ions，则 2 osmoles；若不分解成ions，则依旧 1 osmole
+        * 区别：Osmolality（osmoles per kilogram），Osmolarity（osmoles per liter of solution）
+
+* Active transport 可逆浓度梯度转运物质，由载体蛋白消耗能量驱动
+    - Primary：消耗ATP运输某种物质；e.g. Na-K Pump 维持平衡，Ca Pump 储钙于内质网中，H Pump 胃酸生成   
+    ![Figure 4-12 Na-K Pump](Physiology/4-12.png)
+    - Secondary：形成浓度梯度/...，以运输另一种物质
+        1. Co-Transport   
+        ![Figure 4-13 sodium co-transport of glucose](Physiology/4-13.png)    
+        2. Counter-transport   
+        ![Figure 4-14 Sodium counter-transport of calcium and hydrogen ions](Physiology/4-14.png)
+
+
+
 ## Chapter 5 (TBA)
+
+
+
+
+
+
+
+
+
+
+
+
 ## Chapter 6 (TBA)
 ## Chapter 7 (TBA)
 ## Chapter 8 (TBA)
