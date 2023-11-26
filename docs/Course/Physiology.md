@@ -130,17 +130,28 @@ to form mRNA（去除introns）
 
 
 
-## Chapter 5 (TBA)
+## Chapter 5
+
+**本章节关注 Nerve Cells**；Cardiac Cells 也有电位（Ca，此处不述）
+
+![Figure 5-1](Physiology/5-1.png)![Figure 5-3](Physiology/5-3.png)  
 
 
-
-
-
-
-
-
-
-
+* 静息状态时达成平衡，Nerve fiber 细胞内部含有大量K，细胞外部含有大量Na。因为多种离子的平衡电位不同 (K:–94 mV,Na:+61mV)，**静息电位**可用 Goldman equation 计算，其值为负，因：
+    - Na-K pump: 泵出3 Na+, 泵入2 K+
+    - K "leak" channels: 渗出 K+
+* 将电位从−70mV提升至10mV的**测试**中，可以发现Na、K 通道的反应速度不同   
+![Figure 5-9](Physiology/5-9.png)
+* 标准动作电位示意图（左）；带节律的动作电位（中）调节心脏节律，Hyperpolarization 与 K 流出有关；Plateau（右）延长了去极化的时间（与Ca通道有关），使心脏肌肉的收缩时间相同    
+![Figure 5-6 动作电位](Physiology/5-6.png)
+* **动作电位**激发后 Na 涌入细胞，到达电位顶点后通道迅速关闭；随后 K 加速流出细胞，到达平衡电位后通道关闭     
+![Figure 5-7](Physiology/5-7.png)
+* 动作电位可沿着 conductive fiber 向两侧传导；也可 Saltatory conduction （跳跃式传导，更快）：Schwann cell 包裹 nerve fiber，间隔着留下 Node of Ranvier 以供跳跃式传导       
+![Figure 5-11](Physiology/5-11.png)
+* 当前一个动作电位未结束时，后一个电位不会被激活，因为激活后不久Na通道就会关闭，直至再次达到静息电位前都不能再激活；下图（B）无法被激活，因为此时正处于 absolute refractory period (1/2500 second for nerve fibers)；下图（A）因为impulse未达到动作电位而未能激活     
+![Figure 5-18](Physiology/5-18.png)
+* 细胞外液钙离子浓度高会降低细胞膜对钠离子的通透性，因此 Ca 是 stabilizer
+* 一些麻醉药提高Na通道的激活难度（提高 excitability threshold）
 
 
 ## Chapter 6 (TBA)
