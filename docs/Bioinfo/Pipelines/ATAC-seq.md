@@ -1,5 +1,9 @@
 
-TBA
+
+* promoter: 接近TSS区域，包含TF结合位点、募集 RNA polymerase
+* 如果TF接触 promoter region 时结合了 enhancer，则基因的表达量升高；如果结合了 silencer，则基因的表达量降低
+* enhancer 最远距离 promoter region 上下游1Mb
+
 
 # ATAC-seq 
 

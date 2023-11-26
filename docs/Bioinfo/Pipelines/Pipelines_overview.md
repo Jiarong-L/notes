@@ -11,10 +11,18 @@ img{
 * RNA项目可以使用RSeQC进行测序饱和度分析，以确保有效检测
 * 定量单位可以有TPM、FPKM... （TBA）
 
+## Genome
+[![Genome](./Pipelines_overview/img/Genome.png)](.)
 
 ## Meta
 [![Meta](./Pipelines_overview/img/meta.png)](.)
 
+## Metabolomics
+[![Metabolomics](./Pipelines_overview/img/metabolomics.png)](.)
+
+
+## RNA
+[![RNA](./Pipelines_overview/img/RNA.png)](./RNA.md)
 
 ## scRNA
 [![scRNA](./Pipelines_overview/img/scRNA.png)](./scRNA.md)
@@ -35,7 +43,7 @@ TBA
 ## Chip-seq 
 TBA
 
+## WES
+TBA
 
-## RNA
-[![RNA](./Pipelines_overview/img/RNA.png)](./RNA.md)
 
