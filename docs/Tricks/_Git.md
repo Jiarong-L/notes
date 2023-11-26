@@ -17,6 +17,12 @@ git config --global user.name "your-username"
 git config --global user.email "your-email-address"
 ```
 
+设置大小写敏感：
+```
+git config core.ignorecase false
+```
+
+
 
 ### Clone
 ```
