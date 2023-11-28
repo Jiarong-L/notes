@@ -17,6 +17,9 @@ MathJax = {
 img{
     width: 60%;
 }
+table th:nth-of-type(5) {
+    width: 20%;
+}
 </style>
 
 
@@ -93,7 +96,7 @@ $\hspace{2.4em}=1 + \mu'_1 t + \frac{\mu'_2}{2!}t^2 +\frac{\mu'_3}{3!} t^3+...$
 * 连续随机变量的矩母函数的定义方法及应用与离散随机变量一致，只是期望值牵涉到积分
 
 
-### 离散
+### 离散分布
 | -- | 说明 | <span style="display:inline-block;width:150px">$p(y)$</span> | $\mu$ | $\sigma^2$ | 矩母函数 $m(t)$ |
 | -- | -- | -- | -- | -- | -- |
 | 离散 | (一般) | Y 取值为 y 的概率 | $E(Y)=\sum{yp(y)}$ | $E[(Y-\mu)^2]=E(Y^2)-\mu^2$ <br> $其中E(Y^2)=\sum{y^2p(y)}$ | $E(e^{tY})=\sum{e^{ty}p(y)}$ |
@@ -107,15 +110,50 @@ $\hspace{2.4em}=1 + \mu'_1 t + \frac{\mu'_2}{2!}t^2 +\frac{\mu'_3}{3!} t^3+...$
 
 * 二项试验中使用了**有放回**抽样（放回集合后再开始下一次抽取），Y的概率分布近似于二项分布；超几何试验则使用了**无放回**抽样，当N很大时Y分布亦可近似于二项分布，但当N小(e.g. <20n)时希望利用更加精确的超几何分布
 
-### 连续
+### 连续分布
+![均匀概率](./Basis/5-4.png)
+
+* 随机变量Y的**累积分布函数**(Cumulative Distribution Func): $F(y)=P(Y \le y)$
+* 随机变量Y的**概率密度函数**(Probability Density Func): $f(y)=\frac{dF(y)}{dy}$，即 
+    - $P(a<Y<b)=\int_{a}^{b}f(y)dy=F(b)-F(a)$
+    - $P(\infty)=\int_{-\infty}^{+\infty}f(y)dy=F(\infty)=1$
+* $E[g(Y)]=\int_{-\infty}^{+\infty}g(y)f(y)dy$，$g(Y)$是Y的任意函数
+    - $E(Y)=\int_{-\infty}^{+\infty}yf(y)dy$
+    - $E(Y^2)=\int_{-\infty}^{+\infty}y^2f(y)dy$
+
+| -- |  说明 | 均值 | 方差 | 矩母函数 $m(t)$ |
+| -- |  -- | -- | -- | -- |
+| 均匀 | --- | $\frac{a+b}{2}$ | $\frac{(b-a)^2}{12}$ | $\frac{e^{tb}-e^{ta}}{t(b-a)}$ |
+| 正态 | **正态性检验**：QQ plot，K-S test，S-W test | $\mu$ | $\sigma^2$ | $e^{\mu t + (t^2 \sigma ^2/2)}$ |
+| $\Gamma$ | $\Gamma$型概率分布与寿命长度或等待时间有关（非负数） | $\alpha \beta$ | $\alpha \beta^2$ | $(1-\beta t)^{- \alpha}$ |
+| 卡方 | $\Gamma$型：$\alpha=\nu/2,\beta=2$ | $\nu$ | $2\nu$ | $(1-2t)^{-\nu/2}$ |
+| 指数 | $\Gamma$型：$\alpha=1$，若事件发生（e.g.到达服务器）服从单位时间平均发生$\frac{1}{\beta}$次的泊松概率分布，则任意一对相继发生事件之间的间隔$y$的$f(y)$将是均值为$\beta$的指数分布 | $\beta$ | $\beta^2$ | $(1-\beta t)^{-1}$ |
+| 威布尔 | $\Gamma$型：一般用以描述设备、元件的寿命长度（失效时间） | $\beta^{1/\alpha}\Gamma(\frac{\alpha+1}{\alpha})$ | $\beta^{2/\alpha}[\Gamma(\frac{\alpha+2}{\alpha})-\Gamma^2(\frac{\alpha+1}{\alpha})]$ | $\beta^{t/\alpha}\Gamma(1+t/\alpha)$ |
+| $\beta$ | $\Gamma$型：将y限制在[0,1]间 | $\frac{\alpha}{\alpha+\beta}$ | $\frac{\alpha \beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$ | -- |
 
 
+* 均匀概率分布  
+$$ f(x)= \begin{cases} \frac{1}{b-a} \quad y \in [a,b]  \\\\ 0 \quad Otherwise \end{cases} $$
 
-
-
-
-
-
+* 正态概率分布
+$$f(x)=\frac{e^{-(y-\mu)^2/(2\sigma^2)}}{\sigma\sqrt{2 \pi}}   \quad y \in (-\infty，+\infty)$$
+* $\Gamma$概率分布
+$$ f(x)= \begin{cases} \frac{y^{\alpha-1}e^{-y/\beta}}{\beta^{\alpha}\Gamma(\alpha)} \quad \quad y \in [0,+\infty);\alpha>0;\beta>0 \\\\ 0 \quad Otherwise \end{cases} $$ 
+$$\Gamma(\alpha)=\int_0^{\infty}y^{\alpha-1}e^{-y}dy$$
+$$当\alpha是整数时, \Gamma(\alpha)=(\alpha-1)\Gamma(\alpha-1)=(\alpha-1)!$$
+**参数意义**：$\beta$-尺度参数（类似$\sigma$，控制宽幅），$\alpha$-形状参数
+* $\chi^2$卡方概率分布
+$$ f(x)= \begin{cases} \frac{y^{(\nu/2)-1}e^{-y/2}}{2^{\nu/2}\Gamma(\nu/2)} \quad y \in [0,+\infty)  \\\\ 0 \quad Otherwise \end{cases} $$
+**参数意义**：$\nu$-自由度
+* 指数概率分布
+$$f(x)=\frac{e^{-y/\beta}}{\beta} \quad y \in [0,+\infty)$$
+* 威布尔概率分布
+$$ f(x)= \begin{cases} \frac{\alpha}{\beta}y^{\alpha-1}e^{-y\alpha/\beta} \quad y \in [0,+\infty);\alpha>0;\beta>0  \\\\ 0 \quad Otherwise \end{cases} $$
+优点：其$F(y)$显式存在，可用于求得威布尔曲线下的面积
+* $\beta$概率分布
+$$ f(x)= \begin{cases} \frac{y^{\alpha-1}(1-y)^{\beta-1}}{B(\alpha,\beta)} \quad y \in [0,1];\alpha>0;\beta>0  \\\\ 0 \quad Otherwise \end{cases} $$
+$$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$$
+不完全$\beta$函数：$\beta$密度函数的$F(y)$
 
 
 ## 二元概率
@@ -123,8 +161,20 @@ $\hspace{2.4em}=1 + \mu'_1 t + \frac{\mu'_2}{2!}t^2 +\frac{\mu'_3}{3!} t^3+...$
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## 参考
 先验概率、后验概率、似然概率：https://zhuanlan.zhihu.com/p/397960221  
+概率中的PDF\PMF\CDF\PPF\ISF：https://blog.csdn.net/dkkfff/article/details/115912758   
+正态性检验：https://zhuanlan.zhihu.com/p/656009843    
 
 
 
