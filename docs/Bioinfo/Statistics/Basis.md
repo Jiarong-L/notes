@@ -261,8 +261,8 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
     - 令 $\hat{\theta}$ 是抽样分布近似正态分布的统计量，期望为 $E(\hat{\theta})=\theta$，标准误为 $\sigma_{\hat{\theta}}$；
     - 则 $Z=\frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}}$ 也来自正态分布；$P(-z_{\alpha/2} \le Z \le z_{\alpha/2})=1-\alpha$
     - ![](./Basis/7-3.png) 
-    - $Z$ 的 $(1-\alpha)$ 置信区间是 $0 \pm z_{\alpha/2}$
-    - 则 $\theta$ 的 $(1-\alpha)$ 置信区间是 $\hat{\theta} \pm (z_{\alpha/2})\sigma_{\hat{\theta}}$
+    - $Z$ 的 $(1-\alpha)$ 置信区间是 $[-z_{\alpha/2},+z_{\alpha/2}]$
+    - 则 $\theta$ 的 $(1-\alpha)$ 置信区间是 $[\hat{\theta} - (z_{\alpha/2})\sigma_{\hat{\theta}},\hat{\theta} + (z_{\alpha/2})\sigma_{\hat{\theta}}]$
 
 
 ### 常见估计
