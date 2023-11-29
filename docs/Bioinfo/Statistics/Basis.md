@@ -30,13 +30,13 @@ table th:nth-of-type(5) {
 
 ## 描述性统计
 
-| -- | 样本 | 总体 |
-| -- | -- | -- |
-| 列说明 | 从总体N中取n测量值 | 有n个测量值的有限总体 |
-| 均值 | $$\overline{y}=\frac{\sum\limits_{i=1}^{n}y_i}{n}$$ | $\mu$ |
-| 方差 | $$s^2=\frac{\sum\limits_{i=1}^{n}(y_i-\overline{y})^2}{n-1}$$ | $$\sigma^2=\frac{\sum\limits_{i=1}^{n}(y_i-\mu)^2}{n}$$ |
-| 标准差 | $$s=\sqrt{s^2}$$ | $$\sigma=\sqrt{\sigma^2}$$ |
-| z score | $$z=\frac{y-\overline{y}}{s}$$ | $$z=\frac{y-\mu}{\sigma}$$ |
+| -- | 样本 | 总体 | -- |
+| -- | -- | -- | -- |
+| 列说明 | 从总体N中取n测量值 | 有n个测量值的有限总体 | -- |
+| 均值 | $$\overline{y}=\frac{\sum\limits_{i=1}^{n}y_i}{n}$$ | $\mu$ | -- |
+| 方差 | $$s^2=\frac{\sum\limits_{i=1}^{n}(y_i-\overline{y})^2}{n-1}$$ | $$\sigma^2=\frac{\sum\limits_{i=1}^{n}(y_i-\mu)^2}{n}$$ | **方差(Variance)**：$(y_i-均值)$，衡量离散程度 <br> **均方误差(MSE)**：$(y_i-真实值)$，偏离真实值的程度 |
+| 标准差 | $$s=\sqrt{s^2}$$ | $$\sigma=\sqrt{\sigma^2}$$ | -- |
+| z score | $$z=\frac{y-\overline{y}}{s}$$ | $$z=\frac{y-\mu}{\sigma}$$ | -- |
 
 * 经验法则：68% 观测值位于 $\overline{y}\pm s$，95% 位于 $\overline{y}\pm 2s$，几乎所有位于 $\overline{y}\pm 3s$
 * 切比雪夫法则：$(1-\frac{1}{k^2})$观测值位于k个标准差范围内($\overline{y}\pm ks$)
@@ -190,7 +190,7 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
 
 | 观测值 | 统计量 | 抽样分布 | 均值E | 标准误V |
 | -- | -- | -- | -- | -- |
-| -- | -- | 统计量的**抽样分布**是重复抽样时这个统计量的理论概率分布 | **抽样分布的均值** | 统计量的标准误是**抽样分布的标准差** |
+| -- | -- | 统计量的**抽样分布**是重复抽样时这个统计量的理论概率分布 | **抽样分布的均值E** | 统计量的标准误是**抽样分布的标准差V** |
 | 有n个观测值 $y_1,y_2,y_3,...,y_n$，来自于有限均值$\mu$、有限标准差$\sigma$的总体（总体不一定是正态分布） | n个观测值的均值 $\overline{Y}$ | 当n足够大时，$\overline{Y}$的抽样分布可由正态密度函数近似（**中心极限定理**） | $E(\overline{Y})=\mu$ | $V(\overline{Y})=\frac{\sigma}{\sqrt{n}}$ |
 | （同上） | n个观测值的和 $Y_{sum}=\sum{(y_1,y_2,y_3,...,y_n)}$ | 当n足够大时，$Y_{sum}$的抽样分布可由正态密度函数近似 | $E(Y_{sum})=n\mu$ | $V(Y_{sum})=n\sigma^2$ |
 
@@ -202,7 +202,7 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
 | -- | -- | -- |
 | $\chi^2=\frac{(n-1)S^2}{\sigma^2}$ | 自由度为 $\nu=(n-1)$ 的**卡方分布** | $S^2$表示样本方差 |
 | $T=\frac{Z}{\sqrt{\chi^2/\nu}}=\frac{\overline{Y}-\mu}{S/\sqrt{n}}$ | 自由度为$\nu$的学生**T分布** | $Z$是标准正态随机变量，$\chi^2$是自由度为 $\nu$ 的的卡方随机变量；$Z$与$\chi^2$独立；$\overline{Y}$与$S^2$独立 |
-
+| $Z=\frac{\overline{Y}-\mu}{\sigma/\sqrt{n}}$ | **Z分布**近似标准正态分布 | 估计置信区间时，一般大样本用Z分布，小样本(n<30)用T分布 |
 
 
 有$n1,n2$个观测值分别来自参数为$(\mu_1,\sigma_1),(\mu_2,\sigma_2)$的两个**正态分布**:
@@ -221,6 +221,52 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
 
 
 ## 置信区间
+
+### 点估计
+
+* **点估计** $\hat{\theta}$ 是对某个总体参数 $\theta$ 的估计值，e.g. 样本方差 $S^2$ 是总体方差 $\sigma^2$ 的点估计，记作 $\hat{\sigma^2}=S^2$
+* 一般希望估计量的抽样分布：（MVUE：最小方差无偏估计）
+    - 无偏：如果 $E(\hat{\theta})=\theta$，称参数 $\theta$ 的估计值 $\hat{\theta}$ 是**无偏**的，否则是有偏的；**偏** $b(\hat{\theta})=E(\hat{\theta})-\theta$
+    - 最小**方差(Variance)**：抽样分布的离散程度尽可能小
+    - （最小二乘法**求点估计**）如果不能达成MVUE，可使用最小**均方误差(MSE)**：$E[(\hat{\theta}-\theta)^2]=V(\hat{\theta})+b^2(\hat{\theta})$
+
+
+* 矩法**求点估计**：
+    - 定义：$k$阶总体矩 $E(Y^k)$，$k$阶样本矩 $m_k=\frac{\sum\limits_{i=1}^{n}y_i^k}{n}$
+    - 证明：样本$k$阶原点矩是总体$k$阶原点矩的无偏估计量？？    
+    - 有n个观察值 $y_1,y_2,y_3,...,y_n$ 来自参数为 $\theta_1,\theta_2,\theta_3,...,\theta_k$ 的分布，矩估计 $\hat{\theta_1},\hat{\theta_2},\hat{\theta_3},...,\hat{\theta_k}$ 可通过使 $E(Y^k)=m_k$ 求得
+    - e.g. 当 $k=1$ 时，一阶总体矩 $E(Y)=\mu$，一阶样本矩 $m_1=\overline{y}$；使 $\mu=\overline{y}$
+        * 已知：$Y$服从泊松分布
+        * 已知：通过n个观察值可计算出 $\overline{y}$
+        * 求：$\lambda$
+        * 解：对于泊松分布，$E(Y^1)=\mu=\lambda$，$m_1=\overline{y}$，使 $E(Y^k)=m_k$ 可得 $\lambda=\overline{y}$
+
+* 极大似然法**求点估计**：(假设每个$y$独立)，选择使样本的似然函数 $L=p(y_1,y_2,y_3,...,y_n)=p(y_1)p(y_2)p(y_3)...p(y_n)$ 最大的 $\hat{\theta_1},\hat{\theta_2},\hat{\theta_3},...,\hat{\theta_k}$ 作为 $\theta_1,\theta_2,\theta_3,...,\theta_k$ 的估计值
+    - 通常通过 $\frac{\partial L}{\partial\theta_i}=0$ 求最大值（注意，此时也可能是最小值）
+    - 如果 $L$ 不保证单调递增，argmax目标可以变成 $L$ 的对数：$ln(L)$
+
+* 刀切估计：每次从n中去掉一个观测值、多次估计$\theta$，最后对所有估计值进行线性组合（加权平均）；适用于有偏、有异常值的样本集
+* 稳健估计（e.g. M估计）：（略）；不假设n来自正态总体
+* 贝叶斯估计：认为参数 $\theta$ 是来自某个**已知先验分布** $p(\theta)$ 的随机变量，样本信息用于修正 $\theta$ 的先验分布、从而得到后验分布 $f(\theta|y_1,y_2,...,y_n)$ 
+    - $\theta$ 的贝叶斯估计 $\hat{\theta}$ 就是后验分布的均值 $E(\theta|y_1,y_2,...,y_n)$
+    - 对比：极大似然 $P(L|\theta)$ 认为参数是固定，希望根据数据估计这个参数
+    - 贝叶斯 $P(\theta|...)$ 认为参数是服从某种概率分布的随机变量，已有的数据只是在这种参数的分布下产生的
+    - 贝叶斯的难点在于先验分布 $p(\theta)$ 需要人为设定；由于引入了先验信息，它只需要更少的训练数据
+
+### 区间估计
+
+* **置信区间**：一个以某种置信程度包含被估参数 $\theta$ 的区间
+* **置信系数**：在抽样前，置信区间包含被估参数 $\theta$ 的概率
+* 可使用一个**枢轴统计量**求参数 $\theta$ 的置信区间，e.g.
+    - 令 $\hat{\theta}$ 是抽样分布近似正态分布的统计量，期望为 $E(\hat{\theta})=\theta$，标准误为 $\sigma_{\hat{\theta}}$；
+    - 则 $Z=\frac{\hat{\theta}-\theta}{\sigma_{\hat{\theta}}}$ 也来自正态分布；$P(-z_{\alpha/2} \le Z \le z_{\alpha/2})=1-\alpha$
+    - ![](./Basis/7-3.png) 
+    - $Z$ 的 $(1-\alpha)$ 置信区间是 $0 \pm z_{\alpha/2}$
+    - 则 $\theta$ 的 $(1-\alpha)$ 置信区间是 $\hat{\theta} \pm (z_{\alpha/2})\sigma_{\hat{\theta}}$
+
+
+### 常见估计
+
 
 
 
