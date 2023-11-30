@@ -351,14 +351,44 @@ $s_{\hat{\theta}}$与样本要求参考上文 [常见参数置信区间](./#_12)
 | **配对**样本总体均值差 $\mu_d$ | $\mu_d=D_0$ | $\overline{d}=\frac{\sum d_i}{n}$ 每一对样本差 $d_i$ 的均值 | $Z\approx\frac{\overline{d}-D_0}{s_d/\sqrt{n_d}}$<br>$T$ 略 |
 | 二项分布成功比率 $p$ | $p=p_0$ | $\hat{p}=\frac{y}{n}$ | *$Z=\frac{\hat{p}-p_0}{\sqrt{\frac{p_0q_0}{n}}}$ |
 | 二项分布成功比率之差 $(p_1-p_2)$ | $(p_1-p_2)=D_0$ | $(\hat{p_1}-\hat{p_2})=(\frac{y_1}{n_1}-\frac{y_2}{n_2})$ | $Z \approx \frac{(\hat{p_1}-\hat{p_2})-D_0}{\sqrt{\frac{\hat{p_1}\hat{q_1}}{n_1}+\frac{\hat{p_2}\hat{q_2}}{n_2}}}$ |
-| 总体方差 $\sigma^2$ | $\sigma^2=\sigma_0^2$ | $s^2$ | $\chi^2=\frac{(n-1)s^2}{\sigma_0^2}$ |
-| 总体方差比 $\frac{\sigma^2_1}{\sigma^2_2}$ | $\frac{\sigma^2_1}{\sigma^2_2}=1$ | $\frac{s^2_1}{s^2_2}$ | $F=\frac{较大s_1^2}{较小s_2^2}$ |
+| 总体方差 $\sigma^2$ | $\sigma^2=\sigma_0^2$ | $s^2$ | *$\chi^2=\frac{(n-1)s^2}{\sigma_0^2}$ |
+| 总体方差比 $\frac{\sigma^2_1}{\sigma^2_2}$ | $\frac{\sigma^2_1}{\sigma^2_2}=1$ | $\frac{s^2_1}{s^2_2}$ | *$F=\frac{大s_1^2}{小s_2^2}$ |
 
+
+* 标识\*的统计量使用了总体参数、而不仅仅点估计，故而使用$=$而非$\approx$
 * $\sigma_1^2 \neq \sigma_2^2$ 情况下 **独立**样本总体均值差 的修正：P286
-* 总体方差比 $\frac{\sigma^2_1}{\sigma^2_2}$：
-    - $H_a: \sigma^2_1>\sigma^2_2；则 F=\frac{s_1^2}{s_2^2}$
-    - $H_a: \sigma^2_1<\sigma^2_2；则 F=\frac{s_2^2}{s_1^2}$
-    - $H_a: \sigma^2_1 \neq \sigma^2_2；则 F=\frac{较大s_1^2}{较小s_2^2}$
+* 总体方差比 $\frac{\sigma^2_1}{\sigma^2_2}$ 补充说明：
+    - $H_a: \sigma^2_1>\sigma^2_2；则 F=\frac{s_1^2}{s_2^2}1 $
+    - $H_a: \sigma^2_1<\sigma^2_2；则 F=\frac{s_2^2}{s_1^2}1$
+    - $H_a: \sigma^2_1 \neq \sigma^2_2；则 F=\frac{大s_1^2}{小s_2^2}1$
+
+
+## 分类数据
+对于分类数据的统计可以制成 单向表 与 双向表（又称：列联表）
+
+### 单向表
+
+单向表只有一行；e.g. A，B，C 三条生产线当日生产的产品数分别为 22，19，20
+
+| A | B | C |
+| -- | -- | -- |
+| 22 | 19 | 20 |
+
+
+
+### 双向表
+
+一般的 $r \times c$ 列联表 有$r$行$c$列；e.g. 生产线 W1 当日生产的 V1 产品数为 100
+
+| - | W1 | W2 | W3 |
+| -- | -- | -- | -- |
+| V1 | 100 | 19 | 20 |
+| V2 | 6 | 8 | 7 |
+| V3 | 10 | 16 | 12 |
+| V4 | 11 | 15 | 13 |
+
+
+## 回归
 
 
 
