@@ -22,7 +22,7 @@ table th:nth-of-type(5) {
 }
 </style>
 
-
+教材：《统计学（原书第五版）》
 
 ![](./Basis/.png) 
 
@@ -107,7 +107,7 @@ $\hspace{2.4em}=1 + \mu'_1 t + \frac{\mu'_2}{2!}t^2 +\frac{\mu'_3}{3!} t^3+...$
 | 泊松 | 1 unit内发生事件的次数Y(0,1,2,..)；已知 1 unit内平均会发生$\lambda$次事件；发生在每个unit内的事件数独立于其它unit中事件数 | $p(y)=\frac{\lambda^ye^{-\lambda}}{y!}$ | $\lambda$ | $\lambda$ | $e^{\lambda(e^t-1)}$ |
 
 * 二项试验中使用了**有放回**抽样（放回集合后再开始下一次抽取），Y的概率分布近似于二项分布；超几何试验则使用了**无放回**抽样，当N很大时Y分布亦可近似于二项分布，但当N小(e.g. <20n)时希望利用更加精确的超几何分布
-* 当（$np \ge 4, nq \ge 4$）时可满足 $\mu \pm 2\sigma \in (0,n)$，此时正态分布可用于近拟二项分布；详见：《统计学（原书第五版）》196，二项概率正态近拟的连续性修正见197
+* 当（$np \ge 4, nq \ge 4$）时可满足 $\mu \pm 2\sigma \in (0,n)$，此时正态分布可用于近拟二项分布；详见：P196，二项概率正态近拟的连续性修正见P197
 
 ### 连续分布
 ![均匀概率](./Basis/5-4.png)
@@ -128,7 +128,7 @@ $\hspace{2.4em}=1 + \mu'_1 t + \frac{\mu'_2}{2!}t^2 +\frac{\mu'_3}{3!} t^3+...$
     1. 因Y，W单调性一致，故而：$P(W \le w)=P(Y \le y)=G(w)=F(y)$
     2. $G(w)=F(y)=F(\sqrt{w})=\int_{-\infty}^{\sqrt{w}}f(y)dy$
     3. $g(w)=\frac{dG(w)}{dw}$
-* 例二：假设已知**X,Y**的联合密度函数$f(x,y)$，使用**累积分布函数法**求$W=X+Y$的密度函数$g(w)$：《统计学（原书第五版）》183
+* 例二：假设已知**X,Y**的联合密度函数$f(x,y)$，使用**累积分布函数法**求$W=X+Y$的密度函数$g(w)$：P183
 
 
 | -- |  说明 | 均值 | 方差 | 矩母函数 $m(t)$ |
@@ -202,7 +202,7 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
 | -- | -- | -- |
 | $\chi^2=\frac{(n-1)S^2}{\sigma^2}$ | 自由度为 $\nu=(n-1)$ 的**卡方分布** | $S^2$表示样本方差 |
 | $T=\frac{Z}{\sqrt{\chi^2/\nu}}=\frac{\overline{Y}-\mu}{S/\sqrt{n}}$ | 自由度为$\nu$的学生**T分布** | $Z$是标准正态随机变量，$\chi^2$是自由度为 $\nu$ 的的卡方随机变量；$Z$与$\chi^2$独立；$\overline{Y}$与$S^2$独立 |
-| $Z=\frac{\overline{Y}-\mu}{\sigma/\sqrt{n}}$ | **Z分布**近似标准正态分布 | 估计置信区间时，一般大样本用Z分布，小样本(n<30)用T分布 |
+| $Z=\frac{\overline{Y}-\mu}{\sigma/\sqrt{n}}$ | **Z分布**近似标准正态分布 | 估计置信区间时，一般大样本用Z分布，小样本(n<30,且来自正态总体)用T分布 |
 
 
 有$n1,n2$个观测值分别来自参数为$(\mu_1,\sigma_1),(\mu_2,\sigma_2)$的两个**正态分布**:
@@ -212,7 +212,7 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
 | $\chi_{\nu_1}^{2}+\chi_{\nu_2}^{2}$ | 自由度为 $\nu_1+\nu_2$ 的**卡方**分布 | -- | -- |
 | $\chi^2=\frac{(n_1+n_2-2)S_p^2}{\sigma^2}$ | 自由度为 $n_1+n_2-2$ 的**卡方**分布 | $S_p^2=\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2}$ | $\sigma_1^2=\sigma_2^2=\sigma^2$ |
 | $T=\frac{(\overline{Y_1}-\overline{Y_2})-(\mu_1-\mu_2)}{\sqrt{s_p^2(\frac{1}{n_1}+\frac{1}{n_2})}}$ | 自由度为 $n_1+n_2-2$ 的学生**T分布** | $S_p^2=\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2}$ | $\sigma_1^2=\sigma_2^2=\sigma^2$ |
-| $F=\frac{\chi^2_1/\nu_1}{\chi^2_2/\nu_2}=(\frac{S_1^2}{S_2^2})(\frac{\sigma_1^2}{\sigma_2^2})$ | 分子自由度$\nu_1=n_1-1$，分母自由度$\nu_2=n_2-1$的**F分布** | $\chi^2_1,\chi^2_2$ 是自由度分布分别为$\nu_1,\nu_2$的的卡方随机变量；$\chi^2_1,\chi^2_2$独立 | -- |
+| $F=\frac{\chi^2_1/\nu_1}{\chi^2_2/\nu_2}=(\frac{S_1^2}{S_2^2})(\frac{\sigma_2^2}{\sigma_1^2})$ | 分子自由度$\nu_1=n_1-1$，分母自由度$\nu_2=n_2-1$的**F分布** | $\chi^2_1,\chi^2_2$ 是自由度分布分别为$\nu_1,\nu_2$的的卡方随机变量；$\chi^2_1,\chi^2_2$独立 | -- |
 
 * 常见使用：
     - $\chi^2$ 分布：检验方差
@@ -266,6 +266,41 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
 
 
 ### 常见估计
+
+下表列出一些常见估计的 $1-\alpha$ 置信区间
+
+| 参数 | 估计量 | $\sigma_{\hat{\theta}}$ | $s_{\hat{\theta}}$ | $1-\alpha$ 置信区间（的近似） | 样本容量 |
+| -- | -- | -- | -- | -- | -- |
+| $\theta$ | $\hat{\theta}$ | $\sigma_{\hat{\theta}}$ | $\sigma_{\hat{\theta}}$ 的近似：$s_{\hat{\theta}}$ | $\hat{\theta} \pm (D_{\alpha/2})\sigma_{\hat{\theta}} \approx \hat{\theta} \pm (D_{\alpha/2})s_{\hat{\theta}} $ | -- |
+| 总体均值 $\mu$ | $\overline{y}$ | $\frac{\sigma}{\sqrt{n}}$ | $\frac{s}{\sqrt{n}}$ | $\overline{y} \pm (z_{\alpha/2})\frac{s}{\sqrt{n}}$ | $n \ge 30$ |
+|  |  |  |  | $\overline{y} \pm (t_{\alpha/2})\frac{s}{\sqrt{n}} $ | n < 30，来自正态总体 |
+| **独立**样本总体均值差 ($\mu_1-\mu_2)$ | $(\overline{y}_1-\overline{y}_2)$ 样本均值的差 | $\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}}$ | $\sqrt{\frac{s^2_1}{n_1}+\frac{s^2_2}{n_2}}$ | $(\overline{y}_1-\overline{y}_2) \pm (z_{\alpha/2})\sqrt{\frac{s^2_1}{n_1}+\frac{s^2_2}{n_2}} $ | $n_1 \ge 30, n_2 \ge 30$ |
+|  |  | $\sqrt{\sigma^2(\frac{1}{n_1}+\frac{1}{n_2})}$ | $\sqrt{S_p^2(\frac{1}{n_1}+\frac{1}{n_2})}$，其中 $$S_p^2=\frac{(n_1-1)s^2_1+(n_2-1)s^2_2}{n_1+n_2-2}$$ | $(\overline{y}_1-\overline{y}_2) \pm (t_{\alpha/2})\sqrt{S_p^2(\frac{1}{n_1}+\frac{1}{n_2})} $ | $n_1<30,or,n_2<30；\sigma^2_1=\sigma^2_2$；来自两个正态总体 |
+| **配对**样本总体均值差 $\mu_d$ | $\overline{d}=\frac{\sum d_i}{n}$ 每一对样本差 $d_i$ 的均值 | $\frac{\sigma_d}{\sqrt{n_d}}$ | $\frac{s_d}{\sqrt{n_d}}$ | $\overline{d} \pm (z_{\alpha/2})\frac{s_d}{\sqrt{n_d}} $ | $n_d \ge 30$ |
+|  |  |  |  | $\overline{d} \pm (t_{\alpha/2})\frac{s_d}{\sqrt{n_d}} $ | $n_d \le 30，d_i来自正态总体$ |
+| 二项分布成功比率 $p$ | $\hat{p}=\frac{y}{n}$ | $\sqrt{\frac{pq}{n}}$ | $\sqrt{\frac{\hat{p}\hat{q}}{n}}$ | $\hat{p} \pm (z_{\alpha/2})\sqrt{\frac{\hat{p}\hat{q}}{n}} $ | $n\hat{p} \ge 4,n\hat{q} \ge 4$ |
+| 二项分布成功比率之差 $(p_1-p_2)$ | $(\hat{p}_1-\hat{p}_2)=(\frac{y_1}{n_1}-\frac{y_2}{n_2})$ | $\sqrt{\frac{p_1q_1}{n_1}+\frac{p_2q_2}{n_2}}$ | $\sqrt{\frac{\hat{p}_1\hat{q}_1}{n_1}+\frac{\hat{p}_2\hat{q}_2}{n_2}}$ | $(\hat{p}_1-\hat{p}_2) \pm (z_{\alpha/2})\sqrt{\frac{\hat{p}_1\hat{q}_1}{n_1}+\frac{\hat{p}_2\hat{q}_2}{n_2}} $ | $n_1\hat{p}_1 \ge 4,n_1\hat{q}_1 \ge 4,n_2\hat{p}_2 \ge 4,n_2\hat{q}_2 \ge 4$；独立样本 |
+| 总体方差 $\sigma^2$ | $s^2$ | -- | -- | $[\frac{(n-1)s^2}{\chi^2_{\alpha/2}},\frac{(n-1)s^2}{\chi^2_{1-\alpha/2}}]$ | 来自正态总体 |
+| 总体方差比 $\frac{\sigma^2_1}{\sigma^2_2}$ | $\frac{s^2_1}{s^2_2}$ | -- | -- | $[(\frac{s^2_1}{s^2_2})\frac{1}{F_{\alpha/2}(\nu_1,\nu_2)},(\frac{s^2_1}{s^2_2})\frac{1}{F_{\alpha/2}(\nu_2,\nu_1)}]$ | 来自两个正态总体的独立样本 |
+
+* 自由度 $\nu=n-1$，或者 $\nu=(n_1-1)+(n_2-1)$
+* 关于F分布的置信区间：
+    - $F=(\frac{S_1^2}{S_2^2})(\frac{\sigma_2^2}{\sigma_1^2})$
+    - $(\frac{S_1^2}{S_2^2})\frac{1}{F}=\frac{\sigma_1^2}{\sigma_2^2}$
+    - $[(\frac{s^2_1}{s^2_2})\frac{1}{F_{U=\alpha/2}},(\frac{s^2_1}{s^2_2})\frac{1}{F_{L=1-\alpha/2}}]$
+
+* 选择样本容量：
+    - 估计总体参数时（P250）：根据所期望的置信区间半宽 H 计算所需要的样本容量 n
+    - 对于设计的试验（P533）：根据所期望的置信区间半宽 B 计算所需要的重复试验次数 r
+    
+    
+
+
+## 假设检验
+
+
+
+
 
 
 
