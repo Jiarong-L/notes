@@ -4,7 +4,7 @@ MathJax = {
     inlineMath: [['$', '$'], ['\\(', '\\)']]
   },
   svg: {
-    fontCache:   'local'   // 'local',or 'global' or 'none'
+    fontCache:   'global'   // 'local',or 'global' or 'none'
   }
 };
 </script>
@@ -21,15 +21,16 @@ img{
 }
 </style>
 
-教材：《统计学（原书第五版）》
+教材：《统计学（原书第五版）》    
+**关联：[点估计$\hat{\theta}$、置信区间](../Basis/#_10)，[离散分布](../Basis/#_5)**
 
 ![](./Basis/.png) 
 
 
+回归分析
 
 
-
-## 回归
+## 简单线性回归
 
 
 

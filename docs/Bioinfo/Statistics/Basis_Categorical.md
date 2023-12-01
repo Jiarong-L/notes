@@ -4,7 +4,7 @@ MathJax = {
     inlineMath: [['$', '$'], ['\\(', '\\)']]
   },
   svg: {
-    fontCache:   'local'   // 'local',or 'global' or 'none'
+    fontCache:   'global'   // 'local',or 'global' or 'none'
   }
 };
 </script>
