@@ -4,14 +4,15 @@ MathJax = {
     inlineMath: [['$', '$'], ['\\(', '\\)']]
   },
   svg: {
-    fontCache: 'global'
+    fontCache:   'local'   // 'local',or 'global' or 'none'
   }
 };
 </script>
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-
+<!-- src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" -->
+<!-- src="http://127.0.0.1:8000/Bioinfo/Statistics/Basis/tex-svg.js" -->
 
 <style>
 img{
@@ -214,11 +215,13 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
 | $T=\frac{(\overline{Y_1}-\overline{Y_2})-(\mu_1-\mu_2)}{\sqrt{S_p^2(\frac{1}{n_1}+\frac{1}{n_2})}}$ | 自由度为 $n_1+n_2-2$ 的学生**T分布** | $S_p^2=\frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{n_1+n_2-2}$ | $\sigma_1^2=\sigma_2^2=\sigma^2$ |
 | $F=\frac{\chi^2_1/\nu_1}{\chi^2_2/\nu_2}=(\frac{S_1^2}{S_2^2})(\frac{\sigma_2^2}{\sigma_1^2})$ | 分子自由度$\nu_1=n_1-1$，分母自由度$\nu_2=n_2-1$的**F分布** | $\chi^2_1,\chi^2_2$ 是自由度分布分别为$\nu_1,\nu_2$的的卡方随机变量；$\chi^2_1,\chi^2_2$独立 | -- |
 
-* 常见使用：
-    - $\chi^2$ 分布：检验方差
-    - F分布：检验方差比，e.g. $F=\frac{SS_{Model}/k}{SS_{E}/(n-k-1)}$检验模型的整体恰当性
-    - Z/T分布：检验均值，etc
+### Tips
 
+* $\chi^2$ 分布：检验方差
+* F分布：检验方差比，e.g. $F=\frac{SS_{Model}/k}{SS_{E}/(n-k-1)}$检验模型的整体恰当性
+* Z/T分布：检验均值，etc.
+* $Z/T/\chi^2/F$分布示意图：  
+![](./Basis/7-0.png)
 
 ## 置信区间
 
@@ -293,8 +296,6 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
 * 选择样本容量：
     - 估计总体参数时（P250）：根据所期望的置信区间半宽 H 计算所需要的样本容量 n
     - 对于设计的试验（P533）：根据所期望的置信区间半宽 B 计算所需要的重复试验次数 r
-* $Z/T/\chi^2/F$分布示意图：  
-![](./Basis/7-0.png)
     
 
 

@@ -4,21 +4,20 @@ MathJax = {
     inlineMath: [['$', '$'], ['\\(', '\\)']]
   },
   svg: {
-    fontCache: 'global'
+    fontCache:   'local'   // 'local',or 'global' or 'none'
   }
 };
 </script>
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<!-- src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" -->
+<!-- src="http://127.0.0.1:8000/Bioinfo/Statistics/Basis/tex-svg.js" -->
 
 
 <style>
 img{
     width: 60%;
-}
-table th:nth-of-type(5) {
-    width: 20%;
 }
 </style>
 
