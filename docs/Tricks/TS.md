@@ -3,6 +3,8 @@ TypeScript 是一种基于 JavaScript 构建的强类型编程语言
 
 JavaScript 的严格模式：```"use strict";``` 不能使用未声明的变量; 不过还是弱类型
 
+注：```tsc --init``` 可在当前文件夹中创建ts的初始化的配置文件 tsconfig.json
+
 ## 特点
 JS 默认模式中，变量可被修改为不同类型的值，例如：
 ```js
@@ -30,7 +32,7 @@ let valB: number = 10
 let valC: boolean = true
 let valD: null = null
 let valE: undefined = void 0
-let valF: string | null = null  // 当开启StrictNullChecks时，不能将null赋给其他类型
+let valF: string | null = null  // 当开启StrictNullChecks时，不能将null赋给其他类型（或class的属性）
 let valG: 1 | 2 | 3 = 2         // 限制赋值内容
 let arr1 = [1,2,'a'] 
 let arr2: number[] = [1,2,3]
@@ -55,16 +57,111 @@ let Valz: MyStrNum = 10
 ### 接口
 示例：(相当于自定义了类型)
 ```ts
-interface myObj {
+interface parentObj {
+    Pname: string
+}
+
+interface myObj extends parentObj{
     name: string,
     val: number
 }
 
 const objA: myObj = {
+    Pname: 'Pabc',
     name: 'abc',
     val: 10
 }
 ```
+
+### 类
+TS针对 class 设计了一些修饰符，示例：
+
+```ts
+class Article {
+    title: string
+    content: string
+    infoA? : string          // 可选属性：未在构造函数中强制设定，可有可无有；不加?的话就不是可选属性，默认为undefined (null)
+    private infoB: '-'    // 私有属性、且带默认值
+    protected infoC: '-'    // 受保护属性、且带默认值
+    static author: string
+    constructor (title: string, content: string) {
+        this.title = title
+        this.content = content
+        Article.author = '-'    // class内部访问static属性
+    }
+}
+
+
+class Brticle extends Article {
+    private _bText: string = ''
+    constructor (title: string, content: string) {
+        super(title, content)
+        this.infoA = '-'  // 继承class可以访问父class的public属性，但不能访问父class的private/protected属性：不能 this.infoC = 'cannot visit'
+    } 
+    get bText(): string {return this._bText}  // get函数，名字可随意
+    set bText(newTxt: string) {this._bText=newTxt} // set函数，名字可随意
+}
+
+
+
+const A = new Article('titleA','contentA')
+const B = new Brticle('titleB','contentB')
+
+A.title   // 外部访问public属性
+Article.author  // 外部访问静态属性；注意，不是 A.author！！ 
+B.bText  // 使用get函数
+B.bText = '-'  // 使用set函数
+```
+
+* 默认都是public属性、方法，除非声明 private
+* public属性可以外部访问
+* private属性只能class内部方法访问，或者对这个属性设置get/set函数来达到访问/赋值的目的（类似java）
+* 静态属性（static）将属性设置给class本身，而不是给类实例；引用方法：```classname.staticAttr```
+* 可以给静态属性叠加其它声明，比如：```private static readonly author: string = 'me' ```，readonly表示不能重新赋值
+* 支持**泛型**：上文任意类型都可替换为T，例如 
+    - ```class Article<T>```
+    - ```constructor (title: T, content: T)```
+    - ```const A = new Article<string>('titleA','contentA')```
+    - 所有设置为T的类型都是string
+
+
+### 抽象类
+一般场景：不会直接使用抽象类，只会使用抽象类派生的子类
+```ts
+abstract class Animal {
+    abstract name: string        // 抽象属性
+    abstract maskSound (): void  // 抽象方法
+    move (): void {}             // 普通方法必须加上函数内容{}，抽象方法可以子类中再设置
+}
+
+class Cat extends Animal {   // 子类中必须声明abstract方法、属性
+    name: string = 'cat'
+    maskSound(): void {}      
+}
+```
+
+### 类实现接口
+示例：
+```ts
+interface B{
+    addInfo: string
+}
+
+interface Animal {
+    name: string
+    get sound(): string
+    maskSound (): void
+}
+
+
+class Cat implements Animal,B {
+    addInfo: string = '-'
+    name: string = 'cat'
+    get sound(): string {return '-'}
+    maskSound(): void {}
+}
+```
+* 使用接口的原因：**不能同时继承多个类**
 
 
 ## 函数
