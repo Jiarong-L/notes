@@ -27,8 +27,20 @@ TBA: 异步、await的mdn文档尚未看完
 console.log(myNum) // let，const 块作用域外不能访问
 ```
 
+* 使用var声明变量时可能会失手覆盖/修改，使用let/const声明可以限制其作用域
+* var变量相当于挂载成window的属性，```window.globalVar```可查看；
+* 由于var变量是属性，所以可以在作用域内多次声明而不报错（let会有SyntaxError）
+* 当引用发生在声明前，var、let都会提升声明至作用域顶部，但不会提升初始化赋值，故而let报错（而var是window的属性，会有初始值undefined）：
+```js
+console.log(a)  // undefined
+var a = 10
+console.log(a)  // 10
 
-使用var声明变量时可能会失手覆盖/修改，使用let/const声明可以限制其作用域
+console.log(b)  // Reference Error
+let b = 10
+console.log(b)  // 10
+```
+
 
 
 ### 模板字符串
