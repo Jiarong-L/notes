@@ -50,7 +50,7 @@ img{
 a_{11}-\lambda & a_{12} & ... & a_{1n} \\\\
 a_{21} & a_{22}-\lambda & ... & a_{2n} \\\\
 ... & ... & ... & ... \\\\
-a_{n1} & a_{n2} & ... & a_{nn}-\lambda 
+a_{n1} & a_{n2} & ... & a_{nn} 
 \end{bmatrix} = 0
 $ 可求得多个解 $\lambda_1,\lambda_2,...$
 * 将$\lambda_i$代入原式，计算$\vec{v_i}$
