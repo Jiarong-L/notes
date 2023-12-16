@@ -108,6 +108,8 @@ $$
 
 用法：可以用$\Sigma$中最大的k个奇异值来近似表达原矩阵：$A_{m \times n} \approx A_{m \times k} = U_k\Sigma_kV^T_k$
 
+SVD分解后的右奇异矩阵$V$，对应着PCA所需的主成分特征矩阵
+
 
 ### MDS
 
@@ -123,6 +125,7 @@ $$
 
 
 
+
 ## PCA
 （主成分分析: 如果一个特征的**方差**很大，则说明这个特征上带有大量的**信息**）[参考1](https://zhuanlan.zhihu.com/p/448641448),[参考2](https://zhuanlan.zhihu.com/p/478417013),[参考3](https://www.cnblogs.com/banshaohuan/p/13308723.html),[示例1](https://davidzeleny.net/anadat-r/doku.php/en:pca_examples)，[scores](https://rdrr.io/cran/vegan/man/scores.html)
 
@@ -130,7 +133,7 @@ $$
 1. 预处理（标准化/中心化/归一化）矩阵数据 $A_{m \times n}$：m_Sample，n_Feature
 2. 对 $A^TA \in R^{n  \times n}$ 进行特征值分解，得到$n$组特征值与特征向量 $(\lambda_i \in R,\vec{v_i}\in R^{n})$，即：$PC_i$上保留方差的比例与最大方差的方向
 3. 计算m_Sample在$PC_i$上的坐标：$A\vec{v_i} = \vec{d_i} \in R^{m}$
-4. 计算n_Feature在$PC_i$上的坐标，则对 $AA^T \in R^{m  \times m}$ ...(略)
+4. 若计算n_Feature在$PC_i$上的坐标，则对 $AA^T \in R^{m  \times m}$ ...(略)
 
 ```
 A = iris[,-5]
@@ -175,12 +178,16 @@ biplot (res_pca, display = 'both', scaling = 'species')
 
 ![](./Dim_Reduction/RDA.png) 
 
-* 输入：（centered, standardized, transformed, normalized）
-  - Response Matrix $Y$：n样本，p物种/loci/...
-  - Explanatory Matrix $X$：n样本，m环境因子/任何变量/...
-  - Conditioning variables $W$：n样本，z限制因子(e.g. 群体结构参数，ancestry coefficients，PC axes，spatial
+
+输入：（centered, standardized, transformed, normalized）
+
+  - Response Matrix $Y$：n样本 $\times$ p物种/loci/...
+  - Explanatory Matrix $X$：n样本 $\times$ m环境因子/任何变量/...
+  - Conditioning variables $W$：n样本 $\times$ z限制因子(e.g. 群体结构参数，ancestry coefficients，PC axes，spatial
 eigenvectors)
-* $Y$在$X$上进行多元回归 $y_{ii}=\beta_1x_{i1}+\beta_2x_{i2}+...$，得到拟合值矩阵：$\hat{Y}=X[X'X]^{-1}X'Y$ 与 残差矩阵$Y_{res}=Y-\hat{Y}$
+
+$Y$在$X$上进行多元回归 $y_{ii}=\beta_1x_{i1}+\beta_2x_{i2}+...$，得到拟合值矩阵：$\hat{Y}=X[X'X]^{-1}X'Y$ 与 残差矩阵$Y_{res}=Y-\hat{Y}$
+
   - 对$\hat{Y}$进行PCA分析，得到约束轴(constrained)$RDA_i$上展示的信息
   - 对$Y_{res}$进行PCA，得到非约束轴(unconstrained)$PC_i$上展示的信息
   - 轴的总数量为(n_sample-1)，其中约束轴数目为(explain_x_level)，余下为非约束轴；其中 explain_x_level = quantitative_x数目 + (categorical_x中类别数-1)
@@ -190,24 +197,24 @@ data(dune)
 data(dune.env)
 
 
-## cca(X, Y, Z) 等于 
-## cca(X ~ Y + Condition(Z))
+## cca(Y, X, Z) 等于 
+## cca(Y ~ X + Condition(Z))
 ## DataMatrix ~ ConstrainVar1 + Condition(Var)
-## Y, Z can be missing
+## X, Z can be missing
 
-####################################### Only X = Only PCA
+####################################### Only Data Y = Only PCA
 x_rda <- rda(dune)
 biplot(x_rda,type = c("text","points"))  
 summary(x_rda)
 
 
-####################################### With constrains Y
+####################################### With constrains X
 c_rda <- rda(dune ~ A1, dune.env)  ## dune ~ .
 ordiplot(c_rda) 
 summary(c_rda)
 
 
-####################################### With constrains Y & condition Z
+####################################### With constrains X & condition Z
 z_rda <- rda(dune ~ A1 + Condition(Manure), dune.env) 
 ordiplot(z_rda) 
 summary(z_rda)
@@ -218,21 +225,21 @@ summary(z_rda)
 ## Site constraints: 样本点的fitted Site scores (linear combinations of constraining variables)
 ## Biplot scores for constraining variables：constrains在各轴上坐标
 ```
-* 注：PCA过程中分解$\hat{Y}^T\hat{Y}$得到特征向量矩阵$U$
+注：PCA过程中分解$\hat{Y}^T\hat{Y}$得到特征向量矩阵$U$:
+
   - Site scores $YU$：ordination in the space of Y
   - Site constraints $\hat{Y}U$：ordination in the space of X 
+
+
+### db-RDA
+
+原始数据进行PCoA，将PCoA排序轴上的 Site scores 作为Response Matrix $Y$ 输入给RDA  
+![](./Dim_Reduction/dbRDA.png) 
+
+
+
 
 
 
 ### CCA
 [参考](https://zhuanlan.zhihu.com/p/52717082)
-
-
-
-
-
-
-
-
-
-
