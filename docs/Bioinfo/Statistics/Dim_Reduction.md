@@ -29,11 +29,19 @@ img{
 </style>
 
 
-数据降维
+数据降维, ```library(vegan)```
 
 
 
 ## Recall
+
+### QR Decomposition
+[参考1](https://zhuanlan.zhihu.com/p/47251888)，[参考2](https://zhuanlan.zhihu.com/p/112327923)
+
+
+将矩阵$A$分解：$A=QR$，$QQ^T=I$为正交矩阵，R 是 upper triangle 矩阵
+（TBA）
+
 
 ### Eigen
 
@@ -144,10 +152,13 @@ res <- prcomp(A,center = FALSE, scale= FALSE)
 pc_importance <- summary(res)$importance  ## 各PC方差占总方差百分比
 res$x    ## m_Sample在PC上的坐标
 
-## S <- scores(res, choices = 1:2)
-## S$species = res$rotation = n_Feature的特征向量矩阵
+## S <- scores(res, choices = 1:2, display='both')
+## S$species = res$rotation = n_Feature的特征向量矩阵，也是载荷(loading)图中n_Feature箭头在PC上的坐标？？
 ## S$sites = res$x = m_Sample在PC上的坐标 = scaled_centered_A x $rotation = as.matrix(A) %*% as.matrix(res$rotation)
+
+## 
 ```
+**Question**：载荷(loading)等于特征向量乘以特征值的平方根，一个Feature在所有PC上载荷的平方和为1（理解为各PC对该Feature方差的解释度）；但help(prcomp)中说rotation是 ‘the matrix of variable loadings (i.e., a matrix whose columns contain the eigenvectors)’、且 ``` eigen(t(as.matrix(A)) %*% as.matrix(A)) ```确实等于 ```$rotation```
 
 
 ## PCoA
@@ -177,7 +188,7 @@ res$x    ## m_Sample在PC上的坐标
 
 
 ### RDA
-[参考1](https://www.researchgate.net/publication/354709037_Redundancy_Analysisrda_a_Swiss_Army_knife_for_landscape_genomics)，[参考2](https://r.qcbs.ca/workshop10/book-en/redundancy-analysis.html)，[参考 vegan](https://vegandevs.github.io/vegan/reference/cca.html)，[参考 RDA_CCA](https://davidzeleny.net/anadat-r/doku.php/en:rda_cca)，仅当y与x为**线性**关系时使用RDA，否则可以考虑逻辑回归、梯度森林、polynomial RDA...
+[参考1](https://www.researchgate.net/publication/354709037_Redundancy_Analysisrda_a_Swiss_Army_knife_for_landscape_genomics)，[参考2](https://r.qcbs.ca/workshop10/book-en/redundancy-analysis.html)，[参考 cca.object](https://rdrr.io/rforge/vegan/man/cca.object.html)，[参考 RDA_CCA](https://davidzeleny.net/anadat-r/doku.php/en:rda_cca)，仅当y与x为**线性**关系时使用RDA，否则可以考虑逻辑回归、梯度森林、polynomial RDA...
 
 ![](./Dim_Reduction/RDA.png) 
 
@@ -191,15 +202,14 @@ eigenvectors)
 
 $Y$在$X$上进行多元回归 $y_{ii}=\beta_1x_{i1}+\beta_2x_{i2}+...$，得到拟合值矩阵：$\hat{Y}=X[X'X]^{-1}X'Y$ 与 残差矩阵$Y_{res}=Y-\hat{Y}$
 
-  - 对$\hat{Y}$进行PCA分析，得到约束轴(constrained)$RDA_i$上展示的信息
-  - 对$Y_{res}$进行PCA，得到非约束轴(unconstrained)$PC_i$上展示的信息
+  - 对$\hat{Y}$进行PCA分析，得到约束轴(constrained)$RDA_i$上展示的信息 (explained by X)
+  - 对$Y_{res}$进行PCA，得到非约束轴(unconstrained)$PC_i$上展示的信息 (explained by residuals)
   - 轴的总数量为(n_sample-1)，其中约束轴数目为(explain_x_level)，余下为非约束轴；其中 explain_x_level = quantitative_x数目 + (categorical_x中类别数-1)
 
 ```R
-## cca(Y, X, Z) 等于 
-## cca(Y ~ X + Condition(Z))
+## 欧氏距离下的 capscale() 等效于 rda()
+## rda(Y ~ X + Condition(Z)) 等于 rda(Y, X, Z); X, Z can be missing
 ## DataMatrix ~ ConstrainVar1 + Condition(Var)
-## X, Z can be missing
 
 data(dune)     ## decostand(dune, method = "hellinger")
 data(dune.env)
@@ -226,20 +236,19 @@ PC_eig_prop = crda$CA$eig / crda$tot.chi
 
 
 ## scaled pos
-## 默认scaling="species", 即 species scaled by eigenvalues
+### 默认scaling="species", 即 species scaled by eigenvalues
 summary(crda, axes = 2) 
 ordiplot(crda, type="n") |>
-  points("sites", pch=16, col="grey") |>
-  text("species", pch=10, col="red") |>
-  text("biplot", arrows = TRUE, length=0.05, col="blue")
+  points("sites", pch=16, col="grey") |>  
+  text("species", pch=10, col="red") |> 
+  text("biplot", arrows = TRUE, length=0.05, col="blue")   ### 等于 crda$CCA$envcentre
 
 
-## unscaled pos
+## unscaled pos,scaling=0 改为 scaling=2 就如默认 scaled pos 一般
 ## 尝试但对不上！！ scale(crda$CCA$wa, scale = RDA_eig_prop,center=F)
-summary(crda,scaling=0,axes=2)$biplot ## ENV 箭头坐标 = crda$CCA$biplot
 summary(crda,scaling=0,axes=2)$sites  ## Site scores: 样本点(dune行名)在各轴上的坐标，crda$CCA$wa
 summary(crda,scaling=0,axes=2)$species  ## Species scores: spe(dune列名)在各轴上的坐标，crda$CCA$v 
-
+summary(crda,axes=2)$biplot ## ENV 箭头坐标 = crda$CCA$biplot  or!!?? 应该用 crda$CCA$envcentre 
 
 summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitted Site scores (linear combinations of constraining variables)，crda$CCA$u
 ```
@@ -248,6 +257,9 @@ summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitt
   - Species scores $U$：特征向量矩阵
   - Site scores $YU$：ordination in the space of Y
   - Site constraints $\hat{Y}U$：ordination in the space of X 
+
+
+**Question**: ordiplot画图时似乎使用```crda$CCA$envcentre``` (Weighted) means of the original constraining or conditioning variables，但是 ```crda$CCA$biplot``` Biplot scores of constraints
 
 
 ### db-RDA
