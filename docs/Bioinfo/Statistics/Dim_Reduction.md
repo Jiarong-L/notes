@@ -133,17 +133,20 @@ SVD分解后的右奇异矩阵$V$，对应着PCA所需的主成分特征矩阵
 1. 预处理（标准化/中心化/归一化）矩阵数据 $A_{m \times n}$：m_Sample，n_Feature
 2. 对 $A^TA \in R^{n  \times n}$ 进行特征值分解，得到$n$组特征值与特征向量 $(\lambda_i \in R,\vec{v_i}\in R^{n})$，即：$PC_i$上保留方差的比例与最大方差的方向
 3. 计算m_Sample在$PC_i$上的坐标：$A\vec{v_i} = \vec{d_i} \in R^{m}$
-4. 若计算n_Feature在$PC_i$上的坐标，则对 $AA^T \in R^{m  \times m}$ ...(略)
 
-```
+若计算n_Feature在$PC_i$上的坐标，则对 $AA^T \in R^{m  \times m}$ ...(略，实际操作时对$A^T$进行PCA即可)   
+
+
+```R
 A = iris[,-5]
-res_pca <- prcomp(A)
-loadings <- scores (res_pca, display = 'both', scaling = 'species')
-biplot (res_pca, display = 'both', scaling = 'species')
+res <- prcomp(A,center = FALSE, scale= FALSE)
 
-## res_pca$sdev：各PC上保留方差的比例
-## loadings$species=res_pca$rotation：n_Feature在PC上的相对坐标
-## loadings$sites=res_pca$x: m_Sample在PC上的相对坐标
+pc_importance <- summary(res)$importance  ## 各PC方差占总方差百分比
+res$x    ## m_Sample在PC上的坐标
+
+## S <- scores(res, choices = 1:2)
+## S$species = res$rotation = n_Feature的特征向量矩阵
+## S$sites = res$x = m_Sample在PC上的坐标 = scaled_centered_A x $rotation = as.matrix(A) %*% as.matrix(res$rotation)
 ```
 
 
@@ -174,7 +177,7 @@ biplot (res_pca, display = 'both', scaling = 'species')
 
 
 ### RDA
-[参考1](https://www.researchgate.net/publication/354709037_Redundancy_Analysis_RDA_a_Swiss_Army_knife_for_landscape_genomics)，[参考2](https://r.qcbs.ca/workshop10/book-en/redundancy-analysis.html)，[参考 vegan](https://vegandevs.github.io/vegan/reference/cca.html)，[参考 RDA_CCA](https://davidzeleny.net/anadat-r/doku.php/en:rda_cca)，仅当y与x为**线性**关系时使用RDA，否则可以考虑逻辑回归、梯度森林、polynomial RDA...
+[参考1](https://www.researchgate.net/publication/354709037_Redundancy_Analysisrda_a_Swiss_Army_knife_for_landscape_genomics)，[参考2](https://r.qcbs.ca/workshop10/book-en/redundancy-analysis.html)，[参考 vegan](https://vegandevs.github.io/vegan/reference/cca.html)，[参考 RDA_CCA](https://davidzeleny.net/anadat-r/doku.php/en:rda_cca)，仅当y与x为**线性**关系时使用RDA，否则可以考虑逻辑回归、梯度森林、polynomial RDA...
 
 ![](./Dim_Reduction/RDA.png) 
 
@@ -192,41 +195,57 @@ $Y$在$X$上进行多元回归 $y_{ii}=\beta_1x_{i1}+\beta_2x_{i2}+...$，得到
   - 对$Y_{res}$进行PCA，得到非约束轴(unconstrained)$PC_i$上展示的信息
   - 轴的总数量为(n_sample-1)，其中约束轴数目为(explain_x_level)，余下为非约束轴；其中 explain_x_level = quantitative_x数目 + (categorical_x中类别数-1)
 
-```
-data(dune)
-data(dune.env)
-
-
+```R
 ## cca(Y, X, Z) 等于 
 ## cca(Y ~ X + Condition(Z))
 ## DataMatrix ~ ConstrainVar1 + Condition(Var)
 ## X, Z can be missing
 
+data(dune)     ## decostand(dune, method = "hellinger")
+data(dune.env)
 ####################################### Only Data Y = Only PCA
-x_rda <- rda(dune)
-biplot(x_rda,type = c("text","points"))  
-summary(x_rda)
+xrda <- rda(dune, center = FALSE, scale= FALSE)
+biplot(xrda,type = c("text","points"))  
 
 
 ####################################### With constrains X
-c_rda <- rda(dune ~ A1, dune.env)  ## dune ~ .
-ordiplot(c_rda) 
-summary(c_rda)
+crda <- rda(dune ~ ., dune.env, center = FALSE, scale= FALSE) 
+ordiplot(crda) 
 
 
 ####################################### With constrains X & condition Z
-z_rda <- rda(dune ~ A1 + Condition(Manure), dune.env) 
-ordiplot(z_rda) 
-summary(z_rda)
+zrda <- rda(dune ~ A1 + Condition(Manure), dune.env, center = FALSE, scale= FALSE) 
+ordiplot(zrda) 
 
 
-## Species scores: spe/loci(dune列名)在各轴上的顶点坐标
-## Site scores: 样本点(dune行名)在各轴上的坐标 (weighted sums of species scores)
-## Site constraints: 样本点的fitted Site scores (linear combinations of constraining variables)
-## Biplot scores for constraining variables：constrains在各轴上坐标
+#########################  结果说明  #############################
+
+## eig占总体eig的比例
+RDA_eig_prop = crda$CCA$eig / crda$tot.chi
+PC_eig_prop = crda$CA$eig / crda$tot.chi
+
+
+## scaled pos
+## 默认scaling="species", 即 species scaled by eigenvalues
+summary(crda, axes = 2) 
+ordiplot(crda, type="n") |>
+  points("sites", pch=16, col="grey") |>
+  text("species", pch=10, col="red") |>
+  text("biplot", arrows = TRUE, length=0.05, col="blue")
+
+
+## unscaled pos
+## 尝试但对不上！！ scale(crda$CCA$wa, scale = RDA_eig_prop,center=F)
+summary(crda,scaling=0,axes=2)$biplot ## ENV 箭头坐标 = crda$CCA$biplot
+summary(crda,scaling=0,axes=2)$sites  ## Site scores: 样本点(dune行名)在各轴上的坐标，crda$CCA$wa
+summary(crda,scaling=0,axes=2)$species  ## Species scores: spe(dune列名)在各轴上的坐标，crda$CCA$v 
+
+
+summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitted Site scores (linear combinations of constraining variables)，crda$CCA$u
 ```
 注：PCA过程中分解$\hat{Y}^T\hat{Y}$得到特征向量矩阵$U$:
 
+  - Species scores $U$：特征向量矩阵
   - Site scores $YU$：ordination in the space of Y
   - Site constraints $\hat{Y}U$：ordination in the space of X 
 
