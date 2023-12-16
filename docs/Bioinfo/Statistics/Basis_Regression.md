@@ -167,22 +167,18 @@ y_2 \\\\
 y_3 \\\\
 ... \\\\
 y_n
-\end{bmatrix}
-$ =  $
-\begin{bmatrix}
+\end{bmatrix} = \begin{bmatrix}
 1 & x_{11} & x_{12} & ... & x_{1k} \\\\
 1 & x_{21} & x_{22} & ... & x_{2k} \\\\
 ... \\\\
 1 & x_{n1} & x_{n2} & ... & x_{nk} 
 \end{bmatrix}
-$ $
 \begin{bmatrix}
 \hat\beta_0 \\\\
 \hat\beta_1 \\\\
 ... \\\\
 \hat\beta_k
-\end{bmatrix}
-$+$
+\end{bmatrix} +
 \begin{bmatrix}
 \epsilon_1 \\\\
 \epsilon_2 \\\\
@@ -190,7 +186,8 @@ $+$
 ... \\\\
 \epsilon_n
 \end{bmatrix}
-$
+$ 
+
 
 
 转写为最小二乘矩阵方程：$(X'X)\hat{B}=X'Y$
