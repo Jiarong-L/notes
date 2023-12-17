@@ -245,14 +245,14 @@ Stress is a proportional measure of badness of fit，一般当stress > 0.2时表
 
 
 
-$Y$在$X$上进行多元回归 $y_{ii}=\beta_1x_{i1}+\beta_2x_{i2}+...$，得到拟合值矩阵：$\hat{Y}=X[X'X]^{-1}X'Y$ 与 残差矩阵$Y_{res}=Y-\hat{Y}$
+$Y$在$X$上进行多元回归 $y_{ii}=\beta_1x_{i1}+\beta_2x_{i2}+...$，得到拟合值矩阵：$\hat{Y}=XB=X(X'X)^{-1}X'Y$ 与 残差矩阵$Y_{res}=Y-\hat{Y}$
 
 * 对$\hat{Y}$进行PCA分析，得到约束轴(constrained)$RDA_i$上展示的信息 (explained by X)
 * 对$Y_{res}$进行PCA，得到非约束轴(unconstrained)$PC_i$上展示的信息 (explained by residuals)
 
 轴的总数量为(n_sample-1)，其中约束轴数目为(explain_x_level)，余下为非约束轴；其中 explain_x_level = quantitative_x数目 + (categorical_x中类别数-1)
 
-**Question**: X矩阵如何映射到RDA坐标？？
+**Question**: X矩阵如何映射到RDA坐标？？$\hat{Y}^{n \times p}V^{p \times p}=X^{n \times m}B^{m \times p}V^{p \times p}$=n个样本在p个RDA上的坐标，求：$B^{m \times p}V^{p \times p}$=m个环境因子在p个RDA上的坐标？？
 
 <details>
 <summary>示例代码</summary>
