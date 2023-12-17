@@ -29,7 +29,44 @@ img{
 </style>
 
 
-数据降维, ```library(vegan)```
+生物信息中常用的数据降维方法
+
+
+
+<details>
+<summary> Vegan 是R中比较常用的生态学统计包 </summary>
+
+参考：<a href="https://rdrr.io/rforge/vegan/man/">Man pages for vegan</a>，<a href="https://cran.r-project.org/web//packages//vegan/vignettes/FAQ-vegan.html">FAQ-vegan</a>，<a href="https://cran.r-project.org/web/packages/vegan/vignettes/decision-vegan.pdf">Scale.pdf</a>，<a href="https://zhuanlan.zhihu.com/p/99308486">数据标准化方法</a>，<a href="https://rdrr.io/cran/vegan/man/scores.html">scores()</a>，<a href=""></a>
+
+
+```
+library(vegan)
+
+## 随后可对原始物种分布矩阵进行预处理：（centered, standardized, transformed, normalized）
+
+## standardized:  decostand()  scale()
+## transformed:  sqrt()  log()  log10()  log1p()  
+```
+
+比起直接访问结果对象，推荐以下两种方法提取 scores of ordination axes：（顺便可以scale一下结果）
+```
+## scaling：options "sites", "species", "symmetric" defines the set of scores which is scaled by eigenvalues
+## const：set the numeric scaling constant to non-default values
+## correlation can be used to modify species scores so that they show the relative change of species abundance, or their correlation with the ordination. This is no longer a biplot scaling.
+
+scores(res, choices = 1:2, display='both')  ## 2列，"sites" or "species" or "both"/"all" or ...
+summary(crda,scaling=0,axes=2)$species  ## 2列，不scale
+```
+
+RDA对象中数据默认不Scale，但是在Summary或Plot时又会默认进行scaling="species"(i.e.对spe进行scale，其它勿动) <br>
+<img src="../Ordination/vegant1.png" \>
+
+
+
+
+</details>
+
+
 
 
 
@@ -135,15 +172,18 @@ SVD分解后的右奇异矩阵$V$，对应着PCA所需的主成分特征矩阵
 
 
 ## PCA
-（主成分分析: 如果一个特征的**方差**很大，则说明这个特征上带有大量的**信息**）[参考1](https://zhuanlan.zhihu.com/p/448641448),[参考2](https://zhuanlan.zhihu.com/p/478417013),[参考3](https://www.cnblogs.com/banshaohuan/p/13308723.html),[示例1](https://davidzeleny.net/anadat-r/doku.php/en:pca_examples)，[scores](https://rdrr.io/cran/vegan/man/scores.html)
+（主成分分析: 如果一个特征的**方差**很大，则说明这个特征上带有大量的**信息**）[参考1](https://zhuanlan.zhihu.com/p/448641448),[参考2](https://zhuanlan.zhihu.com/p/478417013),[参考3](https://www.cnblogs.com/banshaohuan/p/13308723.html)
 
 
-1. 预处理（标准化/中心化/归一化）矩阵数据 $A_{m \times n}$：m_Sample，n_Feature
+1. 矩阵数据 $A_{m \times n}$：m_Sample，n_Feature
 2. 对 $A^TA \in R^{n  \times n}$ 进行特征值分解，得到$n$组特征值与特征向量 $(\lambda_i \in R,\vec{v_i}\in R^{n})$，即：$PC_i$上保留方差的比例与最大方差的方向
 3. 计算m_Sample在$PC_i$上的坐标：$A\vec{v_i} = \vec{d_i} \in R^{m}$
 
 若计算n_Feature在$PC_i$上的坐标，则对 $AA^T \in R^{m  \times m}$ ...(略，实际操作时对$A^T$进行PCA即可)   
 
+<details>
+<summary>示例代码</summary>
+<a href="https://davidzeleny.net/anadat-r/doku.php/en:pca_examples">示例1</a>
 
 ```R
 A = iris[,-5]
@@ -155,10 +195,11 @@ res$x    ## m_Sample在PC上的坐标
 ## S <- scores(res, choices = 1:2, display='both')
 ## S$species = res$rotation = n_Feature的特征向量矩阵，也是载荷(loading)图中n_Feature箭头在PC上的坐标？？
 ## S$sites = res$x = m_Sample在PC上的坐标 = scaled_centered_A x $rotation = as.matrix(A) %*% as.matrix(res$rotation)
-
-## 
 ```
 **Question**：载荷(loading)等于特征向量乘以特征值的平方根，一个Feature在所有PC上载荷的平方和为1（理解为各PC对该Feature方差的解释度）；但help(prcomp)中说rotation是 ‘the matrix of variable loadings (i.e., a matrix whose columns contain the eigenvectors)’、且 ``` eigen(t(as.matrix(A)) %*% as.matrix(A)) ```确实等于 ```$rotation```
+
+</details>
+
 
 
 ## PCoA
@@ -178,6 +219,8 @@ res$x    ## m_Sample在PC上的坐标
 2. ```metaMDS(D,k=nrow(D)-1)```
 
 
+Stress is a proportional measure of badness of fit，一般当stress > 0.2时表明使用该方法不合适
+
 
 
 ## Canonical Analysis
@@ -188,23 +231,34 @@ res$x    ## m_Sample在PC上的坐标
 
 
 ### RDA
-[参考1](https://www.researchgate.net/publication/354709037_Redundancy_Analysisrda_a_Swiss_Army_knife_for_landscape_genomics)，[参考2](https://r.qcbs.ca/workshop10/book-en/redundancy-analysis.html)，[参考 cca.object](https://rdrr.io/rforge/vegan/man/cca.object.html)，[参考 RDA_CCA](https://davidzeleny.net/anadat-r/doku.php/en:rda_cca)，仅当y与x为**线性**关系时使用RDA，否则可以考虑逻辑回归、梯度森林、polynomial RDA...
+（仅当y与x为**线性**关系时使用RDA，否则可以考虑逻辑回归、梯度森林、polynomial RDA...），[参考1](https://www.researchgate.net/publication/354709037_Redundancy_Analysisrda_a_Swiss_Army_knife_for_landscape_genomics)，[参考2](https://r.qcbs.ca/workshop10/book-en/redundancy-analysis.html)
 
-![](./Dim_Reduction/RDA.png) 
+![](./Ordination/RDA.png) 
 
 
-输入：（centered, standardized, transformed, normalized）
+| 输入 | -- | -- |
+| -- | -- | -- |
+| Response Matrix | $Y$ | n样本 $\times$ p物种/loci/... |
+| Explanatory Matrix | $X$ | n样本 $\times$ m环境因子/任何变量/... |
+| Conditioning variables | $W$ | n样本 $\times$ z限制因子(e.g. 群体结构参数，ancestry coefficients，PC axes，spatial eigenvectors) |
 
-  - Response Matrix $Y$：n样本 $\times$ p物种/loci/...
-  - Explanatory Matrix $X$：n样本 $\times$ m环境因子/任何变量/...
-  - Conditioning variables $W$：n样本 $\times$ z限制因子(e.g. 群体结构参数，ancestry coefficients，PC axes，spatial
-eigenvectors)
+
 
 $Y$在$X$上进行多元回归 $y_{ii}=\beta_1x_{i1}+\beta_2x_{i2}+...$，得到拟合值矩阵：$\hat{Y}=X[X'X]^{-1}X'Y$ 与 残差矩阵$Y_{res}=Y-\hat{Y}$
 
-  - 对$\hat{Y}$进行PCA分析，得到约束轴(constrained)$RDA_i$上展示的信息 (explained by X)
-  - 对$Y_{res}$进行PCA，得到非约束轴(unconstrained)$PC_i$上展示的信息 (explained by residuals)
-  - 轴的总数量为(n_sample-1)，其中约束轴数目为(explain_x_level)，余下为非约束轴；其中 explain_x_level = quantitative_x数目 + (categorical_x中类别数-1)
+* 对$\hat{Y}$进行PCA分析，得到约束轴(constrained)$RDA_i$上展示的信息 (explained by X)
+* 对$Y_{res}$进行PCA，得到非约束轴(unconstrained)$PC_i$上展示的信息 (explained by residuals)
+
+轴的总数量为(n_sample-1)，其中约束轴数目为(explain_x_level)，余下为非约束轴；其中 explain_x_level = quantitative_x数目 + (categorical_x中类别数-1)
+
+
+
+<details>
+<summary>示例代码</summary>
+
+参考：<a href="https://rdrr.io/rforge/vegan/man/cca.object.html">cca.object</a>，<a href="https://davidzeleny.net/anadat-r/doku.php/en:rda_cca">RDA_CCA</a>
+
+<br>
 
 ```R
 ## 欧氏距离下的 capscale() 等效于 rda()
@@ -252,20 +306,22 @@ summary(crda,axes=2)$biplot ## ENV 箭头坐标 = crda$CCA$biplot  or!!?? 应该
 
 summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitted Site scores (linear combinations of constraining variables)，crda$CCA$u
 ```
+**Question**: ordiplot画图时似乎使用```crda$CCA$envcentre``` (Weighted) means of the original constraining or conditioning variables，但是 ```crda$CCA$biplot``` Biplot scores of constraints <br>
+
 注：PCA过程中分解$\hat{Y}^T\hat{Y}$得到特征向量矩阵$U$:
 
   - Species scores $U$：特征向量矩阵
   - Site scores $YU$：ordination in the space of Y
   - Site constraints $\hat{Y}U$：ordination in the space of X 
 
+</details>
 
-**Question**: ordiplot画图时似乎使用```crda$CCA$envcentre``` (Weighted) means of the original constraining or conditioning variables，但是 ```crda$CCA$biplot``` Biplot scores of constraints
 
 
 ### db-RDA
 
 原始数据进行PCoA，将PCoA排序轴上的 Site scores 作为Response Matrix $Y$ 输入给RDA  
-![](./Dim_Reduction/dbRDA.png) 
+![](./Ordination/dbRDA.png) 
 
 
 
