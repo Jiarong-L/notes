@@ -431,27 +431,16 @@ $$ E(y)=\beta_0+\beta_1x_1+...+\beta_{d}x_{1}x_{3}+...+\beta_{e}x_{1}x_{3}x_{4} 
 
 双因素ANOVA可能有用的参考：[minitab](https://support.minitab.com/en-us/minitab/20/help-and-how-to/statistical-modeling/doe/how-to/factorial/analyze-factorial-design/methods-and-formulas/analysis-of-variance/)
 
-#### 三因素ANOVA
 
-书中只提供了双因素的ANOVA方法，**不太确定三因素的参数计算！！！**
+#### MANOVA
+书中只提供了双因素的ANOVA方法，多因素 MANOVA 可参考 [IBM-SPSS](https://www.ibm.com/docs/zh/spss-statistics/beta?topic=statistics-multivariate-analysis-variance-manova), [Slide 7](http://staff.ustc.edu.cn/~zwp/teach/MVA/Lec8_slides.pdf)
 
-| ANOVA参数 | -- | 3因素$a \times b \times c$ 处理（水平）r重复，共 $n=abcr$ 观测值 |
-| -- | -- | -- |
-| $CM$ | 均值的修正 | $CM=\frac{(所有观测值的和)^2}{所有观测值个数}=\frac{(\sum{y_i})^2}{n}$ |
-| $SS_{总}$ | 总平方和 | $SS_{总}=(所有观测值的平方和)-CM=\sum{y_i}^2-CM$ |
-| $SS_A$ | 主变量因素A的平方和 | $SS_A=\sum{\frac{(A_i)^2}{n_i}}-CM$，$A_i$表示**因素A 处理i**中观测值的和，$n_i=bcr$表示 **因素A 处理i** 中观测值个数 |
-| $SS_{AB}$ | AB交互作用的平方和（**待确认！！**） | $SS_{AB}=\frac{\sum\sum (A_iB_j)^2}{cr}-SS_A-SS_B-CM$ |
-| $SS_{ABC}$ | ABC交互作用的平方和（**待确认！！**） | $SS_{ABC}=\frac{\sum\sum\sum (A_iB_jC_t)^2}{r}-SS_A-SS_B-SS_C-SS_{AB}-SS_{BC}-SS_{AC}-CM$ |
-
+此外，书573提供了三因素情况下的参数示意
 
 | ANOVA检验目标 | df | SS | MS=SS/df | F=MS/MSE |
 | -- | -- | -- | -- | -- |
 | 主效应A | $(a-1)$ | $SS_A$ | $MS_A$ | 略 |
-| 主效应B | $(b-1)$ | $SS_B$ | $MS_B$ | 略 |
-| 主效应C | $(c-1)$ | $SS_C$ | $MS_C$ | 略 |
 | AB交互作用 | $(a-1)(b-1)$ | ? | 略 | 略 |
-| AC交互作用 | $(a-1)(c-1)$ | ? | 略 | 略 |
-| BC交互作用 | $(b-1)(c-1)$ | ? | 略 | 略 |
 | ABC交互作用 | $(a-1)(b-1)(c-1)$ | ? | 略 | 略 |
 | 误差 | $abc(r-1)$ | $SSE$ | $MSE$ | -- |
 | 总和 | $abcr-1$ | $SS_{总}$ | -- | -- |
