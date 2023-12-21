@@ -302,6 +302,7 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
 * 选择样本容量：
     - 估计总体参数时（P250）：根据所期望的置信区间半宽 H 计算所需要的样本容量 n
     - 对于设计的试验（P533）：根据所期望的置信区间半宽 B 计算所需要的重复试验次数 r
+    - 例：指定 B , $B=t_{\alpha/2}(\frac{s_{\hat{\theta}}}{\sqrt{r}})$ 解得 r
     
 
 
