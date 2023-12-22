@@ -28,7 +28,7 @@ img{
 </style>
 
 教材：《统计学（原书第五版）》    
-**关联：[点估计$\hat{\theta}$、置信区间](../Basis/#_10)，[离散分布](../Basis/#_5)**
+**关联：[点估计$\hat{\theta}$、置信区间](../Basis/#_10)，[离散分布](../Basis/#_5)**，[非参数检验](../Basis/#_16)**
 
 ![](./Basis/.png) 
 
@@ -118,8 +118,32 @@ $\epsilon$ 的 假定
 * Pearson 相关系数 $r=\frac{SS_{xy}}{\sqrt{ SS_{xx}SS_{yy} }}=\hat{\beta_1}\sqrt{SS_{xx}/SS{yy}}$  表示x与y间线性关系强度；与$\hat{\beta_1}$**只是尺度不同**
 * 决定系数 $r^2=\frac{SSR回归平方和}{SST离差平方和}=\frac{SS_{yy}-SSE}{SS_{yy}}=1-\frac{SSE}{SS_{yy}}$；$r^2=0.6$表示模型可以解释60%的Variance
 
+### 非参数分析
+
+在非参数回归分析中(p633)，不需要对 $\epsilon$ 的概率分布进行假定
+
+#### Spearman
+
+1. 对 X，Y 的值**分别**进行从小到大排序，得到的排序称为**秩**
+2. Spearman 相关系数 $r_s = 1- \frac{6\sum d_i^2}{n(n^2-1)}$，第i个观测值中，$d_i = (x_i秩-y_i秩)$
+3. 统计检验
+    - 无假定
+    - $H0: \rho=0$ （总体相关系数）
+    - 上侧$Ha: \rho>0$，拒绝阈：$r_s > r_{\alpha}$
+    - 下侧$Ha: \rho<0$，拒绝阈：$r_s < -r_{\alpha}$
+    - 双侧$Ha: \rho \neq 0$，拒绝阈：$|r_s| > r_{\alpha/2}$
 
 
+#### 泰尔零斜率检验
+
+1. 按 X 的值从小到大排序，得到有序对$(x_i,y_i)$
+2. 对$y_i$，计算$j>i$中(i.e.比yi更低秩的yj中)，负差$(y_j-y_i)<0$的个数、正差$(y_j-y_i)>0$的个数
+3. $C = 正差个数 - 负差个数$
+4. 统计检验
+    - 假定 $\epsilon$ 是独立的
+    - 上侧$H_a: \beta_1>0$，p值 = $P(x \ge C)$
+    - 下侧$H_a: \beta_1<0$，p值 = $P(x \le C)$
+    - 双侧$H_a: \beta_1 \neq 0$，p值 = $2*min(P(x \ge C),P(x \le C))$
 
 ### 使用模型
 
@@ -507,7 +531,5 @@ $$E(y_{ijk})=\mu+三个随机分量=\mu+E(\alpha_i)+E(\gamma_{ij})+E(\epsilon_{i
 | 第二阶：B in A | $n_1(n_2-1)$ | $SS(B_{\in A})$ | $MS(B_{\in A})$ | $V(\epsilon_{ijk})+n_3V(\gamma_{ij})$ | $MS(B_{\in A})/MS(C_{\in B})$ |
 | 第三阶：C in B | $n_1n_2(n_3-1)$ | $SS(C_{\in B})$ | $MS(C_{\in B})$ | $V(\epsilon_{ijk})$ | -- |
 | 总和 | $n_1n_2n_3-1$ | $SS_{总}$ | -- | -- | -- |
-
-
 
 
