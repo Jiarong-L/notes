@@ -11,7 +11,7 @@ Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
 
 
-## Chapter 1
+## Chapter 1 概览
 
 * **Human Physiology**: explain the specific characteristics and mechanisms of the human body that make it a living being
 * The basic living unit of the body is the **cell**. Each **tissue or organ** is an aggregate of many different cells held together by intercellular supporting structures (相同微环境).
@@ -45,7 +45,7 @@ environment (extracellular fluid)
 ![Figure 1-1](Physiology/1-1.png)  
 
 
-## Chapter 2
+## Chapter 2 细胞器
 ![Figure 2-2](Physiology/2-2.png)    
 
 * Protoplasm
@@ -72,7 +72,7 @@ environment (extracellular fluid)
     - Ameboid motion：细胞一端伸出假足将自己固定到新的区域，向这个方向形变（后方发生吞噬、于前方Exocytosis，则成功挪动这一部分细胞膜）
     - Cillary movement 纤毛运动，需要ATP与appropriate ionic conditions；e.g. 呼吸系统分泌粘液
 
-## Chapter 3
+## Chapter 3 蛋白合成与细胞复制
 
 <!-- ![Figure 3-1](Physiology/3-1.png)   -->
 <!-- ![Figure 3-9](Physiology/3-9.png)    -->
@@ -104,7 +104,7 @@ to form mRNA（去除introns）
 * Necrosis：细胞被动死亡，内容物释放到微环境
 * Oncogene 一般是促进细胞生长的基因、缺乏抑制，因此 Cancer 中细胞无度生长、与正常细胞争夺养分；Cancer 可能来源：Ionizing radiation，Chemical substances，Physical irritants 如持续磨损，家族遗传，Certain types of oncoviruses
 
-## Chapter 4
+## Chapter 4 跨膜运输
 
 ![Figure 4-2](Physiology/4-2.png)![Figure 4-7](Physiology/4-7.png)   
 
@@ -130,7 +130,7 @@ to form mRNA（去除introns）
 
 
 
-## Chapter 5
+## Chapter 5 动作电位
 
 **本章节关注 Nerve Cells**；Cardiac Cells 也有电位（Ca，此处不述）
 
@@ -154,8 +154,43 @@ to form mRNA（去除introns）
 * 一些麻醉药提高Na通道的激活难度（提高 excitability threshold）
 
 
-## Chapter 6 (TBA)
-## Chapter 7 (TBA)
+## Chapter 6,7  骨骼肌
+
+![Figure 6-3](Physiology/6-3.png)
+
+* 肌肉纤维束（Muscle fasciculus）由许多肌纤维（Muscle fiber）组成；每一根肌肉纤维外由肌膜（Sarcolemma）包裹、延申成横向的 Transverse tubule 使信号得以快速传递，由肌浆（Sarcoplasm）填充、纵向的肌浆网（Sarcoplasmic Reticulum）调节钙离子；纤维内依次排列着多个肌节（Sarcomere）  
+    - ![Figure 7-5](Physiology/7-5.png)
+* 肌肉收缩
+    - ![Figure 7-2](Physiology/7-2.png)
+    - 动作电位由 Nerve 传递至肌纤维，Nerve 分泌少量神经递质 乙酰胆碱（acetylcholine）
+    - 乙酰胆碱打开通道，大量Na离子涌入肌膜内侧、导致局部去极化，进一步打开钠离子通道，在膜上产生动作电位
+    - 动作电位继续扩散，并且至肌纤维的中心、释放肌浆网内钙离子
+    - 受钙离子刺激，Actin and Myosin filaments 开始滑动，肌肉收缩
+        * 钙离子结合 Troponin complex，其形变拉动 tropomyosin 露出 Active sites 以结合 Myosin
+        * Myosin Head 分解ATP，提供能量拉动收缩
+        * （e.g.骨骼肌）收缩时，Motor unit 指被一个Nerve（多个末梢）控制的一束纤维，它们同时收缩
+    - 在几分之一秒后，钙离子抽回肌浆网，肌肉收缩停止
+* 肌肉能量来源：phosphocreatine（5-8s即可用），glycolysis（水解glycogen以用于生成ATP），oxidative metabolism（最慢）
+* 两种肌纤维
+    - slow fiber (red muscle)：更小，血管发达、供氧更好（偏向 oxidative metabolism），nerve 更少
+    - fast fiber (white muscle)：更大，更偏向使用 glycolysis 等可以无氧代谢的快速能源（线粒体更少），存储大量钙离子
+* 骨骼肌张力（Tone）：即使处于休息状态，通常也会有一定程度的紧绷，由来自脊髓的低频率神经冲动引起
+* Muscle Remodeling
+    - Hypertrophy and Atrophy（肥大/萎缩）：当肌肉蛋白合成加速/泛素水解时发生；肌肉失去神经支持也会快速萎缩（失去收缩能力后很难再恢复弹性）
+    - Adjustment of Muscle Length：当肌肉被拉伸过长时发生
+    - Hyperplasia of Muscle Fibers：纤维数量的增加（不是纤维肥大），分裂自此前已变大的纤维
+
+* 运动终板（Motor End Plate）：神经元与肌纤维相接触的部位，被多个 Schwann cells 覆盖，使其与周围的液体隔绝（神经信号 乙酰胆碱不会快速发散，只能从 synaptic cleft 走）。
+    - ![Figure 7-1](Physiology/7-1.png)
+    - 乙酰胆碱会被迅速分解，因此信号不会一直持续
+    - 肉毒杆菌毒素（botulinum toxin）：使神经末梢减少释放乙酰胆碱
+    - Fatigue of the Junction：持续释放乙酰胆碱后，乙酰胆碱储备不足
+    * carbachol、nicotine 作用类似乙酰胆碱，且代谢缓慢；这样的持久刺激可能造成肌肉痉挛（spasm）；一些使乙酰胆碱酯酶失活（使之不能快速分解）的药物也可能达成这样的效果
+* 骨骼肌的动作电位与神经元的相似（参考Chapter 5），一些参数不同：
+    - 静息膜电位约比神经元更负10到20毫伏
+    - 动作电位持续时间为 1-5 ms （更长）
+    - 传导速度为 3-5m/s（更慢）
+
 ## Chapter 8 (TBA)
 ## Chapter 9 (TBA)
 
@@ -220,7 +255,7 @@ Heart valves 病变可以导致心音变化：
 * Increase in red blood cell mass （tissue轻微的缺氧）
 
 
-**TETRALOGY OF FALLOT (法洛四联症):**室间隔缺损、肺动脉狭窄 --> 持续缺氧状态
+**TETRALOGY OF FALLOT (法洛四联症)**：室间隔缺损、肺动脉狭窄 --> 持续缺氧状态
 
 * 左右心室无间隔，导致动、静脉血液混合
 * 由于肺动脉狭窄，大部分血液绕过肺部、直接进入主动脉
