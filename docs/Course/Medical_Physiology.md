@@ -42,11 +42,11 @@ environment (extracellular fluid)
     - Positive Feedback Loop：其提升会刺激进一步提升；(e.g. 受伤召唤凝血因子、Childbirth、nerve signals)；受Negative Feedback抑制、防止升级至危险状态
 * Adaptive Control：大脑发送前馈信号控制peripheral parts进行动作，即，信号传递至外围部位后，活动部位返回sensory nerve signals，大脑会依据状况修正后续动作
 
-![Figure 1-1](Physiology/1-1.png)  
+![Figure 1-1](Medical_Physiology/1-1.png)  
 
 
 ## Chapter 2 细胞器
-![Figure 2-2](Physiology/2-2.png)    
+![Figure 2-2](Medical_Physiology/2-2.png)    
 
 * Protoplasm
     - water: 占70%~85%
@@ -55,17 +55,17 @@ environment (extracellular fluid)
     - lipids: phospholipids, cholesterol
     - carbohydrates: 提供能量或合成glycoprotein
 * Cell Membrane：双重磷脂     
-![Figure 2-3](Physiology/2-3.png)
+![Figure 2-3](Medical_Physiology/2-3.png)
 * Endoplasmic Reticulum：Rough ER 合成蛋白，Smooth ER 合成 lipids   
-![Figure 2-4](Physiology/2-4.png)
+![Figure 2-4](Medical_Physiology/2-4.png)
 * Golgi apparatus：接收ER生成物，生成碳水化合物，下一步可形成 Lysosomes 等分泌小泡   
-![Figure 2-14](Physiology/2-14.png)
+![Figure 2-14](Medical_Physiology/2-14.png)
 * Mitochondria：数量不定，生成ATP   
-![Figure 2-15](Physiology/2-15.png)
+![Figure 2-15](Medical_Physiology/2-15.png)
 * Cytoskeleton：Filament and Tubular Structures   
-![Figure 2-8](Physiology/2-8.png)
+![Figure 2-8](Medical_Physiology/2-8.png)
 * Nucleus：遗传物质   
-![Figure 2-9](Physiology/2-9.png)
+![Figure 2-9](Medical_Physiology/2-9.png)
 * Endocytosis（胞吞）：Pinocytosis（胞饮），Phagocytosis（胞吃/吞噬）
 * Autophagy（自噬）：移除老化organelles
 * 细胞移动：
@@ -74,9 +74,9 @@ environment (extracellular fluid)
 
 ## Chapter 3 蛋白合成与细胞复制
 
-<!-- ![Figure 3-1](Physiology/3-1.png)   -->
-<!-- ![Figure 3-9](Physiology/3-9.png)    -->
-<!-- ![Figure 3-11](Physiology/3-11.png)    -->
+<!-- ![Figure 3-1](Medical_Physiology/3-1.png)   -->
+<!-- ![Figure 3-9](Medical_Physiology/3-9.png)    -->
+<!-- ![Figure 3-11](Medical_Physiology/3-11.png)    -->
 
 * RNAs
     - Small nuclear RNA (**snRNA**) directs the splicing of pre-mRNA
@@ -85,13 +85,13 @@ to form mRNA（去除introns）
     - MicroRNAs (**miRNAs**) 与mRNA结合(blocking)，调节转录和翻译
 * Polyribosomes：由多个核糖体串连在一条mRNA分子上高效地进行肽链的合成
 * ATCG化学式  
-![Figure 3-3](Physiology/3-3.png)    
+![Figure 3-3](Medical_Physiology/3-3.png)    
 * Codon Table 详见 [NCBI-The Genetic Codes](https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi)，同一种氨基酸具有两个或更多个密码子（简并密码子）  
-![Codon Table](Physiology/3-1t.png)   
+![Codon Table](Medical_Physiology/3-1t.png)   
 * Gene transcription in eukaryotic cells  
-![Figure 3-13](Physiology/3-13.png)  
+![Figure 3-13](Medical_Physiology/3-13.png)  
 * 细胞通过 Mitosis 进行复制  
-![Figure 3-14 mitosis](Physiology/3-14.png)  
+![Figure 3-14 mitosis](Medical_Physiology/3-14.png)  
     - Interphase：interval between mitosis，其占细胞95%以上生命周期。DNA在分裂开始前约10h开始复制，并且需要通过 Proofreading (是否与模板一致) 与 DNA Repair 以降低错误率。不过，假定人类30年一代，预计依旧会累计10个以上的Mutation 给下一代
     - Prophase 前期：纺锤体形成，染色体被压缩
     - Prometaphase 前中期：核膜消失，microtubule aster 结合着丝粒，将成对的chromatids 向两极施加拉力
@@ -106,7 +106,7 @@ to form mRNA（去除introns）
 
 ## Chapter 4 跨膜运输
 
-![Figure 4-2](Physiology/4-2.png)![Figure 4-7](Physiology/4-7.png)   
+![Figure 4-2](Medical_Physiology/4-2.png)![Figure 4-7](Medical_Physiology/4-7.png)   
 
 * Diffusion 由物质浓度、电离浓度综合驱动
     - 脂类可通过细胞膜扩散；水溶性小分子可通过 protein “pores” (aquaporins) 渗透，比水大20%，渗透效率降低1000倍
@@ -121,12 +121,12 @@ to form mRNA（去除introns）
 
 * Active transport 可逆浓度梯度转运物质，由载体蛋白消耗能量驱动
     - Primary：消耗ATP运输某种物质；e.g. Na-K Pump 维持平衡，Ca Pump 储钙于内质网中，H Pump 胃酸生成   
-    ![Figure 4-12 Na-K Pump](Physiology/4-12.png)
+    ![Figure 4-12 Na-K Pump](Medical_Physiology/4-12.png)
     - Secondary：形成浓度梯度/...，以运输另一种物质
         1. Co-Transport   
-        ![Figure 4-13 sodium co-transport of glucose](Physiology/4-13.png)    
+        ![Figure 4-13 sodium co-transport of glucose](Medical_Physiology/4-13.png)    
         2. Counter-transport   
-        ![Figure 4-14 Sodium counter-transport of calcium and hydrogen ions](Physiology/4-14.png)
+        ![Figure 4-14 Sodium counter-transport of calcium and hydrogen ions](Medical_Physiology/4-14.png)
 
 
 
@@ -134,43 +134,45 @@ to form mRNA（去除introns）
 
 **本章节关注 Nerve Cells**；Cardiac Cells 也有电位（Ca，此处不述）
 
-![Figure 5-1](Physiology/5-1.png)![Figure 5-3](Physiology/5-3.png)  
+![Figure 5-1](Medical_Physiology/5-1.png)![Figure 5-3](Medical_Physiology/5-3.png)  
 
 
 * 静息状态时达成平衡，Nerve fiber 细胞内部含有大量K，细胞外部含有大量Na。因为多种离子的平衡电位不同 (K:–94 mV,Na:+61mV)，**静息电位**可用 Goldman equation 计算，其值为负，因：
     - Na-K pump: 泵出3 Na+, 泵入2 K+
     - K "leak" channels: 渗出 K+
 * 将电位从−70mV提升至10mV的**测试**中，可以发现Na、K 通道的反应速度不同   
-![Figure 5-9](Physiology/5-9.png)
+![Figure 5-9](Medical_Physiology/5-9.png)
 * 标准动作电位示意图（左）；带节律的动作电位（中）调节心脏节律，Hyperpolarization 与 K 流出有关；Plateau（右）延长了去极化的时间（与Ca通道有关），使心脏肌肉的收缩时间相同    
-![Figure 5-6 动作电位](Physiology/5-6.png)
+![Figure 5-6 动作电位](Medical_Physiology/5-6.png)
 * **动作电位**激发后 Na 涌入细胞，到达电位顶点后通道迅速关闭；随后 K 加速流出细胞，到达平衡电位后通道关闭     
-![Figure 5-7](Physiology/5-7.png)
+![Figure 5-7](Medical_Physiology/5-7.png)
 * 动作电位可沿着 conductive fiber 向两侧传导；也可 Saltatory conduction （跳跃式传导，更快）：Schwann cell 包裹 nerve fiber，间隔着留下 Node of Ranvier 以供跳跃式传导       
-![Figure 5-11](Physiology/5-11.png)
+![Figure 5-11](Medical_Physiology/5-11.png)
 * 当前一个动作电位未结束时，后一个电位不会被激活，因为激活后不久Na通道就会关闭，直至再次达到静息电位前都不能再激活；下图（B）无法被激活，因为此时正处于 absolute refractory period (1/2500 second for nerve fibers)；下图（A）因为impulse未达到动作电位而未能激活     
-![Figure 5-18](Physiology/5-18.png)
+![Figure 5-18](Medical_Physiology/5-18.png)
 * 细胞外液钙离子浓度高会降低细胞膜对钠离子的通透性，因此 Ca 是 stabilizer
 * 一些麻醉药提高Na通道的激活难度（提高 excitability threshold）
 
 
 ## Chapter 6,7  骨骼肌
 
-![Figure 6-3](Physiology/6-3.png)
+![Figure 6-3](Medical_Physiology/6-3.png)
 
-* 肌肉纤维束（Muscle fasciculus）由许多肌纤维（Muscle fiber）组成；每一根肌肉纤维外由肌膜（Sarcolemma）包裹、延申成横向的 Transverse tubule 使信号得以快速传递，由肌浆（Sarcoplasm）填充、纵向的肌浆网（Sarcoplasmic Reticulum）调节钙离子；纤维内依次排列着多个肌节（Sarcomere）  
-    - ![Figure 7-5](Physiology/7-5.png)
-* 肌肉收缩
-    - ![Figure 7-2](Physiology/7-2.png)
+* 骨骼肌（Skeletal Muscle）的肌肉纤维束（Muscle fasciculus）由许多肌纤维（Muscle fiber）组成；每一根肌肉纤维外由肌膜（Sarcolemma）包裹、延申成横向的 Transverse tubule 使动作电位得以快速传递，由肌浆（Sarcoplasm）填充、纵向的肌浆网（Sarcoplasmic Reticulum）调节钙离子；纤维内依次排列着多个肌节（Sarcomere）  
+    - ![Figure 7-5](Medical_Physiology/7-5.png)
+* 骨骼肌收缩
+    - ![Figure 7-2](Medical_Physiology/7-2.png)
     - 动作电位由 Nerve 传递至肌纤维，Nerve 分泌少量神经递质 乙酰胆碱（acetylcholine）
     - 乙酰胆碱打开通道，大量Na离子涌入肌膜内侧、导致局部去极化，进一步打开钠离子通道，在膜上产生动作电位
     - 动作电位继续扩散，并且至肌纤维的中心、释放肌浆网内钙离子
     - 受钙离子刺激，Actin and Myosin filaments 开始滑动，肌肉收缩
+        * （当 Active sites 未暴露时）Myosin Head 裂解ATP，产生 ADP+Pi+能量，此时其与Actin**垂直** 
         * 钙离子结合 Troponin complex，其形变拉动 tropomyosin 露出 Active sites 以结合 Myosin
-        * Myosin Head 分解ATP，提供能量拉动收缩
-        * （e.g.骨骼肌）收缩时，Motor unit 指被一个Nerve（多个末梢）控制的一束纤维，它们同时收缩
+        * Myosin 结合 Active sites 后形变**倾斜**，达成牵拉
+        * 牵拉后释放ADP+Pi，结合新ATP，重复...
     - 在几分之一秒后，钙离子抽回肌浆网，肌肉收缩停止
-* 肌肉能量来源：phosphocreatine（5-8s即可用），glycolysis（水解glycogen以用于生成ATP），oxidative metabolism（最慢）
+    - e.g.骨骼肌）收缩时，Motor unit 指被一个Nerve（多个末梢）控制的一束纤维，它们同时收缩
+* 骨骼肌能量来源：phosphocreatine（5-8s即可用），glycolysis（水解glycogen以用于生成ATP），oxidative metabolism（最慢）
 * 两种肌纤维
     - slow fiber (red muscle)：更小，血管发达、供氧更好（偏向 oxidative metabolism），nerve 更少
     - fast fiber (white muscle)：更大，更偏向使用 glycolysis 等可以无氧代谢的快速能源（线粒体更少），存储大量钙离子
@@ -181,7 +183,7 @@ to form mRNA（去除introns）
     - Hyperplasia of Muscle Fibers：纤维数量的增加（不是纤维肥大），分裂自此前已变大的纤维
 
 * 运动终板（Motor End Plate）：神经元与肌纤维相接触的部位，被多个 Schwann cells 覆盖，使其与周围的液体隔绝（神经信号 乙酰胆碱不会快速发散，只能从 synaptic cleft 走）。
-    - ![Figure 7-1](Physiology/7-1.png)
+    - ![Figure 7-1](Medical_Physiology/7-1.png)
     - 乙酰胆碱会被迅速分解，因此信号不会一直持续
     - 肉毒杆菌毒素（botulinum toxin）：使神经末梢减少释放乙酰胆碱
     - Fatigue of the Junction：持续释放乙酰胆碱后，乙酰胆碱储备不足
@@ -191,10 +193,29 @@ to form mRNA（去除introns）
     - 动作电位持续时间为 1-5 ms （更长）
     - 传导速度为 3-5m/s（更慢）
 
-## Chapter 8 (TBA)
-## Chapter 9 (TBA)
+## Chapter 8 平滑肌
 
-![Figure 9-1 Heart Anatomy](Physiology/9-1.png)  
+![Figure 8-1](Medical_Physiology/8-1.png)
+
+* 平滑肌（Smooth Muscle）一般有两种型态
+    - Multi-Unit：每一根纤维都独立地运作、受神经控制；在需要精细控制的地方出现，e.g.眼睛
+    - Unitary (Visceral)：纤维成片、束排列为一个整体，细胞膜相互粘附、离子可以通过这些缝隙连接在细胞间流通；出现在内脏壁、血管导管处（Stress-Relaxation、reverse stress-relaxation：压力缓冲的能力很强，例如膀胱壁）
+* 平滑肌收缩：
+    - 神经冲动/递质-->动作电位（仅Unitary有，Multi-Unit太小了、故无）-->钙离子泵
+    - CaM 结合钙离子后激活 MLCK，使 Myosin 磷酸化、附着 Actin，肌肉收缩
+    - 钙离子被泵出后 Myosin 不再磷酸化，同时 Myosin phosphatase 进行去磷酸化，肌肉放松
+    - 对比骨骼肌收缩：
+        * 神经递质因器官而异；此外，Unitary 通常可以由非神经施加的刺激引起收缩（e.g.stretch使阈值更易达到、于是自动节律的电位也可以造成收缩）（e.g.激素，氧气）
+        * 钙离子更多来自于胞外（骨骼肌Ca多来自肌浆网）
+        * 没有 troponin，故而对钙离子的反应也更慢、Myosin Cross-bridges（收缩）更慢
+        * 耗能更少
+        * Dense bodies（同时也是 intracellular protein bridges） 代替了 Z disk 位置
+    - ![Figure 8-2](Medical_Physiology/8-2.png)
+
+
+## Chapter 9 心脏(TBA)
+
+![Figure 9-1 Heart Anatomy](Medical_Physiology/9-1.png)  
 肌肉纤维由 Intercalated discs 互相连通，传递 ion signals 以保持节律。
 
 
@@ -225,7 +246,7 @@ Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听�
 | 4rd | 因 ventricular wall compliance 降低、ventricular filling 阻力增加，atrial 收缩以强制向 ventricles 灌注 | 左心室肥厚者有此音；频率<20 cycles/sec 故而听诊器听不见 |
 
 鉴于心脏杂音与可听阈值，听诊器可听见的频率在 40~520 cycles/sec：  
-![Figure 23-1](Physiology/23-1.png)
+![Figure 23-1](Medical_Physiology/23-1.png)
 
 
 ### Phonocardiograms
@@ -235,7 +256,7 @@ Heart valves 病变可以导致心音变化：
 * 主动脉瓣狭窄：或因衰老导致主动脉瓣肥大 (B)
 
 
-![Figure 23-3](Physiology/23-3.png)
+![Figure 23-3](Medical_Physiology/23-3.png)
 
 
 | - | - | 说明 | 其它 | 
