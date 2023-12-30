@@ -9,7 +9,7 @@ conda install fastqc -y
 ```
 Exception in thread "main" java.awt.AWTError: Can't connect to X11 window server using 'localhost:0' as the value of the DISPLAY variable
 ```
-（参考[Linux Tricks](../../Tricks/Linux.md#graphic)）
+（参考[Linux Tricks](../../Tricks/_Linux.md#graphic)）
 
 ## Usage
 ```

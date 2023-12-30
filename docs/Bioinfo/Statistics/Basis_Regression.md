@@ -17,8 +17,6 @@ MathJax = {
 <script type="text/javascript" id="MathJax-script" async
   src="https://github.com/Jiarong-L/notes/blob/main/docs/Bioinfo/Statistics/Basis/tex-svg.js">
 </script>
-<!-- src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" -->
-<!-- src="http://127.0.0.1:8000/Bioinfo/Statistics/Basis/tex-svg.js" -->
 
 
 <style>
@@ -350,8 +348,9 @@ $\hat\beta_i$的抽样分布是正态分布，且有：$E(\hat\beta_i)=\beta_i$�
     - 方差齐次性（组间方差相等）：巴特利特检验(Bartlett)，莱文检验(Levene, F=MST/MSE)
 
 * 多重比较的矫正(p589)
+    - 后续检验（Post-hoc test），也称两两比较分析：e.g.A=B=C=D不成立，所以比较它们的两两组合、找出有差异的组
     - 进行多次检验后累计的I型错误将大于可接受的$\alpha$值，因此需要对p值进行矫正（一般称矫正后的p值为q值）
-    - Tukey、Bonferroni、...
+    - Tukey（样本数相同）、Bonferroni、S-N-K (Student-Newman-Keuls)、Dunnett、...
 
 [![](./Basis/13.3.png)](https://www.zhihu.com/question/54632292)
 
@@ -421,7 +420,7 @@ $$ E(y)=\beta_0+\beta_1x_1+...+\beta_{p-1}x_{p-1}+...+\beta_{p+b-2}x_{p+b-2}   \
 
 ### 析因设计
 
-选择所有可能的处理（**多因素**的取值组合），随机指派给试验单位；若有三因素共 $a \times b \times c$ 处理（水平）（分别来自[示意图](../Basis/13.1.png)中因素A,B,C）：
+选择所有可能的处理（**多因素**的取值组合），随机指派给试验单位；若有三因素共 $a \times b \times c$ 处理（水平）（分别来自[示意图](./Basis/13.1.png)中因素A,B,C）：
 
 
 $$ E(y)=\beta_0+\beta_1x_1+...+\beta_{d}x_{1}x_{3}+...+\beta_{e}x_{1}x_{3}x_{4}   \text{ 其中 }$$ 

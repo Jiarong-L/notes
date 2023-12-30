@@ -49,7 +49,7 @@ orthofinder -f $FAA_folder
 
 
 ### Results
-output会在FAA_folder/OrthoFinder/Results_*/中, 官方解读见[exploring-orthofinders-results](https://davidemms.github.io/orthofinder_tutorials/exploring-orthofinders-results.html), 推荐一个[中文解读](https://www.jianshu.com/p/bef97d10928d),示例结果文件夹：[Results_Jun30.zip](../OrthoFinder/Results_Jun30.zip)  
+output会在FAA_folder/OrthoFinder/Results_*/中, 官方解读见[exploring-orthofinders-results](https://davidemms.github.io/orthofinder_tutorials/exploring-orthofinders-results.html), 推荐一个[中文解读](https://www.jianshu.com/p/bef97d10928d),示例结果文件夹：[Results_Jun30.zip](./OrthoFinder/Results_Jun30.zip)  
 
 
 列出需要注意的文件，其中tree可用[ETE Toolkit tree viewer](http://etetoolkit.org/treeview/)在线查看：
