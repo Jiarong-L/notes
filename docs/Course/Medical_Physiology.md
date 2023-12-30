@@ -158,7 +158,7 @@ to form mRNA（去除introns）
 
 ![Figure 6-3](Medical_Physiology/6-3.png)
 
-* 骨骼肌（Skeletal Muscle）的肌肉纤维束（Muscle fasciculus）由许多肌纤维（Muscle fiber）组成；每一根肌肉纤维外由肌膜（Sarcolemma）包裹、延申成横向的 Transverse tubule 使动作电位得以快速传递，由肌浆（Sarcoplasm）填充、纵向的肌浆网（Sarcoplasmic Reticulum）调节钙离子；纤维内依次排列着多个肌节（Sarcomere）  
+* 骨骼肌（Skeletal Muscle）的肌肉纤维束（Muscle fasciculus）由许多肌纤维（Muscle fiber）组成；每一根肌肉纤维外由肌膜（Sarcolemma）包裹、延申成横向的 T小管（Transverse tubule） 使动作电位得以快速传递，由肌浆（Sarcoplasm）填充、纵向的肌浆网（Sarcoplasmic Reticulum）调节钙离子；纤维内依次排列着多个肌节（Sarcomere）  
     - ![Figure 7-5](Medical_Physiology/7-5.png)
 * 骨骼肌收缩
     - ![Figure 7-2](Medical_Physiology/7-2.png)
@@ -195,7 +195,7 @@ to form mRNA（去除introns）
 
 ## Chapter 8 平滑肌
 
-![Figure 8-1](Medical_Physiology/8-1.png)
+![Figure 8-1](Medical_Physiology/8-1.png)![Figure 8-2](Medical_Physiology/8-2.png)
 
 * 平滑肌（Smooth Muscle）一般有两种型态
     - Multi-Unit：每一根纤维都独立地运作、受神经控制；在需要精细控制的地方出现，e.g.眼睛
@@ -210,18 +210,65 @@ to form mRNA（去除introns）
         * 没有 troponin，故而对钙离子的反应也更慢、Myosin Cross-bridges（收缩）更慢
         * 耗能更少
         * Dense bodies（同时也是 intracellular protein bridges） 代替了 Z disk 位置
-    - ![Figure 8-2](Medical_Physiology/8-2.png)
-
-
-## Chapter 9 心脏(TBA)
-
-![Figure 9-1 Heart Anatomy](Medical_Physiology/9-1.png)  
-肌肉纤维由 Intercalated discs 互相连通，传递 ion signals 以保持节律。
 
 
 
+## Chapter 9 心脏
 
-## Chapter 10 (TBA)
+**血液循环**：lung **-->** Left atrium **-->** Left ventricle **-->** Aorta(body) **-->** Right atrium **-->** Right ventricle **-->** Lungs
+
+![Figure 9-1 Heart Anatomy](Medical_Physiology/9-1.png) ![Figure 9-8](Medical_Physiology/9-8.png)
+
+
+
+* 心肌的动作电位扩展至T小管，激活 L-type Ca channel 令钙离子进入细胞，激活肌浆网中的钙离子也泵入胞质；收缩结束后钙离子泵出细胞
+    - 有Plateau，因为开启L型钙离子通道使Ca流入细胞，延长了depolarization的时长
+    - 骨骼肌中过早的收缩会引起 wave summation；但**心肌在达成Repolarization前无法再次激发动作电位**
+
+* Cardiac Muscle
+    - Atrial Muscle
+    - Ventricular Muscle：Pump
+    - Conductive Muscle Fiber：传递电子信号，使心脏模块(atrium、ventricle)内部保持同步缩放（Syncytium：Fibers 互相贴合为一个整体，由 Intercalated discs 传递 ion signals 以保持节律）
+
+* **Cardiac cycle** = Systole + Diastole；心跳加速时，Diastole 部分时长缩短最多
+    - Isovolumic: 收缩/舒张导致压力变大，但valve还没有开启，因此血液容量无变化（等容收缩/舒张）
+    - Left Heart 视角
+       * （----Diastole----）
+       * Mitral valve 打开，血液流入 Left ventricle
+       * （----Systole----）
+       * Mitral valve 关闭，防止 Left ventricle 血液逆流入 Left atrium （同时等容收缩）
+       * Aortic valve 冲开，开始 ejection
+       * Aortic valve 关闭（同时等容舒张）
+    - Phonocardiogram 视角
+        * P：SA node firing，atrium 中信号开始传导、
+        * QRS：AV node firing，ventricle 中信号开始传导、收缩
+
+* 影响 Cardiac Output 的因素
+    - 自主神经系统（见下章）
+    - 细胞外过量K离子可能阻断心脏冲动的传导（去极化，使膜电位不那么负，导致动作电位的强度变弱）；相对的，细胞外过量Ca离子可能导致心脏持续痉挛性收缩
+    - 动脉压
+
+
+## Chapter 10 心脏节律(TBA)
+![Figure 9-14](Medical_Physiology/9-14.png)
+
+* 自主神经系统（autonomic）调节心跳
+    - 副交感神经（parasympathetic）：迷走神经（Vagi）控制 SA node、AV node，加速心跳
+    - 交感神经（sympathetic）：直接影响肌肉收缩，同时加速心跳、加剧收缩
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Chapter 11 (TBA)
 ## Chapter 12 (TBA)
 ## Chapter 13 (TBA)
