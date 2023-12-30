@@ -234,14 +234,14 @@ to form mRNA（去除introns）
     - Isovolumic: 收缩/舒张导致压力变大，但valve还没有开启，因此血液容量无变化（等容收缩/舒张）
     - Left Heart 视角
        * （----Diastole----）
-       * Mitral valve 打开，血液流入 Left ventricle
+       1. Mitral valve 打开，血液从 Left atrium 流入 Left ventricle
        * （----Systole----）
-       * Mitral valve 关闭，防止 Left ventricle 血液逆流入 Left atrium （同时等容收缩）
-       * Aortic valve 冲开，开始 ejection
-       * Aortic valve 关闭（同时等容舒张）
+       2. Mitral valve 关闭，防止 Left ventricle 血液逆流入 Left atrium （同时等容收缩）
+       3. Aortic valve 冲开，开始 ejection
+       4. Aortic valve 关闭（同时等容舒张）
     - Phonocardiogram 视角
-        * P：SA node firing，atrium 中信号开始传导、
-        * QRS：AV node firing，ventricle 中信号开始传导、收缩
+        * P：S-A node firing，atrium 中信号开始传导、
+        * QRS：A-V node firing，ventricle 中信号开始传导、收缩
 
 * 影响 Cardiac Output 的因素
     - 自主神经系统（见下章）
@@ -249,28 +249,24 @@ to form mRNA（去除introns）
     - 动脉压
 
 
-## Chapter 10 心脏节律(TBA)
-![Figure 9-14](Medical_Physiology/9-14.png)
+## Chapter 10 心脏节律
+![Figure 9-14](Medical_Physiology/9-14.png)![Figure 10-3](Medical_Physiology/10-3.png)
+
 
 * 自主神经系统（autonomic）调节心跳
-    - 副交感神经（parasympathetic）：迷走神经（Vagi）控制 SA node、AV node，加速心跳
-    - 交感神经（sympathetic）：直接影响肌肉收缩，同时加速心跳、加剧收缩
+    - 副交感神经（parasympathetic）：迷走神经（Vagi）控制 S-A node、A-V node，控制心率（e.g. acetylcholine 减慢心跳）
+    - 交感神经（sympathetic）：直接影响肌肉收缩，可同时控制心率、收缩强度（e.g. Norepinephrine 加速离子置换：K-加速达到电位阈值、Ca-收缩增强）
+
+* 节律传递：Atrium先收缩、随后再Ventricle
+    1. （Right Atrium 中）S-A node 产生自主节律脉冲，通过 Internodal pathways 传导至 A-V node
+    2. （A-V bundle 处延迟一会儿，随后信号进入ventricles）
+    3. （Ventricle 中）信号传递给 Purkinje fibers 的左右 bundle
+
+* 自主节律：S-A node、A-V node 可以受Vagi调节，也可以自主产生节律脉冲（其静息电位不如正常的负）；正常心跳节律由 S-A node 产生；A-V node 的自主节律 S-A node 慢，当外源信号迟迟不至时才起作用（escape beat）；Purkinje fibers 的自主节律更慢
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Chapter 11 (TBA)
-## Chapter 12 (TBA)
+## Chapter 11 心电图(TBA)
+## Chapter 12 心律失常(TBA)
 ## Chapter 13 (TBA)
 ## Chapter 14 (TBA)
 ## Chapter 15 (TBA)
@@ -282,8 +278,11 @@ to form mRNA（去除introns）
 ## Chapter 21 (TBA)
 ## Chapter 22 (TBA)
 ## Chapter 23
-### Heart Sounds
-Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听诊器中 “lub, dub, lub, dub”
+
+Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听诊器中 “lub, dub, lub, dub”；鉴于心脏杂音与可听阈值，听诊器可听见的频率在 40~520 cycles/sec: 
+
+![Figure 23-1](Medical_Physiology/23-1.png)
+
 
 | Heart Sounds | 说明 | 其它 |
 | -- | -- | -- |
@@ -292,12 +291,10 @@ Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听�
 | 3rd | 猜测因 atria 向ventricles 注入血液过快而在 ventricles 中产生湍流 | 儿童、运动员中正常有此音，systolic heart failure 的老人亦有此音 |
 | 4rd | 因 ventricular wall compliance 降低、ventricular filling 阻力增加，atrial 收缩以强制向 ventricles 灌注 | 左心室肥厚者有此音；频率<20 cycles/sec 故而听诊器听不见 |
 
-鉴于心脏杂音与可听阈值，听诊器可听见的频率在 40~520 cycles/sec：  
-![Figure 23-1](Medical_Physiology/23-1.png)
 
 
-### Phonocardiograms
-Heart valves 病变可以导致心音变化：  
+
+**Phonocardiograms**：Heart valves 病变可以导致心音变化：  
 
 * Rheumatic fever：Autoimmune 使 valves 渗漏/粘连 (C/E)，通常因 streptococcal toxin 引起
 * 主动脉瓣狭窄：或因衰老导致主动脉瓣肥大 (B)
