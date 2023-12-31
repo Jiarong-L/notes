@@ -26,7 +26,7 @@ img{
 
 
 |  | 数据组成 | 
-|  |  | 
+| -- | -- | 
 | 分组信息 | e.g.A型血，B型血，O型血，AB型血 | 
 | 生存结局 | 研究者设定某种阳性事件（e.g.死亡）。研究进行的时间跨度中，若事件发生则结局为1，若未发生则结局为0 | 
 | 生存时间 | 从随访至阳性事件所经历的时间。可分为**完全生存时间**与非完全生存时间（又称**截尾值/删失值**，censord value） | 
@@ -35,7 +35,7 @@ img{
 
 
 |  | 分析手段 | 
-|  |  | 
+| -- | -- | 
 | 描述生存过程 | K-M曲线 | 
 | 生存/风险函数是否有差异 | **LogRank**(Mantel-Haenszel): 各时间点权重一样，对远期差异敏感 <br> **Gehan Wilcoxon**(Breslow?): 以各时间点的观察例数为权重，对早期差异敏感 <br> **Tarone-Ware**: 以各时间点的观察例数的平方根为权重 <br> [详细link](https://zhuanlan.zhihu.com/p/210541300),根据事件时间分布、删失分布、曲线是否**交叉** 来决定方式与看待结果 | 
 | 寻找风险因素 | Cox | 
@@ -44,7 +44,7 @@ img{
 
 
 | 术语 |  |  |  
-|  |  |  |  
+| -- | -- | -- |  
 | 生存函数 | $$S(t)=P(T>t)$$ | 个体的生存时间大于t的概率 | 
 | (ti时刻生存概率) | $$S(t_i)=S(t_{i-1})(1-\frac{d_i}{n_i})=exp[-\int_{0}^{t}h(u)du]$$ | d_i:在ti死亡的数目 <br> n_i: ti之前存活且非数据删失的数目 |  
 | 风险函数 $\lambda$ | $$h(t)=\lim\limits_{\Delta t\rightarrow0}\frac{P(t\leq T<t \|T\geq t)}{\Delta t}=-\frac{dS(t)/dt}{S(t)}$$ | 个体生存到t时刻，单位时间内事件发生的rate |  
@@ -53,8 +53,8 @@ img{
 
 
 
-# R示例
-## Data
+## R示例
+### Data
 lung数据集，数据详情及下载见[链接](https://r-data.pmagunia.com/dataset/r-dataset-package-survival-lung)。  
 ```
 setwd('C:\\Users\\12990\\Desktop\\s')
@@ -63,7 +63,7 @@ library("survminer")
 lung <-read.csv("dataset-68740.csv",head=T,check.names=F)
 ```
 
-## Surv(),survfit()
+### Fit
 Surv()创建一个生存对象,随后survfit()创建一个分析图
 ```
 Surv(time,event)
@@ -96,7 +96,7 @@ median: 中位生存率对应的生存时间
 0.95UCL: 置信区间上限
 ```
 
-## K-M
+### K-M
 ```
 KM_sex <- survfit(Surv(time,status==2) ~ sex , data = lung)
 p1 = ggsurvplot(KM_sex,
@@ -137,7 +137,7 @@ Call: survfit(formula = Surv(time, status == 2) ~ 1, data = lung)
 ......
 ```
 
-## log-rank test
+### log-rank test
 * [参考](https://rdocumentation.org/packages/survival/versions/3.5-7/topics/survdiff): With **default rho = 0** this is the **log-rank** or Mantel-Haenszel test, and with ***rho = 1*** it is equivalent to the Peto & Peto modification of the ***Gehan-Wilcoxon*** test
 ```
 surv_diff <- survdiff(Surv(time, status) ~ sex, data = lung, rho = 0)
@@ -158,12 +158,12 @@ sex=2  90       53     73.4      5.68      10.3
 
 
 
-## COX
+### COX
 * 基于风险比模型，评估不同变量对生存率的影响;**Cox模型和log-rank test都要求风险等比例（PH假定，[Assumptions](http://www.sthda.com/english/wiki/cox-model-assumptions),[pre-test](https://mp.weixin.qq.com/s/7lCRmezb0yw1JewHBw0ZrQ)）**，若否，可尝试RMST、分层、[时依协变量](https://mp.weixin.qq.com/s/CTLr-UeuxcDHe8Lf2r2DZQ)、等方法    
 * *在进行多元回归前，如果因子太多，可以使用survdiff分组检验先选出显著的因子。   
 * 除了Cox模型外,还要一些拟合其它分布的模型，例如指数、Weibull、Gompertz分布
 
-### 单因素
+#### 单因素
 单因素拟合Cox比例风险回归模型。风险比率exp(coef)=0.5880，说明女性（2）死亡风险是男性（1）的0.5880倍。
 ```
 cox_sex <- coxph(Surv(time,status==2) ~ sex , data = lung)
@@ -180,7 +180,7 @@ n= 228, number of events= 165
 
 ```
 
-### 多因素
+#### 多因素
 ```
 cox_2 <- coxph(Surv(time,status==2) ~ sex +age, data = lung)
 > summary(cox_2)
@@ -206,7 +206,7 @@ Score (logrank) test = 13.72  on 2 df,   p=0.001
 
 ```
 
-### 分层
+#### 分层
 加strata()按age分层计算，减少age造成的扰动
 ```
 Call:
@@ -220,7 +220,7 @@ Likelihood ratio test=9.79  on 1 df, p=0.001756
 n= 228, number of events= 165
 ```
 
-### 模型检验
+#### 模型检验
 H0假设：风险比不会随时间而变化。p>0.05,不能拒绝H0。  
 如果风险比伴随时间变化(p<=0.05)，方程中可加入类似'var\*time'的变换。  
 ```
@@ -236,7 +236,7 @@ GLOBAL 2.475  2 0.29
 ![zph](Survival/img/zph.png)
 
 
-### Hazard Ratio
+#### Hazard Ratio
 ```
 > summary(cox_sex)$coef[2]
 [1] 0.5880028

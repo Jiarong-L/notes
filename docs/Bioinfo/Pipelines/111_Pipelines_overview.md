@@ -1,3 +1,7 @@
+---
+title: Pipelines overview
+---
+
 <style>
 img{
     width: 80%;

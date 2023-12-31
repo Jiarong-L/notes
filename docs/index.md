@@ -1,7 +1,7 @@
 # 
 
 **本网站主要用于记录我的学习历程，便于复习时查找资料**  
-**This website serves as the navigator to my learning records/resources.**
+**This website serves as the navigator to my learning track.**
 
 
 
@@ -14,20 +14,31 @@
 
 * Gallary：制图笔记导航  
 
-* Statistics：统计分析模块   
+* Databases：常用数据库
 
 
 ## Course
-一些课程的笔记，正在补全中
+一些课程的笔记，on-going/TBA：
 
-* **Medical Topics:** Immunology, Cancer Biology, Pathophysiology, CADD
+* **Medical Topics:** Cancer Biology, Pathophysiology, Med physiology
 
-* **Statistics/Math:** Causal Inference(bradyneal), Real Analysis(lifesaver), Convex Optimization(CVX101), Machine Learning(Zhou), GNN(CS224w)
+* **Statistics、ML:** Causal Inference(bradyneal), Convex Optimization(CVX101), Machine Learning(Zhou), GNN(CS224w)
 
-* **Tools:** PyTorch,OpenCV,MAKE
+* **Math:** Real Analysis(lifesaver), Linear Algebra, Calculus
 
 
-## Notes
-杂记。
+## Readings
+一些阅读随记，随删随用
+
+## Statistics
+统计学笔记，多数为生物信息常用
+
+## Tricks
+各种杂项技能笔记，on-going/TBA：PyTorch/TF, Gamming
+
+
+## Whistle
+
+笛萧的一些初学者指法表及简谱
 
 
