@@ -24,7 +24,7 @@ img{
 ## Python 
 [![bar_of_pie_plot](Python/Matplotlib/img/bar_of_pie_plot.png)](../Python/Matplotlib)
 [![donut_pie_plot](Python/Matplotlib/img/donut_pie_plot.png)](../Python/Matplotlib)
-[![animation](Python/Matplotlib/img/animation.gif)](../Python/Matplotlib)
+[![animation](Python/Matplotlib/img/animation_sin.gif)](../Python/Matplotlib)
 [![NGLView](Python/NGLView/img/2.png)](../Python/NGLView)
 [![RDKit](../Blocks/RDKit/img/2.png)](../../Blocks/RDKit)
 
