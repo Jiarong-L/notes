@@ -180,6 +180,9 @@ for j in range(-2,2):
 ax11.set_ylabel(r'$sin=\frac{y}{r}$',rotation=90,fontdict={'size': 16})
 ax12.set_ylabel(r'$cos=\frac{x}{r}$',rotation=90,fontdict={'size': 16})
 ax13.set_ylabel(r'$tan=\frac{y}{x}$',rotation=90,fontdict={'size': 16})
+ax11.xaxis.set_major_locator(MultipleLocator(np.pi))
+ax12.xaxis.set_major_locator(MultipleLocator(np.pi))
+ax13.xaxis.set_major_locator(MultipleLocator(np.pi))
 sin_point = ax11.plot([], [], marker='o',color='orange')
 cos_point = ax12.plot([], [], marker='o',color='orange')
 tan_point = ax13.plot([], [], marker='o',color='orange')
@@ -212,7 +215,6 @@ def animate_func(a):
     cos_point[0].set_data([a*np.pi/180],[x])
     if (a%90!=0):
         tan_point[0].set_data([a*np.pi/180],[np.tan(a*np.pi/180)])
-    
     ### ax2 Circle
     r_line[0].set_data([0,x],[0,y])
     y_line[0].set_data([x,x],[0,y])
@@ -235,8 +237,7 @@ ani = FuncAnimation(fig,
                     cache_frame_data=True)
 
 ax2.axis('off')
-ax13.set_xlabel(r'$\theta in \pi$',rotation=0,fontdict={'size': 16})
-plt.gca().xaxis.set_major_locator(MultipleLocator(np.pi))
+ax13.set_xlabel(r'$\theta$',rotation=0,fontdict={'size': 16})
 ani.save('animation_sin.gif', fps=25, writer='pillow')
 ```
 
