@@ -46,16 +46,7 @@ table th:nth-of-type(5) {
     - 偶函数：$f(-x)=f(x)$ 图像沿$y$轴对称
 
 
-
-## 三角函数
-![](./Calculus/animation_sin.gif)
-
-![](./Calculus/2-1.png)
-
-![](./Calculus/2-4.png)
-
-
-## 极限
+### 极限
 
 ![](./Calculus/3-1.png)
 
@@ -68,11 +59,11 @@ table th:nth-of-type(5) {
 ![](./Calculus/3-2.png)
 
 
-* 三明治定理/夹逼定理：（求极限）  
+* 三明治定理/夹逼定理：（求极限常用）  
 ![](./Calculus/3-3.png)
 
 
-* **求极限示例**：  
+* **求极限方法示例**：  
 ![](./Calculus/3-4.png)
 
 
@@ -85,25 +76,99 @@ table th:nth-of-type(5) {
 ![](./Calculus/5-6.png)
 
 
-
-
-## 微分
+### 微分
 
 * 可导性：如果$f(x)$在$(a,b)$内可导并且在$a^+$和$b^-$处的导数都存在，则称$f(x)$在闭区间在$[a,b]$上可导；如果一个函数在$x$上可导，那么它在$x$上连续
 ![](./Calculus/5-7.png)
 
+* 二阶导数就是关于x导二次，三阶就是三次（见上图·示例），...
+  - 区分：$(\frac{dy}{dx})^2$ 一阶导的平方, $\frac{d^2y}{dx^2}$关于$x$的二阶导, $\frac{dy}{d(x^2)}$关于$x^2$的一阶导
 
 * 常用求导法则：  
 ![](./Calculus/6-1.png)
 
 
-* 如何画出导数的图像：6.7节
+* **隐函数求导**：（关于$x$求导的方程还包含变量$y$，希望求$y$随$x$的变化关系$\frac{dy}{dx}$）
+  - 使用示例：求圆 $x^2+y^2=4$ 在圆上各点 $(x,y)$ 处斜率$\frac{dy}{dx}$
+    1. 公式两边加上 $\frac{d}{dx}$，两边各自关于$x$求导：$\frac{d}{dx}(x^2+y^2)=\frac{d}{dx}(4)$ 
+    2. （隐函数）令$u=y^2$，则$\frac{d}{dx}(y^2)=\frac{du}{dy}\frac{dy}{dx}=2y\frac{dy}{dx}$
+    3. $2x +2y\frac{dy}{dx}=0$，则 $\frac{dy}{dx}=-\frac{x}{y}$
+    * （拆分 & 使用链式法则）
+
+
+
+
+## 三角函数
+
+$\pi=180度$
+
+![](./Calculus/animation_sin.gif)
+
+![](./Calculus/2-1.png)
+
+![](./Calculus/2-4.png)
+
+
+### 极限
+
+![](./Calculus/7-1.png)
+![](./Calculus/7-2.png)
+![](./Calculus/7-3.png)
+
+
+### 微分
+
+![](./Calculus/7-4.png)
 
 
 
 
 
 
+## 指数函数-对数函数
+
+![](./Calculus/9-1.png)
+
+* 指数函数：$b^x$，对数函数：$\log_b(x)$
+* $e=\lim\limits_{h \rightarrow 0^+}(1+h)^{1/h}=\lim\limits_{n \rightarrow \infty}(1+\frac{1}{n})^n$
+* $e^x=\lim\limits_{n \rightarrow \infty}(1+\frac{x}{n})^n$ 仅当$n$很大时成立
+* $\ln(e)=1$
+
+### 极限
+
+![](./Calculus/9-2.png)
+
+
+### 微分
+
+| 导数 | -- |
+| -- | -- |
+| $$\frac{d}{dx}a^x=a^x\ln(a)$$ | $$\frac{d}{dx}e^{kx}=e^{kx}\ln(e^{k})=ke^{kx}$$ |
+| $$\frac{d}{dx}log_a(x)=\frac{1}{x \ln(a)}$$ | $$\frac{d}{dx}\ln(x)=\frac{1}{x}$$ |
+
+
+对于$f(x)^{g(x)}$形式的方程，一般取它的对数后再隐函数求导：
+$$y=x^{sin(x)}$$
+$$u=\ln(y)=\ln(x^{sin(x)})=sin(x)\ln(x)$$
+$$\frac{d}{dx}(\ln(y))=\frac{d}{dx}(sin(x)\ln(x))$$
+$$\frac{1}{y}\frac{dy}{dx}=cos(x)\ln(x)+\frac{six(x)}{x}$$
+$$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
+  注：$\frac{du}{dx}=\frac{du}{dy}\frac{dy}{dx}=\frac{1}{y}\frac{dy}{dx}$
+
+### 双曲函数
+
+| $sinh(x)=\frac{e^x-e^{-x}}{2}$ | $cosh(x)=\frac{e^x+e^{-x}}{2}$ | $tanh(x)=\frac{sinh(x)}{cosh(x)}$ |
+| -- | -- | -- |
+| $csch(x)=\frac{1}{sinh(x)}$ | $sech(x)=\frac{1}{cosh(x)}$ | $coth(x)=\frac{1}{tanh(x)}$ |
+
+| 导数 |
+| -- |
+|$\frac{d}{dx}sinh(x)=cosh(x)        $|
+|$\frac{d}{dx}cosh(x)=sinh(x)        $|
+|$\frac{d}{dx}tanh(x)=sech^2(x)      $|
+|$\frac{d}{dx}coth(x)=-csch^2(x)     $|
+|$\frac{d}{dx}sech(x)=-sech(x)tanh(x)$|
+|$\frac{d}{dx}csch(x)=-csch(x)coth(x)$|
 
 
 
