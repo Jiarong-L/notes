@@ -12,14 +12,6 @@ MathJax = {
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script type="text/javascript" id="MathJax-script" async
-  src="http://127.0.0.1:8000/Bioinfo/Statistics/Basis/tex-svg.js">
-</script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://github.com/Jiarong-L/notes/blob/main/docs/Bioinfo/Statistics/Basis/tex-svg.js">
-</script>
-<!-- src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" -->
-<!-- src="http://127.0.0.1:8000/Bioinfo/Statistics/Basis/tex-svg.js" -->
 
 
 <style>
@@ -340,3 +332,25 @@ summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitt
 
 
 
+
+### CCA
+[参考](https://zhuanlan.zhihu.com/p/52717082)，在RDA基础上做了改进：使用$\overline{Q}$为输入、使用加权多元回归代替简单多元回归(重为行和)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 参考
+PCA、PCoA、NMDS、CCA、RDA：https://zhuanlan.zhihu.com/p/180284720     
+LDA：https://zhuanlan.zhihu.com/p/27899927  
+t-SNE UMAP  
+[David Zelený: Analysis of community ecology data in R](https://davidzeleny.net/anadat-r/doku.php/en:start)
