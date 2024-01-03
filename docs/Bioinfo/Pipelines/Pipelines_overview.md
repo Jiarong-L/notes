@@ -47,21 +47,16 @@ img{
 这些修饰可能是影响基因表达的潜在因素，一般与转录起始位点的3D空间距离一起分析；此外，这些信息可以用来寻找 发育、疾病、衰老的 marker
 
 
-
 | DNA水平 | -- | -- |
 | -- | -- | -- |
-| [ATAC-seq](./Epi/ATAC-seq.md) | -- | -- |
+| [ATAC-seq](./Epi/ATAC-seq.md) | 所有开放染色质 | -- |
 | [Chip-seq](./Epi/Chip-seq.md) | -- | -- |
+| [BS-seq](./Epi/BS-seq.md)  | 甲基化位点信息 | -- |
+| 免疫共沉淀 | 寻找某一种修饰的位点信息 | MeDIP-seq：6mA特异性抗体富集含6mA的DNA片段 |
 
 
 
-* MeDIP-seq：免疫共沉淀
-* BS-seq：Bisulfate(BS)处理DNA序列后，可将暴露状态的C变成U(再一轮复制后变成T)，而甲基化的C则不受改变
-    - Opt1(WGBS)：用 BSMAP 将全基因组[BS-seq测序](https://www.illumina.com.cn/techniques/sequencing/methylation-sequencing.html)数据 map 至 参考基因组上，可得到全基因组水平的甲基化信息
-    - Opt2(Chip)：Illumina提供[Infinium 芯片](https://www.illumina.com.cn/techniques/microarrays/methylation-arrays.html)，以bp分辨率检测CpG位点；[GenomeStudio软件](https://www.illumina.com.cn/techniques/microarrays/array-data-analysis-experimental-design/genomestudio.html )可对Illumina芯片平台生成的数据进行可视化与分析
-
-
-
+RNA水平：免疫共沉淀（MeDIP-seq for m6A）；也可以 RNA-BS-seq（原理同）
 
 
 
