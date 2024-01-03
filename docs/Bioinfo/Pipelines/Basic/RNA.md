@@ -30,7 +30,7 @@ img{
 ## Dual RNA-seq Pipeline
 针对病原体和宿主之间的互作；无需分离二者、减少数据损失。
 
-![dualRNA](./Pipelines_overview/img/dualRNA.png)
+![dualRNA](../Pipelines_overview/img/dualRNA.png)
 
  
 * 必须有Host与Patho的参考基因组。若无，Host可找近缘物种提取contigs，而Patho比较容易直接组装
