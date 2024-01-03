@@ -39,7 +39,7 @@ img{
 关注环境中物种组成，或者功能基因的比例；病毒由于含量少，另有工具（TBA）
 
 
-## Epi
+## Epi & Regulome
 
 常见的[表观遗传修饰](https://zhuanlan.zhihu.com/p/616493908)包括：DNA甲基化、组蛋白修饰（影响染色质的暴露）、RNA甲基化...
 
@@ -49,12 +49,12 @@ img{
 | DNA水平 | -- | -- |
 | -- | -- | -- |
 | [ATAC-seq](./Epi/ATAC-seq.md) | 所有开放染色质 | -- |
-| [Chip-seq](./Epi/Chip-seq.md) | 常用于寻找某一个TF结合位点/Histone修饰位点 | 免疫共沉淀：寻找某一种修饰的位点信息 <br> e.g.MeDIP-seq：6mA特异性抗体富集含6mA的DNA片段 |
+| 免疫共沉淀 | 寻找某一种修饰的位点信息 | [Chip-seq](./Epi/Chip-seq.md)：目标蛋白与DNA的互作位点 <br> MeDIP-seq：6mA特异性抗体，富集含6mA的片段 <br> PRO-seq：激活状态下RNA聚合酶的位置 |
 | [BS-seq](./Epi/BS-seq.md)  | 甲基化位点信息 | -- |
 
 
 
-RNA水平：免疫共沉淀（MeDIP-seq for m6A）；也可以 RNA-BS-seq（原理同）
+RNA水平：免疫共沉淀（MeRIP-seq for m6A）；也可以 RNA-BS-seq（原理同）
 
 
 
