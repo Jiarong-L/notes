@@ -31,13 +31,7 @@ https://zhuanlan.zhihu.com/p/366933242
 
 ## 结构注释
 
-动物预测基因： GeneMark, Augustus ,SNAP ,GENEWISE
-转录组数据辅助基因预测：minimap2比对reference，再用collapse得到基因结构（pacbio官方推荐）
 
-
-https://zhuanlan.zhihu.com/p/588761049
-
-https://cloud.tencent.com/developer/article/2351525?areaId=106005
 
 
 ## 功能注释
