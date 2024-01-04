@@ -66,17 +66,17 @@ $\tau$ - Trajectory，运行model得到的一系列($s_t$,$a_t$)组合
 
 ### Cost/Reward
 
-$c(s,a)=$ 0 if $a=\pi^*(s)$ otherwise 1  
+$c(s,a)=$ 0 if $a=\pi^{\ast}(s)$ otherwise 1  
 
-$r(s,a) = logp(a=\pi^*(s)|s)$
+$r(s,a) = logp(a=\pi^{\ast}(s)|s)$
 
 #### Naive $O(\epsilon T^2)$
-Assume for all $s \in D_{train}$, $\pi_{\theta}(a \neq \pi^*(s)|s) \leq \epsilon$,   
+Assume for all $s \in D_{train}$, $\pi_{\theta}(a \neq \pi^{\ast}(s)|s) \leq \epsilon$,   
 $E[\sum_tc(s_t,a_t)] \leq \epsilon T + (1-\epsilon)(\epsilon (T-1)+(1-\epsilon)(...))$     ----> T terms, each $O(\epsilon T)$
 
 
 #### Dagger $O(\epsilon T)$
-Assume for all $s \in p_{train}(s)$, $\pi_{\theta}(a \neq \pi^*(s)|s) \leq \epsilon$,   
+Assume for all $s \in p_{train}(s)$, $\pi_{\theta}(a \neq \pi^{\ast}(s)|s) \leq \epsilon$,   
 $E[\sum_tc(s_t,a_t)] \leq \epsilon T $   
 
 #### Behavial Cloning $O(2\epsilon T^2)$
