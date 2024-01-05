@@ -28,9 +28,6 @@ MathJax = {
 img{
     width: 60%;
 }
-table th:nth-of-type(5) {
-    width: 20%;
-}
 </style>
 
 <!-- https://bearnok.com/grva/en/knowledge/software/mathjax -->
@@ -44,6 +41,8 @@ table th:nth-of-type(5) {
 
 ## 基础概念
 
+![d-Separation](./Causal_Inference/dSeparation.png)
+
 
 | 图胚公理 | -- | $\perp$表示相互独立（默认：Z条件下） |
 | -- | -- | -- |
@@ -54,7 +53,7 @@ table th:nth-of-type(5) {
 | $(X \perp W \| ZY) \& (X \perp Y \| ZW) \Rightarrow (X \perp YW \| Z)$ | 相交性 | 如果得知W后Y与X无关 且 得知Y后W与X无关，则W、Y都与X无关 |
 
 
-![d-Separation](./Causal_Inference/dSeparation.png)
+
 
 
 
