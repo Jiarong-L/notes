@@ -41,6 +41,8 @@ img{
 
 ## 基础概念
 
+* 路径$p$ 被节点集$Z$ **d-分离**（**d-Separation**，阻断）的三种情况如图所示
+
 ![d-Separation](./Causal_Inference/dSeparation.png)
 
 
@@ -51,7 +53,6 @@ img{
 | $(X \perp YW \| Z) \Rightarrow (X \perp Y \| ZW)$ | 弱联合性 | 由 分解性 可知拆分项W、Y都与X无关，那么，得知W并不能使Y变得与X相关 |
 | $(X \perp Y \| Z) \& (X \perp W \| ZY)$ $\Rightarrow (X \perp Y \| Z) \& (X \perp W \| Z)$ $\Rightarrow (X \perp YW \| Z)$ | 收缩性 | 如果得知与X无关的Y后判定W与X无关，那么，得知Y之前W也与X无关 |
 | $(X \perp W \| ZY) \& (X \perp Y \| ZW) \Rightarrow (X \perp YW \| Z)$ | 相交性 | 如果得知W后Y与X无关 且 得知Y后W与X无关，则W、Y都与X无关 |
-
 
 
 
