@@ -37,9 +37,12 @@ table th:nth-of-type(5) {
 <!-- https://tex.stackexchange.com/questions/562924/how-to-add-latex-packages-to-markdown -->
 
 
+<!-- $\perp\\!\\!\\!\\!\perp$ for mathjax-->
+<!-- $\perp\!\!\!\!\perp$ for kalatex-->
 
-TBA
 
+
+## 基础概念
 
 
 | 图胚公理 | -- | $\perp$表示相互独立（默认：Z条件下） |
@@ -51,7 +54,7 @@ TBA
 | $(X \perp W \| ZY) \& (X \perp Y \| ZW) \Rightarrow (X \perp YW \| Z)$ | 相交性 | 如果得知W后Y与X无关 且 得知Y后W与X无关，则W、Y都与X无关 |
 
 
+![d-Separation](./Causal_Inference/dSeparation.png)
 
 
 
-$\perp\\!\\!\\!\\!\\perp$
