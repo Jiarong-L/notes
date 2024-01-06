@@ -151,21 +151,41 @@ $，则有唯一解 $x_i = \frac{|A_i|}{A}$，其中 $|A_i|$ 表示用 $[b_1,b_2
 * $n$阶矩阵意味着 $n \times n$ 的方阵
 * 元素都是实数的矩阵称为**实矩阵**，含复数的矩阵称为**复矩阵**
 * 两个矩阵的行数、列数都相等，称为**同型矩阵**
-* 运算：
-    - $A_{m \times n} + B_{m \times n} = C_{m \times n}$ 每个位置的元相加：$c_{ij}=a_{ij}+b_{ij}$
-    - $A_{m \times n}B_{n \times k} = C_{m \times k}$，其中$c_{ij}=\sum\limits_{k=1}^s a_{ik}b_{ki}$，即 $A$的第$i$行、$B$的第$j$列 元素依次相乘后的和 相加
-        * $A^k_{n \times n}=AA...A$，即 $k$个方阵$A$连乘
-        * $PA$是$P$**左乘**$A$，$AQ$是$Q$**右乘**$A$
-        * $\begin{bmatrix} cos(\theta)  & -sin(\theta)  \\\\ sin(\theta) & cos(\theta)  \end{bmatrix} \begin{bmatrix} x    \\\\ y    \end{bmatrix}$ 意味着将向量$(x,y)$逆时针旋转 $\theta$ 一次
-        * 矩阵**分块**后运算法则不变：$AB=\begin{bmatrix} A_{11} & A_{12} \\\\ A_{21} & A_{22} \\\\ A_{31} & A_{32} \end{bmatrix}\begin{bmatrix} B_{11} & B_{12} & B_{13} \\\\ B_{21} & B_{22} & B_{23} \end{bmatrix} = \begin{bmatrix} A_{11}B_{11}+A_{12}B_{21} & \dots & \dots \\\\ \dots & \dots & \dots \\\\ \dots & \dots & \dots \end{bmatrix}$
+* **对角矩阵** $\Lambda = diag(k_1,k_2,\dots,k_n) = 
+\begin{bmatrix}
+k_1 & 0 & \dots& 0  \\\\
+0 & k_2 & \dots& 0  \\\\
+ \dots & \dots & \dots & \dots  \\\\
+0 & 0 & \dots& k_n  
+\end{bmatrix}
+$
+    - $\Lambda^k = diag(k_1^k,k_2^k,\dots,k_n^k)$
+
+#### 矩阵运算
+
+*  $A_{m \times n} + B_{m \times n} = C_{m \times n}$ 每个位置的元相加：$c_{ij}=a_{ij}+b_{ij}$
+* $A_{m \times n}B_{n \times k} = C_{m \times k}$，其中$c_{ij}=\sum\limits_{k=1}^s a_{ik}b_{ki}$，即 $A$的第$i$行、$B$的第$j$列 元素依次相乘后的和 相加
+    - $A^k_{n \times n}=AA...A$，即 $k$个方阵$A$连乘
+    - $PA$是$P$**左乘**$A$，$AQ$是$Q$**右乘**$A$
+    - $\begin{bmatrix} cos(\theta)  & -sin(\theta)  \\\\ sin(\theta) & cos(\theta)  \end{bmatrix} \begin{bmatrix} x    \\\\ y    \end{bmatrix}$ 意味着将向量$(x,y)$逆时针旋转 $\theta$ 一次
+    - 矩阵**分块**后运算法则不变：$AB=\begin{bmatrix} A_{11} & A_{12} \\\\ A_{21} & A_{22} \\\\ A_{31} & A_{32} \end{bmatrix}\begin{bmatrix} B_{11} & B_{12} & B_{13} \\\\ B_{21} & B_{22} & B_{23} \end{bmatrix} = \begin{bmatrix} A_{11}B_{11}+A_{12}B_{21} & \dots & \dots \\\\ \dots & \dots & \dots \\\\ \dots & \dots & \dots \end{bmatrix}$
 * 转置：
     - $(A^T)^T=A$
     - $(A+B)^T=A^T+B^T$
     - $(AB)^T=B^TA^T$
     - 如果 $A^T=A$，说明$A$是**对称矩阵**
+
+* 如果 $A^TA=I$，即 $A^{-1}=A^T$，可称 方阵$A$ 为**正交矩阵** 
+    - 其行列式 $|A|=1$ （见下文）
+    - 如果 $A$、$B$都是正交矩阵，则$AB$也是正交矩阵
+    - 正交变换：$\overrightarrow{y}=P\overrightarrow{x}$，其中$P$是正交矩阵
+
+#### 逆矩阵    
+
 * 方阵$A$的行列式记为 $det A$ 或 $|A|$，当 $|A|=0$ 时 $A$称为**奇异矩阵**，否则称为非奇异矩阵
 * 由行列式$|A|$各元素的代数余子式$A_{ij}$组成**伴随矩阵** $A^{\ast}$
     - $A^{\ast}=\begin{bmatrix} A_{11} & A_{21} & \dots \\\\ A_{12} & A_{22} & \dots \\\\  \dots & \dots & \dots  \end{bmatrix}$，$AA^{\ast}=A^{\ast}A=|A|E$
+
 
 * **逆矩阵**$A^{-1}$
     - $AA^{-1}=A^{-1}A=I$
@@ -192,15 +212,6 @@ $$A^n=P\Lambda P^{-1}P\Lambda P^{-1}P\Lambda P^{-1} \dots P\Lambda P^{-1}$$
 $$A^n=P\Lambda^nP^{-1}$$
 </details>
 
-* **对角矩阵** $\Lambda = diag(k_1,k_2,\dots,k_n) = 
-\begin{bmatrix}
-k_1 & 0 & \dots& 0  \\\\
-0 & k_2 & \dots& 0  \\\\
- \dots & \dots & \dots & \dots  \\\\
-0 & 0 & \dots& k_n  
-\end{bmatrix}
-$
-    - $\Lambda^k = diag(k_1^k,k_2^k,\dots,k_n^k)$
 
 * **秩**: 任取矩阵$A$中的$k$行、$k$列，得到$A$的$k$阶子式（e.g.取第1,5,6行、1,2,3列，得到3阶行列式）；如果$A$的$r$阶子式是其**最高阶非零子式**，则矩阵$A$的秩为$r$，记为$R(A)=r$
     - **如果两个矩阵等价，则它们的秩相同**
@@ -317,6 +328,8 @@ $$
     - 向量集 $\\\{[x,y,z]^T | ax+by+cz=d\\\}$是向量空间$\mathbb{R}^3$中的2维平面
 
 #### 正交
+
+* （方便起见，本节中用 $x \cdot y$ 代表 $\overrightarrow{x} \cdot \overrightarrow{y}$）
 * $||\overrightarrow{x}||=1$时，即长度（范数）为1时，称$\overrightarrow{x}$为**单位向量**
 * 向量的数量积 $x \cdot y = |\overrightarrow{x}| \cdot |\overrightarrow{y}| \cdot \cos\theta$
     - 直角坐标系中数量积的计算公式：$[x_1,x_2,x_3] \cdot [y_1,y_2,y_3] = x_1y_1+x_2y_2 +x_3y_3$
@@ -328,10 +341,45 @@ $$
 
 
 <details>
-  <summary>施密特标准正交基化</summary>
+  <summary>施密特正交化</summary>
 
-寻找一组标准正交基，使其与基$A$等价 <br>
+从线性无关向量组$A$中导出正交向量组$B$，二者等价: （注，用 $a_i \cdot b_i$ 代表 $\overrightarrow{a_i} \cdot \overrightarrow{b_i}$）<br>
+
+$$b_1=a_1$$
+
+$$b_2=a_2-\frac{b_1 \cdot a_2}{b_1 \cdot b_1}b_1$$
+
+...
+
+$$b_r=a_r-\sum\limits_{i=1}^{r-1}\frac{b_i \cdot a_r}{b_i \cdot b_i}b_i$$
 
 
 </details>
+
+
+
+
+## 其它方阵相关
+
+### 特征值与特征向量
+
+
+
+
+
+### 相似对角化
+
+
+
+
+
+### 二次型化简
+
+
+
+
+
+
+
+
 
