@@ -11,6 +11,12 @@ MathJax = {
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
+<script type="text/javascript" id="MathJax-script" async
+  src="http://127.0.0.1:8000/Statistics/Basis/tex-svg.js">
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://github.com/Jiarong-L/notes/blob/main/docs/Statistics/Basis/tex-svg.js">
+</script>
 
 
 <style>
@@ -19,7 +25,7 @@ img{
 }
 </style>
 
-教材：《线性代数（同济）》
+教材：《线性代数（同济）》，略去部分线性方程组的解
 
 
 
@@ -122,7 +128,7 @@ $
 <details>
   <summary>克拉默法则求解方程组</summary>
 
-有$n$元线性方程组 $AX=B$：若 $R(A) \lt R(A,B)$  无解；若 $R(A)=R(A,B)=n$ 有唯一解；若 $R(A)=R(A,B) \lt n$ 有无穷多解
+有$n$元线性方程组 $Ax=b$：若 $R(A) \lt R(A,b)$  无解；若 $R(A)=R(A,b)=n$ 有唯一解；若 $R(A)=R(A,b) \lt n$ 有无穷多解  (特别的，$AX=0$有非零解的充分必要条件是$R(A) \lt n$)
 
 $$\begin{cases} 
 a_{11}x_1 + a_{12}x_2 + \dots +  a_{1n}x_n = b_1 \\\\ 
@@ -143,7 +149,7 @@ $，则有唯一解 $x_i = \frac{|A_i|}{A}$，其中 $|A_i|$ 表示用 $[b_1,b_2
 
 
 * $n$阶矩阵意味着 $n \times n$ 的方阵
-* 元素都是实数的矩阵称为**实矩阵**，元素是复数的矩阵称为**复矩阵**
+* 元素都是实数的矩阵称为**实矩阵**，含复数的矩阵称为**复矩阵**
 * 两个矩阵的行数、列数都相等，称为**同型矩阵**
 * 运算：
     - $A_{m \times n} + B_{m \times n} = C_{m \times n}$ 每个位置的元相加：$c_{ij}=a_{ij}+b_{ij}$
@@ -186,15 +192,15 @@ $$A^n=P\Lambda P^{-1}P\Lambda P^{-1}P\Lambda P^{-1} \dots P\Lambda P^{-1}$$
 $$A^n=P\Lambda^nP^{-1}$$
 </details>
 
-* **对角矩阵** $\Lambda = diag(\lambda_1,\lambda_2,\dots,\lambda_n) = 
+* **对角矩阵** $\Lambda = diag(k_1,k_2,\dots,k_n) = 
 \begin{bmatrix}
-\lambda_1 & 0 & \dots& 0  \\\\
-0 & \lambda_2 & \dots& 0  \\\\
+k_1 & 0 & \dots& 0  \\\\
+0 & k_2 & \dots& 0  \\\\
  \dots & \dots & \dots & \dots  \\\\
-0 & 0 & \dots& \lambda_n  
+0 & 0 & \dots& k_n  
 \end{bmatrix}
 $
-    - $\Lambda^k = diag(\lambda_1^k,\lambda_2^k,\dots,\lambda_n^k)$
+    - $\Lambda^k = diag(k_1^k,k_2^k,\dots,k_n^k)$
 
 * **秩**: 任取矩阵$A$中的$k$行、$k$列，得到$A$的$k$阶子式（e.g.取第1,5,6行、1,2,3列，得到3阶行列式）；如果$A$的$r$阶子式是其**最高阶非零子式**，则矩阵$A$的秩为$r$，记为$R(A)=r$
     - **如果两个矩阵等价，则它们的秩相同**
@@ -258,19 +264,74 @@ $$
 
 ### 向量
 
+* r个有次序的数 $[a_1,a_2,\dots,a_r]$ 组成的数组称为 **r维向量**，$a_i$是该向量的第i个**分量**；可以将矩阵$A_{r \times n}$看作为含有n个r维**列向量**的**向量组**
+    - 在讨论向量的运算时候，可以将向量看作有向线段
+    - 讨论向量集时，可以将单个向量看作一点，则向量集的图形是点的轨迹集合
+* 分量全为实数的称为实向量，含复数的称为复向量
 
 
+#### 向量组
+
+* 给定**n个r维列向量**的**向量组**$A_{r \times n}=[\overrightarrow{a_1},\overrightarrow{a_2},\dots,\overrightarrow{a_n}]$，有一组实数 $\overrightarrow{\lambda_{n \times 1}}=[k_1,k_2,\dots,k_n]$ 使得 $\overrightarrow{b_{r \times 1}}=A\overrightarrow{\lambda}=k_1\overrightarrow{a_1}+k_2\overrightarrow{a_2}+\dots+k_n\overrightarrow{a_n}$，则称向量$\overrightarrow{b}$可以由向量组$A$**线性表示**，$\overrightarrow{b}$是向量组$A$的一个**线性组合**
+    - （$\overrightarrow{\lambda}$元素**不全为0时**）如果存在$\overrightarrow{\lambda}$使$\overrightarrow{b}=0$，则称向量组$A$是**线性相关**的，否则是**线性无关**的 
+    - n=2时的线性相关：$\overrightarrow{a_1},\overrightarrow{a_2}$的分量对应成比例
+    -  n=3时的线性相关：三向量共面
+    - **线性相关**的充分必要条件是$R(A) \lt n$（$A\overrightarrow{\lambda}=0$有**无穷多解**）
+    - **线性无关**的充分必要条件是$R(A) = n$（只有**唯一解**：$\overrightarrow{\lambda}=0$）
+    - 一些结论
+        * 若向量组$A=[\overrightarrow{a_1},...,\overrightarrow{a_n}]$线性相关，则向量组$A'=[\overrightarrow{a_1},...,\overrightarrow{a_n},\overrightarrow{b}]$也线性相关
+        * 若向量组$A=[\overrightarrow{a_1},...,\overrightarrow{a_n}]$线性无关，则向量组$A'=[\overrightarrow{a_1},...,\overrightarrow{a_n},\overrightarrow{b}]$也线性无关
+        * 若向量组$A=[\overrightarrow{a_1},...,\overrightarrow{a_n}]$线性无关 即 $R(A)=n$、向量组$A'=[\overrightarrow{a_1},...,\overrightarrow{a_n},\overrightarrow{b}]$线性相关 即 $n=R(A) \le R(A') = R(A,b)<n+1$，则$A\overrightarrow{x}=\overrightarrow{b}$有唯一解（$\overrightarrow{b}$可以由$A$线性表示）
+        * 向量组中，如果向量维度r小于向量个数n，则一定线性相关 即 $R(A) = min(r,n)=r \lt n$     
+
+* 如果向量组$B$中每个向量都能由向量组$A$线性表示，则称向量组$B$能够由向量组$A$线性表示
+    - 充分必要条件：$R(A) = R(A,B)$（即 $AX=B$有解）
+    - 此时：$R(B) \le R(A)$，因为 $R(AX) \le min(R(A),R(X))$
+* 如果向量组$A$、$B$可以相互线性表示，则称两个向量组**等价**
+    - 充分必要条件：$R(A)=R(B)=R(A,B)$
+
+* 设有向量组$A$，如果从中**最多**可以选出$r$个向量组成一个线性无关的新向量组$A_0$，则称$A_0$为**最大线性无关向量组**，$r$则是向量组$A$的**秩**，记作$R_A$
+    - 任意$(r+1)$个向量的组合都线性相关
+    - 向量组$A$的任一向量都可以由向量组$A_0$线性表示
+    - 矩阵的秩等于其列向量组的秩，也等于其行向量组的秩
 
 
+#### 向量空间
+
+* **封闭**：若对某个集合的成员进行一种运算，生成的仍然是这个集合的成员
+* 设$V$为r维向量的集合，如果 $V \neq \varnothing$ 且对向量的加法、数乘运算**封闭**，则称$V$为**向量空间**
+    - 若 $\overrightarrow{a} \in V$，$\overrightarrow{b} \in V$，则 $\overrightarrow{a}+\overrightarrow{b} \in V$
+    - 若 $\overrightarrow{a} \in V$，$\lambda \in R$，则 $\lambda\overrightarrow{a} \in V$
+    - 由向量组 $A_{r \times n}=[\overrightarrow{a_1},\overrightarrow{a_2},\dots,\overrightarrow{a_n}]$ 所生成的向量空间 $L=\\\{\overrightarrow{x}=k_1\overrightarrow{a_1}+k_2\overrightarrow{a_2}+\dots+k_n\overrightarrow{a_n} | k_i \in \mathbb{R} \\\}$
+* 若向量空间 $V_1 \subseteq V_2$，则称$V_1$为$V_2$的**子空间**
+* 向量空间$V$内的任一向量都可以由向量组$A$（仅含$r$个线性无关的向量）线性表示，则向量组$A$称为向量空间$V$的**基**，$r$称为向量空间$V$的**维数**，并且称$V$为$r$维向量空间
+    - $A_{r \times ?}\lambda_{? \times l}=x_{r \times l}$，其中 $\lambda_{? \times l}$ 称为 $x_{r \times l}$ 在基 $A$ 中的**坐标**
+    - 示例：在$V=\mathbb{R}^3$中取一个基 $A_{3 \times 1}$，再取一个新基 $B_{3 \times 1}$；某向量在旧基$A$中坐标为$\overrightarrow{o}=[o_1,o_2,o_3]$，在新基$B$中坐标为$\overrightarrow{n}=[n_1,n_2,n_3]$
+        * $(AP=B) \Rightarrow (P=A^{-1}B)$ 称为从旧基至新基的**过渡矩阵** 
+        * 基变换公式：$[\overrightarrow{b_1},\overrightarrow{b_2},\overrightarrow{b_3}]=[\overrightarrow{a_1},\overrightarrow{a_2},\overrightarrow{a_3}]P$
+        * 已知$A\overrightarrow{o}=B\overrightarrow{n}$，**坐标变换**公式：$\overrightarrow{n}=B^{-1}A\overrightarrow{o}=P^{-1}\overrightarrow{o}$
 
 
+* r维向量的全体所组成的集合称为**r维向量空间** $\mathbb{R}^n=\\\{[x_1,x_2,..x_r]^T | x_i \in \mathbb{R}\\\}$
+* r维向量的集合$\\\{[x_1,x_2,..x_r]^T | a_1x_1+a_2x_2+...+a_rx_r =b \\\}$称为$\mathbb{R}^n$中的(n-1)维超平面
+    - 向量集 $\\\{[x,y,z]^T | ax+by+cz=d\\\}$是向量空间$\mathbb{R}^3$中的2维平面
+
+#### 正交
+* $||\overrightarrow{x}||=1$时，即长度（范数）为1时，称$\overrightarrow{x}$为**单位向量**
+* 向量的数量积 $x \cdot y = |\overrightarrow{x}| \cdot |\overrightarrow{y}| \cdot \cos\theta$
+    - 直角坐标系中数量积的计算公式：$[x_1,x_2,x_3] \cdot [y_1,y_2,y_3] = x_1y_1+x_2y_2 +x_3y_3$
+    - $\theta=\arccos\frac{x \cdot y}{||x|| \cdot ||y||}$，当 $x \cdot y=0$ 时两向量**正交**
+
+* 若向量组$A$是由两两正交的非零向量组成，则向量组$A$线性无关
+
+* 若从向量空间$V$取单位向量 $\overrightarrow{e_1},\overrightarrow{e_2},\dots$ 为基，可称为**自然基**；如果这些单位向量两两正交，则称为**标准正交基**
 
 
+<details>
+  <summary>施密特标准正交基化</summary>
+
+寻找一组标准正交基，使其与基$A$等价 <br>
 
 
-
-
-
-
-
+</details>
 
