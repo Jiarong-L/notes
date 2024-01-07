@@ -59,108 +59,7 @@ RDA对象中数据默认不Scale，但是在Summary或Plot时又会默认进行s
 
 </details>
 
-
-
-
-
-## Recall
-
-### QR Decomposition
-[参考1](https://zhuanlan.zhihu.com/p/47251888)，[参考2](https://zhuanlan.zhihu.com/p/112327923)
-
-
-将矩阵$A$分解：$A=QR$，$QQ^T=I$为正交矩阵，R 是 upper triangle 矩阵
-（TBA）
-
-
-### Eigen
-
-假设对于$n$阶矩阵 $A \in R^{n \times n}$，存在非零列向量 $\vec{v} \in R^{n}$ 使得 $A\vec{v}=\lambda\vec{v}$，则 $\lambda \in R$ 为矩阵$A$的一个**特征值**，$\vec{v}$ 为为矩阵 $A$ 的一个**特征向量**
-
-求解过程：
-
-* $A\vec{v}-\lambda\vec{v}=0$
-* $A\vec{v}-\lambda I \vec{v}=0$，$(\because \vec{v}=I\vec{v})$
-* $(A-\lambda I)\vec{v}=0$
-* $A-\lambda I=0 $，$(\because \vec{v}非零)$
-* $
-\begin{bmatrix}
-a_{11}-\lambda & a_{12} & ... & a_{1n} \\\\
-a_{21} & a_{22}-\lambda & ... & a_{2n} \\\\
-... & ... & ... & ... \\\\
-a_{n1} & a_{n2} & ... & a_{nn} 
-\end{bmatrix} = 0
-$ 可求得多个解 $\lambda_1,\lambda_2,...$
-* 将$\lambda_i$代入原式，计算$\vec{v_i}$
-
-
-[参考1](https://zhuanlan.zhihu.com/p/625791671), [参考2](https://zhuanlan.zhihu.com/p/104980382)
-
-### SVD
-（奇异值分解）[参考1](https://zhuanlan.zhihu.com/p/29846048),[参考2](https://zhuanlan.zhihu.com/p/629013736)
-
-$$
-\begin{bmatrix}
-a_{11} & ... & a_{1n} \\\\
-a_{21} & ... & a_{2n} \\\\
-... &  ... & ... \\\\
-... &  ... & ... \\\\
-a_{m1}  & ... & a_{mn} 
-\end{bmatrix} = 
-\begin{bmatrix}
-| & | & ... & ... & ... & | \\\\
-| & | & ... & ... & ... & | \\\\
-\vec{u_1} & \vec{u_2} & ... & ... & ... & \vec{u_m} \\\\
-| & | & ... & ... & ... & | \\\\
-| & | & ... & ... & ... & |
-\end{bmatrix}
-\begin{bmatrix}
-\sigma_1 & 0 & ... \\\\
-0 & \sigma_2 & ... \\\\
-0 & 0 & ...  \\\\
-... & ... & ...  \\\\
-0 & 0 & ...  
-\end{bmatrix}
-\begin{bmatrix}
-.- & \vec{v_1} & -. \\\\
-... & ... & ... \\\\
-.- & \vec{v_n} & -.
-\end{bmatrix}
-$$
-
-任意实矩阵 $A \in R^{m \times n}$ 都可以分解为 $A=U \Sigma V^T$，其中
-
-* $U \in R^{m \times m}, U^TU=I$
-* $\Sigma \in  R^{m \times n}, (\Sigma)_{ii}=\sigma_i$ 依次增大，其余部分为0
-* $V \in R^{n \times n}, V^TV=I$
-
-
-解法：
-
-* $(A^TA)\vec{v_i}=\lambda_i\vec{v_i}$，对$(A^TA) \in R^{n \times n}$ 求特征值得$\vec{v_i}$与$\lambda_i$
-
-* $(AA^T)\vec{u_i}=\lambda_i\vec{u_i}$，对$(AA^T) \in R^{m \times m}$ 求特征值得$\vec{u_i}$与$\lambda_i$
-
-* $A\vec{v_i}=\sigma_i\vec{u_i}$ 求解奇异值 $\sigma_i = \sqrt{\lambda_i}$
-
-
-用法：可以用$\Sigma$中最大的k个奇异值来近似表达原矩阵：$A_{m \times n} \approx A_{m \times k} = U_k\Sigma_kV^T_k$
-
-SVD分解后的右奇异矩阵$V$，对应着PCA所需的主成分特征矩阵
-
-
-### MDS
-
-假设 $m$ 个样本在原始空间的距离矩阵 $D \in R^{m \times m}$，其 $i$ 行 $j$ 列的元素 $dist_{ij}$ 表示样本 $x_i$ 到 $x_j$ 的距离，多维缩放(Multiple Dimensional Scaling, MDS)的目标是获得样本在 $d'<m$ 维空间的表示，并且**任意样本在低维空间中的距离等于原始空间中的距离**（欧式距离/其它）
-
-
-* $dist_{i-}^2=\frac{1}{m}\sum\limits_{j=1}^{m}dist_{ij}^2$
-* $dist_{-j}^2=\frac{1}{m}\sum\limits_{i=1}^{m}dist_{ij}^2$
-* $dist_{--}^2=\frac{1}{m^2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}dist_{ij}^2$
-* 内积矩阵$B$，其元素 $b_{ij} = -\frac{1}{2}(dist_{ij}^2-dist_{i-}^2-dist_{-j}^2+dist_{--}^2)$
-* 对内积矩阵$B$进行特征值分解，取 $\Lambda$ 为 $d'$ 个最大特征值构成的对角矩阵，$V$ 为相应的特征向量矩阵
-* 得到新矩阵 $\Lambda V^{1/2} \in R^{m \times d'}$，每行是一个样本的低维坐标
-
+Recall: 特征值分解（Eigen）、奇异值分解（SVD）、QR Decomposition 请参考[Linear_Algebra笔记-常见矩阵分解](../../Course/Linear_Algebra/#_12)
 
 
 
@@ -192,18 +91,29 @@ res$x    ## m_Sample在PC上的坐标
 </details>
 
 
+## MDS
 
-## PCoA
+假设 $m$ 个样本在原始空间的**距离矩阵** $D \in R^{m \times m}$，其 $i$ 行 $j$ 列的元素 $dist_{ij}$ 表示样本 $x_i$ 到 $x_j$ 的距离，多维缩放(Multiple Dimensional Scaling, MDS)的目标是获得样本在 $d'<m$ 维空间的表示，并且**任意样本在低维空间中的距离等于原始空间中的距离**（欧式距离/其它）
 
-关注距离，[示例](https://blog.csdn.net/qq_47369980/article/details/122644823)
+
+* $dist_{i-}^2=\frac{1}{m}\sum\limits_{j=1}^{m}dist_{ij}^2$
+* $dist_{-j}^2=\frac{1}{m}\sum\limits_{i=1}^{m}dist_{ij}^2$
+* $dist_{--}^2=\frac{1}{m^2}\sum\limits_{i=1}^{m}\sum\limits_{j=1}^{m}dist_{ij}^2$
+* 内积矩阵$B$，其元素 $b_{ij} = -\frac{1}{2}(dist_{ij}^2-dist_{i-}^2-dist_{-j}^2+dist_{--}^2)$
+* 对内积矩阵$B$进行特征值分解，取 $\Lambda$ 为 $d'$ 个最大特征值构成的对角矩阵，$V$ 为相应的特征向量矩阵
+* 得到新矩阵 $\Lambda V^{1/2} \in R^{m \times d'}$，每行是一个样本的低维坐标
+
+### PCoA
+
+关注**距离**，[示例](https://blog.csdn.net/qq_47369980/article/details/122644823)
 
 1. 对样本集生成距离矩阵 $D$，生态学中常见使用 Jaccard, Bray-Curtis, Unifrac, ...
 2. MDS：```cmdscale(D,k=nrow(D)-1,egi=TRUE)```
 
 
-## NMDS
+### NMDS
 
-关注距离的秩次，[示例](https://zhuanlan.zhihu.com/p/559725141)
+关注**距离的秩次**，[示例](https://zhuanlan.zhihu.com/p/559725141)
 
 
 1. 对样本集生成距离矩阵 $D$，
@@ -334,23 +244,4 @@ summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitt
 
 
 ### CCA
-[参考](https://zhuanlan.zhihu.com/p/52717082)，在RDA基础上做了改进：使用$\overline{Q}$为输入、使用加权多元回归代替简单多元回归(重为行和)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 参考
-PCA、PCoA、NMDS、CCA、RDA：https://zhuanlan.zhihu.com/p/180284720     
-LDA：https://zhuanlan.zhihu.com/p/27899927  
-t-SNE UMAP  
-[David Zelený: Analysis of community ecology data in R](https://davidzeleny.net/anadat-r/doku.php/en:start)
+[参考](https://zhuanlan.zhihu.com/p/52717082)

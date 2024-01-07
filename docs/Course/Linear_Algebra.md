@@ -178,7 +178,7 @@ $
 * 如果 $A^TA=I$，即 $A^{-1}=A^T$，可称 方阵$A$ 为**正交矩阵** 
     - 其行列式 $|A|=1$ （见下文）
     - 如果 $A$、$B$都是正交矩阵，则$AB$也是正交矩阵
-    - 正交变换：$\overrightarrow{y}=P\overrightarrow{x}$，其中$P$是正交矩阵
+    - 正交变换：$\vec{y}=P\vec{x}$，其中$P$是正交矩阵
 
 #### 逆矩阵    
 
@@ -275,7 +275,8 @@ $$
 
 ### 向量
 
-* r个有次序的数 $[a_1,a_2,\dots,a_r]$ 组成的数组称为 **r维向量**，$a_i$是该向量的第i个**分量**；可以将矩阵$A_{r \times n}$看作为含有n个r维**列向量**的**向量组**
+* r个有次序的**数** $[a_1,a_2,\dots,a_r]$ 组成的数组称为 **r维向量**，数 
+$a_i$是该向量的第i个**分量**；可以将矩阵$A_{r \times n}$看作为含有n个r维**列向量**的**向量组**
     - 在讨论向量的运算时候，可以将向量看作有向线段
     - 讨论向量集时，可以将单个向量看作一点，则向量集的图形是点的轨迹集合
 * 分量全为实数的称为实向量，含复数的称为复向量
@@ -283,16 +284,16 @@ $$
 
 #### 向量组
 
-* 给定**n个r维列向量**的**向量组**$A_{r \times n}=[\overrightarrow{a_1},\overrightarrow{a_2},\dots,\overrightarrow{a_n}]$，有一组实数 $\overrightarrow{\lambda_{n \times 1}}=[k_1,k_2,\dots,k_n]$ 使得 $\overrightarrow{b_{r \times 1}}=A\overrightarrow{\lambda}=k_1\overrightarrow{a_1}+k_2\overrightarrow{a_2}+\dots+k_n\overrightarrow{a_n}$，则称向量$\overrightarrow{b}$可以由向量组$A$**线性表示**，$\overrightarrow{b}$是向量组$A$的一个**线性组合**
-    - （$\overrightarrow{\lambda}$元素**不全为0时**）如果存在$\overrightarrow{\lambda}$使$\overrightarrow{b}=0$，则称向量组$A$是**线性相关**的，否则是**线性无关**的 
-    - n=2时的线性相关：$\overrightarrow{a_1},\overrightarrow{a_2}$的分量对应成比例
+* 给定**n个r维列向量**的**向量组**$A_{r \times n}=[\vec{a_1},\vec{a_2},\dots,\vec{a_n}]$，有一组实数 $\vec{\lambda_{n \times 1}}=[k_1,k_2,\dots,k_n]$ 使得 $\vec{b_{r \times 1}}=A\vec{\lambda}=k_1\vec{a_1}+k_2\vec{a_2}+\dots+k_n\vec{a_n}$，则称向量$\vec{b}$可以由向量组$A$**线性表示**，$\vec{b}$是向量组$A$的一个**线性组合**
+    - （$\vec{\lambda}$元素**不全为0时**）如果存在$\vec{\lambda}$使$\vec{b}=0$，则称向量组$A$是**线性相关**的，否则是**线性无关**的 
+    - n=2时的线性相关：$\vec{a_1},\vec{a_2}$的分量对应成比例
     -  n=3时的线性相关：三向量共面
-    - **线性相关**的充分必要条件是$R(A) \lt n$（$A\overrightarrow{\lambda}=0$有**无穷多解**）
-    - **线性无关**的充分必要条件是$R(A) = n$（只有**唯一解**：$\overrightarrow{\lambda}=0$）
+    - **线性相关**的充分必要条件是$R(A) \lt n$（$A\vec{\lambda}=0$有**无穷多解**）
+    - **线性无关**的充分必要条件是$R(A) = n$（只有**唯一解**：$\vec{\lambda}=0$）
     - 一些结论
-        * 若向量组$A=[\overrightarrow{a_1},...,\overrightarrow{a_n}]$线性相关，则向量组$A'=[\overrightarrow{a_1},...,\overrightarrow{a_n},\overrightarrow{b}]$也线性相关
-        * 若向量组$A=[\overrightarrow{a_1},...,\overrightarrow{a_n}]$线性无关，则向量组$A'=[\overrightarrow{a_1},...,\overrightarrow{a_n},\overrightarrow{b}]$也线性无关
-        * 若向量组$A=[\overrightarrow{a_1},...,\overrightarrow{a_n}]$线性无关 即 $R(A)=n$、向量组$A'=[\overrightarrow{a_1},...,\overrightarrow{a_n},\overrightarrow{b}]$线性相关 即 $n=R(A) \le R(A') = R(A,b)<n+1$，则$A\overrightarrow{x}=\overrightarrow{b}$有唯一解（$\overrightarrow{b}$可以由$A$线性表示）
+        * 若向量组$A=[\vec{a_1},...,\vec{a_n}]$线性相关，则向量组$A'=[\vec{a_1},...,\vec{a_n},\vec{b}]$也线性相关
+        * 若向量组$A=[\vec{a_1},...,\vec{a_n}]$线性无关，则向量组$A'=[\vec{a_1},...,\vec{a_n},\vec{b}]$也线性无关
+        * 若向量组$A=[\vec{a_1},...,\vec{a_n}]$线性无关 即 $R(A)=n$、向量组$A'=[\vec{a_1},...,\vec{a_n},\vec{b}]$线性相关 即 $n=R(A) \le R(A') = R(A,b)<n+1$，则$A\vec{x}=\vec{b}$有唯一解（$\vec{b}$可以由$A$线性表示）
         * 向量组中，如果向量维度r小于向量个数n，则一定线性相关 即 $R(A) = min(r,n)=r \lt n$     
 
 * 如果向量组$B$中每个向量都能由向量组$A$线性表示，则称向量组$B$能够由向量组$A$线性表示
@@ -311,47 +312,48 @@ $$
 
 * **封闭**：若对某个集合的成员进行一种运算，生成的仍然是这个集合的成员
 * 设$V$为r维向量的集合，如果 $V \neq \varnothing$ 且对向量的加法、数乘运算**封闭**，则称$V$为**向量空间**
-    - 若 $\overrightarrow{a} \in V$，$\overrightarrow{b} \in V$，则 $\overrightarrow{a}+\overrightarrow{b} \in V$
-    - 若 $\overrightarrow{a} \in V$，$\lambda \in R$，则 $\lambda\overrightarrow{a} \in V$
-    - 由向量组 $A_{r \times n}=[\overrightarrow{a_1},\overrightarrow{a_2},\dots,\overrightarrow{a_n}]$ 所生成的向量空间 $L=\\\{\overrightarrow{x}=k_1\overrightarrow{a_1}+k_2\overrightarrow{a_2}+\dots+k_n\overrightarrow{a_n} | k_i \in \mathbb{R} \\\}$
+    - 若 $\vec{a} \in V$，$\vec{b} \in V$，则 $\vec{a}+\vec{b} \in V$
+    - 若 $\vec{a} \in V$，$\lambda \in R$，则 $\lambda\vec{a} \in V$
+    - 由向量组 $A_{r \times n}=[\vec{a_1},\vec{a_2},\dots,\vec{a_n}]$ 所生成的向量空间 $L=\\\{\vec{x}=k_1\vec{a_1}+k_2\vec{a_2}+\dots+k_n\vec{a_n} | k_i \in \mathbb{R} \\\}$
 * 若向量空间 $V_1 \subseteq V_2$，则称$V_1$为$V_2$的**子空间**
-* 向量空间$V$内的任一向量都可以由向量组$A$（仅含$r$个线性无关的向量）线性表示，则向量组$A$称为向量空间$V$的**基**，$r$称为向量空间$V$的**维数**，并且称$V$为$r$维向量空间
-    - $A_{r \times ?}\lambda_{? \times l}=x_{r \times l}$，其中 $\lambda_{? \times l}$ 称为 $x_{r \times l}$ 在基 $A$ 中的**坐标**
-    - 示例：在$V=\mathbb{R}^3$中取一个基 $A_{3 \times 1}$，再取一个新基 $B_{3 \times 1}$；某向量在旧基$A$中坐标为$\overrightarrow{o}=[o_1,o_2,o_3]$，在新基$B$中坐标为$\overrightarrow{n}=[n_1,n_2,n_3]$
-        * $(AP=B) \Rightarrow (P=A^{-1}B)$ 称为从旧基至新基的**过渡矩阵** 
-        * 基变换公式：$[\overrightarrow{b_1},\overrightarrow{b_2},\overrightarrow{b_3}]=[\overrightarrow{a_1},\overrightarrow{a_2},\overrightarrow{a_3}]P$
-        * 已知$A\overrightarrow{o}=B\overrightarrow{n}$，**坐标变换**公式：$\overrightarrow{n}=B^{-1}A\overrightarrow{o}=P^{-1}\overrightarrow{o}$
-
-
-* r维向量的全体所组成的集合称为**r维向量空间** $\mathbb{R}^n=\\\{[x_1,x_2,..x_r]^T | x_i \in \mathbb{R}\\\}$
+* 向量空间$V$内的任一向量都可以由向量组$A$（仅含$r$个线性无关的向量）线性表示，则向量组$A$称为向量空间$V$的**基**，$r$称为向量空间$V$的**维数**，并且称$V$为**r维向量空间**
+    - **r维向量空间**也可以理解为：r维向量的全体所组成的集合 $\mathbb{R}^n=\\\{[x_1,x_2,..x_r]^T | x_i \in \mathbb{R}\\\}$ 
 * r维向量的集合$\\\{[x_1,x_2,..x_r]^T | a_1x_1+a_2x_2+...+a_rx_r =b \\\}$称为$\mathbb{R}^n$中的(n-1)维超平面
     - 向量集 $\\\{[x,y,z]^T | ax+by+cz=d\\\}$是向量空间$\mathbb{R}^3$中的2维平面
 
+#### 坐标转换
+
+* $A_{r \times ?}\lambda_{? \times l}=x_{r \times l}$，其中 $\lambda_{? \times l}$ 称为 $x_{r \times l}$ 在基 $A$ 中的**坐标**
+* 示例：在向量空间$V=\mathbb{R}^3$中取一个基 $A_{3 \times 1}$，再取一个新基 $B_{3 \times 1}$；某向量$\vec{x}$在旧基$A$中坐标为$\vec{o}=[o_1,o_2,o_3]$，在新基$B$中坐标为$\vec{n}=[n_1,n_2,n_3]$
+    - 由基变换公式 $AP=B$ 推导出 $P=A^{-1}B$，称为从旧基至新基的**过渡矩阵**
+    - 由 $\vec{x}=A\vec{o}=B\vec{n}$ 推导出 **坐标变换**公式：$\vec{n}=B^{-1}A\vec{o}=P^{-1}\vec{o}$
+
+
+
 #### 正交
 
-* （方便起见，本节中用 $x \cdot y$ 代表 $\overrightarrow{x} \cdot \overrightarrow{y}$）
-* $||\overrightarrow{x}||=1$时，即长度（范数）为1时，称$\overrightarrow{x}$为**单位向量**
-* 向量的数量积 $x \cdot y = |\overrightarrow{x}| \cdot |\overrightarrow{y}| \cdot \cos\theta$
+* $||\vec{x}||=1$时，即长度（范数）为1时，称$\vec{x}$为**单位向量**
+* 向量的数量积 $\vec{x} \cdot \vec{y} = |\vec{x}| \cdot |\vec{y}| \cdot \cos\theta$
     - 直角坐标系中数量积的计算公式：$[x_1,x_2,x_3] \cdot [y_1,y_2,y_3] = x_1y_1+x_2y_2 +x_3y_3$
-    - $\theta=\arccos\frac{x \cdot y}{||x|| \cdot ||y||}$，当 $x \cdot y=0$ 时两向量**正交**
+    - $\theta=\arccos\frac{\vec{x} \cdot \vec{y}}{||\vec{x}|| \cdot ||\vec{y}||}$，当 $\vec{x} \cdot \vec{y}=0$ 时两向量**正交**
 
 * 若向量组$A$是由两两正交的非零向量组成，则向量组$A$线性无关
 
-* 若从向量空间$V$取单位向量 $\overrightarrow{e_1},\overrightarrow{e_2},\dots$ 为基，可称为**自然基**；如果这些单位向量两两正交，则称为**标准正交基**
+* 若从向量空间$V$取单位向量 $\vec{e_1},\vec{e_2},\dots$ 为基，可称为**自然基**；如果这些单位向量两两正交，则称为**标准正交基**
 
 
 <details>
   <summary>施密特正交化</summary>
 
-从线性无关向量组$A$中导出正交向量组$B$，二者等价: （注，用 $a_i \cdot b_i$ 代表 $\overrightarrow{a_i} \cdot \overrightarrow{b_i}$）<br>
+从线性无关向量组$A$中导出正交向量组$B$，二者等价: <br>
 
-$$b_1=a_1$$
+$$\vec{b_1}=\vec{a_1}$$
 
-$$b_2=a_2-\frac{b_1 \cdot a_2}{b_1 \cdot b_1}b_1$$
+$$\vec{b_2}=\vec{a_2}-\frac{\vec{b_1} \cdot \vec{a_2}}{\vec{b_1} \cdot \vec{b_1}}\vec{b_1}$$
 
 ...
 
-$$b_r=a_r-\sum\limits_{i=1}^{r-1}\frac{b_i \cdot a_r}{b_i \cdot b_i}b_i$$
+$$b_r=\vec{a_r}-\sum\limits_{i=1}^{r-1}\frac{b_i \cdot \vec{a_r}}{b_i \cdot b_i}b_i$$
 
 
 </details>
@@ -359,14 +361,102 @@ $$b_r=a_r-\sum\limits_{i=1}^{r-1}\frac{b_i \cdot a_r}{b_i \cdot b_i}b_i$$
 
 
 
+## 常见矩阵分解
+
+### 特征值分解 Eigen
+
+假设对于$n$阶方阵 $A \in R^{n \times n}$，存在非零列向量 $\vec{x} \in R^{n}$ 使得 $A\vec{x}=\lambda\vec{x}$，则 $\lambda \in R$ 为矩阵$A$的一个**特征值**，$\vec{x}$ 为为矩阵 $A$ 的一个**特征向量**
+
+可以写作 $(A - \lambda I)\vec{x}=0$，其有非零解的充分必要条件是 行列式 $|A - \lambda I|=0$
+
+**一般求解过程**
+
+
+$$A\vec{x}-\lambda\vec{x}=0$$
+$$A\vec{x}-\lambda I \vec{x}=0，(\because \vec{x}=I\vec{x})$$
+$$(A-\lambda I)\vec{x}=0$$
+其有非零解的充分必要条件是 $A-\lambda I=0 $，$(\because \vec{x}非零)$，展开：
+
+
+$$
+\begin{bmatrix}
+a_{11}-\lambda & a_{12} & ... & a_{1n} \\\\
+a_{21} & a_{22}-\lambda & ... & a_{2n} \\\\
+... & ... & ... & ... \\\\
+a_{n1} & a_{n2} & ... & a_{nn} 
+\end{bmatrix} = 0
+$$ 
+
+可求得特征值的多个解 $\lambda_1,\lambda_2,...$    
+随后，将$\lambda_i$代入原式，计算对应的特征向量 $\vec{v_i}$
+
+
+
+### 奇异值分解 SVD
+
+$$
+\begin{bmatrix}
+a_{11} & ... & a_{1n} \\\\
+a_{21} & ... & a_{2n} \\\\
+... &  ... & ... \\\\
+... &  ... & ... \\\\
+a_{m1}  & ... & a_{mn} 
+\end{bmatrix} = 
+\begin{bmatrix}
+| & | & ... & ... & ... & | \\\\
+| & | & ... & ... & ... & | \\\\
+\vec{u_1} & \vec{u_2} & ... & ... & ... & \vec{u_m} \\\\
+| & | & ... & ... & ... & | \\\\
+| & | & ... & ... & ... & |
+\end{bmatrix}
+\begin{bmatrix}
+\sigma_1 & 0 & ... \\\\
+0 & \sigma_2 & ... \\\\
+0 & 0 & ...  \\\\
+... & ... & ...  \\\\
+0 & 0 & ...  
+\end{bmatrix}
+\begin{bmatrix}
+.- & \vec{v_1} & -. \\\\
+... & ... & ... \\\\
+.- & \vec{v_n} & -.
+\end{bmatrix}
+$$
+
+任意实矩阵 $A \in R^{m \times n}$ 都可以分解为 $A=U \Sigma V^T$，其中
+
+* $U \in R^{m \times m}, U^TU=I$
+* $\Sigma \in  R^{m \times n}, (\Sigma)_{ii}=\sigma_i$ 依次增大，其余部分为0
+* $V \in R^{n \times n}, V^TV=I$
+
+
+**一般求解过程**
+
+* $(A^TA)\vec{v_i}=\lambda_i\vec{v_i}$，对$(A^TA) \in R^{n \times n}$ 求特征值得$\vec{v_i}$与$\lambda_i$
+
+* $(AA^T)\vec{u_i}=\lambda_i\vec{u_i}$，对$(AA^T) \in R^{m \times m}$ 求特征值得$\vec{u_i}$与$\lambda_i$
+
+* $A\vec{v_i}=\sigma_i\vec{u_i}$ 求解奇异值 $\sigma_i = \sqrt{\lambda_i}$
+
+
+**用法**
+
+可以用$\Sigma$中最大的k个奇异值来近似表达原矩阵：$A_{m \times n} \approx A_{m \times k} = U_k\Sigma_kV^T_k$
+
+SVD分解后的右奇异矩阵$V$，对应着PCA所需的主成分特征矩阵
+
+
+### QR Decomposition
+
+
+将矩阵$A$分解：$A=QR$，$QQ^T=I$为正交矩阵，R 是 upper triangle 矩阵
+（TBA）
+
+
+
+
+
 ## 其它方阵相关
-
-### 特征值与特征向量
-
-
-
-
-
 ### 相似对角化
 
 
@@ -378,6 +468,16 @@ $$b_r=a_r-\sum\limits_{i=1}^{r-1}\frac{b_i \cdot a_r}{b_i \cdot b_i}b_i$$
 
 
 
+
+
+
+
+
+## 参考
+
+特征值与特征向量： [参考1](https://zhuanlan.zhihu.com/p/625791671), [参考2](https://zhuanlan.zhihu.com/p/104980382)   
+奇异值分解 SVD： [参考1](https://zhuanlan.zhihu.com/p/29846048),[参考2](https://zhuanlan.zhihu.com/p/629013736)    
+QR Decomposition： [参考1](https://zhuanlan.zhihu.com/p/47251888)，[参考2](https://zhuanlan.zhihu.com/p/112327923)
 
 
 
