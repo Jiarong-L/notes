@@ -11,12 +11,6 @@ MathJax = {
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
-<script type="text/javascript" id="MathJax-script" async
-  src="http://127.0.0.1:8000/Statistics/Basis/tex-svg.js">
-</script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://github.com/Jiarong-L/notes/blob/main/docs/Statistics/Basis/tex-svg.js">
-</script>
 
 
 <style>
@@ -27,6 +21,9 @@ img{
 
 教材：《线性代数（同济）》，略去部分线性方程组的解
 
+updates：写完笔记后发现了更清晰的课程 [矩阵计算课程](https://math.ecnu.edu.cn/~jypan/Teaching/MatrixComp/index.html)
+
+Tips：一般矩阵右边乘的是列向量，左边乘的是行向量 （可能本笔记没有好好遵守。。。）
 
 
 ## 基本概念
@@ -316,10 +313,14 @@ $a_i$是该向量的第i个**分量**；可以将矩阵$A_{r \times n}$看作为
     - 若 $\vec{a} \in V$，$\lambda \in R$，则 $\lambda\vec{a} \in V$
     - 由向量组 $A_{r \times n}=[\vec{a_1},\vec{a_2},\dots,\vec{a_n}]$ 所生成的向量空间 $L=\\\{\vec{x}=k_1\vec{a_1}+k_2\vec{a_2}+\dots+k_n\vec{a_n} | k_i \in \mathbb{R} \\\}$
 * 若向量空间 $V_1 \subseteq V_2$，则称$V_1$为$V_2$的**子空间**
-* 向量空间$V$内的任一向量都可以由向量组$A$（仅含$r$个线性无关的向量）线性表示，则向量组$A$称为向量空间$V$的**基**，$r$称为向量空间$V$的**维数**，并且称$V$为**r维向量空间**
+* 向量空间$V$内的任一向量都可以由向量组$A$（由$r$个线性无关的向量组成）线性表示，则向量组$A$称为向量空间$V$的**基**，$r$称为向量空间$V$的**维数**，并且称$V$为**r维向量空间**
     - **r维向量空间**也可以理解为：r维向量的全体所组成的集合 $\mathbb{R}^n=\\\{[x_1,x_2,..x_r]^T | x_i \in \mathbb{R}\\\}$ 
 * r维向量的集合$\\\{[x_1,x_2,..x_r]^T | a_1x_1+a_2x_2+...+a_rx_r =b \\\}$称为$\mathbb{R}^n$中的(n-1)维超平面
     - 向量集 $\\\{[x,y,z]^T | ax+by+cz=d\\\}$是向量空间$\mathbb{R}^3$中的2维平面
+
+* 两个向量空间$U$、$V$ 的向量之间有一一对应关系（且保持线性组合的对应，p147），则称这两个向量空间**同构**
+    - i.e. $U$中向量第i个元素对应$V$中向量第i个元素
+
 
 #### 坐标转换
 
@@ -327,7 +328,6 @@ $a_i$是该向量的第i个**分量**；可以将矩阵$A_{r \times n}$看作为
 * 示例：在向量空间$V=\mathbb{R}^3$中取一个基 $A_{3 \times 1}$，再取一个新基 $B_{3 \times 1}$；某向量$\vec{x}$在旧基$A$中坐标为$\vec{o}=[o_1,o_2,o_3]$，在新基$B$中坐标为$\vec{n}=[n_1,n_2,n_3]$
     - 由基变换公式 $AP=B$ 推导出 $P=A^{-1}B$，称为从旧基至新基的**过渡矩阵**
     - 由 $\vec{x}=A\vec{o}=B\vec{n}$ 推导出 **坐标变换**公式：$\vec{n}=B^{-1}A\vec{o}=P^{-1}\vec{o}$
-
 
 
 #### 正交
@@ -343,9 +343,9 @@ $a_i$是该向量的第i个**分量**；可以将矩阵$A_{r \times n}$看作为
 
 
 <details>
-  <summary>施密特正交化</summary>
+  <summary>Gram-Schmidt正交化</summary>
 
-从线性无关向量组$A$中导出正交向量组$B$，二者等价: <br>
+从线性无关向量组$A$中导出正交向量正交向量组$B$，二者等价: <br>
 
 $$\vec{b_1}=\vec{a_1}$$
 
@@ -355,6 +355,9 @@ $$\vec{b_2}=\vec{a_2}-\frac{\vec{b_1} \cdot \vec{a_2}}{\vec{b_1} \cdot \vec{b_1}
 
 $$b_r=\vec{a_r}-\sum\limits_{i=1}^{r-1}\frac{b_i \cdot \vec{a_r}}{b_i \cdot b_i}b_i$$
 
+随后将正交向量都单位化（变成单位向量）<br>
+
+（如果$A$是列向量组，则得到的$B$是列正交：列向量两两正交）
 
 </details>
 
@@ -367,7 +370,8 @@ $$b_r=\vec{a_r}-\sum\limits_{i=1}^{r-1}\frac{b_i \cdot \vec{a_r}}{b_i \cdot b_i}
 
 假设对于$n$阶方阵 $A \in R^{n \times n}$，存在非零列向量 $\vec{x} \in R^{n}$ 使得 $A\vec{x}=\lambda\vec{x}$，则 $\lambda \in R$ 为矩阵$A$的一个**特征值**，$\vec{x}$ 为为矩阵 $A$ 的一个**特征向量**
 
-可以写作 $(A - \lambda I)\vec{x}=0$，其有非零解的充分必要条件是 行列式 $|A - \lambda I|=0$
+如果特征值 $\lambda_1,\lambda_2,...$ 各不相等，则特征向量 $\vec{v_1},\vec{v_2},...$ 线性无关
+
 
 **一般求解过程**
 
@@ -375,8 +379,7 @@ $$b_r=\vec{a_r}-\sum\limits_{i=1}^{r-1}\frac{b_i \cdot \vec{a_r}}{b_i \cdot b_i}
 $$A\vec{x}-\lambda\vec{x}=0$$
 $$A\vec{x}-\lambda I \vec{x}=0，(\because \vec{x}=I\vec{x})$$
 $$(A-\lambda I)\vec{x}=0$$
-其有非零解的充分必要条件是 $A-\lambda I=0 $，$(\because \vec{x}非零)$，展开：
-
+其有非零解的充分必要条件是 $A-\lambda I=0 $，$(\because \vec{x}非零)$，展开得到特征方程：
 
 $$
 \begin{bmatrix}
@@ -388,7 +391,7 @@ a_{n1} & a_{n2} & ... & a_{nn}
 $$ 
 
 可求得特征值的多个解 $\lambda_1,\lambda_2,...$    
-随后，将$\lambda_i$代入原式，计算对应的特征向量 $\vec{v_i}$
+随后，将$\lambda_i$代入原式，计算对应的特征向量 $\vec{x_i}$
 
 
 
@@ -432,9 +435,9 @@ $$
 
 **一般求解过程**
 
-* $(A^TA)\vec{v_i}=\lambda_i\vec{v_i}$，对$(A^TA) \in R^{n \times n}$ 求特征值得$\vec{v_i}$与$\lambda_i$
+* $(A^TA)\vec{v_i}=\lambda_i\vec{v_i}$，对$(A^TA) \in R^{n \times n}$ 求得特征值$\vec{v_i}$与特征向量$\lambda_i$
 
-* $(AA^T)\vec{u_i}=\lambda_i\vec{u_i}$，对$(AA^T) \in R^{m \times m}$ 求特征值得$\vec{u_i}$与$\lambda_i$
+* $(AA^T)\vec{u_i}=\lambda_i\vec{u_i}$，对$(AA^T) \in R^{m \times m}$ 求得特征值$\vec{u_i}$与特征向量$\lambda_i$
 
 * $A\vec{v_i}=\sigma_i\vec{u_i}$ 求解奇异值 $\sigma_i = \sqrt{\lambda_i}$
 
@@ -446,40 +449,79 @@ $$
 SVD分解后的右奇异矩阵$V$，对应着PCA所需的主成分特征矩阵
 
 
-### QR Decomposition
+### QR分解
+
+![](./Linear_Algebra/QR.png)
 
 
-将矩阵$A$分解：$A=QR$，$QQ^T=I$为正交矩阵，R 是 upper triangle 矩阵
-（TBA）
+可以将矩阵$A_{m \times n}(m \ge n)$视为n个m维列向量的向量组，
 
-
-
+1. 如果$A$列满秩，即 $R(A)=n$，则可以通过Gram-Schmidt正交化来求它的的正交向量组$Q$；$R$中元素$r_{ij}=\vec{q_i}\vec{a_j}$
+2. 如果$R(A)=L \lt n$，则$Q$会有$L$个非零列、$n-L$个零列，可以随意用一组正交基（同时垂直于非零列对应的正交向量）代替零列，因为这些零列对应的$R$行也全是0
 
 
 ## 其它方阵相关
 ### 相似对角化
 
+* 对于$n$阶方阵$A$、$B$，若有可逆矩阵$P$ 使 $P^{-1}AP=B$ （对$A$进行**相似变换**），则称$B$是$A$的**相似矩阵**
+    - 若$A$、$B$相似，则二者的特征值相同
 
+* 若$A$与对角矩阵 $\Lambda=diag(\lambda_1,\lambda_2,\dots,\lambda_n)$相似，则 $\lambda_1,\lambda_2,\dots,\lambda_n$ 即是A的$n$个特征值
+    - $P^{-1}AP=\Lambda$ 意味着 $AP=P\Lambda=diag(\lambda_1\vec{p_1},\lambda_2\vec{p_2},\dots,\lambda_n\vec{p_n})$
+    - 即 $A\vec{p_i}=\lambda_i\vec{p_i}$ 
 
+* 求相似变换矩阵$P$ 使 $P^{-1}AP=\Lambda$ 为对角矩阵，就是把矩阵$A$**对角化**
+    - $n$阶方阵$A$可以对角化的充分必要条件：$A$有$n$个线性无关的特征向量
+    - 如果特征值 $\lambda_1,\lambda_2,...$ 各不相等，则$A$有$n$个线性无关的特征向量，推论：$A$可以对角化
+
+* 以下是关于**对称矩阵**$A$的特征值$\lambda_i$、特征向量$\vec{p_i}$ 的一些性质
+    - $\lambda_i$ 为实数，对应的 $\vec{p_i}$ 是实向量
+    - 若 $\lambda_1 \neq \lambda_2$，则$\vec{p_1}$与$\vec{p_2}$正交
+    - 定理：**必有**正交矩阵 $P$ 使对称矩阵 $A$ 对角化，且 $P^{-1}AP=P^TAP=diag(\lambda_1,\lambda_2,\dots,\lambda_n)$
+
+<details>
+  <summary>对称矩阵$A$对角化步骤</summary>
+
+1. 求出对称矩阵$A$的全部互不相等特征值$\lambda_i$（各自重复$k_i$次，即 $k_i$重根）<br>
+
+2. 对每一个$\lambda_i$，求方程 $(A-\lambda_i I)\vec{x}=0$ 的基础解系 会有 $k_i$个线性无关的特征向量；将这些向量单位化、正交化 <br>
+
+3. 将所有$\lambda_i$的特征向量汇总后，共有 $n=\sum k_i$ 个特征向量；这n个特征向量将构成正交矩阵$P$，其对应的特征值便有 $P^{-1}AP=P^TAP=\Lambda$ <br>
+
+k重根：当某数$\lambda$是$A$的k重根时，n个特征值中有k个等于$\lambda$（i.e. 有k个相同的特征值）、意味着 $(\Lambda-\lambda I)$会有k个对角元为0，则$R(A-\lambda I)=R(\Lambda-\lambda I)=n-k$
+
+</details>
 
 
 ### 二次型化简
 
+* 含有n个变量的**二次齐次**函数称为**二次型**
+    - $f(x_1,...)=\sum\limits_{i,j=1}^n a_{ij}x_ix_j$，
+    - 也可以表示为：$f=\vec{x}^TA\vec{x}$，其中A是对称矩阵，则$A$的秩是**二次型**$f$的**秩**
+    - 如果只含平方项，即$i=j$项（$A$是对角矩阵），称为二次型的**标准型**（**法式**）
+    - 如果标准型的系数$A$只在(-1,0,1)中取值，则称为**规范型**
+ 
 
+* 对于任意二次型 $f=\vec{x}^TA\vec{x}$，总有可逆变换 $\vec{x}=P\vec{y}$ 使$f$化为标准型 $f(y_1,...)=\sum\limits_{i=1}^n \lambda_iy_i^2$，其中$\lambda_i$是$A$的特征值
+<details>
+  <summary>详细</summary>
 
+1. 设$A$、$B$是n阶矩阵，若有可逆矩阵$C$使$B=C^TAC$，则称$A$与$B$**合同**  <br>
+2. 记可逆变换 $\vec{x}=C\vec{y}$，则 $f=\vec{x}^TA\vec{x}=(C\vec{y})^TAC\vec{y}=\vec{y}^T(C^TAC)\vec{y}$  <br>
+3. 很明显$C^TAC$是对角矩阵  <br>
+</details>
 
-
-
-
+* 设二次型$f=\vec{x}^TA\vec{x} $的秩为 $r$， $\vec{x}=P\vec{y}$、$\vec{x}=C\vec{z}$ 是它的两个可逆变换，则
+    - **惯性定理**：对角矩阵$P$、$C$ 中正系数的个数（**正惯性指数**）相等；负系数的个数：**负惯性指数**
+    - 如果正惯性指数=n（i.e. 标准型中系数都为正），则称$f$为正定二次型，并称$A$是正定的
+    - 如果负惯性指数=n（i.e. 标准型中系数都为负），则称$f$为负定二次型，并称$A$是负定的
 
 
 ## 参考
 
 特征值与特征向量： [参考1](https://zhuanlan.zhihu.com/p/625791671), [参考2](https://zhuanlan.zhihu.com/p/104980382)   
 奇异值分解 SVD： [参考1](https://zhuanlan.zhihu.com/p/29846048),[参考2](https://zhuanlan.zhihu.com/p/629013736)    
-QR Decomposition： [参考1](https://zhuanlan.zhihu.com/p/47251888)，[参考2](https://zhuanlan.zhihu.com/p/112327923)
-
-
-
-
+QR分解： [参考1](https://zhuanlan.zhihu.com/p/47251888)，[参考2](https://zhuanlan.zhihu.com/p/112327923)  
+LU分解： [参考1](https://zhuanlan.zhihu.com/p/363948873)  
+其它有用资料：[矩阵计算课程](https://math.ecnu.edu.cn/~jypan/Teaching/MatrixComp/index.html)，《数值线性代数（第2版）》(徐树方，高立，张平文) 
 

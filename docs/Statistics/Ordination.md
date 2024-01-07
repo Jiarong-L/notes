@@ -59,7 +59,7 @@ RDA对象中数据默认不Scale，但是在Summary或Plot时又会默认进行s
 
 </details>
 
-Recall: 特征值分解（Eigen）、奇异值分解（SVD）、QR Decomposition 请参考[Linear_Algebra笔记-常见矩阵分解](../../Course/Linear_Algebra/#_12)
+Recall: 特征值分解（Eigen）、奇异值分解（SVD）、QR分解 请参考[Linear_Algebra笔记-常见矩阵分解](../../Course/Linear_Algebra/#_12)
 
 
 
