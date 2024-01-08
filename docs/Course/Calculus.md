@@ -94,6 +94,19 @@ table th:nth-of-type(5) {
     2. （隐函数）令$u=y^2$，则$\frac{d}{dx}(y^2)=\frac{du}{dy}\frac{dy}{dx}=2y\frac{dy}{dx}$
     3. $2x +2y\frac{dy}{dx}=0$，则 $\frac{dy}{dx}=-\frac{x}{y}$
     * （拆分 & 使用链式法则）
+  - 使用示例：求**反函数** $y=f^{-1}(x)$ **的导数**
+    1. 公式可写为 $f(y)=x$，两边关于$x$隐函数求导
+    2. $\frac{d}{dx}f(y)=\frac{d}{dx}x=1$
+    3. 设 $u=f(y)$，则 $\frac{d}{dx}f(y)=\frac{du}{dx}=\frac{du}{dy}\frac{dy}{dx}=f'(y)\frac{dy}{dx}$
+    4. 可知 $\frac{dy}{dx}=\frac{1}{f'(y)}$  即：$\frac{d}{dx}f^{-1}(x)=\frac{1}{f'(f^{-1}(x))}$
+
+
+* 如果对于定义域内的所有$x$，函数$f$可导、且单调，则$f$的**反函数**$f'$**存在**：
+  - $f'(x) >0$，则$f(x)$单调递增，反函数存在
+  - $f'(x) <0$，则$f(x)$单调递减，反函数存在
+  - 如果满足 $f'(x) = 0$ 的 $x$ 个数有限，也可以放宽到$\ge 0$或$\le 0$的情况
+
+
 
 
 
