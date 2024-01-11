@@ -174,8 +174,10 @@ table th:nth-of-type(5) {
 
 * 函数 $y=f(x)$ 积分的几何意义：函数 $y=f(x)$ 与$x$轴之间的有向面积（正/负）
     - 反函数 $x=f^{-1}(y)$ 积分：函数 $y=f(x)$ 与$y$轴之间的有向面积（正/负）
-    - 定积分：指定区间内的面积，e.g. $\int_a^b f(x)dx$
-    - 不定积分：“函数$f$的反导数的集合”，e.g. $\int f(x)dx$、$\int_a^x f(x)dx$
+    - **定积分**：指定区间内的面积，例如 $\int_a^b f(x)dx$
+    - **不定积分**：“函数$f$的反导数的集合”，例如 $\int f(x)dx$、$\int_a^x f(x)dx$
+    - **反常积分**：$f$在区域内无界，或者变量$x$范围无穷，例如  $\int_{-\infty}^{0} f(x)dx$
+
 
 * **微积分第一基本定理**：如果函数$f$在闭区间$[a,b]$上连续，定义$$F(x)=\int_a^x f(t)dt,\quad x \in [a,b]$$ 则$F$在开区间$(a,b)$内可导，且 $F'(x)=f(x)$，即 $$\frac{d}{dx}\int_a^x f(t)dt = f(x)$$
 
@@ -185,20 +187,20 @@ table th:nth-of-type(5) {
 
 ### 定积分
 
+* **定积分**（黎曼积分）：将$[a,b]$区间分割成 $n \rightarrow \infty$ 块（$mesh  \rightarrow 0$）来求 $\int_a^b f(x)dx$ 
 <details>
-  <summary>伸缩求和法求$\sum\limits_{j=1}^nj^2$</summary>
+  <summary>示例</summary>
+$$\int_0^2 x^2dx = \lim\limits_{n \rightarrow \infty}\sum\limits_{j=1}^n{f(x_j)\frac{1}{n}}=\lim\limits_{n \rightarrow \infty}\sum\limits_{j=1}^n\frac{8j^2}{n^3}=\lim\limits_{n \rightarrow \infty}\frac{8}{n^3}\frac{n(n+1)(2n+1)}{6}=\frac{8}{3}$$
+$x_j$可以在当前$mesh$中的任何位置取值（e.g.上和、下和），但只要它足够小，任何取值都将趋近
 
+<details>
+  <summary>求$\sum\limits_{j=1}^nj^2$</summary>
 伸缩求和法：$\sum\limits_{x=a}^b[f(x)-f(x-1)]=f(b)-f(a-1)$
-
 $$\sum\limits_{j=1}^n [j^2-(j-1)^2] = \sum\limits_{j=1}^n (2j-1) = n^2 \therefore \sum\limits_{j=1}^nj = \frac{n(n+1)}{2}$$
 $$\sum\limits_{j=1}^n [j^3-(j-1)^3] = \sum\limits_{j=1}^n (3j^2-3j+1) = n^3 \therefore \sum\limits_{j=1}^nj^2 = \frac{n(n+1)(2n+1)}{6}$$
-
+</details>
 </details>
 
-
-* **定积分**（黎曼积分）：将$[a,b]$区间分割成 $n \rightarrow \infty$ 块（$mesh  \rightarrow 0$）来求 $\int_a^b f(x)dx$ 
-    - $\int_0^2 x^2dx = \lim\limits_{n \rightarrow \infty}\sum\limits_{j=1}^n{f(x_j)\frac{1}{n}}=\lim\limits_{n \rightarrow \infty}\sum\limits_{j=1}^n\frac{8j^2}{n^3}=\lim\limits_{n \rightarrow \infty}\frac{8}{n^3}\frac{n(n+1)(2n+1)}{6}=\frac{8}{3}$
-    - $x_j$可以在当前$mesh$中的任何位置取值（e.g.上和、下和），但只要它足够小，任何取值都将趋近
 
 * 定积分**可积**：有限个不连续点、函数有界    
 
@@ -206,6 +208,9 @@ $$\sum\limits_{j=1}^n [j^3-(j-1)^3] = \sum\limits_{j=1}^n (3j^2-3j+1) = n^3 \the
 ![](./Calculus/16-2.png)
 
 * 积分的**中值定理**：假设函数 $f$ 在闭区间$[a,b]$ 内连续，则开区间$(a,b)$ 内至少存在一点 $c$，使得 $f(c)=\frac{1}{b-a}\int_a^b f(x)dx$（函数$f$在此区间的平均值）
+
+* 对积分式求导、求极限时，一些变形的例子：  
+![](./Calculus/17-2.png)
 
 
 ### 不定积分
@@ -229,52 +234,86 @@ $F(x+h)-F(x) = \int_x^{x+h}f(t)dt \approx hf(x)$
 
 
 
-
 ### 求积分
 
-* 利用导数和积分可以相互抵消的性质，可以计算积分：  
+利用导数和积分可以相互抵消的性质，可以计算积分：  
 ![](./Calculus/17-1.png)
 
-* 一些变形的例子：  
-![](./Calculus/17-2.png)
 
-* 一些求反导数的技巧：
-    - TBA
+**一些求反导数$F(x)$的技巧：18章**
 
+**换元法**
 
+设 $t=g(x)$，则 $\frac{dt}{dx}=g'(x)$ 即 $dt=g'(x)dx$
 
-![](./Calculus/18-1.png)
+于是可以将形似如下的方程化简：$$\int f(g(x))g'(x)dx = \int f(t)dt = F(t) + C = F(g(x)) + C$$
 
+<details>
+  <summary> 求 $\int x^2 cos(x^3)dx$，设 $t=x^3$ </summary>
 
+由 $\frac{dt}{dx}=\frac{dx^3}{dx}=3x^2$ 可知 $x=t^{1/3}$、$dx=\frac{dt}{3x^2}=\frac{dt}{3t^{2/3}}$，于是：
+<br><br>
+ $\int x^2 cos(x^3)dx = \int t^{2/3} cos(t) \frac{dt}{3t^{2/3}} = \frac{1}{3} \int cos(t)dt = \frac{1}{3} sin(t) = \frac{1}{3} sin(x^3)$
+</details>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+<details>
+  <summary>定积分：注意不要混淆$x$、$t$范围</summary>
+$\int_0^{(\pi)^{1/3}} x^2 cos(x^3)dx = \int_{t=0}^{t=\pi} cos(t)dt$
+<br><br>
+对于定积分，建议计算出用$x$表示的不定积分后再代入范围数值
+</details>
 
 
 
+**分部积分法**
+
+$$\int udv = uv - \int vdu$$
+
+<details>
+  <summary>推导过程</summary>
+$$\frac{d}{dx}(uv) = v\frac{du}{dx} +u\frac{dv}{dx}$$
+$$\int\frac{d}{dx}(uv)dx = \int v\frac{du}{dx}dx +\int u\frac{dv}{dx}dx$$
+$$uv = \int vdu +\int udv$$
+$$即  \int udv = uv - \int vdu$$
+</details>
+
+<details>
+  <summary>$\int x e^xdx = xe^x - \int e^xdx$</summary>
+$u=x$ ，对$u$求导得到 $du=dx$
+<br><br>
+$dv=e^xdx$ ，对$dv$求积分得到 $v=e^x$
+</details>
+
+<details>
+  <summary>$\int x^2sin(x)dx$</summary>
+$u=x^2$ ，对$u$求导得到 $du=2x$
+<br><br>
+$dv=sin(x)dx$ ，对$dv$求积分得到 $v=-cos(x)$
+<br><br>
+然后对 $2\int(-cos(x))xdx$ 再来一次分部积分法
+</details>
 
 
+<details>
+  <summary>$\int tan^{-1}(x)dx$</summary>
+$u=tan^{-1}(x)$ ，对$u$求导得到 $du=\frac{1}{1+x^2}dx$
+<br><br>
+$dv=dx$ ，对$dv$求积分得到 $v=x$
+</details>
 
 
+**部分分式**
 
+$$\int \frac{p(x)}{q(x)}dx=\int \frac{p(x)}{(\dots)(\dots)(\dots)}dx=\int (\frac{a}{(\dots)} + \frac{b}{(\dots)} + \frac{c}{(\dots)})dx$$
 
+[拆解Tips](./Calculus/18-1.png)
 
-
-
-
-
-
+<details>
+  <summary>$\int \frac{x+2}{x^2-1}dx$</summary>
+$$\int \frac{5x^2+x-3}{x^2-1}dx=\int (5+\frac{x+2}{x^2-1})dx = 5x+\int \frac{x+2}{x^2-1}dx$$
+$$\int \frac{x+2}{x^2-1}dx = \int \frac{x+2}{(x-1)(x+1)}dx = \int \frac{3/2}{x-1}dx + \int \frac{-1/2}{x+1}dx$$
+随后可以用换元法$t=(分母)^n$求解各部分
+</details>
 
 
 
