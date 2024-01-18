@@ -18,9 +18,17 @@ img{
 }
 </style>
 
+## 参考
+
 课本：INTRODUCTION TO STOCHASTIC PROCESSES WITH R
 
+参考：https://zhuanlan.zhihu.com/p/591192586   
+参考：https://zhuanlan.zhihu.com/p/151683887    
+母函数和矩母函数的联系和区别？https://www.zhihu.com/question/24952770 
 
+https://math.stackexchange.com/questions/4533142/transition-matrix-of-a-single-type-branching-process    
+
+https://www.stat.berkeley.edu/~aldous/Networks/lec2.pdf    
 
 
 ## Review
@@ -38,6 +46,13 @@ $$E(Var(Y|X))+Var(E(Y|X))  \quad\quad\quad (3)$$
 $$=E(E(Y^2|X)-E(Y|X)^2) + E(E(Y|X)^2)-E(E(Y|X))^2$$
 $$=E(Y^2)-E(Y)^2$$
 $$=Var(Y)$$
+
+* 概率母函数 Probability generating function $G_x(s)=E(s^x)=\sum\limits_{x=0}^{\infty}s^xP(x)$
+    - $G^{(j)}(0)=j!P(j)$
+    - $G''(0)=2P(2)$
+
+![](./Stochastic/4-3.png)
+
 
 
 ## Markov Chain
@@ -104,6 +119,43 @@ $$=(\alpha P^{t1})_{s_1} (P^{t_2-t_1})\_{s_1,s_2} ... (P^{t_n-t\_{n-1}})\_{s\_{n
 
 
 ## Branching Processes
+
+Branching Processes {$X_n$} 常用于模拟 Population growth；它是一种 Markov Chain，因为子代个数 $X_{n+1}$ 仅取决于其父代个数 $X_{n}$ （以及 offspring 分布）
+
+
+![](./Stochastic/4-1.png)
+
+
+* 假设 
+    - $Y_{n,i}$ 表示第 $n$ 代第 $i$ 个个体的后代数
+    - $X_{n+1}=\sum\limits_{i=1}^{X_{n}}Y_{n,i}$ 表示第 $n+1$ 代的个体数目
+    - 已知 $P[X_{n+1}=S_{n+1} | X_{n}=S_{n} ] = P[\sum\limits_{r=1}^{X_{n}} Y_{n,r}=S_{n+1} | X_{n}=S_{n} ]= P[\sum\limits_{r=1}^{S_{n}} Y_{n,r}=S_{n+1}]$
+    - Transition matrix 元素 $P^n_{ij} = P(\sum\limits_{r=1}^{i}Y_{n,r}=j)$ 表示第 $n$ 代时 $i$ 个个体累计产生 $j$ 个后代的概率；设定 $P^n_{00}=1$
+    - Absorbing state = 0，即当 $X_n=0$ 时发生灭绝事件，其余 all nonzero states are transient
+
+
+
+* 假设单个个体的后代数目遵从某种概率分布（offspring 分布），用 $a_k$ 表示 单个个体产生 $k$ 个后代的概率
+    - $a_0=0$ 则 Population 永远增加；
+    - $a_0=1$ 则 $X_n = 0$ for $n \ge 1$
+    - 因此假设 $0 < a_0 < 1$ 且 $a_0+a_1 <1$ （即，有一定概率产生多个后代）
+
+
+* 单个个体后代数目分布的均值 $\mu = \sum\limits_{k=0}^{\infty}ka_k$，则第 $n$ 代个数的均值 $E(X_n)=\mu^n$ （[推导过程](./Stochastic/4-2.png)）
+    - 灭绝事件 $E: X_n=0$ 最终发生的概率 $P(E)=\lim\limits_{n \rightarrow \infty}P(X_n=0)=\lim\limits_{n \rightarrow \infty}1-\mu^n$
+    - 故而，依据 $\mu$ 的取值，$X_n$最终可能趋向 $0,1,\infty$ 三种可能
+
+
+
+* offspring 分布 $Y$的母函数是 $G(s)=\sum\limits_{k=0}^{\infty}s^ka_k$，$G^n(s)$是 $G(s)$ 的 $n$ 重复合：
+    - $G^n(s)=G^{n-1}(G(s))=G(...G(G(s))...)$
+    - $G^n(s)=\sum\limits_{k=0}^{\infty}s^kP(X_n=k)$
+    - $X_0=i$ 时，$X_n$的母函数 $=\sum\limits_{k=0}^{\infty}P^n_{ik}S^k=[G^n(s)]^i$ （可用于推算Transition matrix）
+    - 当 $\mu>1$ 时，方程 $s=G_Y(s)$ 的最小解 $s=min(roots)$ 是走向灭绝结局的概率，[示例](./Stochastic/4-7.png)
+    - （当 $\mu \leq 1$ 时灭绝结局概率=1）
+
+
+
 
 
 
