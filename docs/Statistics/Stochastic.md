@@ -120,7 +120,7 @@ $$=(\alpha P^{t1})_{s_1} (P^{t_2-t_1})\_{s_1,s_2} ... (P^{t_n-t\_{n-1}})\_{s\_{n
 
 ## Branching Processes
 
-Branching Processes {$X_n$} 常用于模拟 Population growth；它是一种 Markov Chain，因为子代个数 $X_{n+1}$ 仅取决于其父代个数 $X_{n}$ （以及 offspring 分布）
+Branching Processes {$X_n$} 常用于模拟 Population growth；它是一种 Markov Chain，因为子代个数 $X_{n+1}$ 仅取决于其父代个数 $X_{n}$ （以及 Offspring 分布）
 
 
 ![](./Stochastic/4-1.png)
@@ -135,7 +135,7 @@ Branching Processes {$X_n$} 常用于模拟 Population growth；它是一种 Mar
 
 
 
-* 假设单个个体的后代数目遵从某种概率分布（offspring 分布），用 $a_k$ 表示 单个个体产生 $k$ 个后代的概率
+* 假设单个个体的后代数目遵从某种概率分布（Offspring 分布），用 $a_k$ 表示 单个个体产生 $k$ 个后代的概率
     - $a_0=0$ 则 Population 永远增加；
     - $a_0=1$ 则 $X_n = 0$ for $n \ge 1$
     - 因此假设 $0 < a_0 < 1$ 且 $a_0+a_1 <1$ （即，有一定概率产生多个后代）
@@ -147,12 +147,14 @@ Branching Processes {$X_n$} 常用于模拟 Population growth；它是一种 Mar
 
 
 
-* offspring 分布 $Y$的母函数是 $G(s)=\sum\limits_{k=0}^{\infty}s^ka_k$，$G^n(s)$是 $G(s)$ 的 $n$ 重复合：
-    - $G^n(s)=G^{n-1}(G(s))=G(...G(G(s))...)$
-    - $G^n(s)=\sum\limits_{k=0}^{\infty}s^kP(X_n=k)$
-    - $X_0=i$ 时，$X_n$的母函数 $=\sum\limits_{k=0}^{\infty}P^n_{ik}S^k=[G^n(s)]^i$ （可用于推算Transition matrix）
+* Offspring 分布 $Y$的母函数是 $G(s)=\sum\limits_{k=0}^{\infty}s^ka_k$
     - 当 $\mu>1$ 时，方程 $s=G_Y(s)$ 的最小解 $s=min(roots)$ 是走向灭绝结局的概率，[示例](./Stochastic/4-7.png)
     - （当 $\mu \leq 1$ 时灭绝结局概率=1）
+* $G(s)$ 的 $n$ 重复合记为 $G^n(s)$
+    - $G^n(s)=G^{n-1}(G(s))=G(...G(G(s))...)$
+    - $G^n(s)=G_{Xn}(s)=\sum\limits_{k=0}^{\infty}s^kP(X_n=k)$
+    - $X_0=i$ 时，$X_n$的母函数 $=\sum\limits_{k=0}^{\infty}s^kP^n_{ik}=[G^n(s)]^i$ （可用于推算Transition matrix -- 出处百度，待查证）
+
 
 
 
