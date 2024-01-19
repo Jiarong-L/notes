@@ -31,6 +31,8 @@ table th:nth-of-type(5) {
 
 省略：13章介绍使用导数求解最优化问题（牛顿法：13.3）
 
+不确定：**瑕点**包括极点(函数在该点处取无穷值)和奇点(函数在该点处不连续)
+
 
 ## 函数
 
@@ -47,6 +49,7 @@ table th:nth-of-type(5) {
     - 偶函数：$f(-x)=f(x)$ 图像沿$y$轴对称
 * 函数**有界**：对于定义域内的任意的$x$，存在常数 $m$、$M$ 使得 $m \le f(x) \le M$
 * 函数$f$在$[a,b]$区间内的平均值 $=\frac{1}{b-a}\int_a^b f(x)dx$
+
 
 ## 极限
 
@@ -231,6 +234,37 @@ $F(x)=\int_0^a t^2dt+G(x)=C+G(x)$
 **Hints 2：**($h \rightarrow 0$)
 
 $F(x+h)-F(x) = \int_x^{x+h}f(t)dt \approx hf(x)$
+
+
+### 反常积分
+
+![](./Calculus/20-1.png)
+
+| 场景如上图示 | 如果极限存在，则积分收敛；否则积分发散 |
+| -- | -- |
+| $[a,b]$区间内积分，但a附近无界 | $\int_a^bf(x)dx=\lim\limits_{\epsilon \rightarrow 0^+}\int_{a+\epsilon}^bf(x)dx$ |
+| $[a,b]$区间内积分，但b附近无界 | $\int_a^bf(x)dx=\lim\limits_{\epsilon \rightarrow 0^+}\int_{a}^{b-\epsilon}f(x)dx$ |
+| $[a,\infty]$区间内积分 | $\int_a^{\infty}f(x)dx = \lim\limits_{N \rightarrow \infty}\int_a^Nf(x)dx$ |
+| $[-\infty,b]$区间内积分 | $\int_{-\infty}^bf(x)dx = \lim\limits_{N \rightarrow \infty}\int_{-N}^bf(x)dx$ |
+| $[-\infty,\infty]$区间内积分 | $\int_{-\infty}^{\infty}f(x)dx=\int_{-\infty}^{0}f(x)dx+\int_{0}^{\infty}f(x)dx$ |
+| Tips | 如果函数有多处瑕点，可以**拆成多个积分，保证每部分积分只有一处瑕点**；不过只有当每部分积分都收敛时，积分才收敛 |
+| [示例](./Calculus/20-2.png) | 实际上常数项可以随意按需拆分，主要关心的还是能否收敛 |
+
+
+* 使用**比较判别法**判断积分是否收敛：（假设--仅当$f,g$非负时）
+    - 已知 $\int_a^bg(x)dx$ 发散，如果 $[a,b]$ 区间内 $f(x)$ 的图像包裹住 $g(x)$，则确定 $\int_a^bf(x)dx$ 也发散
+        * $0 \le g(x) \le f(x)$
+    - 已知 $\int_a^bg(x)dx$ 收敛，如果 $[a,b]$ 区间内 $f(x)$ 的图像被 $g(x)$ 包裹，则确定 $\int_a^bf(x)dx$ 也收敛
+        * $0 \le f(x) \le g(x)$
+    - （有点类似夹逼定理，不过没那么严格）
+
+* 使用**极限比较判别法**判断积分是否收敛：准备一个与 $f(x)$ 在瑕点处近似（敛散性一致）的函数
+    - 当 $x \rightarrow a$ 时, $f(x) \sim  g(x)$ 即 $\lim\limits_{x \rightarrow a}\frac{f(x)}{g(x)}=1$
+    - 通常使用 $g(x) = \frac{1}{x^p}$ 的形式，称为 [p判别法](./Calculus/20-3.png)
+        * 对于有限值 $a>0$，积分 $\int_a^{\infty}\frac{1}{x^p}dx$ 在 $p>1$ 时收敛，在 $p \le 1$ 时发散
+        * 对于有限值 $a>0$，积分 $\int_0^a\frac{1}{x^p}dx$ 在 $p<1$ 时收敛，在 $p \ge 1$ 时发散
+
+* **绝对收敛判别法**：如果 $\int_a^b|f(x)|dx$ 收敛，那么 $\int_a^bf(x)dx$ 也收敛
 
 
 
