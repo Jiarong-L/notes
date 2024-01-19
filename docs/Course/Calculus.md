@@ -263,6 +263,7 @@ $F(x+h)-F(x) = \int_x^{x+h}f(t)dt \approx hf(x)$
     - 通常使用 $g(x) = \frac{1}{x^p}$ 的形式，称为 [p判别法](./Calculus/20-3.png)
         * 对于有限值 $a>0$，积分 $\int_a^{\infty}\frac{1}{x^p}dx$ 在 $p>1$ 时收敛，在 $p \le 1$ 时发散
         * 对于有限值 $a>0$，积分 $\int_0^a\frac{1}{x^p}dx$ 在 $p<1$ 时收敛，在 $p \ge 1$ 时发散
+    - [一些寻找近似函数的 Tips & 示例](./Calculus/20-4.png)
 
 * **绝对收敛判别法**：如果 $\int_a^b|f(x)|dx$ 收敛，那么 $\int_a^bf(x)dx$ 也收敛
 
