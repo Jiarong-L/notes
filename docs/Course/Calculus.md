@@ -451,7 +451,7 @@ $$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
 * **极数** $A_N=\sum\limits_{n=1}^{N}a_n$ 是数列所有项的和
     - 若无穷数列的级数 $\lim\limits_{N \rightarrow \infty}A_N$ 存在，则级数收敛；否则级数发散
     - **第n项判别法**：当 $\lim\limits_{n \rightarrow \infty}a_n \neq 0$ 或不存在时级数发散（但 $\lim\limits_{n \rightarrow \infty}a_n = 0$ 级数不一定收敛！例如 $a_n=\frac{1}{\sqrt{n}}$）
-    - 比较判别法、极限比较判别法也可用来判断级数的收敛与否（借助另一个确定级数收敛性的 $b_n$，参考 [反常积分](./#_10)）
+    - 比较判别法、极限比较判别法、绝对收敛判别法 也可用来判断级数的收敛与否（借助另一个确定级数收敛性的 $b_n$，参考 [反常积分](./#_10)）
     - **比式判别法**：设 $b_n=\frac{|a_{n+1}|}{|a_{n}|}$ 为 {$a_n$} 相邻两项的绝对值比值
         * 若 $\lim\limits_{N \rightarrow \infty}b_n = C < 1$，极数 $A_N$ 收敛
         * 若 $\lim\limits_{N \rightarrow \infty}b_n = C > 1$，极数 $A_N$ 发散
