@@ -105,6 +105,7 @@ table th:nth-of-type(5) {
 
 * 二阶导数就是关于x导二次，三阶就是三次（见上图·示例），...
     - 区分：$(\frac{dy}{dx})^2$ 一阶导的平方, $\frac{d^2y}{dx^2}$关于$x$的二阶导, $\frac{dy}{d(x^2)}$关于$x^2$的一阶导
+    - 注：$f^{(n)}(x)$表示n阶导数
 
 * 可导性：如果$f(x)$在$(a,b)$内可导并且在$a^+$和$b^-$处的导数都存在，则称$f(x)$在闭区间在$[a,b]$上可导；如果一个函数在$x$上可导，那么它在$x$上连续
 
@@ -457,6 +458,7 @@ $$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
         * **交错级数判别法**：若 $|a_n|$ 的级数收敛，则 $a_n$ 的级数也收敛
     - **比式判别法**：设 $b_n=\frac{|a_{n+1}|}{|a_{n}|}$ 为 {$a_n$} 相邻两项的绝对值比值
         * 若 $\lim\limits_{N \rightarrow \infty}b_n = C < 1$，极数 $A_N$ 收敛
+            - 对于收敛的**等比数列** $a_n=c^n$, (几何级数) $A_N = \lim\limits_{N \rightarrow \infty}\frac{a_1}{1 - a_{n+1}/a_n}$
         * 若 $\lim\limits_{N \rightarrow \infty}b_n = C > 1$，极数 $A_N$ 发散
         * 若 $\lim\limits_{N \rightarrow \infty}b_n = 1$ 或不存在，无法得出结论
     - **根式判别法**：设 $b_n=|a_n|^{1/n}$ 为 {$a_n$} 是第n项绝对值的n次方根
@@ -467,6 +469,45 @@ $$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
         * $\lim\limits_{n \rightarrow \infty}a_n = 0$ （第n项判别法）
         - 比值极限为1（比式判别法）
         - 第n项绝对值的n次方根等于1（根式判别法）
+
+
+## 泰勒多项式
+
+
+* **泰勒近似定理**：若函数 $f$ 在 $x=a$ 处光滑，则可以用N 次泰勒多项式 $P_N(x)=\sum\limits_{n=0}^N\frac{f^{(n)}(a)}{n!}(x-a)^n$ 来近拟 $f$ 在 $x=a$ **附近**的值
+    - **泰勒定理**：关于 $x=a$ 的 N阶余项（i.e. 误差） $R_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}$，其中 $c$ 是介于 $x$ 与 $a$ 之间的一个数，依赖于 $x$ 与 $N$，一般不能确定
+    - $f(a) = P_N(a) + R_N(a)$
+    - $f^{(n)}(a) = P_N^{(n)}(a)$
+
+* 泰勒级数在 $x=a$ 处一定收敛于 $f(x)$，但对于 $x \neq a$ 处则未必！甚至可能误差巨大，请参照N阶余项的极限（此外，尽量使N很大）
+
+* **麦克劳林级数**：函数 $f$ 关于 $x=0$ 的泰勒级数
+
+
+* 泰勒级数示例：
+    - ($a=0$ 附近)：$e^x = \sum\limits_{n=0}^{\infty}\frac{1}{n!}x^n =1+ x + \frac{x^2}{2!}+ \frac{x^3}{3!} + \dots$
+    - ($a=1$ 附近)：$\ln(x) = \sum\limits_{n=0}^{\infty}\frac{(-1)^{n-1}}{n}(x-1)^n$
+
+
+* 其它近拟示例：
+    - $\sum\limits_{n=0}^{\infty} x^n = \frac{1}{1-x}$  （ $-1<x<1$ 时，等比数列求和）
+
+* 一个有用的极限： 
+    - $\lim\limits_{n \rightarrow \infty} \frac{x^n}{n!}=0$ （因其相邻项比值趋近于0）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
