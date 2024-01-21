@@ -470,6 +470,9 @@ $$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
         - 比值极限为1（比式判别法）
         - 第n项绝对值的n次方根等于1（根式判别法）
 
+* 一个有用的极限： 
+    - $\lim\limits_{n \rightarrow \infty} \frac{x^n}{n!}=0$ （因其相邻项比值趋近于0）
+
 
 ## 泰勒多项式
 
@@ -478,23 +481,28 @@ $$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
     - **泰勒定理**：关于 $x=a$ 的 N阶余项（i.e. 误差） $R_N=\frac{f^{(N+1)}(c)}{(N+1)!}(x-a)^{N+1}$，其中 $c$ 是介于 $x$ 与 $a$ 之间的一个数，依赖于 $x$ 与 $N$，一般不能确定
     - $f(a) = P_N(a) + R_N(a)$
     - $f^{(n)}(a) = P_N^{(n)}(a)$
-    - $N \rightarrow \infty$ 时 $P_N(x)$ 称为泰勒级数
+    - $N \rightarrow \infty$ 时 $P_N(x)$ 称为**泰勒级数**
 
 * 泰勒级数在 $x=a$ 处一定收敛于 $f(x)$，但对于 $x \neq a$ 处则未必！甚至可能误差巨大，请参照N阶余项的极限（此外，尽量使N很大）
+    - 示例：$\sum\limits_{n=0}^{\infty}n!x^n$只在 $x=a$ 处收敛 
+    - **计算收敛范围**（比式判别法）：$\lim\limits_{n \rightarrow \infty}\frac{a_{n+1}(x-a)^{n+1}}{a_{n}(x-a)^{n}}=L|x-a|<1$ 时收敛，可依此计算 $x$ 在何范围收敛
+
 
 * **麦克劳林级数**：函数 $f$ 关于 $x=0$ 的泰勒级数
 
 
-* 泰勒级数示例：
-    - ($a=0$ 附近)：$e^x = \sum\limits_{n=0}^{\infty}\frac{1}{n!}x^n =1+ x + \frac{x^2}{2!}+ \frac{x^3}{3!} + \dots$
-    - ($a=1$ 附近)：$\ln(x) = \sum\limits_{n=0}^{\infty}\frac{(-1)^{n-1}}{n}(x-1)^n$
+| 麦克劳林级数 ($a=0$ 附近) | -- | 收敛范围 |
+| -- | -- | -- |
+| $e^x = \sum\limits_{n=0}^{\infty}\frac{x^n}{n!} $ | $1+ x + \frac{x^2}{2!}+ \frac{x^3}{3!} + ...$ | 所有实数 |
+| $sin(x)= \sum\limits_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!}$ | $x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...$ | 所有实数 |
+| $cos(x)= \sum\limits_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!}$ | $x-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+...$ | 所有实数 |
+| $\frac{1}{1-x} = \sum\limits_{n=0}^{\infty} x^n$  | （比数列求和） | $-1<x<1$ |
+| $\ln(1+x)=\sum\limits_{n=1}^{\infty}-\frac{(-1)^nx^n}{n}$ | $x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+...$ | $-1 < x \le 1$ |
+| $\ln(1-x)=\sum\limits_{n=1}^{\infty}-\frac{x^n}{n}$ | $-x-\frac{x^2}{2}-\frac{x^3}{3}-\frac{x^4}{4}-...$ | $-1 \le x < 1$ |
 
-
-* 其它近拟示例：
-    - $\sum\limits_{n=0}^{\infty} x^n = \frac{1}{1-x}$  （ $-1<x<1$ 时，等比数列求和）
-
-* 一个有用的极限： 
-    - $\lim\limits_{n \rightarrow \infty} \frac{x^n}{n!}=0$ （因其相邻项比值趋近于0）
+* 可以通过变量代换的方式**得到新的泰勒级数**
+    - 设 $b=x-1$，则对于 $-1 < b \le 1$ 即 $0 < x \le 2$，$\ln(1+b)=\sum\limits_{n=1}^{\infty}-\frac{(-1)^nb^n}{n}$ 
+    - 即是 关于 $x=1$ 的泰勒级数 $\ln(x) = \sum\limits_{n=0}^{\infty}-\frac{(-1)^n(x-1)^n}{n}$
 
 
 
