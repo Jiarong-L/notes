@@ -29,10 +29,11 @@ table th:nth-of-type(5) {
 
 教材：《普林斯顿微积分读本》
 
-省略：13章介绍使用导数求解最优化问题（牛顿法：13.3）
+省略：13章介绍使用导数求解最优化问题（牛顿法：13.3），29章使用积分计算各种体积面积
 
 不确定：**瑕点**包括极点(函数在该点处取无穷值)和奇点(函数在该点处不连续)
 
+除了极坐标，默认是笛卡尔坐标系（直角坐标系）
 
 ## 函数
 
@@ -557,7 +558,48 @@ $$\frac{dy}{dx}=[\cos(x)\ln(x)+\frac{six(x)}{x}]y$$
 
 ## 复数
 
+* 创造一个 -1 的平方根，称为 $i$，即 $i^2=-1$；**虚数** $yi$ 的平方是负数
+* 形为 $z=x+yi$ 的数称为**复数**，其**共轭复数** $\overline{z}=x-yi$
+    - $(x+yi)(x-yi)=x^2+y^2$ 即 $z\overline{z}=|z|^2$ 
+    - $(1+2i)+(1+i)=2+3i$
+    - $\frac{2-3i}{-6-7i}=\frac{(2-3i)(-6+7i)}{(-6-7i)(-6+7i)}=\frac{9+32i}{85}$
 
+* 二次方程 $ax^2+bx+c=0$ 的解：$x=\frac{-b \pm \sqrt{b^2-4ac}}{2}$
+
+* 复指数 $e^{x+yi}=e^xe^{yi}$
+
+* 复平面上横轴为实数轴、纵轴为复数轴，[图示](./Calculus/28-1.png)
+    - **模** $|z|$ 是复平面中原点到点 $z$ 的距离
+
+* 若复平面内 $(x,y)$ 与极坐标内 $(r,\theta)$ 是相同的点，则复数：$z=x+iy=r\cos(\theta)+ir\sin(\theta)=re^{i\theta}$ 为复数的**极坐标形式**
+    - 模 $|z|=r$；角 $\theta$ 被称为 $z$ 的**辐角**，写为 $arg(z)$；有时 $z$ 的极坐标形式也被称为 “模-辐角”模式
+    - 例：对于复数 $-1+0i=\cos(\pi)+i\sin(\pi)$ 有极坐标形式 $1e^{i\pi}$，其笛卡尔坐标 $(0,1)$ 有极坐标 $(1,\pi)$    
+    - （r=1时）**欧拉公式** $e^{i\theta}=\cos(\theta)+i\sin(\theta)$，[图示](./Calculus/28-2.png)
+
+
+-------------
+**极坐标形式的用法：**
+
+* 简化乘法、取幂的运算
+    - $(1-i)^{99}=(\sqrt{2}e^{i(7\pi/4)})^{99}=2^{99/2}e^{i(693\pi/4)}=2^{99/2}[\cos(\frac{693\pi}{4})+i\sin(\frac{693\pi}{4})]=2^{99/2}(-\frac{1}{\sqrt{2}}-i\frac{1}{\sqrt{2}})$
+
+
+* 解 $z^n=w$ 方程（求解复数 $w$ 的n次方根 $z$）
+    - 已知 $z^5=-\sqrt{3}+i = 2e^{i(5\pi/6 +2k\pi)}$
+    - （k=0时）可解得其中一个解 $z=2^{1/5}e^{i\pi/6}$
+
+
+* 解 $e^z=w$ （求解 $z=\ln(w)$）
+    - 已知 $e^z=e^xe^{iy}=-\sqrt{3}+i = 2e^{i(5\pi/6 +2k\pi)}$
+    - 则问题分解为两个方程：$e^x=2$，$e^{iy}=e^{i(5\pi/6 +2k\pi)}$
+    - 解得 $z=\ln(2) + i(5\pi/6 +2k\pi)$
+
+* **三角级数**的系数为 {$a_n$}、{$b_n$}，形如 $\sum\limits_{n=0}^{\infty}(a_n\cos(n\theta)+b_n\sin(n\theta))$，可化简为幂级数
+    - 对于级数 $\sum\limits_{n=0}^{\infty}\frac{\sin(n\theta)}{n!}$，有其互补级数 $\sum\limits_{n=0}^{\infty}\frac{\cos(n\theta)}{n!}$
+    - 根据欧拉公式，$\sum\limits_{n=0}^{\infty}\frac{\cos(n\theta)}{n!}+i\sum\limits_{n=0}^{\infty}\frac{\sin(n\theta)}{n!}=\sum\limits_{n=0}^{\infty}\frac{e^{i(n\theta)}}{n!}=e^{e^{i\theta}}$
+    - （展开极坐标形式）$e^{e^{i\theta}}=e^{\cos(\theta)+i\sin(\theta)}$
+    - （展开极坐标形式）$e^{i\sin(\theta)}=\cos(\sin(\theta))+i\sin(\sin(\theta))$
+    - 于是可知 $\sum\limits_{n=0}^{\infty}\frac{\cos(n\theta)}{n!}+i\sum\limits_{n=0}^{\infty}\frac{\sin(n\theta)}{n!}=e^{\cos(\theta)}[\cos(\sin(\theta))+i\sin(\sin(\theta))]$，原级数与其互补级数分别对应着复数的虚部与实部
 
 
 
