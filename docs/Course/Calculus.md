@@ -58,7 +58,7 @@ table th:nth-of-type(5) {
 * $f(x)$在$x=a$处时，左极限$\lim\limits_{x \rightarrow a^-}f(x)=L$，右极限$\lim\limits_{x \rightarrow a^+}f(x)=L$，则极限$\lim\limits_{x \rightarrow a}f(x)=L$
     - 上图$h(x),x=3$处因左右极限不相等，其极限不存在(DNE)
     - 上图$g(x),x=2$处极限=1
-    - 上图$sin(\frac{1}{x}),x=0$处大幅震荡，其极限不存在(DNE)
+    - 上图$\sin(\frac{1}{x}),x=0$处大幅震荡，其极限不存在(DNE)
 
 * 水平渐近线：（x趋向无穷时）  
 ![](./Calculus/3-2.png)
@@ -285,16 +285,16 @@ $F(x+h)-F(x) = \int_x^{x+h}f(t)dt \approx hf(x)$
 于是可以将形似如下的方程化简：$$\int f(g(x))g'(x)dx = \int f(t)dt = F(t) + C = F(g(x)) + C$$
 
 <details>
-  <summary> 求 $\int x^2 cos(x^3)dx$，设 $t=x^3$ </summary>
+  <summary> 求 $\int x^2 \cos(x^3)dx$，设 $t=x^3$ </summary>
 
 由 $\frac{dt}{dx}=\frac{dx^3}{dx}=3x^2$ 可知 $x=t^{1/3}$、$dx=\frac{dt}{3x^2}=\frac{dt}{3t^{2/3}}$，于是：
 <br><br>
- $\int x^2 cos(x^3)dx = \int t^{2/3} cos(t) \frac{dt}{3t^{2/3}} = \frac{1}{3} \int cos(t)dt = \frac{1}{3} sin(t) = \frac{1}{3} sin(x^3)$
+ $\int x^2 \cos(x^3)dx = \int t^{2/3} \cos(t) \frac{dt}{3t^{2/3}} = \frac{1}{3} \int \cos(t)dt = \frac{1}{3} \sin(t) = \frac{1}{3} \sin(x^3)$
 </details>
 
 <details>
   <summary>定积分：注意不要混淆$x$、$t$范围</summary>
-$\int_0^{(\pi)^{1/3}} x^2 cos(x^3)dx = \int_{t=0}^{t=\pi} cos(t)dt$
+$\int_0^{(\pi)^{1/3}} x^2 \cos(x^3)dx = \int_{t=0}^{t=\pi} \cos(t)dt$
 <br><br>
 对于定积分，建议计算出用$x$表示的不定积分后再代入范围数值
 </details>
@@ -321,18 +321,18 @@ $dv=e^xdx$ ，对$dv$求积分得到 $v=e^x$
 </details>
 
 <details>
-  <summary>$\int x^2sin(x)dx$</summary>
+  <summary>$\int x^2\sin(x)dx$</summary>
 $u=x^2$ ，对$u$求导得到 $du=2x$
 <br><br>
-$dv=sin(x)dx$ ，对$dv$求积分得到 $v=-cos(x)$
+$dv=\sin(x)dx$ ，对$dv$求积分得到 $v=-\cos(x)$
 <br><br>
-然后对 $2\int(-cos(x))xdx$ 再来一次分部积分法
+然后对 $2\int(-\cos(x))xdx$ 再来一次分部积分法
 </details>
 
 
 <details>
-  <summary>$\int tan^{-1}(x)dx$</summary>
-$u=tan^{-1}(x)$ ，对$u$求导得到 $du=\frac{1}{1+x^2}dx$
+  <summary>$\int \tan^{-1}(x)dx$</summary>
+$u=\tan^{-1}(x)$ ，对$u$求导得到 $du=\frac{1}{1+x^2}dx$
 <br><br>
 $dv=dx$ ，对$dv$求积分得到 $v=x$
 </details>
@@ -357,11 +357,9 @@ $$\int \frac{x+2}{x^2-1}dx = \int \frac{x+2}{(x-1)(x+1)}dx = \int \frac{3/2}{x-1
 
 ### 三角函数
 
-* $\pi=180度$  
-
 ![](./Calculus/animation_sin.gif)
 
-* 定义与一些换算：  
+* 定义与一些换算：（角度单位 $\pi=180度$）  
 ![](./Calculus/2-1.png)
 
 * 一些值：  
@@ -373,24 +371,24 @@ $$\int \frac{x+2}{x^2-1}dx = \int \frac{x+2}{(x-1)(x+1)}dx = \int \frac{3/2}{x-1
 
 | 导数 | 不定积分 | -- |
 | -- | -- | -- |
-| $\frac{d}{dx}sin(x)=cos(x)$ | $\int cos(x)dx=sin(x)+C$ | [求导推理](./Calculus/7-2.png) |
-| $\frac{d}{dx}cos(x)=-sin(x)$ | $\int sin(x)dx=-cos(x)+C$ | -- |
-| $\frac{d}{dx}tan(x)=sec^2(x)$ | $\int sec^2(x)dx=tan(x)+C$ | [求导推理](./Calculus/7-2.png) |
-| $\frac{d}{dx}sec(x)=sec(x)tan(x)$ | $\int sec(x)tan(x)dx=sec(x)+C$ | -- |
-| $\frac{d}{dx}cot(x)=-csc^2(x)$ | $\int csc^2(x)dx=-cot(x)+C$ | [求导推理](./Calculus/7-2.png) |
-| $\frac{d}{dx}csc(x)=-csc(x)cot(x)$ | $\int csc(x)cot(x)dx=-csc(x)+C$ | -- |
+| $\frac{d}{dx}\sin(x)=\cos(x)$ | $\int \cos(x)dx=\sin(x)+C$ | [求导推理](./Calculus/7-2.png) |
+| $\frac{d}{dx}\cos(x)=-\sin(x)$ | $\int \sin(x)dx=-\cos(x)+C$ | -- |
+| $\frac{d}{dx}\tan(x)=\sec^2(x)$ | $\int \sec^2(x)dx=\tan(x)+C$ | [求导推理](./Calculus/7-2.png) |
+| $\frac{d}{dx}\sec(x)=\sec(x)\tan(x)$ | $\int \sec(x)\tan(x)dx=\sec(x)+C$ | -- |
+| $\frac{d}{dx}\cot(x)=-\csc^2(x)$ | $\int \csc^2(x)dx=-\cot(x)+C$ | [求导推理](./Calculus/7-2.png) |
+| $\frac{d}{dx}\csc(x)=-\csc(x)\cot(x)$ | $\int \csc(x)\cot(x)dx=-\csc(x)+C$ | -- |
 
 
 
 ### 反三角函数
 
-三角函数的反函数，$sin^{-1}(x)$ 就是 $arcsin(x)$；导数、不定积分 详见[百科](https://baike.baidu.com/item/%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/7004029)与第十章（此笔记略）  
+三角函数的反函数，$\sin^{-1}(x)$ 就是 $arc\sin(x)$；导数、不定积分 详见[百科](https://baike.baidu.com/item/%E5%8F%8D%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/7004029)与第十章（此笔记略）  
 ![](./Calculus/7-5.png)
 
 
 * 常用隐函数求导
-    - 示例：$y=sin^{-1}(x)$
-    - 其导数 $\frac{dy}{dx}=\frac{1}{sin'(y)}=\frac{1}{cos(y)}=\frac{1}{cos(sin^{-1}(x))}$
+    - 示例：$y=\sin^{-1}(x)$
+    - 其导数 $\frac{dy}{dx}=\frac{1}{\sin'(y)}=\frac{1}{\cos(y)}=\frac{1}{\cos(\sin^{-1}(x))}$
 
 
 
@@ -416,29 +414,29 @@ $$\int \frac{x+2}{x^2-1}dx = \int \frac{x+2}{(x-1)(x+1)}dx = \int \frac{3/2}{x-1
 
 
 对于$f(x)^{g(x)}$形式的方程，一般取它的对数后再隐函数求导：
-$$y=x^{sin(x)}$$
-$$u=\ln(y)=\ln(x^{sin(x)})=sin(x)\ln(x)$$
-$$\frac{d}{dx}(\ln(y))=\frac{d}{dx}(sin(x)\ln(x))$$
-$$\frac{1}{y}\frac{dy}{dx}=cos(x)\ln(x)+\frac{six(x)}{x}$$
-$$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
+$$y=x^{\sin(x)}$$
+$$u=\ln(y)=\ln(x^{\sin(x)})=\sin(x)\ln(x)$$
+$$\frac{d}{dx}(\ln(y))=\frac{d}{dx}(\sin(x)\ln(x))$$
+$$\frac{1}{y}\frac{dy}{dx}=\cos(x)\ln(x)+\frac{six(x)}{x}$$
+$$\frac{dy}{dx}=[\cos(x)\ln(x)+\frac{six(x)}{x}]y$$
   注：$\frac{du}{dx}=\frac{du}{dy}\frac{dy}{dx}=\frac{1}{y}\frac{dy}{dx}$
 
 ### 双曲函数
 
 双曲函数算是指数函数的一种，虽然从名字上看有点像三角函数
 
-| $sinh(x)=\frac{e^x-e^{-x}}{2}$ | $cosh(x)=\frac{e^x+e^{-x}}{2}$ | $tanh(x)=\frac{sinh(x)}{cosh(x)}$ |
+| $\sinh(x)=\frac{e^x-e^{-x}}{2}$ | $\cosh(x)=\frac{e^x+e^{-x}}{2}$ | $\tanh(x)=\frac{\sinh(x)}{\cosh(x)}$ |
 | -- | -- | -- |
-| $csch(x)=\frac{1}{sinh(x)}$ | $sech(x)=\frac{1}{cosh(x)}$ | $coth(x)=\frac{1}{tanh(x)}$ |
+| $csch(x)=\frac{1}{\sinh(x)}$ | $sech(x)=\frac{1}{\cosh(x)}$ | $\coth(x)=\frac{1}{\tanh(x)}$ |
 
 | 导数 | 不定积分 |
 | -- | -- |
-|$\frac{d}{dx}sinh(x)=cosh(x)        $|$cosh(x)dx=sinh(x)+C        $|
-|$\frac{d}{dx}cosh(x)=sinh(x)        $|$sinh(x)dx=cosh(x)+C        $|
-|$\frac{d}{dx}tanh(x)=sech^2(x)      $| ... |
-|$\frac{d}{dx}coth(x)=-csch^2(x)     $| ... |
-|$\frac{d}{dx}sech(x)=-sech(x)tanh(x)$| ... |
-|$\frac{d}{dx}csch(x)=-csch(x)coth(x)$| ... |
+|$\frac{d}{dx}\sinh(x)=\cosh(x)        $|$\cosh(x)dx=\sinh(x)+C        $|
+|$\frac{d}{dx}\cosh(x)=\sinh(x)        $|$\sinh(x)dx=\cosh(x)+C        $|
+|$\frac{d}{dx}\tanh(x)=sech^2(x)      $| ... |
+|$\frac{d}{dx}\coth(x)=-csch^2(x)     $| ... |
+|$\frac{d}{dx}sech(x)=-sech(x)\tanh(x)$| ... |
+|$\frac{d}{dx}csch(x)=-csch(x)\coth(x)$| ... |
 
 
 
@@ -493,8 +491,8 @@ $$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
 | 麦克劳林级数 ($a=0$ 附近) | -- | 收敛范围 |
 | -- | -- | -- |
 | $e^x = \sum\limits_{n=0}^{\infty}\frac{x^n}{n!} $ | $1+ x + \frac{x^2}{2!}+ \frac{x^3}{3!} + ...$ | 所有实数 |
-| $sin(x)= \sum\limits_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!}$ | $x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...$ | 所有实数 |
-| $cos(x)= \sum\limits_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!}$ | $x-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+...$ | 所有实数 |
+| $\sin(x)= \sum\limits_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!}$ | $x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+...$ | 所有实数 |
+| $\cos(x)= \sum\limits_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{(2n)!}$ | $x-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+...$ | 所有实数 |
 | $\frac{1}{1-x} = \sum\limits_{n=0}^{\infty} x^n$  | （比数列求和） | $-1<x<1$ |
 | $\ln(1+x)=\sum\limits_{n=1}^{\infty}-\frac{(-1)^nx^n}{n}$ | $x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+...$ | $-1 < x \le 1$ |
 | $\ln(1-x)=\sum\limits_{n=1}^{\infty}-\frac{x^n}{n}$ | $-x-\frac{x^2}{2}-\frac{x^3}{3}-\frac{x^4}{4}-...$ | $-1 \le x < 1$ |
@@ -513,7 +511,7 @@ $$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
 
 * 两个泰勒级数**相乘**将得到一个收敛于两个函数乘积的新级数
     - 一般只关注级数的前几项，归纳总结；示例：
-    - $e^xsin(x)=x+x^2+\frac{x^3}{3}+...$
+    - $e^x\sin(x)=x+x^2+\frac{x^3}{3}+...$
 
 ---------------
 
@@ -525,6 +523,39 @@ $$\frac{dy}{dx}=[cos(x)\ln(x)+\frac{six(x)}{x}]y$$
 * Tips：遇到困难的极限问题，可以尝试用麦克劳林级数表示原式中的一些项，然后消解、合并，达到简化的目的，[示例](./Calculus/26-1.png)
 
 
+
+## 极坐标
+
+* 在平面直角坐标系中，如果曲线任意一点的坐标 $(x,y)$ 都是某个变量 $t$ 的函数、且由方程组控制的点 $(x,y)$ 都在这条曲线上，则方程为曲线的**参数方程**，示例：
+    - $x^2+y^2=9$ 的参数化是：$x=3\cos(t)$, $y=3\sin(t)$, 其中 $0 \le t \le 2\pi$
+    - 曲线上某点处的切线：$\frac{dy}{dx}=\frac{dy/dt}{dx/dt}=\frac{y'(t)}{x'(t)}$
+    - e.g. （下文）极坐标曲线的切线 $\frac{dy}{dx}=\frac{y'(\theta)}{x'(\theta)}$
+
+----------------
+![](./Calculus/27-1.png)
+
+* **极坐标**：$(r,\theta)$ 表示以 $r$ 为半径、从 $x$ 轴正方向开始逆时针旋转 $\theta$ 角后所处的位置，如图：
+    - （$\theta$ 的角度单位：$\pi=180度$）
+    - **与笛卡尔坐标相互转换**：$x=r\cos(\theta)$, $y=r\sin(\theta)$ 满足 $x^2+y^2=r^2$
+    - [Hints](./Calculus/27-3.png)
+----------------
+
+
+![](./Calculus/27-2.png)
+
+* **Hints**: 假设某函数 $f$ 的极坐标方程为 $r=f(\theta)$
+    - 图示为 $r=3\sin(\theta)$ 的极坐标图像，它与其在 $x,y$ 笛卡尔坐标系中的图像一致
+    - [其它常见极坐标图像](./Calculus/27-4.png)，[模拟代码](./Calculus/27-5.py)
+
+
+
+----------------
+
+* 极坐标的积分 $\int_{\theta_0}^{\theta_1}\frac{1}{2}r^2d\theta$
+    - [Hints](./Calculus/27-6.png)
+
+
+## 复数
 
 
 
