@@ -172,6 +172,23 @@ table th:nth-of-type(5) {
         * 左负-->右正：局部最小
         * 左右符号一致：水平拐点
 
+### 微分方程
+
+* 初值问题（IVP）：已知初始条件与相关的微分方程，可以求得无不定常数的解
+    - $\frac{dy}{dx}=-2y$，$y(0)=5$
+    - 求得 $y=5e^-2x$
+
+
+| 类别 | -- | 可整理为 | 求解微分方程/示例 |
+| -- | -- | -- | -- |
+| 可分离变量 | 一阶 | x、y 所有部分（包括dx、dy）各置于一侧 | [两侧各自求积分](./Calculus/30-1.png) |
+| 线性 | 一阶 | $\frac{dy}{dx}+p(x)y=q(x)$ | [两侧乘以积分因子$e^{\int p(x)dx}$后、各自求积分](./Calculus/30-2.png) |
+| 常系数 | 一阶齐次 | $\frac{dy}{dx}+ay=0$ | $y=Ae^{-ax}$，A为常数 |
+| 常系数 | 二阶齐次 | $ay''+by'+cy=0$ | [求 $at^2+bt+c=0$ 的根，然后代入相应换算公式](./Calculus/30-3.png) |
+| 常系数 | 二阶非齐次 | $ay''+by'+cy=f(x)$ | [求 $ay''+by'+cy=0$ 的解 $y_H$，然后根据两式之和  $a(y_H+y_P)''+b(y_H+y_P)'+c(y_H+y_P)=f(x)$ 求得特解 $y_P$，原方程的全解 $y=y_H+y_P$](./Calculus/30-4.png) |
+
+
+
 
 ## 积分
 
@@ -600,25 +617,6 @@ $$\frac{dy}{dx}=[\cos(x)\ln(x)+\frac{six(x)}{x}]y$$
     - （展开极坐标形式）$e^{e^{i\theta}}=e^{\cos(\theta)+i\sin(\theta)}$
     - （展开极坐标形式）$e^{i\sin(\theta)}=\cos(\sin(\theta))+i\sin(\sin(\theta))$
     - 于是可知 $\sum\limits_{n=0}^{\infty}\frac{\cos(n\theta)}{n!}+i\sum\limits_{n=0}^{\infty}\frac{\sin(n\theta)}{n!}=e^{\cos(\theta)}[\cos(\sin(\theta))+i\sin(\sin(\theta))]$，原级数与其互补级数分别对应着复数的虚部与实部
-
-
-
-
-## 微分方程
-
-* 初值问题（IVP）：已知初始条件与相关的微分方程，可以求得无不定常数的解
-    - $\frac{dy}{dx}=-2y$，$y(0)=5$
-    - 求得 $y=5e^-2x$
-
-
-| 类别 | -- | 可整理为 | 求解微分方程/示例 |
-| -- | -- | -- | -- |
-| 可分离变量 | 一阶 | x、y 所有部分（包括dx、dy）各置于一侧 | [两侧各自求积分](./Calculus/30-1.png) |
-| 线性 | 一阶 | $\frac{dy}{dx}+p(x)y=q(x)$ | [两侧乘以积分因子$e^{\int p(x)dx}$后、各自求积分](./Calculus/30-2.png) |
-| 常系数 | 一阶齐次 | $\frac{dy}{dx}+ay=0$ | $y=Ae^{-ax}$，A为常数 |
-| 常系数 | 二阶齐次 | $ay''+by+cy=0$ | [求 $at^2+bt+c=0$的根，然后代入相应换算公式](./Calculus/30-3.png) |
-| 常系数 | 二阶非齐次 | $ay''+by+cy=f(x)$ | -- |
-
 
 
 
