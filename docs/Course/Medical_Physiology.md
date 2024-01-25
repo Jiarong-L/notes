@@ -265,7 +265,17 @@ to form mRNA（去除introns）
 * 自主节律：S-A node、A-V node 可以受Vagi调节，也可以自主产生节律脉冲（其静息电位不如正常的负）；正常心跳节律由 S-A node 产生；A-V node 的自主节律 S-A node 慢，当外源信号迟迟不至时才起作用（escape beat）；Purkinje fibers 的自主节律更慢
 
 
-## Chapter 11 心电图(TBA)
+## Chapter 11 心电图
+![Figure 11-1](Medical_Physiology/11-1.png)![Figure 11-2](Medical_Physiology/11-2.png)  
+![Figure 11-3](Medical_Physiology/11-3.png)
+
+* PR区间 AV node 慢速传递电信号，QT区间 Ventricle 收缩
+
+* EKG/ECG Leads 摆法：不同 Leads 都可通过正负极之间的电流测得电信号的大致方向以形成心电图
+    - Bipolar Limb Leads：正负极摆法如图；其中 Leads 2 最符合电信号趋势，因此信号最强
+    - Precordial Leads：肢体合并为整个负极，将正极放置于心脏周围不同处，可以分辨出整个信号传导过程
+    - Augmented Limb Leads：aVR（Right arm 正极，其余二者负极），aVL（Left arm 正极，其余二者负极），aVF（Left Foot 正极，其余二者负极）；是 Bipolar Limb Leads 的加强版
+
 ## Chapter 12 心律失常(TBA)
 ## Chapter 13 (TBA)
 ## Chapter 14 (TBA)
