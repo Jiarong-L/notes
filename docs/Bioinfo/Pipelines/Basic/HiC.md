@@ -59,7 +59,7 @@ HiC可用来辅助进行染色体级别基因组的组装；不过HiC组装的�
 * 评估方法：准确度(how?)，挂载率(草图中有多少比例的base被包含在染色体中)
 
 ## Meta HiC
-[hicSPAdes](../Blocks/SPAdes.md#hicspades-meta), [HiCBin](../Blocks/HiCBin.md)等使用HiC技术辅助Binning
+[hicSPAdes](../../Blocks/SPAdes.md#hicspades-meta), [HiCBin](../../Blocks/HiCBin.md)等使用HiC技术辅助Binning
 
 
 ## 参考
