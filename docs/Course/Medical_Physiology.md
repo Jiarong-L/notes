@@ -136,6 +136,7 @@ to form mRNA（去除introns）
 
 ![Figure 5-1](Medical_Physiology/5-1.png)![Figure 5-3](Medical_Physiology/5-3.png)  
 
+* 上图，静息状态表格指膜内电位相对于膜外电位，e.g. -60mv 表示膜内电位负于膜外 60mV
 
 * 静息状态时达成平衡，Nerve fiber 细胞内部含有大量K，细胞外部含有大量Na。因为多种离子的平衡电位不同 (K:–94 mV,Na:+61mV)，**静息电位**可用 Goldman equation 计算，其值为负，因：
     - Na-K pump: 泵出3 Na+, 泵入2 K+
@@ -222,8 +223,8 @@ to form mRNA（去除introns）
 
 
 * 心肌的动作电位扩展至T小管，激活 L-type Ca channel 令钙离子进入细胞，激活肌浆网中的钙离子也泵入胞质；收缩结束后钙离子泵出细胞
-    - 有Plateau，因为开启L型钙离子通道使Ca流入细胞，延长了depolarization的时长
-    - 骨骼肌中过早的收缩会引起 wave summation；但**心肌在达成Repolarization前无法再次激发动作电位**
+    - 有Plateau，因为开启L型钙离子通道使Ca流入细胞，延长了去极化(Depolarization)的时长
+    - 骨骼肌中过早的收缩会引起 wave summation；但**心肌在达成复极化(Repolarization)前无法再次激发动作电位**
 
 * Cardiac Muscle
     - Atrial Muscle
@@ -265,19 +266,51 @@ to form mRNA（去除introns）
 * 自主节律：S-A node、A-V node 可以受Vagi调节，也可以自主产生节律脉冲（其静息电位不如正常的负）；正常心跳节律由 S-A node 产生；A-V node 的自主节律 S-A node 慢，当外源信号迟迟不至时才起作用（escape beat）；Purkinje fibers 的自主节律更慢
 
 
-## Chapter 11 心电图
+## Chapter 11,12 心电图
 ![Figure 11-1](Medical_Physiology/11-1.png)![Figure 11-2](Medical_Physiology/11-2.png)  
 ![Figure 11-3](Medical_Physiology/11-3.png)
 
+
 * PR区间 AV node 慢速传递电信号，QT区间 Ventricle 收缩
 
+* 心肌[去极化(Depolarization)](./Medical_Physiology/9-8.png)时，大量 Na 进入细胞使得胞内正电荷、胞外负电荷(-)；而 极化(Polarized) 后达成静息电位，此时胞外正电荷(+)
+    - [PQRS过程中的电荷分布与心电图](Medical_Physiology/12-7.png)
+        * P (Atrial P Wave)：**atria** 从 sinus node 开始极化; 其从远端部分开始去极化，产生 Atrial T Wave
+        * QRS：信号从 A-V bundle 处进入 **ventricles** 并扩散，使之去极化
+        * T：**ventricles** 复极化；注意，因为最先极化的 septum and endocardial areas 收缩时间较长，因此是从 apex 开始复极化
+        * 当ventricles极化耗费过长时间传递时，有可能 septum 等已经完成收缩，先进行复极化，（或者是药物导致部分区域加速完成去极化、先行复极化），此时会有[异常的 T wave 图像](Medical_Physiology/12-24.png)
+    - 电流趋势方向：负电荷 --> 正电荷
+
+
 * EKG/ECG Leads 摆法：不同 Leads 都可通过正负极之间的电流测得电信号的大致方向以形成心电图
+    - （正负电极测量两个位点电位之间的差别、**方向**，注意图中符号）
     - Bipolar Limb Leads：正负极摆法如图；其中 Leads 2 最符合电信号趋势，因此信号最强
     - Precordial Leads：肢体合并为整个负极，将正极放置于心脏周围不同处，可以分辨出整个信号传导过程
-    - Augmented Limb Leads：aVR（Right arm 正极，其余二者负极），aVL（Left arm 正极，其余二者负极），aVF（Left Foot 正极，其余二者负极）；是 Bipolar Limb Leads 的加强版
+    - Augmented Limb Leads：aVR（Right arm 正极，其余二者负极），aVL（Left arm 正极，其余二者负极），aVF（Left Foot 正极，其余二者负极）；是 Bipolar Limb Leads 的信号加强版
 
-## Chapter 12 心律失常(TBA)
-## Chapter 13 (TBA)
+* Vectorcardiogram：趋势向量（不同时间）的轨迹图
+
+* QRS 的 Mean electrical axis：确定 QRS 时 Bipolar Limb Leads 2个方向上的向量长度（所有正数值-所有负数值），二者**顶端的垂线**相交于某一点、连通原点得到一个新的向量轴
+    - 对于正常的 ventricles，其标准值是 59°（在 20°-100°之间都是正常的）；改变 apex 的位置会造成一定程度的 axis shifts：躺下（to left）、站起（to right）
+    - **单侧**心肌异常/信号传递受阻可能导致 axis 偏移：**因其去极化时间变久，axis转向此侧**，例如-单侧心室肥厚，单侧 Bundle Branch Block
+
+* QRS的范围一般在 0.5mV 至 2mV 之间
+    - 高于 4mV 则认为有高血压：心脏的某一部分负荷过重，肌肉量增加，更多电流
+    - 过低则可能：有陈旧性心肌梗死导致肌肉量减少；或心包积液(pericardial effusion)过多，使大部分电信号通过积液传递，降低到达身体外表面的心电图电压；或肺气肿形成绝缘体包裹心脏
+
+* 正常QRS复合体持续0.06 ~ 0.08秒，超过0.09则不正常
+    - 心室肥大或扩张，QRS延长至0.09 ~ 0.12秒
+    - 传导系统（例如-Purkinje system）被阻塞：QRS持续超过0.12秒
+    - 疤痕也会减慢传递速度，因为信号需要绕过它
+
+* 损伤电流(current of injury, COI)：部分心肌细胞一直处于去极化状态，使[电流异常，可测得 J point](Medical_Physiology/12-17.png)
+    - 不能完全复极化：机械损伤使膜保持透性
+    - 感染：肌膜损伤
+    - 局部缺血：局部冠状动脉闭塞
+    - 以 J point 为 Baseline（排除杂乱电流信号），可结合不同leads的心电图，以确定损伤部位：绘制 [Injury potential 的 Mean electrical axis](Medical_Physiology/12-18.png)，新向量的**负端**指向 ventricles 中损伤的位置
+    
+
+## Chapter 13 心律失常(TBA)
 ## Chapter 14 (TBA)
 ## Chapter 15 (TBA)
 ## Chapter 16 (TBA)
