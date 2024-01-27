@@ -29,7 +29,7 @@ img{
 | [Assumption](./Ordination/Assumption.png) | **Linear** | **Unimodal** | -- | -- |
 | **Unconstrained** <br> L or D only | PCA | CA, DCA | tb-PCA | PCoA, NMDS |
 | **Constrained** <br> plus R/Q | RDA | CCA | **tb**-RDA | **db**-RDA |
-| -- | -- | -- | 一般用 Hellinger 处理后的数据作为输入 | -- |
+| -- | -- | 通过 DCA 第一轴轴长，选择 Unimodal（> 4 SD）或 Linear（< 3 SD）方法 | 一般用 Hellinger 处理后的数据作为输入 | -- |
 
 
 **Recall**: 特征值分解（Eigen）、奇异值分解（SVD）、QR分解 请参考[Linear_Algebra笔记-常见矩阵分解](../../Course/Linear_Algebra/#_12)
