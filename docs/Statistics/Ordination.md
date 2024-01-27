@@ -21,9 +21,18 @@ img{
 </style>
 
 
-生物信息中常用的数据降维方法
+
+**生物信息中常用的数据降维方法**
+
+| -- | Raw | Raw | Transformation-based | Distance-based |
+| -- | -- | -- | -- | -- |
+| [Assumption](./Ordination/Assumption.png) | **Linear** | **Unimodal** | -- | -- |
+| **Unconstrained** <br> L or D only | PCA | CA, DCA | tb-PCA | PCoA, NMDS |
+| **Constrained** <br> plus R/Q | RDA | CCA | **tb**-RDA | **db**-RDA |
+| -- | -- | -- | 一般用 Hellinger 处理后的数据作为输入 | -- |
 
 
+**Recall**: 特征值分解（Eigen）、奇异值分解（SVD）、QR分解 请参考[Linear_Algebra笔记-常见矩阵分解](../../Course/Linear_Algebra/#_12)
 
 <details>
 <summary> Vegan 是R中比较常用的生态学统计包 </summary>
@@ -54,12 +63,28 @@ summary(crda,scaling=0,axes=2)$species  ## 2列，不scale
 RDA对象中数据默认不Scale，但是在Summary或Plot时又会默认进行scaling="species"(i.e.对spe进行scale，其它仅乘 General scaling constant) <br>
 <img src="../Ordination/vegant1.png" \>
 
-
-
-
 </details>
 
-Recall: 特征值分解（Eigen）、奇异值分解（SVD）、QR分解 请参考[Linear_Algebra笔记-常见矩阵分解](../../Course/Linear_Algebra/#_12)
+
+
+## Data
+
+
+| Matrix Type | -- | 说明 |
+| -- | -- | -- |
+| Raw | L = sample $\times$ species | -- |
+| Raw | R = sample $\times$ environmental variables | -- |
+| Raw | Q = species $\times$ traits | -- |
+| Distance | D = sample $\times$ sample | -- |
+
+
+
+1. 填充/删除 缺失值
+2. 去除 Outliers，一般指超出 Q1/Q3 1.5 IQR（箱式图）
+3. Transformation：
+    - 常见 sqrt()，log()，Arcsin()，取倒数，**Hellinger** $\sqrt{\frac{y_{ij}}{rowsum_i}}$
+4. Standardization：
+    - 常见 Centring to 0，z-scores $\frac{y_{ij}-mean}{sd}$，Ranging to 0~1
 
 
 
@@ -168,6 +193,7 @@ $Y$在$X$上进行多元回归($y_{ii}=\beta_1x_{i1}+\beta_2x_{i2}+...$)，得�
 
 <details>
 <summary>轴的数量</summary>
+
 对$\hat{Y}$进行PCA分析时:<br>
 covariance matrix $S_{\hat{Y}'\hat{Y}}=[1/(n – 1)]\hat{Y}'\hat{Y}=S_{YX}S_{XX}^{-1}S_{YX}'$  <br>
 特征分解：$(S_{\hat{Y}'\hat{Y}}-\lambda_k I)\mu_k=0$ 得到 normalized canonical eigenvectors $U$<br>
@@ -178,6 +204,7 @@ covariance matrix $S_{\hat{Y}'\hat{Y}}=[1/(n – 1)]\hat{Y}'\hat{Y}=S_{YX}S_{XX}
 
 <details>
 <summary>示例代码</summary>
+
 参考：<a href="https://rdrr.io/rforge/vegan/man/cca.object.html">cca.object</a>，<a href="https://davidzeleny.net/anadat-r/doku.php/en:rda_cca">RDA_CCA</a>
 <br>
 ```R
@@ -229,14 +256,10 @@ summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitt
 
 </details>
 
+[**db-RDA**](./Ordination/dbRDA.png) : 原始数据进行PCoA，将PCoA排序轴上的 Site scores 作为Response Matrix $Y$ 输入给RDA 
 
 
 
-
-### db-RDA
-
-原始数据进行PCoA，将PCoA排序轴上的 Site scores 作为Response Matrix $Y$ 输入给RDA  
-![](./Ordination/dbRDA.png) 
 
 
 
