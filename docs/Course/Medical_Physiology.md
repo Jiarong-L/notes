@@ -310,17 +310,53 @@ to form mRNA（去除introns）
     - 以 J point 为 Baseline（排除杂乱电流信号），可结合不同leads的心电图，以确定损伤部位：绘制 [Injury potential 的 Mean electrical axis](Medical_Physiology/12-18.png)，新向量的**负端**指向 ventricles 中损伤的位置
     
 
-## Chapter 13 心律失常(TBA)
-## Chapter 14 (TBA)
-## Chapter 15 (TBA)
-## Chapter 16 (TBA)
+## Chapter 13 心律失常
+
+| -- | -- | 机制 |
+| -- | -- | -- |
+| ABNORMAL SINUS RHYTHMS | TACHYCARDIA <br>(心跳加速) | sympathetic nervous system：体温上升1摄氏度，心跳每分钟加速18下 |
+| -- | BRADYCARDIA <br>(心跳减慢) |  parasympathetic nervous system（Vagal Stimulation）；或，运动员静息状态下心跳较慢 |
+| -- | SINUS ARRHYTHMIA | 髓质呼吸中枢的信号外溢到邻近的血管舒缩中枢，影响了sympathetic/vagus传递给sinus的信号：深呼吸加速心跳，呼气减慢心跳 |
+| 心内传导通路阻塞 | SINOATRIAL BLOCK <br>(S-A node block) | 只能依赖更慢的 A-V node 的自主节律产生P wave，导致心率变慢 |
+| -- | ATRIOVENTRICULAR BLOCK <br>(A-V node block) | **First-Degree Block**：P-R逐渐延长后心跳漏拍  <br> **Second-Degree Block**：P-R长度固定，但随机出现dropped beats（P wave无法传导成QRS） <br> **Third-Degree**/Complete Block：QRS随机出现，与P完全无关联  <br> **病因**：可能由于 A-V node 缺血/疤痕压迫/炎症，或 vagus nerves 极度兴奋，或药物：digitalis/beta-adrenergic拮抗剂 <br> **Stokes-Adams Syndrome**: 突然出现Complete Block，等待Ventricular节律期间缺血昏迷 |
+| -- | Ventricular内部阻塞 | 可能由于Purkinje system跟不上加速的心跳（ELECTRICAL ALTERNANS），或者缺血/疤痕压迫/炎症/拮抗剂导致Purkinje system阻塞 |
+| PREMATURE CONTRACTIONS <br>早搏/异位(ectopic)心跳 | 房性早搏(PAC) | P wave过早出现，P-R缩短（**异位信号起源于atria中**靠近A-V node处），与下一个收缩的间隔会稍微延长（因sinus node 激活较晚、所以discharge late）<br>**常见于**：运动员、吸烟、睡眠不足、摄入过多咖啡、酗酒... |
+| -- | A-V NODAL OR A-V BUNDLE | **异位信号起源于A-V node**，信号同时传入atria、ventricles；P wave叠加至QRS |
+| -- | 室性早搏(PVC) | **异位信号起源于ventricular中**，QRS延长（因为信号不是通过高速Purkinje system传递的）、high voltage；[T wave 总是与QRS极性相反](./Medical_Physiology/13-1.png) <br>[long QT syndrome (LQTS)](./Medical_Physiology/13-12.png)：增加室性心律失常的易感性；病因：低镁/钾/钙血症... 或服用过量抗心律失常的药物 |
+| PAROXYSMAL TACHYCARDIA <br> （阵发性心动过速） | 心房/Nodal/心室都可能突发快速节律信号，无清晰起因 | 其中，室性心动过速通常源于严重的缺血性损伤，且容易引发 ventricular fibrillation（在一系列早搏的刺激下） |
+| [VENTRICULAR FIBRILLATION](./Medical_Physiology/13-16.png) <br>(室颤) | 致死，需要 1 min内 [除颤](./Medical_Physiology/13-18.png) | 心室肌肉群发生无序的激动，其节律和舒缩功能消失；病因：电击/按压心脏/缺血/... |
+| ATRIAL FIBRILLATION | cardic output 降低（但不致死，因为还有passive filling）  | -- |
+| CARDIAC ARREST | 失去心脏中所有信号 | 深度麻醉/缺氧/... |
+
+
+## Chapter 14 血液循环(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Chapter 15 动脉-静脉(TBA)
+## Chapter 16 微循环与淋巴系统(TBA)
 ## Chapter 17 (TBA)
 ## Chapter 18 (TBA)
 ## Chapter 19 (TBA)
 ## Chapter 20 (TBA)
 ## Chapter 21 (TBA)
 ## Chapter 22 (TBA)
-## Chapter 23
+## Chapter 23 心音
 
 Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听诊器中 “lub, dub, lub, dub”；鉴于心脏杂音与可听阈值，听诊器可听见的频率在 40~520 cycles/sec: 
 
