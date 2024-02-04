@@ -329,23 +329,42 @@ to form mRNA（去除introns）
 | CARDIAC ARREST | 失去心脏中所有信号 | 深度麻醉/缺氧/... |
 
 
-## Chapter 14 血液循环(TBA)
+## Chapter 14 血液循环
+
+![](Medical_Physiology/14-1.png)![Blood Pressure](Medical_Physiology/14-2.png)
 
 
+* 血液循环的基本特征
+    - 血液可按Tissue的需求调节
+    - Cardiac output = 所有 local tissue flows 之总和
+    - Arterial pressure regulation **不受** local blood flow control 与 cardiac output control 的**影响**
 
+* Velocity = Flow / Cross-Sectional_Area
+    - Flow恒定为Cardiac output，故而横截面小者流速快
 
+* Resistance：以PRU（Peripheral Resistance Unit）为单位，见Ohm’s law
+    - 近血管壁处阻力比血管中心处大
+    - 增加Viscosity（例如增加细胞）可以提高Resistance
 
+* Conductance = 1/Resistance = 与(Vessel_Diameter^4)成比例
+    - 大血管的Conductance = 其所有分枝的Conductance之和
+ 
+* Blood Pressure: the force exerted by the blood **against** any unit area of the **vessel wall**
+    - 1 mmHg = 1.36 cm water pressure
 
+* Ohm’s law：压力梯度与阻力决定了流量
+    - Flow = (Pressure_1-Pressure_2)/Resistance 
+    - 1 ml/sec = (1 mmHg)/(1 PRU)；
+    - **由 Ohm’s law 对应 Systemic pressure（100mmHg）与 Cardiac output（100 ml/sec）**
 
+* Poiseuille’s law: 影响流量的各种因素
+    - Flow = Pi * (Pressure_1-Pressure_2) * (Vessel_Radius^4) / （8 * Viscosity_coefficient * Vessel_Length）
 
-
-
-
-
-
-
-
-
+* Reynolds’ number 判别粘性流体流动状态
+    - Re = Velocity * Vessel_Diameter * Density / Viscosity_coefficient
+    - 数值越大越趋向于 Turbulence，例如：笔直光滑血管中 >2000、分支血管中 >200~400 （arteries中经常是湍流）
+    
+* Autoregulation：根据血压调节血管的 dilation/constriction
 
 
 ## Chapter 15 动脉-静脉(TBA)
