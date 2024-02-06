@@ -358,17 +358,93 @@ to form mRNA（去除introns）
     - **由 Ohm’s law 对应 Systemic pressure（100mmHg）与 Cardiac output（100 ml/sec）**
 
 * Poiseuille’s law: 影响流量的各种因素
-    - Flow = Pi * (Pressure_1-Pressure_2) * (Vessel_Radius^4) / （8 * Viscosity_coefficient * Vessel_Length）
+    - Flow = Pi × (Pressure_1-Pressure_2) × (Vessel_Radius^4) / （8 × Viscosity_coefficient × Vessel_Length）
 
 * Reynolds’ number 判别粘性流体流动状态
-    - Re = Velocity * Vessel_Diameter * Density / Viscosity_coefficient
+    - Re = Velocity × Vessel_Diameter × Density / Viscosity_coefficient
     - 数值越大越趋向于 Turbulence，例如：笔直光滑血管中 >2000、分支血管中 >200~400 （arteries中经常是湍流）
     
 * Autoregulation：根据血压调节血管的 dilation/constriction
 
 
-## Chapter 15 动脉-静脉(TBA)
+## Chapter 15 动脉-静脉
+
+* Vascular distensibility = Increase_in_volume / (Increase_in_pressure × Original_volume)
+    - 扩张性：压力每升高1毫米汞柱，血液量增加的**倍数**
+    - 允许血管适应心脏的脉动输出并平均化压力脉动
+    - 血管中最易扩张的是静脉（大约是动脉的8倍），储存大量额外血液
+
+* Vascular_compliance = Increase_in_volume / Increase_in_pressure
+    - 顺应性：压力每升高1毫米汞柱，血液的**增量**
+    - 全身静脉的顺应性约为相应动脉的24倍（8倍扩张性×3倍容积）
+
+* 可以使用 [Volume-pressure curves](Medical_Physiology/15-1.png) 来表示压力与体积的关系
+    - 全身动脉系统中，容积通常在700毫升左右，此时平均动脉压是100 mmHg；当容积降至400毫升时，动脉压迅速降为0
+    - 全身静脉系统中，容积通常在2000到3500毫升之间；其顺应性很高，故而人体可以承受多达半升的快速输血
+    - 交感神经刺激血管张力（vascular tone）升高、降低顺应性，血压升高；交感神经抑制同理
+
+
+* [Delayed Compliance of Vessels](Medical_Physiology/15-2.png)：容积变动的初期血压大幅变化，但几分钟到几小时内可通过血管壁中平滑肌的渐进延迟拉伸恢复正常
+
+
+* [Pulsations（脉搏）](Medical_Physiology/15-3.png)：动脉承受着心脏每一次收缩的输出压力，舒张期又无血流
+    - 当血液流至毛细血管时，Arterial tree的顺应性将脉搏降低至几乎无，令血流平缓连续
+    - 图中 Sharp incisura 是由 valves 开合产生的
+    - Pulse pressure = Stroke_volume / Arterial_compliance
+
+* [测血压](Medical_Physiology/15-7.png)：压迫动脉至无血流（脉搏），逐渐松开，过程中记录第一次出现声音时的血压（收缩压）、最后一次出现声音时的血压（舒张压）
+    - 平均血压更接近舒张压，因为舒张耗时更长（除非心动过速时、舒张更短）
+    - 随着年龄增加，血压也逐渐增加
+
+
+* Central venous pressure = Right atrial pressure，受以下两个因素的影响
+    - 心脏泵血入肺的能力：right atrium -- right ventricle --  lungs （泵血能力更强，造成的压力更高）
+    - 血液从 peripheral veins 回收至 right atrium 的趋势（e.g. vessel tone升高，更多血液回流入心）
+
+* 由于其顺应性，Large veins 对血液流动的阻力几乎为零，但在进入胸腔后会有一些压迫点造成一些血流阻力，故而平躺时外周小静脉的压力通常比Right atrial高 4-6 mmHg
+    - 例如：大气压使颈静脉塌陷，第一根肋骨压迫手部静脉，不同器官和腹内压力的压迫，...
+
+
+* [重力也会对静脉压造成影响](Medical_Physiology/15-10.png)，站立时，接近足部的压力最高
+    - 腿部的肌肉收缩起到泵血的作用，[Venous valves](Medical_Physiology/15-11.png) 防止过程中静脉血回流
+    - 怀孕、长期站立会让腿部静脉持续高压，损伤 Venous valves，血液无法正常泵出、造成静脉曲张（Varicose Veins）
+
+
+* 人体血液储备包括：（其中静脉存储了约65%的血液）
+    - [spleen](Medical_Physiology/15-13.png)：约 100 ml 血液
+    - liver：约 几百 ml 血液
+    - large abdominal veins：约 300 ml 血液
+    - venous plexus beneath the skin：约 几百 ml 血液
+    - heart： 50 ~ 100 ml 血液（交感神经刺激时收缩放血）
+    - lungs： 100 ~ 200 ml 血液（当肺动脉压降至较低值时）
+
+
 ## Chapter 16 微循环与淋巴系统(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Chapter 17 (TBA)
 ## Chapter 18 (TBA)
 ## Chapter 19 (TBA)
