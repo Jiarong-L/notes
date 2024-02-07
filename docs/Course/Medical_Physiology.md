@@ -419,29 +419,55 @@ to form mRNA（去除introns）
     - lungs： 100 ~ 200 ml 血液（当肺动脉压降至较低值时）
 
 
-## Chapter 16 微循环与淋巴系统(TBA)
+## Chapter 16 微循环-淋巴系统
 
 
+* 毛细血管(Capillary)的 [Microcirculation](Medical_Physiology/16-1.png): the transport of nutrients to the tissues and removal of cell excreta
+    - Capillary Wall 非常薄，仅 1 cell thick，可通过 Caveolae 运输脂溶性物质（例如 氧气、二氧化碳）
+    - Precapillary sphincters 控制进入毛细血管的血流量（根据需氧量）
+    - Intercellular cleft (内皮细胞之间的‘Pores’)，可通过水溶性物质（例如 sodium ions、glucose）
+        * brain：很严格，只允许通过water, oxygen, carbon dioxide
+        * liver：很宽松，允许几乎所有plasma中溶质通过，包括蛋白
+        * gastrointestinal capillary membranes：中庸
+        * glomerular capillaries of the kidney：其内皮细胞有被称为 fenestrae 的孔（仅可通过小分子），故而不需要通过 clefts
+
+* 血管舒缩(Vasomotion): 由于 sphincters 的间歇性收缩，血液在毛细血管中断断续续的流动
+
+* [Interstitium](Medical_Physiology/16-4.png)主要由 Collagen fibers（骨架）与 Proteoglycan filaments（gel-like填充物）组成
+    - 水肿(edema)时，会存在大量 free fluid
+
+* [静水压(hydrostatic pressure) v.s. 渗透压(osmotic pressure)](https://www.jishulink.com/post/1910514)
+    - 静水压 P = rho × g × height: 流体在接触表面的每单位面积上施加的垂直力（由于重力作用，静水压会在任何时间点施加，在底部最大）
+    - 渗透压 π = iCRT；其中 i=Vant_Hoff因子，C=溶质的摩尔浓度，R=通用气体常数，T=温度
 
 
+* [capillary 通过 Diffusion 实现与 interstitial fluid spaces 之间的物质交换](Medical_Physiology/16-3.png)
+    - 由于发生大量水交换（80倍于血流量），最主要的物质交流还是通过 Intercellular cleft
+    - 高浓度的物质更有可能被扩散出去，不过同时也需要考虑此物质的渗透性（Permeability）
+    - [Net filtration pressure (NFP) 是血管内/外，血压、渗透压的综合效果](Medical_Physiology/16-5.png)（更多液体渗入，或更多液体渗出），统称这四个力为 ‘Starling forces’
+    - 液体从血管至间质：Filtration = Kf × NFP，其中capillary filtration coefficient (Kf)衡量渗透性
 
 
+* 毛细血管的静水压可通过 micropipette cannulation 直接插入血管测量，或测量其周边的松散组织，不同方法得到的数值不同
+    - [毛细血管的静水压为 Filtration 提供助力](Medical_Physiology/16-2.png)：人血浆(Plasma Colloid)的渗透压约为 28 mmHg（19 mmHg 来自其溶质蛋白，9 mmHg 来自 Donnan effect - 与蛋白结合的阳离子），这大于间质的渗透压、光靠渗透压无法使液体渗出至间质；所以动脉中静水压很高令总体力向外、渗出液体，静脉中则反之回收液体；但总体而言力是向外的，因为还有淋巴系统从间质中抽取液体
+    - 大多数组织中，由于淋巴系统的缘故，间质可以维持负压、从血管中抽取液体
+    - 在一些被紧密包裹的组织中，间质是正压、但小于其包囊组织对外部的压力（有压力差则可以发生 Filtration）；例如，肾脏被纤维囊包裹，肾间质液压约为 +6 mmHg，纤维囊压约为 +13 mmHg；其他例子如 巩膜包裹的眼球、被 cranial vault 包裹的大脑 
 
+* [淋巴系统(lymphatic system)](Medical_Physiology/16-6.png)从间质中带走多余液体（可以调节 interstitial fluid pressure，保持负压防止结缔组织水肿），带走不能再被吸收的蛋白或其他物质；最终通过返回到静脉系统
+    - lymphatic vessels 的 Valves 使得液体只进不出；如果其不堪重负，可能会发生水肿
+    - 淋巴液的蛋白浓度很高，且吸收了食物中几乎所有 fats（肠道不能吸收），另外可能还有细菌、病毒等（lymph nodes中有免疫细胞）
 
+* 提高 interstitial fluid pressure 可提高 lymph flow，方法包括：
+    - 提高毛细血管的静水压
+    - 降低血浆的渗透压
+    - 提高间质渗透压
+    - 提高血管壁的通透性
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+* lymph flow 机制：（并且有valves防止回流）
+    - 骨骼肌收缩
+    - 身体各部位的运动
+    - 邻近淋巴管的动脉搏动
+    - 体外物体压迫组织
 
 
 
