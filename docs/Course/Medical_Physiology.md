@@ -11,7 +11,7 @@ Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
 
 
-## Chapter 1 概览
+## Ch 1 概览
 
 * **Human Physiology**: explain the specific characteristics and mechanisms of the human body that make it a living being
 * The basic living unit of the body is the **cell**. Each **tissue or organ** is an aggregate of many different cells held together by intercellular supporting structures (相同微环境).
@@ -45,7 +45,7 @@ environment (extracellular fluid)
 ![Figure 1-1](Medical_Physiology/1-1.png)  
 
 
-## Chapter 2 细胞器
+## Ch 2 细胞器
 ![Figure 2-2](Medical_Physiology/2-2.png)    
 
 * Protoplasm
@@ -72,7 +72,7 @@ environment (extracellular fluid)
     - Ameboid motion：细胞一端伸出假足将自己固定到新的区域，向这个方向形变（后方发生吞噬、于前方Exocytosis，则成功挪动这一部分细胞膜）
     - Cillary movement 纤毛运动，需要ATP与appropriate ionic conditions；e.g. 呼吸系统分泌粘液
 
-## Chapter 3 蛋白合成与细胞复制
+## Ch 3 蛋白合成与细胞复制
 
 <!-- ![Figure 3-1](Medical_Physiology/3-1.png)   -->
 <!-- ![Figure 3-9](Medical_Physiology/3-9.png)    -->
@@ -104,7 +104,7 @@ to form mRNA（去除introns）
 * Necrosis：细胞被动死亡，内容物释放到微环境
 * Oncogene 一般是促进细胞生长的基因、缺乏抑制，因此 Cancer 中细胞无度生长、与正常细胞争夺养分；Cancer 可能来源：Ionizing radiation，Chemical substances，Physical irritants 如持续磨损，家族遗传，Certain types of oncoviruses
 
-## Chapter 4 跨膜运输
+## Ch 4 跨膜运输
 
 ![Figure 4-2](Medical_Physiology/4-2.png)![Figure 4-7](Medical_Physiology/4-7.png)   
 
@@ -130,7 +130,7 @@ to form mRNA（去除introns）
 
 
 
-## Chapter 5 动作电位
+## Ch 5 动作电位
 
 **本章节关注 Nerve Cells**；Cardiac Cells 也有电位（Ca，此处不述）
 
@@ -155,7 +155,7 @@ to form mRNA（去除introns）
 * 一些麻醉药提高Na通道的激活难度（提高 excitability threshold）
 
 
-## Chapter 6,7  骨骼肌
+## Ch 6,7  骨骼肌
 
 ![Figure 6-3](Medical_Physiology/6-3.png)
 
@@ -194,7 +194,7 @@ to form mRNA（去除introns）
     - 动作电位持续时间为 1-5 ms （更长）
     - 传导速度为 3-5m/s（更慢）
 
-## Chapter 8 平滑肌
+## Ch 8 平滑肌
 
 ![Figure 8-1](Medical_Physiology/8-1.png)![Figure 8-2](Medical_Physiology/8-2.png)
 
@@ -214,7 +214,7 @@ to form mRNA（去除introns）
 
 
 
-## Chapter 9 心脏
+## Ch 9 心脏
 
 **血液循环**：lung **-->** Left atrium **-->** Left ventricle **-->** Aorta(body) **-->** Right atrium **-->** Right ventricle **-->** Lungs
 
@@ -250,7 +250,7 @@ to form mRNA（去除introns）
     - 动脉压
 
 
-## Chapter 10 心脏节律
+## Ch 10 心脏节律
 ![Figure 9-14](Medical_Physiology/9-14.png)![Figure 10-3](Medical_Physiology/10-3.png)
 
 
@@ -266,7 +266,7 @@ to form mRNA（去除introns）
 * 自主节律：S-A node、A-V node 可以受Vagi调节，也可以自主产生节律脉冲（其静息电位不如正常的负）；正常心跳节律由 S-A node 产生；A-V node 的自主节律 S-A node 慢，当外源信号迟迟不至时才起作用（escape beat）；Purkinje fibers 的自主节律更慢
 
 
-## Chapter 11,12 心电图
+## Ch 11,12 心电图
 ![Figure 11-1](Medical_Physiology/11-1.png)![Figure 11-2](Medical_Physiology/11-2.png)  
 ![Figure 11-3](Medical_Physiology/11-3.png)
 
@@ -310,7 +310,7 @@ to form mRNA（去除introns）
     - 以 J point 为 Baseline（排除杂乱电流信号），可结合不同leads的心电图，以确定损伤部位：绘制 [Injury potential 的 Mean electrical axis](Medical_Physiology/12-18.png)，新向量的**负端**指向 ventricles 中损伤的位置
     
 
-## Chapter 13 心律失常
+## Ch 13 心律失常
 
 | -- | -- | 机制 |
 | -- | -- | -- |
@@ -329,7 +329,7 @@ to form mRNA（去除introns）
 | CARDIAC ARREST | 失去心脏中所有信号 | 深度麻醉/缺氧/... |
 
 
-## Chapter 14 血液循环
+## Ch 14 血液循环
 
 ![](Medical_Physiology/14-1.png)![Blood Pressure](Medical_Physiology/14-2.png)
 
@@ -367,7 +367,7 @@ to form mRNA（去除introns）
 * Autoregulation：根据血压调节血管的 dilation/constriction
 
 
-## Chapter 15 动脉-静脉
+## Ch 15 动脉-静脉
 
 * Vascular distensibility = Increase_in_volume / (Increase_in_pressure × Original_volume)
     - 扩张性：压力每升高1毫米汞柱，血液量增加的**倍数**
@@ -419,7 +419,7 @@ to form mRNA（去除introns）
     - lungs： 100 ~ 200 ml 血液（当肺动脉压降至较低值时）
 
 
-## Chapter 16 微循环-淋巴系统
+## Ch 16 微循环-淋巴系统
 
 
 * 毛细血管(Capillary)的 [Microcirculation](Medical_Physiology/16-1.png): the transport of nutrients to the tissues and removal of cell excreta
@@ -470,21 +470,73 @@ to form mRNA（去除introns）
     - 体外物体压迫组织
 
 
+## Ch 17 局部血流调控
 
-## Chapter 17 (TBA)
-## Chapter 18 (TBA)
-## Chapter 19 (TBA)
-## Chapter 20 (TBA)
-## Chapter 21 (TBA)
-## Chapter 22 (TBA)
-## Chapter 23 心音
+* 各 tissue 的血流量都是按需控制的
+    - 肾脏起到过滤血液的作用，因此血流量很大
+    - 肌肉在放松时代谢弱，因此不充血
 
-Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听诊器中 “lub, dub, lub, dub”；鉴于心脏杂音与可听阈值，听诊器可听见的频率在 40~520 cycles/sec: 
+* [**Acute control**](Medical_Physiology/17-3.png): Precapillary sphincter 控制 rapid 血管收缩/舒张
+    - Vasodilator Theory: 代谢物令血管扩张
+    - Oxygen Demand Theory: Precapillary sphincter 存在周期性的开合(vasomotion)，其收缩需要氧气；如果氧含量不足，则血管扩张的状态更持久
 
-![Figure 23-1](Medical_Physiology/23-1.png)
+* Autoregulation：Arterial Pressure 突然变化，血流初期剧烈变化但逐渐回归正常水平
+    - Metabolic theory: 剧烈加强的血流洗去代谢物，令血管舒张
+    - Myogenic theory: 剧烈加强的血流拉伸血管壁的平滑肌，使其收缩，导致血流阻力增加，血流减缓
+    - 肾中 tubuloglomerular feedback： 当被滤出的液体量过多时，macula densa 发送信号，减少肾脏血流量
+    - 大脑血流量不仅受氧含量控制，也受 carbon dioxide、hydrogen ions 的影响
+    - 皮肤血流量受温度控制：温度上升，血流增加，出汗增加
 
 
-| Heart Sounds | 说明 | 其它 |
+* **Long-term control**: 某组织代谢率发生变化，长期需要大量血流，会长出新的血管(angeogenesis)，或发生 [Vascular Remodeling](Medical_Physiology/17-8.png)
+
+
+| Acute | Vasoconstrictor | Vasodilator |
+| -- | -- | -- |
+| 代谢物 | -- | ADP <br> Ions... |
+| Endothelium-Derived | Endothelin: 受伤时产生，防止失血过多 | [Nitric Oxide](Medical_Physiology/17-6.png): 因 Shear stress 产生；也可能当 angiotensin II 收缩血管时释放少量 NO 以防过度收缩 |
+| Humoral | Norepinephrine and Epinephrine <br> Angiotensin II <br> Vasopressin | Bradykinin <br> Histamine |
+| Ions | calcium <br>  <br>  <br>  <br>  <br>  <br>  | potassium <br> magnesium <br> hydrogen ion <br> Anions: acetate and citrate <br> carbon dioxide |
+
+
+## Ch 18 血流及动脉压的神经调节(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Ch 19 肾脏与动脉压长期调控(TBA)
+## Ch 20 心输出量-静脉回流(TBA)
+## Ch 21 (TBA)
+## Ch 22 心脏衰竭(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Ch 23 心音
+
+* Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听诊器中 “lub, dub, lub, dub”；[鉴于心脏杂音与可听阈值](Medical_Physiology/23-1.png)，听诊器可听见的频率在 40~520 cycles/sec
+
+| [Heart Sounds](Medical_Physiology/23-3.png) | 说明 | 其它 |
 | -- | -- | -- |
 | 1st | ventricles 收缩使血液回流至 A-V valves, 随后 A-V valves 闭合-->向atria紧绷-->将血液反弹回 ventricles | (tricuspid and mitral valves) |
 | 2nd | semilunar valves  闭合时血液回流至动脉中 | (aortic and pulmonary valves) |
@@ -500,10 +552,7 @@ Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听�
 * 主动脉瓣狭窄：或因衰老导致主动脉瓣肥大 (B)
 
 
-![Figure 23-3](Medical_Physiology/23-3.png)
-
-
-| - | - | 说明 | 其它 | 
+| [Heart Sounds](Medical_Physiology/23-3.png) | - | 说明 | 其它 | 
 | -- | -- | -- | -- | 
 | A | 正常心脏 | -- | -- | 
 | B | 主动脉瓣狭窄 | 血液从 left ventricle 泵出至主动脉时发生阻塞 | -- | 
@@ -528,67 +577,67 @@ Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听�
 
 
 
-## Chapter 24 (TBA)
-## Chapter 25 (TBA)
-## Chapter 26 (TBA)
-## Chapter 27 (TBA)
-## Chapter 28 (TBA)
-## Chapter 29 (TBA)
-## Chapter 30 (TBA)
-## Chapter 31 (TBA)
-## Chapter 32 (TBA)
-## Chapter 33 (TBA)
-## Chapter 34 (TBA)
-## Chapter 35 (TBA)
-## Chapter 36 (TBA)
-## Chapter 37 (TBA)
-## Chapter 38 (TBA)
-## Chapter 39 (TBA)
-## Chapter 40 (TBA)
-## Chapter 41 (TBA)
-## Chapter 42 (TBA)
-## Chapter 43 (TBA)
-## Chapter 44 (TBA)
-## Chapter 45 (TBA)
-## Chapter 46 (TBA)
-## Chapter 47 (TBA)
-## Chapter 48 (TBA)
-## Chapter 49 (TBA)
-## Chapter 50 (TBA)
-## Chapter 51 (TBA)
-## Chapter 52 (TBA)
-## Chapter 53 (TBA)
-## Chapter 54 (TBA)
-## Chapter 55 (TBA)
-## Chapter 56 (TBA)
-## Chapter 57 (TBA)
-## Chapter 58 (TBA)
-## Chapter 59 (TBA)
-## Chapter 60 (TBA)
-## Chapter 61 (TBA)
-## Chapter 62 (TBA)
-## Chapter 63 (TBA)
-## Chapter 64 (TBA)
-## Chapter 65 (TBA)
-## Chapter 66 (TBA)
-## Chapter 67 (TBA)
-## Chapter 68 (TBA)
-## Chapter 69 (TBA)
-## Chapter 70 (TBA)
-## Chapter 71 (TBA)
-## Chapter 72 (TBA)
-## Chapter 73 (TBA)
-## Chapter 74 (TBA)
-## Chapter 75 (TBA)
-## Chapter 76 (TBA)
-## Chapter 77 (TBA)
-## Chapter 78 (TBA)
-## Chapter 79 (TBA)
-## Chapter 80 (TBA)
-## Chapter 81 (TBA)
-## Chapter 82 (TBA)
-## Chapter 83 (TBA)
-## Chapter 84 (TBA)
-## Chapter 85 (TBA)
+## Ch 24 (TBA)
+## Ch 25 (TBA)
+## Ch 26 (TBA)
+## Ch 27 (TBA)
+## Ch 28 (TBA)
+## Ch 29 (TBA)
+## Ch 30 (TBA)
+## Ch 31 (TBA)
+## Ch 32 (TBA)
+## Ch 33 (TBA)
+## Ch 34 (TBA)
+## Ch 35 (TBA)
+## Ch 36 (TBA)
+## Ch 37 (TBA)
+## Ch 38 (TBA)
+## Ch 39 (TBA)
+## Ch 40 (TBA)
+## Ch 41 (TBA)
+## Ch 42 (TBA)
+## Ch 43 (TBA)
+## Ch 44 (TBA)
+## Ch 45 (TBA)
+## Ch 46 (TBA)
+## Ch 47 (TBA)
+## Ch 48 (TBA)
+## Ch 49 (TBA)
+## Ch 50 (TBA)
+## Ch 51 (TBA)
+## Ch 52 (TBA)
+## Ch 53 (TBA)
+## Ch 54 (TBA)
+## Ch 55 (TBA)
+## Ch 56 (TBA)
+## Ch 57 (TBA)
+## Ch 58 (TBA)
+## Ch 59 (TBA)
+## Ch 60 (TBA)
+## Ch 61 (TBA)
+## Ch 62 (TBA)
+## Ch 63 (TBA)
+## Ch 64 (TBA)
+## Ch 65 (TBA)
+## Ch 66 (TBA)
+## Ch 67 (TBA)
+## Ch 68 (TBA)
+## Ch 69 (TBA)
+## Ch 70 (TBA)
+## Ch 71 (TBA)
+## Ch 72 (TBA)
+## Ch 73 (TBA)
+## Ch 74 (TBA)
+## Ch 75 (TBA)
+## Ch 76 (TBA)
+## Ch 77 (TBA)
+## Ch 78 (TBA)
+## Ch 79 (TBA)
+## Ch 80 (TBA)
+## Ch 81 (TBA)
+## Ch 82 (TBA)
+## Ch 83 (TBA)
+## Ch 84 (TBA)
+## Ch 85 (TBA)
 
 
