@@ -244,7 +244,7 @@ to form mRNA（去除introns）
         * P：S-A node firing，atrium 中信号开始传导、
         * QRS：A-V node firing，ventricle 中信号开始传导、收缩
 
-* 影响 Cardiac Output 的因素
+* 影响心输出量(Cardiac Output)的因素
     - 自主神经系统（见下章）
     - 细胞外过量K离子可能阻断心脏冲动的传导（去极化，使膜电位不那么负，导致动作电位的强度变弱）；相对的，细胞外过量Ca离子可能导致心脏持续痉挛性收缩
     - 动脉压
@@ -255,7 +255,7 @@ to form mRNA（去除introns）
 
 
 * 自主神经系统（autonomic）调节心跳
-    - 副交感神经（parasympathetic）：迷走神经（Vagi）控制 S-A node、A-V node，控制心率（e.g. acetylcholine 减慢心跳）
+    - 副交感神经（parasympathetic）：迷走神经（Vagi, Vagus nerves）控制 S-A node、A-V node，控制心率（e.g. acetylcholine 减慢心跳）
     - 交感神经（sympathetic）：直接影响肌肉收缩，可同时控制心率、收缩强度（e.g. Norepinephrine 加速离子置换：K-加速达到电位阈值、Ca-收缩增强）
 
 * 节律传递：Atrium先收缩、随后再Ventricle
@@ -478,7 +478,7 @@ to form mRNA（去除introns）
 
 * [**Acute control**](Medical_Physiology/17-3.png): Precapillary sphincter 控制 rapid 血管收缩/舒张
     - Vasodilator Theory: 代谢物令血管扩张
-    - Oxygen Demand Theory: Precapillary sphincter 存在周期性的开合(vasomotion)，其收缩需要氧气；如果氧含量不足，则血管扩张的状态更持久
+    - Oxygen Demand Theory: Precapillary sphincter 存在周期性的开合(造成血管舒缩)，其收缩需要氧气；如果氧含量不足，则血管扩张的状态更持久
 
 * Autoregulation：Arterial Pressure 突然变化，血流初期剧烈变化但逐渐回归正常水平
     - Metabolic theory: 剧烈加强的血流洗去代谢物，令血管舒张
@@ -499,25 +499,71 @@ to form mRNA（去除introns）
 | Ions | calcium <br>  <br>  <br>  <br>  <br>  <br>  | potassium <br> magnesium <br> hydrogen ion <br> Anions: acetate and citrate <br> carbon dioxide |
 
 
-## Ch 18 血流及动脉压的神经调节(TBA)
+## Ch 18 自主神经系统
+
+* [交感神经系统(Sympathetic Nervous System)](Medical_Physiology/18-1.png) -- “Fight or Flight”
+    - 身体两侧各有一条交感神经链(sympathetic chain)，通过胸脊神经与部分腰脊神经连接脊髓
+    - 收缩血管；减少 tissue 血流，令血液流入心脏--升高血压；增强心率、收缩强度
+    - Norepinephrine 是交感神经系统血管收缩神经递质，也可以由 Adrenal Medullae 产生
 
 
+* 副交感神经系统(parasympathetic nervous system) -- “Rest and Digest”
+    - 起自迷走神经(vagus nerves)背核，分布于内脏器官
+    - 舒张血管；减低血压；减慢心率
 
 
+* 脑部的[血管舒缩中枢(Vasomotor Center)](Medical_Physiology/18-3.png)自动调节血压：高压时舒张血管、减少心输出量，低压时相反
+    - vasoconstrictor area 延伸至脊髓，正常情况下会**持续的**通过交感神经系统发出血管收缩信号（0.5-2/s，称为sympathetic vasoconstrictor tone），令血管维持在半收缩状态
+    - vasodilator area 通过抑制 vasoconstrictor area 起作用
+    - sensory area 位于 medulla 下侧，通过 vagus 接受循环系统中感知细胞返回的信号、或减慢心率
+
+* Higher Nervous Centers （hypothalamus，cerebral cortex）可控制血管舒缩中枢
 
 
+* [使动脉压维持在正常水平的反馈机制](Medical_Physiology/18-10.png)
+    - carotid sinus 和 the wall of the aortic arch 分布有 感知血压高低（stretch）的 [Baroreceptors](Medical_Physiology/18-5.png) 以及感知 Oxygen Level 的 Chemoreceptors
+    - Pulmonary Artery 和 Right Atrium 中有 low-pressure receptors，当其 stretch 时可能心内血液过多，需要加大输出: 
+        * Volume Reflex: 信号传递至下丘脑(hypothalamus)，减少抗利尿激素(antidiuretic hormone, ADH)的分泌，减少了肾小管对水的再吸收
+        * 产生心房利钠肽(atrial natriuretic peptide)，增加盐、水的排出
+        * 通过 Bainbridge Reflex 加速心跳（心跳加速后压力增大，激活 baroreceptors，但这个效果很快被 Bainbridge 覆盖掉）
 
 
+* CNS Ischemic Response: 当流向大脑的血液降低到危险水平时（血压极低<60 mmHg）的应急反应：心跳加快，血压急速升高（血管收缩造成，可持续约 10 min）
 
+* Cushing Reaction 升高大脑周围的血压：正常情况下脑脊液压力比动脉压稍低，但当二者压力差消失时，会压迫整个大脑并切断大脑的血液供应；此时会唤起 CNS Ischemic Response，提高动脉压
 
+* Abdominal Compression Reflex：压迫腹部，肌肉收缩放出储备血压，升高血压（肌肉紧绷也可以起到同样效果）
 
+* 每一次呼吸循环，动脉压通常以波浪式升降 4-6 mmHg
+    - SINUS ARRHYTHMIA（呼吸中枢的信号外溢到邻近的血管舒缩中枢）
+    - 呼气时气压变化令胸腔血管扩张，暂时降低动脉压
+    - 胸廓血管中的 receptors 受到刺激
 
+* [Vasomotor waves](Medical_Physiology/18-11.png)：除了由呼吸引起的小波外，还有一些由血管舒缩引起的波（有时高达 10-40 mmHg），可能由交感神经/副交感神经拮抗产生
 
 
 ## Ch 19 肾脏与动脉压长期调控(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Ch 20 心输出量-静脉回流(TBA)
 ## Ch 21 (TBA)
 ## Ch 22 心脏衰竭(TBA)
+
+
 
 
 
