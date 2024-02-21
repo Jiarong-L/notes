@@ -542,24 +542,70 @@ to form mRNA（去除introns）
 * [Vasomotor waves](Medical_Physiology/18-11.png)：除了由呼吸引起的小波外，还有一些由血管舒缩引起的波（有时高达 10-40 mmHg），可能由交感神经/副交感神经拮抗产生
 
 
-## Ch 19 肾脏与动脉压长期调控(TBA)
+## Ch 19 肾脏与动脉压长期调控
+
+* 动脉压升高时，促使肾脏排出多余水分（pressure diuresis）、盐（pressure natriuresis）；[如图](Medical_Physiology/19-1.png)
+    - diuresis只是暂时的，排出最终会与吸收平衡
+    - 动脉压升的原因可能有两种：肾脏对压力更加耐受（曲线左移）；或由于盐/水吸收更大，平衡点上移
+    - 从长期尺度来看，对于正常的肾脏，盐/水吸收的变化不会影响动脉压的稳定（曲线陡峭）
 
 
+* [Cardic Output 及 Peripheral Resistance 升高会造成动脉压升高，不过肾脏会进行调节](Medical_Physiology/19-5.png)
 
+* 长期动脉高压会造成预期寿命缩短：
+    - 心脏负担加剧
+    - 主要血管损坏（主要是脑部血管）
+    - 肾脏功能损坏
 
+* 长期动脉高压的原因可能有：
+    - [高盐+肾脏功能损坏](Medical_Physiology/19-8.png)：对动物喂食大量盐，初期是由于细胞外液（Extracellular fluid）过多造成动脉压升高，后期则是因为 Peripheral Resistance 保持动脉高压；因此若肾脏功能不佳，应饮食清淡
+    - 醛固酮（Aldosterone，促使Na留在体内）过多：可能由于肿瘤等原因
 
+* [Renin-Angiotensin System (RAS)](Medical_Physiology/19-9.png) 应对低压，20 min 内即可完全起效：
+    - Angiotensin Levels 正常的情况下，动脉压不会受盐摄入量的影响
+    - 当 Angiotensin II 过度表达时，盐摄入量增加会造成动脉压升高
+    - 当 ACE inhibition 发生时则没有 RAS（Angiotensin I 由 ACE 转化为 Angiotensin II），动脉压较低
 
+* 一些通过 RAS 达成的动脉高压
+    - [One-Kidney Goldblatt Hypertension](Medical_Physiology/19-14.png)：移除一个肾脏后，如果余下的肾脏缺血，则其感知到低压信号，引起 RAS
+    - Two-Kidney Goldblatt Hypertension：一个肾脏缺血但另一个肾脏正常，缺血的肾脏引起 RAS，二肾脏都过量保留水、盐
+    - 受损的肾脏长期释放 Renin 
+    - 主动脉缩窄（Coarctation of the Aorta）：身体下半部分（包括肾脏）供血不足引起 RAS，造成身体上半部分高压，而下半部分血液正常
 
+* Neurogenic Hypertension: 交感神经系统过度兴奋
 
+* Primary/Essential Hypertension: 缘由不知的高压，久坐不动者、超重者最有可能患病：
+    - 因脂肪组织更多，Cardiac output 增加
+    - 超重者交感神经系统过度兴奋，Angiotensin II and aldosterone levels 也更高
+    - 超重者 natriuresis mechanism 受损
+    - [对盐摄入的敏感性也与压力调节相关](Medical_Physiology/19-15.png)
 
+* 治疗动脉高压：促使排出多余水、盐
+    - Vasodilator drugs：提高肾脏血流
+    - natriuretic or diuretic drugs
 
-
-
-
-
+* [血压突然下降（e.g.出血）后的各种调节](Medical_Physiology/19-16.png)：血管紧缩（Acute）--> RAS
 
 
 ## Ch 20 心输出量-静脉回流(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Ch 21 (TBA)
 ## Ch 22 心脏衰竭(TBA)
 
