@@ -587,26 +587,64 @@ to form mRNA（去除introns）
 * [血压突然下降（e.g.出血）后的各种调节](Medical_Physiology/19-16.png)：血管紧缩（Acute）--> RAS
 
 
-## Ch 20 心输出量-静脉回流(TBA)
+## Ch 20 心输出量-静脉回流
 
+*  [Cardiac Output = Venous Return](Medical_Physiology/20-2.png) = 每分钟泵出心脏的血液量
+    - 代谢水平越高，心输出量越高
+     - (Ohm’s law) Cardiac_Output = Arterial_pressure / Total_peripheral_resistance     
 
+* 调节心输出量（Acute）
+    - (Frank-Starling law) Venous Return 升高使心肌的拉伸程度变大，令其收缩力变大
+    - (right atrium) sinus node stretch 令心跳加速
+    - (right atrium) stretch 后激活 Bainbridge reflex，信号返回 vasomotor center，令心跳加速
+  
 
+* Hypereffective Heart（Chronic）
+    - nervous stimulation: sympathetic stimulation and parasympathetic inhibition
+    - hypertrophy of the heart muscle
 
+* Hypoeffective Heart（Chronic）
+    - Arterial_pressure 过高，心脏泵血阻力大于泵血能力
+    - 心脏 nervous excitation 被抑制，而 [nervous control提高控制心率与收缩强度控制心输出量](Medical_Physiology/20-6.png)
+    - 引起心律或心跳异常的病理因素
+    - 冠状动脉阻塞（导致心脏病发作），心脏瓣膜病，先天性心脏病，心肌炎，心脏缺氧，...
 
+* [一些病理情况下的心输出量](Medical_Physiology/20-7.png)
+    - High Cardiac Output (Peripheral Resistance 下降)：Arteriovenous fistula (AV shunt) 中动静脉直接打通；或 Anemia 使局部缺氧令血管扩张
+    - Low Cardiac Output (Cardiac Factors 心肌能力下降)：心脏缺氧，...
+    - Low Cardiac Output (Decreased Venous Return)：Decreased blood volume, Acute venous dilation, Obstruction of the large veins, Decreased tissue mass, Decreased metabolic rate of the tissues
+    
+* 胸膜腔内压(Intrapleural pressure)越高（[图示中线条越靠右](Medical_Physiology/20-8.png)），则需要越高的 Arterial_pressure 以提升至相同水平的心输出量
+    - [Intrapleural pressure 结合 Hypereffective/Hypoeffective 的情况](Medical_Physiology/20-9.png)
 
+* 影响 Venous Return 的因素，可用 [venous return curve](Medical_Physiology/20-10.png) 展示
+    - （终点-静脉回流的阻力）右心房压力 (**PRA**)
+    - （起点-静脉回流的动力）[体循环的充盈程度，受血液总量与交感系统影响](Medical_Physiology/20-11.png)，测量 mean systemic filling pressure (**Psf**)
+    - （路径-血液流动的阻力）外周血管与右心房之间的血流阻力，称为 resistance to venous return (**RVR**)
+    - **Venous Return = (Psf-PRA) / RVR**
 
+* [根据 venous return curve 与 cardiac output curve 的交叉点确定 cardiac output情况](Medical_Physiology/20-15.png)
 
-
-
-
-
-
-
-
-
+* 测量 cardiac output 的方法
+    - [Oxygen Fick Principle](Medical_Physiology/20-19.png): 测量肺获取的氧气量、血液含氧量变化，可推测参与肺循环的血液量
+    - [Indicator Dilution Method](Medical_Physiology/20-20.png): 注射 dye，检测其峰值出现的时间与平均浓度
 
 
 ## Ch 21 (TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Ch 22 心脏衰竭(TBA)
 
 
