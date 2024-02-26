@@ -495,7 +495,7 @@ to form mRNA（去除introns）
 | -- | -- | -- |
 | 代谢物 | -- | ADP <br> Ions... |
 | Endothelium-Derived | Endothelin: 受伤时产生，防止失血过多 | [Nitric Oxide](Medical_Physiology/17-6.png): 因 Shear stress 产生；也可能当 angiotensin II 收缩血管时释放少量 NO 以防过度收缩 |
-| Humoral | Norepinephrine and Epinephrine <br> Angiotensin II <br> Vasopressin | Bradykinin <br> Histamine |
+| Humoral | Norepinephrine and Epinephrine(alpha receptor) <br> Angiotensin II <br> Vasopressin | Epinephrine(beta receptor) <br>Bradykinin <br> Histamine |
 | Ions | calcium <br>  <br>  <br>  <br>  <br>  <br>  | potassium <br> magnesium <br> hydrogen ion <br> Anions: acetate and citrate <br> carbon dioxide |
 
 
@@ -512,7 +512,7 @@ to form mRNA（去除introns）
     - 舒张血管；减低血压；减慢心率
 
 
-* 脑部的[血管舒缩中枢(Vasomotor Center)](Medical_Physiology/18-3.png)自动调节血压：高压时舒张血管、减少心输出量，低压时相反
+* 脑部的[血管舒缩中枢(Vasomotor Center)](Medical_Physiology/18-3.png)自动调节血压：高压时舒张血管、降低心输出量，低压时相反
     - vasoconstrictor area 延伸至脊髓，正常情况下会**持续的**通过交感神经系统发出血管收缩信号（0.5-2/s，称为sympathetic vasoconstrictor tone），令血管维持在半收缩状态
     - vasodilator area 通过抑制 vasoconstrictor area 起作用
     - sensory area 位于 medulla 下侧，通过 vagus 接受循环系统中感知细胞返回的信号、或减慢心率
@@ -630,22 +630,51 @@ to form mRNA（去除introns）
     - [Indicator Dilution Method](Medical_Physiology/20-20.png): 注射 dye，检测其峰值出现的时间与平均浓度
 
 
-## Ch 21 (TBA)
+## Ch 21 骨骼肌、心肌供血
 
+* 运动时大量血液涌入肌肉系统，因此心输出量升高作为补偿
+    - 肌肉松弛时血液可以流动，肌肉收缩时血液被挤出肌肉血管
+    - 静息时，大部分毛细血管不充血（dormant状态），运动时才打开充血
 
+* （Ch 17）根据需氧量，Precapillary sphincters 控制进入肌肉毛细血管的血流量；也受代谢产物、盐离子等 Vasodilator 的影响
 
+* （Ch 20）[交感系统提高了右心房压力，升高了心输出量，所以提高了涌向肌肉的血液量](Medical_Physiology/21-2.png)
+    - Norepinephrine（Vasoconstrictor - alpha receptor）
+    - Epinephrine（Vasodilator - beta receptor）
 
+* 冠状动脉（[Coronary arteries](Medical_Physiology/21-3.png)）为心肌供血
+    - 收缩时，心内膜下动脉丛（Subendocardial）收缩程度更强；舒张时其重新充血（故而很多时候 ischemia 起始于 Subendocardial，而不是 Epicardial）
+    - 交感神经增加供血，副交感神经减少供血
+    - **心脏的能量来源是脂肪** (more ATP per molecule)
+    - 过量 alpha receptor（导致血管过度收缩），或者其他阻塞因素可能会导致心脏供血不足
 
+* 如果Coronary Ischemia 引起[心肌梗死（myocardial infarction）](Medical_Physiology/21-8.png)，可能致死
+    - 心输出量降低
+    - 肺水肿（血液滞留肺部，动脉中血液减少，引发增加血液量的反馈机制，进一步恶化情况）
+    - 心脏颤动（fibrillation），可能由于
+        * 血流减少导致，细胞外钾浓度升高，心肌变得易兴奋
+        * 损伤电流
+        * 血压降低刺激交感神经，令心肌变得易兴奋
+        * 心肌无力常导致心室过度扩张，心脏脉冲传导的路径变长导致[circus movements](./Medical_Physiology/13-16.png) 发生
+    - 心脏破裂（rupture）
 
-
-
-
-
-
-
+* 心绞痛（Angina Pectoris / Cardiac Pain）：当冠状动脉不足以供应心脏所需血流时，患者会感受到持续的疼痛，分布于心脏上方的胸骨，乃至左臂/左肩、颈部、侧脸，因这些部位共享同一脊髓节段的疼痛神经纤维
+    - 急性心绞痛治疗：硝酸甘油、硝酸盐（Vasodilator 减少泵血阻力，减轻心脏负担）
+    - 慢性稳定型心绞痛治疗：减少 angiotensin 生成或阻塞其受体，阻塞钙离子通道；ranolazine 增强心脏对氧的利用效率
+    - 手术治疗：利用腿部静脉新造冠状动脉（Aortic-Coronary
+Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 
 
 ## Ch 22 心脏衰竭(TBA)
+
+
+
+
+
+
+
+
+
 
 
 
