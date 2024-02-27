@@ -660,36 +660,45 @@ to form mRNA（去除introns）
 
 * 心绞痛（Angina Pectoris / Cardiac Pain）：当冠状动脉不足以供应心脏所需血流时，患者会感受到持续的疼痛，分布于心脏上方的胸骨，乃至左臂/左肩、颈部、侧脸，因这些部位共享同一脊髓节段的疼痛神经纤维
     - 急性心绞痛治疗：硝酸甘油、硝酸盐（Vasodilator 减少泵血阻力，减轻心脏负担）
-    - 慢性稳定型心绞痛治疗：减少 angiotensin 生成或阻塞其受体，阻塞钙离子通道；ranolazine 增强心脏对氧的利用效率
+    - 慢性稳定型心绞痛治疗：减少 Angiotensin 生成或阻塞其受体，阻塞钙离子通道；ranolazine 增强心脏对氧的利用效率
     - 手术治疗：利用腿部静脉新造冠状动脉（Aortic-Coronary
 Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 
 
-## Ch 22 心脏衰竭(TBA)
+## Ch 22 心力衰竭
+
+* 心力衰竭（Cardiac Failure）: 心脏泵血能力不足以支撑身体需求的情况
+
+* [温和的心力衰竭发生后](Medical_Physiology/22-1.png)，心输出量下降，静脉中血液阻塞（damming）
+    - Acute: (Ch 18) 交感系统，Baroreceptors 等快速提升心率、心收缩强度、收缩静脉
+    - Chronic: 肾脏保存过量液体；作为对无法工作部位的代偿，心脏中有活力的部分会肥大（hypertrophy）
+    - [代偿失调（Decompensated）](Medical_Physiology/22-2.png)：如果代偿后，心输出量还是不能达到最低要求，则肾脏进一步储水、心脏负担加剧、陷入恶性循环；其治疗方式：
+        * digitalis：block Na出K入，胞内 Na 堆积则不能 Ca出Na入，胞内 Ca 堆积可增加心肌收缩能力
+        * diuretic drugs：增加肾脏排水
 
 
+* 低排出量性心力衰竭（Low-output）会导致心原性休克（Cardiogenic Shock），仅30%存活率：所有器官供血不足导致心脏泵血能力的进一步削弱，血液留存在器官中不能循环
 
+* [高排出量性心力衰竭（High-output）](Medical_Physiology/22-8.png)，参考 [Ch 20](Medical_Physiology/20-10.png)
+    - Arteriovenous fistula：动静脉联通导致阻力（RVR）降低
+    - beriberi heart disease：削弱心脏泵血能力；扩张血管导致阻力（RVR）降低，肾脏储存过量液体因此 体循环的充盈程度（Psf）升高
 
+* （Ch 19）长期来看，肾脏保留过量液体以应对心力衰竭
+    - 减少肾脏血流，降低肾小球滤过率（glomerular filtration rate）
+    - 激活 RAS: Angiotensin II
+    - Aldosterone 分泌增加
+    - 抗利尿激素（ADH）分泌增加
+    - 激活交感神经系统：减少肾脏血流；释放 renin；激活 alpha-adrenergic receptors，加强水、盐重吸收
 
+* 当心脏充血过多时收到牵拉时会释放 Natriuretic peptides
+    - Atrial natriuretic peptide (ANP) 由 atrial walls 产生
+    - Brain natriuretic peptide (BNP)由 ventricular walls 产生
+    - 血液中 ANP、BNP 含量过多会增加心力衰竭的风险，它们令肾脏排水
 
+* 左心衰竭发生后，因左心供血能力有限，血液在肺部淤塞，高压下液体开始渗入肺组织，发生肺水肿
+    - 血液中氧气降低令外周血管舒张（RVR降低），增加静脉回流，情况进一步恶化；同时心脏泵血能力因缺氧而进一步削弱
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* [心力贮备（Cardiac reserve）](Medical_Physiology/22-4.png)：运动时，如果心输出量不能达到新水平，可能会出现呼吸困难（dyspnea）、肌肉缺血、心跳加速
 
 ## Ch 23 心音
 
@@ -701,8 +710,6 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 | 2nd | semilunar valves  闭合时血液回流至动脉中 | (aortic and pulmonary valves) |
 | 3rd | 猜测因 atria 向ventricles 注入血液过快而在 ventricles 中产生湍流 | 儿童、运动员中正常有此音，systolic heart failure 的老人亦有此音 |
 | 4rd | 因 ventricular wall compliance 降低、ventricular filling 阻力增加，atrial 收缩以强制向 ventricles 灌注 | 左心室肥厚者有此音；频率<20 cycles/sec 故而听诊器听不见 |
-
-
 
 
 **Phonocardiograms**：Heart valves 病变可以导致心音变化：  
