@@ -42,30 +42,25 @@ environment (extracellular fluid)
     - Positive Feedback Loop：其提升会刺激进一步提升；(e.g. 受伤召唤凝血因子、Childbirth、nerve signals)；受Negative Feedback抑制、防止升级至危险状态
 * Adaptive Control：大脑发送前馈信号控制peripheral parts进行动作，即，信号传递至外围部位后，活动部位返回sensory nerve signals，大脑会依据状况修正后续动作
 
-![Figure 1-1](Medical_Physiology/1-1.png)  
+* [Extracellular Fluid 的主要组成](Medical_Physiology/1-1.png)  
 
 
 ## Ch 2 细胞器
-![Figure 2-2](Medical_Physiology/2-2.png)    
 
-* Protoplasm
-    - water: 占70%~85%
-    - electrolytes: potassium, magnesium, phosphate, sulfate, bicarbonate, and sodium, chloride, and calcium
-    - proteins: structural, functional
-    - lipids: phospholipids, cholesterol
-    - carbohydrates: 提供能量或合成glycoprotein
-* Cell Membrane：双重磷脂     
-![Figure 2-3](Medical_Physiology/2-3.png)
-* Endoplasmic Reticulum：Rough ER 合成蛋白，Smooth ER 合成 lipids   
-![Figure 2-4](Medical_Physiology/2-4.png)
-* Golgi apparatus：接收ER生成物，生成碳水化合物，下一步可形成 Lysosomes 等分泌小泡   
-![Figure 2-14](Medical_Physiology/2-14.png)
-* Mitochondria：数量不定，生成ATP   
-![Figure 2-15](Medical_Physiology/2-15.png)
-* Cytoskeleton：Filament and Tubular Structures   
-![Figure 2-8](Medical_Physiology/2-8.png)
-* Nucleus：遗传物质   
-![Figure 2-9](Medical_Physiology/2-9.png)
+* [动物细胞](Medical_Physiology/2-2.png) 
+    - Protoplasm
+        * water: 占70%~85%
+        * electrolytes: potassium, magnesium, phosphate, sulfate, bicarbonate, and sodium, chloride, and calcium
+        * proteins: structural, functional
+        * lipids: phospholipids, cholesterol
+        * carbohydrates: 提供能量或合成glycoprotein
+    - [Cell Membrane](Medical_Physiology/2-3.png)：双重磷脂
+    - [Endoplasmic Reticulum](Medical_Physiology/2-4.png)：Rough ER 合成蛋白，Smooth ER 合成 lipids   
+    - [Golgi apparatus](Medical_Physiology/2-14.png)：接收ER生成物，生成碳水化合物，下一步可形成 Lysosomes 等分泌小泡   
+    - [Mitochondria](Medical_Physiology/2-15.png)：数量不定，生成ATP   
+    - [Cytoskeleton](Medical_Physiology/2-8.png)：Filament and Tubular Structures   
+    - [Nucleus](Medical_Physiology/2-9.png)：遗传物质   
+
 * Endocytosis（胞吞）：Pinocytosis（胞饮），Phagocytosis（胞吃/吞噬）
 * Autophagy（自噬）：移除老化organelles
 * 细胞移动：
@@ -84,14 +79,10 @@ to form mRNA（去除introns）
     - **mRNA** 指导合成蛋白（消耗ATP）：Transfer RNA (**tRNA**) 运输AA，Ribosomal RNA (**rRNA**) 提供核糖体结构框架
     - MicroRNAs (**miRNAs**) 与mRNA结合(blocking)，调节转录和翻译
 * Polyribosomes：由多个核糖体串连在一条mRNA分子上高效地进行肽链的合成
-* ATCG化学式  
-![Figure 3-3](Medical_Physiology/3-3.png)    
-* Codon Table 详见 [NCBI-The Genetic Codes](https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi)，同一种氨基酸具有两个或更多个密码子（简并密码子）  
-![Codon Table](Medical_Physiology/3-1t.png)   
-* Gene transcription in eukaryotic cells  
-![Figure 3-13](Medical_Physiology/3-13.png)  
-* 细胞通过 Mitosis 进行复制  
-![Figure 3-14 mitosis](Medical_Physiology/3-14.png)  
+* [ATCG化学式](Medical_Physiology/3-3.png)    
+* [Codon Table](Medical_Physiology/3-1t.png) 详见 [NCBI-The Genetic Codes](https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi)，同一种氨基酸具有两个或更多个密码子（简并密码子）     
+* [Gene transcription in eukaryotic cells](Medical_Physiology/3-13.png)  
+* [细胞通过 Mitosis 进行复制](Medical_Physiology/3-14.png)  
     - Interphase：interval between mitosis，其占细胞95%以上生命周期。DNA在分裂开始前约10h开始复制，并且需要通过 Proofreading (是否与模板一致) 与 DNA Repair 以降低错误率。不过，假定人类30年一代，预计依旧会累计10个以上的Mutation 给下一代
     - Prophase 前期：纺锤体形成，染色体被压缩
     - Prometaphase 前中期：核膜消失，microtubule aster 结合着丝粒，将成对的chromatids 向两极施加拉力
@@ -704,45 +695,38 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 
 * Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听诊器中 “lub, dub, lub, dub”；[鉴于心脏杂音与可听阈值](Medical_Physiology/23-1.png)，听诊器可听见的频率在 40~520 cycles/sec
 
-| [Heart Sounds](Medical_Physiology/23-3.png) | 说明 | 其它 |
+| [Heart Sounds](Medical_Physiology/23-3.png) | 说明，[参考 Heart Anatomy](Medical_Physiology/9-1.png) & [Valves](Medical_Physiology/23-10.png) | 其它 |
 | -- | -- | -- |
-| 1st | ventricles 收缩使血液回流至 A-V valves, 随后 A-V valves 闭合-->向atria紧绷-->将血液反弹回 ventricles | (tricuspid and mitral valves) |
-| 2nd | semilunar valves  闭合时血液回流至动脉中 | (aortic and pulmonary valves) |
-| 3rd | 猜测因 atria 向ventricles 注入血液过快而在 ventricles 中产生湍流 | 儿童、运动员中正常有此音，systolic heart failure 的老人亦有此音 |
-| 4rd | 因 ventricular wall compliance 降低、ventricular filling 阻力增加，atrial 收缩以强制向 ventricles 灌注 | 左心室肥厚者有此音；频率<20 cycles/sec 故而听诊器听不见 |
+| 1st | 收缩期，ventricles 收缩使血液回流至 A-V valves, 随后 **A-V valves 闭合**-->向atria紧绷-->将血液反弹回 ventricles | (即 tricuspid and mitral valves) |
+| 2nd | 舒张期，**semilunar valves  闭合**时血液回流至动脉中 | (即 aortic and pulmonary valves) |
+| 3rd | 舒张期，从 atria 向 ventricles 快速注入血液时，在 ventricle walls 间产生湍流 | 儿童、运动员中正常有此音，systolic heart failure 的老人亦有此音 |
+| 4rd | 收缩期，因 ventricular wall compliance 降低、ventricular filling 阻力增加，atrial 收缩以强制向 ventricles 灌注 | 左心室肥厚者有此音；频率<20 cycles/sec 故而听诊器听不见 |
 
 
 **Phonocardiograms**：Heart valves 病变可以导致心音变化：  
 
-* Rheumatic fever：Autoimmune 使 valves 渗漏/粘连 (C/E)，通常因 streptococcal toxin 引起
-* 主动脉瓣狭窄：或因衰老导致主动脉瓣肥大 (B)
-
 
 | [Heart Sounds](Medical_Physiology/23-3.png) | - | 说明 | 其它 | 
 | -- | -- | -- | -- | 
-| A | 正常心脏 | -- | -- | 
-| B | 主动脉瓣狭窄 | 血液从 left ventricle 泵出至主动脉时发生阻塞 | -- | 
-| C | 二尖瓣返流 | 血液从 left ventricle 渗漏流回 left atrium | -- | 
-| D | 主动脉瓣返流 | 血液从主动脉渗漏流回 left ventricle | -- | 
-| E | 二尖瓣狭窄 | left atrium 流向 left ventricle 的单向阀门打开不完全  | left atrium / Pulmonary artery 高压，可能导致肺水肿 | 
-| F | 动脉导管未闭 | 主动脉和肺动脉之间存在异常通道，发生分流 | Ductus arteriosus 应在出生后4-5天闭合 | 
+| A | 正常心脏<br>Normal | -- | -- | 
+| B | 主动脉瓣狭窄<br>Aortic stenosis | 血液从 left ventricle 泵出至主动脉时发生阻塞 | 可能因衰老导致主动脉瓣肥大 | 
+| C | 二尖瓣返流<br>Mitral regurgitation | 血液从 left ventricle 渗漏流回 left atrium | -- | 
+| D | 主动脉瓣返流<br>Aortic regurgitation | 血液从主动脉渗漏流回 left ventricle | -- | 
+| E | 二尖瓣狭窄<br>Mitral stenosis | left atrium 流向 left ventricle 的单向阀门打开不完全  | Left atrium / Pulmonary artery 高压，可能导致肺水肿 | 
+| F | 动脉导管未闭<br>[Patent ductus arteriosus](Medical_Physiology/23-5.png) | 主动脉和肺动脉之间存在异常通道，发生分流 | Ductus arteriosus 应在出生后4-5天闭合 | 
+| - | 法洛四联症<br>[Tetralogy of Fallot](Medical_Physiology/23-6.png) | 室间隔缺损、肺动脉狭窄 --> 持续缺氧状态 | - 左右心室无间隔，导致动、静脉血液混合<br>- 由于肺动脉狭窄，大部分血液绕过肺部、直接进入主动脉<br>- 右心室原先对接肺动脉，此时也直面主动脉的高压，代偿下右心室增大 | 
 
 
-**B/D情况都使 net stroke volume output 减小，因而导致：**
-
-* 左心室肥厚（代偿）；若最终左心室衰竭无法泵出血液，压力传导至左心房中，进一步传导导致肺动脉高压
-* Increase in blood volume （kidney对血流减小的反应）
-* Increase in red blood cell mass （tissue轻微的缺氧）
-
-
-**TETRALOGY OF FALLOT (法洛四联症)**：室间隔缺损、肺动脉狭窄 --> 持续缺氧状态
-
-* 左右心室无间隔，导致动、静脉血液混合
-* 由于肺动脉狭窄，大部分血液绕过肺部、直接进入主动脉
-* 右心室原先对接肺动脉，此时也直面主动脉的高压，代偿下右心室增大
+* Rheumatic fever：Autoimmune 使 valves 渗漏/粘连 (C/E)，通常因 streptococcal toxin 引起
+* net stroke volume output 减小 (B/D)，因而导致：
+    - 左心室肥厚（代偿）；若最终左心室衰竭无法泵出血液，压力传导至左心房中，进一步传导导致肺动脉高压
+    - Increase in blood volume （kidney对血流减小的反应）
+    - Increase in red blood cell mass （tissue轻微的缺氧）
 
 
-## Ch 24 循环衰竭(TBA)
+
+
+## Ch 24 循环休克(TBA)
 ## Ch 25 (TBA)
 ## Ch 26 (TBA)
 ## Ch 27 (TBA)
