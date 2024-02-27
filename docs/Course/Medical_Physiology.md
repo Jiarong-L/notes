@@ -713,7 +713,7 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 | C | 二尖瓣返流<br>Mitral regurgitation | 血液从 left ventricle 渗漏流回 left atrium | -- | 
 | D | 主动脉瓣返流<br>Aortic regurgitation | 血液从主动脉渗漏流回 left ventricle | -- | 
 | E | 二尖瓣狭窄<br>Mitral stenosis | left atrium 流向 left ventricle 的单向阀门打开不完全  | Left atrium / Pulmonary artery 高压，可能导致肺水肿 | 
-| F | 动脉导管未闭<br>[Patent ductus arteriosus](Medical_Physiology/23-5.png) | 主动脉和肺动脉之间存在异常通道，发生分流 | Ductus arteriosus 应在出生后4-5天闭合 | 
+| F | 动脉导管未闭<br>[Patent ductus arteriosus](Medical_Physiology/23-5.png) | 主动脉和肺动脉之间存在异常通道；由于压力差，血液分流至肺动脉 | Ductus arteriosus 应在出生后4-5天闭合 | 
 | - | 法洛四联症<br>[Tetralogy of Fallot](Medical_Physiology/23-6.png) | 室间隔缺损、肺动脉狭窄 --> 持续缺氧状态 | - 左右心室无间隔，导致动、静脉血液混合<br>- 由于肺动脉狭窄，大部分血液绕过肺部、直接进入主动脉<br>- 右心室原先对接肺动脉，此时也直面主动脉的高压，代偿下右心室增大 | 
 
 
@@ -722,9 +722,6 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
     - 左心室肥厚（代偿）；若最终左心室衰竭无法泵出血液，压力传导至左心房中，进一步传导导致肺动脉高压
     - Increase in blood volume （kidney对血流减小的反应）
     - Increase in red blood cell mass （tissue轻微的缺氧）
-
-
-
 
 ## Ch 24 循环休克(TBA)
 ## Ch 25 (TBA)
