@@ -742,8 +742,7 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 * 右心室原先对接肺动脉，此时也直面主动脉的高压，代偿下右心室增大
 
 
-
-## Ch 24 (TBA)
+## Ch 24 循环衰竭(TBA)
 ## Ch 25 (TBA)
 ## Ch 26 (TBA)
 ## Ch 27 (TBA)
