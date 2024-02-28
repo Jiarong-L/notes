@@ -482,7 +482,7 @@ to form mRNA（去除introns）
 * **Long-term control**: 某组织代谢率发生变化，长期需要大量血流，会长出新的血管(angeogenesis)，或发生 [Vascular Remodeling](Medical_Physiology/17-8.png)
 
 
-| Acute | Vasoconstrictor | Vasodilator |
+| Acute | 血管收缩<br>Vasoconstrictor | 血管扩张（静脉）<br>Vasodilator |
 | -- | -- | -- |
 | 代谢物 | -- | ADP <br> Ions... |
 | Endothelium-Derived | Endothelin: 受伤时产生，防止失血过多 | [Nitric Oxide](Medical_Physiology/17-6.png): 因 Shear stress 产生；也可能当 angiotensin II 收缩血管时释放少量 NO 以防过度收缩 |
@@ -695,7 +695,7 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 
 * Heart valves 闭合时会产生声音，正常心脏会有1st、2nd心音，听诊器中 “lub, dub, lub, dub”；[鉴于心脏杂音与可听阈值](Medical_Physiology/23-1.png)，听诊器可听见的频率在 40~520 cycles/sec
 
-| [Heart Sounds](Medical_Physiology/23-3.png) | 说明，[参考 Heart Anatomy](Medical_Physiology/9-1.png) & [Valves](Medical_Physiology/23-10.png) | 其它 |
+| [Heart Sounds](Medical_Physiology/23-3.png) | 说明，[参考 Heart Anatomy](Medical_Physiology/9-1.png) & [Valves](Medical_Physiology/23-10.png) | 其他 |
 | -- | -- | -- |
 | 1st | 收缩期，ventricles 收缩使血液回流至 A-V valves, 随后 **A-V valves 闭合**-->向atria紧绷-->将血液反弹回 ventricles | (即 tricuspid and mitral valves) |
 | 2nd | 舒张期，**semilunar valves  闭合**时血液回流至动脉中 | (即 aortic and pulmonary valves) |
@@ -706,7 +706,7 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 **Phonocardiograms**：Heart valves 病变可以导致心音变化：  
 
 
-| [Heart Sounds](Medical_Physiology/23-3.png) | - | 说明 | 其它 | 
+| [Heart Sounds](Medical_Physiology/23-3.png) | - | 说明 | 其他 | 
 | -- | -- | -- | -- | 
 | A | 正常心脏<br>Normal | -- | -- | 
 | B | 主动脉瓣狭窄<br>Aortic stenosis | 血液从 left ventricle 泵出至主动脉时发生阻塞 | 可能因衰老导致主动脉瓣肥大 | 
@@ -723,7 +723,36 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
     - Increase in blood volume （kidney对血流减小的反应）
     - Increase in red blood cell mass （tissue轻微的缺氧）
 
-## Ch 24 循环休克(TBA)
+## Ch 24 循环衰竭
+
+* 循环衰竭（Circulatory shock）: 由于心输出量降低（[失血](Medical_Physiology/24-1.png)/心脏泵血能力不足），或者代谢需求急剧升高导致严重供血不足，组织有坏死的风险（大脑缺血 5-8 min 后即有永久损伤，10-15 min 便死亡）
+    - Nonprogressive stage: 代偿）后可自行恢复（短期/长期增加动脉压
+    - Progressive stage: 必须实施治疗才能恢复
+    - [Irreversible stage](Medical_Physiology/24-2.png): 即使实施治疗，也无法恢复
+        * 组织受损过度
+        * 大量腺苷被转换为尿酸，缺乏生成ATP的原料
+
+* [心输出量出现下降后，经过一系列 Positive Feedback Loop，心输出量越来越低、直至无可挽回](Medical_Physiology/24-3.png)，部分途径如下（图示黄色边框）
+    - 脑部缺血导致调控血压的 Vasomotor Center 失效
+        * 全身器官的功能的下降会进一步恶化情况：肝脏（排毒/抑制代谢），肺（充氧），心（输血）
+    - 因血流变慢导致酸性物质堆积，小血管中血液凝结，静脉回流减少，心输出量进一步减少
+        * 酸中毒（Acidosis）是由于在缺氧的情况下进行厌氧的糖酵解，生成乳酸
+    - 由于缺氧和营养物质，毛细血管通透性增加，液体渗出进一步减少血容量
+    - Toxins（来自受损组织--Histamine, serotonin, tissue enzymes）或 Endotoxins（来自细菌）
+
+
+| 类型 | 原因 | 说明 |
+| -- | -- | -- |
+| 血容量过低<br>HYPOVOLEMIA | [失血](Medical_Physiology/24-1.png)<br>Hemorrhage | -- | 
+| -- | 血浆流失<br>Plasma Loss | 肠梗阻，皮肤大面积挫伤导致毛细血管渗透，腹泻或呕吐，液体或电解质摄入不足，肾上腺皮质损坏导致醛固酮分泌减少、重吸收减少 |
+| 神经源性<br>NEUROGENIC | 血管容量增加 | 麻醉、脑损伤等因素抑制 vasomotor，令其血压调节能力失效，血压持续降低  |
+| 过敏<br>Anaphylaxis | Histamine | Histamine 令血管扩张，且增加毛细血管渗透；减少静脉回流 |
+| 感染<br>SEPTIC | Endotoxin/高热/微血栓/血管扩张 | 由部分Gram(-) 菌释放的内毒素（Endotoxin）可导致代谢增加、毛细血管渗透；Gram(+) 菌也是常见的休克原因 |
+
+
+* 治疗循环衰竭：增加体液（e.g. 输血），头朝下躺（腿部血液回流），Vasoconstrictors，吸氧
+
+
 ## Ch 25 (TBA)
 ## Ch 26 (TBA)
 ## Ch 27 (TBA)
