@@ -108,7 +108,7 @@ to form mRNA（去除introns）
     - Nernst equation：EMF (in millivolts) = ±61*log(C1/C2)；EMF 指细胞膜内外 voltage；C1、C2 指细胞膜内外待扩散物质的浓度；此式满足则达成扩散平衡
     - Osmosis：水分子也可以渗透通过细胞膜；由渗透压驱动
         * 1 osmole = 1mol osmotically active solute 存在于1L溶剂中；e.g. 1mol某物质溶于水形成 2mol ions，则 2 osmoles；若不分解成ions，则依旧 1 osmole
-        * 区别：Osmolality（osmoles per kilogram），Osmolarity（osmoles per liter of solution）
+        * 区别：Osmolality（osmoles per kilogram of water），Osmolarity（osmoles per liter of solution）
 
 * Active transport 可逆浓度梯度转运物质，由载体蛋白消耗能量驱动
     - Primary：消耗ATP运输某种物质；e.g. Na-K Pump 维持平衡，Ca Pump 储钙于内质网中，H Pump 胃酸生成   
@@ -440,7 +440,7 @@ to form mRNA（去除introns）
 
 
 * 毛细血管的静水压可通过 micropipette cannulation 直接插入血管测量，或测量其周边的松散组织，不同方法得到的数值不同
-    - [毛细血管的静水压为 Filtration 提供助力](Medical_Physiology/16-2.png)：人血浆(Plasma Colloid)的渗透压约为 28 mmHg（19 mmHg 来自其溶质蛋白，9 mmHg 来自 Donnan effect - 与蛋白结合的阳离子），这大于间质的渗透压、光靠渗透压无法使液体渗出至间质；所以动脉中静水压很高令总体力向外、渗出液体，静脉中则反之回收液体；但总体而言力是向外的，因为还有淋巴系统从间质中抽取液体
+    - [毛细血管的静水压为 Filtration 提供助力](Medical_Physiology/16-2.png)：血浆胶体(Plasma Colloid)的渗透压约为 28 mmHg（19 mmHg 来自其溶质蛋白，9 mmHg 来自 Donnan effect - 与蛋白结合的阳离子），这大于间质的渗透压、光靠渗透压无法使液体渗出至间质；所以动脉中静水压很高令总体力向外、渗出液体，静脉中则反之回收液体；但总体而言力是向外的，因为还有淋巴系统从间质中抽取液体
     - 大多数组织中，由于淋巴系统的缘故，间质可以维持负压、从血管中抽取液体
     - 在一些被紧密包裹的组织中，间质是正压、但小于其包囊组织对外部的压力（有压力差则可以发生 Filtration）；例如，肾脏被纤维囊包裹，肾间质液压约为 +6 mmHg，纤维囊压约为 +13 mmHg；其他例子如 巩膜包裹的眼球、被 cranial vault 包裹的大脑 
 
@@ -753,7 +753,35 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 * 治疗循环衰竭：增加体液（e.g. 输血），头朝下躺（腿部血液回流），Vasoconstrictors，吸氧
 
 
-## Ch 25 (TBA)
+## Ch 25 Fluid Compartments
+
+* 身体约1/3是水，[包括细胞内液（Intracellular）、组织液（Interstitial）、血浆（Plasma）](Medical_Physiology/25-1.png)。其来源可能是饮水、碳水化合物代谢；失水的原因可能是：蒸发，出汗，排泄。
+    - 血液约占体重7%，其中的水分主要位于血浆与红细胞中（如上图中水分布）；Hematocrit 指红细胞在全血中占比
+    - 组织液、血浆 统称为细胞外液（Extracellular）
+
+* [细胞内液中含较多 K、Mg、有机酸、蛋白；细胞外液中含较多 Na、Ca、Cl、碳酸氢根](Medical_Physiology/25-2.png)
+    - （Donnan effect）血浆比其余外液含更多带负电的蛋白，易吸引阳离子（cations）
+    - 细胞外液容量与浓度由肾脏进行调控
+
+* [Indicator-dilution Method](Medical_Physiology/25-4.png)：注射一定量的指示物，根据指示物浓度计算液体总量
+    - 选用穿透细胞膜的指示剂以计算水分总量，选用不穿膜的指示剂以计算细胞外液总量，细胞内液总量为二者之差
+
+* （Ch 16）毛细血管的**静水压**与血浆胶体的**渗透压**之间的平衡决定了组织液与血浆之间的水分流动
+
+* [细胞内/外液之间的水分流动则由二者的渗透压决定](Medical_Physiology/25-5.png)，主要因素是血浆钠浓度：[低/高钠血症（Hypo-/Hyper-natremia）](Medical_Physiology/25-7.png)
+    - 细胞外液中Na流失或水过量（肾脏对二者的再吸收）可能导致低钠血症，之后会造成细胞水肿
+        * 急性低钠血时很快造成脑肿胀（头痛/恶心/昏睡/迷失方向/癫痫/昏迷）；慢性低钠血时大脑可缓慢运入溶质，减缓肿胀，但如果干预时血浆渗透压提升过快，可能会导致大脑失去运入溶质的功能
+    - 高钠血症成因相反，其之后会造成细胞收缩
+        * 对于慢性高钠血症，也应缓慢干预，因为慢性疾病很可能激活了某种维持细胞体积的防御机制
+    - （Ch 4）注意，细胞膜上有高效水分/溶质交换通道
+
+* Intracellular Edema 指细胞过度吸水，其原因除了低钠血症，还可以是：tissue 代谢系统被抑制（血流受限） --> 细胞缺乏营养（Na-K Pump 没有能量，不能将Na泵出细胞）
+
+* Extracellular Edema 指组织液过度吸水，其原因可以是：血浆渗漏进组织液（[Ch 16 Filtration = Kf × NFP 提高](Medical_Physiology/16-5.png)），淋巴抽取多余液体的功能受阻（各种原因导致的淋巴管堵塞），[详见：Summary of Causes of Extracellular Edema](Medical_Physiology/25-9.png)
+    - [当组织液压力变为正时，表示胶体部分储水能力已达到极限，会出现大量的自由液体](Medical_Physiology/25-8.png)，发生凹陷性水肿（pitting edema）即按压会留下凹痕
+    - 按压后不会留下凹痕的称为 nonpitting edema，因细胞水肿不会有太多自由流动液体
+
+
 ## Ch 26 (TBA)
 ## Ch 27 (TBA)
 ## Ch 28 (TBA)
