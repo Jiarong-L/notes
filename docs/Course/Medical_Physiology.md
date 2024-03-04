@@ -782,7 +782,27 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
     - 按压后不会留下凹痕的称为 nonpitting edema，因细胞水肿不会有太多自由流动液体
 
 
-## Ch 26 (TBA)
+## Ch 26 肾脏-泌尿
+
+* [肾脏对维持 Homeostasis 的贡献](Medical_Physiology/26-1.png)：排除代谢物、体液平衡、激素分泌、红细胞成熟、生成糖原
+    - 一些代谢物（及其来源）：urea (amino acids), creatinine (muscle creatine), uric acid (nucleic acids), bilirubin (hemoglobin breakdown), metabolites of various hormones
+
+* [Kidney Anatomy](Medical_Physiology/26-2.png)，本质上由肾脏的功能（Nephron）和集合管（Collecting Tubule）组成，二者胚胎学来源有所不同
+    - Nephron 损坏后不能再生
+    - Glomerulus 中的血液代谢物被 Bowman’s capsule 过滤至 Proximal tubule，在 Loop of Henle 中进行重吸收，然后排出至 Collecting duct （见上图数字）
+    - 初期过滤时会有很多物质被误排出/没有成功排出，因此过程有[多处位置](Medical_Physiology/26-9.png)可进行重吸收/排出，根据需求实时调控
+    - [Nephron 可分为](Medical_Physiology/26-5.png) Cortical nephron（大部分处于 Cortex 中）与 Juxtamedullary nephron（Medulla 部分更多，因此重吸收能力更强）
+
+* 排尿（Micturition）是排空[膀胱（Bladder）](Medical_Physiology/26-6.png)的过程
+    - [膀胱充盈后，刺激副交感神经，向膀胱反射收缩信号；不过 External sphincter 阻止直接排出，等膀胱放松后（因被交感神经抑制）可以接纳更多液体](Medical_Physiology/26-8.png)；直到容量过大，向大脑发送尿急信息；意识同意后，信号通过 Pudendal nerve 发送给 External sphincter，开始排尿
+    - 交感神经主要控制膀胱血管，但也可以感知膀胱是否感染/充盈
+    - 排尿异常疾病：梅毒（syphilis）令膀胱纤维化、失去弹性；脊髓相关功能异常
+
+* 输尿管（Ureter）本身有蠕动收缩（peristaltic），将尿液挤压至膀胱；受副交感神经刺激增强，被交感神经刺激抑制
+    - 若因输尿管在膀胱收缩时不完全关闭，称为膀胱输尿管反流（ vesicoureteral reflux），可导致输尿管扩大，同时对肾脏造成压力
+    - 输尿管分布痛觉感受器，当其阻塞导致疼痛时会引起输尿管肾反射（ureterorenal reflex），减少尿液生成
+
+
 ## Ch 27 (TBA)
 ## Ch 28 (TBA)
 ## Ch 29 (TBA)
