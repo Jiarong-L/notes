@@ -343,7 +343,7 @@ to form mRNA（去除introns）
 * Blood Pressure: the force exerted by the blood **against** any unit area of the **vessel wall**
     - 1 mmHg = 1.36 cm water pressure
 
-* Ohm’s law：压力梯度与阻力决定了流量
+* Ohm’s law：压力梯度与阻力决定血流量
     - Flow = (Pressure_1-Pressure_2)/Resistance 
     - 1 ml/sec = (1 mmHg)/(1 PRU)；
     - **由 Ohm’s law 对应 Systemic pressure（100mmHg）与 Cardiac output（100 ml/sec）**
@@ -436,7 +436,7 @@ to form mRNA（去除introns）
     - 由于发生大量水交换（80倍于血流量），最主要的物质交流还是通过 Intercellular cleft
     - 高浓度的物质更有可能被扩散出去，不过同时也需要考虑此物质的渗透性（Permeability）
     - [Net filtration pressure (NFP) 是血管内/外，血压、渗透压的综合效果](Medical_Physiology/16-5.png)（更多液体渗入，或更多液体渗出），统称这四个力为 ‘Starling forces’
-    - 液体从血管至间质：Filtration = Kf × NFP，其中capillary filtration coefficient (Kf)衡量渗透性
+    - 液体从血管至间质：Filtration = Kf × NFP，其中 capillary filtration coefficient (Kf)衡量渗透性
 
 
 * 毛细血管的静水压可通过 micropipette cannulation 直接插入血管测量，或测量其周边的松散组织，不同方法得到的数值不同
@@ -482,12 +482,13 @@ to form mRNA（去除introns）
 * **Long-term control**: 某组织代谢率发生变化，长期需要大量血流，会长出新的血管(angeogenesis)，或发生 [Vascular Remodeling](Medical_Physiology/17-8.png)
 
 
-| Acute | 血管收缩<br>Vasoconstrictor | 血管扩张（静脉）<br>Vasodilator |
+| Acute | 血管收缩<br>Vasoconstrictor | 血管扩张<br>Vasodilator |
 | -- | -- | -- |
 | 代谢物 | -- | ADP <br> Ions... |
 | Endothelium-Derived | Endothelin: 受伤时产生，防止失血过多 | [Nitric Oxide](Medical_Physiology/17-6.png): 因 Shear stress 产生；也可能当 angiotensin II 收缩血管时释放少量 NO 以防过度收缩 |
 | Humoral | Norepinephrine and Epinephrine(alpha receptor) <br> Angiotensin II <br> Vasopressin | Epinephrine(beta receptor) <br>Bradykinin <br> Histamine |
 | Ions | calcium <br>  <br>  <br>  <br>  <br>  <br>  | potassium <br> magnesium <br> hydrogen ion <br> Anions: acetate and citrate <br> carbon dioxide |
+| -- | -- | ！静脉容量更大，所以其收缩影响更大 |
 
 
 ## Ch 18 自主神经系统
@@ -675,7 +676,7 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
     - beriberi heart disease：削弱心脏泵血能力；扩张血管导致阻力（RVR）降低，肾脏储存过量液体因此 体循环的充盈程度（Psf）升高
 
 * （Ch 19）长期来看，肾脏保留过量液体以应对心力衰竭
-    - 减少肾脏血流，降低肾小球滤过率（glomerular filtration rate）
+    - 减少肾脏血流，降低肾小球滤过率（glomerular filtration rate, GFR）
     - 激活 RAS: Angiotensin II
     - Aldosterone 分泌增加
     - 抗利尿激素（ADH）分泌增加
@@ -803,7 +804,33 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
     - 输尿管分布痛觉感受器，当其阻塞导致疼痛时会引起输尿管肾反射（ureterorenal reflex），减少尿液生成
 
 
-## Ch 27 (TBA)
+## Ch 27 肾小球滤过率
+
+* 肾小球滤过率（GFR）指 Glomerulus 中的血液代谢物被初次过滤进集合管系统的流速（约 125 ml/min）
+    - Filtration_fraction = GFR/Renal_plasma_flow（约占流经肾脏血液的 20%）
+    - [初过滤需要经过毛细血管的 endothelium、基膜、足细胞](Medical_Physiology/27-1.png)，三者仅支持通过小分子，且带负电、进一步排斥带负电的蛋白，因此得到的液体中几乎没有蛋白
+        * 微小病变肾病（minimal change nephropathy） 中，由于自身免疫等原因，足细胞脱离，故蛋白也进入尿液
+    
+* （Ch 16）[GFR = Kf × NFP](Medical_Physiology/27-4.png)
+    - 血液从 Afferent arteriole 流入，从 Efferent arteriole 流出。
+    - 增加 Afferent 端阻力，血流降低、静水压降低，同时蛋白堆积、渗透压升高，故GFR降低
+    - 增加 Efferent 端阻力，血流增加、静水压增加，故GFR提升；但超过了一定程度后GFR会降低（因为肾脏血流量同时也在不断下降）
+    - 在一些情况下，尿液不能排出，此时 Bowman 端压力提高，导致GFR降低
+
+
+* 肾脏血流量是调节GFR的重要因素，过滤行为需要消耗大量氧气，需要血液提供（Na过滤量与耗氧量成正比）
+    - （Ohm’s law）肾脏动、静脉间的压力梯度、肾脏血管阻力决定血流量
+    - [虽然动脉压可以在 80-170 mmHg 间波动，但肾脏可以将其血流量维持在相对平稳的范围](Medical_Physiology/27-9.png)
+        * [Tubuloglomerular Feedback](Medical_Physiology/27-10.png): Macula densa 感受 Nephron 中 Na 浓度，反馈给 Afferent/Efferent 处的 Juxtaglomerular cells
+        * Myogenic Mechanism（存疑）：血压很高时，动脉过度拉伸后会收缩产生阻力，减少进入肾脏的血流
+        * 球管平衡（Glomerulotubular Balance）: Proximal tubule 重吸收率始终占 GFR 的65%～70%
+    - 强烈的交感神经刺激（e.g.大量失血时）令肾脏减少血流，但温和的交感刺激不会对此造成影响，以保证肾脏一直平稳工作
+    - 血管舒缩因素调节GFR
+        * Endothelium（Afferent 收缩）减少血流，Nitric Oxide（Afferent 扩张）增加血流
+        * Prostaglandin（Afferent 扩张）在紧急情况时对抗强交感刺激、维持肾脏血流，e.g.手术
+        * Angiotensin II（Efferent 收缩），增加 GFR；同时增加重吸收
+
+
 ## Ch 28 (TBA)
 ## Ch 29 (TBA)
 ## Ch 30 (TBA)
