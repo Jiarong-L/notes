@@ -12,7 +12,7 @@ img{
 
 * QC & Trim
 * Clean Data
-    - Remove host RNA (Human + host) via mapping result
+    - Remove host RNA (Human + host) via mapping
     - Remove rRNA (SILVA,GreenGene,[NCBI rRNA](https://ftp.ncbi.nlm.nih.gov/blast/db/)...) via mapping result
 * Assembled Genome
     - Opt1. NCBI Ref / same sample's DNA assembly

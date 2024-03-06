@@ -267,4 +267,3 @@ summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitt
 
 
 ### CCA
-[参考](https://zhuanlan.zhihu.com/p/52717082)
