@@ -42,7 +42,7 @@ img{
 
 
 
-## Intro
+## L1-Intro
 
 * 为什么要进行 Randomized control trials（RCT）？为了防止有 [Confounders C](./Causal_Inference/n01-1.png) 同时对自变量T与因变量Y施加影响，导致T与Y的相关性不置信，此时 Association $\neq$ Causation  
 
@@ -50,7 +50,7 @@ img{
 
 
 
-## 计算ATE所需的假设
+## L2-ATE所需的假设
 
 假设有如下图所示的观测数据。
 
@@ -82,7 +82,7 @@ Hints：也可以通过训练模型（e.g.regression）的方式计算 Estimand�
 | Consistency | $(T=t) \Rightarrow (Y=Y(t))$ | -- | 干预效果对所有的个体而言都是相同的<br>示例：当T=1时，$Y_i(1)=1$，$Y_j(1)=1$<br>**反例**：当T=1时，$Y_i(1)=1$，$Y_j(1)=0$；表明T=1的效果不恒定 |
 
 
-## Graph Models
+## L3-Graph Models
 
 如果尝试使用有向无环图（DAG）$X_1 \rightarrow X_2 \rightarrow X_3$ 对分布 $P(x_1,x_2,x_3)=P(x_1)P(x_2|x_1)P(x_3|x_2,x_1)$ 进行化简，则需要遵从如下假设：
 
@@ -108,7 +108,7 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 * 图中G的 independence $(Y \perp X | Z)_G$，也意味着分布P中的 independence $(Y \perp X | Z)_P$
 
 
-## 干预 do()
+## L4-干预 do()
 
 
 
