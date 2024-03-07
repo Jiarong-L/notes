@@ -103,9 +103,9 @@ of all its children
 
 
 * **d-separation**: Two (sets of) nodes X and Y are d-separated by a set of nodes Z if all of
-the paths between (any node in) X and (any node in) Y are blocked by Z
+the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y \perp X | Z)_G$
 
-* 如果图G中X Y被Z d-separated 即 $(Y \perp X | Z)_G$，则也意味着分布P中 $(Y \perp X | Z)_P$
+* 图中G的 independence $(Y \perp X | Z)_G$，也意味着分布P中的 independence $(Y \perp X | Z)_P$
 
 
 ## 干预 do()
