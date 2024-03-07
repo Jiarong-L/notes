@@ -65,7 +65,7 @@ img{
 | -- | *ITE: Individual treatment effect<br>*ATE: Average treatment effect |
 
 
-由于一个样本只能进行一种 Treatment，所以 Causal Effect 无法直接求得，只能近似其期望值 ATE。由于 Causal 与 Confounders 同时存在，所以所以需要一些假设才能[用 Associational Difference 近似 ATE](./Causal_Inference/n02-3.png)
+由于一个样本只能进行一种 Treatment，所以 Causal Effect 无法直接求得，只能近似其期望值 ATE。由于 **Causal Association与 Confounding Association** 同时存在，所以所以需要一些假设才能[用 Associational Difference 近似 ATE](./Causal_Inference/n02-3.png)
 
 Hints：也可以通过训练模型（e.g.regression）的方式计算 Estimand，只要训练数据按需拆分了即可
 
@@ -83,6 +83,35 @@ Hints：也可以通过训练模型（e.g.regression）的方式计算 Estimand�
 
 
 ## Graph Models
+
+如果尝试使用有向无环图（DAG）$X_1 \rightarrow X_2 \rightarrow X_3$ 对分布 $P(x_1,x_2,x_3)=P(x_1)P(x_2|x_1)P(x_3|x_2,x_1)$ 进行化简，则需要遵从如下假设：
+
+* (Define Statistical independencies) Local Markov assumption: Given its parents in the DAG, a node X is independent of all of its non-descendants；注意，X 与 parents 间也可以是独立的，所以需要补丁
+* (Define Statistical dependencies) Minimality assumption: Adjacent nodes in the DAG are dependent
+
+于是可以化简统计式：$P(x_3|x_2,x_1)=P(x_3|x_2)$
+
+如果希望进一步将统计式转换为因果概念，则需要遵从如下假设：
+
+* (Define Causal dependencies) Causal Edges Assumption: In a directed graph, every parent is a direct cause
+of all its children
+
+
+常见有 Chain/Fork/Immoralities 三种结构，图示绿色线条表示 XY 间有 association Path，红色则表示 Path 被阻断。[对于 Chain/Fork 可以通过 Condition on Z 阻断通路](./Causal_Inference/n03-1.png)，即 $P(X,Y|Z)$；但对于 Immoralities 则正相反，Condition on Z 反而会使[原本阻塞的 Path](./Causal_Inference/n03-2.png) 联通
+
+![](./Causal_Inference/dSeparation.png)
+
+
+* **d-separation**: Two (sets of) nodes X and Y are d-separated by a set of nodes Z if all of
+the paths between (any node in) X and (any node in) Y are blocked by Z
+
+* 如果图G中X Y被Z d-separated 即 $(Y \perp X | Z)_G$，则也意味着分布P中 $(Y \perp X | Z)_P$
+
+
+## 干预 do()
+
+
+
 
 
 
