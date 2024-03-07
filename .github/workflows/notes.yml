@@ -21,7 +21,7 @@ jobs:
           key: ${{ github.ref }}
           path: .cache
       - run: pip install mkdocs-material 
-      - run: sed -i 's#\perp#\perp\\\\!\\\\!\\\\!\\\\!\\\perp#g'  docs/Course/Causal_Inference.md
+      - run: sed -i 's#\perp#\perp\\\\!\\\\!\\\\!\\\\!\\\perp#g'  docs/Course/Causal_Inference*.md
       - run: mkdocs gh-deploy --force
 
 

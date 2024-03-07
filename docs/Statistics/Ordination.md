@@ -267,3 +267,27 @@ summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitt
 
 
 ### CCA
+[参考](https://zhuanlan.zhihu.com/p/52717082)，在RDA基础上做了改进：使用$\overline{Q}$为输入、使用加权多元回归代替简单多元回归(重为行和)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 参考
+PCA、PCoA、NMDS、CCA、RDA：https://zhuanlan.zhihu.com/p/180284720     
+LDA：https://zhuanlan.zhihu.com/p/27899927  
+t-SNE UMAP  
+[David Zelený: Analysis of community ecology data in R](https://davidzeleny.net/anadat-r/doku.php/en:start)
+
+
+
+
