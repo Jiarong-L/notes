@@ -831,7 +831,48 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
         * Angiotensin II（Efferent 收缩），增加 GFR；同时增加重吸收
 
 
-## Ch 28 (TBA)
+## Ch 28 肾小管重吸收与分泌
+
+* 已知 Glomerular 初步过滤后的液体需要在 Tubular 中再经历  Reabsorption 和 Secretion 后才能成为尿液被排出；[重吸收时，Tubular 中物质先穿过上皮细胞进入 Interstitium（这一步骤 selective），随后统一进入血管（全部进入）](Medical_Physiology/28-1.png)
+    - [Primary Active](Medical_Physiology/28-2.png): 消耗ATP进行运输（Na的重吸收）
+    - [Secondary Active](Medical_Physiology/28-3.png): 利用另一种物质 Primary Active 形成的电化学梯度进行运输（SLGT泵运输Glucose）
+    - Diffusion: 从细胞间隙中扩散
+    - Osmosis
+    - Pinocytosis: 运输大分子（蛋白）
+
+
+| [吸收/分泌速率](Medical_Physiology/28-t1.png) | 限制因素 | -- |
+| -- | -- | -- |
+| -- | 吸收时某物质 Active Transport 的速度上限因素：<br>A. 该物质于两侧的的电化学梯度（浓度）<br>B. 该物质的渗透性（泵、细胞间隙扩散）<br>C. 携带该物质液体在此停留的时候（流速） | 在hormonal机制下，一些溶质可以独立调节，不受其他溶质浓度的影响 |
+| Glucose | （B）SLGT泵的上限 | 故当血糖超过阈值时，会发生糖尿 |
+| Na | Proximal: （A）浓度（C）流速<br>Distal: （B）由aldosterone 提高渗透性 | Na运输一般不成为限制因素；但在远端小管处细胞排列更加紧密，减慢了Na通过 |
+| Water | Osmosis: [与 Na 的重吸收程度正相关](Medical_Physiology/28-5.png) | ADH 可增加远端小管处渗透性 |
+| Chloride, Urea | Diffusion: [与 Na 的重吸收程度负相关](Medical_Physiology/28-5.png)  | 有专门的 urea transporter (passive)，主要位于 Medullary Collecting Duct |
+| Creatinine | （B）全部不能通过，不发生重吸收 | -- |
+
+
+| Nephron | 说明 & [各物质浓度变化概况](Medical_Physiology/28-15.png) |
+| -- | -- |
+| -- | Tips：水分被大量重吸收后各物质浓度升高 |
+| [Proximal Tubule](Medical_Physiology/28-6.png) | [大部分重吸收在此发生](Medical_Physiology/28-7.png)，图中Na/Cl/Urea浓度不变是因为水分同时伴随着它们吸收。<br>分泌一些有机酸碱：bile salts, oxalate, urate, catecholamines, para-aminohippuric acid (PAH) |
+| [Loop of Henle](Medical_Physiology/28-8.png) | descending 薄壁 --> ascending 薄壁 --> 厚壁<br><br>薄壁处无 Active Transport，因为缺少生成 ATP 的线粒体等；厚壁处有能力提供足够ATP[进行Na-Cl-K的浓缩提取（被 diuretics 抑制）](Medical_Physiology/28-9.png)<br>前半截 descending 的薄壁管可渗透水，后半截 ascending 的薄壁管不透水（Mg，Ca可通过，它们被返回Lumen中的K+所形成的正电荷相斥） |
+| [Distal Tubule](Medical_Physiology/28-11.png) | Early 部分是 Loop of Henle 厚壁处的延续，有 macula densa cells 作为 juxtaglomerular complex 调控 GFR与血流的一部分；另有 [sodium chloride pump](Medical_Physiology/28-10.png) 也可被 diuretics 抑制 <br><br> Late部分+cortical collecting tubule 由 [principal cells（吸收NaCl排出K，aldosterone可增加K的渗透性）](Medical_Physiology/28-12.png)与 [intercalated cells（与酸碱平衡相关）](Medical_Physiology/28-13.png) 组成<br>不透水（但ADH可令其可渗透）；Urea 亦不可渗透 |
+| [Medullary Collecting Duct](Medical_Physiology/28-14.png) | 不透水（但ADH可令其可渗透）；于此处渗透 Urea |
+
+
+* 为了与GFR保持平衡，肾小管重吸收接受 nervous, hormonal, local control 多种机制调节（e.g. 球管平衡）
+    - [Net reabsorption](Medical_Physiology/28-16.png)：肾血管中 hydrostatic pressure（**血压**） 一般比 Interstitium 中更高；但由于血液含**大量蛋白**，所以 osmotic forces 可以驱动重吸收
+        *  （Ch 27）虽然动脉压在波动，但肾脏可以将其血流量维持在相对平稳的范围；而微小的血压变化都会反馈到重吸收（e.g.血压升高，重吸收更少，pressure diuresis；反之则 natriuresis）
+    - [Hormones That Regulate Tubular Reabsorption](Medical_Physiology/28-t3.png) 很多与RAS有关
+    - 交感系统收缩血管（降低GFR，增加重吸收）
+
+
+* （[详略](Medical_Physiology/28-t4.png)）肾清除 plasma 中某种物质的效率是测试肾功能的指标
+    - 使用某种仅来自GFR（无重吸收或分泌）的指示剂估算 GFR：inulin, Creatinine
+    - 使用某种会被完全从plasma中清除的指示剂估算 RPF（Renal plasma flow）: PAH
+    - (对比血中物质A总量，以及尿中物质A总量) filtration_fraction = GFR/RPF
+
+
 ## Ch 29 (TBA)
 ## Ch 30 (TBA)
 ## Ch 31 (TBA)
