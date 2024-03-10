@@ -853,7 +853,6 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 
 | Nephron | 说明 & [各物质浓度变化概况](Medical_Physiology/28-15.png) |
 | -- | -- |
-| -- | Tips：水分被大量重吸收后各物质浓度升高 |
 | [Proximal Tubule](Medical_Physiology/28-6.png) | [大部分重吸收在此发生](Medical_Physiology/28-7.png)，图中Na/Cl/Urea浓度不变是因为水分同时伴随着它们吸收。<br>分泌一些有机酸碱：bile salts, oxalate, urate, catecholamines, para-aminohippuric acid (PAH) |
 | [Loop of Henle](Medical_Physiology/28-8.png) | descending 薄壁 --> ascending 薄壁 --> 厚壁<br><br>薄壁处无 Active Transport，因为缺少生成 ATP 的线粒体等；厚壁处有能力提供足够ATP[进行Na-Cl-K的浓缩提取（被 diuretics 抑制）](Medical_Physiology/28-9.png)<br>前半截 descending 的薄壁管可渗透水，后半截 ascending 的薄壁管不透水（Mg，Ca可通过，它们被返回Lumen中的K+所形成的正电荷相斥） |
 | [Distal Tubule](Medical_Physiology/28-11.png) | Early 部分是 Loop of Henle 厚壁处的延续，有 macula densa cells 作为 juxtaglomerular complex 调控 GFR与血流的一部分；另有 [sodium chloride pump](Medical_Physiology/28-10.png) 也可被 diuretics 抑制 <br><br> Late部分+cortical collecting tubule 由 [principal cells（吸收NaCl排出K，aldosterone可增加K的渗透性）](Medical_Physiology/28-12.png)与 [intercalated cells（与酸碱平衡相关）](Medical_Physiology/28-13.png) 组成<br>不透水（但ADH可令其可渗透）；Urea 亦不可渗透 |
