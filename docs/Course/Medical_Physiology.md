@@ -847,7 +847,7 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 | Glucose | （B）SLGT泵的上限 | 故当血糖超过阈值时，会发生糖尿 |
 | Na | Proximal: （A）浓度（C）流速<br>Distal: （B）由aldosterone 提高渗透性 | Na运输一般不成为限制因素；但在远端小管处细胞排列更加紧密，减慢了Na通过 |
 | Water | Osmosis: [与 Na 的重吸收程度正相关](Medical_Physiology/28-5.png) | ADH 可增加远端小管处渗透性 |
-| Chloride, Urea | Diffusion: [与 Na 的重吸收程度负相关](Medical_Physiology/28-5.png)  | 有专门的 urea transporter (passive)，主要位于 Medullary Collecting Duct |
+| Chloride, Urea | Diffusion: [与 Na 的重吸收程度负相关](Medical_Physiology/28-5.png)  | 有专门的 urea transporter (passive)，主要位于 Medullary Collecting Duct，将 urea 重吸收以维持 [medulla 的高渗透压](Medical_Physiology/29-4.png) |
 | Creatinine | （B）全部不能通过，不发生重吸收 | -- |
 
 
@@ -856,7 +856,7 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
 | [Proximal Tubule](Medical_Physiology/28-6.png) | [大部分重吸收在此发生](Medical_Physiology/28-7.png)，图中Na/Cl/Urea浓度不变是因为水分同时伴随着它们吸收。<br>分泌一些有机酸碱：bile salts, oxalate, urate, catecholamines, para-aminohippuric acid (PAH) |
 | [Loop of Henle](Medical_Physiology/28-8.png) | descending 薄壁 --> ascending 薄壁 --> 厚壁<br><br>薄壁处无 Active Transport，因为缺少生成 ATP 的线粒体等；厚壁处有能力提供足够ATP[进行Na-Cl-K的浓缩提取（被 diuretics 抑制）](Medical_Physiology/28-9.png)<br>前半截 descending 的薄壁管可渗透水，后半截 ascending 的薄壁管不透水（Mg，Ca可通过，它们被返回Lumen中的K+所形成的正电荷相斥） |
 | [Distal Tubule](Medical_Physiology/28-11.png) | Early 部分是 Loop of Henle 厚壁处的延续，有 macula densa cells 作为 juxtaglomerular complex 调控 GFR与血流的一部分；另有 [sodium chloride pump](Medical_Physiology/28-10.png) 也可被 diuretics 抑制 <br><br> Late部分+cortical collecting tubule 由 [principal cells（吸收NaCl排出K，aldosterone可增加K的渗透性）](Medical_Physiology/28-12.png)与 [intercalated cells（与酸碱平衡相关）](Medical_Physiology/28-13.png) 组成<br>不透水（但ADH可令其可渗透）；Urea 亦不可渗透 |
-| [Medullary Collecting Duct](Medical_Physiology/28-14.png) | 不透水（但ADH可令其可渗透）；于此处渗透 Urea |
+| [Medullary Collecting Duct](Medical_Physiology/28-14.png) | 不透水（但ADH可令其可渗透）；于此处重吸收 Urea |
 
 
 * 为了与GFR保持平衡，肾小管重吸收接受 nervous, hormonal, local control 多种机制调节（e.g. 球管平衡）
@@ -872,7 +872,29 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
     - (对比血中物质A总量，以及尿中物质A总量) filtration_fraction = GFR/RPF
 
 
-## Ch 29 (TBA)
+## Ch 29 ADH 促使水分回收
+
+* 尿液的浓度取决于身体的水分是否充足：多喝水则尿液水分多，少喝水则尿液浓缩，但[随水分一起排出的溶质则是恒定的](Medical_Physiology/29-1.png)
+    - Obligatory Urine Volume：假设一个70kg的人每天需要排出 600 mOsm 溶质，他的肾脏处理代谢物的效率是 (1200 mOsm)/(L水)，则他每天必须排出 0.5L 的尿液
+    - Urine Specific Gravity （g/ml）用于临床评估尿液浓度，本质上是尿液溶质形成的渗透压
+
+* [ADH 形成渗透压梯度，进行尿液浓缩](Medical_Physiology/29-4.png)：
+    - ADH 浓度低时（稀释尿液）：因为从 ascending Loop of Henle 开始仅回收溶质而不回收水，于是 Interstitium 渗透压较高，从 descending 处吸水
+    - ADH 大量存在时（浓缩尿液）：Medulla 侧由于 Urea 也进入 Interstitium，形成非常高的渗透压；而Cortex 侧也可开始渗透水，于是此侧 Interstitium 保持较低渗透压
+        * Urea 进入 Medulla Interstitium 后还可能在 Loop 处又进入小管，[如是循环](Medical_Physiology/29-6.png)保证一旦 ADH浓度下降，Medulla 渗透压也会下降
+        * [Vasa recta](Medical_Physiology/29-7.png) 是为 Loop of Henle 供血的血管（形状位置与Loop一致）；它不影响 Medulla 侧高渗透的机制是：下行时形成高渗透压（吸收溶质、失去水），上行时恢复正常；但是，当血流加速时，更可能带走更多溶质，降低 Medulla 侧的高渗透，影响水分回收
+    
+
+* Disorders of Urinary Concentrating Ability：ADH分泌不足，tubules对ADH无反应，盐的重吸收机制被破坏（无形成梯度的动力）
+
+* [ADH 可调节 Plasma 内 osmolarity，血压/血容量](Medical_Physiology/29-t2.png)
+    - [osmoreceptor-ADH system](Medical_Physiology/29-9.png) 调节 Plasma 内 Na+ 浓度：下丘脑中 Osmoreceptors 探测到水分不足（shrink），分泌 ADH 促使肾脏回收水分
+        * 另外，thirst mechanism 促使个体多喝水以对抗缺水状态；喝水后约30min才能被吸收，但胃胀感会暂且先抑制口渴的感觉
+    - （Ch 18）baroreceptors 感知到血压下降，也可以促使分泌 ADH
+    - Hint：ADH 的作用主要体现在 osmolarity 调节；而 Aldosterone (RAS) 更主要参与血压的调节（促使 Na 与水分的吸收，但对 Plasma osmolarity 无明显影响）
+    - 正常情况下，Plasma osmolarity (mOsm/L) 约等于2.1倍 Na+ 浓度 (mmol/L)
+
+
 ## Ch 30 (TBA)
 ## Ch 31 (TBA)
 ## Ch 32 (TBA)
