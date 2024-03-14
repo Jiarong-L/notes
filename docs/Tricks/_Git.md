@@ -104,3 +104,18 @@ git push
 ```
 删除所有本地缓存后重新commit，**Still Not Working, Why?**
 
+
+### 查看/修改仓库文件
+有时本地删除某文件后，需要同步从仓库中删除：假设需要删除‘./aax.md’
+```
+git ls-files | grep aax
+git rm ‘./aax.md’
+```
+然后 commit & push    ！！ 需慎重
+
+若有如下警告，说明‘./aax.md’于本地依旧存在（不确定）
+```
+error: the following file has changes staged in the index:
+    aaa.txt
+(use --cached to keep the file, or -f to force removal)
+```
