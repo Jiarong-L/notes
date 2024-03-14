@@ -1,6 +1,13 @@
 
 
 ### Python
+
+如果超时，可以配置国内的源：
+```
+pip config set global.index-url http://pypi.douban.com/simple
+```
+写入：C:\Users\.....\AppData\Roaming\pip\pip.ini
+
 ```
 pip install jupyter
 
