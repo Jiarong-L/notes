@@ -92,7 +92,9 @@ sgRNA library design：Cas-Offinder，BEsgRNADe
 ```
 
 
-
+## 多模态机器学习
+* https://zhuanlan.zhihu.com/p/53511144
+* 狗的图片特征向量 - 狗的文本特征向量 + 猫的文本特征向量 = 猫的图片特征向量
 
 
 
