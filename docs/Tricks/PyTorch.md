@@ -83,6 +83,24 @@ RuntimeError: Trying to backward through the graph a second time (or directly ac
 
 4. 每一步参与forward计算的参数都有gradient信息，不需要的时候（e.g.plot生成的FakeImgs）对其 ```FakeImgs.detach()```
 
+5. 注意激活函数的取值范围，注意 FakeImgs 与 RealImgs 的取值范围应一致, e.g. [0,1] or [0,255] or [-1,1]
+
+
+## GPU
+CUDA/cuDNN 的版本应该按官网提示相对应（如果 tensorflow<2.5.0 版本过低也应该查询相应的 CUDA 版本），并且需要安装 [NVIDIA GPU 驱动程序](https://www.nvidia.com/drivers)
+
+```
+CUDA   https://developer.nvidia.com/cuda-toolkit-archive
+
+cuDNN  https://developer.nvidia.com/rdp/cudnn-archive
+
+
+清华源CUDA/cuDNN： https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64/
+其它：  https://blog.csdn.net/qq_40898222/article/details/117826504
+```
+运行cuda安装后，将cudnn里的文件解压复制到cuda安装目录中对应文件夹即可
+
+
 
 ## 参考
 
