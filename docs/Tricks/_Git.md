@@ -26,9 +26,9 @@ git config core.ignorecase false
 
 ### Clone
 ```
-git clone xxxxxx
+git clone xxxxxx                       ## 默认的branch
 
-git clone -b mybranch xxxxx
+git clone -b mybranch xxxxx            ## 指定branch
 ```
 
 ### Init a local repo & push to remote
@@ -45,18 +45,39 @@ git remote -v                     ## Check info
 ```
 
 
+### Switch Branch
+
+```
+git checkout new_branch            ## switch to new_branch (连带着内容显示也一起)
+```
 
 
 ### New Branch
-push to 远程的origin主机
+
 ```
 git branch new_branch              ## create local
-git checkout new_branch            ## switch to
-git push origin new_branch         ## push to remote
 
-git branch -a                      ## See all branch
+git push origin new_branch         ## push *new_branch to remote/origin （push to 远程的origin主机）
+```
+另外，本地位于 branchA 时， 运行  ```git merge branchB``` 可以将 B 合并入 A
+
+
+### Delete Branch
+！！请谨慎使用，不可恢复    
+
+**注意，push 才会对远程仓库造成修改，否则只是修改本地的仓库**&记录
+```
+git branch -d localBranchName               ##  del localBranch
+git branch -r -d origin/remoteBranchName    ##  del remoteBranch's LOCAL RECORD, will not showup when 'git branch -r'
+                                            ##  still available on Github webpage (the real remote repo:origin)
+
+git push origin --delete remoteBranchName   ##  del remoteBranch
+                                            ##  not available anymore on Github webpage
 ```
 
+当网页上删除/创建了branch，需要 pull 后才能更新到本地的remoteBranch记录（git branch -r 查看），不过不会自动创建对应的localBranch
+
+特别的，当网页上删除了远程仓库，可以运行 ```git remote prune origin```对 remote/origin 在本地的显示记录进行同步删除
 
 
 ### Pull/Push
@@ -67,6 +88,17 @@ git add <path_or_obj>
 git commit -m 'commit_notes'
 git push
 ```
+
+拉取远程分支到本地：手动创建localBranch后再关联远程，或者
+
+```
+## 含映射关系：切换至localBranch（若不存在则新建一个），且拉取remoteBranch的代码
+git checkout -b localBranchName origin/remoteBranchName
+
+## 不含映射关系：创建localBranch且拉取remoteBranch的代码
+git fetch origin remoteBranchName:localBranchName
+```
+
 
 
 ### RollBack
@@ -119,3 +151,62 @@ error: the following file has changes staged in the index:
     aaa.txt
 (use --cached to keep the file, or -f to force removal)
 ```
+
+
+### Track Branch
+
+本地分支与远程分支之间的 tracking: ```git branch -a``` 查看本地（关于local与remote分支的）branches记录，而 ```git remote show origin``` 查看远程origin主机的branches记录
+
+* 设置pull关联
+```
+##                                remote       local
+git branch --set-upstream-to=origin/gh-pages  gh-pages
+```
+
+* 查看关联状态
+```
+$ git remote show origin           ####### 检查跟踪 origin 中分支的状态
+* remote origin
+  Fetch URL: git@github.com:Jiarong-L/notes.git
+  Push  URL: git@github.com:Jiarong-L/notes.git
+  HEAD branch: main
+  Remote branches:
+    CC       new (next fetch will store in remotes/origin)  ## 网页上新创建，还没有来得及pull记录
+    gh-pages tracked
+    main     tracked
+    newTest  tracked
+  Local branches configured for 'git pull':           ## pull 时
+    gh-pages merges with remote gh-pages              ## newTest 没有设置 upstream，故不在此
+    main     merges with remote main
+  Local refs configured for 'git push':
+    gh-pages pushes to gh-pages (local out of date)   ## push 时
+    main     pushes to main     (up to date)          ## 自动设置
+    newTest  pushes to newTest  (up to date)
+
+
+$ git branch -a                     ####### 查看所有分支，其中 CC 的记录还没有更新至本地
+  gh-pages
+* main             ## 目前所处分支
+  newTest
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/gh-pages
+  remotes/origin/main
+  remotes/origin/newTest
+```
+
+* 取消pull关联（或者直接-d删除本地branch） 
+```
+##                            local
+git branch --unset-upstream  newTest
+```
+
+Q: [停止跟踪Git中的一个远程分支?](https://cloud.tencent.com/developer/ask/sof/108969602/answer/133469378)
+
+
+
+
+
+
+
+
+
