@@ -92,7 +92,7 @@ git commit -m 'commit_notes'
 
 
 git push                        ##  提交至与当前分支相关联的 remoteBranch
-                                ##  效果即  git push origin localBranchName    （合并入当前分支）
+                                ##  效果即  git push origin localBranchName    （推送给关联的远程分支）
                                 ##  效果即  git push origin localBranchName:remoteBranchName
 ```
 
