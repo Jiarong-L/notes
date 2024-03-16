@@ -84,7 +84,7 @@ git push origin --delete remoteBranchName   ##  del remoteBranch
 ```
 git pull                         ##  效果即    git pull origin
                                  ##  拉取所有  origin远程主机中的remoteBranches
-                                 ##  拉取单个  git pull origin remoteBranchName  （如果与关联者同名）
+                                 ##  拉取单个  git pull origin remoteBranchName  （如果与当前同名）
                                  ##  拉取单个  git pull origin remoteBranchName:localBranchName
 
 git add <path_or_obj>
@@ -92,7 +92,7 @@ git commit -m 'commit_notes'
 
 
 git push                        ##  提交至与当前分支相关联的 remoteBranch
-                                ##  效果即  git push origin localBranchName    （如果与关联者同名）
+                                ##  效果即  git push origin localBranchName    （如果与当前同名）
                                 ##  效果即  git push origin localBranchName:remoteBranchName
 ```
 
