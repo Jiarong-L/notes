@@ -75,18 +75,25 @@ git push origin --delete remoteBranchName   ##  del remoteBranch
                                             ##  not available anymore on Github webpage
 ```
 
-当网页上删除/创建了branch，需要 pull 后才能更新到本地的remoteBranch记录（git branch -r 查看），不过不会自动创建对应的localBranch
+当网页上删除/创建了branch，需要 pull 后才能从origin远程主机中获取remoteBranch记录、更新本地的remoteBranch记录（git branch -r 查看），不过不会自动创建对应的localBranch
 
 特别的，当网页上删除了远程仓库，可以运行 ```git remote prune origin```对 remote/origin 在本地的显示记录进行同步删除
 
 
 ### Pull/Push
 ```
-git pull
+git pull                         ##  效果即    git pull origin
+                                 ##  拉取所有  origin远程主机中的remoteBranches
+                                 ##  拉取单个  git pull origin remoteBranchName  （如果与关联者同名）
+                                 ##  拉取单个  git pull origin remoteBranchName:localBranchName
 
 git add <path_or_obj>
 git commit -m 'commit_notes'
-git push
+
+
+git push                        ##  提交至与当前分支相关联的 remoteBranch
+                                ##  效果即  git push origin localBranchName    （如果与关联者同名）
+                                ##  效果即  git push origin localBranchName:remoteBranchName
 ```
 
 拉取远程分支到本地：手动创建localBranch后再关联远程，或者
