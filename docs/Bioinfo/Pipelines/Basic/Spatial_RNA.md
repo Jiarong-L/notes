@@ -21,10 +21,19 @@ Spatial Transcriptomics 常见方法可分为以下3类：
     - Spot的大小为其分辨率，可以是多细胞水平（10x Visum），也可以是亚细胞水平（Stereo-seq）
 
 
-对于FISH/ISS等基于图像定位的方法，得到序列后需要考虑如何将reads分配给细胞：可以assign给最近的细胞核，也可以根据 k-hoop neighbor 信息进行embedding
+
+## 数据处理思路
+
+* 对于FISH/ISS等亚细胞水平分辨率的方法（包括Stereo-seq），得到序列后需要考虑如何将reads分配给细胞：可以assign给最近的细胞核，也可以根据 k-hoop neighbor embedding 信息进行 binning
+
+* 对于 10x Visum，每个Spot可能跨越几个细胞，也可能切割一些细胞，故而如何将spots中reads分配给单个细胞也是一种挑战；或者，也可以将单细胞数据作为reference，预测每个spot中的细胞组成
+
+* Spot-based 方法有极高可能发生如下问题：（[EAGS对Stereo-seq数据进行平滑处理](https://zhuanlan.zhihu.com/p/683428338)）
+    - Dropout：某些基因仅在一部分细胞中高度表达，而在其余细胞中为0
+    - Spot Swapping：mRNA在解离过程中向附近spot点渗出，表现为RNA被其他组织区域的探针捕获或出现在不该出现的背景区域
 
 
-对于 10x Visum，每个Spot可能跨越几个细胞，也可能切割一些细胞，故而如何将spots中reads分配给单个细胞也是一种挑战；或者，也可以将单细胞数据作为reference，预测每个spot中的细胞组成
+
 
 
 ## 10x Visum
