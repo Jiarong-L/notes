@@ -98,13 +98,6 @@ sgRNA library design：Cas-Offinder，BEsgRNADe
 
 
 
-## ST/ISS/FISH
-* https://zhuanlan.zhihu.com/p/491377252
-
-* FISH 是用荧光探针进行原位杂交，高度精确定位RNA在细胞中的位置；MERFISH使用多轮杂交的信号组合（一组二进制vector）为身份标识，最多可以同时支持上万个基因的探测
-* ISS  用四种颜色荧光各代表一种核苷酸，根据荧光信号记录序列信息；然后需要将这些荧光reads分配给细胞：可以assign给最近的细胞核，也可以根据 k-hoop neighbor 信息进行embedding
-* ST 就是 10x Visum，将样本平铺在一片Spot上；每个Spot可能跨越几个细胞，也可能切割一些细胞，故而如何将spots中reads分配给单个细胞也是一种挑战（也许可以模仿ISS的处理方式？）
-
 
 
 
