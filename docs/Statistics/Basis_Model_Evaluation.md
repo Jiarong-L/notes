@@ -22,8 +22,6 @@ img{
 
 教材：《机器学习》-周志华
 
-![](./Basis/.png) 
-
 泛化误差 = bias + var + $\epsilon$
 
 ![](./Basis/M-error.png) 
@@ -108,7 +106,7 @@ ROC的曲线画法类似PR曲线，假设真实值的不同情况；下图为偷
 
 * 当测试错误率均值为$\epsilon_0$时，求泛化错误率$\epsilon$的($1-\alpha$)置信区间（潜在的最大错误率称为临界值）
 * paired-t检验比较模型A、B的错误率是否相同
-* Friedman检验比较多个模型的错误率是否相同，若有不同、则进行后续检验（Post-hoc）找出确切的模型（ML常用 Nemenyi，[Basis Regression](../Basis_Regression/#_18) 也提到一些）
+* Friedman检验比较多个模型的错误率是否相同，若有不同、则进行后续检验（Post-hoc）找出确切的模型（ML常用 Nemenyi，[Basis Regression](Basis_Regression.md#_18) 也提到一些）
 
 
 

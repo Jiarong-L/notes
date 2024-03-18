@@ -37,7 +37,7 @@ wget https://github.com/davidemms/OrthoFinder/releases/download/2.5.5/OrthoFinde
 tar xzvf OrthoFinder.tar.gz
 export PATH=$PWD/OrthoFinder/:$PATH
 ```
-如果GLIBC版本报错，可于[Tricks](../../../Tricks/Linux)中搜索关键词
+如果GLIBC版本报错，可于[Tricks](../../Tricks/_Linux.md)中搜索关键词
 
 ### Usage
 FAA_folder/中存放proteomes fasta，每个species一个文件; 先用其自带的ExampleData/

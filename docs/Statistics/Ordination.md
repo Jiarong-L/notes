@@ -32,7 +32,7 @@ img{
 | -- | -- | 通过 DCA 第一轴轴长，选择 Unimodal（> 4 SD）或 Linear（< 3 SD）方法 | 一般用 Hellinger 处理后的数据作为输入 | -- |
 
 
-**Recall**: 特征值分解（Eigen）、奇异值分解（SVD）、QR分解 请参考[Linear_Algebra笔记-常见矩阵分解](../../Course/Linear_Algebra/#_12)
+**Recall**: 特征值分解（Eigen）、奇异值分解（SVD）、QR分解 请参考[Linear_Algebra笔记-常见矩阵分解](../Course/Linear_Algebra.md#_12)
 
 <details>
 <summary> Vegan 是R中比较常用的生态学统计包 </summary>
@@ -267,4 +267,27 @@ summary(crda,scaling=0,axes=2)$constraints ## Site constraints: 样本点的fitt
 
 
 ### CCA
+[参考](https://zhuanlan.zhihu.com/p/52717082)，在RDA基础上做了改进：使用$\overline{Q}$为输入、使用加权多元回归代替简单多元回归(重为行和)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 参考
+PCA、PCoA、NMDS、CCA、RDA：https://zhuanlan.zhihu.com/p/180284720     
+LDA：https://zhuanlan.zhihu.com/p/27899927  
+t-SNE UMAP  
+[David Zelený: Analysis of community ecology data in R](https://davidzeleny.net/anadat-r/doku.php/en:start)
+
+
+
 

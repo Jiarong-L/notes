@@ -3,8 +3,8 @@
 Pytorch 使用 Dynamic Computational Graphs，与Eager模式下的Tensorflow类似
 
 
-练习： [PytorchNN.ipynb](./Pytorch/PytorchNN.ipynb), [PytorchGAN.ipynb](./Pytorch/PytorchGAN.ipynb)
-相关： [TensorflowcGAN.ipynb](./Pytorch/TensorflowcGAN.ipynb)
+练习： [PytorchNN.ipynb](PyTorch/PytorchNN.ipynb), [PytorchGAN.ipynb](PyTorch/PytorchGAN.ipynb)
+相关： [TensorflowcGAN.ipynb](PyTorch/TensorflowcGAN.ipynb)
 
 
 ## Install

@@ -5,7 +5,7 @@
 
 
 ## 广泛靶向代谢组
-![Metabolomics](../Pipelines_overview/img/Metabolomics.png)
+![Metabolomics](../Pipelines_overview/Metabolomics.png)
 
 * 化合物预筛选
     - QC 样本由每个待测样本贡献相同体积液体混合而成，被多次检测；计算多次QC中每个 Compound 的 RSD (Relative Standard Deviation) 值，选取 RSD < 0.3 的化合物；如果一个样本中有超过70%的化合物 RSD < 0.3，说明 QC 稳定，代谢物峰面积可直接除以QC中均值进行标准化

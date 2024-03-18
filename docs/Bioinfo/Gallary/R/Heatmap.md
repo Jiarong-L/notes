@@ -54,7 +54,7 @@ heatmap(as.matrix(df),
 
 ### 2 - pheatmap
 1. 设定分组颜色
-Note : group_factor_colors func in [ColorMap](../ColorMap/)
+Note : group_factor_colors func in [ColorMap](ColorMap.md)
 ```
 g_colormap = c('red','blue','yellow','black','pink','green')
 anno_color = list(                                  
