@@ -21,11 +21,11 @@ img{
 ### Basic Pipelines
 | Basic Pipelines | 说明 | -- |
 | -- | -- | -- |
-| [Genome](./Basic/Genome.md) | 组装基因组，并且预测基因；准备上传NCBI的格式 | 其它：Haplotype-based组装；结合HiC数据的组装 |
-| Transcriptomics | 转录组 | Bulk：[RNA-seq](./Basic/RNA.md)<br>Single Cell：[scRNA-seq](./Basic/scRNA.md)<br>Spatial：[Spatial_RNA](./Basic/Spatial_RNA.md) |
+| [Genome](Bulk/Genome.md) | 组装基因组，并且预测基因；准备上传NCBI的格式 | 其它：Haplotype-based组装；结合HiC数据的组装 |
+| Transcriptomics | [RNA-seq](Bulk/RNA.md) | -- |
 | Proteomics | -- | -- |
-| [Metabolomics](./Basic/Metabolomics.md) | 代谢组 | -- |
-| [HiC](./Basic/HiC.md) | 细胞内3D空间距离信息 | 可能Epi也常用？ |
+| [Metabolomics](Bulk/Metabolomics.md) | 代谢组 | -- |
+| [HiC](Bulk/HiC.md) | 细胞内3D空间距离信息 | 可能Epi也常用？ |
 | Re-seq | 获取SNP、InDel、SV等信息 | 群体遗传-重测序 |
 
 
@@ -44,9 +44,9 @@ img{
 
 | DNA水平 | 说明 | -- |
 | -- | -- | -- |
-| [ATAC-seq](./Epi/ATAC-seq.md) | 所有开放染色质 | -- |
-| 免疫共沉淀 | 寻找某一种修饰的位点信息 | [Chip-seq](./Epi/Chip-seq.md)：目标蛋白与DNA的互作位点 <br> MeDIP-seq：6mA特异性抗体，富集含6mA的片段 <br> PRO-seq：激活状态下RNA聚合酶的位置 |
-| [BS-seq](./Epi/BS-seq.md)  | 甲基化位点信息 | -- |
+| [ATAC-seq](Bulk/ATAC-seq.md) | 所有开放染色质 | -- |
+| 免疫共沉淀 | 寻找某一种修饰的位点信息 | [Chip-seq](Bulk/Chip-seq.md)：目标蛋白与DNA的互作位点 <br> MeDIP-seq：6mA特异性抗体，富集含6mA的片段 <br> PRO-seq：激活状态下RNA聚合酶的位置 |
+| [BS-seq](Bulk/BS-seq.md)  | 甲基化位点信息 | -- |
 
 
 
@@ -56,8 +56,8 @@ RNA水平：免疫共沉淀（MeRIP-seq for m6A）；也可以 RNA-BS-seq（原�
 
 | -- | 说明 | -- |
 | -- | -- | -- |
-| [scRNA](./Basic/scRNA.md) | Reads 带有 Cell Barcode 和 UMI | -- |
-| [Spatial RNA](./Basic/Spatial_RNA.md) | Reads 带有空间信息 | -- |
+| [scRNA](SingleCell/scRNA.md) | Reads 带有 Cell Barcode 和 UMI | -- |
+| [Spatial](SingleCell/Spatial.md) | Reads 带有空间信息 | -- |
 
 
 
