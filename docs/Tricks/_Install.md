@@ -15,15 +15,30 @@ pip uninstall jupyter
 ```
 
 ### Linux
-```
-apt upgrade
 
+[设置清华源](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)：首先备份旧文件
+```
+cd /etc/apt
+sudo mv sources.list sources.list.old
+```
+随后生成新的 sources.list
+```
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+```
+
+随后记得 ```sudo apt-get update``` 或者  ```sudo apt-get upgrade``` ；之后就可以正常下载软件了：
+
+```
 apt install <package_name>
 
 apt remove <package_name>
 
 apt-cache madison <package_name>    ## list version
 ```
+
 
 ### conda
 
