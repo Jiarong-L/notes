@@ -26,8 +26,7 @@ img{
 | Proteomics | -- | -- |
 | [Metabolomics](Bulk/Metabolomics.md) | 代谢组 | -- |
 | [HiC](Bulk/HiC.md) | 细胞内3D空间距离信息 | 可能Epi也常用？ |
-| Re-seq | 获取SNP、InDel、SV等信息 | 群体遗传-重测序 |
-
+| Re-seq | 对已知基因组序列信息的个体进行测序，获取SNP、InDel、SV等信息 | 群体遗传-重测序 |
 
 ### Metagenomics
 关注环境中物种组成，或者功能基因的比例；病毒由于含量少，另有工具（TBA）
@@ -56,8 +55,8 @@ RNA水平：免疫共沉淀（MeRIP-seq for m6A）；也可以 RNA-BS-seq（原�
 
 | -- | 说明 | -- |
 | -- | -- | -- |
-| [scRNA](SingleCell/scRNA.md) | Reads 带有 Cell Barcode 和 UMI | -- |
-| [Spatial](SingleCell/Spatial.md) | Reads 带有空间信息 | -- |
+| [SingleCellOmics](SingleCellOmics.md) | Reads 带有 Cell Barcode 和 UMI | -- |
+| [SpatialOmics](SpatialOmics.md) | Reads 带有空间信息 | -- |
 
 
 
