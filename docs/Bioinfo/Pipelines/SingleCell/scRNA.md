@@ -18,7 +18,8 @@ scATAC: 基于scRNA得到某种亚细胞的转录谱，或已知reference情况�
 | Batch Integration | R: Seurat, Harmony, LIGER |
 | MultiOmics Integration | R: Seurat |
 | Doublet Detection | R: DoubletFinder, DoubletDecon<br>Py: DoubletDetection, Scrublet |
-| PseudoTime(Traj) | R: monocle3<br>Py: scVelo |
+| PseudoTime(Traj) | R: monocle3<br>Py: Scanpy(paga) |
+| RNA Velocity | Py: scVelo |
 | GO GSEA / KEGG Enrichment | R: clusterProfiler |
 
 Others: inferCNV 分析CNV以判断是否是肿瘤细胞，hdWGCNA 分析基因模块，SNV分析（META-CS实验技术改进）
