@@ -77,6 +77,7 @@ pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000)
 HVGsNameList <- VariableFeatures(pbmc)
 
 ## Scale: remove unwanted sources of variation
+##     -- Zero-centered or Mean-subtraction
 ##     -- Save to:  pbmc[["RNA"]]$scale.data     Layer
 pbmc <- ScaleData(pbmc, 
           features = rownames(pbmc),        ##  default only HVGs, here all genes
@@ -144,10 +145,6 @@ FeaturePlot(pbmc, features = rownames(All.markers)[1:2], reduction="pca")
 ## scATAC
 
 TBA
-
-
-
-
 
 
 
@@ -242,6 +239,8 @@ LIGER：基于因子分析的整合，适用于具有不同细胞类型组成的
 
 LIGER： https://cloud.tencent.com/developer/article/1814109
 
+Seurat: CCA+MNN --- FindIntegrationAnchors()+IntegrateData()
+
 ```
 
 
@@ -284,6 +283,27 @@ head(pbmc@meta.data$nCount_RNA) ## "numeric" list
 head(pbmc$nCount_RNA)           ## "numeric" list with names: pbmc$nCount_RNA['TTTCTACTGAGGCA-1']
 head(pbmc[['nCount_RNA']])      ## "data.frame" 
 ```
+
+
+
+
+## Spatial
+
+### Visium
+
+BayesSpace聚类：https://zhuanlan.zhihu.com/p/393981571  
+https://www.jianshu.com/p/9206ba12c854
+
+3.2!!! https://www.jianshu.com/p/13d7ea85bd71
+
+https://satijalab.org/seurat/articles/spatial_vignette.html
+
+
+
+
+
+
+
 
 
 

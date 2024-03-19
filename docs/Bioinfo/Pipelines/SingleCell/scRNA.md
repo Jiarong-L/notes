@@ -4,72 +4,67 @@ img{
 }
 </style>
 
+scATAC: 基于scRNA得到某种亚细胞的转录谱，或已知reference情况下；可以分析10x平台产生的单细胞水平ATAC数据
 
-## Links
-* 示例数据来源：https://www.10xgenomics.com/resources/datasets
-* 数据库（TBA）
-    * CellMarker：http://biocc.hrbmu.edu.cn/CellMarker/index.jsp
-    * PanglaoDB：https://panglaodb.se/index.html
-    * SingleR datasets
+## scRNA
+
+![](../Pipelines_overview/scRNA.png)
+
+| 任务 | 工具 |
+| -- | -- |
+| ```filtered_feature_bc_matrix/``` | [CellRanger](../../Blocks/CellRanger.md) |
+| PIPELINE |  R: [Seurat](../../Blocks/Seurat.md)<br>Py: [Scanpy](../../Blocks/Scanpy.md) |
+| CellType Anno | R: SingleR, Metacell |
+| Batch Integration | R: Seurat, Harmony, LIGER |
+| MultiOmics Integration | R: Seurat |
+| Doublet Detection | R: DoubletFinder, DoubletDecon<br>Py: DoubletDetection, Scrublet |
+| PseudoTime(Traj) | R: monocle3<br>Py: scVelo |
+| GO GSEA / KEGG Enrichment | R: clusterProfiler |
+
+Others: inferCNV 分析CNV以判断是否是肿瘤细胞，hdWGCNA 分析基因模块，SNV分析（META-CS实验技术改进）
+
+Tips: Bulk mRNA 数据可以帮助验证scRNA数据的完整性；如果还有其它bulk多组学数据，可以尝试算一下相关性
+
+Tips：降维/聚类算法多种多样，似乎Umap等流形降维方法效果较好
+
+### R:Seurat+SingleR
+
+* Seurat对每个细胞统计符合pattern的基因量，然后可以根据这个统计量进行Filtering，或者在Scale时候消除这个统计量的影响（RegressOut），e.g.
+```R
+pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")                      ## Calculating
+pbmc <- subset(pbmc, subset = nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.mt < 5)  ## Filtering
+pbmc <- ScaleData(pbmc, features = rownames(pbmc), vars.to.regress = "percent.mt")        ## RegressOut
+```
+
+| Data QC | 说明 | pattern |
+| -- | -- | -- |
+| Filter off Genes | Appear in >3 Cells | -- |
+| Filter off Cells | Not Doublet: via Detectors <br> minGeneNum > 200-500 <br> maxGeneNum < X, X decided via 'VlnPlot()' <br> (Doublet may contain more genes)  | -- |
+| Filter off Cells + RegressOut | Mitochondrial Genes <15% | ```"^MT-"``` |
+| Filter off Cells + RegressOut | Ribosomal Genes <5% | ```"^RP[SL]"``` |
+| Filter off Cells + RegressOut | Hemoglobin Genes <br> ```"HBA1","HBA2","HBB","HBD","HBE1","HBG1","HBG2","HBM","HBQ1","HBZ"``` | ```^HB[^(P)]``` |
+| Filter off Cells + RegressOut | Cell-Cycle: 见下文  | cc.genes + CellCycleScoring() |
 
 
-## Basic Pipeline (mainly Seurat)
-* CellRanger ...
-* Data QC
-    * Filter off Genes
-        * Appear in >3 Cells
-    * Filter off Cells
-        * Doublet Detection: Scrublet, DoubletFinder, DoubletDecon
-        * Mitochondrial Genes 
-        ```
-        (pattern = "^MT-")     ## <15% OK, later: ScaleData(pbmc, vars.to.regress = "percent.mt")
-        ```
-        * Ribosomal Genes 
-        ```
-        (pattern = "^RP[SL]")  ## <5% OK
-        ```
-        * Hemoglobin Genes 
-        ```
-        (pattern = "^HB[^(P)]")
-       ## "HBA1","HBA2","HBB","HBD","HBE1","HBG1","HBG2","HBM","HBQ1","HBZ"
-       ```
-        * minGeneNum > 200-500 
-        * maxGeneNum < X, X decided via 'VlnPlot()'; Droplets may contain more genes
-* Normalize & Scale & HVGs
-    * NormalizeData() --- "LogNormalize"
-    * FindVariableFeatures() --- **HVGs:** GeneA_cellA v.s. GeneA_Overall
-        * Opt. If dataset is large, use HVGs for afterward analysis
-    * ScaleData() --- Zero-centered or Mean-subtraction
-    * SCTransform() = NormalizeData() + FindVariableFeatures() + ScaleData()
-* Cell-Cycle Scoring and Regression (Opt.)
-    * Pick HVGs
-    * Load Cell Circle Genes --- Seurat: cc.genes
-    * CellCycleScoring()
-    * ScaleData()
-        * Opt.1: vars.to.regress = c("S.Score", "G2M.Score")
-        * Opt.2: vars.to.regress = c("CC.Difference")；CC.Difference = S.Score - G2M.Score
-        * 注意，Opt.1不适合关注细胞分化的实验，因为会完全消除非周期细胞和周期细胞之间的区别；Opt.2 将保持二者间细胞周期差异，仅消除二者内部细胞周期差异
-        * Tips：可以通过查看对PC贡献最多的基因是否是细胞周期相关基因来判断影响
-* Batch Correction
-    * Opt.1: CCA+MNN --- Seurat: FindIntegrationAnchors()+IntegrateData()
-    * Opt.2: Harmony
-* Clustering
-    * PCA
-    * UMAP/tSNE (PCA result as input)
-    * Clustering (PCA result as input)
-    ```
-    scRNA <- FindNeighbors(scRNA, dims = pc.num)
-    scRNA <- FindClusters(scRNA, resolution = 0.5)
-    ```
-* Cell-type Annotation
-    * Find marker genes --- **Diff-expr genes:** cluster v.s. clusters
-    * Annotate clusters (cell types) based on marker genes
-        * SingleR() + HumanPrimaryCellAtlasData(label.main)/CellMarker/PanglaoDB/Papers...
-    * Tips：在这个水平上进行一些常规的分析(cluster间的比较)，比方说KEGG、GO富集分析，差异基因表达分析（cell-type间），etc.
-* Sub-Clustering
-    * Pick a cluster (cell-type), Clustering & Annotate
-        * SingleR() + MonacoImmuneData(label.fine) to sub-clusters
-    * Tips：假设这些sub-type都来自同一个cell-type，在这个水平上进行一些更加细致的操作，比如：对免疫细胞细致分类，拟时序分析，RNA velocity，etc.
+* 根据Variance选出**HVGs:** GeneA_cellA v.s. GeneA_Overall
+    - Opt. If dataset is large, use HVGs for afterward analysis
+
+* (Opt.)根据HVGs进行 [Cell-Cycle Scoring and RegressOut](https://satijalab.org/seurat/articles/cell_cycle_vignette.html)：Pick HVGs --> Load privided Cell Circle Genes ```cc.genes``` --> CellCycleScoring() --> ScaleData()
+    - Opt.1: vars.to.regress = c("S.Score", "G2M.Score")
+    - Opt.2: vars.to.regress = c("CC.Difference")；CC.Difference = S.Score - G2M.Score
+    - 注意，Opt.1不适合关注细胞分化的实验，因为会完全消除非周期细胞和周期细胞之间的区别；Opt.2 将保持二者间细胞周期差异，仅消除二者内部细胞周期差异
+    - Tips：可以通过查看对PC贡献最多的基因是否是细胞周期相关基因来判断影响
+
+* 随后进行Clustering，假设每个Cluster代表一种Cell-type；再次对Cell-type进行Clustering，可得到细胞的分型。
+    1. Find marker genes --- **Diff-expr genes:** cluster v.s. clusters
+    2. Annotate clusters based on marker genes
+
+| -- | DB for SingleR() | -- | Tips |
+| -- | -- | -- | -- |
+| Cell-Type | HumanPrimaryCellAtlasData(label.main), [CellMarker](http://biocc.hrbmu.edu.cn/CellMarker/index.jsp), [PanglaoDB](https://panglaodb.se/index.html), SingleR datasets, Papers | e.g.Tcell/Bcell/... | 在这个水平上进行一些常规的分析(cluster间的比较)，比方说KEGG、GO富集分析，差异基因表达分析（cell-type间） |
+| Cell-Subtype | MonacoImmuneData(label.fine) | e.g.对CD4细胞细致分类 | 在这个水平上进行一些更加细致的操作，比如：拟时序分析，RNA velocity |
+
+
     
 
 ## Meta scRNA (Testing)
@@ -78,23 +73,18 @@ img{
 为了尽量缩小潜在参考基因集范围，可以参考相似研究的Meta Bulk注释提到的基因组；Tips: GTDB使用ANI进行分类，可以使用本地储存的文件，不用去NCBI再下载
 
 其单细胞QC步骤一如前文所述。有两种或许可行的注释、定量方法： 
-    * Anno via FastANI：当需要注释的细胞数量较少时，可以将其比对参考DB，根据ANI确定可能Taxa范围
-    * Anno via Mapping：通过cdhit等对参考基因集进行去重，然后将scRNA数据map上去，根据细胞的mapping信息决定其物种注释(也许可以使用cellranger)
+
+* Anno via FastANI：当需要注释的细胞数量较少时，可以将其比对参考DB，根据ANI确定可能Taxa范围
+* Anno via Mapping：通过cdhit等对参考基因集进行去重，然后将scRNA数据map上去，根据细胞的mapping信息决定其物种注释(也许可以使用cellranger)
 
 Tips：有时如果物种注释结果不理想，我们也可以进行单细胞水平的功能注释(GO,ARG,pathway...)
-
-## 其它
-
-* scATAC: 基于scRNA得到某种亚细胞的转录谱，或已知reference情况下；可以分析10x平台产生的单细胞水平ATAC数据
-* Bulk mRNA 数据可以帮助验证scRNA数据的完整性；如果还有其它bulk多组学数据，可以尝试算一下相关性
-
-
-
-
 
 
 
 ## 参考
+
+各种单细胞测序技术： https://zhuanlan.zhihu.com/p/569346733
+
 数据集汇总： https://www.jianshu.com/p/49e5cf91f819  
 
 NBIS: https://www.jianshu.com/p/1e29e3b9a4ab  
