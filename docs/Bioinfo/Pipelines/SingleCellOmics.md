@@ -152,9 +152,9 @@ Clustering后，[10x 提供关于CellType Anno的建议](https://www.10xgenomics
 | Task | 说明 | Tool |
 | -- | -- | -- |
 | ... | GO/KEGG、轨迹分析、细胞速率、... | - 同scRNA<br> - [GREAT](http://great.stanford.edu/public/html/index.php)有些类似对差异Peak进行GO Term分析 |
-| 调控网络分析 | Peak-Peak Co-accessibility | - Cicero <br> - Pando+scRNA |
+| 调控网络分析 | Peak-Peak Co-accessibility | - Cicero <br> - Pando+scRNA <br> - ArchR |
 | Motif Analysis  | 寻找某个TF的 binidng site 的特征基序（随后可以在全基因组范围内寻找符合motif的潜在binding site） | [chromVAR](https://github.com/GreenleafLab/chromVAR) |
-| Footprint Analysis | 潜在的TF binidng site是否结合TF：如果某一开发区域已经被转录因子结合，则此区域不会被测得，表现为peak中间有凹陷 | [TOBIAS](https://www.hdsu.org/chipatac2020/07_ATAC_Footprinting.html) |
+| Footprint Analysis | 潜在的TF binidng site是否结合TF：如果某一开放区域已经结合TF，则此区域不会被测得，表现为peak中间有凹陷 | [TOBIAS](https://www.hdsu.org/chipatac2020/07_ATAC_Footprinting.html) |
 
 
 ## 参考
