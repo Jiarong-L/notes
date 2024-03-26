@@ -210,7 +210,7 @@ cellranger-atac mkfastq           ## BCL => FASTQ
 cellranger-atac count             ## Mapping & PeakCalling & PeakFiltering
 ```
 
-对于Multiplexing情况依旧有 ```cellranger-atac aggr``` 对多样本生成统一的count matches(peaks)，但由于数据质量差异较大的情况，建议分群后再用 MACS2 重新进行 PeakCalling
+对于Multiplexing情况依旧有 ```cellranger-atac aggr``` 对多样本生成统一的count matches(peaks)，但由于数据质量差异较大的情况，建议分群pseudo-bulk后再用 MACS2 重新进行 PeakCalling
 
 
 

@@ -142,14 +142,6 @@ VlnPlot(pbmc, features = rownames(All.markers)[1:2])
 FeaturePlot(pbmc, features = rownames(All.markers)[1:2], reduction="pca")
 ```
 
-## scATAC
-
-TBA
-
-
-
-
-
 
 
 ## Multimodal
@@ -209,7 +201,10 @@ pbmcMerged <- MapQuery(
 2. ```FindBridgeTransferAnchors```
 3. ```MapQuery```
 
-TBA
+或先用 [Signac](./Signac.md) 将Peak matrix 转换为 Activity matrix（假设基因的表达活性可以简单的通过基因上下游2kb范围内覆盖的reads数的加和进行定量，需要先通过GTF/EnsDb得到GRanges注释）；参考[Seurat5 scATAC Integration](https://satijalab.org/seurat/articles/seurat5_atacseq_integration_vignette) 将 scRNA-seq 的 label 转移给 scATAC-seq
+
+1. ```FindTransferAnchors```
+2. ```TransferData```
 
 
 ### Use: +Protein
@@ -223,26 +218,46 @@ TBA
 
 ## Batch Correction
 
-TBA
-
-```
+参考 [Seurat integration_introduction](https://satijalab.org/seurat/articles/integration_introduction)
+```R
 obj <- IntegrateLayers(
   object = obj, method = CCAIntegration,
   orig.reduction = "pca", new.reduction = "integrated.cca",
   verbose = FALSE
 )
 
-CCA：基于规范相关性分析的整合，适用于具有相似细胞类型组成的数据集。
-RPCA：基于稀疏主成分分析的整合，适用于具有不同细胞类型组成的数据集。
-MNN：基于互近邻的整合，适用于具有相似细胞类型组成的数据集。
-LIGER：基于因子分析的整合，适用于具有不同细胞类型组成的数据集。
+obj <- JoinLayers(obj)                 ## collapses the individual datasets together and 
+                                       ## recreates the original counts and data layers
 
-LIGER： https://cloud.tencent.com/developer/article/1814109
 
-Seurat: CCA+MNN --- FindIntegrationAnchors()+IntegrateData()
-
+## CCAIntegration 适用于不同数据集中细胞类型保守的情况，有可能过度对齐
+## RPCAIntegration 适用于不同数据集中细胞类型差别较大的情况
+## HarmonyIntegration 
+## FastMNNIntegration
+## scVIIntegration       ## install.packages("reticulate")  ## also scvi-tools
 ```
 
+随后 Clustering & **FindConservedMarkers**（或者FindMarkers）
+```R
+obj <- FindNeighbors(obj, reduction = "integrated.cca", dims = 1:30)
+obj <- FindClusters(obj, resolution = 1)
+obj <- RunUMAP(obj, dims = 1:30, reduction = "integrated.cca")
+cluster2_vs_All.markers <- FindConservedMarkers(obj, ident.1 = 2, grouping.var = "stim", verbose = FALSE)
+```
+
+
+其它信息：
+```
+MNN/fastMNN：使用PCA降维矩阵/原始表达矩阵计算细胞之间的余弦距离、生成互近邻的集合、寻找MNN pairs、矫正对齐；适用于不同数据集中细胞类型保守的情况
+    - 参考 https://cloud.tencent.com/developer/article/1814115
+    - Seurat Anchor: CCA+MNN --- FindIntegrationAnchors()+IntegrateData()
+
+LIGER：iNMD分解矩阵，根据此空间内的距离（maximum factor loadings）建立 neighbors graph；适用于不同数据集中细胞类型差别较大的情况
+    - 参考 https://cloud.tencent.com/developer/article/1814109
+
+Harmony：在PCA空间进行soft k-means clustering；节约运行时间
+    - 参考 https://cloud.tencent.com/developer/article/1814104
+```
 
 
 ## SeuratObject
