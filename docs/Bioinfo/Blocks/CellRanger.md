@@ -20,8 +20,8 @@ img{
 
 
 
-
-## Install
+## scRNA
+### Install
 参考[Installing Cell Ranger tutorial](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_in)，填写个人信息后可下载得到压缩包，$PWD中解压：
 ```
 tar -xzf cellranger-7.1.0.tar.gz
@@ -34,7 +34,7 @@ conda install -c dranew bcl2fastq
 之后使用sitecheck测试系统与硬件要求，testrun选一个小数据集试测。
 
 
-## mkfastq
+### mkfastq
 将bcl转换为fastq，输出的fq文件位于output_folder/outs/中
 ```
 cellranger mkfastq       
@@ -45,7 +45,7 @@ cellranger mkfastq
 *详见[link](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_fq)*
 
 
-## mkgtf/mkref
+### mkgtf/mkref
 生成 10x-compatible transcriptome reference
 ```
 ## Filter GTF
@@ -64,7 +64,7 @@ cellranger mkref
 *详见[link](https://support.10xgenomics.com/spatial-gene-expression/software/pipelines/latest/advanced/references#header)*；其中attribute可参考：[gene_biotype](https://www.gencodegenes.org/pages/biotypes.html), [GTF attributes](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/advanced/references#input-gene)  
 
 
-## count
+### count
 将reads映射至参考基因组(STAR进行比对)，分选计数，并且生成 .cloupe file 以供 Loupe Browser中的可视化和分析；**Naming convention:**  (Sample_A_S1_L00X_R1_001.fastq.gz), sample_PREFIX(Sample_A), Lane(L00X)；最好存在sample_PREFIX_xxx/文件夹中   
 ```
 cellranger count 
@@ -98,7 +98,7 @@ cellranger count
 ```
 
 
-## aggr (opt.)
+### aggr (opt.)
 整合多个Cell Ranger counts的结果；  
 **举例**：除开Cell Multiplexing情况，一份样品(sample)放在一个GEM well中，多个GEM well的情况下必须为每个well分别运行count操作  
 
@@ -127,7 +127,7 @@ output_folder:
 └── web_summary.html
 ```
 
-## multi (opt.)
+### multi (opt.)
 Cell Multiplexing情况下使用。简单来说就是许多样本各自加上CMO tag后pool到一起，加到同一个GEM well中 (可以想象多样本加到lane中的情况，只不过GEM well是生成小液滴的步骤)。  
 准备一个config.csv，可用 **cellranger multi-template** 生成示例
 ```
@@ -154,7 +154,7 @@ cellranger multi --id=<output_folder> --csv=<config.csv>
 
 
 
-## targeted-depth (opt.)
+### targeted-depth (opt.)
 给定WTA(whole transcriptome analysis)数据集、目标基因集，计算目标基因的在WTA中占比、在cell中均值; 其结果有助于计算目标基因表达实验的测序深度
 
 molecule_info.h5为count操作输出，target_panel可从Cell Ranger安装目录中target_panels/中找到（human only），或参考[Panel Selection](https://support.10xgenomics.com/targeted-gene-expression/panel-selection/overview)  
@@ -170,7 +170,7 @@ in the reference transcriptome used by the molecule info h5 file.
 
 
 
-## targeted-compare (opt.)
+### targeted-compare (opt.)
 需要同时先对WTA(称parent) 与 target-panel(称target, 可视为**hybrid capture的结果**) 进行count，注意：reference必须一致、target_panel.csv也要相符
 ```
 cellranger count --id=target --target-panel <target_panel.csv> ...
@@ -191,13 +191,15 @@ cellranger targeted-compare
 
 
 
-## Other Opt
+### Other Opt
 ```
 vdj                 Assembles single-cell VDJ receptor sequences from 10x Immune Profiling libraries
 reanalyze           Re-run secondary analysis (dimensionality reduction, clustering, etc)
 mkvdjref            Prepare a reference for use with CellRanger VDJ
 mat2csv             Convert a gene count matrix to CSV format
 ```
+
+参考[Cell Ranger V(D)J](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/tutorial/tutorial-vdj)：得到FASTQ后用Loupe进行查看
 
 ## scATAC
 
@@ -209,11 +211,6 @@ cellranger-atac count             ## Mapping & PeakCalling & PeakFiltering
 ```
 
 对于Multiplexing情况依旧有 ```cellranger-atac aggr``` 对多样本生成统一的count matches(peaks)，但由于数据质量差异较大的情况，建议分群后再用 MACS2 重新进行 PeakCalling
-
-## V(D)J
-
-参考[Cell Ranger V(D)J](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/tutorial/tutorial-vdj)
-
 
 
 
