@@ -42,6 +42,8 @@ apt-cache madison <package_name>    ## list version
 
 ### conda
 
+注意，WSL中Miniconda只能装在/home/，如果装在win盘中则会 ```OSError: [Errno 40] Too many levels of symbolic links```
+
 生成环境+装包
 ```
 conda update --all -y # update packages
