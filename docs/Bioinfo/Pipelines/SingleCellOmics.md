@@ -26,7 +26,7 @@ CapturedProtein-----Antibody-----HTO-----------
 | -- | -- |
 | ```filtered_feature_bc_matrix/``` | [CellRanger](../Blocks/CellRanger.md) |
 | PIPELINE |  R: [Seurat](../Blocks/Seurat.md)<br>Py: [Scanpy](../Blocks/Scanpy.md) |
-| CellType Anno | R: SingleR, Metacell |
+| CellType Anno | R: SingleR, Metacell, Cellassign |
 | Batch Integration | R: Seurat, Harmony, LIGER |
 | MultiOmics Integration | R: Seurat |
 | Doublet Detection | R: DoubletFinder, DoubletDecon<br>Py: DoubletDetection, Scrublet |
@@ -77,7 +77,7 @@ pbmc <- ScaleData(pbmc, features = rownames(pbmc), vars.to.regress = "percent.mt
 | Cell-Subtype | MonacoImmuneData(label.fine) | e.g.对CD4细胞细致分类 | 在这个水平上进行一些更加细致的操作，比如：拟时序分析，RNA velocity |
 
 
-### For Meta
+### Meta
 对宏基因组使用scRNA与Basic Pipeline不同；Basic Pipeline中已知样本来自某一生物，所以可以很简单的使用参考基因组进行每个细胞内、每个基因的定量；而宏基因组的潜在参考基因集过于庞大，耗费过量资源；且宏基因组使用scRNA技术的目的之一是希望得到更准确的细胞组成信息（现有Binning有时准确度堪忧），需求是对每一个cell进行准确的物种注释。
 
 为了尽量缩小潜在参考基因集范围，可以参考相似研究的Meta Bulk注释提到的基因组；Tips: GTDB使用ANI进行分类，可以使用本地储存的文件，不用去NCBI再下载
@@ -89,7 +89,7 @@ pbmc <- ScaleData(pbmc, features = rownames(pbmc), vars.to.regress = "percent.mt
 
 Tips：有时如果物种注释结果不理想，我们也可以进行单细胞水平的功能注释(GO,ARG,pathway...)
 
-### STOmics's scRNA Sequencing Method
+### STOmics
 
 BGI STOmics 的v1实验流程与 10X Genomics 类似，将磁珠(beads: CellBarcode_UMIs)与细胞裹入同一液滴中，液滴回收、破乳、反转录、扩增、测序，所得到的reads可以带有beads上的信息。理想状态下 1液滴=1磁珠+1细胞，但如果bead浓度太低则部分液滴中无bead，导致细胞回收率低；但如果bead浓度太高则1液滴中有多个beads，在后续分析中会被标识为多个细胞。（相应的，如果细胞浓度过高，则1液滴中有多个细胞，即Doublet）
 
@@ -110,17 +110,51 @@ rawReads数据处理的流程：QC/UMI Filtering-->Mapping-->PISA Gene anno-->Be
 
 ## scATAC
 
-基于scRNA得到某种亚细胞的转录谱，或已知reference情况下；可以分析10x平台产生的单细胞水平ATAC数据
+[![](./SingleCellOmics/scATACFeatureMatrix.png)](https://doi.org/10.1186/s13059-019-1854-5)
+
+推荐ArchR一站式分析。此外常见Signac、SnapATAC。
+
+### Feature Matrix
+已知reference情况下，可通过 [CellRanger](../Blocks/CellRanger.md) 得到每个细胞的 Peak 信息。由于Peak数据一般十分稀疏，因此某些处理流程会选择合并，例如 [Ansuman T. Satpathy (2019)](https://doi.org/10.1038/s41587-019-0206-z) 的QC流程：
+
+```
+1. 去除低质量细胞
+    - TSS enrichment score 指所有基因TSS位点测序深度的平均值，一般取TSS上下游1000-2000bp的值为基准
+    - Unique fragment > 1000
+2. 降低分辨率：2.5kb为一个bin合并Peak数目，生成TileMatrix
+3. 生成 Pseudo-bulk ATAC 数据：根据TileMatrix的聚类信息合并而成
+4. 对每一个 Cluster 所对应的 Pseudo-bulk 数据进行 Peak Calling (MACS2)
+5. 根据bulk得到的Peak信息，选取单细胞数据中的高质量Peaks
+```
+
+* scATAC一般不直接Normalize，而是使用TF-IDF挖掘Feature
+* Doublet
+    - ArchR: 模拟双细胞，随后在低维空间中识别与之相近者为双细胞
+    - scDblFinder
+* [Batch Integration](https://doi.org/10.1038/s41592-021-01336-8): Harmony, LIGER
 
 
-https://www.10xgenomics.com/support/single-cell-atac/documentation/steps/sequencing/cell-type-annotation-strategies-for-single-cell-atac-seq-data
+### CellType Anno
+
+Clustering后，[10x 提供关于CellType Anno的建议](https://www.10xgenomics.com/support/single-cell-atac/documentation/steps/sequencing/cell-type-annotation-strategies-for-single-cell-atac-seq-data): 
 
 
+**Opt 1.** 寻找Cluster间有accessibility差异的Peaks，其下游最近的基因为Marker Gene
 
-TBA
+**Opt 2.** 用户自定义 Cell Type-Specific Feature Set。常见[将Peak Matrix 转换为 Gene Scores Matrix](https://www.archrproject.com/bookdown/calculating-gene-scores-in-archr.html)（可以理解为基于表观数据预测出的基因表达值）, 随后用SingleR 等进行细胞类型注释
+
+**Opt 3.** Seurat TransferData 将携带注释的scRNA数据与scATAC数据在低维空间对齐
 
 
+### Downstream
+得到Marker Peaks/Genes 后: 
 
+| Task | 说明 | Tool |
+| -- | -- | -- |
+| ... | GO/KEGG、轨迹分析、细胞速率、... | - 同scRNA<br> - [GREAT](http://great.stanford.edu/public/html/index.php)有些类似对差异Peak进行GO Term分析 |
+| 调控网络分析 | Peak-Peak Co-accessibility | - Cicero <br> - Pando+scRNA |
+| Motif Analysis  | 寻找某个TF的 binidng site 的特征基序（随后可以在全基因组范围内寻找符合motif的潜在binding site） | [chromVAR](https://github.com/GreenleafLab/chromVAR) |
+| Footprint Analysis | 潜在的TF binidng site是否结合TF：如果某一开发区域已经被转录因子结合，则此区域不会被测得，表现为peak中间有凹陷 | [TOBIAS](https://www.hdsu.org/chipatac2020/07_ATAC_Footprinting.html) |
 
 
 ## 参考
@@ -138,4 +172,8 @@ HVGs: https://www.jianshu.com/p/3d40c56e5fc8
 Cell Circle： https://zhuanlan.zhihu.com/p/82654538   
 
 Batch: https://www.jianshu.com/p/ebc328f9fb73   
+
+GREAT: https://www.jianshu.com/p/7f6ce4f238cb   
+
+
 
