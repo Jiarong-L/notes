@@ -12,7 +12,7 @@ export PATH=$PWD/sratoolkit.3.0.6-ubuntu64/bin:$PATH
 
 查找文章中SRRxxxxx编号进行下载, 或参考[link](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/)
 ```bash
-echo "SRR22097888\nSRR3156163\nSRR3157034\nSRR3156160\n" > SraAccList.txt
+echo -e "SRR22097888\nSRR3156163\nSRR3157034\nSRR3156160\n" > SraAccList.txt
 export HOME=$PWD/SRRtmp/
 
 ## prefetch SRR22097888  -X 100000000
