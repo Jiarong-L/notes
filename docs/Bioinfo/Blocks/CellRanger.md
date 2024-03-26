@@ -5,9 +5,21 @@ img{
 </style>
 
 
-10x Genomics 单细胞测序数据处理工具
+10x Genomics 单细胞测序数据处理工具，默认示例为scRNA的处理选项
 
 **注意**：下方代码中换行只是为了看起来方便，实际使用如果出错则删掉换行
+
+## Chromium
+
+10x Chromium平台提供单细胞水平的以下测序： [3' gene expression](https://cdn.10xgenomics.com/image/upload/v1660261285/support-documents/CG000360_GettingStartedSingleCell3-GeneExpression_RevA.pdf)，[5' gene expression alongside V(D)J repertoire profiling](https://cdn.10xgenomics.com/image/upload/v1660261285/support-documents/CG000361_GettingStartedImmuneProfiling_RevA.pdf)，[ATAC](https://cdn.10xgenomics.com/image/upload/v1660261285/support-documents/CG000362_GettingStartedSingleCellATAC_Rev_B.pdf)
+
+
+其原理大致为：将待测物质放入带有barcode的小液珠中进行标记，随后统一进行测序。
+
+![](./CellRanger/10x_Chromium.png)
+
+
+
 
 ## Install
 参考[Installing Cell Ranger tutorial](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_in)，填写个人信息后可下载得到压缩包，$PWD中解压：
@@ -186,6 +198,23 @@ reanalyze           Re-run secondary analysis (dimensionality reduction, cluster
 mkvdjref            Prepare a reference for use with CellRanger VDJ
 mat2csv             Convert a gene count matrix to CSV format
 ```
+
+## scATAC
+
+参考[Cell Ranger ATAC](https://support.10xgenomics.com/single-cell-atac/software/pipelines/latest/what-is-cell-ranger-atac)，其流程类似上文scRNA数据的处理：
+
+```
+cellranger-atac mkfastq           ## BCL => FASTQ
+cellranger-atac count             ## Mapping & PeakCalling & PeakFiltering
+```
+
+对于Multiplexing情况依旧有 ```cellranger-atac aggr``` 对多样本生成统一的count matches(peaks)，但由于数据质量差异较大的情况，建议分群后再用 MACS2 重新进行 PeakCalling
+
+## V(D)J
+
+参考[Cell Ranger V(D)J](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/tutorial/tutorial-vdj)
+
+
 
 
 ## 10x Fastq格式示例
