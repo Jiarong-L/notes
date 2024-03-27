@@ -10,9 +10,9 @@
 
 ## Pipeline
 
-与 [ChipSeq 流程](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3431496/)有许多重合：mapping后callPeaks，然后idr合并重复样本重合的peaks作为这个样本最终的peaks。Peaks实际上是chr上的一段区间，可以提取这个区间的序列进行motif富集/denovo预测，然后选取motif基序扫描基因组得到潜在的TFBS，Footprinting验证其是否已经结合TF。同时也可注释Peak所在区域，提取Promoter对应的基因进行GO/KEGG等分析。也可查看不同样本间结合位点的差异性（DiffBind）
+与 [ChipSeq 流程](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3431496/)有许多重合：mapping后callPeaks，然后idr合并重复实验的重合peaks作为这个样本最终的peaks。Peaks实际上是chr上的一段区间，可以提取这个区间的序列进行motif富集/denovo预测，然后选取motif基序扫描基因组得到潜在的TFBS，Footprinting验证其是否已经结合TF。同时也可注释Peak所在区域，提取Promoter对应的基因进行GO/KEGG等分析。也可查看不同样本间结合位点的差异性（DiffBind）
 
-
+在设计实验时一般会有重复实验和control组作为背景，callpeaks/QC/Diffbind时会消除掉背景的影响
 
 | Task | Tools | 说明 |
 | -- | -- | -- |
