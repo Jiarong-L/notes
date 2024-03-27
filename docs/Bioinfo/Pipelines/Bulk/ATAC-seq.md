@@ -10,7 +10,7 @@
 
 ## Pipeline
 
-与 [ChipSeq 流程](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3431496/)有许多重合：mapping后callPeaks，然后idr合并重复样本的peaks结果。Peaks实际上是chr上的一段区间，可以提取这个区间的序列进行motif富集/denovo预测，然后选取motif基序扫描基因组得到潜在的TFBS，Footprinting验证其是否已经结合TF。同时也可注释Peak所在区域，提取Promoter对应的基因进行GO/KEGG等分析。也可查看不同样本间结合位点的差异性（DiffBind）
+与 [ChipSeq 流程](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3431496/)有许多重合：mapping后callPeaks，然后idr合并重复样本重合的peaks作为这个样本最终的peaks。Peaks实际上是chr上的一段区间，可以提取这个区间的序列进行motif富集/denovo预测，然后选取motif基序扫描基因组得到潜在的TFBS，Footprinting验证其是否已经结合TF。同时也可注释Peak所在区域，提取Promoter对应的基因进行GO/KEGG等分析。也可查看不同样本间结合位点的差异性（DiffBind）
 
 
 
@@ -19,9 +19,9 @@
 | Reads QC + Trim | FastQC + Trimmomatic | -- |
 | Mapping to Ref | BWA/Bowtie2 | 得到 BAM file |
 | Pre-analysis | Samtools | - Mark PCR Duplicate<br>- Filter Insert Size<br>- Filter off mitochondria reads |
-| Peak Calling | MACS2 ```--shift -75(ReadsLen)``` (断点才是Peak中心) + Greenscreen | 已经初步过滤，可以根据QC或Diff自行筛选感兴趣的Peaks  |
+| Peak Calling | MACS2 ```--shift -75(ReadsLen)``` (断点才是Peak中心) | 已经初步过滤  |
 | View Peak | IGV | 提供bam和gff，对照Peak Calling结果查看peak是否合理 |
-| Peak QC | samtools + ChIPQC + phantompeakqualtools | 查看PeakCalling的大致的情况，确定数据是否合理<br> - InsertSize, FRiP, ...<br> - [ENCODE Blacklist](https://www.encodeproject.org/search/?searchTerm=exclusion+list): 去除因富含GC/重复片段而总是高信号的区域 |
+| Peak QC | samtools + ChIPQC + phantompeakqualtools + Greenscreen | 查看PeakCalling的大致的情况，确定数据是否合理<br> - InsertSize, FRiP, ...<br> - [ENCODE Blacklist](https://www.encodeproject.org/search/?searchTerm=exclusion+list): 去除因富含GC/重复片段而总是高信号的区域，有可能过度严格<br> - Greenscreen 去除假阳性Peaks  |
 | Merge Replicates | IDR | 寻找、合并重复样本间一致性的peaks |
 | ------- | Normalization + Analysis | ------- |
 | Diff Peak | DiffBind | 鉴定两个样本间差异结合位点，输入BED file |
@@ -388,6 +388,6 @@ https://www.jianshu.com/p/c65a1cb35d50（TFBSTools---已知Motif扫描，基因�
 
 https://meme-suite.org/meme/（MEME---denovo/enrichment/scanGenome）
 
-
+https://zhuanlan.zhihu.com/p/602992278（Greenscreen）
 
 
