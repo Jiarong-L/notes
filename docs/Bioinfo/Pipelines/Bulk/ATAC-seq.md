@@ -10,7 +10,9 @@
 
 ## Pipeline
 
-与 [ChipSeq 流程](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3431496/)有许多重合
+与 [ChipSeq 流程](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3431496/)有许多重合：mapping后callPeaks，然后idr合并重复样本的peaks结果。Peaks实际上是chr上的一段区间，可以提取这个区间的序列进行motif富集/denovo预测，然后选取motif基序扫描基因组得到潜在的TFBS，Footprinting验证其是否已经结合TF。同时也可注释Peak所在区域，提取Promoter对应的基因可以进行GO/KEGG等分析。也可查看不同样本间结合位点的差异性（DiffBind）
+
+
 
 | Task | Tools | 说明 |
 | -- | -- | -- |
@@ -131,7 +133,7 @@ wc -l ../mapped/tSRR5874658.bed
 ```
 
 
-ChIPQC：似乎包含了DiffBind，TBA
+ChIPQC：似乎已经包含了DiffBind
 ```R
 library(ChIPQC)
 ## browseVignettes("ChIPQC")
@@ -236,6 +238,25 @@ motifs <- getJasparMotifs()
 
 ## FAIL TBA
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

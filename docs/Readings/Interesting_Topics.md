@@ -91,6 +91,10 @@ Detection of off-target mutations: GWAS
 sgRNA library design：Cas-Offinder，BEsgRNADe
 ```
 
+## bulk RNA-seq deconvolution using scRNA
+https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-03016-6
+
+
 
 ## 多模态机器学习
 * https://zhuanlan.zhihu.com/p/53511144
