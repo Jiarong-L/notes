@@ -134,52 +134,6 @@ sambamba markdup -r aln.bam rmdup.bam --tmpdir=./ -t 2
 ```
 
 
-## 文件格式
-### [SAM](https://samtools.github.io/hts-specs/SAMv1.pdf)
-sam文件格式示例：
-```
-@SQ     SN:X17276.1     LN:556
-@SQ     SN:X51700.1     LN:437
-@SQ     SN:X68321.1     LN:1512
-@SQ     SN:X55027.1     LN:2367
-@SQ     SN:Z12029.1     LN:540
-@SQ     SN:X52700.1     LN:1759
-@SQ     SN:X52701.1     LN:1758
-......
-@PG     ID:bwa  PN:bwa  VN:0.7.17-r1188 CL:bwa mem ref.fa R1.fq R2.fq
-SRR22097888.1   77      *       0       0       *       *       0       0       CCAACATTCAATTTTGAAACATTAGTTAATCAATCATATCCTCTGGCATTAGAAATAATATTCTATATTGGATTTTTTATTGCTTTTGCTGTCAAATTACCGATTATTCCTTTACATACATGGTTACCGGATACCCATGGAGAAGCACAT  FFFGGGGFGGGFGGGFDFFFGDGCFGGGFEGEFDGGFFGGGGFGFGFGFGGFGGFFGGDGGG=GGEGFGEFDFGGGGGDEGFEGGFGGFGGFFFGFGFFGGGFFGGFGFGGGGFGGDGGEFGGFGEGGGFGGGGGGGAGGGGFFGGGGG;  AS:i:0  XS:i:0
-...
-SRR22097888.4   97      X66414.1        5       60      118S32M =       130     212     AGAATTTGAATTGATGTCTTTTCATTGTTTTACTTCCTCCTAAATTGTATTTATTGATTTATCCTAAAGATTTCATTTCAATAGGAATTTGGTTATTCACCATGCACGAGGATCCCCGCTAAGCATCCATGGCTGAATGGTTAAAGCGCC       FFEFGFFECGFFDDF:FFGFFFD<EGFEFEG3FFFFFFEGF6FFCFBDGFEF>FFFEFFG>E<EGE:F-CFFFGGFFGFEFEFAFEDEFFFAAF+FGFCGGF<GFFFF0F<CFEFFG7GBB=FFF?BGF/B5DFF/BF<F8E-FE6F+AF       NM:i:0  MD:Z:32 MC:Z:6M3D78M66S AS:i:32 XS:i:0
-SRR22097888.4   145     X66414.1        130     54      6M3D78M66S      =       5       -212    ATGGAATCTCATCATCAATACCAAAGGAATTGATGTGGTATATTCATATCATAACATATTAACAGTAAGAACTAGCATTCTTATCATAATCATATCTCATATCATATAATTCATAATCGTATCTCATATCATAGAATTCATAATCGTATC       +E/A)3;-C99C86)7(=-2C;9E5A7+>F@8@6D>FEF?E;9EEA?2BE85DEE8E8@FB=EEDEDFFBDEDF?<;;DDEAEE?CFCF@BFEEBAAF9FF>FF>EF==FDFFFDF=;EE9<D?EFCEDDAFF-EDCEFEFF6F?@F;?F       NM:i:9  MD:Z:6^TCT10T4A0T2C6G26G24      MC:Z:118S32M    AS:i:48 XS:i:0
-```
-每一列依次为：
-```
-QNAME      query read name
-FLAG       数值表示比对类型，例如 0x1=PAIRED
-RNAME      ref contig name；'*' 表示没有map上
-POS        Alignment的起始位置，0表示没有map上
-MAPQ       Mapping Quality
-CIGAR      比对结果信息
-RNEXT      (PE 测序专属) query R2 比对上的 ref片段；'='表示map到同一片段 ，'*' 表示没有map上
-PNEXT      (PE 测序专属)query R2 Alignment的起始位置，0表示没有map上
-TLEN       (PE 测序专属)插入序列长度；+/-表示R1R2的顺序
-SEQ        序列，若比对在-链则显示反向互补序列
-QUAL       fastq quality
-...        Optional fields，/tab分隔
-```
-CIGAR:
-```
-M/I/D = match_mismatch/insertion/deletion
-S     = spliced
-P     = 缺口
-I     = 插入
-....
-
-3S6M1P1I4M 依次为：3bp被剪去，6bp match，1bp缺口，1bp插入，4bp match
-```
-### BAM
-bam是sam的二进制格式（且丢失开头的@SQ lines），可以使用 view 相互转换它们；
-
 
 ## 参考
 BWA：https://bio-bwa.sourceforge.net/   
