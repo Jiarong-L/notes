@@ -131,13 +131,15 @@ Last position-specific scoring matrix computed, weighted observed percentages ro
 ......
 ```
 ### m8
-qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore
+常用的```-outfmt 6```输出为：
 ```
 X17276.1        X17276  100.000 556     0       0       1       556     1       556     0.0     1027
 X51700.1        X53699  100.000 437     0       0       1       437     1       437     0.0     808
 X51700.1        X51700  100.000 437     0       0       1       437     1       437     0.0     808
 X68321.1        X68321  100.000 1512    0       0       1       1512    1       1512    0.0     2793
 .....
+   1     2      3      4       5        6      7     8     9     10    11     12
+qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore
 ```
 ### Details
 #### blastn -help
