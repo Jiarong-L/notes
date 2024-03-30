@@ -15,7 +15,8 @@
 此外还有常用突变频率数据库（G1000/ExAC/ESP6500/dbSNP），功能预测数据库（dbNSPF），突变治病信息与表型数据库（HGMD/dbGap/ClinVar）
 
 
-随后，针对不同的实验设计，可进行群体分析/SNP_Binmap/QTL/...
+随后，针对不同的实验设计，可进行群体分析/GWAS/Binmap/QTL/...  TBA
+
 
 
 ## Notations
@@ -36,6 +37,9 @@ C>G           mutation
 hom  所有等位基因都发生突变，对于二倍体：    aa->AA
 het    等位基因之一发生突变，对于二倍体：    aa->Aa
 ```
+
+
+* [RIL群体](https://zhuanlan.zhihu.com/p/374834118)：F2开始连续自交或同胞交配直至趋于纯合，过程中经历多次减数分裂，重组程度高于F2，比F2更能解析F1代配子的分离。
 
 
 * SNP
