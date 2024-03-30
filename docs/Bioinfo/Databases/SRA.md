@@ -1,5 +1,7 @@
 
-用于测试流程的数据源
+获取用于测试流程的数据源，或者可以根据 FASTA 序列使用 [自编小工具 Generate Fake Reads](https://github.com/Jiarong-L/GenReads) 
+
+此外，[10X Genomics](https://www.10xgenomics.com/resources/datasets) 提供各种数据：Spatial Gene Expression， In Situ Gene Expression， Single Cell Gene Expression Flex， Single Cell Immune Profiling
 
 ## SRA
 
@@ -65,24 +67,6 @@ ascp -v -QT -l 300m -P33001 -k1 -i /home/a/miniconda3/envs/bulkatac/etc/asperawe
 era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/${x}/0${y}/${i}/${i}.fastq.gz ./
 done
 ```
-
-
-## 10X Genomics
-[https://www.10xgenomics.com/resources/datasets](https://www.10xgenomics.com/resources/datasets) 可以搜索10X Genomics的各种数据：
-Spatial Gene Expression， In Situ Gene Expression， Single Cell Gene Expression Flex， Single Cell Immune Profiling
-
-例如：
-```bash
-wget http://cf.10xgenomics.com/samples/cell-exp/1.1.0/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz
-tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
-```
-
-
-## Generate Fake Reads
-
-自己写的假数据生成脚本。暂未完成。
-
-https://github.com/Jiarong-L/GenReads
 
 
 
