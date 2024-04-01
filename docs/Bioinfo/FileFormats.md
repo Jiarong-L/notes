@@ -140,6 +140,7 @@ https://zhuanlan.zhihu.com/p/557609219
 
 <details>
 <summary> 更多GTF attributes </summary>
+
 ```
 transcript示例：   gene_id "xxx"; transcript_id "xxx.1"; transcript_name "GENE_202"; 
 
@@ -170,12 +171,65 @@ protein_id
 
 ## BED
 
-https://grch37.ensembl.org/info/website/upload/bed.html
+格式说明参考 [ensembl](https://grch37.ensembl.org/info/website/upload/bed.html) 或者 [nyu](https://learn.gencore.bio.nyu.edu/ngs-file-formats/bed-format/)
 
-https://learn.gencore.bio.nyu.edu/ngs-file-formats/bed-format/
+
+
+
+
+
+
+
+
+
+
 
 
 ## VCF
 
-https://gatk.broadinstitute.org/hc/en-us/articles/360035531692-VCF-Variant-Call-Format
+记录SNP/INDEL/SV 等变异信息
+
+| -- | BODY | -- | -- |
+| -- | -- | -- | -- |
+| 1 | CHROM | contig/chr编号 | -- |
+| 2 | POS   | REF上变异发生的位点 | 即下文REF第一个碱基在contig上的位置 |     
+| 3 | ID      | Variance 在各DB中的ID | 无则```.``` |      
+| 4 | REF     | REF序列 | 空则```.``` |      
+| 5 | ALT     | ALT序列 | 空则```.``` |      
+| 6 | QUAL    | Phred-scaled: ```-10 * log(1-p)``` | p=是变异的概率 |    
+| 7 | FILTER  | 是否通过过滤，通过意味着是变异 | ```filterName```(Failed to pass)/```PASS```/```.```(no filer) |      
+| 8 | INFO    | site-level annotations: ```key=value;``` | 示例 ```AC=4973;VT=INDEL``` |    
+| 9 | FORMAT  | 定义[SAMPLEs]中的变异位点格式: ```K1:K2:K3:K4``` | -- |      
+|10 | SAMPLEs | 来自SAM文件```@RG```行```SM:SampleName```，一个样本对应一列，格式由FORMAT定义 | ```V1:V2:V3:V4a,V4b``` |     
+
+INFO 常见：
+```
+AA=A              Ancestral Allele Sequence i.e. REF
+AC=4973           ALT Allele Count in this sample set；即出现的次数
+AF=0.99           ALT Allele Frequency in this sample set  
+AN=5008           ALT Allele Number；对于二倍体，杂合子0/1 则 AN+=1，纯合子1/1 则 AN+=2
+DP=2365           Read Depth 测序深度
+MQ=100            Mapping Quality  比对质量
+QD=0.12           Quality by Depth = QUAL/DP
+VT=INDEL          Variant Type:   SNP  MNP  INDEL  SV
+```
+
+FORMAT for SAMPLEs 常见：
+```
+                                                         格式说明                                   示例
+GT	Genotype	                                   ?/? 未相位化  ?|? 相位化                          0/1
+AD	Allele Depth	                               REF,ALT                                        1000,1100
+DP	Read Depth                                     REF,ALT                                        1000,1100
+GQ	Phred Genotype Quality	                       Phred = -10 * log(1-p)；p是变异的概率              100
+PL  Phred Likelihoods of 0/0,0/1,1/1               Phred = -10 * log(1-p)；p是GT存在的概率          0,0,0
+PGT	Phased Genotype                                ?|? 相位化                                        0|1
+
+* 相位化指知晓Allele来源亲本（父/母）
+* Genotype中，0:REF  1:ALT   2:second ALT
+* 0/0，0/1，1/1 Likelihoods总和为1
+```
+```#HeaderLines```中一般会描述INFO/FORMAT中的列，参考[GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360035531692-VCF-Variant-Call-Format)；其它：[1000 Genomes](https://www.internationalgenome.org/) 提供不同地区的人类变异数据。
+
+
+
 
