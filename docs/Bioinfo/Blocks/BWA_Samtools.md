@@ -76,6 +76,15 @@ samtools faidx ref.fa  ## 建立索引 ref.fa.fai
 samtools view -b aln.sam > aln.bam
 ```
 
+.fai 文件的列： 
+```
+1   ContigNAME
+2   ContigLENGTH in bp
+3   OFFSET                  0-? 第一个碱基的偏移量，换行符也计入
+4   LINEBASES in bp         每行的碱基数（最后一行除外）
+5   LINEWIDTH               =LINEBASES + 换行符长度；Win系统一般为\r\n，则+2
+```
+
 view常用： 
 ```
 samtools view -b aln.sam > aln.bam

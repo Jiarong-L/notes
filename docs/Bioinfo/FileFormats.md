@@ -171,18 +171,29 @@ protein_id
 
 ## BED
 
-格式说明参考 [ensembl](https://grch37.ensembl.org/info/website/upload/bed.html) 或者 [nyu](https://learn.gencore.bio.nyu.edu/ngs-file-formats/bed-format/)
+格式说明参考 [ensembl](https://grch37.ensembl.org/info/website/upload/bed.html) 或者 [Bedtools](https://bedtools.readthedocs.io/en/latest/content/general-usage.html)；注意，**位置从0开始计**，与GFF等不同（从1开始计）
 
 
+* BED3/BED4/BED5/BED6/BED12 Format 依次选择```1-3```/```1-4```/```1-5```/```1-6```/```1-12```列
+* BedGraph format 格式类似```1235```列，且必须包含```track type=bedGraph```行
+* BEDPE 需要描述一对位置信息，故格式类似 ```1-3(R1) + 1-3(R2) + 4 + 5 + 6(R1) + 6(R2)```列
 
-
-
-
-
-
-
-
-
+每一行表示一个片段/feature的信息，其中每一列：
+```
+1   chrom         | chr/contig name 
+2   chromStart    | start coordinate (first base is 0)
+3   chromEnd      | end   coordinate
+4   name          | Name of this feature (to be displayed)
+5   score         | . or 0 - 1000 灰度值；数值越大，基因组浏览器展示时片段颜色越深
+6   strand        | +/-/.
+7   thickStart    | 加粗表示的起始，一般加粗启动/终止密码子
+8   thickEnd      | 加粗表示的终点
+9   itemRgb       | RGB colour value (e.g. 0,0,255), when itemRgb="On" in track line
+10  blockCount    | number of sub-elements within this feature（e.g. exons of a gene）
+11  blockSizes    | size of sub-elements, split by ','
+12  blockStarts   | start coordinate of each sub-element, split by ','
+```
+部分列事实上只是提供基因组浏览器中display所需信息；此外，信息行中夹杂着**track line**， 进一步 configure the display
 
 
 ## VCF
