@@ -15,11 +15,13 @@ ec - reference pathway map linked to ENZYME entries (EC numbers)
 org (three- or four-letter organism code) - organism-specific pathway map linked to GENES entries (gene IDs)
 ```
 
-KEGG数据库-人类相关：
+KEGG数据库：常用link/list
 ```bash
+https://rest.kegg.jp/list/organism  得知人类对应prefix是hsa
+http://rest.kegg.jp/list/hsa
+
     ftp://ftp.genome.jp/pub/db/
     http://rest.kegg.jp/link/hsa/ko     大K和人hsa的对应关系
-    http://rest.kegg.jp/list/hsa
     http://rest.kegg.jp/list/ko           大K的功能描述和酶信息
     http://rest.kegg.jp/list/pathway         map/ko 功能描述
     http://rest.kegg.jp/list/pathway/hsa     hsa-ko功能描述
