@@ -5,6 +5,8 @@
 如果超时，可以配置国内的源：
 ```
 pip config set global.index-url http://pypi.douban.com/simple
+
+pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple/
 ```
 写入：C:\Users\.....\AppData\Roaming\pip\pip.ini
 
