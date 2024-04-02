@@ -42,20 +42,20 @@ Sulfur metabolism - ko00920
 
 ### Setup DB
 
-1. 下载 K(enzyme), ko(pathway/map) 及其对应关系: 双方并非一一对应关系；K可以参与多个ko，ko也可以包含多个K
+1. 下载 K---(enzyme), map/ko---(pathway) 及其对应关系: 双方并非一一对应关系；K可以参与多个ko，ko也可以包含多个K
 2. 使用 [Collect_pathway_info.py](./KEGG/Collect_pathway_info.py) 收集 pathway 中的 layer info(CLASS)
-3. 制作 K(enzyme), ko(pathway/map) 关系的映射文件，单行对应为一个K/ko对应的所有、以','分割
+3. 制作 K---(enzyme), map/ko---(pathway) 关系的映射文件，单行对应为一个K/ko对应的所有、以','分割
 ```bash
 ## relation
-wget -c http://rest.kegg.jp/link/ko/pathway -O ko_Ks
+wget -c http://rest.kegg.jp/link/ko/pathway -O K_path
 
-## koxxx pathway
+## map/ko--- pathway
 wget -c http://rest.kegg.jp/list/pathway                                  ## 570
-grep map ko_Ks |cut -f1 | cut -d ':' -f2 |sort|uniq |wc -l           ## 486
+grep map K_path |cut -f1 | cut -d ':' -f2 |sort|uniq |wc -l               ## 486
 
-## Kxxx enzyme 
+## K--- enzyme/KO 
 wget -c http://rest.kegg.jp/list/ko               ## 26696
-cut -d ':' -f3 ko_Ks |sort|uniq |wc -l       ## 14019
+cut -d ':' -f3 K_path |sort|uniq |wc -l           ## 14019
 
 
 mkdir map_folder
@@ -66,18 +66,16 @@ cd ..
 python3 Collect_pathway_info.py  pathway  map_folder  pathway_info.xls
 
 
-rm ko_allK
-less pathway| cut -f1|sort | uniq| while read dd ; do echo -e "$dd\t\c" >> ko_allK; grep $dd ko_Ks  | sed 's/ko://g' |  awk '{printf $2 ","}' >> ko_allK; echo '' >> ko_allK; done
+rm path_allK
+less pathway| cut -f1|sort | uniq| while read dd ; do echo -e "$dd\t\c" >> path_allK; grep $dd K_path  | sed 's/ko://g' |  awk '{printf $2 ","}' >> path_allK; echo '' >> path_allK; done
 
 
-rm K_allko
-less ko| cut -f1|sort | uniq| while read dd ; do echo -e "$dd\t\c" >> K_allko; grep $dd ko_Ks| grep 'map' | sed 's/path://g' |  awk '{printf $1 ","}' >> K_allko; echo '' >> K_allko; done
+rm K_allpath
+less ko| cut -f1|sort | uniq| while read dd ; do echo -e "$dd\t\c" >> K_allpath; grep $dd K_path| grep 'map' | sed 's/path://g' |  awk '{printf $1 ","}' >> K_allpath; echo '' >> K_allpath; done
 
 
-## grep map ko_Ks | sed 's/path://g'  | sed 's/ko://g'  | awk '{print $2,$1}'  | sort |join - ko |head
-## less pathway_info.xls |cut -f 1,3,4,5 |less
 ## awk -F '\t' '{if ($3!="-" && $4!="-") print ($1,$3,$4,$5)}'  pathway_info.xls |  less
-## 使用map0000而不是ko0000，只是因为官方提供的是map000
+## 使用map---而不是ko---，只是因为官方提供的是map---
 ## Layer示例：ko01100无CLASS，ko05416有CLASS
 ```
 
@@ -105,7 +103,7 @@ exec_annotation uniqGeneSet.faa -o kegg.txt -p $PROFILE_DIR -k $KO_LIST
 
 Output: kegg.txt；多个hits，选E-value最优一个
 ```bash
-# gene name           KO     thrshld  score   E-value KO definition
+# gene name    KO     thrshld  score   E-value        KO definition
 #-------------------- ------ ------- ------ --------- ---------------------
   GeneA        K00121  619.83  560.5  7.2e-172 S-(hydroxymethyl)glutathione dehydrogenase / alcohol dehydrogenase [EC:1.1.1.284 1.1.1.1]
   GeneA        K00001  345.97  308.1   2.5e-95 alcohol dehydrogenase [EC:1.1.1.1]
