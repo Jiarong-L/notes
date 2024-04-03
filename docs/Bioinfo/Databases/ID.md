@@ -8,6 +8,7 @@
 | [ID Mapping](https://www.uniprot.org/help/id_mapping) | UniProtKB/GI | 在线/命令行/py |
 | [accession2taxid](ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/) | Accession/Taxid/GI | .gz |
 | [filtered_goa_uniprot_all.gaf.gz](http://release.geneontology.org/) | UniProtKB/GO/GI | latest-->annotations-->.gz |
+| [gene_info.gz](ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/gene_info.gz) | EntrezID/Symbol/Taxid | .gz |
 | [bioDBnet](https://biodbnet-abcc.ncifcrf.gov/db/db2db.php) | GI/KEGG/EC/... | 在线 |
 | [g:Profiler](https://biit.cs.ut.ee/gprofiler/convert) | Ensemble | 在线，部分物种 |
 | ```org.xx.eg.db + select()``` | ENTREZID/ENSEMBL/SYMBOL | R:AnnotationDbi |
