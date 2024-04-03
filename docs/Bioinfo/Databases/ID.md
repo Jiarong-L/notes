@@ -22,11 +22,11 @@
 | -- | -- | -- |
 | Taxid | NCBI Taxonomy 所用ID | ```1``` root |
 | [Ensemble ID](http://asia.ensembl.org/info/genome/stable_ids/prefixes.html) | ```ENS[SPE][X][11 number].[V]``` | ```ENSP00000339754.1``` P=Protein |
-| [GI Number](https://www.ncbi.nlm.nih.gov/genbank/sequenceids/) | GeneBank的记录ID，可能Accession的不同版本会有不同GI号 | ```GI: 2462602239``` RNF180 |
-| [Accession](https://www.ncbi.nlm.nih.gov/guide/howto/find-func-gene/) | refseq，nt，nr，(非冗余) | ```GenBank: XM_054352456.1``` RNF180 |
-| [Entrez ID]() | 也称Gene ID，不同变异/位于不同物种中可能有不同Accession | ```GeneID: 285671``` RNF180 |
-| Gene Symbol | 基因通用名称，或在Entrez ID前添加LOC前缀作为Symbol | -- |
-| [UniProtKB Accession](https://www.uniprot.org/help/accession_numbers) | 提交记录，一个[Entry](https://www.uniprot.org/help/entry_name)可能对应多个Accession | ```A2BC19，P56559``` |
+| [GI Number](https://www.ncbi.nlm.nih.gov/genbank/sequenceids/) | GeneBank的记录ID，Accession的不同版本会有不同GI号 | ```GI: 2462602239``` RNF180 |
+| [RefSeq Accession Number](https://www.ncbi.nlm.nih.gov/guide/howto/find-func-gene/) | refseq，nt，nr，(非冗余) | ```GenBank: XM_054352456.1``` RNF180 |
+| Entrez ID | 也称Gene ID，特定物种、不同Assembly对应不同Accession | ```GeneID: 285671``` RNF180 |
+| Gene Symbol | 基因通用名称，或在Entrez ID前添加LOC前缀作为Symbol | TP53 |
+| [UniProt Accession Number](https://www.uniprot.org/help/accession_numbers) | 提交记录，一个[Entry](https://www.uniprot.org/help/entry_name)可能对应多个Accession | ```A2BC19，P56559``` |
 | [GO terms](https://geneontology.org/docs/GO-term-elements) | -- | ```GO:0005829``` |
 
 
@@ -34,4 +34,5 @@
 
 其它参考：[将GEO里的探针转换为基因Symbol](https://www.bilibili.com/read/cv14560979/)
 
+HGNC：对人类 Gene Symbol/Name 进行命名，有对应的 HGNC ID
 
