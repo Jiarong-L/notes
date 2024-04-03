@@ -1,7 +1,7 @@
 
 
 
-关联：NR SWissport GO KEGG 已实现相互注释
+关联：NR SWissport GO KEGG 已实现相互注释；enrichment 可参考 [GO](./GO.md#enrichment)
 
 
 ### Links
