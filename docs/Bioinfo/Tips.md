@@ -8,7 +8,7 @@
 
 当然，也可以自己从各个数据库中合并/筛选项目所需；虽然大部分数据库的最终来源很可能都是NCBI，但由于时间版本不同、序号可能不一致，需要注意
 
-Gene 注释结果常见有 [Accession](https://www.ncbi.nlm.nih.gov/guide/howto/find-func-gene/)，[GI Number](https://www.ncbi.nlm.nih.gov/genbank/sequenceids/)，Taxid；三者的对应关系从[accession2taxid](ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/)获取
+此外，可以用 [ID Mapper](./Databases/ID.md) 将不同数据库的ID对应起来。
 
 
 
