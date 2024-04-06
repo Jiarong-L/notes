@@ -71,13 +71,7 @@ $$=\frac{MappedFragments_i}{AllMappedFragments(per10^6)\times Length_{Gene_i}(kb
 它们与TPM的区别只在Scale的先后顺序，最终：多样本情况下，单个样本TPM值的总和相等，而单个样本RPKM值的总和会有不同。因此**某Gene的TPM可以理解为其占总体表达量的相对比例，更适合RNA定量分析**。（RPKM再scale by RPKM_SUM一下也许可以达成相似效果？？）
 
 
-### [ARGs-OAP](https://doi.org/10.1093/bioinformatics/bty053)
 
-使用了自定义的丰度定量单位：
-
-- ppm = ARG_reads * 1e6 / All_reads   
-- copies of ARG per copy of 16S rRNA     (一般一个单拷贝细胞有一个16S rRNA copy??)
-- copies of ARG per prokaryote’s cell
 
 
 
