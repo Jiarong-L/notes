@@ -26,7 +26,7 @@ def suburl_jgi_hit(suburl):
         print("loading:{}\tjgi:{}\t{}".format(jgiurl,jgi,hit_info))
 
 
-dom_lst = ['e']  ## ['a','b','e','v'] or just ['e'] 
+dom_lst = ['a','b','e','v']  ## ['a','b','e','v'] or just ['e'] 
 idx_lst = ['','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
 for d in dom_lst:

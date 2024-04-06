@@ -27,7 +27,7 @@ title: Database Tips
 | [GO](GO.md) | -- | -- | CDS 序列 | -- | Gene的生物功能注释(Gene Ontology) |
 | [CARD](ARG.md#card) | -- | -- | CDS 序列 | blast最佳，官方的rgi没有成功 | ARGs基因注释 |
 | [SARG](ARG.md#sarg) | -- | -- | Reads | ARGs-OAP | 提供ARGs自定义单位的定量；也可以用于 blast CDS |
-| [CAZy](CAZy.md) | 蛋白序列 | Bacteria, Eukaryota, Archaea, Viruses | 蛋白序列 | -- | -- |
+| [CAZy](CAZy.md) | 蛋白序列 | Bacteria, Eukaryota, Archaea, Viruses | 蛋白序列 | -- | 将碳水化合物活性酶归入不同蛋白质家族 |
 
 如果需要测试工具，可以从[SRA](SRA.md)获得数据
 
