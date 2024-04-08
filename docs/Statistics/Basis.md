@@ -400,9 +400,9 @@ $s_{\hat{\theta}}$与样本要求参考上文 [常见参数置信区间](#_12)�
 
 
 ## 参考
-先验概率、后验概率、似然概率：https://zhuanlan.zhihu.com/p/397960221  
-概率中的PDF\PMF\CDF\PPF\ISF：https://blog.csdn.net/dkkfff/article/details/115912758   
-正态性检验：[K-S test](https://zhuanlan.zhihu.com/p/292678346)（适合n>50）, [S-W test](https://zhuanlan.zhihu.com/p/656009843)（适合n<50）, [multivariate normality test](https://zhuanlan.zhihu.com/p/87300004)（因变量向量服从多元正态分布）     
+[先验概率、后验概率、似然概率](https://zhuanlan.zhihu.com/p/397960221)  
+[概率中的PDF\PMF\CDF\PPF\ISF](https://blog.csdn.net/dkkfff/article/details/115912758)     
+**正态性检验**：[K-S test](https://zhuanlan.zhihu.com/p/292678346)（适合n>50）, [S-W test](https://zhuanlan.zhihu.com/p/656009843)（适合n<50）, [multivariate normality test](https://zhuanlan.zhihu.com/p/87300004)（因变量向量服从多元正态分布）     
 有限一阶矩（有限均值）？？？   
 
 
