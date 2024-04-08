@@ -341,8 +341,11 @@ $\hat\beta_i$的抽样分布是正态分布，且有：$E(\hat\beta_i)=\beta_i$�
     - 正态总体
     - 方差齐次性（组间方差相等）：巴特利特检验(Bartlett)，莱文检验(Levene, F=MST/MSE)
 
+
+### 多重比较的矫正
 * 多重比较的矫正(p589)：
-    - 后续检验（Post-hoc test），也称两两比较分析：e.g.A=B=C=D不成立，所以比较它们的两两组合、找出有差异的组
+    - 事前检验（Planned）：试验设计之初就设计要进行的比较分析
+    - [后续检验（Post-hoc test）](https://www.ibm.com/docs/zh/spss-statistics/saas?topic=analysis-glm-post-hoc-comparisons)：整体分析完毕后，进一步设计的检验；e.g.A=B=C=D不成立，所以比较它们的两两组合、找出有差异的组
     - 进行多次检验后累计的I型错误将大于可接受的$\alpha$值，因此需要对统计量的p值进行矫正（一般称矫正后的p值为q值），或修正统计量和临界值表
 
 | k组间 Multiple test | 修正方法 | 使用/说明 |
@@ -359,8 +362,6 @@ $\hat\beta_i$的抽样分布是正态分布，且有：$E(\hat\beta_i)=\beta_i$�
 | **Scheffe** | -- | 支持1v1，也支持多组 v.s 1组 的综合比较（保守） |
 | -- | 一般假设各组样本都来自同一正态分布$(\sigma,\mu)$，特殊者于表格中说明 | 宽松：增加type I error <br>保守：增加type II error |
 
-* 事前比较：进行分析前就设计要进行的比较分析
-* [事后比较](https://www.ibm.com/docs/zh/spss-statistics/saas?topic=analysis-glm-post-hoc-comparisons)：整体分析发现差异，进一步设计组间比较
 
 
 
