@@ -341,12 +341,28 @@ $\hat\beta_i$的抽样分布是正态分布，且有：$E(\hat\beta_i)=\beta_i$�
     - 正态总体
     - 方差齐次性（组间方差相等）：巴特利特检验(Bartlett)，莱文检验(Levene, F=MST/MSE)
 
-* 多重比较的矫正(p589)
+* 多重比较的矫正(p589)：
     - 后续检验（Post-hoc test），也称两两比较分析：e.g.A=B=C=D不成立，所以比较它们的两两组合、找出有差异的组
-    - 进行多次检验后累计的I型错误将大于可接受的$\alpha$值，因此需要对p值进行矫正（一般称矫正后的p值为q值）
-    - Tukey（样本数相同）、Bonferroni、S-N-K (Student-Newman-Keuls)、Dunnett、...
+    - 进行多次检验后累计的I型错误将大于可接受的$\alpha$值，因此需要对统计量的p值进行矫正（一般称矫正后的p值为q值），或修正统计量和临界值表
 
-[![](./Basis/13.3.png)](https://www.zhihu.com/question/54632292)
+| k组间 Multiple test | 修正方法 | 使用/说明 |
+| -- | -- | -- |
+| LSD | 修正T检验量中$S_p^2=\frac{\sum\limits_{i=1}^k(n_i-1)S_i^2}{\sum\limits_{i=1}^k(n_i-1)}$，即所有样本的联合方差 | k较少时（宽松） |
+| Sidak | 基于LSD法，$$\alpha_{adj}=1-(1-\alpha)^{1/k}$$ 即 $$p_{adj}=1-(1-p)^{1/k}$$ | k较少时（保守） |
+| **Bonferroni** | 基于LSD法，$$\alpha_{adj}=\alpha/k$$ | k较少时（非常保守） |
+| **Dunnett** | 同LSD，但有特殊的临界值表 | 用于多组 v.s 1组 均数 |
+| **Tukey's HSD** | 统计量：$q=\frac{(\overline{Y_{max}}-\overline{Y_{min}})}{\sqrt{S_p^2/n}}$（$S_p^2$同上文），比照**学生化极差分布**$q_{\alpha}(k,df)$的临界值表 | **各组别样本数相同** |
+| SNK Q | 修正Tukey法：对不同步长（最大/小组间的均数差异）采用不同的临界值表 | （保守） |
+| Duncan | 改进SNK：改查SSR表 | 比SNK宽松，适用于农业研究 |
+| Tamhane T2 | -- | **方差不齐次**（保守） |
+| Games-Howell | -- | **方差不齐次**（宽松） |
+| **Scheffe** | -- | 支持1v1，也支持多组 v.s 1组 的综合比较（保守） |
+| -- | 一般假设各组样本都来自同一正态分布$(\sigma,\mu)$，特殊者于表格中说明 | 宽松：增加type I error <br>保守：增加type II error |
+
+* 事前比较：进行分析前就设计要进行的比较分析
+* [事后比较](https://www.ibm.com/docs/zh/spss-statistics/saas?topic=analysis-glm-post-hoc-comparisons)：整体分析发现差异，进一步设计组间比较
+
+
 
 ### 完全随机化设计
 
