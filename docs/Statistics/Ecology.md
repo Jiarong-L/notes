@@ -36,15 +36,11 @@ img{
 生态系统是动态的，持续发生着各种process，一个相对稳定的系统一般是分层的（由于能量/地理隔离/生态位/...）；并且一直保持 spatial heterogeneity（个体需要聚集以繁殖/自卫/采食/..）
 
 
-因此在生态学数据中，考虑到相似环境、周边族群的影响，各采样(y) 很有可能并不是相互独立的：对于正相关的数据(r>0)，直接使用可能会造成 Type I error 上升 (i.e.置信区间比实际窄、过多显著结果)，因此可以：
+因此在生态学数据中，考虑到[周边环境、周边族群的影响](./Ecology/f1_5.png)，各采样(y) 很有可能并不是相互独立的：对于正相关的数据(r>0)，直接使用可能会造成 Type I error 上升 (i.e.置信区间比实际窄、过多显著结果)，因此可以：
 
 1. 去除强关联的样本（不推荐）
 2. detrending（通过回归去除空间趋势造成的关联）
 3. Corrected tests (基于修正后的variable estimates 或 df 进行分析) ； ...
-
-![](./Ecology/f1_5.png)
-
-
 
 
 ## 一般统计
@@ -63,18 +59,6 @@ additive/non-additive（统计时数值可否相加后取均值，例如：密�
 | [**假设检验 H0:无差异**](./Ecology/t5_2.png) | 参数检验（假定数据符合某种背景分布） | rank statistics | -- |
 | Correlation(2 var) | [Pearson r](./Ecology/Pearson_r.png) | [Spearman r](./Ecology/Spearman_r.png) (without tie), [Kendall Tau](./Ecology/Kendall_Tau.png) | [Fisher 精确检验](Basis_Categorical.md#_6)，[Entropy](./Ecology/Entropy.png)，[二维列联表的 $\chi^2$ ](./Ecology/Contingency.png) 与 [Contingency Coefficient](./Ecology/Contingency_coeff.png)） |
 | Concordance(m var) | -- |  [Kendall W](./Ecology/Kendall_W.png) | [多维列联表的 Log-linear model](./Ecology/Contingency.png) |
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -122,5 +106,26 @@ Kurtosis for flatness/peakedness
 
 **如果数据中有缺失值，可以在算法中进行设定，或填充预测值**
 
+### Biodiversity
+
+* **Alpha** diversity is the diversity in species composition at individual sites i
+* **Gamma** diversity is the diversity of the whole region of interest in a study
+* **Beta** diversity is the variation in species composition among sites in the geographic area of interest
+
+
+| Alpha | -- | -- |
+| -- | -- | -- |
+| **Diversity** 常用 [Renyi entropy](./Ecology/Renyi_entropy.png) 的三个度量 | Number of species ($N_0$) | $q$ |
+| -- | Shannon’s entropy ($H_1$) | $ H= -\sum p_i\log(p_i)$ |
+| xx | Simpson’s concentration index ($N_2^{-1}$): 随机选的2样本属于同一species的几率 | $\lambda=\sum\frac{n_i(n_i-1)}{n(n-1)}$ |
+| -- | Simpson’s Diversity index | $1-\lambda$ |
+| **Evenness** | Pielou’s evenness 对比假想完全平均群体的Shannon’s entropy | $J=H_{real}/H_{even}$ |
+| -- | Hurlbert’s evenness 假想 min Diversity (一个site只包含一个物种，若sites有多余则用同一种物种填充) 和 max Diversity | $J = (D-D_{min})/(D_{max}-D_{min})$ |
+| xx | Patten’s redundancy | $1-J_{Hurlbert}$ |
+| -- | 用 Broken stick model 将n个体随机切割给q物种，得到均匀的模拟数据 | $J=H_{real}/H_{model}$ |
+| -- | [Functional evenness](./Ecology/Functional_evenness.png) | -- |
+
+
+但目前，Alpha分析常用 Shannon，Ace，Simpson，Pielou_J 等 Mothur 提供的计算；Beta分析一般是计算Bray-Curtis，Weighted Unifrac，Weighted Unifrac距离后进行聚类分析或差异检验
 
 
