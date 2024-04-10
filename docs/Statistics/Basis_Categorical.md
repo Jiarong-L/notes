@@ -55,26 +55,26 @@ img{
 将多项实验简化二项实验（一系列0/1试验）：选取 $n_i$ 为S样本，$\sum (其余所有n_j$) 为F样本；于是：
 
 * $i$类型 二项参数 成功率$p_i$ 
-  - 点估计 $\hat{p_i}=\frac{n_i}{N}$
-  - $E(\hat{p_i})=p_i$
-  - $V(\hat{p_i})=\frac{p_i(1-p_i)}{N}$
-  - $p_i$ 的置信区间：$\hat{p_i} \pm z_{\alpha/2}\sqrt{\frac{\hat{p_i}(1-\hat{p_i})}{N}}$；随即可以知晓 $n_i=Np_i$ 的置信区间
+    - 点估计 $\hat{p_i}=\frac{n_i}{N}$
+    - $E(\hat{p_i})=p_i$
+    - $V(\hat{p_i})=\frac{p_i(1-p_i)}{N}$
+    - $p_i$ 的置信区间：$\hat{p_i} \pm z_{\alpha/2}\sqrt{\frac{\hat{p_i}(1-\hat{p_i})}{N}}$；随即可以知晓 $n_i=Np_i$ 的置信区间
 
 
 * 一对类型（$i$,$j$）的概率差： $E(\hat{p_i}-\hat{p_j})=p_i-p_j$，
-  - $Cov(\hat{p_i},\hat{p_j})\\=E[(\hat{p_i}-p_i)(\hat{p_j}-p_j)]\\=E[(\frac{n_i}{N}-p_i)(\frac{n_j}{N}-p_j)]\\=\frac{1}{N^2}E[(n_i-Np_i)(n_j-Np_j)]\\=\frac{1}{N^2}Cov(n_i,n_j)\\=\frac{1}{N^2}(-Np_ip_j)\\=\frac{-p_ip_j}{N}$
-  - $V(\hat{p_i}-\hat{p_j})\\=V(\hat{p_i})+V(\hat{p_j})-2Cov(\hat{p_i},\hat{p_j})\\=\frac{p_i(1-p_i)}{N}+\frac{p_j(1-p_j)}{N}+\frac{2p_ip_j}{N}$
-  - $p_i-p_j$ 的置信区间：$(\hat{p_i}-\hat{p_j}) \pm z_{\alpha/2}\sigma_{(\hat{p_i}-\hat{p_j})}$
-  - 即：$(\hat{p_i}-\hat{p_j}) \pm z_{\alpha/2}\sqrt{V(\hat{p_i}-\hat{p_j})}$
+    - $Cov(\hat{p_i},\hat{p_j})\\=E[(\hat{p_i}-p_i)(\hat{p_j}-p_j)]\\=E[(\frac{n_i}{N}-p_i)(\frac{n_j}{N}-p_j)]\\=\frac{1}{N^2}E[(n_i-Np_i)(n_j-Np_j)]\\=\frac{1}{N^2}Cov(n_i,n_j)\\=\frac{1}{N^2}(-Np_ip_j)\\=\frac{-p_ip_j}{N}$
+    - $V(\hat{p_i}-\hat{p_j})\\=V(\hat{p_i})+V(\hat{p_j})-2Cov(\hat{p_i},\hat{p_j})\\=\frac{p_i(1-p_i)}{N}+\frac{p_j(1-p_j)}{N}+\frac{2p_ip_j}{N}$
+    - $p_i-p_j$ 的置信区间：$(\hat{p_i}-\hat{p_j}) \pm z_{\alpha/2}\sigma_{(\hat{p_i}-\hat{p_j})}$
+    - 即：$(\hat{p_i}-\hat{p_j}) \pm z_{\alpha/2}\sqrt{V(\hat{p_i}-\hat{p_j})}$
 
 
 * 假设检验
-  - $H_0: p_1=p_2=p_3=...=p_k=\frac{N}{k}$
-  - $H_a: 至少有一对概率不相等$
-  - $n_i,E(n_i)$ 由 $p_i,E(p_i)$求得
-  - 检验统计量 $\chi^2=\sum\limits_{i=1}^{k}\frac{[n_i-E(n_i)]^2}{E(n_i)}$，$df=k-1$
-  - 如果**离差**$[n_i-E(n_i)]^2$较大，则$\chi^2$的预期将大于期望（理想状态下，观测值与期望值应该相等，离差为0）
-  - （上侧检验）拒绝阈：$\chi^2 > \chi^2_{\alpha}$
+    - $H_0: p_1=p_2=p_3=...=p_k=\frac{N}{k}$
+    - $H_a: 至少有一对概率不相等$
+    - $n_i,E(n_i)$ 由 $p_i,E(p_i)$求得
+    - 检验统计量 $\chi^2=\sum\limits_{i=1}^{k}\frac{[n_i-E(n_i)]^2}{E(n_i)}$，$df=k-1$
+    - 如果**离差**$[n_i-E(n_i)]^2$较大，则$\chi^2$的预期将大于期望（理想状态下，观测值与期望值应该相等，离差为0）
+    - （上侧检验）拒绝阈：$\chi^2 > \chi^2_{\alpha}$
 
 
 
@@ -97,23 +97,23 @@ img{
 
 
 * **独立性检验**：
-  - （大样本）每个单元的期望计数 > 5
-  - $H_0$：W、V 两个变量相互独立
-  - $H_a$：W、V 两个变量相关
-  - $\hat{E}(n_{ij})=N\times第i行边缘概率\times第j列边缘概率=\frac{(第i行和)(第j列和)}{N}$
-  - 检验统计量 $\chi^2=\sum\limits_{j=1}^{c}\sum\limits_{i=1}^{r}\frac{[n_{ij}-\hat{E}(n_{ij})]^2}{\hat{E}(n_{ij})}$，$df=(r-1)(c-1)$
-  - 如果**离差**$[n_{ij}-\hat{E}(n_{ij})]^2$较大，则$\chi^2$的预期将大于期望（理想状态下，观测值与期望值应该相等，离差为0）
-  - （上侧检验）拒绝阈：$\chi^2 > \chi^2_{\alpha}$
+    - （大样本）每个单元的期望计数 > 5
+    - $H_0$：W、V 两个变量相互独立
+    - $H_a$：W、V 两个变量相关
+    - $\hat{E}(n_{ij})=N\times第i行边缘概率\times第j列边缘概率=\frac{(第i行和)(第j列和)}{N}$
+    - 检验统计量 $\chi^2=\sum\limits_{j=1}^{c}\sum\limits_{i=1}^{r}\frac{[n_{ij}-\hat{E}(n_{ij})]^2}{\hat{E}(n_{ij})}$，$df=(r-1)(c-1)$
+    - 如果**离差**$[n_{ij}-\hat{E}(n_{ij})]^2$较大，则$\chi^2$的预期将大于期望（理想状态下，观测值与期望值应该相等，离差为0）
+    - （上侧检验）拒绝阈：$\chi^2 > \chi^2_{\alpha}$
 
 
 
 * Fisher 精确检验：对 $2 \times 2$ 或 $2 \times c$ 的双向表进行更加**精确的独立性检验**
-  - （小样本）
-  - $2 \times c$ 表中可选一列为 Positive，合并其余列，由是等效于$2 \times 2$ 表
-  - 超几何 RECALL: 集合N由r个S、(N-r)个F组成；**无放回**地随机抽取n个元素；Y表示n中S的个数
-  - $p(y)=\frac{\binom{r}{y}\binom{N-r}{n-y}}{\binom{N}{n}}$
-  - 超几何概率 $p=\frac{\binom{S\_{ALL}}{S\_Positive}\binom{F\_{ALL}}{F\_Positive}}{\binom{ALL}{Positive}}$ , S_Positive表示此单元格之值，S_ALL表示S行之和，ALL表示表格总和，Positive表示此列之和
-  - 如果$p<\alpha$，拒绝原假设
+    - （小样本）
+    - $2 \times c$ 表中可选一列为 Positive，合并其余列，由是等效于$2 \times 2$ 表
+    - 超几何 RECALL: 集合N由r个S、(N-r)个F组成；**无放回**地随机抽取n个元素；Y表示n中S的个数
+    - $p(y)=\frac{\binom{r}{y}\binom{N-r}{n-y}}{\binom{N}{n}}$
+    - 超几何概率 $p=\frac{\binom{S\_{ALL}}{S\_Positive}\binom{F\_{ALL}}{F\_Positive}}{\binom{ALL}{Positive}}$ , S_Positive表示此单元格之值，S_ALL表示S行之和，ALL表示表格总和，Positive表示此列之和
+    - 如果$p<\alpha$，拒绝原假设
   
 
 
