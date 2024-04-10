@@ -49,8 +49,7 @@ img{
 
 ## 一般统计
 
-* 如果数据中有缺失值，可以在算法中进行设定，或填充预测值
-* 生态学描述类型常见：[**适用统计方法概览**](./Ecology/t5_1.png)
+生态学描述类型常见：
 ```
 intensive/extensive（抽样unit增大，其值不变/等比例增，例如：水温/个数）
 additive/non-additive（统计时数值可否相加后取均值，例如：密度/PH） 
@@ -58,13 +57,28 @@ additive/non-additive（统计时数值可否相加后取均值，例如：密�
 ![](./Ecology/t1_2.png)
 
 
-* 生态学描述类型[**适用假设检验概览**](./Ecology/t5_2.png)
-    - 参数检验--Quantitative：假定数据符合某种背景分布
-    - 非参数检验--Semiquantitative：[rank statistics](Basis.md#_16) 或 [非参数回归](Basis_Regression.md#_6)
+
+| [**统计方法概览**](./Ecology/t5_1.png) | Quantitative | Semiquantitative | Qualitative |
+| -- | -- | -- | -- |
+| [**假设检验 H0:组间相等**](./Ecology/t5_2.png) | 参数检验（假定数据符合某种背景分布） | rank statistics | -- |
+| Correlation(2 var) | [Pearson r](./Ecology/Pearson_r.png) | [Spearman r](./Ecology/Spearman_r.png) (without tie), [Kendall Tau](./Ecology/Kendall_Tau.png) | [Fisher 精确检验](Basis_Categorical.md#_6) |
+| Concordance(n var) | -- |  [Kendall W](./Ecology/Kendall_W.png) | -- |
+| Other Association | -- | -- | [Entropy](./Ecology/Entropy.png) 的 $\chi^2$ 也适用于 [Contingency](./Ecology/Contingency.png) |
 
 
 
-### Quantitative
+
+
+
+
+
+
+
+
+
+
+
+### Quantitative 数据预处理
 
 一些操作可以令数据转换为正态分布/方差齐次，包括：
 ```
@@ -102,19 +116,11 @@ Kurtosis for flatness/peakedness
 | Normalized $y_{ij}$ | $z_{ij} = y_{ij}-\overline{y_j}$ | -- |
 | Variance | $s_j^2=s_{jj}$ | -- |
 | Standard Deviation | $s_j=\sqrt{s_j^2}$ | -- |
-| Covariance $\sigma$, $cov$ | $s_{jk}=\frac{1}{n-1}\sum\limits_{i=1}^n(y_{ij}-\overline{y_j})(y_{ik}-\overline{y_k})$  |  matrix行列都表示特征: $S=cov(Y,Y)=\frac{1}{n-1}Z'Z$ |
-| Correlation $\rho$, $cor$ | $r_{jk}=s_{jk}/(s_js_k)$ | p155 |
+| Covariance $\sigma$, $cov$ | $s_{jk}=\frac{1}{n-1}\sum\limits_{i=1}^n(y_{ij}-\overline{y_j})(y_{ik}-\overline{y_k})$  |  [Covariance Matrix](./Ecology/covariance.png) |
 | Coefficient of Variation | $CV_j=s_j/\overline{y_j}$ | 消除均值大小不同/单位的影响 |
 
 
-
-### Semiquantitative
-
-
-参考[**适用假设检验概览**](./Ecology/t5_2.png)，一般基于秩进行非参数检验。
+**如果数据中有缺失值，可以在算法中进行设定，或填充预测值**
 
 
 
-### Qualitative
-
-To model multistate qualitative response data, multinomial logistic regression
