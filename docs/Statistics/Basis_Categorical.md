@@ -133,4 +133,7 @@ img{
 
 ## 参考
 Fisher 精确检验：https://zhuanlan.zhihu.com/p/434017609  
-[Tschuproff / Pearson contingency coefficient](./Ecology/Contingency.png):  $\chi^2$ 被用于度量物种间的关联（基于0/1数据）
+
+[Tschuproff / Pearson contingency coefficient](./Ecology/Contingency_coeff.png):  $\chi^2$ 被用于度量物种间的关联（基于0/1数据）  
+
+更多Contingency Table 统计见 [Ecology](Ecology.md) Qualitative 

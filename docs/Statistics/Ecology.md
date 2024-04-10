@@ -60,10 +60,10 @@ additive/non-additive（统计时数值可否相加后取均值，例如：密�
 
 | [**统计方法概览**](./Ecology/t5_1.png) | Quantitative | Semiquantitative | Qualitative |
 | -- | -- | -- | -- |
-| [**假设检验 H0:组间相等**](./Ecology/t5_2.png) | 参数检验（假定数据符合某种背景分布） | rank statistics | -- |
-| Correlation(2 var) | [Pearson r](./Ecology/Pearson_r.png) | [Spearman r](./Ecology/Spearman_r.png) (without tie), [Kendall Tau](./Ecology/Kendall_Tau.png) | [Fisher 精确检验](Basis_Categorical.md#_6) |
-| Concordance(n var) | -- |  [Kendall W](./Ecology/Kendall_W.png) | -- |
-| Other Association | -- | -- | [Entropy](./Ecology/Entropy.png) 的 $\chi^2$ 也适用于 [Contingency](./Ecology/Contingency.png) |
+| [**假设检验 H0:无差异**](./Ecology/t5_2.png) | 参数检验（假定数据符合某种背景分布） | rank statistics | -- |
+| Correlation(2 var) | [Pearson r](./Ecology/Pearson_r.png) | [Spearman r](./Ecology/Spearman_r.png) (without tie), [Kendall Tau](./Ecology/Kendall_Tau.png) | [Fisher 精确检验](Basis_Categorical.md#_6)，[Entropy](./Ecology/Entropy.png)，[二维列联表的 $\chi^2$ ](./Ecology/Contingency.png) 与 [Contingency Coefficient](./Ecology/Contingency_coeff.png)） |
+| Concordance(m var) | -- |  [Kendall W](./Ecology/Kendall_W.png) | [多维列联表的 Log-linear model](./Ecology/Contingency.png) |
+
 
 
 
