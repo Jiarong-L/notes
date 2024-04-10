@@ -129,3 +129,24 @@ Kurtosis for flatness/peakedness
 但目前，Alpha分析常用 Shannon，Ace，Simpson，Pielou_J 等 Mothur 提供的计算；Beta分析一般是计算Bray-Curtis，Weighted Unifrac，Weighted Unifrac距离后进行聚类分析或差异检验
 
 
+### Modes
+
+![](./Ecology/f7_1.png)
+
+* 关键词：Similarity(Q), Distance(Q), Dependence(R) coefficients
+  - R mode: 寻找 descriptors 间的关系，例如 Pearson's r
+  - Q mode: 寻找 objects/samples 间的关系
+
+* 物种会更倾向于分布在某种Niche中：have unimodal distributions along environmental variables；故物种分布相似说明两个site相似
+* Double zero problem: 假如有2个site，Species_A 在二者中都是0；则此数据不能提供关于这两个site的生态学信息
+  - Skip Double zeros when computing coefficients（Asymmetrical）
+  - Not Skip（Symmetrical）
+
+（p273-p350 & [Ch8_Clustering](./Ecology/Clustering.png) 略 TBA），其中常用的是 UPGMA (p354，根据进化树距离)
+
+* A-space: The descriptor, or attribute space
+
+
+
+
+
