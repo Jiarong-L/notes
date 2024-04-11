@@ -61,3 +61,30 @@ Enrichment Factor = GeneRatio/BgRatio                                     . |___
 也称 Fold enrichment                                                          Enrichment Factor
 ```
 
+goatools 也是常用的:
+```bash
+## pip install goatools
+## wget http://current.geneontology.org/ontology/go-basic.obo
+## wget http://current.geneontology.org/ontology/subsets/goslim_generic.obo
+## association.txt：     gene_ID   \t     GO_ID1;GO_ID2;GO_ID3;...
+## population.txt：      gene_ID  for background genes
+## target.txt：          gene_ID  for selected genes
+
+find_enrichment.py target.txt population.txt association.txt \
+--pval=0.05 --method=fdr_bh --pval_field=fdr_bh \
+--outfile=output_id2gos.xlsx,output_id2gos.tsv \
+--obo=go-basic.obo \
+--goslim=goslim_generic.obo \
+--ns=BP,MF,CC \
+--no_propagate_counts
+
+# Draw DAG for 'BP' process
+sed '1d' output_id2gos.tsv | awk '$2=="BP"{print $1}' > BP_goids.txt
+go_plot.py --go_file=BP_goids.txt --outfile=BP_goplot.pdf \
+--id2gos=association.txt --obo=go-basic.obo --title=BP_DAG
+```
+
+
+
+
+
