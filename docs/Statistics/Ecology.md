@@ -147,6 +147,15 @@ Kurtosis for flatness/peakedness
 * A-space: The descriptor, or attribute space
 
 
+### Ordination
+
+| [Ordination](./Ecology/Ordination.png) | 解说 | 其它说明 |
+| -- | -- | -- |
+| [PCA](./Ecology/PCA.png) | [NumEco_PCA.ipynb](https://github.com/Jiarong-L/notes/tree/main/docs/Statistics/Ecology/NumEco_PCA.ipynb) | 一般直接用于丰度矩阵，但也可以用于correlation matrix |
+
+
+
+
 
 
 
