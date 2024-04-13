@@ -3,7 +3,7 @@
 **本网站主要用于记录我的学习历程，便于复习时查找资料**  
 **This website serves as the navigator to my learning track.**
 
-
+注：[如果Github不能正常显示ipynb，可粘贴链接至此处](https://nbviewer.org/)
 
 ## Bioinfo
 生物信息学习记录，  
