@@ -109,7 +109,7 @@ Kurtosis for flatness/peakedness
 
 **如果数据中有缺失值，可以在算法中进行设定，或填充预测值**
 
-### Biodiversity
+## Biodiversity
 
 * **Alpha** diversity is the diversity in species composition at individual sites i
 * **Gamma** diversity is the diversity of the whole region of interest in a study
@@ -132,7 +132,7 @@ Kurtosis for flatness/peakedness
 但目前，Alpha分析常用 Shannon，Ace，Simpson，Pielou_J 等 Mothur 提供的计算；Beta分析一般是计算Bray-Curtis，Weighted Unifrac，Weighted Unifrac距离后进行聚类分析或差异检验
 
 
-### Modes
+## Modes
 
 ![](./Ecology/f7_1.png)
 
@@ -150,15 +150,17 @@ Kurtosis for flatness/peakedness
 * A-space: The descriptor, or attribute space
 
 
-### Ordination
+## Ordination
 
 
 | [Ordination](./Ecology/Ordination.png) | 解说 | 其它说明 |
 | -- | -- | -- |
 | [PCA](./Ecology/PCA.png) | [NumEco_PCA.ipynb](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_PCA.ipynb) | 一般直接用于丰度矩阵，但也可以用于correlation matrix；保留输入中的欧式距离信息；算法 p457 |
 | Correspondence analysis | [NumEco_CA.ipynb](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_CA.ipynb) | 对频率矩阵进行SVD，对稀有物种敏感；CA-axis中的欧式距离对应输入中的$\chi^2$距离；算法 p491 |
-| PCoA | [NumEco_PCoA.ipynb](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_PCoA.ipynb) | 对距离矩阵进行特征值分解，Scaling同PCA |
-| nMDS | -- | -- |
+| MDS/PCoA | [NumEco_PCoA.ipynb](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_PCoA.ipynb) | 对距离矩阵进行特征值分解，Scaling同PCA |
+| nMDS | -- | 关注距离的秩次 |
 
+
+* 距离矩阵：生态学中常见 Jaccard, Bray-Curtis, Unifrac, ...
 
 
