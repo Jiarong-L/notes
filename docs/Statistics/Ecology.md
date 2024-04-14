@@ -153,9 +153,9 @@ Kurtosis for flatness/peakedness
 | [Ordination](./Ecology/Ordination.png) | 解说 | 其它说明 |
 | -- | -- | -- |
 | [PCA](./Ecology/PCA.png) | [NumEco_PCA.ipynb](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_PCA.ipynb) | 一般直接用于丰度矩阵，但也可以用于correlation matrix；算法 p457 |
-| Correspondence analysis | -- | 算法 p491 |
-
-
+| Correspondence analysis | [NumEco_CA.ipynb](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_CA.ipynb) | 对频率矩阵进行SVD，对稀有物种敏感；算法 p491 |
+| PCoA | -- | -- |
+| nMDS | -- | -- |
 
 
 
