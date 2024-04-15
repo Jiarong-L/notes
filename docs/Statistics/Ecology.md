@@ -110,6 +110,26 @@ Kurtosis for flatness/peakedness
 
 **如果数据中有缺失值，可以在算法中进行设定，或填充预测值**
 
+### 常见示例
+
+假设有这些类型的数据：
+
+| Matrix Type | rowX $\times$ columnsY |
+| -- | -- |
+| Raw | L = sample $\times$ species |
+| Raw | R = sample $\times$ environmental variables |
+| Raw | Q = species $\times$ traits |
+| Distance | D = sample $\times$ sample |
+
+
+1. 填充/删除 缺失值
+2. 去除 Outliers，一般指超出 Q1/Q3 1.5 IQR（箱式图）
+3. Transformation：
+    - 常见 sqrt()，log()，Arcsin()，取倒数，**Hellinger** $\sqrt{\frac{y_{ij}}{rowsum_i}}$
+4. Standardization：
+    - 常见 Centring to 0，z-scores $\frac{y_{ij}-mean}{sd}$，Ranging to 0~1
+
+
 ## Biodiversity
 
 * **Alpha** diversity is the diversity in species composition at individual sites i
@@ -138,13 +158,13 @@ Kurtosis for flatness/peakedness
 ![](./Ecology/f7_1.png)
 
 * 关键词：Similarity(Q), Distance(Q), Dependence(R) coefficients
-  - R mode: 寻找 descriptors 间的关系，例如 Pearson's r
-  - Q mode: 寻找 objects/samples 间的关系
+    - R mode: 寻找 descriptors 间的关系，例如 Pearson's r
+    - Q mode: 寻找 objects/samples 间的关系
 
 * 物种会更倾向于分布在某种Niche中：have unimodal distributions along environmental variables；故物种分布相似说明两个site相似
 * Double zero problem: 假如有2个site，Species_A 在二者中都是0；则此数据不能提供关于这两个site的生态学信息
-  - Skip Double zeros when computing coefficients（Asymmetrical）
-  - Not Skip（Symmetrical）
+    - Skip Double zeros when computing coefficients（Asymmetrical）
+    - Not Skip（Symmetrical）
 
 （p273-p350 & [Ch8_Clustering](./Ecology/Clustering.png) 略 TBA），其中常用的是 UPGMA (p354，根据进化树距离)
 
@@ -153,30 +173,18 @@ Kurtosis for flatness/peakedness
 
 ## Ordination
 
-
-<details>
-<summary> 概览 </summary>
-
-
-| Matrix Type | -- |
-| -- | -- |
-| Raw | L = sample $\times$ species |
-| Raw | R = sample $\times$ environmental variables |
-| Raw | Q = species $\times$ traits |
-| Distance | D = sample $\times$ sample |
-
-
-| -- | Raw | Raw | Transformation-based | Distance-based |
+| 概览 | Raw | Raw | Transformation-based | Distance-based |
 | -- | -- | -- | -- | -- |
 | [Assumption](./Ecology/Ordination_Assumption.png) | **Linear** | **Unimodal** | -- | -- |
 | **Unconstrained** <br> L or D only | PCA | CA, DCA | tb-PCA | PCoA, NMDS |
 | **Constrained** <br> plus R/Q | RDA | CCA | **tb**-RDA | **db**-RDA |
-| -- | -- | 通过 DCA 第一轴轴长，选择 Unimodal（> 4 SD）或 Linear（< 3 SD）方法 | 一般用 Hellinger 处理后的数据作为输入 | 常见 Jaccard, Bray-Curtis, Unifrac 距离 |
+| -- | -- | 依据 DCA 第一轴轴长，选择 Unimodal（> 4 SD）或 Linear（< 3 SD）方法 | 一般用 Hellinger 处理后的数据作为输入 | 常见 Jaccard, Bray-Curtis, Unifrac 距离 |
 
 
-</details>
 
+### Unconstrained
 
+Ordination时不必考虑（环境/traits等）分组信息
 
 | [Unconstrained Ordination](./Ecology/UnC_Ordination.png) | 解说 |
 | -- | -- |
@@ -186,11 +194,20 @@ Kurtosis for flatness/peakedness
 | [nMDS](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_nMDS.ipynb) | nMDS空间中保留了距离的秩次信息；stress < 0.2 较为合适 |
 
 
+### Canonical Analysis
+
+[典型相关分析（Canonical Analysis）](https://www.sciencedirect.com/science/article/abs/pii/B9780444538680500113) 
 
 
+| Asymmetric | 解说 |
+| -- | -- |
+| [RDA](./Ecology/.png) | -- |
+| [CCA](./Ecology/.png) | -- |
+| [LDA](./Ecology/.png) | -- |
 
 
-
-
-
-
+| Symmetric | 解说 |
+| -- | -- |
+| CCorA | -- |
+| CoIA | -- |
+| Proc | -- |
