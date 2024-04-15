@@ -22,6 +22,7 @@ img{
 
 R示例: [David Zelený: Analysis of community ecology data in R](https://davidzeleny.net/anadat-r/doku.php/en:start)
 
+参考: [Linear_Algebra笔记-常见矩阵分解](../Course/Linear_Algebra.md#_12)
 
 
 | Condition -> Observation | 根据数据的不同特征，选择不同Model |
@@ -153,14 +154,43 @@ Kurtosis for flatness/peakedness
 ## Ordination
 
 
-| [Ordination](./Ecology/Ordination.png) | 解说 | 其它说明 |
-| -- | -- | -- |
-| [PCA](./Ecology/PCA.png) | [NumEco_PCA.ipynb](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_PCA.ipynb) | 一般直接用于丰度矩阵，但也可以用于correlation matrix；保留输入中的欧式距离信息；算法 p457 |
-| Correspondence analysis | [NumEco_CA.ipynb](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_CA.ipynb) | 对频率矩阵进行SVD，对稀有物种敏感；CA-axis中的欧式距离对应输入中的$\chi^2$距离；算法 p491 |
-| MDS/PCoA | [NumEco_PCoA.ipynb](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_PCoA.ipynb) | 对距离矩阵进行特征值分解，Scaling同PCA |
-| nMDS | -- | 关注距离的秩次 |
+<details>
+<summary> 概览 </summary>
 
 
-* 距离矩阵：生态学中常见 Jaccard, Bray-Curtis, Unifrac, ...
+| Matrix Type | -- |
+| -- | -- |
+| Raw | L = sample $\times$ species |
+| Raw | R = sample $\times$ environmental variables |
+| Raw | Q = species $\times$ traits |
+| Distance | D = sample $\times$ sample |
+
+
+| -- | Raw | Raw | Transformation-based | Distance-based |
+| -- | -- | -- | -- | -- |
+| [Assumption](./Ecology/Ordination_Assumption.png) | **Linear** | **Unimodal** | -- | -- |
+| **Unconstrained** <br> L or D only | PCA | CA, DCA | tb-PCA | PCoA, NMDS |
+| **Constrained** <br> plus R/Q | RDA | CCA | **tb**-RDA | **db**-RDA |
+| -- | -- | 通过 DCA 第一轴轴长，选择 Unimodal（> 4 SD）或 Linear（< 3 SD）方法 | 一般用 Hellinger 处理后的数据作为输入 | 常见 Jaccard, Bray-Curtis, Unifrac 距离 |
+
+
+</details>
+
+
+
+| [Unconstrained Ordination](./Ecology/UnC_Ordination.png) | 解说 |
+| -- | -- |
+| [PCA](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_PCA.ipynb) | 一般直接用于丰度矩阵，但也可以用于correlation matrix；保留输入中的欧式距离信息，注意 [U 的 Scaling](./Ecology/PCA.png) |
+| [Correspondence analysis (CA/DCA)](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_CA.ipynb) | 对频率矩阵进行SVD，对稀有物种敏感；CA-axis中的欧式距离对应输入中的$\chi^2$距离 |
+| [MDS/PCoA](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_PCoA.ipynb) | 对距离矩阵进行特征值分解，Scaling同PCA |
+| [nMDS](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_nMDS.ipynb) | nMDS空间中保留了距离的秩次信息；stress < 0.2 较为合适 |
+
+
+
+
+
+
+
+
 
 

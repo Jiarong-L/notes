@@ -1,4 +1,6 @@
 
+
+
 <script>
 MathJax = {
   tex: {
@@ -20,7 +22,7 @@ img{
 }
 </style>
 
-
+**Deprecated !!!!!**
 
 **生物信息中常用的数据降维方法**
 
