@@ -20,11 +20,15 @@ img{
 
 教材：《Numerical Ecology》        ![](./Ecology/)
 
-R示例: [David Zelený: Analysis of community ecology data in R](https://davidzeleny.net/anadat-r/doku.php/en:start)
+略：Ch10.4（Causal Path），Ch10.6（Fourth-corner Analysis），Ch11+
 
 参考: [Linear_Algebra笔记-常见矩阵分解](../Course/Linear_Algebra.md#_12)
 
-略：Ch10.4（Causal Path），Ch10.6（Fourth-corner Analysis）
+R示例: [David Zelený: Analysis of community ecology data in R](https://davidzeleny.net/anadat-r/doku.php/en:start)
+
+
+Vegan参考: [Man pages for vegan](https://rdrr.io/rforge/vegan/man/), [FAQ-vegan](https://cran.r-project.org/web//packages//vegan/vignettes/FAQ-vegan.html), [Scale.pdf](https://cran.r-project.org/web/packages/vegan/vignettes/decision-vegan.pdf), [scores()](https://rdrr.io/cran/vegan/man/scores.html)
+
 
 | Condition -> Observation | 根据数据的不同特征，选择不同Model |
 | -- | -- |
