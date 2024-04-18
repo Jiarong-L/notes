@@ -291,18 +291,17 @@ Ordination时不必考虑（环境/traits等）分组信息
 
 ### Canonical Analysis
 
-[典型相关分析（Canonical Analysis）](https://www.sciencedirect.com/science/article/abs/pii/B9780444538680500113) 
 
-
-| Asymmetric | 解说 |
+| Asymmetric | Response $Y$ explained by $X$ |
 | -- | -- |
-| [RDA](./Ecology/.png) | -- |
-| [CCA](./Ecology/.png) | -- |
-| [LDA](./Ecology/.png) | -- |
+| [RDA](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_RDA.ipynb) | RDA轴最大化‘Y中被X解释部分’；保留了其中的欧式距离信息 |
+| CCA | 同RDA，但保留了其中的$\chi^2$距离（同CA） |
+| LDA | 假设样本分成k组，最大化：(组间 dispersion)/(组内 dispersion) |
 
 
-| Symmetric | 解说 |
+
+| Symmetric | Explain $Y_1$ by $Y_2$ equals to Explain $Y_2$ by $Y_1$ |
 | -- | -- |
-| CCorA | -- |
-| CoIA | -- |
+| CCorA | maximize the correlation between linear combinations of variables in $Y_1$ and $Y_2$ |
+| CoIA | 寻找 common structure |
 | Proc | -- |
