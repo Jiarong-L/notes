@@ -18,9 +18,9 @@ img{
 }
 </style>
 
-教材：《Numerical Ecology》        ![](./Ecology/)
+教材：《Numerical Ecology》，略：Ch8（Cluster），Ch10.4（Causal Path），Ch10.6（Fourth-corner Analysis），Ch12 on
 
-略：Ch10.4（Causal Path），Ch10.6（Fourth-corner Analysis），Ch11+
+其它推荐教程：[《数量生态学：R语言的应用》-Indicator (对应本书 Ch8.9.3 p397)](https://zhuanlan.zhihu.com/p/371721658)
 
 参考: [Linear_Algebra笔记-常见矩阵分解](../Course/Linear_Algebra.md#_12)
 
@@ -188,6 +188,8 @@ Kurtosis for flatness/peakedness
 
 如果 $R > 0$ 且显著，说明 组间距离B > 组内距离W，分组有效
 
+*通常配合PCA、PCoA、NMDS等降维图使用*，其它样本组间差异检测：[Adonis (permutational MANOVA)](https://cloud.tencent.com/developer/article/1991303)，[MRPP](https://cloud.tencent.com/developer/article/1991304)  --- by QIIME2/vegan
+
 
 ### Procrustes test
 
@@ -299,13 +301,18 @@ Ordination时不必考虑（环境/traits等）分组信息
 | Asymmetric | Response $Y$ explained by $X$ |
 | -- | -- |
 | [RDA](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_RDA.ipynb) | RDA轴最大化‘Y中被X解释部分’；保留了其中的欧式距离信息 |
-| CCA | 同RDA，但保留了其中的$\chi^2$距离（同CA） |
-| LDA | 假设样本分成k组，最大化：(组间 dispersion)/(组内 dispersion) |
+| CCA | CCA is the RDA of $\overline{Q}$ by $X$（同CA，保留了$\chi^2$距离） |
+| LDA | 假设样本分成k组，LDA轴最大化：(组间 dispersion)/(组内 dispersion) |
 
 
 
-| Symmetric | Explain $Y_1$ by $Y_2$ equals to Explain $Y_2$ by $Y_1$ |
+| [Symmetric](./Ecology/t11_10.png) | Explain $Y_1$ by $Y_2$ equals to Explain $Y_2$ by $Y_1$ |
 | -- | -- |
-| CCorA | maximize the correlation between linear combinations of variables in $Y_1$ and $Y_2$ |
+| [CCorA](https://nbviewer.org/github/Jiarong-L/notes/blob/main/docs/Statistics/Ecology/NumEco_CCorA.ipynb) | maximize the correlation between linear combinations of variables in $Y_1$ and $Y_2$ |
 | CoIA | 寻找 common structure |
-| Proc | -- |
+| Procrustes  | 寻找 common structure |
+
+
+(p706)Ch11.6 总结了一些使用场景
+
+
