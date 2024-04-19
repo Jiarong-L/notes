@@ -62,7 +62,7 @@ img{
 | ITE<br>(Causal Effect) | $Y_i(1)-Y_i(0)$ |
 | ATE | $E[Y_i(1)-Y_i(0)]=E[Y(1)]-E[Y(0)]$ |
 | Associational Difference<br>(Conditional Expectations) | $E[Y\|T=1]-E[Y\|T=0]$ |
-| -- | *ITE: Individual treatment effect<br>*ATE: Average treatment effect |
+| -- | *ITE: Individual treatment effect* <br> *ATE: Average treatment effect* |
 
 
 由于一个样本只能进行一种 Treatment，所以 Causal Effect 无法直接求得，只能近似其期望值 ATE。由于 **Causal Association与 Confounding Association** 同时存在，所以所以需要一些假设才能[用 Associational Difference 近似 ATE](./Causal_Inference/n02-3.png)
@@ -107,9 +107,52 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 
 * 图中G的 independence $(Y \perp X | Z)_G$，也意味着分布P中的 independence $(Y \perp X | Z)_P$
 
+* [不建议 condition on post-treatment nodes (G中T的后代)，且pre-treatment也并不完全保险](./Causal_Inference/n04-5.png)
+
 
 ## L4-干预 do()
 
+
+| [v.s.](./Causal_Inference/n04-1.png) | Interventional | Observational |
+| -- | -- | -- |
+| -- | 设计实验时按某一条件分配样本 | 将已有数据按某一条件 Conditioning |
+| Notation | $P(Y(t)=y)$<br>$P(Y=y\|do(T=t))$<br>$P(y\|do(t))$ | $P(Y=y\|T=t)$<br>$P(y\|t)$ |
+| ATE | $E[Y\|do(T=1)]-E[Y\|do(T=0)]$ | 见 L2 |
+
+
+
+* [Modularity](./Causal_Inference/Modularity.png): If intervene on a set of nodes S, setting them to constant values, 
+    - If $i \notin S$, then $P(x_i | pa_i)$ remains unchanged
+    - If $i \in S$, then $P(x_i | pa_i) = 1$ if $x_i$ equals to the settled value; otherwise $P(x_i | pa_i) = 0$
+    - 因此化简: $P(x_1,...,x_i|do(S=s))=\prod\limits_{i \notin S}P(x_i|pa_i)$ or 0
+
+
+* [Backdoor Adjustment](./Causal_Inference/n04-2.png): A set of nodes W satisfies the **backdoor criterion** relative to T and Y if
+    - W blocks all backdoor paths from T to Y
+    - W does not contain any descendants of T
+
+* 满足 backdoor criterion 后，remove all outgoing edges from T，则可以达成 d-separation: $Y\perp_{G_{\underline{T}}} T | W$
+
+
+* [Structural Causal Models (SCMs)](./Causal_Inference/n04-3.png)
+    - [Interventions 修改了G，也即修改了 SCM 中被intervene参数的方程（由于 Modularity Assumptions） ](./Causal_Inference/n04-4.png)
+
+
+
+## L5-do calculus
+
+* [Randomized control trial (RCT)](./Causal_Inference/n05-1.png) 随机分配样本，令 covariates $X$ 在每一组 $T$ 中的分布都相同，即 $P(X|T=t)\stackrel{\text{d}}{=}P(X)$，即 $T \perp X$，相当于达成了 Exchangeability 假设，也相当于消除了 confounding association (backdoor paths)；于是 $P(y|do(t))=P(y|t)$
+
+
+* 当 Backdoor Adjustment 无法达成时，可使用 [Frontdoor Adjustment](./Causal_Inference/n05-2.png) 对 Path 进行分步计算
+
+
+* Pearl's rules of do-calculus
+    - ![](./Causal_Inference/n05-3.png)
+
+
+
+## L6-Estimation
 
 
 
