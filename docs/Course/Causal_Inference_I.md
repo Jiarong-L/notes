@@ -40,7 +40,7 @@ img{
 
 此处笔记为 [《因果推理导论》课程(2020) by Brady Neal](https://www.bilibili.com/video/BV1nZ4y1K78i) 的简短摘要
 
-
+T=Treatment
 
 ## L1-Intro
 
@@ -154,7 +154,43 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 
 ## L6-Estimation
 
+| -- | Causal Estimand | Statistical Estimand |
+| -- | -- | -- |
+| ATE | $E[Y(1)-Y(0)]$ | $$E_W[E[Y\|T=1,W]-E[Y\|T=0,W]]$$ Given W is a sufficient adjustment set |
+| CATE<br>(Conditional ATE) | $E[Y(1)-Y(0)\|X=x]$ | $$E_W[E[Y\|T=1,X=x,W]-E[Y\|T=0,X=x,W]]$$ Given W+X is a sufficient adjustment set |
 
+
+**训练模型以预测CATE Estimands (模型可以是回归/深度学习/...)**
+
+* [Conditional outcome modeling (COM)](./Causal_Inference/n06-1.png)/ G-formula/ S-learner/ ...
+    - 训练一个模型 $\mu(t,w,x)$ for $E[Y|T,X,W]$
+    - 不足：模型中 T 参数的权重可能会趋于0，导致T不影响模型结果
+
+
+* Grouped COM (GCOM)
+    - 为每个T训练一个模型 $\mu_t(w,x)$ for $E[Y|T=t,X,W]$
+    - 不足：数据利用效率太低
+
+* TARNet
+    - 训练一个模型 $\mu(t,w,x)$ for $E[Y|T,X,W]$，但模型强制最后一层的heads指向不同的T
+
+* X-Learner
+    1. GCOM得到 $\mu_1(x)$、$\mu_0(x)$ 的预测
+    2. 计算ITEs = Observe_Y - Predict
+        * 对每个T=1样本 $\tau_{1,i}=Y_i(1)-\mu_0(x_i)$
+        * 对每个T=0样本 $\tau_{0,i}=\mu_1(x_i)-Y_i(0)$
+    3. 训练模型以预测$\tau_t$
+        * $\tau_1(x)$ for $x_i$ in Group T=1
+        * $\tau_0(x)$ for $x_i$ in Group T=0
+    4. $\tau(x)=g(x)\tau_0(x)+[1-g(x)]\tau_1(x)$，此处$g(x)$推荐使用 Propensity score
+
+
+
+[**Propensity score**](./Causal_Inference/n06-2.png) $e(W) = P(T=1|W)$ 是对高维W的一种简化，以满足 Unconfoundedness 假设，即：{$Y(t) \perp T | W$}  ==> {$Y(t) \perp T | e(W)$}；但由于 Confounders 未知，最多只能 model Propensity score；用例: [**Inverse Probability Weighting (IPW)**](./Causal_Inference/n06-3.png)
+
+
+
+## L7-Bounds
 
 
 
