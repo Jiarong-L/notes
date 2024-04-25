@@ -145,9 +145,11 @@ update.packages()
 
 # 重新install一下或者
 devtools::update_packages()
-
-
 ```
+
+不用鼠标选择源： ```chooseCRANmirror(graphics=F)```
+
+
 
 ### JAVA
 用Maven管理依赖包；IntelliJ IDEA设置一下maven地址
