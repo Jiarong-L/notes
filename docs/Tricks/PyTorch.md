@@ -3,8 +3,7 @@
 Pytorch 使用 Dynamic Computational Graphs，与Eager模式下的Tensorflow类似
 
 
-练习： [PytorchNN.ipynb](https://github.com/Jiarong-L/notes/tree/main/docs/Tricks/Pytorch/PytorchNN.ipynb), [PytorchGAN.ipynb](https://github.com/Jiarong-L/notes/tree/main/docs/Tricks/Pytorch/PytorchGAN.ipynb)
-相关： [TensorflowcGAN.ipynb](https://github.com/Jiarong-L/notes/tree/main/docs/Tricks/Pytorch/TensorflowcGAN.ipynb)
+相关练习： [GAN_tutorial](https://github.com/Jiarong-L/GAN_tutorial)
 
 
 ## Install
@@ -56,9 +55,9 @@ for epoch in range(100):
 ```
 
 
-## GAN 遇到的问题
+## Tips
 
-1. 如果想要一个 optimizer 传入多个loss: 
+1. 如果想要一个 optimizer 传入多个 Model 的 loss: 
 ```
 optimizer = torch.optim.SGD([
     {'params':modelG.parameters()},
@@ -76,14 +75,11 @@ RuntimeError: Trying to backward through the graph a second time (or directly ac
         lossG.backward(retain_graph=True)
         lossD.backward()
         optimizer.step()
-
 ```
 
-3. 判别器过强可能导致生成器只能持续生成噪音（Generator Loss 上升，Discriminator Loss 下降）；但生成器也可能生成无意义但可以欺骗判别器的图像（Discriminator Loss 上升）：需要给生成器多一些训练步骤 / 加大生成器 learning rate
+3. 每一步参与forward计算的参数都有gradient信息，不需要的时候（e.g.plot生成的FakeImgs）对其 ```FakeImgs.detach()```
 
-4. 每一步参与forward计算的参数都有gradient信息，不需要的时候（e.g.plot生成的FakeImgs）对其 ```FakeImgs.detach()```
 
-5. 注意激活函数的取值范围，注意 FakeImgs 与 RealImgs 的取值范围应一致, e.g. [0,1] or [0,255] or [-1,1]
 
 
 ## GPU
