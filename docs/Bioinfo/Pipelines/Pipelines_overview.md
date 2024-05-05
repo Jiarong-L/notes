@@ -12,8 +12,8 @@ img{
 
 * 在需要准确定量的项目如ATAC、转录组中，可以加入去除PCR重复的步骤。例如scRNA使用的UMI技术，或者通过samtools/picard去除duplicate
 * RNA项目可以使用RSeQC进行测序饱和度分析，以确保有效检测
-* 简化xxx：缩小测序范围，e.g. WES,RRBS
-
+* **简化xxx**：缩小测序范围，e.g. WES,RRBS
+* 当部分样本直接具有关联性时，就不能简单的考虑 Sample Size。假设有一部分样本(N=2)的Correlation可以计算，则着部分样本的 Effective_Sample_Size = N/[1+corr*(N-1)]
 
 ## Bulk
 
