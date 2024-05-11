@@ -30,6 +30,9 @@ R示例: [David Zelený: Analysis of community ecology data in R](https://davidz
 Vegan参考: [Man pages for vegan](https://rdrr.io/rforge/vegan/man/), [FAQ-vegan](https://cran.r-project.org/web//packages//vegan/vignettes/FAQ-vegan.html), [Scale.pdf](https://cran.r-project.org/web/packages/vegan/vignettes/decision-vegan.pdf), [scores()](https://rdrr.io/cran/vegan/man/scores.html)
 
 
+其它：[scikit-bio](https://scikit.bio/)
+
+
 | Condition -> Observation | 根据数据的不同特征，选择不同Model |
 | -- | -- |
 | Deterministic | 确定性的观测结果 |
