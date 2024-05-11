@@ -192,6 +192,18 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 
 ## L7-Bounds
 
+一般来说不可能完全去除 Confounder，因此 不太可能得到 $E[Y(1)-Y(0)]$ 的准确值，但是可以[通过 Observational-Counterfactual Decomposition 推导其在不同assumption情况下的取值区间](./Causal_Inference/n07-1.png)
+
+
+此外，还可以[通过 Counter Plots 进行 Sensitivity Analysis](./Causal_Inference/n07-2.png) 以评估未去除 Confounder 情况下 $E[Y(1)-Y(0)]$ 计算结果与真值的差距
+
+
+## L8-Nonparametric
+
+
+
+
+
 
 
 

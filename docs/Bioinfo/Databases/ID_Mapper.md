@@ -7,7 +7,7 @@
 | -- | -- | -- |
 | [GENE_INFO](https://ftp.ncbi.nlm.nih.gov/gene/DATA/) | **EntrezID转一切** | *.gz |
 | [idmapping.tb.gz](https://ftp.proteininformationresource.org/databases/idmapping/idmapping.tb.gz) | 很多数据库 | .gz |
-| [accession2taxid](ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/) | **Accession/Taxid/GI** | .gz |
+| [accession2taxid](https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/) | **Accession/Taxid/GI** | .gz |
 | [filtered_goa_uniprot_all.gaf.gz](http://release.geneontology.org/) | GO/GI/其refDB... | latest-->annotations-->.gz |
 | [ID Mapping](https://www.uniprot.org/help/id_mapping) | UniProtKB/GI | 在线 |
 | [bioDBnet](https://biodbnet-abcc.ncifcrf.gov/db/db2db.php) | GI/KEGG/EC/... | 在线 |

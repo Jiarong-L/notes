@@ -19,7 +19,7 @@ CapturedProtein-----Antibody-----HTO-----------
 
 ## scRNA
 
-![](../Pipelines_overview/scRNA.png)
+![](Pipelines_overview/scRNA.png)
 
 
 | 任务 | 工具 |
@@ -110,7 +110,7 @@ rawReads数据处理的流程：QC/UMI Filtering-->Mapping-->PISA Gene anno-->Be
 
 ## scATAC
 
-[![](./SingleCellOmics/scATACFeatureMatrix.png)](https://doi.org/10.1186/s13059-019-1854-5)
+[![](./SingleCell/scATACFeatureMatrix.png)](https://doi.org/10.1186/s13059-019-1854-5)
 
 推荐ArchR(Bin)一站式分析。此外常见[Signac(Peak)+Seurat](../Blocks/Signac.md)。
 

@@ -54,8 +54,8 @@ RNA水平：免疫共沉淀（MeRIP-seq for m6A）；也可以 RNA-BS-seq（原�
 
 | -- | 说明 | -- |
 | -- | -- | -- |
-| [SingleCellOmics](SingleCellOmics.md) | Reads 带有 Cell Barcode 和 UMI | -- |
-| [SpatialOmics](SpatialOmics.md) | Reads 带有空间信息 | -- |
+| [SingleCell](SingleCell.md) | Reads 带有 Cell Barcode 和 UMI | -- |
+| [Spatial](Spatial.md) | Reads 带有空间信息 | -- |
 
 
 

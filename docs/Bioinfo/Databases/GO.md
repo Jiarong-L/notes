@@ -4,7 +4,7 @@
 
 1. 进入[latest-->annotations](http://release.geneontology.org/)下载 ```filtered_goa_uniprot_all.gaf.gz```: [GAF格式](http://geneontology.org/docs/go-annotation-file-gaf-format-2.2/)来源包括 ```UniProtKB  RNAcentral  ComplexPortal```，或许可支持从UniProtKB注释转换
 2. [GO Cross-references](https://geneontology.org/docs/download-mappings/)提供EC Number 等的转换
-3. 参考[ID Mappers](./ID.md)：可以从nr注释里转换
+3. 参考 [ID Mappers](ID_Mapper.md)：可以从nr注释里转换
 
 
 

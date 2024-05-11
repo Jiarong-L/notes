@@ -1,7 +1,7 @@
 
 将碳水化合物活性酶归入不同蛋白质家族
 
-从[Cazy官网](http://www.cazy.org/)右上角 ‘DOWNLOAD CAZY’ 得到下载地址: 然后从ncbi/[jgi](https://genome.jgi.doe.gov/portal/)提取对应的**蛋白fasta序列**：此处用[jgi_info.py](Cazy/jgi_info.py)爬取 jgi_info，[jgi_fasta.py](Cazy/jgi_fasta.py)爬取 FASTA
+从[Cazy官网](http://www.cazy.org/)右上角 ‘DOWNLOAD CAZY’ 得到下载地址: 然后从ncbi/[jgi](https://genome.jgi.doe.gov/portal/)提取对应的**蛋白fasta序列**：此处用 [jgi_info.py](CAZy/jgi_info.py) 爬取 jgi_info，[jgi_fasta.py](CAZy/jgi_fasta.py) 爬取 FASTA
 ```bash
 wget -c http://www.cazy.org/IMG/cazy_data/cazy_data.zip
 unzip cazy_data.zip

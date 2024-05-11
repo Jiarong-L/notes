@@ -6,7 +6,7 @@
 
 ## Setup DB
 
-可以从 [ncbi ftp blastdb](ftp.ncbi.nlm.nih.gov/blast/db) 处下载 FASTA 或者 BLAST DB，然后从 [accession2taxid](https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/) 处下载 accession 与 taxid，gi 的关系。
+可以从 [ncbi ftp blastdb](https://ftp.ncbi.nlm.nih.gov/blast/db) 处下载 FASTA 或者 BLAST DB，然后从 [accession2taxid](https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/) 处下载 accession 与 taxid，gi 的关系。
 ```bash
 wget -c ftp://ftp.ncbi.nlm.nih.gov/blast/db/nr-prot-metadata.json
 wget -c ftp://ftp.ncbi.nlm.nih.gov/blast/db/nt-nucl-metadata.json
