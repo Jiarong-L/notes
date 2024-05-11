@@ -15,7 +15,7 @@ SpeZ    SpeX    SpeY
 [Protein Family](https://www.ebi.ac.uk/training/online/courses/protein-classification-intro-ebi-resources/protein-classification/what-are-protein-families/) is a group of proteins that share a common evolutionary origin.
 
 
-**获取基因家族的方式**有2种：
+**获取基因家族的方式**有2种：(预测CDS后，or工具内置Prodigal)
 
 1. [OrthoFinder](../Blocks/OrthoFinder.md)/OrthoMCL 建 Species Tree & Gene Tree
 2. 比对数据库，最基础：
@@ -54,14 +54,22 @@ hmmscan -o out.txt --tblout out.tbl --noali -E 1e-5 Pfam-A.hmm input_protein.faa
 
 ## EggNOG
 
-EggNOG 对NCBI的COG数据库进行拓展，并且提供了不同分类水平的 Orthogonal Group，见 [per_tax_level](http://eggnog5.embl.de/download/eggnog_5.0/per_tax_level/)；且可以区分 paralogs 与 orthologs
+EggNOG 对NCBI的COG数据库进行拓展，并且提供了不同分类水平的 Orthogonal Group；且可以区分 paralogs 与 orthologs（？？）；不过**更新较慢**
 
 
-下载 [eggNOG DB](http://eggnog6.embl.de/download/eggnog_6.0/) 后，使用 eggNOG-mapper 进行注释
+使用 [eggNOG-mapper](https://github.com/eggnogdb/eggnog-mapper) 下载目标taxa的各种DB（```-P -M -H``` 对应 Pfam MMseqs2 HMMER）、进行注释；输入类型可选 ```--itype {CDS,proteins,genome,metagenome}```
+
+```
+git clone https://github.com/eggnogdb/eggnog-mapper
+cd eggnog-mapper
+
+mkdir -p eggnogDB
+python download_eggnog_data.py -H -d 2 --dbname 'Bac' --data_dir eggnogDB      ## -d taxid   (then select y or n) 
 
 
+python emapper.py -m hmmer -i input_protein.faa --itype proteins   -o outperfix   -d Bac    ## To be Check!!!
+```
 
-
-
+注：下载步骤中的 main annotation DB (eggnog.db.gz)、taxa DB (eggnog.taxa.tar.gz) 亦可从 [emapperdb FTP](http://eggnog6.embl.de/download/emapperdb-5.0.2/) 自行获取、解压、放入 ```eggnogDB/```；相关 taxid 的 ```<taxid>_hmms.tar.gz``` 文件也可以从 [eggNOG FTP - per_tax_level](http://eggnog5.embl.de/download/eggnog_5.0/per_tax_level/)获取、放入 ```eggnogDB/hmmer/Bac```；但是，需要注意相应版本
 
 
