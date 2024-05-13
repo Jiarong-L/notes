@@ -48,5 +48,14 @@ reg.exe delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a
 ```
 
 
-
+## WSL home
+用softlink的方式节约C盘空间，似乎可行
+```bash
+mkdir /mnt/l/WSL_dir/Ubuntu_Home/
+cd /mnt/l/WSL_dir/Ubuntu_Home/
+mv ~ .
+cd /home
+rm <userfolder>
+ln -s /mnt/l/WSL_dir/Ubuntu_Home/<userfolder>
+```
 
