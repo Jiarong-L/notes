@@ -1,6 +1,6 @@
 
 
-参考 [GATK](https://gatk.broadinstitute.org/hc/en-us) Best Practices
+Re-seq 项目分析工具，[参考 GATK Best Practices](https://gatk.broadinstitute.org/hc/en-us)
 
 
 中文示例
@@ -17,6 +17,8 @@ PathSeq                https://cloud.tencent.com/developer/article/2331060
 
 下载GATK及其[对应的JAVA环境](https://github.com/broadinstitute/gatk?tab=readme-ov-file#requirements)
 ```bash
+## conda install -c anaconda openjdk=17 
+## conda install -c bioconda picard
 sudo apt install openjdk-17-jdk    ##java -version
 wget https://github.com/broadinstitute/gatk/releases/download/4.5.0.0/gatk-4.5.0.0.zip
 unzip gatk-4.5.0.0.zip
@@ -27,7 +29,7 @@ gatk --list    ##--java-options "-Xmx20G -Djava.io.tmpdir=./"
 
 
 
-正常服务器中也可以直接使用 [Docker 版的 GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360035889991--How-to-Run-GATK-in-a-Docker-container)，预先 [Docker Installation](https://docs.docker.com/engine/install/ubuntu/)；注意 [WSL 一般用作 Desktop 版本的后台](https://docs.docker.com/desktop/wsl/#turn-on-docker-desktop-wsl-2)??，[WSL-Ubuntu 启用 systemctl](https://learn.microsoft.com/zh-cn/windows/wsl/systemd) 有许多坑，**以下代码在WSL中没有成功**，[参考](https://blog.csdn.net/shizheng_Li/article/details/124364276)
+正常服务器中也可以直接使用 [Docker 版的 GATK](https://gatk.broadinstitute.org/hc/en-us/articles/360035889991--How-to-Run-GATK-in-a-Docker-container)，预先 [Docker Installation](https://docs.docker.com/engine/install/ubuntu/)；注意 [WSL 一般用作 Desktop Docker 的后台](https://docs.docker.com/desktop/wsl/#turn-on-docker-desktop-wsl-2)??，[WSL-Ubuntu 启用 systemctl](https://learn.microsoft.com/zh-cn/windows/wsl/systemd) 有许多坑，**以下代码在WSL中没有成功**，[参考](https://blog.csdn.net/shizheng_Li/article/details/124364276)
 ```bash
 sudo apt update
 sudo apt install systemd -y
@@ -149,5 +151,75 @@ gatk VariantFiltration -V raw.INDEL.vcf --filter-expression "QD < 2.0 || FS > 20
 gatk MergeVcfs -I filtered.snp.vcf -I filtered.INDEL.vcf -O filtered.INDEL_SNP.vcf
 ```
 
-如果有参考数据库，可以对 gvcf 进行 [VQSR 质控过滤（VariantRecalibrator + ApplyVQSR](https://cloud.tencent.com/developer/article/2323192)
+利用**已有的snp/indel数据库**，可以对 gvcf 进行 [VQSR 质控过滤（VariantRecalibrator + ApplyVQSR）](https://cloud.tencent.com/developer/article/2323192)
+
+
+## PathSeq
+
+Pipeline 会去除数据中的宿主reads（也可以自行先去除），然后对余下的**非宿主reads进行物种分类**从 refseq 中下载相关微生物、病原体序列
+
+
+1. [Preparing DB](https://gatk.broadinstitute.org/hc/en-us/articles/360035889911--How-to-Run-the-Pathseq-pipeline)
+```bash
+## Download microbe DBs: https://ftp.ncbi.nlm.nih.gov/refseq/release/
+wget -c https://ftp.ncbi.nlm.nih.gov/refseq/release/release-catalog/RefSeq-release224.catalog.gz
+wget -c https://ftp.ncbi.nlm.nih.gov/refseq/release/fungi/fungi*genomic.fna.gz
+wget -c https://ftp.ncbi.nlm.nih.gov/refseq/release/bacteria/bacteria*genomic.fna.gz
+wget -c https://ftp.ncbi.nlm.nih.gov/refseq/release/archaea/archaea*genomic.fna.gz
+wget -c https://ftp.ncbi.nlm.nih.gov/refseq/release/viral/viral*genomic.fna.gz
+cat *genomic.fna.gz > microbe.fa.gz
+gunzip microbe.fa.gz
+
+## dict (for PathSeqBuildReferenceTaxonomy)
+picard CreateSequenceDictionary R=host.fa O=host.dict
+picard CreateSequenceDictionary R=microbe.fa O=microbe.dict
+
+
+## Host/microbe's BWA-MEM index image: host/microbe.fa.img
+gatk BwaMemIndexImageCreator -I host.fa
+gatk BwaMemIndexImageCreator -I microbe.fa
+
+## faidx (for PathSeqBuildReferenceTaxonomy)
+samtools faidx host.fa
+samtools faidx microbe.fa
+
+## Host's k-mer library
+gatk PathSeqBuildKmers --reference host.fa --output host.hss --kmer-mask 16 --kmer-size 31
+
+
+## microbe's taxonomy file
+wget -c https://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz
+gatk PathSeqBuildReferenceTaxonomy \
+    -R microbe.fa \
+    --refseq-catalog RefSeq-release224.catalog.gz \
+    --tax-dump taxdump.tar.gz \
+    -O microbe.db
+```
+2. Mapping reads to host.fa, get ```aln.bam``` as in previous example
+
+3. Run Pipeline
+```bash
+gatk PathSeqPipelineSpark \
+    --input aln.bam \ 
+    --filter-bwa-image host.fa.img \
+    --kmer-file host.hss \ 
+    --min-clipped-read-length 70 \   
+    --microbe-bwa-image microbe.fa.img \ 
+    --taxonomy-file microbe.db \ 
+    --output output.bam \           
+    --scores-output output.txt \
+    --read-filter WellformedReadFilter \ 
+    --divide-by-genome-length true \ 
+    --java-options "-Xmx20G -Djava.io.tmpdir=./tmp"
+
+参数说明：
+--microbe-dict  microbe.dict
+--output output.bam           mapping结果中的非宿主reads
+--scores-output output.txt    微生物组成表: tax_id	taxonomy	type	name	kingdom	score	score_normalized	reads	unambiguous	reference_length
+--min-clipped-read-length 70  排除FP的阈值，越高则越严格（去除更长的外源序列）
+--read-filter WellformedReadFilter    保证输入bam(sam)的格式正确
+--divide-by-genome-length true        根据 host genome length 对score进行标准化
+```
+
+随后可以进行Metagenomics的各种分析：寻找疾病组、健康组直接的差异物种（Indicators），使用ROC曲线评估其诊断疾病的效果，etc.
 
