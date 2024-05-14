@@ -199,23 +199,23 @@ gatk PathSeqBuildReferenceTaxonomy \
 
 3. Run Pipeline
 ```bash
-gatk PathSeqPipelineSpark \
-    --input aln.bam \ 
-    --filter-bwa-image host.fa.img \
-    --kmer-file host.hss \ 
-    --min-clipped-read-length 70 \   
-    --microbe-bwa-image microbe.fa.img \ 
-    --taxonomy-file microbe.db \ 
-    --output output.bam \           
-    --scores-output output.txt \
-    --read-filter WellformedReadFilter \ 
-    --divide-by-genome-length true \ 
-    --java-options "-Xmx20G -Djava.io.tmpdir=./tmp"
+gatk PathSeqPipelineSpark \ 
+--input aln.bam \ 
+--filter-bwa-image host.fa.img \ 
+--microbe-dict  microbe.dict  \
+--kmer-file host.hss \ 
+--microbe-bwa-image microbe.fa.img \ 
+--taxonomy-file microbe.db \ 
+--output output.bam \ 
+--scores-output output.txt \ 
+--java-options "-Xmx20G -Djava.io.tmpdir=./tmp"
+
+
 
 参数说明：
---microbe-dict  microbe.dict
 --output output.bam           mapping结果中的非宿主reads
 --scores-output output.txt    微生物组成表: tax_id	taxonomy	type	name	kingdom	score	score_normalized	reads	unambiguous	reference_length
+推荐参数：
 --min-clipped-read-length 70  排除FP的阈值，越高则越严格（去除更长的外源序列）
 --read-filter WellformedReadFilter    保证输入bam(sam)的格式正确
 --divide-by-genome-length true        根据 host genome length 对score进行标准化
