@@ -2,6 +2,8 @@
 
 [Aging](https://www.britannica.com/science/aging-life-process)
 
+Gompertz风险函数：年龄和死亡率之间的关系
+
 
 ## [Hallmarks of aging: An expanding universe (2023.1)](https://www.sciencedirect.com/science/article/pii/S0092867422013770)
 
@@ -14,6 +16,7 @@
 3. 治疗时干预它们可减缓衰老
 
 这些标志物在不同水平上标志衰老：表型，表达量，修饰...；事实上它们相互关联。
+
 ![Integration of hallmarks](https://ars.els-cdn.com/content/image/1-s2.0-S0092867422013770-gr7.jpg)
 
 
@@ -184,7 +187,27 @@ ELDERMET队列研究得知：
 ## [Meta-hallmarks of aging and cancer (2023.1)](https://www.sciencedirect.com/science/article/pii/S1550413122004922)
 
 
+![Aging v.s. Cancer](https://ars.els-cdn.com/content/image/1-s2.0-S1550413122004922-gr1.jpg)
 
+
+
+[中文总结](https://mp.weixin.qq.com/s?__biz=MzU2NDYwMzA1NQ==&mid=2247484837&idx=1&sn=fe131dbbd3aafbcffe2e367826db750d&chksm=fc493465cb3ebd7351f7486dc5e18602472e074936ef23a572e7d7f5267710f76491b15cd323&scene=21#wechat_redirect)
+
+
+
+
+## [The evolution of aging and lifespan (2023.11)](https://www.sciencedirect.com/science/article/pii/S0168952523001865)
+
+从物种演化层面讨论寿命。长寿物种中，某些通路受到更多的调控、且更多样。
+
+大规模队列研究中进行 GWAS，有望揭示净化选择的动力因素。
+
+体细胞突变率显著高于生殖细胞突变率。
+
+Peto悖论：同一物种中，癌症的风险随着身高的增加而增加；但不同体型的物种间没有这样的趋势。
+
+
+[中文翻译](https://m.thepaper.cn/baijiahao_25845662)
 
 
 
