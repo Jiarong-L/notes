@@ -8,6 +8,7 @@ title: Database Tips
 * 可以自己从各个数据库中合并/筛选项目所需（记得CDHIT去冗余）
 * 参考 [ID Mapper](ID_Mapper.md) 将不同数据库的ID对应起来；虽然大部分数据库的最终来源很可能都是NCBI，但由于时间版本不同、序号可能不一致，需要注意
 * 如果需要数据来测试工具，参考[此处笔记](SRA.md)
+* [ENCODE](https://www.encodeproject.org/) 内含众多Epi相关数据，适用于训练DL模型
 
 
 | -- | DB数据类型 | 包含物种 | 查询数据 | 查询工具 | 其它说明 |
@@ -34,5 +35,6 @@ title: Database Tips
 | [InterPro](Homologous.md) | Gene Family(Pfam) + 结构 + 功能 多个数据库的整合 | -- | 蛋白序列 | InterProScan | 包括了Pfam |
 | [EggNOG](Homologous.md) | 不同分类水平的 Orthogonal Group（COG的拓展） | -- | 蛋白序列 | eggNOG-mapper | 更新慢 |
 | String | 蛋白质互作关系 | [见??](https://stringdb-downloads.org/download/species.v12.0.txt) | id/蛋白序列 | -- | 提供 ```aa1 aa2 SCORE``` 列表 + 相关aa序列，见 [String](https://cn.string-db.org/) 网站 download 页面说明 |
+
 
 
