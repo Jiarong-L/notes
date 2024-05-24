@@ -47,8 +47,9 @@ img{
 | [BS-seq](Bulk/BS-seq.md)  | 甲基化位点信息 | -- |
 
 
-
 RNA水平：免疫共沉淀（MeRIP-seq for m6A）；也可以 RNA-BS-seq（原理同）
+
+Ribo-seq：获得与核糖体结合的RNA片段（正在翻译）,可以研究细胞内基因翻译的水平、区域、速率（ribosome footprints 密度高说明速度慢）
 
 ## Single-Cell & Spatial
 

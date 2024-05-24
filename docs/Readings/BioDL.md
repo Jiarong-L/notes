@@ -1,4 +1,8 @@
-
+<style>
+img{
+    width: 60%;
+}
+</style>
 
 ## [Current progress and open challenges for applying deep learning across the biosciences (2022)](https://www.nature.com/articles/s41467-022-29268-7)
 
@@ -30,7 +34,7 @@
 | OK Tasks | 数据 | 评估 | 示例 |
 | -- | -- | -- | -- |
 | 蛋白质**结构预测** | PDB | CASP 竞赛 | AlphaFold2 |
-| 蛋白质GO**功能预测** | UniportKB/GO/... | CAFA 竞赛 | [DeepGO-SE](https://zhuanlan.zhihu.com/p/662030558) |
+| 蛋白质GO**功能预测** | UniportKB/GO/... | CAFA 竞赛 | [DeepGO-SE](https://zhuanlan.zhihu.com/p/662030558), DeepEC  |
 | **相互作用预测**：辅助CRISPR系统设计 | inDelphi/[CRISPRon](https://db.cngb.org/search/project/CNP0001031/)  | 高通量芯片合成及文库筛选 | [DeepCas9](https://zhuanlan.zhihu.com/p/524591517) |
 | **Data integration** | -- | -- | 尤其在单细胞工具中：批次矫正、多组学Anchor |
 
@@ -53,32 +57,21 @@ CRISPR靶向特异性：
 ## [Machine Learning and Deep Learning in Synthetic Biology: Key Architectures, Applications, and Challenges (2024)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10918679/)
 
 
-TBA
+* [细胞工程](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10918679/bin/ao3c05913_0003.jpg) 
+    - 预测启动子/RBS强度
+    - 预测目标基因表达强度
+    - sgRNA on/off-target binding
+
+* [代谢工程](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10918679/bin/ao3c05913_0005.jpg)：代谢通路设计/优化/量产
+    - [ART](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7519645/) 为希望达成的 response（化合物产量） 提供推荐 input（omics）：由于化合物可能来自多条代谢通路，需要在**不影响整体细胞状况**的情况下最大化其产量
+    - [Optimus 5-Prime](https://zhuanlan.zhihu.com/p/685900922): 5′UTR序列(长度/SNV/..)与翻译调控(ribosome footprints 密度)之间的关系
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* 训练数据获取
+    - 长度有限的序列（5′UTR/promoter）可通过生成随机/半随机 Libraries，进行  massively parallelized assays 
 
 
 ## 其它话题
-
 
 ### WES for CNV detection
 
@@ -105,4 +98,8 @@ ECOLE 主要改用 Transformer 架构优化了一下、加入了人类专家标�
 注：训练集的TFBS信息从Chip-seq 数据获得，可从 [ENCODE](https://www.encodeproject.org/)下载
 
 传统生信项目一般使用[PWM矩阵（motif.jaspar文件）](https://www.jianshu.com/p/b1abf71c78cf)在基因组中扫描潜在TFBS
+
+
+
+
 
