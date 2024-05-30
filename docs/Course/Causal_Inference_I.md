@@ -50,7 +50,7 @@ T=Treatment
 
 
 
-## L2-ATE所需的假设
+## L2-Causal to Statistical
 
 假设有如下图所示的观测数据。
 
@@ -60,7 +60,7 @@ T=Treatment
 | -- | [Estimand](./Causal_Inference/n02-4.png) |
 | -- | -- |
 | ITE<br>(Causal Effect) | $Y_i(1)-Y_i(0)$ |
-| ATE | $E[Y_i(1)-Y_i(0)]=E[Y(1)]-E[Y(0)]$ |
+| ATE<br>(Statistical) | $E[Y_i(1)-Y_i(0)]=E[Y(1)]-E[Y(0)]$ |
 | Associational Difference<br>(Conditional Expectations) | $E[Y\|T=1]-E[Y\|T=0]$ |
 | -- | *ITE: Individual treatment effect* <br> *ATE: Average treatment effect* |
 
@@ -76,7 +76,7 @@ Hints：也可以通过训练模型（e.g.regression）的方式计算 Estimand�
 | Ignorability | $Y(1) \perp T$<br>Treatment assignment T is independent to the potential outcomes Y（T/Y之间无Confounders） | $E[Y(1)]$=$E[Y(1)\|T=1]$ | Y(T=1)在T=1组中的期望等同于在全体样本中的期望（统计时可忽略T=1不包含的数据） |
 | (Exchangeability) | Y(T=1)在T=1组中的期望与在T=2组中的一致，交换样本不会对结果造成影响 | $E[Y(1)]$=$E[Y(1)\|T=1]$=$E[Y(1)\|T=0]$ | 同Ignorability一样，为了应对“**Confounders 可能会影响T的分组，造成T=0/1中样本分配不均，统计时condition on T会造成bias**”的担忧 |
 | Unconfoundedness<br>(Conditional Exchangeability) | 寻找一组 $X$ 令 $(Y(1) \perp T \| X)$ | $E[Y(1)\|X]$=$E[Y(1)\|T=1,X]$ | 于是可以 conditioning on X 计算边缘概率 $E[Y(1)]$=$E_X[E[Y(1)\|T=1,X]]$ --- 注意，Unconfoundedness 不可测试，因为 Confounders 未知 |
-| [Identifiability](./Causal_Inference/n05-4.png) | 因果问题可转变为统计问题 | $E[Y(1)\|T=1]$=$E[Y\|T=1]$ | 如果 causal quantity $E[Y(t)]$ 可以被 statistical quantity $E[Y\|t]$ 表达，则称其 identifiable |
+| [**Identifiability**](./Causal_Inference/n05-4.png) | 因果问题可转变为统计问题: Causal $\Rightarrow$ Statistical | $E[Y(1)\|T=1]$=$E[Y\|T=1]$ | 如果 causal quantity $E[Y(t)]$ 可以被 statistical quantity $E[Y\|t]$ 表达，则称其 identifiable |
 | Positivity | $0 \lt P(T=1\|x) \lt 1$ | -- | 关于任何 Covariates x 进行拆分/分层后，每部分都需要同时包含T=1和T=0的结果，避免因只有T=1数据而导致T=0的结果无法预测；如果违反了 Positivity，各部分样本T的分布显著不同，则只能进行 [Extrapolation](./Causal_Inference/n02-2.png) |
 | No interference | $Y_i(t_1,...,t_n)$=$Y_i(t_i)$ | -- | 实验个体间互不干扰 |
 | Consistency | $(T=t) \Rightarrow (Y=Y(t))$ | -- | 干预效果对所有的个体而言都是相同的<br>示例：当T=1时，$Y_i(1)=1$，$Y_j(1)=1$<br>**反例**：当T=1时，$Y_i(1)=1$，$Y_j(1)=0$；表明T=1的效果不恒定 |
@@ -110,15 +110,15 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 * [不建议 condition on post-treatment nodes (G中T的后代)，且pre-treatment也并不完全保险](./Causal_Inference/n04-5.png)
 
 
-## L4-干预 do()
+## L4-do() Backdoor 
 
 
 | [v.s.](./Causal_Inference/n04-1.png) | Interventional | Observational |
 | -- | -- | -- |
 | -- | 设计实验时按某一条件分配样本 | 将已有数据按某一条件 Conditioning |
+| -- | Causal Estimand | Statistical Estimand |
 | Notation | $P(Y(t)=y)$<br>$P(Y=y\|do(T=t))$<br>$P(y\|do(t))$ | $P(Y=y\|T=t)$<br>$P(y\|t)$ |
 | ATE | $E[Y\|do(T=1)]-E[Y\|do(T=0)]$ | 见 L2 |
-
 
 
 * [Modularity](./Causal_Inference/Modularity.png): If intervene on a set of nodes S, setting them to constant values, 
@@ -139,7 +139,7 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 
 
 
-## L5-do calculus
+## L5-do() Frontdoor 
 
 * [Randomized control trial (RCT)](./Causal_Inference/n05-1.png) 随机分配样本，令 covariates $X$ 在每一组 $T$ 中的分布都相同，即 $P(X|T=t)\stackrel{\text{d}}{=}P(X)$，即 $T \perp X$，相当于达成了 Exchangeability 假设，也相当于消除了 confounding association (**backdoor paths**)；于是 $P(y|do(t))=P(y|t)$
 
@@ -147,8 +147,7 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 * 当 Backdoor Adjustment 无法达成时，可使用 [Frontdoor Adjustment](./Causal_Inference/n05-2.png) 对 Path 进行分步计算
 
 
-* Pearl's rules of do-calculus
-    - ![](./Causal_Inference/n05-3.png)
+* [Unconfounded children criterion](./Causal_Inference/n05-4.png) 是 Identifiability 的充分条件，[Pearl's rules of do-calculus](./Causal_Inference/n05-3.png)是 Identifiability 的充分必要条件
 
 
 
@@ -198,12 +197,63 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 此外，还可以[通过 Counter Plots 进行 Sensitivity Analysis](./Causal_Inference/n07-2.png) 以评估未去除 Confounder 情况下 $E[Y(1)-Y(0)]$ 计算结果与真值的差距
 
 
-## L8-Nonparametric
+## L8-do() Instrument
+
+前文已述将causal问题转化为statistical问题的各种过程 (Identifiability)：理想情况下使用 Backdoor Adjustment，当 Unobserved Confounding 存在时使用 Frontdoor Adjustment 等方法。这些方法都是 **Nonparametric**，即我们无需对生成变量Y的 causal equations/mechnisms 进行假设。
 
 
+**Instrumental Variables Z** 是另一项应对 Unobserved Confounding U 的方法。对于 **General ATE** 它只能是 **Parametric**：[binary Z 用例](./Causal_Inference/n08-1.png)、[通过 regress T on Z 去除U的影响](./Causal_Inference/n08-2.png)
+```
+1. Z has a causal effect on T
+2. Z--Y 间的 causal effect 完全由 T 介导
+3. Z is unconfounded (no unblockable backdoor paths from Z to Y)，如果Z--Y间有backdoor，block住则没事
+
+          U
+        /   \(e)    
+Z ---> T ---> Y       （假设）causal equation Y:= dT + eU  ()
+  (c)    (d)     
+
+Cov(Y,Z) = E[YZ] - E[Y]E[Z]              (for Continuous Z)  
+         = E[(dT+eU)Z] - E[dT+eU]E[Z]
+         = dCov(T,Z) + eCov(U,Z)
+         = dCov(T,Z)                     (since Z is unconfounded)
+故而 d = Cov(Y,Z)/Cov(T,Z)               （想象一下dc/c）
+
+**一个固定的equation意味着T对于每个实验个体的影响一致，过于严格，因此更希望Nonparametric方法
+```
+
+对于 **Local ATE**（部分样本的ATE），**Instrumental Variables Z** 也可以是 **Nonparametric**。
+```
+以 binary 数据为例，
+      ATE  =  E[Y(T=1)-Y(T=0)]
+Local ATE  =  E[Y(T=1)-Y(T=0) |T(Z=1)=1,T(Z=0)=0]
+
+拆分数据，只取用 Compiliers 样本，
+Compiliers   T(Z=1)=1,T(Z=0)=0    
+   Defiers   T(Z=1)=0,T(Z=0)=1    违反 Monotonicity Assumption T(Z=1)>T(Z=0)
+   Always    T(Z=1)=1,T(Z=0)=1    对于这部分样本，Z不会影响T，即Z--T间无path
+    Never    T(Z=1)=0,T(Z=0)=0    对于这部分样本，Z不会影响T，即Z--T间无path
 
 
+  E[Y(Z=1)-Y(Z=0)]
+= Compiliers
+= E[Y(Z=1)-Y(Z=0) |T(Z=1)=1,T(Z=0)=0] * P[T(Z=1)=1,T(Z=0)=0]
+= E[Y(T=1)-Y(T=0) |T(Z=1)=1,T(Z=0)=0] * P[T(Z=1)=1,T(Z=0)=0]   因为Compiliers中T/Z处理一致
+= Local_ATE * P[T(Z=1)=1,T(Z=0)=0]
+= Local_ATE * (1 - P(T=0|Z=1) - P(T=1|Z=0) )
+= Local_ATE * (    P(T=1|Z=1) - P(T=1|Z=0) )
+= Local_ATE * (    E(T|Z=1)   - E(T|Z=0)   )
 
+Local_ATE =  E[Y(Z=1)-Y(Z=0)] / E[T(Z=1)-T(Z=0)]   
+
+**在满足Monotonicity Assumption的情况下，Local_ATE 与 General_ATE 一致（binary Z 用例，Wald estimand）
+```
+
+
+## L9-DD
+
+
+[Difference in Differences](https://www.sciencedirect.com/topics/economics-econometrics-and-finance/difference-in-differences)
 
 
 
