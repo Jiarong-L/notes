@@ -40,7 +40,14 @@ img{
 
 此处笔记为 [《因果推理导论》课程(2020) by Brady Neal](https://www.bilibili.com/video/BV1nZ4y1K78i) 的简短摘要
 
-T=Treatment
+```
+T=Treatment   Y=Outcome   Y(1) = Y(T=1)
+E[...|T=1] 只是指代样本分组 即 E[...|T=G]  故而可以有 E[Y(0)|T=1] 这样的Counterfactual 
+
+ITE: Individual treatment effect
+ATE: Average treatment effect* |
+ATT: ATE over T=1 samples
+```
 
 ## L1-Intro
 
@@ -62,7 +69,6 @@ T=Treatment
 | ITE<br>(Causal Effect) | $Y_i(1)-Y_i(0)$ |
 | ATE<br>(Statistical) | $E[Y_i(1)-Y_i(0)]=E[Y(1)]-E[Y(0)]$ |
 | Associational Difference<br>(Conditional Expectations) | $E[Y\|T=1]-E[Y\|T=0]$ |
-| -- | *ITE: Individual treatment effect* <br> *ATE: Average treatment effect* |
 
 
 由于一个样本只能进行一种 Treatment，所以 Causal Effect 无法直接求得，只能近似其期望值 ATE。由于 **Causal Association与 Confounding Association** 同时存在，所以所以需要一些假设才能[用 Associational Difference 近似 ATE](./Causal_Inference/n02-3.png)
@@ -79,7 +85,7 @@ Hints：也可以通过训练模型（e.g.regression）的方式计算 Estimand�
 | [**Identifiability**](./Causal_Inference/n05-4.png) | 因果问题可转变为统计问题: Causal $\Rightarrow$ Statistical | $E[Y(1)\|T=1]$=$E[Y\|T=1]$ | 如果 causal quantity $E[Y(t)]$ 可以被 statistical quantity $E[Y\|t]$ 表达，则称其 identifiable |
 | Positivity | $0 \lt P(T=1\|x) \lt 1$ | -- | 关于任何 Covariates x 进行拆分/分层后，每部分都需要同时包含T=1和T=0的结果，避免因只有T=1数据而导致T=0的结果无法预测；如果违反了 Positivity，各部分样本T的分布显著不同，则只能进行 [Extrapolation](./Causal_Inference/n02-2.png) |
 | No interference | $Y_i(t_1,...,t_n)$=$Y_i(t_i)$ | -- | 实验个体间互不干扰 |
-| Consistency | $(T=t) \Rightarrow (Y=Y(t))$ | -- | 干预效果对所有的个体而言都是相同的<br>示例：当T=1时，$Y_i(1)=1$，$Y_j(1)=1$<br>**反例**：当T=1时，$Y_i(1)=1$，$Y_j(1)=0$；表明T=1的效果不恒定 |
+| Consistency | $(T=t) \Rightarrow (Y=Y(t))$ | -- | 干预效果对所有的个体而言都是相同的<br>示例：$Y_i(1)=1$，$Y_j(1)=1$<br>**反例**：$Y_i(1)=1$，$Y_j(1)=0$；表明T=1的效果不恒定 |
 
 
 ## L3-Graph Models
@@ -252,8 +258,24 @@ Local_ATE =  E[Y(Z=1)-Y(Z=0)] / E[T(Z=1)-T(Z=0)]
 
 ## L9-DD
 
+![Difference in Differences](./Causal_Inference/n09-1.png)
 
-[Difference in Differences](https://www.sciencedirect.com/topics/economics-econometrics-and-finance/difference-in-differences)
+引入了时间下标 $\tau$ 的 [Difference in Differences](https://www.sciencedirect.com/topics/economics-econometrics-and-finance/difference-in-differences) 所需假设及[上图公式推导](./Causal_Inference/n09-2.png)：(使用了Counterfactuals)
+
+1. Consistency Assumption Extended to Time: 干预效果对所有时间的所有个体而言都是相同的，即 $\forall \tau$，$(T=t) \Rightarrow (Y_{\tau}=Y_{\tau}(t))$
+2. Parallel Trends Assumption: 假如没有进行干预，二组理论上 Time difference 应保持一致，即$E[Y_1(0)-Y_0(0)|T=1]=E[Y_1(0)-Y_0(0)|T=0]$
+3. No Pretreatment Effect (at $\tau=0$) 即 $E[Y_0(1)|T=1] = E[Y_0(0)|T=1]$
+
+现实中，可以提供控制其它变量 W 以达成 Parallel Trends 假设；
+
+注意，scale(Y) 会对 Parallel Trends 造成影响
+
+
+## L10-Causal Discovery from Observational Data
+
+
+
+
 
 
 
