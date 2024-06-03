@@ -38,7 +38,7 @@ img{
 <!-- $\perp\!\!\!\!\perp$ for kalatex-->
 
 
-此处笔记为 [《因果推理导论》课程(2020) by Brady Neal](https://www.bilibili.com/video/BV1nZ4y1K78i) 的简短摘要
+此处笔记为 [《因果推理导论》课程(2020) by Brady Neal](https://www.bilibili.com/video/BV1nZ4y1K78i) 的简短摘要，[SLides](https://www.bradyneal.com/causal-inference-course)
 
 ```
 T=Treatment   Y=Outcome   Y(1) = Y(T=1)
@@ -92,7 +92,7 @@ Hints：也可以通过训练模型（e.g.regression）的方式计算 Estimand�
 
 如果尝试使用有向无环图（DAG）$X_1 \rightarrow X_2 \rightarrow X_3$ 对分布 $P(x_1,x_2,x_3)=P(x_1)P(x_2|x_1)P(x_3|x_2,x_1)$ 进行化简，则需要遵从如下假设：
 
-* (Define Statistical independencies) Local Markov assumption: Given its parents in the DAG, a node X is independent of all of its non-descendants；注意，X 与 parents 间也可以是独立的，所以需要补丁
+* (Define Statistical independencies) Local Markov assumption: Given its parents in the DAG, a node X is independent of all of its non-descendants；注意，X 与 parents 间也可以是独立的，所以需要补丁:
 * (Define Statistical dependencies) Minimality assumption: Adjacent nodes in the DAG are dependent
 
 于是可以化简统计式：$P(x_3|x_2,x_1)=P(x_3|x_2)$
@@ -273,8 +273,53 @@ Local_ATE =  E[Y(Z=1)-Y(Z=0)] / E[T(Z=1)-T(Z=0)]
 
 ## L10-Causal Discovery from Observational Data
 
+Two graphs are **Markov equivalent classes (Essential Graph)** if and only if they have the same
+**skeleton** and same **immoralities**
+
+![Skeletons to Markov equivalents](./Causal_Inference/n10-2.png)
+
+| Assumption | 可获得 Essential Graph | -- |
+| -- | -- | -- |
+| Markov | $(X \perp _G Y \| Z) \Rightarrow (X \perp _P Y \| Z)$ <br> Causal Graph $\Rightarrow$ Data  | + Minimality (L3) |
+| Faithfulness | $(X \perp _G Y \| Z) \Leftarrow (X \perp _P Y \| Z)$ <br> Causal Graph $\Leftarrow$ Data  | [Violation: paths can be cancelled out](./Causal_Inference/n10-1.png) |
+| Causal Sufficiency | no unobserved confounders | -- |
+| Acyclicity | no cycles in the graph | -- |
 
 
+**[PC Algorithm](./Causal_Inference/n10-3.png) 推断 Causal Graph**: 对 conditional independence testing 的 accuracy 有较高要求
+
+1. 从 Complete Undirected Graph 中移除 edges，得到 Skeleton
+    - 如果 $X \perp Y | Z$，可移除 (X,Y) 间 edge
+    - Z从空集逐步增加，直至Z包含其余所有nodes、或达成移除
+2. 定义 Immoralities
+    - 如果 (X,Y) 间 edge 已被移除，且 conditioning on node Z 令 (X,Y) 相关联，则可以确定一个 Immorality
+3. 对于余下的path，顺应其上游方向（由 Immorality 得），**猜测**其方向
+
+此外，还有一些减少 Assumption 限制的方法：FCI algorithm (Not causal sufficiency), CCD algorithm (Not acyclicity), SAT-based causal discovery (Neither causal sufficiency nor acyclicity)
+
+至此，虽然我们可以定义 Essential Graph，但有时很难**定义 edge 方向**，需要增加 **Semi-Parametric Assumptions**：
+```
+X --> Y         or        X <-- Y  
+Y: f(X)+Ux      or        X: f(Y)+Uy       linear/non-linear, 也可以 Y: f(X+Ux)
+```
+在 linear non-Gaussian setting 中，只有一个SCM可以生成符合P(x, y)分布的数据，观测：[Residuals 是否随着自变量而变化](./Causal_Inference/n10-4.png)
+
+
+## L11-Causal Discovery from Interventions
+
+![Structural/Parametric Interventions](./Causal_Inference/n11-3.png)
+
+如下图示，至少需要2次 Single-Node **Hard Interventions** 来确定 2个 nodes 的 Causal Graph
+
+对于 n>2 nodes，[最多需要 n-1 次 Single-Node Intervention](./Causal_Inference/n11-2.png)，或者 log2(n)+1 次不限单次干扰数量的 Multiple-Node Intervention 来确定 Causal Graph (Complete Graph 是最坏情况)
+
+![Structural Interventions](./Causal_Inference/n11-1.png)
+
+
+Two graphs augmented with single-node interventions are **Interventional Markov Equivalent** if any only if they have the same skeletons and immoralities: 通过 Single-Node **Soft Intervention** [引入 Immoralities 以确定部分 edges 的方向](./Causal_Inference/n11-4.png)
+
+
+## L12-Transfer Learning
 
 
 
