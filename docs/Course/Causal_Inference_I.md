@@ -105,7 +105,7 @@ of all its children
 
 常见有 Chain/Fork/Immoralities 三种结构，图示绿色线条表示 XY 间有 association Path，红色则表示 Path 被阻断。[对于 Chain/Fork 可以通过 Condition on Z 阻断通路](./Causal_Inference/n03-1.png)，即 $P(X,Y|Z)$；但对于 Immoralities 则正相反，Condition on Z 反而会使[原本阻塞的 Path](./Causal_Inference/n03-2.png) 联通
 
-![](./Causal_Inference/dSeparation.png)
+![Parents & Children & Colliders](./Causal_Inference/dSeparation.png)
 
 
 * **d-separation**: Two (sets of) nodes X and Y are d-separated by a set of nodes Z if all of
@@ -141,7 +141,7 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 
 
 * [Structural Causal Models (SCMs)](./Causal_Inference/n04-3.png)
-    - [Interventions 修改了G，也即修改了 SCM 中被intervene参数的方程（由于 Modularity Assumptions） ](./Causal_Inference/n04-4.png)
+    - [Interventions 修改了G，也即修改了 SCM 中被intervene参数的方程（参考 Modularity Assumptions） ](./Causal_Inference/n04-4.png)
 
 
 
@@ -320,6 +320,41 @@ Two graphs augmented with single-node interventions are **Interventional Markov 
 
 
 ## L12-Transfer Learning
+
+**已知因果关系的情况下，如何为 Transfer Learning (或 train->test) 选择变量 X？**
+
+* Covariate Shift 指 trainset 与 testset 联合分布不一致的情况，即 $P_{train}(x,y) \neq P_{test}(x,y)$。此情景下，如果希望进行迁移学习，即 model $E_{test}(Y|x)$ only given access to $P_{train}(x,y)$，则需要 **Covariate Shift Assumption**: 
+    - $P_{train}(y|x) = P_{test}(y|x)$ 即 x->y 的模式一致（预测曲线形状相似）
+    - $P_{train}(x) \neq P_{test}(x)$ 所以联合分布不一致
+    - $supp_{train}(x) = supp_{test}(x)$ 即支持此模式的 x 取值范围一致
+
+
+* 对于 In-distribution Prediction of Y given X (即 test 分布与 train 一致)，Conditioning on Y's Markov Blanket 即可达成 optimal
+    - [Markov Blanket](./Causal_Inference/n12-1.png): 它们将 Y 与其余 node 间隔开，包含 Y's parents, children, colliders
+
+* 对于 Out-distribution Prediction of Y given X，例如当 trainset 由 Interventions 得来时，X 最好只包含 Y 的 causal mechanism，因为包含 non-causal nodes 会引入更多噪音，毕竟 test 分布与 train 不保证完全一致
+    - [参考 Modularity(L4) 决定 X 范围](./Causal_Inference/n12-2.png), 即 Y's parents $pa(Y)$，从这种意义上来说，Modularity 放宽了 Covariate Shift Assumption: $P_{train}(y|pa(Y)) = P_{test}(y|pa(Y))$
+
+
+**是否可以将数据集 $\Pi$ 中因果关系 Transfer 给另一数据集 $\Pi^{\ast}$？[Transportability Problem](./Causal_Inference/n12-3.png)**
+
+* [Selection Diagrams](./Causal_Inference/n12-4.png): 理论上两个数据集可能有不同的 causal mechanism，如果需要假设某些 nodes 的 causal mechanism 在两个数据集之间不同，则给这些 nodes 加 Selection node
+    1. 若满足 [Direct Transportability](./Causal_Inference/n12-5.png) 则可直接 Transfer 
+    2. 如果不满足 Direct Transportability，但有 $\Pi^{\ast}$ 的 observational data，也许可以通过 Backdoor Adjustment 达成 [Trivial Transportability](./Causal_Inference/n12-6.png)
+    3. 不能 Direct 也不能 Trivial，则 condition on [S-admissible set](./Causal_Inference/n12-7.png) W，即 sufficient adjustment set
+    
+    
+## L13-Counterfactuals
+    
+
+
+
+
+
+
+
+
+
 
 
 
