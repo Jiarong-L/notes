@@ -42,7 +42,7 @@ img{
 
 ```
 T=Treatment   Y=Outcome   Y(1) = Y(T=1)
-E[...|T=1] 只是指代样本分组 即 E[...|T=G]  故而可以有 E[Y(0)|T=1] 这样的Counterfactual 
+E[...|T=1] 只是指代样本分组 即 E[...|T=G]  故而可以有 E[Y(0)|T=1] 这样的Counterfactual
 
 ITE: Individual treatment effect
 ATE: Average treatment effect* |
@@ -346,19 +346,19 @@ Two graphs augmented with single-node interventions are **Interventional Markov 
     
 ## L13-Counterfactuals
     
+假设在一次实验中我们已经对某样本实施 T=0 处理，得到了观测值 Yi(0)=Z，现在我们想猜测：如果当初执行的是 T=1 处理，是否依旧能得到 Yi(1)=Z？如此评价 T 对于结果的影响。
+
+```
+P[Y(0)=Z]    是既定事实
+P[Y(1)=Z]    是 Counterfactual，基于已知信息猜测，
+            e.g.用其它样本的结果训练SCM的参数，然后带入此样本
+```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+TY 之间有许多 Mediators，其中哪些是主要效应、哪些是次要的？通过干扰试验获取 [Controlled Direct Effect (CDE)](./Causal_Inference/n13-1.png)，或通过 Counterfactuals 获取 [Natural Direct/Indirect Effects (NDE/NIE)](./Causal_Inference/n13-2.png)
+```
+   -->   MediatorA  -->     
+T  -->   MediatorB  -->  Y     Mediation：定量 Mediators 的效用
+   ------------------->     
+```
 
