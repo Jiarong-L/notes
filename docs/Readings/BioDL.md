@@ -8,7 +8,7 @@ img{
 ## Explainable AI
 
 
-[SHAP](https://shap.readthedocs.io/en/latest/index.html) 提供模型参数的解释，目前已支持: NN, Tree Model, Linear Model, ... 见官网示例
+[SHAP](https://shap.readthedocs.io/en/latest/index.html) 提供模型参数的解释，目前已支持: NN, Tree Model, Linear Model, ... 示例见官网/[TreeExplainer](https://zhuanlan.zhihu.com/p/83412330)
 
 其使用步骤:
 ```py
@@ -18,8 +18,6 @@ explainer = shap.xxxExplainer(model, eX_train)
 shap_values = explainer.shap_values(eX)
 ## 3. 可视化
 ```
-
-示例：[TreeExplainer](https://zhuanlan.zhihu.com/p/83412330)，[Basis_PyTorch.ipynb]()
 
 背景参考： [Explainable ML](https://zhuanlan.zhihu.com/p/339294365) / [XAI](https://blog.csdn.net/FelicityXu/article/details/121972644)，[初探Explainable AI](https://zhuanlan.zhihu.com/p/238202269)，LIME
 
