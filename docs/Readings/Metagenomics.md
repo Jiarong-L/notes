@@ -13,7 +13,45 @@
 * [深海海山沉积物中病毒的多样性和潜在的宿主相互作用](https://www.nature.com/articles/s41467-024-47600-1)：**vConTACT2病毒分类注释**，且对vOTU预测宿主     
 ![https://blog.csdn.net/woodcorpse/article/details/118214599](./Metagenomics/1.png)  
 * [Pangaea MAG组装工具](https://www.nature.com/articles/s41467-024-49060-z)：改善短读段组装高/中等丰度微生物基因组组装的连续性。1. 基于 barcode 特异性对 reads 分簇，分别组装得到高/中等丰度微生物；2. 多阈值重组，不同的丰度阈值来细化低丰度微生物的组装；3. OLC算法进行整合
+* [Microbial dark matter could add uncertainties to metagenomic trait estimations](https://www.nature.com/articles/s41564-024-01687-w)：**??**
 
 
+
+
+## Microbial Forensics
+
+* [What is Microbial Forensics](https://www.ncbi.nlm.nih.gov/books/NBK234883/)
+* [Forensic Applications of Microbiomics: A Review (2020)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7838326/)
+* [中文综述 (2022)](https://wswxtb.ijournals.cn/html/wswxtbcn/2022/11/tb22114860.htm)
+* [Application of Microbiome in Forensics (2023)](https://www.sciencedirect.com/science/article/pii/S1672022922000961)
+
+
+微生物法医学致力于分析来自生物恐怖主义行为、生物犯罪或无意中释放的微生物/毒素的证据，以归因为目的：识别生物威胁剂的来源，并将生物威胁行为归因于特定的人或群体。
+
+我觉得：个人识别不太可能，但至少**反应了某种生活习惯**，为侧写提供帮助（是否养宠物、爱干净、生理因素 等）--- 但只能获得受害者的样本，普通的调查应该也能获得这些信息？？如果是针对嫌疑人，这些作为起诉证据又不完全靠谱；或者说应该多点采样查看是否有突兀的分布点，以此从环境中分离潜在的外源宏基因组，然后推断有具有某种特征的客人来过？（不太可能实现吧。。。除非有十分特异的marker）
+
+
+* 地理定位
+    - 土壤类型和地理位置都是决定微生物群落组成的重要因素，已支持正确地将95.4%土壤细菌图谱分类到它们的地理位置
+    - 16S 测序也可用于溯源鞋底获得的土壤、区分混合物中样品不同的土壤
+    - 问题：微生物组在空间和时间上都表现出高度的物理、化学和生物多样性，例如受季节影响严重
+    - 联想：可以通过微生物组成推断一下水分、温度之类的？
+
+* 个人识别
+    - 口腔、衣物等提取的宏基因组/16S 可以区分个体，但是研究样本太小(<50)，存疑
+    - 问题：扰动太大，在大样本中不太可能实现
+
+* 生物性别确定
+    - 男性的房间显示出更高的微生物群相对丰度，能是因为男性可能会脱落更多的生物颗粒，或者使用较少的化妆品屏障
+    - 问题：需要进一步进行更大样本量的验证研究
+
+* 死亡方式和原因
+    - 溺水：检测与水生环境相关的细菌种类，还可以定位海洋或者河流？
+    - 药物、疾病相关死亡：药物、代谢影响微生物组成？例如CRP升高代表炎症
+    - 联想：应该会有动物实验进行个体经历的追踪测序？例如是不是第一现场会造成什么影响
+
+* 死亡时间PMI估算
+    - 也许可以增强现有预测模型
+    - 问题：仅有动物实验数据
 
 
