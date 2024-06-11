@@ -28,7 +28,7 @@ img{
 | [Re-seq](Bulk/Re-seq.md) | 对已知基因组序列信息的个体进行测序，获取SNP、InDel、SV等信息 | 群体遗传 |
 
 ### Metagenomics
-关注环境中物种组成，或者功能基因的比例；病毒由于含量少，另有工具（TBA）
+关注环境中物种组成，或者功能基因的比例；病毒由于含量少，另有工具（VirSorter/VirFinder/...）
 
 [![Meta](./Pipelines_overview/Meta.png)]()
 
