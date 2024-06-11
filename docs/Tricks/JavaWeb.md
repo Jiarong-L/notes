@@ -32,6 +32,10 @@ SpringMVC   表现层       Controller+View 处理用户界面和交互逻辑
 
 * [POJO、DTO、DAO、PO、BO、VO、QO、ENTITY](https://blog.csdn.net/qq_40610003/article/details/109007539)
 
+* [Token、Cookie for Session](https://blog.csdn.net/weixin_52376041/article/details/134309318) 
+
+* 为什么要用 Bean？[IoC、DI、AOP 以降低耦合度](./JavaWeb/6.png)
+
 
 
 ## 教程导航
@@ -123,8 +127,30 @@ fis.close();
     - [JSTL取代JSP页面上的Java代码](./JavaWeb/5.png)
 
 
+### [黑马Spring教程](https://www.bilibili.com/video/BV1rt4y1u7q5)
 
-### Spring
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### [黑马SpringBoot教程](https://www.bilibili.com/video/BV1rt4y1u7q5)
+
+
+
 
 
 
