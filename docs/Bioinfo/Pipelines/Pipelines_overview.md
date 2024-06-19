@@ -32,6 +32,7 @@ img{
 
 [![Meta](./Pipelines_overview/Meta.png)]()
 
+对于Binning质量，一般使用checkm/busco进行检测
 
 ### Epi & Regulome
 
