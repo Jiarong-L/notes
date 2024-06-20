@@ -4,7 +4,7 @@
 
 * [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/other.html) 中通过 [Maven](https://maven.apache.org/) 管理包：.pom文件
     - 本地安装Maven后: IDEA中File--Settings--搜索maven--设置home/cfg/repo等信息
-    - 随后可以创建Maven项目，[尝试一下，公司会提供正版IDEA](https://www.idejihuo.com/)
+    - 随后可以创建Maven项目，[尝试一下IT码徒](https://www.itmatu.com/1529.html)，[公司会提供正版IDEA](https://www.idejihuo.com/)
 
 
 * Mysql 数据库运行后，可以用 Navicat 可视化管理其中的 table
@@ -34,8 +34,6 @@ SpringMVC   表现层       Controller+View 处理用户界面和交互逻辑
 
 * [Token、Cookie for Session](https://blog.csdn.net/weixin_52376041/article/details/134309318) 
 
-* 为什么要用 Bean？[IoC、DI、AOP 以降低耦合度](./JavaWeb/6.png)
-
 
 
 ## 教程导航
@@ -44,6 +42,7 @@ SpringMVC   表现层       Controller+View 处理用户界面和交互逻辑
     - 右键目录，选择生成class/servlet/..
     - 右键 或 Alt+Insert 自动生成类的 Getter/Setter 等代码
     - 右键--Project Structure--Facets--点击项目--点击标红目录进行自动创建
+    - 非java代码都放在resources文件夹中
 
 ### [黑马程序员JavaWeb基础教程](https://www.bilibili.com/video/BV1Qf4y1T7Hx/)
 
@@ -129,23 +128,67 @@ fis.close();
 
 ### [黑马Spring教程](https://www.bilibili.com/video/BV1rt4y1u7q5)
 
+* 为什么要用 [Bean](https://blog.csdn.net/yuxiangdeming/article/details/122876550)？[IoC、DI、AOP 以降低对象间耦合度](./JavaWeb/6.png)
+
+* 记得引入xml-header部分的xmlns、xsi，以及pom中相关依赖
+
+* 通过BeanFactory配置/创建/管理Beans，步骤
+    1. 简单创建一个Maven项目后，配置 [spring-context](https://central.sonatype.com/artifact/org.springframework/spring-context)
+    2. 创建 UserService 接口
+    3. UserServiceImpl 是 UserService 的实现类（可配置为Bean）
+    4. IDEA 右键目录 New 一个 XML Configuration File，[配置](./JavaWeb/7.png) ```<bean id="userService" class="xx.xx.impl.UserServiceImpl">...</bean>```
+    5. 如果某Bean中还需要引用另一个Bean，[例如](https://blog.csdn.net/weixin_42214698/article/details/122781230) ，
+        - 则```...```处增加： ```<property name="bean2" ref="bean2"></property>```
+        - 或```autowire="byName"```：实现类中设定```setBean2(Bean2 bean2)```方法，寻找容器中```name/id=bean2```者，自动注入
+        - 或```autowire="byType"```：寻找容器中类型为Bean2类型者，若有重复则会报错，e.g.当Bean2接口对应两个Impl实现类，配置成两个Bean
+    6. 如果是有参构造，例如```class XImpl```的构造方法```public XImpl(String argname){}```，则```...```处增加： ```<constructor-arg name="argname" value="123"></constructor-arg>```
+    7. 总结：ref="BeanXxx"， value=String/int/boolean， 如果需要注入的是ref/value的List，则 
+    ```
+    <property name="xxx">
+    <list>
+        <value>aaa</value> 
+        <value>bbb</value> 
+    </list>
+    </property>
+    ```
+
+```java
+// 创建工厂对象
+DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+// 读取xml
+XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
+reader.loadBeanDefinitions("beans.xml");
+// 根据id获取Bean实例对象 -- 首次调用getBean()时才将被调用的Beans实例化、初始化
+UserService userService = (UserService) beanFactory.getBean("serv1");
+```
+
+* ApplicationContext (Spring容器) 中封装了BeanFactory，并且扩展了功能API（监听、国际化等），[getBean方法](./JavaWeb/8.png)
+```java
+// 创建容器 -- 此时就将Beans实例化、初始化
+ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+UserService userService = (UserService) applicationContext.getBean("serv1");   // bean xml的优先顺序：(name1,name2)>id>class
+```
+
+* 设定test/dev环境
+    - 希望使用大标签```<beans profile="dev">....bean1234....</beans>```内的Beans
+    - 则main方法中 ```System.setProperty("spring.profiles.active","dev")```
 
 
+* 有时项目过大，可以吧Beans分开写进不同的xml中，然后```<import resource="classpath:aa.xml"></import>```至相关```<beans>```大标签中
 
+* 许多外部包提供非自定义的Beans，JDBC组件库Druid示例如下；[Mybatis-SqlSessionFactory](https://mybatis.net.cn/getting-started.html)同理，其InputStream可设置为静态BeanFactory
+```java
+// main函数中，Druid的正常用法
+DruidDataSource dataSource = new DruidDataSource();
+dataSource.setUrl("jdbc:mysql://xxx:port/xxx");
+dataSource.set....
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+// dataSource.setXxx等改为在 <property> 标签中设置（如果是构造对象时就需要的参数，使用<constructor-arg>，例如返回Connection的DriveManager.getConnection方法）
+// xml中进行以上设置后，main改为：
+ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+Object dataSource = applicationContext.getBean("dataSource");
+```
 
 ### [黑马SpringBoot教程](https://www.bilibili.com/video/BV1rt4y1u7q5)
 
