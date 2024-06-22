@@ -201,6 +201,18 @@ public class UserServiceImpl implements UserService {...}
 ```
 
 
+* [SpringMVC的使用](https://cloud.tencent.com/developer/article/1711650)类似Servlet：导入spring-webmvc + servlet坐标，beans config配置同上文Spring，[初始化DispathcerServlet](./JavaWeb/13.png)，随后即可使用
+```java
+@Controller
+public class UserController{
+    @RequestMapping("/save")      //设置url
+    @ResponseBody                 //设置响应内容为当前返回值，无需解析（建议返回json格式）
+    public String save(String name){
+        return "{'val':'ok'}"
+    }
+}
+```
+
 
 ### [黑马SpringBoot教程](https://www.bilibili.com/video/BV1Fi4y1S7ix)
 
