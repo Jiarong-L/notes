@@ -126,7 +126,7 @@ fis.close();
     - [JSTL取代JSP页面上的Java代码](./JavaWeb/5.png)
 
 
-### [黑马Spring教程](https://www.bilibili.com/video/BV1rt4y1u7q5)
+### [黑马Spring教程](https://www.bilibili.com/video/BV1rt4y1u7q5) + [SSM教程](https://www.bilibili.com/video/BV1Fi4y1S7ix)
 
 * 为什么要用 [Bean](https://blog.csdn.net/yuxiangdeming/article/details/122876550)？[IoC、DI、AOP 以降低对象间耦合度](./JavaWeb/6.png)
 
@@ -201,26 +201,60 @@ public class UserServiceImpl implements UserService {...}
 ```
 
 
-* [SpringMVC的使用](https://cloud.tencent.com/developer/article/1711650)类似Servlet：导入spring-webmvc + servlet坐标，beans config配置同上文Spring，[初始化DispathcerServlet](./JavaWeb/13.png)，随后即可使用
+* [SpringMVC的使用](https://cloud.tencent.com/developer/article/1711650)类似Servlet：导入spring-webmvc + servlet坐标，beans config配置同上文Spring，[初始化DispathcerServlet](./JavaWeb/13.png)，随后即可使用（建议遵循[RESTful风格](./JavaWeb/14.png)），[Postman测试5种类型参数的传递](https://www.bilibili.com/video/BV1Fi4y1S7ix?p=50)、[Postman测试json格式参数的传递（@RequestBody）](https://www.bilibili.com/video/BV1Fi4y1S7ix?p=50)
 ```java
 @Controller
 public class UserController{
-    @RequestMapping("/save")      //设置url
-    @ResponseBody                 //设置响应内容为当前返回值，无需解析（建议返回json格式）
-    public String save(String name){
-        return "{'val':'ok'}"
+    @RequestMapping(value="/users/{}",method=RequestMethod.DELETE)      // 访问/users/1 意味着输入形参id=1
+    @ResponseBody                                                       // 设置响应内容为当前返回值，无需解析（建议返回json格式）
+    public String delete(@PathVariabla Integer id){                     //  /users/1?name=aa&age=bb可提供name、age两个形参
+        return "{'val':'ok'}"                                           // 
+    }
+
+    @RequestMapping("/users")                                            // /users?name=aa&age=22可提供name、age两个形参
+    @ResponseBody                                                      
+    public String test(@RequestParam("name") String userName,int age){  // 形参名一致可直接输入，但不一致则用RequestParam绑定关系
+        return "{'val':'ok'}"                                            // 也可直接接收POJO对象 User{name='aa',age='22'} 
+    }                                                                   // String[] 直接接收数组 v.s. @RequestParam List<String> 给集合对象赋值
+}
+```
+
+* [SSM = Spring + SpringMVC + MyBatis 概览](./JavaWeb/15.png)
+
+* SpringBoot进一步简化了SpringMVC，并且整合了Tomcat
+    1. IDEA 勾选 Spring Initializr---web---Spring web 初始化SpringBoot项目，只需留下pom文件和src文件夹
+    2. New Controller，@RestController
+    3. [application.properties/.yaml](https://docs.spring.io/spring-boot/how-to/properties-and-configuration.html)
+
+```java
+// .yaml中  lesson:abc
+@RestController
+@RestMapping("/ab")
+public class AbController{
+    @Value("${lesson}")         //从.yaml中获取lesson取值
+    private String lesson;
+
+    @GetMapping("/{id}")
+    public String test(@PathVariabla Integer id){
+        System.out.println(lesson);    
+        return "ok";
     }
 }
 ```
 
 
-### [黑马SpringBoot教程](https://www.bilibili.com/video/BV1Fi4y1S7ix)
+* [MyBatisPlus 进一步简化了MyBatis，使用步骤](https://baomidou.com/getting-started/)
+    1. 生成一个SpringBoot项目：IDEA 勾选 Spring Initializr---web---Spring web，---SQL---MyBatis Framework，---SQL---MySQL Driver
+    2. application.yml 配置数据源
+    3. 定义数据层接口映射配置（教程所例的**BaseMapper接口**提供了基本CRUD操作接口）
 
-
-
-
-
-
+```java
+@Mapper
+public interface UserDao{
+    @Select("select * from user where id=#{id}")
+    public User getById(Long id);
+}
+```
 
 
 
