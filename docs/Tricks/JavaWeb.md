@@ -17,7 +17,7 @@
 * MVC
 ```
        Model   处理数据逻辑----JavaBean
-  Controller   对请求选择合适的Model和View----Servlet
+  Controller   对请求选择合适的Model和View----Servlet (url)
        View    用于数据展示、与用户交互----前端
 ```
 
@@ -130,6 +130,8 @@ fis.close();
 
 * 为什么要用 [Bean](https://blog.csdn.net/yuxiangdeming/article/details/122876550)？[IoC、DI、AOP 以降低对象间耦合度](./JavaWeb/6.png)
 
+* [Spring-AOP 配置方法](./JavaWeb/10.png),[AOP工作流程](./JavaWeb/11.png),[AOP切入点表达式（支持通配符）](./JavaWeb/12.png)，[Spring AOP 五大通知类型](https://www.cnblogs.com/chuijingjing/p/9806651.html)
+
 * 记得引入xml-header部分的xmlns、xsi，以及pom中相关依赖
 
 * 通过BeanFactory配置/创建/管理Beans，步骤
@@ -190,7 +192,19 @@ ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean
 Object dataSource = applicationContext.getBean("dataSource");
 ```
 
-### [黑马SpringBoot教程](https://www.bilibili.com/video/BV1rt4y1u7q5)
+
+* [以上xml配置可以通过@注解进行替代](./JavaWeb/9.png)
+```java
+// xml中  <context:component-scan base-package="com.proj"/>
+@Component("beanName") //get时byName，不填则需byType
+public class UserServiceImpl implements UserService {...}
+```
+
+
+
+### [黑马SpringBoot教程](https://www.bilibili.com/video/BV1Fi4y1S7ix)
+
+
 
 
 
