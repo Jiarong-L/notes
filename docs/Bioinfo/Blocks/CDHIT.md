@@ -79,8 +79,10 @@ cd-hit -i input.faa -o cdhit.faa -c 0.9 -G 1 -n 5 -M 16000 -T 8 -bak 1
 ### cd-hit-2d
 Compares **protein** dataset B to A
 ```
-cd-hit-2d -i inputA.faa -i2 inputB.faa -o BmapA.faa -c 0.9 -n 5 -M 16000 -T 8 -bak 1
+cd-hit-2d -i inputA.faa -i2 inputB.faa -o inB.notinA.faa -c 0.9 -n 5 -M 16000 -T 8 -bak 1
 ```
+
+
 
 ### cd-hit-est
 Clusters a **nucleotide** dataset (non-intron containing); -j -op for paired end (PE) files
