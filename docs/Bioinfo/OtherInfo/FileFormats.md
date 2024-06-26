@@ -243,4 +243,12 @@ PGT	Phased Genotype                                ?|? 相位化                
 
 
 
+## PDB
+
+[.pdb格式](https://blog.sciencenet.cn/blog-548663-895916.html)定义十分严格，不同的软件都有可能因写入规则不同而不能相互识别。
+
+
+如果用于机器学习，一般基于[ATOM记录](https://www.wwpdb.org/documentation/file-format-content/format33/sect9.html#ATOM)中 x,y,z fields 计算欧氏距离，转换为 Graph 以表示结构
+
+
 
