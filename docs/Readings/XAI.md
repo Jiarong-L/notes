@@ -1,5 +1,9 @@
 
 
+
+
+## [Captum](https://captum.ai/api/)
+
 * [LIME](./XAI/LIME.png): 用可解释的模型（线性回归/决策树）等模拟大模型的输出
 * Local Explanation: 数据中的什么特征影响了模型的决策？Why do you think its a dog? 
     - 对输入图像进行固定大小的Mask，查看何处对acc/loss影响较大（[Occlusion Sensitivity](./XAI/1.png)）；寻找最小的Mask，以达成对acc/loss的最大影响（ [Deletion Game](./XAI/2.png)）
@@ -8,6 +12,7 @@
     - GAN生成假图像
     - [Optimize 图像直到它可以骗过模型（加图像复杂度限制。令其更接近人类可理解的图像）](./XAI/3.png)
 * [Attention](https://github.com/jessevig/bertviz)
+
 
 
 
