@@ -37,5 +37,5 @@ SHAP 枚举不同feature加入模型中的顺序，评估它们对结果的贡�
 4. [初探Explainable AI](https://zhuanlan.zhihu.com/p/238202269)
 5. [XAI 视频介绍](https://www.bilibili.com/video/BV1c94y1P7vC/)
 6. [XAI](https://blog.csdn.net/wxc971231/article/details/121184091)
-7. [**Captum: Model Interpretability for PyTorch**](https://captum.ai/)
+7. [**Captum: Model Interpretability for PyTorch**](https://captum.ai/tutorials/)
 8. [Usable XAI: 10 Strategies Towards Exploiting Explainability in the LLM Era](https://github.com/JacksonWuxs/UsableXAI_LLM)
