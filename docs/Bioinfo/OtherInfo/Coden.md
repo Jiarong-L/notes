@@ -24,4 +24,10 @@ DNA to Protein 时， 不同的生物可能会使用不同的 [Coden Table](http
     }
 ```
 
-
+另外，氨基酸简写对照：
+```py
+    {'VAL':'V', 'ILE':'I', 'LEU':'L', 'GLU':'E', 'GLN':'Q',
+     'ASP':'D', 'ASN':'N', 'HIS':'H', 'TRP':'W', 'PHE':'F', 
+     'TYR':'Y', 'ARG':'R', 'LYS':'K', 'SER':'S', 'THR':'T', 
+     'MET':'M', 'ALA':'A', 'GLY':'G', 'PRO':'P', 'CYS':'C'}
+```
