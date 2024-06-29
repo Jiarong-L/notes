@@ -29,5 +29,18 @@ DNA to Protein 时， 不同的生物可能会使用不同的 [Coden Table](http
     {'VAL':'V', 'ILE':'I', 'LEU':'L', 'GLU':'E', 'GLN':'Q',
      'ASP':'D', 'ASN':'N', 'HIS':'H', 'TRP':'W', 'PHE':'F', 
      'TYR':'Y', 'ARG':'R', 'LYS':'K', 'SER':'S', 'THR':'T', 
-     'MET':'M', 'ALA':'A', 'GLY':'G', 'PRO':'P', 'CYS':'C'}
+     'MET':'M', 'ALA':'A', 'GLY':'G', 'PRO':'P', 'CYS':'C', 
+     'Asx':'B', 'Glx':'Z', 'Xle':'J', 'Xaa':'X', 'Unk':'X'
+     }
+```
+其中：
+```py
+{
+    'B':'DN',
+    'Z':'EQ',
+    'J':'LI',
+    'X':'*',
+    '*':'*'
+}
+
 ```
