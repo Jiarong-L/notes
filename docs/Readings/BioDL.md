@@ -74,7 +74,23 @@ CRISPR靶向特异性：
     - 长度有限的序列（5′UTR/promoter）可通过生成随机/半随机 Libraries，进行  massively parallelized assays 
 
 
+
+## 单细胞中应用
+
+
+* [SAUCIE (2019)](https://www.nature.com/articles/s41592-019-0576-7): 可以用AE中间层的输出进行批次矫正、聚类、细胞类型注释等，以应对稀疏、噪音等问题，[说明](https://cloud.tencent.com/developer/article/1781390)。
+
+
+* [DISC (2020)](https://cloud.tencent.com/developer/article/1785312): 半监督学习插补缺失值；将AE重构表达谱循环输入AE，最后取所有表达谱的加权平均值作为插补结果。
+
+
+
+
 ## 其它话题
+
+* [LOGO (2022)](https://cloud.tencent.com/developer/article/2202917): 语言模型，可被迁移用于序列标记任务（启动子识别、增强子-启动子相互作用预测、染色质状态预测）和非编码变异优先排序任务
+
+
 
 ### WES for CNV detection
 
