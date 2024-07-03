@@ -23,14 +23,14 @@ img{
 
 课程描述：cs224w    
 课程主页：https://web.stanford.edu/class/cs224w/index.html   
-课程笔记: https://snap-stanford.github.io/cs224w-notes/   
+课程笔记：https://snap-stanford.github.io/cs224w-notes/   
 
 
 课程描述：bilibili-图神经网络       
 视频链接：https://www.bilibili.com/video/BV1YB4y1S7An/  
 
 
-此处查看一些计算示例：[concepts.py](GNN/concepts.py),[pagerank.py](GNN/pagerank.py)  
+此处查看实现代码：[GNN_PyTorch.ipynb](https://github.com/Jiarong-L/GAN_tutorial/blob/main/Basis/GNN_PyTorch.ipynb), networkx 计算[基本特征](GNN/concepts.py)、[Pagerank](GNN/pagerank.py)
 
 ## Traditional
 Uses Hand-designed features for:
@@ -216,20 +216,7 @@ Biased Walks生成序列(p大-倾向于DFS，q大-倾向于BFS)，以此序列�
 ![useEmbed](GNN/img/useEmbed.png) 
 
 
-
-## GNN
-
-### GCN
-
-
-
-### GraphSAGE
-
-
-### GAT
-
-
-
+其它GNN：/GCN/GraphSAGE/GAT
 
 
 ## 参考
@@ -240,10 +227,4 @@ networkx: https://networkx.org/documentation/stable/tutorial.html
 pagerank: https://zhuanlan.zhihu.com/p/137561088     
 pagerank: https://zhuanlan.zhihu.com/p/120962803   
 **Graph Embedding：** https://zhuanlan.zhihu.com/p/56733145     
-
-
-
-
-
-![](GNN/img/.png) 
 
