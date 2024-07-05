@@ -733,6 +733,9 @@ Bypass Surgery），扩张阻塞的血管（Coronary Angioplasty）
         * 组织受损过度
         * 大量腺苷被转换为尿酸，缺乏生成ATP的原料
 
+e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion (肾静脉充血)，进一步削弱调节能力。
+
+
 * [心输出量出现下降后，经过一系列 Positive Feedback Loop，心输出量越来越低、直至无可挽回](Medical_Physiology/24-3.png)，部分途径如下（图示黄色边框）
     - 脑部缺血导致调控血压的 Vasomotor Center 失效
         * 全身器官的功能的下降会进一步恶化情况：肝脏（排毒/抑制代谢），肺（充氧），心（输血）
