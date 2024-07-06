@@ -90,6 +90,7 @@ CRISPR靶向特异性：
 
 * [LOGO (2022)](https://cloud.tencent.com/developer/article/2202917): 语言模型，可被迁移用于序列标记任务（启动子识别、增强子-启动子相互作用预测、染色质状态预测）和非编码变异优先排序任务
 
+* [AE对MS蛋白质组数据进行插补](https://www.nature.com/articles/s41467-024-48711-5): ???
 
 
 ### WES for CNV detection

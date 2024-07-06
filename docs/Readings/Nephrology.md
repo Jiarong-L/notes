@@ -5,6 +5,8 @@
 [Kidney Precision Medicine Project](https://www.kpmp.org/) 提供了[各种健康/受损肾脏细胞的 multi-omics Atlas](https://www.nature.com/articles/s41586-023-05769-3)
 
 
+
+
 ## 论文速览: [nature reviews nephrology](https://www.nature.com/nrneph/)
 
 
@@ -50,10 +52,28 @@
 * [gut–kidney axis](https://new.qq.com/rain/a/20231203A05LY900)：肠道菌群与CKD之间的影响是双向的。肠道代谢产物（补充SCFAs可减轻小鼠AKI）、肠道黏膜免疫（异常可导致Gd-IgA1升高，造成IgA nephropathy）、肠-肾免疫细胞沟通（[ILC3s从肠道迁徙至肾脏，调节肾纤维化](https://www.nature.com/articles/s41581-024-00867-5)）
 
 
+## 风险筛查
+
+* [CKD筛查、诊断及防治指南](http://www.cjn.org.cn/CN/10.3760/cma.j.cn441217-20210819-00067): UACR（可最早发现微量的尿蛋白异常） + serum creatinine --> GFR rate
+
+* [KDIGO EarlyScreeningBooklet](https://kdigo.org/wp-content/uploads/2019/01/ISN_KDIGO_EarlyScreeningBooklet_WEB_updatedOct11.pdf)
+
+* [Risk Prediction Equations for](https://pubmed.ncbi.nlm.nih.gov/31703124/): 5-year risk of reduced eGFR --> increased risk of CKD
+    - 非糖尿病患者：age, sex, race/ethnicity, eGFR, history of cardiovascular disease, ever smoker, hypertension, body mass index, and albuminuria concentration
+    - 糖尿病患者：diabetes medications, hemoglobin A1c, and the interaction between the 2
+    - 34个跨国队列的500多万人
+    - risk analysis 的方法可以参考其 Supplementary，例如：如何计算eGFR，如何使用 [Harrell C 统计量](https://www.jianshu.com/p/5e648f0f49ed)评估模型
+
 
 
 ### To read
 
 * [对排异反应的新解释？](https://www.nature.com/articles/s41581-024-00862-w)：
+
+* [700个人类肾脏样本的关联研究](https://www.nature.com/articles/s41467-024-46132-y)：**孟德尔随机化**示例
+    - 转录组确定了889个与血压调节相关的基因；蛋白质组发现97个相关蛋白；microRNAome发现11个相关miRNA
+    - 尿中细胞和肾脏中蛋白质编码基因的表达有很强的相关性，证明尿中细胞转录组学的诊断潜力
+
+
 
 
