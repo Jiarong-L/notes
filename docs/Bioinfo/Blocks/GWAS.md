@@ -73,9 +73,9 @@ echo -e "12149"> snps.txt
 plink --bfile clean --exclude snps.txt --make-bed --out delP
 ```
 
-6. 关联分析，可用 ```--assoc```,```–-fisher```,```--model```
+6. **关联分析**，可用 ```--assoc```,```–-fisher```,```--model```
 
-7. 进行表型/基因型/协变量的关联分析（未尝试）
+7. 进行表型/基因型/协变量的**关联分析**（未尝试）
 ```bash
 ## --linear/--logistic
 plink --bfile clean --linear --pheno pheno.txt --mpheno 1,2,3 --covar covar.txt --covar-number 1,2,3 --out asso_res
@@ -87,20 +87,49 @@ mpheno/--covar-number 1,2,3 选择第1、2、3个表型、协变量
 如果数值是二分类0/1，使用 --logistic
 ```
 
+8. [LD pruning & clumping](https://gwaslab.org/2021/05/18/pruning-and-clumping/): 抽取两两之间不关联的SNP子集
+```bash
+--indep-pairwise 500 50 0.2                pruning
+--clump                                    clumping
+```
 
 
+## 关联分析
 
-## TBA
+假设我们需要计算某SNP是否与某性状存在关联，一般采用线性回归的方式计算p值：
+```  
+        if斜率 > 0                       if斜率 = 0
+   |                                |
+ B |               **             B |
+ M |        *      *              M |         *
+ I | *      **                    I | **     ***    **
+   | **                             |
+   |____________________            |____________________        
+     AA     AT     TT                 AA     AT     TT    
+
+SNP: A/T       p-val=???, effect=斜率   注，GWAS示例一般使用十万多样本
+```
+
+通常一次操作多个SNP，需要对p-val进行多重比较的矫正。矫正后会通过点图查看SNP的位置
+```
+-log10(p-val)
+    |                    *
+    |      *            
+    |        *
+    |  *************************
+    |_________________________________
+           Genome Position
+```
+
+与某性状显著关联的SNP不一定位于基因内，它很可能只是与关键基因存在连锁不平衡(LD)。进行GWAS后，可以关注此SNP周边的基因，其中很可能包含真正作用于目标性状的基因。（即：GWAS起到了缩小检验范围的作用）
 
 
-
-
-
+PLINK提供关联分析（6、7）
 
 
 ## 参考
 ```
-教程汇总     https://zhuanlan.zhihu.com/p/356927396
+教程汇总     https://zhuanlan.zhihu.com/p/356927396    https://www.cnblogs.com/chenwenyan/p/11803311.html
 GWAS介绍     https://www.jianshu.com/p/acdc4a22e30a
 GWAS流程     https://zhuanlan.zhihu.com/p/667352071
 GWAS示例     https://www.jianshu.com/p/23058873b814
