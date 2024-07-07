@@ -22,7 +22,7 @@ Z可以是一个SNP，T是与Z强相关的某个因素（暴露因素），Y是�
 [TwoSampleMR官方示例](https://mrcieu.github.io/TwoSampleMR/articles/perform_mr.html)，[原理+代码示例](https://gwaslab.org/2021/11/14/twosamplemr/)
 
 
-1. 读取 exposure_data T 的GWAS数据：输入表格中每一行代表一个SNP，必须含!符号的4列:
+* 读取 exposure_data T 的GWAS数据：输入表格中每一行代表一个SNP，必须含!符号的4列:
 ```R
 exp_dat <- read_exposure_data(
     filename = "", sep = "\t",
@@ -37,9 +37,9 @@ exp_dat <- read_exposure_data(
 )
 ```
 
-2. LD Clumping 获取互不相关的SNP子集: ```clump_data(exp_dat, clump_r2=0.01, pop = "???")```  需要预先得知相关population中的LD关系
+* LD Clumping 获取互不相关的SNP子集: ```clump_data(exp_dat, clump_r2=0.01, pop = "???")```  需要预先得知相关population中的LD关系
 
-3. 读取 outcome_data Y 的GWAS数据，提取上述SNP子集
+* 读取 outcome_data Y 的GWAS数据，提取上述SNP子集
 ```R
 ## 若使用 extract_outcome_data(snps = exp_dat$SNP, outcomes = 'GWAS id')    则需要从 https://gwas.mrcieu.ac.uk/ 查询 GWAS id，或者
 out_dat <- read_outcome_data(
@@ -56,6 +56,6 @@ dat <- harmonise_data(
 )
 ```
 
-4. ```res <- mr(dat)``` 获取MR分析结果（不同method计算得到 Y-T 是否有因果关系的pval），作图及异质性分析等详见官方教程，[最常用的两种方法原理](https://cloud.tencent.com/developer/article/2078504)
+*  ```res <- mr(dat)``` 获取MR分析结果（不同method计算得到 Y-T 是否有因果关系的pval），作图及异质性分析等详见官方教程，[最常用的两种方法原理](https://cloud.tencent.com/developer/article/2078504)
 
 
