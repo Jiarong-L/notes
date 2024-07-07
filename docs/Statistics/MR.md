@@ -56,6 +56,6 @@ dat <- harmonise_data(
 )
 ```
 
-4. ```res <- mr(dat)``` 获取MR分析结果，作图及异质性分析等详见官方教程，[最常用的两种方法原理](https://cloud.tencent.com/developer/article/2078504)
+4. ```res <- mr(dat)``` 获取MR分析结果（不同method计算得到 Y-T 是否有因果关系的pval），作图及异质性分析等详见官方教程，[最常用的两种方法原理](https://cloud.tencent.com/developer/article/2078504)
 
 
