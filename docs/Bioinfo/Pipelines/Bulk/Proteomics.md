@@ -29,14 +29,14 @@
 ```
 以4plex为例：
 
-SampleA--R114--B31 |                        | proteinX abd in SampleA                       
-SampleB--R115--B30 |========>MS1======>MS2  | proteinX abd in SampleB                  
-SampleC--R116--B29 |  proteinA/B/C/D/..     | proteinX abd in SampleC                       
-SampleD--R117--B28 |                        | proteinX abd in SampleD                       
+SampleA--R114--B31 |             (Loop for proteinA/B/C/D/..) | R114 abd                       
+SampleB--R115--B30 |========>MS1======>MS2(e.g.For proteinX)  | R115 abd                  
+SampleC--R116--B29 |  proteinA/B/C/D/..                       | R116 abd                       
+SampleD--R117--B28 |                                          | R117 abd                       
 
 1. 为每个样本加上同重基团：Total mass of Reporter--Balance is 145
-2. 获取混合样本的质谱，知悉其中蛋白种类
-3. 去除基团中--Balance，再次获取质谱，可知各蛋白在各样本中丰度之比
+2. 获取混合样本的质谱，知悉其中蛋白种类X
+3. 仪器选取信号强的峰，进行MS2（再次断裂），获取这个蛋白中各 ReporterX 的信号强度
 ```
 
 
