@@ -12,9 +12,7 @@
 
 4. GO and KEGG Enrichment Analysis ...
 
-
-
-一般情况下,常规样本全谱分析能鉴定到1000～3000个蛋白,定量蛋白质组学能鉴定到2000～6000个蛋白。
+[系列讲座(2016)](https://www.bilibili.com/video/BV15741187GW/)
 
 ## 定性：全谱鉴定/Label-Free
 
