@@ -22,7 +22,7 @@ img{
 | -- | -- | -- |
 | [Genome](Bulk/Genome.md) | 组装基因组，并且预测基因；准备上传NCBI的格式 | 其它：Haplotype-based组装；结合HiC数据的组装 |
 | Transcriptomics | [RNA-seq](Bulk/RNA.md) | -- |
-| Proteomics | -- | -- |
+| [Proteomics](Bulk/Proteomics.md) | 蛋白组 | -- |
 | [Metabolomics](Bulk/Metabolomics.md) | 代谢组 | -- |
 | [HiC](Bulk/HiC.md) | 细胞内3D空间距离信息 | 可能Epi也常用？ |
 | [Re-seq](Bulk/Re-seq.md) | 对已知基因组序列信息的个体进行测序，获取SNP、InDel、SV等信息 | 群体遗传 |
