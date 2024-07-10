@@ -37,8 +37,8 @@ img{
 |  | 分析手段 | 
 | -- | -- | 
 | 描述生存过程 | K-M曲线 | 
-| 生存/风险函数是否有差异 | **LogRank**(Mantel-Haenszel): 各时间点权重一样，对远期差异敏感 <br> **Gehan Wilcoxon**(Breslow?): 以各时间点的观察例数为权重，对早期差异敏感 <br> **Tarone-Ware**: 以各时间点的观察例数的平方根为权重 <br> [详细link](https://zhuanlan.zhihu.com/p/210541300),根据事件时间分布、删失分布、曲线是否**交叉** 来决定方式与看待结果 | 
-| 寻找风险因素 | Cox | 
+| 生存/风险曲线是否有差异 | **LogRank**(Mantel-Haenszel): 各时间点权重一样，对远期差异敏感 <br> **Gehan Wilcoxon**(Breslow): 以各时间点的观察例数为权重，对早期差异敏感 <br> **Tarone-Ware**: 以各时间点的观察例数的平方根为权重 <br> [详细link](https://zhuanlan.zhihu.com/p/210541300),根据事件时间分布、删失分布、曲线是否**交叉** 来决定方式与看待结果 | 
+| 寻找风险因素 | Cox 回归模型 | 
 
 
 
@@ -159,8 +159,8 @@ sex=2  90       53     73.4      5.68      10.3
 
 
 ### COX
-* 基于风险比模型，评估不同变量对生存率的影响;**Cox模型和log-rank test都要求风险等比例（PH假定，[Assumptions](http://www.sthda.com/english/wiki/cox-model-assumptions),[pre-test](https://mp.weixin.qq.com/s/7lCRmezb0yw1JewHBw0ZrQ)）**，若否，可尝试RMST、分层、[时依协变量](https://mp.weixin.qq.com/s/CTLr-UeuxcDHe8Lf2r2DZQ)、等方法    
-* *在进行多元回归前，如果因子太多，可以使用survdiff分组检验先选出显著的因子。   
+* 基于风险比模型，评估不同变量对生存率的影响；**Cox模型和log-rank test都要求风险等比例（PH假定，[Assumptions](http://www.sthda.com/english/wiki/cox-model-assumptions),[pre-test](https://mp.weixin.qq.com/s/7lCRmezb0yw1JewHBw0ZrQ)）**，若否，可尝试RMST、分层、[时依协变量](https://mp.weixin.qq.com/s/CTLr-UeuxcDHe8Lf2r2DZQ)、等方法    
+* 在进行多元回归前，如果因子太多，可以使用survdiff分组检验先选出显著的因子。   
 * 除了Cox模型外,还要一些拟合其它分布的模型，例如指数、Weibull、Gompertz分布
 
 #### 单因素
@@ -219,8 +219,13 @@ sex -0.6447    0.5248   0.2120 -3.041 0.00236
 Likelihood ratio test=9.79  on 1 df, p=0.001756
 n= 228, number of events= 165
 ```
+#### Hazard Ratio
+```
+> summary(cox_sex)$coef[2]
+[1] 0.5880028
+```
 
-#### 模型检验
+#### PH假定
 H0假设：风险比不会随时间而变化。p>0.05,不能拒绝H0。  
 如果风险比伴随时间变化(p<=0.05)，方程中可加入类似'var\*time'的变换。  
 ```
@@ -236,17 +241,34 @@ GLOBAL 2.475  2 0.29
 ![zph](Survival/img/zph.png)
 
 
-#### Hazard Ratio
-```
-> summary(cox_sex)$coef[2]
-[1] 0.5880028
+
+#### [Predict](https://www.rdocumentation.org/packages/survival/versions/3.6-4/topics/predict.survreg)
+
+使用COX模型预测生存时间（待确认）
+
+```R
+fit <- survreg(Surv(time, status) ~ ph.ecog, data=lung)
+pred <- <- predict(fit, newdata=data.frame(ph.ecog=2), type='quantile',p=pct, se=TRUE)
 ```
 
+### 模型检验: C-index
+
+预测模型的评价指标一般需要考虑：区分能力（ROC），一致性（goodness-of-fit/C-index），其它例如回归模型的 MSE、R2等。对 COX 回归模型的评价一般使用 C-index，上述代码的结果中已经提供 ```summary(cox_2)$concordance``` （不确定是那种C-index？待确认）
+
+此外还可以使用 Hmisc 包进行计算 Harrell’s C
+```R
+library(survival)
+library(Hmisc)
+fit <- survdiff(Surv(time, status) ~ sex, data = lung, rho = 0)
+pred <- predict(fit)
+HarrellC <- 1-rcorr.cens(pred,Surv(time,status))
+```
+
+C-index 的计算过程是：将所有样本两两组合，预测其生存时间；若一对样本的label显示S1的生存时间长于S2，预测值也符合这一关系，则这一对样本归为“Concordance”；最终，C-index = Concordance_pairs/all_pairs
 
 
 
 ## RR,OR,HR
-
 
 | -- | 发生 Risk=1 | 未发生 Risk=0 |
 | -- | -- | -- |
@@ -276,4 +298,7 @@ ggsurvplot：https://zhuanlan.zhihu.com/p/113676828
 **Survival**: https://zhuanlan.zhihu.com/p/497968260     
 KM: https://zhuanlan.zhihu.com/p/391474891      
 检验：http://www.lcgdbzz.org/custom/news/id/9442     
-RR,OR,HR：https://blog.csdn.net/weixin_41858481/article/details/95773773
+RR,OR,HR：https://blog.csdn.net/weixin_41858481/article/details/95773773    
+C-index 5种方法: https://blog.csdn.net/weixin_41368414/article/details/123660946   
+C-index: https://blog.csdn.net/fjsd155/article/details/84669331    
+
