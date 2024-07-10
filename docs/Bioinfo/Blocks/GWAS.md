@@ -165,7 +165,7 @@ mpheno/--covar-number 1,2,3 选择第1、2、3个表型、协变量
 
 ## 孟德尔随机化
 
-[孟德尔随机化(Mendelian randomization)](https://gwaslab.org/2021/06/24/mr/) 通过 [Instrumental Variables Z 消除 Confounding U 的影响](../Course/Causal_Inference_I.md#l8-do-instrument)，以此探寻因果关系（而不仅仅是相关性）
+[孟德尔随机化(Mendelian randomization)](https://gwaslab.org/2021/06/24/mr/) 通过 [Instrumental Variables Z 消除 Confounding U 的影响](../Course/Causal_Inference_I#l8-do-instrument)，以此探寻因果关系（而不仅仅是相关性）
 
 ```
           U

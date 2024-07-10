@@ -243,11 +243,37 @@ GLOBAL 2.475  2 0.29
 ```
 
 
+
+
+## RR,OR,HR
+
+
+| -- | 发生 Risk=1 | 未发生 Risk=0 |
+| -- | -- | -- |
+| 暴露组 Exposure=1 | a | b |
+| 非暴露组 Exposure=0 | c | d |
+
+
+```bash
+- Relative Risk: 暴露组Risk率/非暴露组Risk率   （发病/死亡率）
+RR = P(Risk=1|Exposure=1) / P(Risk=1|Exposure=0)
+   = [a/(a+b)] / [c/(c+d)]
+
+- Odd Ratio: Risk组(暴露_非暴露)比值/非Risk组(暴露_非暴露)比值
+OR = [a/c] / [b/d]
+
+- Hazard Ratio: 考虑了时间因素的RR
+HR 见 上文
+```
+
+可以将log(OR)作为GWAS分析的表型，寻找可能的致病位点
+
+
 ## 参考
 Survival-R: https://zhuanlan.zhihu.com/p/130316068   
 **Survival**: http://thisis.yorven.site/blog/index.php/2020/04/06/survival-analysis/  
 ggsurvplot：https://zhuanlan.zhihu.com/p/113676828  
 **Survival**: https://zhuanlan.zhihu.com/p/497968260     
 KM: https://zhuanlan.zhihu.com/p/391474891      
-检验：http://www.lcgdbzz.org/custom/news/id/9442    
-
+检验：http://www.lcgdbzz.org/custom/news/id/9442     
+RR,OR,HR：https://blog.csdn.net/weixin_41858481/article/details/95773773
