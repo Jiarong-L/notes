@@ -299,7 +299,17 @@ head(pbmc$nCount_RNA)           ## "numeric" list with names: pbmc$nCount_RNA['T
 head(pbmc[['nCount_RNA']])      ## "data.frame" 
 ```
 
+* +tab 查看所有 ```@ or $``` 选项
+```R
+> GBM4$
+GBM4$orig.ident        GBM4$nFeature_Spatial  GBM4$nFeature_SCT      GBM4$seurat_clusters
+GBM4$nCount_Spatial    GBM4$nCount_SCT        GBM4$SCT_snn_res.0.4
 
+> GBM4@
+GBM4@assays        GBM4@active.ident  GBM4@reductions    GBM4@misc          GBM4@tools
+GBM4@meta.data     GBM4@graphs        GBM4@images        GBM4@version
+GBM4@active.assay  GBM4@neighbors     GBM4@project.name  GBM4@commands
+```
 
 
 ## Spatial
