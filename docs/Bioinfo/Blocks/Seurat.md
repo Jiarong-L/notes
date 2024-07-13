@@ -314,22 +314,13 @@ GBM4@active.assay  GBM4@neighbors     GBM4@project.name  GBM4@commands
 
 ## Spatial
 
-### Visium
 
-BayesSpace聚类：https://zhuanlan.zhihu.com/p/393981571  
-https://www.jianshu.com/p/9206ba12c854
+### 10X Visium
 
-3.2!!! https://www.jianshu.com/p/13d7ea85bd71
+请参考 [Spatial -- R](https://github.com/Jiarong-L/BioPipe/blob/main/Spatial/00__Report.md)
 
-https://satijalab.org/seurat/articles/spatial_vignette.html
+BayesSpace聚类：[Link1](https://zhuanlan.zhihu.com/p/393981571), [Link2](https://www.jianshu.com/p/9206ba12c854)  
 
 
-
-
-
-
-
-
-
-
+其它：[Seurat vignette](https://satijalab.org/seurat/articles/spatial_vignette.html)
 

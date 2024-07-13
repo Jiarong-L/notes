@@ -51,9 +51,6 @@ BGI已为其开发了 [SAW workflow](https://www.stomics.tech/col447/list) 以�
 
 
 
-
-
-
 ## 10x Visum
 
 
@@ -63,20 +60,9 @@ BGI已为其开发了 [SAW workflow](https://www.stomics.tech/col447/list) 以�
 Seurat provides methods for clustering, gene expr viewing, marker detection and ‘anchor’ between scRNA datasets (e.g., scRNA data & deconvoluted Visium data).
 
 
+请参考 [Spatial -- R](https://github.com/Jiarong-L/BioPipe/blob/main/Spatial/00__Report.md), scanpy 也提供了空间数据的处理功能
 
 
-
-
-
-分析工具
-
-Giotto：https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02286-2
-
-
-
-
-
-
-
+分析工具 [Giotto toolbox](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02286-2)
 
 
