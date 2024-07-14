@@ -159,7 +159,7 @@ options(repos = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
 
 
 
-* 有时下载失败，可能需要安装 r/apt 的 openssl，或者更换源
+* 有时下载失败，可能需要安装 r/apt 的 openssl，或者更换源，或者干脆设置 ```options(timeout=50000)```
 
 
 ### JAVA
