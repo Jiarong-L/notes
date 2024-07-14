@@ -147,8 +147,12 @@ update.packages()
 devtools::update_packages()
 ```
 
-不用鼠标选择源： ```chooseCRANmirror(graphics=F)```
+* 不用鼠标选择源： 
+    - ```chooseCRANmirror(graphics=F)```
+    - ```chooseBioCmirror(graphics=F)```
+    - [Bioconductor的源](https://www.bioconductor.org/about/mirrors/)
 
+* 有时下载失败，可能需要安装 r/apt 的 openssl，或者更换源
 
 
 ### JAVA
