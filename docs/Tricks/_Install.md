@@ -150,9 +150,11 @@ options(BioC_mirror="https://mghp.osn.xsede.org/bir190004-bucket01/archive.bioco
 options(repos = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
 ```
 
-
-
 * 有时下载失败，可能需要安装 r/apt 的 openssl，或者更换源，或者干脆设置 ```options(timeout=50000)```
+
+* 有时需要安装旧版本的包，可以去 [cran xxpackage -- Old sources](https://cran.r-project.org/web/packages/pbkrtest/index.html)处下载，随后 ```install.packages('xxx.tar.gz',repos=NULL)```
+
+* devtools网太差时，可以下载releases，然后 ```devtools::install_local("xxx-master.zip")```
 
 
 ### JAVA
