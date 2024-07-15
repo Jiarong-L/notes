@@ -72,23 +72,16 @@ conda uninstall $package_name
 ```
 
 
-[conda配置源](https://help.mirrors.cernet.edu.cn/anaconda/)  ```conda config --add/remove channels ```
-```
+[conda配置源](https://help.mirrors.cernet.edu.cn/anaconda/), ```conda config --remove channels ``` 删除源 （源过多会导致错误），如果 ```conda config --set channel_priority flexible``` 也无法解决，就需要手动删除以前配置的源 （也可直接修改~/.condarc 后 ```conda clean -i```）
+```bash
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
 conda config --set show_channel_urls yes
-
-conda config --show channels
-```
-
-conda删除源 （源过多会导致错误），如果 ```conda config --set channel_priority flexible``` 也无法解决，就需要手动删除以前配置的源 （也可直接修改~/.condarc）
-```
 conda config --show channels   ## 查看已安装的源
-
-conda config --remove channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 ```
+
 
 conda搜寻/安装/特定版本
 ```
