@@ -54,15 +54,21 @@
 
 ## 风险筛查
 
-* [CKD筛查、诊断及防治指南](http://www.cjn.org.cn/CN/10.3760/cma.j.cn441217-20210819-00067): UACR（可最早发现微量的尿蛋白异常） + serum creatinine --> GFR rate
+* [CKD筛查、诊断及防治指南](http://www.cjn.org.cn/CN/10.3760/cma.j.cn441217-20210819-00067): UACR（可最早发现微量的尿蛋白异常） + serum creatinine --> GFR
 
-* [KDIGO EarlyScreeningBooklet](https://kdigo.org/wp-content/uploads/2019/01/ISN_KDIGO_EarlyScreeningBooklet_WEB_updatedOct11.pdf)
+* [KDIGO EarlyScreeningBooklet](https://kdigo.org/wp-content/uploads/2019/01/ISN_KDIGO_EarlyScreeningBooklet_WEB_updatedOct11.pdf): creatinine水平判断严重程度
+    - [KDIGO标准有局限性](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7347064/): creatinine在肾损伤后很晚才升高，直到达到稳定状态才与肾损伤程度成正比，且充满噪音
 
 * [Risk Prediction Equations for](https://pubmed.ncbi.nlm.nih.gov/31703124/): 5-year risk of reduced eGFR --> increased risk of CKD
     - 非糖尿病患者：age, sex, race/ethnicity, eGFR, history of cardiovascular disease, ever smoker, hypertension, body mass index, and albuminuria concentration
     - 糖尿病患者：diabetes medications, hemoglobin A1c, and the interaction between the 2
     - 34个跨国队列的500多万人
     - risk analysis 的方法可以参考其 Supplementary，例如：如何计算eGFR，如何使用 [Harrell C 统计量](https://www.jianshu.com/p/5e648f0f49ed)评估模型
+
+* [尿液肾损伤生物标志物的发现和临床应用](http://swyxzh.ijournals.cn/swyxzh/article/html/20220202)
+
+
+
 
 
 
@@ -74,6 +80,8 @@
     - 转录组确定了889个与血压调节相关的基因；蛋白质组发现97个相关蛋白；microRNAome发现11个相关miRNA
     - 尿中细胞和肾脏中蛋白质编码基因的表达有很强的相关性，证明尿中细胞转录组学的诊断潜力
 
+* [不同的细胞因子特征预测了COVID-19患者ARDS、AKI和死亡率的发展](https://www.nature.com/articles/s41598-021-91859-z?fromPaywallRec=false): 
 
+* [评估多种标志物与ESKD的相关性](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7057300/): 
 
-
+* [covid-19患者中，区分肾病与无肾病人群的尿液标记物](https://www.nature.com/articles/s41598-021-99102-5): 
