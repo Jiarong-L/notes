@@ -15,12 +15,13 @@
 
 4. 进行群体分层校正: 按分层切割群体、独立分析，或者将eigenvector作为covariance
 
-5. 分析：关联分析，Meta分析（多种效应量合并为综合效应量），MR分析，...
+5. 分析：关联分析，MR分析，...
 
 6. 解释结果：LocusZoom图可视化显著SNP周围的LD block，...
 
 
 [参考](https://www.cnblogs.com/chenwenyan/p/11803311.html)
+
 
 ### PLINK:数据处理
 
@@ -226,11 +227,12 @@ dat <- harmonise_data(
 
 
 
+## Meta分析
+
+整合多个studies的结果（e.g.加权平均）：根据[统计量的齐性检验(I2)](https://blog.csdn.net/m0_37228052/article/details/134138794)，选择 Fixed-Effects Model (I2 < 50%) 或 Random-Effects Model (I2 > 50%)
 
 
-
-
-
+[此教程](https://training.cochrane.org/handbook/current/chapter-10)相对详细，[Fixed/Random模型的假设](https://wviechtb.github.io/metafor/reference/misc-models.html)
 
 
 ## 参考
@@ -242,4 +244,6 @@ GWAS示例     https://www.jianshu.com/p/23058873b814
 GWAS R       https://www.r-bloggers.com/2017/10/genome-wide-association-studies-in-r/       + association v.s. linkage mapping
 PLINK        https://www.jianshu.com/p/2bf82e596e45  
 PLINK        https://zhuanlan.zhihu.com/p/157291097  关联分析/...
+Meta分析     https://www.sciencedirect.com/science/article/pii/S2772594422001169  
+Meta示例     https://blog.csdn.net/m0_37228052/article/details/133026057
 ```
