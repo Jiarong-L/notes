@@ -17,7 +17,7 @@ RNA项目的[WGCNA](https://www.rdocumentation.org/packages/WGCNA): 基因模块
 输入：表达矩阵（行=样本，列=基因），需要知晓样本的分组；一般需要>15样本，且建议输入全部基因、不要仅选择差异基因
 
 
-
+数据: [input_mat](./WGCNA/input_mat.rdata), [meta_df](./WGCNA/meta_df.rdata)
 ```R
 ## wget ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE61nnn/GSE61333/suppl/GSE61333_ligule_count.txt.gz
 ## gunzip GSE61333_ligule_count.txt.gz
@@ -27,7 +27,6 @@ library(DESeq2)
 library(WGCNA)   
 
 ## Load matrix
-## save(meta_df,file = 'meta_df.rdata')
 load('input_mat.rdata') ## normalized input matrix, we can check rna-counts of each sample via violin_plots
 load('meta_df.rdata')   ## group_info
 
