@@ -227,18 +227,8 @@ dat <- harmonise_data(
 
 
 
-## Meta分析
-
-整合多个studies的结果（e.g.加权平均）：根据[统计量的齐性检验(I2)](https://blog.csdn.net/m0_37228052/article/details/134138794)，选择 Fixed-Effects Model (I2 < 50%) 或 Random-Effects Model (I2 > 50%)
-
-[此教程](https://training.cochrane.org/handbook/current/chapter-10)相对详细
 
 
-* [Fixed/Random模型的区别](https://wviechtb.github.io/metafor/reference/misc-models.html)
-  - Fixed-Effects Model 假设每一个y_i都有其对应的真值，因此根据i的真值拟合y_i
-  - Random-Effects Model 假设每一个y_i都是从一个总体正态分布中获得的取样，因此以总体分布的均值为真值拟合y_i
-  
-  
 
 ## 参考
 ```
