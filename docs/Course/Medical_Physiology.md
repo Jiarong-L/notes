@@ -9,6 +9,7 @@ img{
 
 Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
+注：部分笔记中可能混淆了secretion（**分泌**出细胞）和excretion（**排出**体外）
 
 
 ## Ch 1 概览
@@ -898,8 +899,53 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 正常情况下，Plasma osmolarity (mOsm/L) 约等于2.1倍 Na+ 浓度 (mmol/L)
 
 
-## Ch 30 (TBA)
-## Ch 31 (TBA)
+## Ch 30 调节细胞外液
+
+* K：血浆（细胞外液）中若K离子过量，可能会引起肌肉/神经过度兴奋，而浓度太低又会导致细胞功能受阻。食物中K离子含量丰富，大量的K暂存于细胞内。[K由肾脏进行过滤、重吸收、排出](Medical_Physiology/30-2.png)。
+    - 促进细胞吸收K离子 (激活 Na-K ATPase)，以降低血浆K离子含量：Insulin, [Aldosterone](Medical_Physiology/30-7.png) (生成更多channels使K更易出入 Principal Cells), β-Adrenergic
+    - 血浆K离子含量增加的原因：Cell Lysis, Strenuous Exercise (可能由于肌肉细胞受伤), 血浆渗透压过高 (向细胞吸水，细胞脱水时也排出一部分K以维持正常浓度)
+    - Principal Cells 吸收K并向tubule分泌K (排出)，type A Intercalated Cells 调节酸碱平衡但其 hydrogen-potassium ATPase transport mechanism 对K的重吸收有些微影响
+    - [高Na饮食对K无太大影响](Medical_Physiology/30-10.png)
+    - 急性酸中毒 (acidosis) 抑制  Na-K ATPase 活性、减缓 Principal Cells 吸收并排出K的速度；而慢性酸中毒抑制了近端小管盐和水的重吸收、Distal tubular flow 增加、如是增加排出K的速度
+
+
+* [Ca](Medical_Physiology/30-11.png)：低Ca降低肌肉/神经的兴奋阈值；主要通过 Gastrointestinal Track 排出 Ca，不过[肾脏也起一定作用](Medical_Physiology/30-12.png)：过滤、重吸收 (仅限离子态)。
+    - 血浆中50%的Ca以离子形式存在，余下者与蛋白结合，故酸中毒可增加血浆Ca含量 (令Ca脱离蛋白)，碱中毒则相反。
+    - Ca的重吸收与Na基本同步，所以，高血压等需要排出Na的情况一样可导致Na流失
+
+
+* [P](Medical_Physiology/30-t3.png)：renal tubules have a normal transport maximum for reabsorbing phosphate of about 0.1 mmol/min，故而肾脏吸收P的能力是有上限的，无论饮食摄入多少
+
+
+* [Mg](Medical_Physiology/30-t4.png)：有50%位于骨中，余者位于细胞内，只有1%位于血浆中。镁参与了体内的许多生化过程，因此按需严格控制其浓度。
+    - 血浆Ca离子浓度增加，也可增加Mg的排出，与骨有关？
+
+* Fluid Compartments 调节
+    - 若肾脏血管大幅扩张（GFR增加），则会引起 intrarenal compensations：球管平衡（增加小管对盐的重吸收）与 Tubuloglomerular Feedback (macula densa 向动脉发送收缩信号，减少肾脏血流量)
+    - [血压 (pressure natriuresis/diuresis)](Medical_Physiology/30-14.png)：[细胞外液容量 v.s. 血液容量](Medical_Physiology/30-16.png)；此机制可在心输出降低(e.g.失血时)保留水分，但心输出受到心脏病理、vascular capacity的影响
+    - （Ch 27,28）nervous and hormonal factors 参与上述过程，例如摄入高盐饮食时，Na小幅累积，细胞外液体积小幅增加：
+        1. stretch receptors 向脑干发送低压信号，抑制肾脏交感神经，减少小管中钠的重吸收
+        2. 由于动脉压升高，减少 Angiotensin II 和 aldosterone 的生成，减少小管中钠的重吸收
+        3. ANP增加肾脏排水
+        4. pressure natriuresis增加肾脏排水
+    - 除了各种离子，蛋白也是维持渗透压的重要因素，因此失去蛋白也会影响容量（e.g.尿蛋白过高，肝硬化导致不能生成血浆蛋白）
+
+
+## Ch 31 酸碱平衡(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Ch 32 (TBA)
 ## Ch 33 (TBA)
 ## Ch 34 (TBA)
