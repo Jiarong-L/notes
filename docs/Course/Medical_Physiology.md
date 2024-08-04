@@ -931,7 +931,25 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 除了各种离子，蛋白也是维持渗透压的重要因素，因此失去蛋白也会影响容量（e.g.尿蛋白过高，肝硬化导致不能生成血浆蛋白）
 
 
-## Ch 31 酸碱平衡(TBA)
+## Ch 31 酸碱平衡
+
+* 体液中大量弱酸/碱形成buffer（蛋白，HCO3-、NH4+呈弱酸性，HPO4=呈弱碱性），呼吸、肾脏调节这些溶质使PH维持在一个较为恒定的范围内。
+    - 动脉PH=7.4，静脉及间质液由于含有酸性代谢物PH=7.35，尿液PH位于4.5–8.0区间，细胞液PH位于6.0–7.4区间，胃酸PH=0.8
+    - PH值影响蛋白功能，例如：低PH时血红蛋白氧亲和力下降
+
+
+* CO2遇水生成弱酸H2CO3，而HCO3-则呈弱碱，[呼吸、代谢紊乱会改变其平衡状态](Medical_Physiology/31-1.png)，据此可推断病因
+    - 酸中毒时需要增强呼吸、排出CO2（而过度呼气会失去过多HCO3引起碱血症）
+    - [肾脏可重吸收HCO3-](Medical_Physiology/31-5.png)，此过程向lumen运输H和Cl，[lumen中有HPO4=和NH3作为buffer](Medical_Physiology/31-7.png)，据此计算 Net acid excretion: (NH4+ excretion) + (Urinary **titratable acid**) - (HCO3- excretion)
+    - (The rest of the non-bicarbonate, non-NH4+ buffer excreted in the urine is measured by determining a value known as **titratable acid**)
+
+
+* [调节H排出的机制](Medical_Physiology/31-t2.png)：血液酸碱、容量、K、Aldosterone、Angiotensin II、...
+
+* [Anion Gap = 阳离子-阴离子](Medical_Physiology/31-t4.png)，用以推断病因
+
+
+## Ch 32 泌尿(TBA)
 
 
 
@@ -946,7 +964,9 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 
-## Ch 32 (TBA)
+
+
+
 ## Ch 33 (TBA)
 ## Ch 34 (TBA)
 ## Ch 35 (TBA)
