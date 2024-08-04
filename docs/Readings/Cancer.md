@@ -68,6 +68,6 @@ bulk RNA ----- 29*DSRCT
 ### Organoids Screening
 
 
-微孔板：类器官筛选药物: Promega CellTiter-Glo 3D (ATP发光定量来确定活细胞数量)，[OrBITS(荧光细胞死亡标志物)](https://www.biorxiv.org/content/10.1101/2021.09.09.459656v2.full)，[orbit + scRNA(并取药物处理前的bulk数据) 预测药物起效对应的biomarker](https://jeccr.biomedcentral.com/articles/10.1186/s13046-024-03012-z) 
+微孔板：类器官筛选药物: Promega CellTiter-Glo 3D (ATP发光定量来确定活细胞数量)，[OrBITS(荧光细胞死亡标志物)](https://www.biorxiv.org/content/10.1101/2021.09.09.459656v2.full)，[OrBITS + bulk_RNA 预测药物起效对应的biomarker，scRNA(聚类以选取细分的细胞种类、查看其中marker的表达？) ](https://jeccr.biomedcentral.com/articles/10.1186/s13046-024-03012-z) 
 
 
