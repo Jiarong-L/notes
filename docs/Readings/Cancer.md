@@ -65,3 +65,9 @@ bulk RNA ----- 29*DSRCT
 * scRNA对应样本的WES数据: CNVkit 对比正常组织与DSRCT样本
 
 
+### Organoids Screening
+
+
+微孔板：类器官筛选药物: Promega CellTiter-Glo 3D (ATP发光定量来确定活细胞数量)，[OrBITS(荧光细胞死亡标志物)](https://www.biorxiv.org/content/10.1101/2021.09.09.459656v2.full)，[orbit + scRNA(并取药物处理前的bulk数据) 预测药物起效对应的biomarker](https://jeccr.biomedcentral.com/articles/10.1186/s13046-024-03012-z) 
+
+
