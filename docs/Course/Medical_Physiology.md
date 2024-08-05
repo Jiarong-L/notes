@@ -949,29 +949,49 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 * [Anion Gap = 阳离子-阴离子](Medical_Physiology/31-t4.png)，用以推断病因
 
 
-## Ch 32 泌尿(TBA)
+## Ch 32 利尿剂、肾病
+
+* [利尿剂(Diuretics)](Medical_Physiology/32-t1.png) 阻止Na、N水和其它离子的重吸收；一般当体液过多时使用利尿剂（e.g.心衰、水肿），利尿起效后总体上排出水分，随后 Angiotensin II (Efferent 收缩、增加重吸收) 重新平衡水分的输入输出
+    - 向血液注射urea/mannitol/sucrose，提高Tubular渗透压以阻止水分回收
+    - Furosemide/ethacrynic_acid/bumetanide 阻滞 loop of Henle 中 Na-2Cl-K 泵，提高远端小管渗透压(阻止水分回收)、降低medullar渗透压([阻止countercurrent multiplier system 回收溶质](Medical_Physiology/29-4.png))
+    - Thiazide 阻滞 Early Distal Tubule 中 Na-Cl 泵，可利尿约 5%-10% 
+    - Acetazolamide 阻滞 proximal tubule 中 [Carbonic anhydrase](Medical_Physiology/31-5.png)，影响HCO3与Na的回收，因此可能造成酸中毒
+    - Mineralocorticoid receptor antagonists 阻滞激素受体
+    - Sodium Channel Blockers 阻滞集合管中Na回收
 
 
+* [Acute kidney injury (AKI)](Medical_Physiology/32-t2.png) 指几天内突然失去肾脏功能（过滤、重吸收），可以发展为 CKD
+    - Prerenal AKI: 由于肾脏供血下降，GFR下降，长期缺氧会伤害组织
+    - Intrarenal AKI: 肾脏本身的问题
+        * glomeruli: 部分肾小球堵塞（e.g. 感染链球菌后生成免疫复合物），而未堵塞的肾小球渗透过度，未拦截蛋白质和红细胞进入滤液，长期如此会伤害这部分肾小球
+        * tubules: 由于缺血或药物导致肾小管坏死，上皮脱落后阻塞 Nephron
+        * blood vessels
+    - Postrenal AKI: 尿液收集系统的阻塞（e.g.输尿管结石）,vesicoureteral reflux 会增加肾间质细菌感染的可能(肾盂肾炎)
 
 
+* [Chronic kidney disease (CKD)](Medical_Physiology/32-2.png) 指 nephron 逐渐失去功能；初期 Nephron 会进行功能代偿，但肾病和心血管功能相互影响，逐渐恶化
+    - 肾血管损伤：大动脉硬化/闭塞(纤维肌肉增生导致)，小/微动脉硬化；原因可能是 衰老、two-kidney Goldblatt hypertension、血糖、..
+    - Glomerular capillary loops 的炎症/损伤，可能是原发，也可能是继发于其它 systemic disease（e.g. 系统性红斑狼疮）
+    - 肾间质损伤：可能是由于血管、肾小球或肾小管损伤破坏了单个肾单位，也可能是由于毒素、药物、细菌感染对肾间质造成原发性损伤
+    - Nephrotic syndrome：肾小球渗透过度（慢性肾小球肾炎/类蛋白物质伤害基底膜/免疫细胞因子伤害podocyte），大量血浆蛋白流失到尿液中
+    - 患者失去体液平衡、促红细胞生成素分泌减少导致贫血、流失维生素D导致骨脱矿
+    - Tubular epithelial membranes 不能再吸收：葡萄糖（​Renal Glycosuria），胱氨酸（结石）、甘氨酸，磷酸盐（骨脱矿），H（酸中毒），且减少对抗利尿激素的反应（肾性尿崩症）
 
 
+* [评估肾功能(GFR)](Medical_Physiology/32-5.png)：不可重吸收的代谢废物(Creatinine filtration rate)，或者当GFR正常时浓度较稳定的物质(PO4)
+
+* Isosthenuria: 病变肾脏中只有部分Nephron在工作，其中液体流速过快导致不能充分重吸收水分、由此导致的medullar渗透压下降阻碍 countercurrent multiplier system 回收溶质
+
+* Uremia(尿毒症)：肾衰竭后不能再调节体液的酸碱、容量、代谢物，因此建议控制饮水和食物摄入
+
+终末期肾病(End stage renal disease, ESRD) 只能接受移植与透析，伴随终身（移植后需要一直抑制免疫系统）
 
 
-
-
-
-
-
-
-
-
-
-## Ch 33 (TBA)
-## Ch 34 (TBA)
-## Ch 35 (TBA)
-## Ch 36 (TBA)
-## Ch 37 (TBA)
+## Ch 33 RBCs(TBA)
+## Ch 34 免疫系统(TBA)
+## Ch 35 过敏(TBA)
+## Ch 36 血型、移植(TBA)
+## Ch 37 止血和凝血(TBA)
 ## Ch 38 (TBA)
 ## Ch 39 (TBA)
 ## Ch 40 (TBA)
