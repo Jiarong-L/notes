@@ -761,7 +761,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 ## Ch 25 Fluid Compartments
 
 * 身体约1/3是水，[包括细胞内液（Intracellular）、组织液（Interstitial）、血浆（Plasma）](Medical_Physiology/25-1.png)。其来源可能是饮水、碳水化合物代谢；失水的原因可能是：蒸发，出汗，排泄。
-    - 血液约占体重7%，其中的水分主要位于血浆与红细胞中（如上图中水分布）；Hematocrit 指红细胞在全血中占比
+    - 血液约占体重7%，其中的水分主要位于血浆与红细胞中（如上图中水分布）；Hematocrit 指红细胞在全血中占比（正常约40-45%）
     - 组织液、血浆 统称为细胞外液（Extracellular）
 
 * [细胞内液中含较多 K、Mg、有机酸、蛋白；细胞外液中含较多 Na、Ca、Cl、碳酸氢根](Medical_Physiology/25-2.png)
@@ -987,8 +987,63 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 终末期肾病(End stage renal disease, ESRD) 只能接受移植与透析，伴随终身（移植后需要一直抑制免疫系统）
 
 
-## Ch 33 RBCs(TBA)
+## Ch 33 RBCs
+
+* 红细胞 (RBCs) 又称 erythrocyte，呈双凹盘状且有大量细胞膜、耐拉伸，填充的血红蛋白决定其体积（若由于缺铁导致蛋白折叠异常，RBCs也会相应变小）。血液中血红蛋白含量决定运输氧气的能力（最多34克hemoglobin/100毫升RBCs，每克血红蛋白可以与1.34毫升氧气结合），高海拔地区的人 > 男性 > 女性
+    - 运输血红蛋白 (hemoglobin)：约有3%的游离态血红蛋白会通过毛细血管膜渗漏到组织间隙，因此必须留在红细胞内才能发挥功能
+    - 缓冲酸碱变化：carbonic anhydrase 催化 CO2 + H2O = H2CO3，血红蛋白也可作为 buffer
+
+* RBCs在何处生成？ yolk sac(妊娠初期)，肝脏/脾脏/淋巴(妊娠中期)，骨髓(后期/出生)
+    - 约5岁前，基本上所有骨骼的骨髓都会产生RBCs；大部分长骨的骨髓在大约20岁后变得脂肪化，只有膜性骨还保留生成功能（椎骨、胸骨、肋骨），但能力逐渐下降
+
+* [多能造血干细胞 -> RBCs](Medical_Physiology/33-2.png)
+    - growth inducers 促进对应种类干细胞的生长（interleukin-3作用于所有种类），differentiation inducers 诱导分化
+    - 长期暴露于低氧水平的血液中会[诱导红细胞的生长、分化](Medical_Physiology/33-4.png)，主要由肾脏、肝脏生成促红细胞生成素 (erythropoietin,EPO)，过程需要约4-5天
+    - RBCs的成熟需要 vitamin B12 (其肠道吸收需要intrinsic factor，不过肝脏一般会储备B12，长期缺乏才会导致 pernicious anemia) 和 folic acid (绿色蔬菜中富含，但烹饪中易丢失)
+    - RBCs的成熟需要Fe（由transferrin运输至各处），每个hemoglobin有四个链，每链有一个Fe、可松散地配位结合一个O2
+
+* 成熟的RBCs寿命约120天，没有细胞核、线粒体、内质网，但可代谢葡萄糖生成ATP以维持：细胞膜的柔韧性、跨膜运输、Fe维持亚铁形式、防止蛋白质氧化
+    - 老化的RBCs在red pulp of the spleen中受挤压破碎，随后被巨噬细胞吞噬、释放Fe，卟啉部分转化为bilirubin后经由肝脏排出体外，见 [Fe代谢](Medical_Physiology/33-7.png)
+
+
+* 贫血(Anemia)意味着血液中缺乏血红蛋白
+    - 病因
+        - 失血
+        - 再生障碍：免疫系统攻击干细胞(后天/Rh因子)
+        - 溶血性贫血：细胞形状异常导致易破碎，e.g.镰状细胞(β链异常)
+        - 胃粘膜萎缩(缺Fe/B12)
+    - 后果：心脏负荷增加
+        - 降低血液粘度、流动性增加：心输出量增加，氧气交换效率降低
+        - 组织缺氧导致外周组织血管扩张，进一步加大心输出量
+
+
+* 红细胞增多症(Polycythemia)
+    - Secondary Polycythemia：空气中氧气太少、或组织输送氧气失败(如心力衰竭)而缺氧时，造血器官会产生大量额外的红细胞，比正常水平高出约30%
+    - Polycythemia Vera：造血母细胞的遗传畸变另其不停生成红细胞(类似癌症)，Hematocrit可达60-70%，同时过量产生白细胞和血小板；总血容量增至两倍，血液黏稠、许多毛细血管被堵塞、流动缓慢；事实上容量和外周阻力对静脉回流、动脉压的影响被相互抵消。由于缓慢的血流令血红蛋白的脱氧量大于正常水平，患者皮肤呈紫红。此外，患者可能面临血栓、脾脏肿大等[并发症](https://www.mayoclinic.org/zh-hans/diseases-conditions/polycythemia-vera/symptoms-causes/syc-20355850)
+
+
 ## Ch 34 免疫系统(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Ch 35 过敏(TBA)
 ## Ch 36 血型、移植(TBA)
 ## Ch 37 止血和凝血(TBA)
