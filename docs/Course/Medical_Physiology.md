@@ -147,7 +147,7 @@ to form mRNA（去除introns）
 * 一些麻醉药提高Na通道的激活难度（提高 excitability threshold）
 
 
-## Ch 6,7  骨骼肌
+## Ch 6-7  骨骼肌
 
 ![Figure 6-3](Medical_Physiology/6-3.png)
 
@@ -258,7 +258,7 @@ to form mRNA（去除introns）
 * 自主节律：S-A node、A-V node 可以受Vagi调节，也可以自主产生节律脉冲（其静息电位不如正常的负）；正常心跳节律由 S-A node 产生；A-V node 的自主节律 S-A node 慢，当外源信号迟迟不至时才起作用（escape beat）；Purkinje fibers 的自主节律更慢
 
 
-## Ch 11,12 心电图
+## Ch 11-12 心电图
 ![Figure 11-1](Medical_Physiology/11-1.png)![Figure 11-2](Medical_Physiology/11-2.png)  
 ![Figure 11-3](Medical_Physiology/11-3.png)
 
@@ -1022,31 +1022,86 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - Polycythemia Vera：造血母细胞的遗传畸变另其不停生成红细胞(类似癌症)，Hematocrit可达60-70%，同时过量产生白细胞和血小板；总血容量增至两倍，血液黏稠、许多毛细血管被堵塞、流动缓慢；事实上容量和外周阻力对静脉回流、动脉压的影响被相互抵消。由于缓慢的血流令血红蛋白的脱氧量大于正常水平，患者皮肤呈紫红。此外，患者可能面临血栓、脾脏肿大等[并发症](https://www.mayoclinic.org/zh-hans/diseases-conditions/polycythemia-vera/symptoms-causes/syc-20355850)
 
 
-## Ch 34 免疫系统(TBA)
+## Ch 34-36 免疫
+
+| WBCs | 占比 | 来源 | 功能 |
+| -- | -- | -- | -- |
+| **Neutrophils** | 62.0% | bone marrow | **Phagocytosis** |
+| **Eosinophils** | 2.3% | bone marrow | weak Phagocytosis, parasitic infections (releasing enzymes/Reactive oxygen) |
+| **Basophils** | 0.4% | bone marrow | releasing: heparin(防止血液凝固)/histamine(组胺,血管扩张)/bradykinin(缓激肽,血管扩张)/serotonin(血清素,神经递质)---过敏相关(IgE) |
+| Monocytes | 5.3% | bone marrow | **Phagocytosis** |
+| [Lymphocytes](Medical_Physiology/35-1.png) | 30.0% | bone marrow <br> lymph tissue | - B细胞可转化为Plasma cells/B-memory<br> - T-cytotoxic(CD8+)直接进行杀伤(cell-mediated immunity), T-helper(CD4+)分泌lymphokines, T-regulatory/suppressor(CD4+CD25+)避免免疫反应过度, T-memory<br> - NK细胞 |
+| Plasma cells | occasionally | lymph tissue | 又称“效应B细胞”，分泌抗体(体液免疫,humoral immunity) |
 
 
+* 血液中主要有以上6种白细胞(WBCs,Leukocytes)，前三者皆 polymorphonuclear 且具有颗粒状外观，也可称**粒细胞(Granulocytes)**。此外，骨髓中有类似WBCs的巨核细胞(Megakaryocyte)，其碎片即血小板(Platelets)。根据其来源，祖细胞分别为 Myelocytes(bone marrow) 和 Lymphocytes (lymph tissue)。正常情况下，骨髓中储存的WBCs大约是血液循环中的三倍
 
 
+* WBCs寿命
+    - **粒细胞**从骨髓中释放后，在血液中循环4-8h后进入组织，在组织中循环4-5天
+    - Monocytes在血液中循环10-20h后进入组织膨胀成 Macrophages，以此形态存活数月
+    - Lymphocytes进入血液循环后几小时又回收至淋巴液，总寿命可达几周或几月
 
 
+* 感染发生时，Chemotaxis召唤了Neutrophils和Monocytes，二者[在感染组织附近被黏附](Medical_Physiology/34-7.png)，从血管析出(diapedesis)后在组织中进行ameboid motion，对感染源进行[吞噬(Phagocytosis)](Medical_Physiology/34-3.png)
+    - Chemotaxis：toxin/cytokines
+    - 炎症组织附近血流增加、血管更加通透，纤维蛋白进入间质、令其凝结、防止扩散（因此炎症反应弱时需要担心体内扩散），[cytokines刺激骨髓生成更多WBCs](Medical_Physiology/34-8.png)，最终形成空洞、内部一切变为脓液(Pus)
+    - 避免吞噬正常自身结构：表面光滑、保护性的蛋白质外壳、抗体和C3只黏附于外来入侵者
+
+* Monocyte-Macrophage cell System 基本等同于 Reticuloendothelial System，其中包括由 monocytic stem cells 分化而得的 Monocytes/Macrophages、endothelial cells，它是一个广泛存在的吞噬系统，不同位置的 Macrophages 分别称为：Histiocytes(Skin/Subcutaneous Tissues), Macrophages(Lymph Nodes/Spleen/Bone Marrow), Alveolar Macrophages(Lungs), Kupffer Cells(Liver)
 
 
+* 抗体功能：结合抗原
+    - 直接中和毒性
+    - 凝集成聚合物
+    - 结合可溶性抗原后使其沉淀
+    - 一些强效抗体偶尔能够直接裂解细胞膜
+
+* 补体系统的功能: 
+    - [Classical Pathway](Medical_Physiology/35-6.png)
+    - 中和毒性
+    - Agglutination
+    - 炎症
+
+* WBCs相关疾病
+    - leukopenia，由于大量感染或骨髓损坏导致白细胞过少
+    - leukemia，Uncontrolled production of WBCs，可能侵入骨骼造成疼痛，且同其它癌症一样、过度消耗能量
+
+* 后天免疫相关
+    - 某种肾小球肾炎、链球菌毒素导致的风湿热、免疫攻击乙酰胆碱受体蛋白导致的重症肌无力、免疫攻击髓磷脂导致的多发性硬化症
+    - 被动免疫：通过抗体的转移获得的短期免疫力，婴儿从哺乳中获取抗体
+    - 过敏：Anaphylaxis(组胺进入循环系统引起全身过敏), Urticaria(荨麻疹), Asthma(哮喘)
 
 
+* 血型: 细胞表面的抗原
+    - [O-A-B血型](Medical_Physiology/36-t1.png)：O型血人不自带A/B抗原，因此其血中可能有针对此二者的抗体，故输入其余血型会导致凝血、溶血(hemolysis)
+    - 白细胞攻击之后缓慢溶血/补体系统介导迅速溶血
+    - Rh抗原可能是C/D/E/c/d/e，一般指D，缺少此抗原者标注Rh(-)，其血中有Rh抗体
+    - Erythroblastosis fetalis: 新生儿Rh(+)但母亲Rh(-)，而新生儿lgG绝大部分来自母体，因此新生儿血液遭受攻击、第二胎时尤其强烈，只能中和母体的Rh抗体；Rh(+)父Rh(-)母可能有此风险
 
 
+* 部分移植接受者可能需要终身[抑制T细胞](Medical_Physiology/36-p476.png)
+    - 不同捐献来源: Autografts自体, Isografts同卵双胞胎, Allografts同种, Xenografts不同种
 
 
-
-
-
-
-
-
-
-## Ch 35 过敏(TBA)
-## Ch 36 血型、移植(TBA)
 ## Ch 37 止血和凝血(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Ch 38 (TBA)
 ## Ch 39 (TBA)
 ## Ch 40 (TBA)
