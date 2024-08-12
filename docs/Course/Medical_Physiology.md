@@ -1084,20 +1084,49 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 不同捐献来源: Autografts自体, Isografts同卵双胞胎, Allografts同种, Xenografts不同种
 
 
-## Ch 37 止血和凝血(TBA)
+## Ch 37 止血
+
+止血（hemostasis）的各步骤
+
+1. 血管收缩，减少血流
+    - 局部肌源性痉挛（local myogenic spasm）
+    - local autacoid factors，释放自损伤组织、血管内皮、血小板
+    - nervous reflexes
 
 
+2. Platelet plug，形成血栓堵住血管破损
+    - 内皮损伤后暴露血管表面的 collagen 和 Von Willebrand factor (vWF)，粘附血小板表面的糖蛋白
+    - 血小板膨胀成不规则形，假足强力收缩，释放ADP、血栓素A2（TXA2）、血小板活化因子（PAF）招募更多血小板
 
 
+3. Blood coagulation，[凝血酶（Thrombin）形成 Fibrous tissue](Medical_Physiology/37-4.png)
+    - Thrombin还可以与其它凝血因子作用、正反馈扩大血凝块、直到停止渗血
+    - [内源性/外源性凝血 + 重要的凝血因子](Medical_Physiology/37-t1.png)，其中内源性凝血因子全部来自血液（1~6min），外源性凝血因子部分来自组织损伤（~15s）
+    - 血液中的抗凝剂（anticoagulant）防止血栓过度扩散/消解凝块：fibrin fibers 物理阻挡，antithrombin III（antithrombin-**heparin** cofactor）清除Thrombin，血浆蛋白中的 **plasminogen** 由**t-PA**激活后溶解纤维和部分凝血因子
 
 
+* 血小板（platelet）是巨核细胞的碎片（无核），寿命8-12天，表面的糖蛋白排斥正常内皮细胞、但粘附受损区域，其细胞质中包含
+    - actin/myosin/thrombosthenin，可使血小板收缩
+    - 内质网和高尔基体的残余，可合成酶、储存Ca离子
+    - 线粒体以及生成ATP/ADP的酶系统
+    - 生成局部激素：前列腺素（prostaglandins）的酶系统
+    - fibrin-stabilizing factor，与血液凝固有关
+    - 生长因子，修复受损的血管壁
 
 
+* 正常血管不会形成凝血或栓塞的原因
+    - 光滑
+    - glycocalyx排斥凝血因子和血小板
+    - Thrombomodulin与Thrombin结合、降低其活性
+    - prostacyclin/NO也可舒展血管、抑制血小板的聚集
 
 
+* 凝血障碍：[INR 评估凝血能力](https://link.springer.com/referenceworkentry/10.1007/978-3-642-29613-0_68)
+    - 肝脏疾病会导致维生素K合成受阻，进而导致凝血因子不足
+    - 血友病（hemophilia）患者缺乏正常的VIII因子（A型,85%）或IX因子（B型,15%），与X染色体相关
+    - 循环血液中血小板数量极低（Thrombocytopenia）
 
-
-
+* 血管中不正常形成的凝块称为Thrombi，脱离附着物后自由流动者称为Emboli，可能由动脉硬化/感染/创伤或血流过慢引起，阻塞血管会造成组织缺血，临床上需要抗凝血（t-PA/heparin/coumarins--warfarin）；此外，体外循环时防止血液凝固可用heparin，硅橡胶容器可以防止血小板和因子XII的接触活化，柠檬酸盐沉淀Ca离子降低其血浆浓度
 
 
 
@@ -1108,6 +1137,12 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 ## Ch 41 (TBA)
 ## Ch 42 (TBA)
 ## Ch 43 (TBA)
+
+
+
+
+
+
 ## Ch 44 (TBA)
 ## Ch 45 (TBA)
 ## Ch 46 (TBA)
