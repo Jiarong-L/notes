@@ -1227,19 +1227,27 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 
-## Ch 43 呼吸功能不全(TBA)
+## Ch 43 缺氧
+
+* 缺氧状态下，循环血液中O2过少，CO2过多。[造成缺氧的原因](Medical_Physiology/43-p546.png)可能是：
+    - 呼吸不足(Respiratory Insufficiency)，吸氧可改善
+    - Venous-to-arterial shunts (right-to-left cardiac shunts)，部分血液不会经过肺
 
 
+* [测量呼吸功能](Medical_Physiology/43-2.png)
+    - Maximum expiratory flow: 气管阻塞时阻力大，就算肺充满也只能呼出一些；肺无法张开时其容量小，可呼出的气体也少
+    - 肺活量(FVC)
 
 
+* 呼吸不足的原因
+    - 支气管阻塞，可能是由于感染时分泌粘液、哮喘(Asthma)时细支气管平滑肌痉挛性收缩
+    - 肺泡塌陷(Atelectasis)，可能是由于气管阻塞、或表面活性剂不足；丧失肺泡意味着通血的毛细血管减少，引起肺动脉高压，使右侧心脏负荷过重
+    - 肺炎(Pneumonia)，由于感染，液体/红细胞/白细胞从血液中泄漏到肺泡中
+    - 结核(Tuberculosis)形成大脓肿腔、甚至纤维化
 
+* 缺氧时，由于血红蛋白的颜色，患者皮肤发绀(发青/变灰,cyanosis)
 
-
-
-
-
-
-
+* CO2过多时会促进呼吸(60-75 mmHg)，但再多则会使人昏睡(80-100 mmHg)，进一步导致麻醉、呼吸继续降低(120-150 mmHg)
 
 
 
