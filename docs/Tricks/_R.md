@@ -35,3 +35,12 @@ p1 / (p2 | p3)
 ```
 
 
+## 查看包中的func
+
+```R
+ls("package:DoubletFinder")
+vignette(package = "grid")  ## 列出vignette列表，有些包可能无
+browseVignettes("grid")     ## 打开vignette链接
+```
+
+
