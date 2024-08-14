@@ -1169,7 +1169,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 * 当其它组织氧含量过低时，血管会舒张以获取更多含氧血流；肺部则相反，肺泡周围氧含量过低则代表通气不良，其周围血管会收缩、将血液导向其它通气良好的肺泡
 
 
-## Ch 40 气体交换
+## Ch 40-41 气体交换/运输
 
 ![](Medical_Physiology/40-7.png)
 
@@ -1179,30 +1179,64 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - Partial_pressure = Concentration_of_dissolved_gas / Solubility_coefficient
     - 与交换面积、接触时间也相关
 
-* 肺泡中的气体不会一次就交换完，因此人可以屏气；且由于浓度有上限，就算使劲呼吸、其交换程度也有上限；[运动时](Medical_Physiology/40-4.png)由于消耗较大、需要提升呼吸
+* 肺泡中的气体不会一次就交换完，因此人可以屏气；且由于浓度有上限，就算使劲呼吸、其交换程度也有上限；[运动时](Medical_Physiology/40-4.png)由于消耗较大、P_o2下降、需要提升呼吸
 
 * 测试
     - (肺泡--血管)的Diffusing_Capacity = 瞬时吸收体积 / (肺泡P_co -肺毛细血管血P_co)，其中由于CO可以快速结合血红蛋白，肺毛细血管血P_co = 0；O2的扩散系数是CO扩散系数的1.23倍
     - [Ventilation-Perfusion Ratio](Medical_Physiology/40-11.png)：有时虽然呼吸与血流都在进行，但由于没有同时发生而没能成功交换气体，故进行此测试
 
 
-## Ch 41 气体交换运输(TBA)
+* 红细胞负责[运输O2/CO2](Medical_Physiology/41-1.png)
+    - 肺部毛细血管的前1/3即可完成O2的填充，留下宽裕以应对运动时的高需求
+    - [血红蛋白结合O2/CO2](Medical_Physiology/41-8.png)，当O2浓度较大时会释放更多CO2（肺部），当CO2浓度较大时会释放更多O2（组织中）；血红蛋白结合O2的饱和度curve形状保证它在合适的地方吸收/放出O2
+    - 正常人100ml血中有15g血红蛋白，最多可结合1.34ml O2
+    - (Utilization Coefficient)组织一般消耗20%血氧，剧烈运动时可达75-85%
+
+* 当存在许多ADP时候，组织的O2需求会增加，以生成更多ATP
+
+* respiratory exchange ratio (R) =  Rate of CO2 output / Rate of O2 uptake
+
+
+## Ch 42 呼吸调控
+
+* [呼吸中枢](Medical_Physiology/42-1.png)位于脑干(brain stem)，由延髓(medulla oblongata)和脑桥(pons)两侧的几组神经元组成
+    - dorsal respiratory group，呼吸的基本节律、吸气
+        * 信号来自 peripheral chemoreceptors, baroreceptors, 肝脏/胰腺/胃肠道多个部位的受体, 肺部几种类型的受体
+        * (“Ramp” Signal)吸气的神经信号开始时很弱，然后逐步增强，直到第3秒内突然停止、停止吸气
+    - ventral respiratory group，呼气
+    - pneumotaxic center，控制呼吸速率和呼吸深度
+        * Chemosensitive area 直接感受CO2/H，迅速反应
+        * 控制 “Ramp” Signal 的持续时长，pneumotaxic signal 较强时吸气较短少、频率加快
+
+
+* Hering-Breuer inflation reflex: 支气管和细支气管壁的肌肉受体感受到拉扯后关闭吸气，防止肺过度膨胀
+
+* CO2可以改变PH，对呼吸影响较大，PH直接作用于呼吸中枢；O2由于有血红蛋白进行缓冲，其影响反而不那么大，不过它可以作用于**颈动脉和主动脉体**的 [peripheral chemoreceptors](Medical_Physiology/42-4.png)，再将信号传递给呼吸中枢
+
+* 运动时会发出增强呼吸的信号，甚至[早于CO2浓度的变化](Medical_Physiology/42-10.png)，这似乎是一种 learned response
+
+
+| 场景 | 描述 |
+| -- | -- |
+| Receptors in the Airways | 受到刺激后，气管收缩 |
+| Lung J Receptors | 肺充血/水肿后收到刺激，人感到呼吸困难 |
+| 脑水肿 | 抑制呼吸中枢 |
+| 麻醉过量 | 抑制呼吸中枢 |
+| Periodic Breathing | 短时间内深呼吸，然后在另一段时间内轻微呼吸或根本不呼吸，e.g.Cheyne-Stokes Breathing |
+| Sleep Apnea | 在正常睡眠中偶尔会发生呼吸暂停，但在患者中，呼吸暂停发作持续10秒或更长时间，每晚发生300至500次。可能由于呼吸阻塞，也可能由于呼吸中枢的损伤或呼吸神经肌肉器官的异常 |
+
+
+
+## Ch 43 呼吸功能不全(TBA)
 
 
 
 
 
 
-## Ch 42 呼吸调控(TBA)
 
 
 
-
-
-
-
-
-## Ch 43 (TBA)
 
 
 
