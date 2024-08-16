@@ -145,9 +145,11 @@ devtools::update_packages()
     - ```chooseBioCmirror(graphics=F)```
     - [Bioconductor的源](https://www.bioconductor.org/about/mirrors/)
 
+
+```~/.Rprofile``` 修改[BiocManager源](https://bioconductor.org/about/mirrors/)，```options()$BioC_mirror```查看，国内的格式似乎不太对（至少对于老版本来说）
 ```R
-options(BioC_mirror="https://mghp.osn.xsede.org/bir190004-bucket01/archive.bioconductor.org/")
-options(repos = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
+options(BioC_mirror="http://bioconductor.riken.jp/")
+options(repos='http://cran.rstudio.com/')
 ```
 
 * 有时下载失败，可能需要安装 r/apt 的 openssl，或者更换源，或者干脆设置 ```options(timeout=50000)```
