@@ -128,7 +128,7 @@ to form mRNA(去除introns)
 
 ![Figure 5-1](Medical_Physiology/5-1.png)![Figure 5-3](Medical_Physiology/5-3.png)  
 
-* 上图，静息状态表格指膜内电位相对于膜外电位，e.g. -60mv 表示膜内电位负于膜外 60mV
+* 上图，静息状态表格指膜内电位相对于膜外电位，e.g. -60mv 表示膜内电位负于膜外 60mV；**静息电位**一般指此时的**细胞膜内侧**电位
 
 * 静息状态时达成平衡，Nerve fiber 细胞内部含有大量K，细胞外部含有大量Na。因为多种离子的平衡电位不同 (K:–94 mV,Na:+61mV)，**静息电位**可用 Goldman equation 计算，其值为负，因：
     - Na-K pump: 泵出3 Na+, 泵入2 K+
@@ -145,6 +145,12 @@ to form mRNA(去除introns)
 ![Figure 5-18](Medical_Physiology/5-18.png)
 * 细胞外液钙离子浓度高会降低细胞膜对钠离子的通透性，因此 Ca 是 stabilizer
 * 一些麻醉药提高Na通道的激活难度(提高 excitability threshold)
+
+* 刺激神经元产生动作电位：升高静息电位（抑制则反之）
+    - 增加Ca通道，令更多Ca进入细胞质
+    - 减少K通道，K+无法离开细胞
+    - 减少Cl通道，Cl-无法进入细胞
+    - 增加兴奋性膜受体/减少抑制性膜受体
 
 
 ## Ch 6-7  骨骼肌
@@ -1287,8 +1293,38 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 ## Ch 46 神经系统(TBA)
-## Ch 47 躯体感觉(TBA)
-## Ch 48 (TBA)
+
+![](Medical_Physiology/46-2.png)
+
+* 神经信号的传递：身体各处的受体 --> 脊髓 --> 脑干 --> 小脑(Cerebellum) --> 丘脑(Thalamus) --> 皮层(Cortex)
+    - 反射由脊髓控制，非皮层的部分主要控制自主调节(无意识)
+    - 皮层维持记忆，某条通路一旦激活、下一次可以更快反应
+    - 99%信号事实上都被忽略(e.g.对衣物的感受)，我们只能意识到自己特别关注的部分
+
+
+
+* (动作电位 Ch 5)神经元有许多Dendrite接受不同来源的信号，若Soma处的汇总电位超过阈值、则发生动作电位，许多[Synapse将信号传递给下一组神经元](Medical_Physiology/46-8.png)；
+    - 单个神经元中的信号传递是单向的
+    - 多输入/多输出
+    - 就算一直进行电位刺激，神经元也不能长期兴奋，因为神经递质会耗尽
+    - 酸中毒抑制神经元，碱中毒则导致神经元易兴奋(癫痫)
+    - 缺氧状态抑制神经元
+    - [Synapse -> Dendrite](Medical_Physiology/46-5.png) 可以通过 Neurotransmitter 传递信号(控制离子开关)，也可以直接使用 Gap junction channels (直接传递电信号，紧凑、常见于心肌)
+    - 汇总的电位不超过阈值就不会引起动作电位，而[不同神经元有不同的阈值](Medical_Physiology/46-11.png)，以应对不同的刺激
+
+
+* 小分子、快速响应的 Neurotransmitter (+刺激/-抑制)
+    1. Acetylcholine(+/-)
+    2. (胺) Norepinephrine(+/-), Epinephrine, Dopamine(-), Serotonin(-), Melatonin, Histamine
+    3. (氨基酸) Gamma-aminobutyric acid(Adult -), Glycine(-), Glutamate(+), Aspartate
+    4. ATP, Arachidonic acid, NO(记忆：即刻合成、改变细胞内代谢功能、长期效果), CO
+
+
+* [大分子、慢速响应的 Neurotransmitter / Growth Factors](Medical_Physiology/46-t2.png)
+
+
+## Ch 47 感觉受体(TBA)
+## Ch 48 躯体感觉(TBA)
 ## Ch 49 (TBA)
 ## Ch 50 (TBA)
 ## Ch 51 (TBA)
