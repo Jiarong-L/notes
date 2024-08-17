@@ -1292,9 +1292,9 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 * (减压病)为什么深潜后不能快速上浮？因为溶于血中的氮气需要缓慢排出，否则突然的压力变化会导致毛细血管中形成小气泡。可使用高压仓进行治疗。
 
 
-## Ch 46 神经系统(TBA)
+## Ch 46 神经系统
 
-![](Medical_Physiology/46-2.png)
+![](Medical_Physiology/46-2.png)![](Medical_Physiology/47-9.png)
 
 * 神经信号的传递：身体各处的受体 --> 脊髓 --> 脑干 --> 小脑(Cerebellum) --> 丘脑(Thalamus) --> 皮层(Cortex)
     - 反射由脊髓控制，非皮层的部分主要控制自主调节(无意识)
@@ -1302,18 +1302,22 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 99%信号事实上都被忽略(e.g.对衣物的感受)，我们只能意识到自己特别关注的部分
 
 
-
-* (动作电位 Ch 5)神经元有许多Dendrite接受不同来源的信号，若Soma处的汇总电位超过阈值、则发生动作电位，许多[Synapse将信号传递给下一组神经元](Medical_Physiology/46-8.png)；
+* (**Spatial Summation**)神经元有许多Dendrite接受不同来源的信号，若Soma处的汇总电位超过阈值、则发生动作电位，许多[Synapse将信号传递给下一组神经元](Medical_Physiology/46-8.png)
     - 单个神经元中的信号传递是单向的
     - 多输入/多输出
-    - 就算一直进行电位刺激，神经元也不能长期兴奋，因为神经递质会耗尽
+    - 就算一直进行电位刺激，神经元也不能长期兴奋，因为神经递质会耗尽(**疲劳**)
     - 酸中毒抑制神经元，碱中毒则导致神经元易兴奋(癫痫)
     - 缺氧状态抑制神经元
     - [Synapse -> Dendrite](Medical_Physiology/46-5.png) 可以通过 Neurotransmitter 传递信号(控制离子开关)，也可以直接使用 Gap junction channels (直接传递电信号，紧凑、常见于心肌)
-    - 汇总的电位不超过阈值就不会引起动作电位，而[不同神经元有不同的阈值](Medical_Physiology/46-11.png)，以应对不同的刺激
+    - (动作电位 Ch 5)汇总的电位不超过阈值就不会引起动作电位，而[不同神经元有不同的阈值](Medical_Physiology/46-11.png)，以应对不同的刺激
+
+* (**Temporal Summation**)神经元接受单次信号不能达到阈值，但信号的作用多次累积直到达成阈值、发生动作电位
+    - 因此，收到强刺激时 nerve impulses 频率较快，弱信号时频率较慢，这是因为强信号需要达成阈值所需的刺激次数较少
+    - 信号强度决定神经冲动的频率，e.g. CO2浓度大时，感受器收到强信号，发出更多刺激呼吸的信号
+    - [Spatial v.s. Temporal](Medical_Physiology/47-7.png)
 
 
-* 小分子、快速响应的 Neurotransmitter (+刺激/-抑制)
+* 小分子、快速响应的 Neurotransmitter  -----当前神经元对下一个神经元的信号(**+刺激/-抑制**)
     1. Acetylcholine(+/-)
     2. (胺) Norepinephrine(+/-), Epinephrine, Dopamine(-), Serotonin(-), Melatonin, Histamine
     3. (氨基酸) Gamma-aminobutyric acid(Adult -), Glycine(-), Glutamate(+), Aspartate
@@ -1323,8 +1327,43 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 * [大分子、慢速响应的 Neurotransmitter / Growth Factors](Medical_Physiology/46-t2.png)
 
 
-## Ch 47 感觉受体(TBA)
+## Ch 47 神经元电路
+
+![](Medical_Physiology/47-1.png)
+
+* 感觉受体(sensory receptors)
+    - mechanoreceptors 感受机械压迫或拉伸
+    - thermoreceptors 感受温度变化
+    - nociceptors (pain receptors)
+    - electromagnetic 视网膜感受光线
+    - chemoreceptors 感受各种化学物质：味觉，嗅觉，血氧水平，体液渗透压，CO2浓度
+
+* 感觉受体如何被激活？
+    - 机械拉伸：细胞膜被拉伸，打开离子通道
+    - 化学感受：膜受体被化学物质激活/抑制，改变离子通道活性
+    - 温度感受：温度改变膜的通透性
+    - 光线感受：电磁辐射
+
+* [神经元响应的速度、时长、强度](Medical_Physiology/47-6.png)
+    - 快速相应的 Rate Receptors 负责一些紧急的应对（较长、覆盖髓鞘） ---- 得益于“疲劳”机制(神经递质的消耗)，激发态持续较短
+    - 慢速相应的 “Tonic” Receptors 负责持续适应环境（较短、无髓鞘） ---- 激发态持续较久、后期变弱
+
+
+* 神经元电路：已知单个神经元前后可以对接多个神经元
+    - 它对于下游神经元的作用可以是：激发电位/增强/抑制，取决于链接的Synapse数目、下游神经元的原本状态
+    - 电路可以是扩散的(肌肉信号蔓延)，也可以是有特定方向的(屈臂时需要刺激二头肌、放松三头肌)
+    - 自增强的神经元电路在一段时间后会耗尽递质/被其它电路抑制，然后慢慢平息
+
+
 ## Ch 48 躯体感觉(TBA)
+
+
+
+
+
+
+
+
 ## Ch 49 (TBA)
 ## Ch 50 (TBA)
 ## Ch 51 (TBA)
