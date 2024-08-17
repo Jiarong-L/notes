@@ -1345,8 +1345,8 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 光线感受：电磁辐射
 
 * [神经元响应的速度、时长、强度](Medical_Physiology/47-6.png)
-    - 快速相应的 Rate Receptors 负责一些紧急的应对（较长、覆盖髓鞘） ---- 得益于“疲劳”机制(神经递质的消耗)，激发态持续较短
-    - 慢速相应的 “Tonic” Receptors 负责持续适应环境（较短、无髓鞘） ---- 激发态持续较久、后期变弱
+    - **快速**相应的 Rate Receptors 负责一些紧急的应对（较长、覆盖**髓鞘**） ---- 得益于“疲劳”机制(神经递质的消耗)，激发态持续较短
+    - **慢速**相应的 “Tonic” Receptors 负责持续适应环境（较短、**无髓鞘**） ---- 激发态持续较久、后期变弱
 
 
 * 神经元电路：已知单个神经元前后可以对接多个神经元
@@ -1355,16 +1355,53 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 自增强的神经元电路在一段时间后会耗尽递质/被其它电路抑制，然后慢慢平息
 
 
-## Ch 48 躯体感觉(TBA)
+## Ch 48 躯体感觉
+
+* 躯体感觉(Somatic sensations)事实上是对基本感受器信号的不同处理，e.g.振动实际上是不停刺激压力感受器
+    - Exteroreceptive sensations 来自身体表面的感觉
+    - Proprioceptive sensations 与身体的物理状态有关的感觉：位置、平衡等，实际上是一种“特殊”的感觉
+    - Visceral sensations 来自内脏的感觉
+
+* [脊髓(spinal cord)、皮层功能分区](Medical_Physiology/48-2.png)，信号在脊髓下段左右交叉
+    - (Somatosensory area I) **Dorsal** column–medial lemniscal system 直连大脑，负责**迅速、精确**的信号
+        * Spatial Orientation: 神经依此并入脊髓束，下肢的神经在脊髓的中部(先加入)，上肢的神经在脊髓的外侧(后加入)
+    - (Somatosensory area II) **Anterolateral** system 需要将信号再传递给 Spinocervical tract，负责**较慢、范围模糊**的信号(e.g.温度、痛觉)
+
+*  大脑皮层结构是一层一层的
+    - I, II 接收来自大脑较低中枢的弥漫性非特异性输入信号
+    - II, III 的轴突通过胼胝体(corpus callosum)链接另一侧大脑皮层的相关部位
+    - IV 层接收传入的感觉信号，然后信号向表面/更深层双向传播
+    - V, VI 的轴突通向神经系统的深层，V层(基底神经节/脑干/脊髓)，VI层(丘脑)
+
+* [模糊感觉/精准感觉的原理](Medical_Physiology/48-9.png)
+
+* (Dermatome) 一个皮肤区域的感觉神经全部由单一脊神经根支配，可以通过[触觉测试检验脊髓损伤发生的位置](Medical_Physiology/48-14.png)
 
 
+## Ch 49 痛觉
+
+* [痛觉](Medical_Physiology/49-2.png)提示躯体正在遭受伤害，除非刺激源、痛觉不会停止；痛觉信号通过特殊神经纤维传递
+    - 疼痛从脊髓，通过脑干处 Neospinothalamic/Paleospinothalamic tract 进入丘脑，到达皮层，皮层可感知疼痛的质量
+        * (Glutamate, **Type Aδ fiber**) **剧痛**起初较强烈、持续较短，通常发生在浅表组织，主要由机械/温度/化学感受器引起(对组织的物理破坏+由此引起的炎症因子)
+        * (Substance P, **Type C fiber**) **慢性疼痛**可从隐约发展至强烈，通常出现在深层组织/器官，主要由化学感受器/Neurotransmitter(+)引起    
+    - Analgesia system 抑制痛觉，是痛觉系统的负反馈，抑制信号自脑部传递向脊髓、且提示分泌递质抑制痛觉信号的传输
+        * 针对突触受体的止痛剂，类鸦片的物质主要有 β-内啡肽(β-endorphin)、脑啡肽(met-enkephalin)、左脑啡肽(leu-enkephalin)、啡肽(dynorphin)，它们是 促肾上腺素(pro-opiomelanocortin)、促脑啡肽(proenkephalin)、促肾上腺素(prodynorphin)的分解产物
+        * 针炙/按压某些区域可刺激 Large-type Aβ sensory fibers，脊髓局部侧抑制，阻碍疼痛信号的传输
 
 
+* 痛觉是较慢、范围模糊的信号
+
+* (Referred pain) 由于疼痛的神经空间在脊髓中距离相近，有时肝脏的疼痛神经信号会激活某一皮肤区域的疼痛神经
+    - [根据皮肤区域的疼痛推断器官疼痛](Medical_Physiology/49-6.png)，是胚胎发育的残留信息
+    - 平时我们根本感受不到自己的器官，因为它们通常没有除了痛觉之外的其它感受器，甚至某些部分连疼痛感知都无(肝脏某些部分、肺泡)
+    - 脑组织没有疼痛感知，[头疼](Medical_Physiology/49-9.png)很可能不是由大脑本身的损伤引起的(眼鼻)，但拉扯脑部血管/dura也会造成剧烈头痛
+
+* [带状疱疹](https://www.msdmanuals.cn/home/infections/herpesvirus-infections/shingles)病毒感染脊髓或脑神经，造成严重的皮肤疼痛
+
+* 痛觉感受器也参与了[温度感知](Medical_Physiology/49-10.png)(高温部分)
+    - 其它温度感受器的 warm 信号通过 Type C fiber 传输，cold 信号通过 Type Aδ fiber 传输 (也有一部分 Type C)
 
 
-
-
-## Ch 49 (TBA)
 ## Ch 50 (TBA)
 ## Ch 51 (TBA)
 ## Ch 52 (TBA)
