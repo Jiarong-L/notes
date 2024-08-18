@@ -1412,7 +1412,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 * 光线进入眼球: 角膜(Cornea) --> 房水(Aqueous humor) --> 晶状体(Lens) --> 玻璃体(Vitreous humor) --> 视网膜(Retina)
     - 角膜贡献了最多的屈光度，但其形状是固定的
     - 瞳孔(Pupil)是虹膜(Iris)中心处的孔，[瞳孔大小决定光线强度](Medical_Physiology/50-11.png)
-    - 悬韧带(Suspensory ligaments)拉扯Lens使其扁平，睫状肌(Ciliary muscle)松弛悬韧带、调节Lens形状 (副交感神经)
+    - 悬韧带(Suspensory ligaments)拉扯Lens使其扁平，睫状肌(Ciliary muscle)松弛悬韧带、调节Lens形状
     - ([Fluid System](Medical_Physiology/50-18.png)) Vitreous humor 呈凝胶态，维持空腔的形状；Aqueous humor 具有流动性，提供组织的营养
 
 * 视觉敏锐度：最多可以区分10m外相距1mm的两个点(视网膜上相距2μm，即Cone细胞的间隔)
@@ -1451,21 +1451,32 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 长期处于无光状态，会储备更多光敏化学物质、以[适应弱光信号](Medical_Physiology/51-9.png)
 
 
+
 ## Ch 52 视觉III
 
-![](Medical_Physiology/52-1.png)
+![](Medical_Physiology/52-1.png)![](Medical_Physiology/52-7.png)
 
 
+* 视觉通路的目标脑区
+    - (上图) 视觉皮层(Visual Cortex)
+        * 一半视觉通路于 Optic chiasm 处左右交叉，LGN有[6层神经元](Medical_Physiology/52-4.png): 2/3/5接收同侧视网膜信号，1/4/6接收对侧信号，信号**成对交互**、平行传输至视觉皮层
+        * LGN有抑制功能，控制被允许传递到皮层的信号量
+    - suprachiasmatic nucleus, 控制昼夜节律
+    - pretectal nuclei, 聚焦/瞳孔光反射
+    - 上丘(Superior colliculus), 双眼的快速定向运动/手眼协调
+    - ventral lateral geniculate nucleus & surrounding basal regions of the brain, 可能是为了帮助控制身体的一些行为功能
 
+* Primary visual cortex 接收大部分 Fovea 信号、获得图像轮廓，其周围的 Secondary visual areas 负责加工处理这些信号
+    - 移除Primary后不能感知图像，但仍然可以感知运动
+    - 轮廓即差异梯度，颜色感知也是基于对比
 
+* [测量视野](Medical_Physiology/52-6.png)：单眼注视前方移动小点
+    - e.g. 视觉通路损毁，视网膜部分区域没有分布视觉细胞，...
 
-
-
-
-
-
-
-
+* 我们将视线移向某物(voluntary fixation)，随后眼睛会自动追踪这件物品(involuntary fixation)
+    - [对眼球运动、瞳孔大小的控制](Medical_Physiology/52-8.png)(副交感神经-缩小，交感神经-扩大)，上丘也调节身体姿势以协助注视
+    - Saccadic Movements: 阅读时眼睛通过几次连续的扫视来移动视觉场景，以提取重要信息
+    - 斜视患者左右视网膜图像不匹配，此时可能左右眼交替着注射物品
 
 
 ## Ch 53 听觉(TBA)
@@ -1484,7 +1495,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 
-## Ch 55 脊髓反射(TBA)
+## Ch 55 Motor: 脊髓(TBA)
 
 
 
@@ -1497,9 +1508,9 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 
-## Ch 56 行动控制-皮层/脑干(TBA)
-## Ch 57 行动控制-小脑/基底神经节(TBA)
-## Ch 58 学习和记忆(TBA)
+## Ch 56 Motor: 大脑皮层 脑干(TBA)
+## Ch 57 Motor: 小脑 基底神经节(TBA)
+## Ch 58 记忆: 大脑皮层(TBA)
 ## Ch 59 (TBA)
 ## Ch 60 (TBA)
 ## Ch 61 (TBA)
