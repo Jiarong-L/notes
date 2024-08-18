@@ -135,7 +135,7 @@ to form mRNA(去除introns)
     - K "leak" channels: 渗出 K+
 * 将电位从−70mV提升至10mV的**测试**中，可以发现Na、K 通道的反应速度不同   
 ![Figure 5-9](Medical_Physiology/5-9.png)
-* 标准动作电位示意图(左)；带节律的动作电位(中)调节心脏节律，Hyperpolarization 与 K 流出有关；Plateau(右)延长了去极化的时间(与Ca通道有关)，使心脏肌肉的收缩时间相同    
+* 标准动作电位示意图(左)；带节律的动作电位(中)调节心脏节律，超极化(Hyperpolarization) 与 K 流出有关；Plateau(右)延长了去极化的时间(与Ca通道有关)，使心脏肌肉的收缩时间相同    
 ![Figure 5-6 动作电位](Medical_Physiology/5-6.png)
 * **动作电位**激发后 Na 涌入细胞，到达电位顶点后通道迅速关闭；随后 K 加速流出细胞，到达平衡电位后通道关闭     
 ![Figure 5-7](Medical_Physiology/5-7.png)
@@ -1413,7 +1413,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 角膜贡献了最多的屈光度，但其形状是固定的
     - 瞳孔(Pupil)是虹膜(Iris)中心处的孔，[瞳孔大小决定光线强度](Medical_Physiology/50-11.png)
     - 悬韧带(Suspensory ligaments)拉扯Lens使其扁平，睫状肌(Ciliary muscle)松弛悬韧带、调节Lens形状 (副交感神经)
-    - ([Fluid System](Medical_Physiology/50-18.png) ) Vitreous humor 呈凝胶态，维持空腔的形状；Aqueous humor 具有流动性，提供组织的营养
+    - ([Fluid System](Medical_Physiology/50-18.png)) Vitreous humor 呈凝胶态，维持空腔的形状；Aqueous humor 具有流动性，提供组织的营养
 
 * 视觉敏锐度：最多可以区分10m外相距1mm的两个点(视网膜上相距2μm，即Cone细胞的间隔)
 
@@ -1428,7 +1428,32 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - Aqueous humor 压力过大(炎症导致Trabeculae阻塞)，眼球内压力过大、开始扰乱视网膜的神经冲动，即青光眼
 
 
-## Ch 51 视觉II(TBA)
+## Ch 51 视觉II
+
+![](Medical_Physiology/51-1.png)
+
+
+* 视网膜(Retina)的外层分布视觉细胞，中央凹(Fovea)是最敏锐的区域；Central Retinal Artery 供应视网膜内层，Choroid 中的血管供应视网膜的外层
+    - 视锥细胞(Cones/色彩)，[不同类型](Medical_Physiology/51-10.png)含不同的视锥色素(cone pigments)、以感受不同波长的光
+    - 视杆细胞(Rods/黑白)，视紫红质(rhodopsin)与视锥色素只有轻微的不同
+    - 辅助细胞保证信号准确传递，e.g. Horizontal cells 抑制信号横向传播、防止混淆信号
+    - Retinal Ganglion Cells: 被视觉细胞信号抑制/激活(综合信号以提高分辨率)，也可感知信号强度
+        * W细胞：分布广(视野宽)，信号缓慢，对检测视野中的定向运动很敏感(链接Rods)
+        * X细胞：分布小，视觉图像的细节、色彩(链接Cones)
+        * W细胞：分布广，信号快，对视觉图像的快速变化作出反应，但定位不准
+        * (Ch 52)[P细胞、M细胞](Medical_Physiology/52-4.png)分别对应色彩/黑白信号
+
+
+* 光敏化学物质[在光照下分解 --> 激活信号](Medical_Physiology/51-5.png) --> 重新合成
+    - 缺乏维生素A时，由于不能再生成视黄醇(retinol)，视紫红质越来越少，渐渐无法感知弱光
+    - 无光时，Na从Outer部分进入细胞(上方)，K从Inner部分离开细胞(下方)，形成电流
+    - 光照时，色素被分解、产物令Na不再被泵入、但K仍然泵出，细胞发生超极化
+    - 长期处于无光状态，会储备更多光敏化学物质、以[适应弱光信号](Medical_Physiology/51-9.png)
+
+
+## Ch 52 视觉III
+
+![](Medical_Physiology/52-1.png)
 
 
 
@@ -1439,8 +1464,6 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 
-
-## Ch 52 视觉III(TBA)
 
 
 
