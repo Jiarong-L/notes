@@ -1402,15 +1402,81 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 其它温度感受器的 warm 信号通过 Type C fiber 传输，cold 信号通过 Type Aδ fiber 传输 (也有一部分 Type C)
 
 
-## Ch 50 (TBA)
-## Ch 51 (TBA)
-## Ch 52 (TBA)
-## Ch 53 (TBA)
-## Ch 54 (TBA)
-## Ch 55 (TBA)
-## Ch 56 (TBA)
-## Ch 57 (TBA)
-## Ch 58 (TBA)
+## Ch 50 视觉I
+
+![](Medical_Physiology/50-8.png)![](Medical_Physiology/50-10.png)
+
+* 屈光度(Diopter)指折射光线的能力，屈光度越高，Lens至焦点的距离越近
+    - 视近物需高屈光度(圆)，视远物需高屈光度(扁)
+
+* 光线进入眼球: 角膜(Cornea) --> 房水(Aqueous humor) --> 晶状体(Lens) --> 玻璃体(Vitreous humor) --> 视网膜(Retina)
+    - 角膜贡献了最多的屈光度，但其形状是固定的
+    - 瞳孔(Pupil)是虹膜(Iris)中心处的孔，[瞳孔大小决定光线强度](Medical_Physiology/50-11.png)
+    - 悬韧带(Suspensory ligaments)拉扯Lens使其扁平，睫状肌(Ciliary muscle)松弛悬韧带、调节Lens形状 (副交感神经)
+    - ([Fluid System](Medical_Physiology/50-18.png) ) Vitreous humor 呈凝胶态，维持空腔的形状；Aqueous humor 具有流动性，提供组织的营养
+
+* 视觉敏锐度：最多可以区分10m外相距1mm的两个点(视网膜上相距2μm，即Cone细胞的间隔)
+
+* 距离感知：
+    - Size of image 已知物体粗略大小，越远越显小
+    - Moving parallax 移动头部时，近处物体的图像在视网膜上迅速移动，而远处物体的图像几乎完全静止不动
+    - Stereopsis 近处时双眼接收的图像有细微不同，远处图像基本一致
+
+* 疾病
+    - 不可调节眼球屈光度(e.g.Lens失去弹性)，[视力范围将受限，需要戴眼镜](Medical_Physiology/50-12.png)
+    - Lens不再透明(e.g.纤维化)，即白内障
+    - Aqueous humor 压力过大(炎症导致Trabeculae阻塞)，眼球内压力过大、开始扰乱视网膜的神经冲动，即青光眼
+
+
+## Ch 51 视觉II(TBA)
+
+
+
+
+
+
+
+
+
+
+
+## Ch 52 视觉III(TBA)
+
+
+
+
+## Ch 53 听觉(TBA)
+
+
+
+
+
+
+## Ch 54 味觉 嗅觉(TBA)
+
+
+
+
+
+
+
+
+## Ch 55 脊髓反射(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+## Ch 56 行动控制-皮层/脑干(TBA)
+## Ch 57 行动控制-小脑/基底神经节(TBA)
+## Ch 58 学习和记忆(TBA)
 ## Ch 59 (TBA)
 ## Ch 60 (TBA)
 ## Ch 61 (TBA)
