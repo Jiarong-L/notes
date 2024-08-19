@@ -9,7 +9,13 @@ img{
 
 Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
-注：部分笔记中可能混淆了secretion(**分泌**出细胞)和excretion(**排出**体外)
+注：1. 部分笔记中可能混淆了secretion(**分泌**出细胞)和excretion(**排出**体外); 2. 感知受体的“激活”默认指产生动作电位; 3. 脑部/神经系统相关的一切都有待补充学习，至少需要先了解一下解剖结构; 4. [部分章节的中文翻译](https://www.bilibili.com/read/readlist/rl545260)
+
+| 计划 | 已完成进度 |
+| -- | -- |
+| 第一轮-粗略笔记 | 54 |
+| 第二轮-纠错补缺 | -- |
+| 第三轮-复习补充 | -- |
 
 
 ## Ch 1 概览
@@ -1479,20 +1485,60 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 斜视患者左右视网膜图像不匹配，此时可能左右眼交替着注射物品
 
 
-## Ch 53 听觉(TBA)
+## Ch 53 听觉
+
+![](Medical_Physiology/53-1.png)![](Medical_Physiology/53-4.png)
+
+* 声音 --> 鼓膜 --> 中耳的三块骨头 --> 耳蜗(Cochlea) --> Cochlear nerve
+    - 耳蜗中充满液体，骨头的振动令其流动: Stapes骨 --> Scala vestibuli --> Scala tympani --> Round window
+    - Organ of Corti 中的 Hair Cells 感受到 Tectorial membrane 的晃动，激活信号，通过 [Auditory nervous pathways](Medical_Physiology/53-9.png) 传递至**皮层(Primary负责接受-处理信号/Association负责听觉联想-解释)**
+    - Stapedius muscle 拉动中耳骨头，tensor tympani muscle 限制骨头幅度，避免伤害鼓膜
+    - Scala media 供应 Organ of Corti 的能量
 
 
+* 声音的频率
+    - 不同频率的波在耳蜗中传递的距离不同，频率高、距离近
+    - Organ of Corti 分布在耳蜗的不同距离处
 
 
+* 声音的大小
+    - basilar membrane 的振幅不同 --> hair cells 以不同的速度被激活
+    - 振幅变大时，激活更多 basilar membrane 边缘的 hair cells，信号叠加
+    - outer hair cells 仅当振幅巨大时才能感受到振动
+    
+
+* [听力](Medical_Physiology/53-8.png)：达到特定分贝时，才能感受到声音
+    - 不同频率所需的最小分贝不同
+    - 长期过度暴露在某个频率的声音中，可能会失去这个频率的听觉
+
+* 定位声音：左/右耳声音的时间差/强度
 
 
-## Ch 54 味觉 嗅觉(TBA)
+## Ch 54 味觉 嗅觉
+
+气味事实上就是不同组合的化学物质，我们分类了5类味觉受体，没有细分100-1000种的嗅觉受体
+
+* 味觉受体实际上是不同化学物质的受体(NaCl/谷氨酸/..)，大致可分为五个类别：甜、苦、咸、酸、鲜
+    - Taste Blindness: 部分人由于缺少特定受体，不能感受某些物质
+    - [Taste Indices](Medical_Physiology/54-t1.png): 味觉的敏感度，一般苦味比较敏锐，因为它可能意味着有害物质。此处对各味觉大类设置基准物质，假设其 Taste Indice = 1
 
 
+* 舌头不同区域分布着不同[味蕾(Taste Buds)](Medical_Physiology/54-1.png)，味蕾时时更新。低浓度物质可以激活对应的味蕾，但高浓度时、多重刺激反而会导致去极化。第一次味觉刺激时，discharge of the nerve fibers 达到峰值；但**此后连续的刺激只能令 discharge 维持在一个稍低的水平**，这就是为什么第一口总是最好吃的(**Adaptation**)。
+    - 舌前部2/3 --> 舌神经(lingual nerve) --> 鼓室索(chorda tympani) --> 面神经(facial nerve) --> NTS
+    - 舌后部/喉咙 --> 舌咽神经(glossopharyngeal nerve) --> NTS
+    - 舌根部/咽区 --> 迷走神经 --> NTS
+    - NTS(孤束核, Nucleus of solitary tract)之后信号传递至皮层，也可以传递给泌涎核(salivatory nuclei,控制唾液分泌)
 
 
+* [嗅觉(Olfactory)信号](Medical_Physiology/54-3.png): Olfactory cell 接触到溶于 Mucus layer 的气味分子、被激活
+    - 嗅觉主要分辨是否有某种气味，对于气味浓度的分辨能力不强
+    - 长期暴露在气味中时，渐渐不闻其臭。嗅觉受体的Adaptation可维持1min，之后则由中枢神经系统接手抑制
 
 
+* 进化上看，大脑的嗅觉部分是最早的大脑结构之一
+    - 最原始 Medial olfactory area，驱动原始的进食反应
+    - 次原始 Lateral olfactory area，对食物习得性的好恶
+    - 最新的通路，有意识地分析气味
 
 
 ## Ch 55 Motor: 脊髓(TBA)
