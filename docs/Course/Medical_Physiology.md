@@ -1541,16 +1541,37 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 最新的通路，有意识地分析气味
 
 
-## Ch 55 Motor: 脊髓(TBA)
+## Ch 55 Motor: 脊髓反射
+
+![](Medical_Physiology/55-1.png)![](Medical_Physiology/55-3.png)
 
 
+* 脊髓如何控制肌肉、接收反馈？|--> Sensory root --> Interneurons --> Motor neuron --> (Muscle Stretch) --> Sensory neuron -->|
+    - Interneurons 负责汇集信号：位于灰质，小而易兴奋，经常表现出自发活动
+    - Motor neuron: simultaneous/co- activation of all α/γ
+        * α nerve fibers 控制肌肉群：大且分枝，同时链接几百个骨骼肌纤维
+        * γ nerve fibers 控制肌张力：链接 Intrafusal fibers
+        * Renshaw Cells 负责侧抑制，防止信号在 Motor neuron 间胡乱扩散
+    - Sensory neuron, 链接肌肉中的感受器: 
+        * Muscle spindle: **Primary** afferent(Ia) 链接 bag/chain fiber；**Secondary** afferent(II) 只链接 chain fiber
+        * Golgi Tendon: 关于肌张力
+    - **Intrafusal fibers** 位于 Muscle spindle 中央，有两种不同形态的纤维，涉及：
+        * Dynamic response: 链接 **bag** fiber 的 Sensory neuron 可以感知肌肉的延长**速率**；由 γ-d Motor neuron 刺激收缩
+        * Static response: 链接 **chain** fiber 的 Sensory neuron 可以感知肌肉的延长**程度**；由 γ-s Motor neuron 刺激收缩
 
 
+* 一些重要的反射
+    - [Muscle Stretch Reflex](Medical_Physiology/55-5.png)：对抗肌肉的突然拉伸(Dynamic)，使肌肉收缩的程度合理(Static)
+        * Muscle Spindle Reflex：脊椎的信号是不平滑的，Muscle spindle 平滑/damping这些信号，使肌肉的运动相对稳定
+    - [Golgi Tendon Reflex](Medical_Physiology/55-8.png)：令张力过大的肌肉松弛，保护肌肉免受过度紧张
+    - [Flexor/Withdrawal Reflex & Crossed Extensor Reflex](Medical_Physiology/55-9.png)：当遭遇疼痛时，屈曲肌肉、抽回手；并且弯曲另一边的腿、进一步后退
+    - 姿态和运动的反射，保证身体协调
+    - 自主神经系统的反射：血管张力, ...
+    - Mass Reflex: 脊髓有时会突然过度活跃，需要抑制其活动，以免全身肌肉收缩（类似癫痫发作机制，但癫痫涉及脑电回路扰动）
 
+* 炎症/骨折时候可能引起肌肉痉挛，可能是因为刺激了相关反射的受体
 
-
-
-
+* Spinal Shock: 虽然脊髓反射弧并不经过大脑，脊髓神经元的正常活动在很大程度上依赖于神经纤维从较高中枢(脑)进入脊髓的持续的强直兴奋。当脊髓突然在上颈部被横断时，基本上所有的脊髓功能，包括脊髓反射，都会立即被抑制到完全沉默的程度。几小时到几周后，脊髓神经元逐渐恢复兴奋性，但永远不会完全恢复，有时恢复得过度亢奋。
 
 
 
