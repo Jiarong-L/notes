@@ -191,7 +191,7 @@ the paths between (any node in) X and (any node in) Y are blocked by Z，即 $(Y
 
 
 
-[**Propensity score**](./Causal_Inference/n06-2.png) $e(W) = P(T=1|W)$ 是对高维W的一种简化，以满足 Unconfoundedness 假设，即：{$Y(t) \perp T | W$}  ==> {$Y(t) \perp T | e(W)$}；但由于 Confounders 未知，最多只能 model Propensity score；用例: [**Inverse Probability Weighting (IPW)**](./Causal_Inference/n06-3.png)
+[**Propensity score**](./Causal_Inference/n06-2.png) $e(W) = P(T=1|W)$ 是对高维W的一种简化，以满足 Unconfoundedness 假设，即：{$Y(t) \perp T | W$}  ==> {$Y(t) \perp T | e(W)$}；但由于 Confounders 未知，最多只能 model Propensity score；用例: [**Inverse Probability Weighting (IPW)**](./Causal_Inference/n06-3.png)，[PSM/PSW](https://dango.rocks/blog/2019/08/18/Causal-Inference-Introduction3-Propensity-Score-Weighting/)
 
 
 
