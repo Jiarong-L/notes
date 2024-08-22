@@ -250,16 +250,16 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
         * 求：$\lambda$
         * 解：对于泊松分布，$E(Y^1)=\mu=\lambda$，$m_1=\overline{y}$，使 $E(Y^k)=m_k$ 可得 $\lambda=\overline{y}$
 
-* 极大似然法**求点估计**：(假设每个$y$独立)，选择使样本的似然函数 $L=p(y_1,y_2,y_3,...,y_n)=p(y_1)p(y_2)p(y_3)...p(y_n)$ 最大的 $\hat{\theta_1},\hat{\theta_2},\hat{\theta_3},...,\hat{\theta_k}$ 作为 $\theta_1,\theta_2,\theta_3,...,\theta_k$ 的估计值
+* 极大似然法**求点估计**：选择使样本的似然函数 $L=p(y_1,y_2,...,y_n|\theta_{1..n})$ 最大的 $\hat{\theta_1},\hat{\theta_2},...,\hat{\theta_k}$ 作为 $\theta_1,\theta_2,...,\theta_k$ 的估计值
+    - $\argmax\limits_{\theta}P(y|\theta)$，频率主义学派认为参数$\theta$存在**固定值**，希望根据数据估计这个参数
     - 通常通过 $\frac{\partial L}{\partial\theta_i}=0$ 求最大值（注意，此时也可能是最小值）
     - 如果 $L$ 不保证单调递增，argmax目标可以变成 $L$ 的对数：$ln(L)$
 
 * 刀切估计：每次从n中去掉一个观测值、多次估计$\theta$，最后对所有估计值进行线性组合（加权平均）；适用于有偏、有异常值的样本集
 * 稳健估计（e.g. M估计）：（略）；不假设n来自正态总体
 * 贝叶斯估计：认为参数 $\theta$ 是来自某个**已知先验分布** $p(\theta)$ 的随机变量，样本信息用于修正 $\theta$ 的先验分布、从而得到后验分布 $f(\theta|y_1,y_2,...,y_n)$ 
+    - $\argmax\limits_{\theta}P(\theta|y)$，贝叶斯学派认为参数是服从某种概率分布的随机变量，已有的数据只是在这种参数的分布下产生的
     - $\theta$ 的贝叶斯估计 $\hat{\theta}$ 就是后验分布的均值 $E(\theta|y_1,y_2,...,y_n)$
-    - 对比：极大似然 $P(L|\theta)$ 认为参数是固定，希望根据数据估计这个参数
-    - 贝叶斯 $P(\theta|...)$ 认为参数是服从某种概率分布的随机变量，已有的数据只是在这种参数的分布下产生的
     - 贝叶斯的难点在于先验分布 $p(\theta)$ 需要人为设定；由于引入了先验信息，它只需要更少的训练数据
 
 ### 区间估计
