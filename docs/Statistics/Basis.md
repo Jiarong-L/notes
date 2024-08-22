@@ -29,10 +29,6 @@ table th:nth-of-type(5) {
 
 教材：《统计学（原书第五版）》
 
-
-
-
-
 ## 描述性统计
 
 | -- | 样本 | 总体 | -- |
@@ -258,7 +254,7 @@ $$B(\alpha,\beta)=\int_0^1y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gam
     - 优化目标 $\mathop{\arg\max}\limits_{\theta}P(y|\theta)$，频率主义学派认为参数$\theta$存在**固定值**，希望根据数据估计这个参数
     - 如果 $L$ 不保证单调递增，argmax目标可以变成 $L$ 的对数：$ln(L)$
 
-* 贝叶斯估计：提供 $\theta$ 的先验分布，寻找使后验概率最大的 $\theta$ 
+* 贝叶斯估计/最大后验概率：提供 $\theta$ 的先验分布，寻找使后验概率最大的 $\theta$ 
     - 优化目标 $\mathop{\arg\max}\limits_{\theta}P(\theta|y)$，贝叶斯学派认为参数 $\theta$ 是服从某个**已知先验分布** $P(\theta)$ 的**随机变量**，而非一个确定的值
     - $\theta$ 的贝叶斯点估计 $\hat{\theta}$ 即后验分布的均值 $E(\theta|y_1,y_2,...,y_n)$
     - 贝叶斯的难点在于先验分布 $p(\theta)$ 需要人为设定，但由于引入了先验信息，它只需要更少的训练数据
@@ -408,6 +404,7 @@ $s_{\hat{\theta}}$与样本要求参考上文 [常见参数置信区间](#_12)�
     - [S-W test](https://www.jianshu.com/p/e202069489a6)（适合n<50），统计量：观察值与样本均值之间的协方差
     - [multivariate normality test](https://zhuanlan.zhihu.com/p/87300004)：检验因变量向量是否服从多元正态分布
 * [先验概率、后验概率、似然概率](https://zhuanlan.zhihu.com/p/397960221) 
+* [先验概率、后验概率、似然概率](https://www.cnblogs.com/rossiXYZ/p/12150015.html) 
 * [概率中的PDF\PMF\CDF\PPF\ISF](https://blog.csdn.net/dkkfff/article/details/115912758)    
 * 有限一阶矩（有限均值）？？？  
  
