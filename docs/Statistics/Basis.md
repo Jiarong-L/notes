@@ -407,7 +407,7 @@ $s_{\hat{\theta}}$与样本要求参考上文 [常见参数置信区间](#_12)�
 * [先验概率、后验概率、似然概率](https://www.cnblogs.com/rossiXYZ/p/12150015.html) 
 * [概率中的PDF\PMF\CDF\PPF\ISF](https://blog.csdn.net/dkkfff/article/details/115912758)    
 * 有限一阶矩（有限均值）？？？  
- 
+* [贝叶斯线性回归](https://cloud.tencent.com/developer/article/1097341)
     
  
 
