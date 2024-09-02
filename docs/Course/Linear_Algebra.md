@@ -21,7 +21,7 @@ img{
 
 教材：《线性代数（同济）》，略去部分线性方程组的解
 
-updates：写完笔记后发现了更清晰的课程 [矩阵计算课程](https://math.ecnu.edu.cn/~jypan/Teaching/MatrixComp/index.html)，直接看它会更有帮助
+updates：写完笔记后发现了更清晰的课程 [矩阵计算（潘建瑜）](https://math.ecnu.edu.cn/~jypan/Teaching/MC/index.html)，直接看它会更有帮助
 
 Tips：一般矩阵右边乘的是列向量，左边乘的是行向量 （可能本笔记没有好好遵守。。。）
 
