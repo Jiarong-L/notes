@@ -55,7 +55,7 @@ img{
 
 * 多重共线性检验
     - 辅助回归：用自变量a构建关于其余自变量的线性回归模型，且计算出拟合优度R^2
-    - 方差膨胀系数 VIF = 1/(1-R^2)，VIF>15 可认定共线性存在
+    - 方差膨胀系数 VIF = 1/(1-R^2)，VIF>15 可认定共线性存在（e.g.假设有ABC变量，用BC回归拟合A，用得到的R计算A的VIF）
 
 * 向前逐步回归
 
@@ -64,7 +64,7 @@ img{
 
 * 多元线性回归/Log回归
 
-* 非线性回归: [限制性立方样条(RCS)](https://blog.csdn.net/weixin_43645790/article/details/125285467)
+* 非线性回归: [限制性立方样条(RCS)](https://blog.csdn.net/weixin_43645790/article/details/125285467)，高次多项式模型？样条插值=分段？平滑连接？
 
 * 传统ML手段：LightGBM/[RF/XGBoost/SVM](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10598960/) 
 
