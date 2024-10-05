@@ -18,17 +18,11 @@ pip uninstall jupyter
 
 ### Linux
 
-[设置清华源](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)：首先备份旧文件
+设置[清华源](https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/)/[aliyun源](https://developer.aliyun.com/mirror/ubuntu/)：首先备份旧文件，并生成新的 sources.list
 ```
 cd /etc/apt
 sudo mv sources.list sources.list.old
-```
-随后生成新的 sources.list
-```
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
-deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+-----paste new source in sources.list-----
 ```
 
 随后记得 ```sudo apt-get update``` 或者  ```sudo apt-get upgrade``` ；之后就可以正常下载软件了：
