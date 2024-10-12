@@ -14,7 +14,7 @@
 ![https://blog.csdn.net/woodcorpse/article/details/118214599](./Metagenomics/1.png)  
 * [Pangaea MAG组装工具](https://www.nature.com/articles/s41467-024-49060-z)：改善短读段组装高/中等丰度微生物基因组组装的连续性。1. 基于 barcode 特异性对 reads 分簇，分别组装得到高/中等丰度微生物；2. 多阈值重组，不同的丰度阈值来细化低丰度微生物的组装；3. OLC算法进行整合
 * [Microbial dark matter could add uncertainties to metagenomic trait estimations](https://www.nature.com/articles/s41564-024-01687-w)：**??**
-
+* [皮肤微生物组-特应性皮炎(AD)早筛？](https://www.nature.com/articles/s41598-024-74513-2)：发现一些 Marker Taxa
 
 
 

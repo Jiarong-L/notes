@@ -117,19 +117,39 @@ https://genomebiology.biomedcentral.com/articles/10.1186/s13059-023-03016-6
 
 
 ## 单细胞组学 & 大模型 (Large Cellular Model)
-
+* [Single-Cell Omics 中的 Perturbation (模拟微扰)](https://zhuanlan.zhihu.com/p/510952792)可以是各种形式的操作：加入外部分子/基因knockdown/基因表达变化...
 * [Current opinions on large cellular models](https://www.jiqizhixin.com/articles/2024-07-25-7)!!!
 * [GeneCompass](https://www.nature.com/articles/s41422-024-01034-y)基于**人类/小鼠**单细胞数据进行预训练，整合先验知识（启动子序列、基因家族、基因调控网络、共表达关系），可用于：**跨物种**细胞类型注释（**同源比对映射基因**）、基因调控网络预测、药物剂量反应预测、高维Embedding空间中进行基因扰动以寻找影响细胞命运的关键调节因子
 * [Geneformer](https://zhuanlan.zhihu.com/p/634446380)基于单细胞数据进行预训练（Cell->Embed），所学习的表征包含了基因上下文信息，可用于
     - 基因剂量敏感性预测：预测基因B是否会对基因A的CNV（剂量）敏感
     - 染色质动力学：TF结合对下游基因的影响范围
     - 基因网络：基于attention，基因A关注哪些基因？或输入中缺失哪个基因，对细胞的表示向量影响最大？（cosine similarity）
-    - 模拟扰动：训练模型以区分A/B/C，扰动一部分基因输入后，预测结果会转移向Class A？
+    - 模拟微扰：训练模型以区分A/B/C，缺失某基因后，预测结果会转移向Class A？
 
 
 依旧是，预训练获得单细胞的表示向量（输入单细胞中各基因的表示向量），然后进行各种预测过程
 
 关键词：迁移学习，上下文
+
+Q：为什么要微扰而不是通过反向梯度确定重要因子？
+
+
+## Cell Type 定义
+* [What is a cell type, really?](https://www.nature.com/articles/d41586-024-03073-2)
+
+基于研究需求的分类，没有定论？可以是按照部位/功能/state/...区分，e.g.按照肺部/肠道分类细胞，但它们之间有相似性（含有同一款药物的靶点），肺部药物公司发现了这一状况，可对此设计针对性的测试
+
+个人猜测：RNA/基因表达决定的是细胞的现状，其余调控方面蕴含了细胞的潜力/命运？
+
+
+
+## AI是否拥有常识
+* [Can AI have common sense?](https://www.nature.com/articles/d41586-024-03262-z)
+    - 人类擅长模糊的、并非最优的决策，这不是 rule-based 模型的长项？
+    - 一些微妙的上下文语境：A在节食/但他有放松日，人类会因为‘放松日’而犹豫是否应该准备蛋糕（两种情形间犹豫），AI可能只是简单的下调‘准备蛋糕的probability’
+    - 如何衡量常识？知识/常识：水会变冷；推理：热力学
+
+AI也许会在达成目标的途径中做出一些违反常识的决策
 
 
 
