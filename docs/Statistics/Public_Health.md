@@ -97,7 +97,7 @@ img{
 ## 4.其它
 
 
-* PSM (Propensity Score Matching): 样本不均衡但又不能强行配平，或者考虑到观测数据中存在混杂因素，需要一种方法重新筛选样本，[笔记](../../Course/Causal_Inference_I/#l6-estimation)/[介绍1](https://www.bilibili.com/video/BV1TC4y1N7ge/)/[介绍2](https://dango.rocks/blog/2019/08/18/Causal-Inference-Introduction3-Propensity-Score-Weighting/)/[介绍3](https://blog.csdn.net/weixin_43156294/article/details/139818394)
+* PSM (Propensity Score Matching): 样本不均衡但又不能强行配平，或者考虑到观测数据中存在混杂因素，需要一种方法重新筛选样本，[笔记](../Course/Causal_Inference_I.md#l6-estimation)/[介绍1](https://www.bilibili.com/video/BV1TC4y1N7ge/)/[介绍2](https://dango.rocks/blog/2019/08/18/Causal-Inference-Introduction3-Propensity-Score-Weighting/)/[介绍3](https://blog.csdn.net/weixin_43156294/article/details/139818394)
     1. 以分组T为因变量，其它变量W为协变量，构建Log回归模型
     2. 根据回归模型的系数，对个体估算其属于处理组的概率 e(W)
     3. 根据 e(W) 匹配实验组/对照组个体
