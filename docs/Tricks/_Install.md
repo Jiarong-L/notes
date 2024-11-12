@@ -66,7 +66,7 @@ conda uninstall $package_name
 ```
 
 
-[conda配置源](https://help.mirrors.cernet.edu.cn/anaconda/), ```conda config --remove channels ``` 删除源 （源过多会导致错误），如果 ```conda config --set channel_priority flexible``` 也无法解决，就需要手动删除以前配置的源 （也可直接修改~/.condarc 后 ```conda clean -i```）
+[conda配置源](https://help.mirrors.cernet.edu.cn/anaconda/), ```conda config --remove channels ``` 删除源 （源过多会导致错误），或 ```conda config --remove-key channels``` 恢复默认配置，如果 ```conda config --set channel_priority flexible``` 也无法解决，就需要手动删除以前配置的源 （也可直接修改~/.condarc 后 ```conda clean -i```）
 ```bash
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
