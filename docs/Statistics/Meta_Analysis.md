@@ -1,6 +1,6 @@
 
 
-[Meta分析教程](https://training.cochrane.org/handbook/current/chapter-10)：整合多个studies的结果
+Meta分析教程[(需登录)](https://training.cochrane.org/handbook/current/chapter-10)/[(R)](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/intro.html)：整合多个studies的结果
 
 
 ## 流程
