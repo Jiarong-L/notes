@@ -41,7 +41,7 @@ Meta分析教程[(需登录)](https://training.cochrane.org/handbook/current/cha
 1. 汇总每项研究的统计量，例如：风险比、均值之差、...
 2. **综合统计量**可以是各研究统计量的加权平均，study_i 的贡献权重一般是 1/variance_i
 3. 异质性检验(I2/Q)：根据[不同研究中统计量x的齐性检验(I2)/...](https://blog.csdn.net/m0_37228052/article/details/134138794)，选择 Fixed-Effects Model (I2 < 50%) 或 Random-Effects Model (I2 > 50%)
-    - （同质/单一群体）Fixed-Effects Model $\hat{y_{i}} = y_i + \epsilon_{i}$ 假设每一个y_i都有其对应的真值，因此根据i的真值拟合y_i
+    - （同质/单一群体）Fixed-Effects Model $\hat{y_{i}} = y + \epsilon_{i}$ 假设每一个y_i都来自真值，因此根据i的真值拟合y_i
     - （异质/分布采样）Random-Effects Model $hat{y_{i}} = y_i + \epsilon_{i} = \mu + \zeta_{i} + \epsilon_{i}$ 假设每一个y_i都是从一个总体正态分布中获得的取样，因此以总体分布的均值为真值拟合y_i
     - （上述$\epsilon_{i}$为Sampling Error）
 4. 展示综合统计量及其权重、置信区间，e.g.森林图
