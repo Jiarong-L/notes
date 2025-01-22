@@ -1607,25 +1607,34 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - Pontine reticular nuclei 向 Vestibular nuclei 发送轴向肌肉兴奋信号，而 Medullary reticular nuclei 向 Corticospinal/Rubrospinal tract 发送抑制信号，二组相互对抗
     
     
-* 获取重力平衡感知：[耳中](Medical_Physiology/56-9.png)细胞感知移动，向前庭发送信号，调整身体姿态以适应新的速度
+* 获取重力平衡感知：[耳中](Medical_Physiology/56-9.png)细胞感知移动，向前庭(Vestibu-)发送信号，调整身体姿态以适应新的速度
     - Maculae and statoconia 感受线性加速度（覆盖细胞的粘液 & 惯性）
     - Cupula 感受旋转（淋巴液 & 惯性）----- [(Ch 52) oculomotor nuclei 反射](Medical_Physiology/52-8.png)，使眼睛适应头部的突然旋转
 
 
-## Ch 57 Motor: 小脑 基底神经节(TBA)
+## Ch 57 Motor: 小脑 基底神经节
+
+微调动作，不直接控制肌肉
 
 
+* [小脑(Cerebellum)](Medical_Physiology/57-1.png)从皮层接收计划动作，从身体各处接收实际反馈(via afferent tracts)，对比二者进行微调(via efferent tracts) 
+    - Vermis 包括对中轴体、颈部、肩部和臀部肌肉运动的控制功能
+    - Intermediate zone 包括肢体远端的控制功能
+    - Lateral zone 与皮层进行交流，微调计划动作使其更加连贯
+    - efferent tracts 指向 (p741/[p761](Medical_Physiology/57-8.png))：
+        * 脑干 Medulla/Pon --- 平衡姿态 --- **Vestibulocerebellum**
+        * 脑干 Red nucleus --- 协调肢体 --- **Spinocerebellum** 若受损，动作可能会颤抖，因为大脑信号比小脑更延迟
+        * 大脑皮层 --- 预先计划后续动作 --- **Cerebrocerebellum** 系列动作的平稳交替
+    - 图6 (57-7) 展示接收 afferent 信号时，Mossy/Climbing fiber 激活输出(快)和抑制(慢 Purkinje)，同时激活 Basket/Stellate Cells 传递侧向抑制信号 (作用于 Purkinje)，于是得到一次短暂的纵向输出信号。可知，小脑的作用就是根据预期控制肌肉的收缩信号，Purkinje cell + Climbing fiber 可学习适应微调后的模式
+    
 
 
+* [基底神经节(Basal ganglia)](Medical_Physiology/57-9.png) 位于丘脑两侧，侧看如图示蜗牛壳。控制动作持续的时间及幅度
+    - Putamen circuit 与下意识的熟练行为有关，例如投篮；相关疾病：Parkinson’s disease（多巴胺分泌受损，肌肉收缩的抑制信号受损，致使肌肉僵硬）
+    - Caudate circuit 参与动作的认知控制，例如写字画画
+    - [分泌神经递质](Medical_Physiology/57-14.png)：多巴胺(-)，乙酰胆碱(+)，γ-氨基丁酸(-)，去甲肾上腺素，...
 
-
-
-
-
-
-
-
-
+总结：皮层学习如何激活脊髓活动以达成目标动作
 
 ## Ch 58 记忆: 大脑皮层(TBA)
 ## Ch 59 (TBA)
