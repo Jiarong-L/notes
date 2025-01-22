@@ -13,7 +13,7 @@ Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
 | 计划 | 已完成进度 |
 | -- | -- |
-| 第一轮-粗略笔记 | 54 |
+| 第一轮-粗略笔记 | 55 |
 | 第二轮-纠错补缺 | -- |
 | 第三轮-复习补充 | -- |
 
@@ -1549,21 +1549,30 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 * 脊髓如何控制肌肉、接收反馈？|--> Sensory root --> Interneurons --> Motor neuron --> (Muscle Stretch) --> Sensory neuron -->|
     - Interneurons 负责汇集信号：位于灰质，小而易兴奋，经常表现出自发活动
     - Motor neuron: simultaneous/co- activation of all α/γ
-        * α nerve fibers 控制肌肉群：大且分枝，同时链接几百个骨骼肌纤维
-        * γ nerve fibers 控制肌张力：链接 Intrafusal fibers
+        * α nerve fibers 控制肌肉群：大且分枝，同时链接几百个骨骼肌纤维，链接 Extrafusal fibers
+        * γ nerve fibers 控制肌张力：链接 **Intrafusal fibers**
         * Renshaw Cells 负责侧抑制，防止信号在 Motor neuron 间胡乱扩散
-    - Sensory neuron, 链接肌肉中的感受器: 
-        * Muscle spindle: **Primary** afferent(Ia) 链接 bag/chain fiber；**Secondary** afferent(II) 只链接 chain fiber
-        * Golgi Tendon: 关于肌张力
-    - **Intrafusal fibers** 位于 Muscle spindle 中央，有两种不同形态的纤维，涉及：
-        * Dynamic response: 链接 **bag** fiber 的 Sensory neuron 可以感知肌肉的延长**速率**；由 γ-d Motor neuron 刺激收缩
+    - Sensory neuron, 链接肌肉中的感受器: 延长(+)/收缩(-)
+        * Muscle spindle (频率 & 张力): **Primary** afferent(Ia) 链接 bag/chain fiber；**Secondary** afferent(II) 只链接 chain fiber
+        * Golgi Tendon (张力)
+
+* Muscle spindle
+    - Extrafusal fibers 位于 Muscle spindle 外侧，接收 α nerve 信号
+    - **Intrafusal fibers** 位于 Muscle spindle 中央，有两种不同形态的纤维，接收 γ nerve 信号：
+        * Dynamic response: 链接 **bag** fiber 的 Sensory neuron 可以感知肌肉的延长**频率**；由 γ-d Motor neuron 刺激收缩
         * Static response: 链接 **chain** fiber 的 Sensory neuron 可以感知肌肉的延长**程度**；由 γ-s Motor neuron 刺激收缩
 
 
-* 一些重要的反射
+* 肌肉接收来自脑部的运动信号  (Brain) --> [Corticospinal tract](Medical_Physiology/56-4.png) --> Interneurons --> Motor neuron (α/γ) --> (Muscle Stretch)
+    - Antigravity contractions: γ 接收来自脑干的信号(bulboreticular facilitatory region)，保持重力平衡，例如维持平举姿态
+    - 再上游的信号来自 cerebellum / basal ganglia / cerebral cortex
+
+
+* 一些重要的脊髓反射
     - [Muscle Stretch Reflex](Medical_Physiology/55-5.png)：对抗肌肉的突然拉伸(Dynamic)，使肌肉收缩的程度合理(Static)
         * Muscle Spindle Reflex：脊椎的信号是不平滑的，Muscle spindle 平滑/damping这些信号，使肌肉的运动相对稳定
     - [Golgi Tendon Reflex](Medical_Physiology/55-8.png)：令张力过大的肌肉松弛，保护肌肉免受过度紧张
+        * Muscle Spindle / Golgi Tendon 会通过 dorsal spinocerebellar tracts **向 cerebellum 输送信号，以感知时空位置**
     - [Flexor/Withdrawal Reflex & Crossed Extensor Reflex](Medical_Physiology/55-9.png)：当遭遇疼痛时，屈曲肌肉、抽回手；并且弯曲另一边的腿、进一步后退
     - 姿态和运动的反射，保证身体协调
     - 自主神经系统的反射：血管张力, ...
@@ -1575,8 +1584,49 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 
-## Ch 56 Motor: 大脑皮层 脑干(TBA)
+## Ch 56 Motor: 大脑皮层 脑干
+
+* [皮层负责灵巧/精细动作](Medical_Physiology/56-1.png)
+    - Primary motor cortex 中的区域对应不同的部位，其中单个神经元对应一组肌肉，可以组合成不同的运动模式
+    - Premotor area 负责更加复杂的动作，其前区中的 mirror neurons 生成运动图像，发送给后区生成激活图像所需的指令（连续的肌肉激活模式），随后发送给 Primary motor cortex
+    - Supplementary area 的信号发送给身体双侧，负责协同工作，例如眼球、双侧抓握运动
+
+
+* 皮层信号如何[传送至脊髓/feedback](Medical_Physiology/56-6.png)：脊髓外侧运动系统(the lateral motor system of the cord)
+    - [Corticospinal tract](Medical_Physiology/56-4.png) 接收来自  Primary motor cortex(30%) + Premotor/Supplementary area(30%) + Somatosensory areas(40%) 的信号，信号左右交叉(Lateral)或保持同侧(Ventral)
+    - [Corticorubrospinal pathway](Medical_Physiology/56-5.png) 经过 Red nucleus 接收 Primary motor cortex 的信号，与 Corticospinal tract 平行，可视为其补充信号
+    
+    
+* (Ch 48) Motor Cortex 神经元也成柱状排列，每柱共6层：2-4层接收输入信号，6层与皮层其他区域通信。包括两种神经元：
+    - Dynamic Neurons 信号激烈但短暂，Red nucleus 中其占比较大
+    - Static Neurons 信号舒缓但持久，Primary motor cortex 中其占比较大
+
+
+* [脑干(Brain stem)](Medical_Physiology/56-7.png) 由髓质(Medulla)、脑桥(Pons)、中脑(Mesencephalon/Midbrain)组成。
+    - 控制呼吸、心血管系统、肠胃、平衡、眼球、重力对抗、...
+    - Pontine reticular nuclei 向 Vestibular nuclei 发送轴向肌肉兴奋信号，而 Medullary reticular nuclei 向 Corticospinal/Rubrospinal tract 发送抑制信号，二组相互对抗
+    
+    
+* 获取重力平衡感知：[耳中](Medical_Physiology/56-9.png)细胞感知移动，向前庭发送信号，调整身体姿态以适应新的速度
+    - Maculae and statoconia 感受线性加速度（覆盖细胞的粘液 & 惯性）
+    - Cupula 感受旋转（淋巴液 & 惯性）----- [(Ch 52) oculomotor nuclei 反射](Medical_Physiology/52-8.png)，使眼睛适应头部的突然旋转
+
+
 ## Ch 57 Motor: 小脑 基底神经节(TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Ch 58 记忆: 大脑皮层(TBA)
 ## Ch 59 (TBA)
 ## Ch 60 (TBA)
