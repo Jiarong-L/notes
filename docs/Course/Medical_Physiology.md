@@ -9,7 +9,8 @@ img{
 
 Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
-注：1. 部分笔记中可能混淆了secretion(**分泌**出细胞)和excretion(**排出**体外); 2. 感知受体的“激活”默认指产生动作电位; 3. 脑部/神经系统相关的一切都有待补充学习，至少需要先了解一下解剖结构; 4. [部分章节的中文翻译](https://www.bilibili.com/read/readlist/rl545260)
+注：1. 部分笔记中可能混淆了secretion(**分泌**出细胞)和excretion(**排出**体外); 2. 感知受体的“激活”默认指产生动作电位; 3. 脑部/神经系统相关的一切都有待补充学习，至少需要先了解一下解剖结构; 4. [部分章节的中文翻译](https://www.bilibili.com/read/readlist/rl545260); 5. 简写：激活(+)/抑制(-)
+
 
 | 计划 | 已完成进度 |
 | -- | -- |
@@ -1373,11 +1374,11 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
         * Spatial Orientation: 神经依此并入脊髓束，下肢的神经在脊髓的中部(先加入)，上肢的神经在脊髓的外侧(后加入)
     - (Somatosensory area II) **Anterolateral** system 需要将信号再传递给 Spinocervical tract，负责**较慢、范围模糊**的信号(e.g.温度、痛觉)
 
-*  大脑皮层结构是一层一层的
+*  [大脑皮层共6层神经元](Medical_Physiology/58-1.png)
     - I, II 接收来自大脑较低中枢的弥漫性非特异性输入信号
     - II, III 的轴突通过胼胝体(corpus callosum)链接另一侧大脑皮层的相关部位
-    - IV 层接收传入的感觉信号，然后信号向表面/更深层双向传播
-    - V, VI 的轴突通向神经系统的深层，V层(基底神经节/脑干/脊髓)，VI层(丘脑)
+    - **IV 层接收传入的感觉信号，然后信号向表面/更深层双向传播**
+    - V, VI 的轴突通向神经系统的深层，V层(基底神经节/脑干/脊髓)，VI层(丘脑/其他皮层区域)
 
 * [模糊感觉/精准感觉的原理](Medical_Physiology/48-9.png)
 
@@ -1597,7 +1598,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - [Corticorubrospinal pathway](Medical_Physiology/56-5.png) 经过 Red nucleus 接收 Primary motor cortex 的信号，与 Corticospinal tract 平行，可视为其补充信号
     
     
-* (Ch 48) Motor Cortex 神经元也成柱状排列，每柱共6层：2-4层接收输入信号，6层与皮层其他区域通信。包括两种神经元：
+* (Ch 48) Motor Cortex 神经元成柱状排列，每柱含6层神经元：2-4层接收输入信号，6层与皮层其他区域通信
     - Dynamic Neurons 信号激烈但短暂，Red nucleus 中其占比较大
     - Static Neurons 信号舒缓但持久，Primary motor cortex 中其占比较大
 
@@ -1630,18 +1631,52 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 * [基底神经节(Basal ganglia)](Medical_Physiology/57-9.png) 位于丘脑两侧，侧看如图示蜗牛壳。控制动作持续的时间及幅度
-    - Putamen circuit 与下意识的熟练行为有关，例如投篮；相关疾病：Parkinson’s disease（多巴胺分泌受损，肌肉收缩的抑制信号受损，致使肌肉僵硬）
+    - Putamen circuit 与下意识的熟练行为有关，例如投篮；相关疾病：Parkinson’s disease（多巴胺分泌受损，肌肉收缩的抑制信号(-)受损，致使肌肉僵硬）
     - Caudate circuit 参与动作的认知控制，例如写字画画
-    - [分泌神经递质](Medical_Physiology/57-14.png)：多巴胺(-)，乙酰胆碱(+)，γ-氨基丁酸(-)，去甲肾上腺素，...
+    - [分泌神经递质](Medical_Physiology/57-14.png)：多巴胺(-)，乙酰胆碱(+)，GABA(-)，去甲肾上腺素，...
 
 总结：皮层学习如何激活脊髓活动以达成目标动作
 
-## Ch 58 记忆: 大脑皮层(TBA)
-## Ch 59 (TBA)
-## Ch 60 (TBA)
-## Ch 61 (TBA)
-## Ch 62 (TBA)
-## Ch 63 (TBA)
+## Ch 58 记忆: 大脑皮层
+
+* (Ch 48) [大脑皮层共6层神经元](Medical_Physiology/58-1.png)
+    - Granular/Stellate neurons: 作为 interneurons 分泌 Glutamate(+), GABA(-)
+    - Fusiform neurons + Pyramidal neurons: 组成信号输出 (output fibers)
+
+
+* Thalamocortical system: 此二者关联密切，移除部分丘脑也会影响大脑功能
+
+
+* [皮层分区](Medical_Physiology/58-4.png)，大部分人左脑占优势
+    - Primary areas: 控制基础运动/接收基础感受信号
+    - Secondary areas: 试图理解输入/输出
+    - Association areas: Wernicke’s Area(理解语言), Broca’s Area(达成语言所需的动作), Limbic Association Area(行为/情绪/Motivation), 前额叶(Prefrontal: **Thoughts & Working Memary**), Facial recognition Area
+
+
+* 胼胝体(Corpus Callosum)连接两侧半球，除了：颞叶(temporal lobes)前部，它直接由穿越前连合(anterior commissure)的纤维束直接连接 --- 尤其是杏仁核(amygdala)
+
+
+* Thoughts 即是当时神经系统的某种刺激模式，可能覆盖：皮层，丘脑，边缘系统(limbic system)，脑干网状结构(reticular formation)
+
+* Consciousness 即是 our **continuing stream of awareness** of either our surroundings or our sequential thoughts.
+
+* 记忆(Memory): 神经元间 [synaptic transmission 的敏感度被改变](Medical_Physiology/58-9.png)，新的通路即 **memory traces，更容易被刺激从而重现记忆**
+    - Negative memory / Habituation: 我们不会记得无关紧要的事情，这类通路被抑制
+    - Positive memory / Sensitization: 引起痛苦或快乐等重要后果的传入信息，这类通路被增强，**奖惩机制与海马体(Hippocampus)有关**
+        * Short-term (minutes) --- 某个神经元被给予了稍长时间的刺激，可能是外来的电信号/突触
+        * Intermediate (weeks) --- 同前，原突触在外来信号的刺激下发生理化变化（e.g.更多cAMP--不在复极化--持续兴奋）
+        * Long-term (years) --- 神经元发生结构变化（e.g.增加 vesicles 数量/释放位点）
+    - 巩固(Consolidation): 将较短期的记忆整合为更长期的记忆
+    - Codified: 被巩固的新记忆不是随机存储在大脑中，而是与其他相同类型的记忆直接关联存储
+    - Working Memary 类似计划动作的缓存，主要是 Short-term，当完成任务后就会被遗忘
+    - Declarative memory 是对某个故事的回忆，Skill memory 是习得的技能
+
+
+## Ch 59 Motivation: 边缘系统 下丘脑(TBA)
+## Ch 60 睡眠 (TBA)
+## Ch 61 自主神经系统(TBA)
+## Ch 62 脑循环(TBA)
+## Ch 63 GI(TBA)
 ## Ch 64 (TBA)
 ## Ch 65 (TBA)
 ## Ch 66 (TBA)
