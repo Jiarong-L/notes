@@ -1672,8 +1672,49 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - Declarative memory 是对某个故事的回忆，Skill memory 是习得的技能
 
 
-## Ch 59 Motivation: 边缘系统 下丘脑(TBA)
+## Ch 59 Motivation: 边缘系统
+
+* Lower Brain or 脑干不断[向上发生信号](Medical_Physiology/59-1.png)，让大脑保持唤醒状态，有2种信号：
+    - 起自 brain stem reticular area，通过神经递质（乙酰胆碱）进行传递，持续**几毫秒**
+    - 起自 brain stem reticular excitatory area 穿越丘脑，通过 conducting fibers 进行传递，持续**几秒** --- e.g.疼痛
+
+
+* [控制(+/-)大脑活动的激素(神经递质)](Medical_Physiology/59-1.png)，如图依次：多巴胺(-)，乙酰胆碱(+)，去甲肾上腺素(+)，血清素(-)
+    - 此外还有：enkephalins, gamma-aminobutyric acid, glutamate, vasopressin, adrenocorticotropic hormone, α-melanocyte stimulating hormone (α-MSH), neuropeptide-Y (NPY), epinephrine, histamine, endorphins, angiotensin II, and neurotensin
+    - 在特定突触中起作用，或释放到脑液中
+
+
+**[边缘系统(limbic system)](Medical_Physiology/59-4.png)与行为/Motivation有关，其中**
+
+* 下丘脑(Hypothalamus)同时负责维持稳态：
+    - 链接 reticular area，涉及自主神经系统，以维持稳态
+    - 链接 前/后垂体(pituitary glands)，垂体释放激素，以维持稳态
+    - 链接 丘脑/皮层，刺激下丘脑的不同部位会带来不同的感受(e.g.口渴，愤怒)，从而改变行为模式(e.g.刺激奖惩区域--愤怒--减少某行为)
+
+* (Ch 58) 海马体的奖惩机制与记忆有关（进化自嗅觉皮层，可能以前我们依靠嗅觉判断形势？）
+    - 失忆症(Amnesia)：不会影响过去的回忆但不能记新事情
+    - 癫痫(Epilepsy)：神经元异常放电（幻觉？不再有 memory traces？）
+
+* 边缘皮层/视听区域 --- 杏仁核 --- 海马体/中隔/丘脑/下丘脑
+    - 刺激杏仁核的效果类似刺激下丘脑
+    - 缺失杏仁核后：失去恐惧，极度好奇，健忘
+
+* 边缘皮层(Limbic Cortex)：刺激特定区域可以引发相关行为模式
+
+
 ## Ch 60 睡眠 (TBA)
+
+
+
+
+
+
+
+
+
+
+
+
 ## Ch 61 自主神经系统(TBA)
 ## Ch 62 脑循环(TBA)
 ## Ch 63 GI(TBA)
