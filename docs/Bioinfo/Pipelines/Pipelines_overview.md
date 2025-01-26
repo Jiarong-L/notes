@@ -34,6 +34,8 @@ img{
 
 对于Binning质量，一般使用checkm/busco进行检测
 
+这里有一篇[流程/工具总结](https://www.sciencedirect.com/science/article/pii/S2001037024001430)
+
 ### Epi & Regulome
 
 常见的[表观遗传修饰](https://zhuanlan.zhihu.com/p/616493908)包括：DNA甲基化、组蛋白修饰（影响染色质的暴露）、RNA甲基化...
