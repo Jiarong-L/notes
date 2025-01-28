@@ -79,13 +79,4 @@ MHC-I广泛存在于各种细胞表面，呈递内源性抗原，由CD8辅助TCR
 APC细胞包括巨噬细胞、树突状细胞和B细胞等，可吞噬/消化细胞外的抗原，合成MHC-抗原复合物，呈递给T细胞。
 
 
-[推荐笔记](https://zhuanlan.zhihu.com/p/628794689)
-
-
-### 10x VDJ
-
-10x公司的单细胞平台提供[定向扩增VDJ区的转录本](https://cdn.10xgenomics.com/image/upload/v1660261285/support-documents/CG000207_ChromiumNextGEMSingleCellV_D_J_ReagentKits_v1.1_UG_Rev_G.pdf)，数据处理参考：[Cell Ranger vdj](https://www.10xgenomics.com/support/software/cell-ranger/latest/tutorials/cr-tutorial-vdj)，[使用IgBlast注释的流程](https://immcantation.readthedocs.io/en/stable/getting_started/10x_tutorial.html)
-
-
-可自由查询多种免疫细胞的标志物，[例如](https://zhuanlan.zhihu.com/p/567861716)各种T细胞亚群的标志
-
+[推荐笔记](https://zhuanlan.zhihu.com/p/628794689)，也可以自由查询多种免疫细胞的标志物，[例如](https://zhuanlan.zhihu.com/p/567861716)各种T细胞亚群的标志
