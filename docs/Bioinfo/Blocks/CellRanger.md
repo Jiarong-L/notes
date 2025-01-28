@@ -190,6 +190,26 @@ cellranger targeted-compare
 *详见[link](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/targeted-compare)*
 
 
+### VDJ(T/B Cell)
+
+* 原理：[定向扩增VDJ区的转录本](https://cdn.10xgenomics.com/image/upload/v1660261285/support-documents/CG000207_ChromiumNextGEMSingleCellV_D_J_ReagentKits_v1.1_UG_Rev_G.pdf)
+
+* [Cell Ranger vdj](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/output/summary)
+  1. barcode/umi校正
+  2. tirm
+  3. 组装
+  4. 标注CDR3区：Reference中已有一些V区J区的Motif，CDR3区横跨二者（起始C，长5-27aa）
+  5. Filter contigs，鉴于每个T/B细胞只会有两条链：VJ & VDJ，多余类型的Contig只可能是噪音
+  6. Call Cells
+  7. 基于**CDR3区**序列(exact match)，区分Clonotype，同时得到它们的丰度
+
+* multi分析时的一些情况：
+  - T细胞：VDJ cells 数目远少于 GEX cells -- 可能是因为TCR表达量少
+  - B细胞：VDJ cells 数目远多于 GEX cell -- 可能是因为浆细胞负责分泌大量Ig(类似游离态的BCR)
+  - 一般将VDJ cells作为GEX cells的背景
+
+[关于算法的PPT](https://www.jianshu.com/p/ab6dbb6ac5dd)
+
 
 ### Other Opt
 ```
@@ -257,11 +277,8 @@ NTTGCAGCTGAACTGGTAAACTTGTCCCTAAAGAGACATAAGAATGGTCAACTGGAATGTGGATTCATCTGTAACATTAC
 
 比较有用的导航：[Tutorial](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_ov), [Outputs解释](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/output/overview ), [Glossary of Terms](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/glossary), [Matrix HDF5 Format](https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/2.0/advanced/h5_matrices)  
 
-之后需要了解的: [vdj(T/B Cell)](https://support.10xgenomics.com/single-cell-vdj/software/pipelines/latest/using/vdj), LoupeBrowser, ... 
+
+关于VDJ：[使用IgBlast的流程示例](https://immcantation.readthedocs.io/en/stable/getting_started/10x_tutorial.html)
 
 
-
-
-
-
-
+之后需要了解的:  LoupeBrowser, ... 
