@@ -4,12 +4,36 @@
 
 ## Background
 
-[The Biology of Cancer 中文汇总](https://mp.weixin.qq.com/s?__biz=Mzg4NjA5Mzg2Mw==&mid=2247488659&idx=1&sn=a50c16e1a5bf8ceada311ce2aada047f&chksm=cf9fb5dbf8e83ccd9bf9964fd0d7513fa7e8d2f33456cbe18b1d3e1c4e5b795e47b7c450ba3d&scene=178&cur_album_id=1364329720200085505#rd)
+* [The Biology of Cancer 中文汇总](https://mp.weixin.qq.com/s?__biz=Mzg4NjA5Mzg2Mw==&mid=2247488659&idx=1&sn=a50c16e1a5bf8ceada311ce2aada047f&chksm=cf9fb5dbf8e83ccd9bf9964fd0d7513fa7e8d2f33456cbe18b1d3e1c4e5b795e47b7c450ba3d&scene=178&cur_album_id=1364329720200085505#rd)，即细胞的无序增殖
+    - 原癌基因似乎大都参与细胞内信号通路（细胞生长因子 or TF），e.g.Wnt通路/src/myc/
+    - 基因突变、表观遗传修饰、信号通路改变的逐渐积累
+
+
+* [Cancer & Hallmarks of systemic disease](https://blog.sciencenet.cn/blog-446272-1427506.html)
+
+
+## Topics
+
+基本上是单细胞分析的天下，不过WES可用于诊断
+
+* 基因的异常表达，关注其调控模式(GRN/TF)
+
+* [肿瘤干细胞的命运受微环境调节](https://www.sohu.com/a/518732927_121124215)
+    - 炎症信号
+    - 肿瘤区域内的免疫浸润，e.g. [pan-cancer atlas of myeloid cells](https://www.cell.com/cell/fulltext/S0092-8674(21)00010-6)
+
+* Immune checkpoints 本意防止机体过度免疫，但肿瘤用以逃逸
+    - 各种 Immune checkpoint blockade (ICB) 疗法的效果因患者和癌症类型而异，[数据库：癌细胞-ICB疗效](https://www.nature.com/articles/s41597-025-04381-6)
+
+* 预后预测，模型一般结合真实世界的数据（生活习惯/年龄/..），可以用[NLP等手段提取非结构化的训练数据](https://blog.csdn.net/m0_59164304/article/details/144443668)
+
+* 工具研究：
+    - 准确[计算 Ploidy](../Readings/Interesting_Topics.md#ploidy) 是许多任务的先决条件：量化intratumour异质性、建立肿瘤进化的系统发育、SNV探测、CNA detection
 
 
 ## Methods
 
-### DSRCT
+### DSRCT 生信示例
 
 （可以参考本文分析流程，以及可视化展示的方法）
 
@@ -33,7 +57,7 @@ bulk RNA ----- 29*DSRCT
     - [Hotspot](http://www.github.com/yoseflab/Hotspot) 根据基因之间的相关性、寻找 gene modulest
     - 配体-受体（细胞间相互作用）：[CellPhoneDB](https://github.com/Teichlab/cellphonedb)（DSRCT -- microenvironment cell），NicheNet
     - InferCNV
-    - 细胞分化状态：CytoTRACE（轨迹分析），StemID（转录组熵反映多能性的水平），CellRank（scVelo）
+    - 细胞分化状态：CytoTRACE（寻找轨迹分析的起点），StemID（转录组熵反映多能性的水平），CellRank（scVelo）
     - Azimuth: 使用 Cell atlases 进行健康细胞的 label transfer 以及亚群分类
     
 * bulk RNA：CIBERSORTx deconvolution，所得的细胞比例与scRNA的不同，可能是由于采样偏差（bulk RNA 样本是冷冻的，而 scRNA 样本处理不同？）
@@ -69,5 +93,6 @@ bulk RNA ----- 29*DSRCT
 
 
 微孔板：类器官筛选药物: Promega CellTiter-Glo 3D (ATP发光定量来确定活细胞数量)，[OrBITS(荧光细胞死亡标志物)](https://www.biorxiv.org/content/10.1101/2021.09.09.459656v2.full)，[OrBITS + bulk_RNA 预测药物起效对应的biomarker，scRNA(聚类以选取细分的细胞种类、查看其中marker的表达？) ](https://jeccr.biomedcentral.com/articles/10.1186/s13046-024-03012-z) 
+
 
 
