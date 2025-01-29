@@ -9,7 +9,7 @@
     - 基因突变、表观遗传修饰、信号通路改变的逐渐积累
 
 
-* [Cancer & Hallmarks of systemic disease](https://blog.sciencenet.cn/blog-446272-1427506.html)
+* [Cancer & Hallmarks of systemic disease](https://www.bilibili.com/opus/952007216584458248)
 
 
 ## Topics
