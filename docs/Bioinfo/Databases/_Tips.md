@@ -4,7 +4,10 @@ title: Database Tips
 
 
 
-* 注释方法一般为比对数据库，或者根据DB生成kmer/hmm；一些工具如kraken也可以定量reads
+* 注释方法
+    - 比对数据库
+    - 根据DB生成hmm注释文件
+    - Kraken/Kraken2 对数据库构建LCA物种树，并通过k-mer方式快速对宏基因组reads数据进行物种分类、定量
 * 可以自己从各个数据库中合并/筛选项目所需（记得CDHIT去冗余）
 * 参考 [ID Mapper](ID_Mapper.md) 将不同数据库的ID对应起来；虽然大部分数据库的最终来源很可能都是NCBI，但由于时间版本不同、序号可能不一致，需要注意
 * 如果需要数据来测试工具，参考[此处笔记](SRA.md)

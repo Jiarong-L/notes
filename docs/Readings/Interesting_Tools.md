@@ -50,3 +50,12 @@ wet：与“人类外蛋白的酵母文库”结合的生物素化的菌株 （B
 * https://mp.weixin.qq.com/s/BVvF6f-Bzwfs0Np3Xqrfbg
 
 
+
+## GRN
+* 现有的诱导分化方案下，未成熟的细胞可以表现适当的细胞类型特异性标记，但不能完全执行其专门的生理功能: [SinCMat](https://www.cell.com/stem-cell-reports/fulltext/S2213-6711(23)00499-X) 根据训练集得到(成熟时)每种细胞特有的TF，随后模型可用于提示query单细胞的功能基因推断其缺乏什么TF才能达成成熟?
+    - ITF即身份标志，STF结合ITF微调表达
+    - 将细胞类型特异性功能基因集定义为每种细胞类型中表达最高的前10%的基因
+    - ITF-STF 对应的 候选功能基因：Jaccard相似性/Pearson相关
+    - SinCMatDB, a manually curated database with experimentally validated cell maturation cues from literature
+
+
