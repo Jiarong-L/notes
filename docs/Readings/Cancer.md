@@ -48,7 +48,7 @@
     - 肿瘤区域内的免疫浸润，e.g. [pan-cancer atlas of myeloid cells](https://www.cell.com/cell/fulltext/S0092-8674(21)00010-6)
 
 * Immune checkpoints 本意防止机体过度免疫，但肿瘤用以逃逸
-    - 各种 Immune checkpoint blockade (ICB) 疗法的效果因患者和癌症类型而异，[数据库：癌细胞-ICB疗效](https://www.nature.com/articles/s41597-025-04381-6)
+    - 各种 [Immune checkpoint blockade (ICB)](https://www.cancer.org/cancer/managing-cancer/treatment-types/immunotherapy/immune-checkpoint-inhibitors.html) 疗法的效果因患者和癌症类型而异，[数据库：癌细胞-ICB疗效](https://www.nature.com/articles/s41597-025-04381-6)
 
 * 预后预测，模型一般结合真实世界的数据（生活习惯/年龄/..），可以用[NLP等手段提取非结构化的训练数据](https://blog.csdn.net/m0_59164304/article/details/144443668)
 
