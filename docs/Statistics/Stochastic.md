@@ -30,7 +30,7 @@ img{
  
 * Levy 过程
 
-* [泊松过程](https://zhuanlan.zhihu.com/p/537124844)
+* 泊松过程: [笔记一](https://zhuanlan.zhihu.com/p/537124844)，[笔记二](https://blog.csdn.net/weixin_41102519/article/details/122094419)
 
 
 ## Review
@@ -236,7 +236,8 @@ $$G^n(s)=G^{n-1}(G(s))=G(...G(G(s))...)$$
     - Independent increments
 
 
-
+* 对于任意 $h,t > 0$ 若 $P(X > h+t | X > h) = P(X > t)$，则随机变量 $X$ 是 **Memoryless** 的
+    - 指数分布是唯一 Memoryless 的连续分布
 
 
 
