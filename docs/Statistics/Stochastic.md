@@ -26,8 +26,11 @@ img{
 
 * [马尔可夫链](https://zhuanlan.zhihu.com/p/151683887)
 
-* [母函数和矩母函数的联系和区别？](https://www.zhihu.com/question/24952770) 
+* [母函数和矩母函数的联系和区别？](https://www.zhihu.com/question/24952770) ，[概率母函数的意义](https://blog.csdn.net/weixin_45183579/article/details/108760536)
  
+* Levy 过程
+
+* [泊松过程](https://zhuanlan.zhihu.com/p/537124844)
 
 
 ## Review
@@ -35,9 +38,9 @@ img{
 * 随机过程（Stochastic Process）是一系列随机动作产生的状态的集合 {$X_t \in S$}，其中 {$t \in I$} 是随机过程的索引，$S$是状态空间（State space）
 
 
-* Monte Carlo Simulation 是指重复实验多次后取结果的均值作为近拟
+<details>
+  <summary> 数学提示: Conditional Expectation</summary>
 
-* Conditional Expectation
 $$Var(Y)=E(Y^2)-E(Y)^2    \quad\quad\quad\quad\quad (1)$$
 $$Var(Y|X)=E(Y^2|X)-E(Y|X)^2    \quad (2)$$
 
@@ -46,11 +49,7 @@ $$=E(E(Y^2|X)-E(Y|X)^2) + E(E(Y|X)^2)-E(E(Y|X))^2$$
 $$=E(Y^2)-E(Y)^2$$
 $$=Var(Y)$$
 
-* 概率母函数 Probability generating function $G_x(s)=E(s^x)=\sum\limits_{x=0}^{\infty}s^xP(x)$
-    - $G^{(j)}(0)=j!P(j)$
-    - $G''(0)=2P(2)$
-
-![](./Stochastic/4-3.png)
+</details>
 
 
 
@@ -77,11 +76,11 @@ $$=(\alpha P^{t1})_{s_1} (P^{t_2-t_1})\_{s_1,s_2} ... (P^{t_n-t\_{n-1}})\_{s\_{n
     - **Limiting** Distribution $\lim\limits_{n \rightarrow \infty}P^n_{ij}=\overrightarrow{\lambda_j}$ 即 $\lim\limits_{n \rightarrow \infty}\overrightarrow{\alpha}P^n=\overrightarrow{\lambda}$，此时 $\lim\limits_{n \rightarrow \infty}P^n=\Lambda$ 的每一行都等于$\overrightarrow{\lambda}$
     - **Stationary** Distribution 满足 $\overrightarrow{\pi} = \overrightarrow{\pi}P$
     - Limiting 一定 Stationary：$\overrightarrow{\lambda} = \lim\limits_{n \rightarrow \infty}\overrightarrow{\alpha}P^n = \lim\limits_{n \rightarrow \infty}\overrightarrow{\alpha}P^{n-1}P=\overrightarrow{\lambda}P$
-    - Stationary 不一定 Limiting（除非 Ergodic）: $P = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$ 时，状态向量会在 $(\pi1,\pi2)$ 与 $(\pi2,\pi1)$ 间来回切换，且这两个最终状态取决于状态的初始值（而不是P）
+    - Stationary 不一定 Limiting（除非 Ergodic）: $P = \begin{bmatrix} 1 & 0 \\\\ 0 & 1 \end{bmatrix}$ 时，状态向量会在 $(\pi1,\pi2)$ 与 $(\pi2,\pi1)$ 间来回切换，且这两个最终状态取决于状态的初始值（而不是P）
 
 
 * 如果存在$n \ge 1$ 使 $P^n$ 为正定矩阵（所有元素>0），则 $P^n$ 是 **Regular** Transition Matrix，此时存在对应的 Limiting Distribution 
-    - $P = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{bmatrix}$, $P^2 = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}$, $P^3 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$ 则会在多种半正定矩阵中循环（不存在正定的$P^n$，且不 Limiting ）
+    - $P = \begin{bmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 1 & 0 & 0 \end{bmatrix}$, $P^2 = \begin{bmatrix} 0 & 0 & 1 \\\\ 1 & 0 & 0 \\\\ 0 & 1 & 0 \end{bmatrix}$, $P^3 = \begin{bmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \end{bmatrix}$ 则会在多种半正定矩阵中循环（不存在正定的$P^n$，且不 Limiting ）
     - [计算 Regular 矩阵的 Stationary Distribution](./Stochastic/3-2.png): $\pi P=\pi$
 
 
@@ -121,7 +120,7 @@ $$=(\alpha P^{t1})_{s_1} (P^{t_2-t_1})\_{s_1,s_2} ... (P^{t_n-t\_{n-1}})\_{s\_{n
     - 反例 -- *Periodic* + Irreducible: gcd=2时，t=2,4,6,... 可以观测到一样的状态
 
 
-* **Reversible** Markov Chain 的条件： $\pi_iP_{ij}=\pi_jP_{ji}$ for all $i,j$；其中 $\pi$ 是Stationary Distribution
+* **Reversible** Markov Chain 的条件： $\pi_iP_{ij}=\pi_jP_{ji}$ for all $i,j$；其中 $\pi$ 是 Stationary Distribution
 
 
 * **Absorbing State** $i$ 满足：$P_{ii}=1$，如果 Markov Chain 含有多个 Absorbing State，则称其为 **Absorbing Chain**
@@ -133,42 +132,108 @@ $$=(\alpha P^{t1})_{s_1} (P^{t_2-t_1})\_{s_1,s_2} ... (P^{t_n-t\_{n-1}})\_{s\_{n
 
 ## Branching Processes
 
-Branching Processes {$X_n$} 常用于模拟 Population growth；它是一种 Markov Chain，因为子代个数 $X_{n+1}$ 仅取决于其父代个数 $X_{n}$ （以及 Offspring 分布）
+Branching Processes {$Z_n$} 常用于模拟 Population growth；它是一种 Markov Chain，因为子代个数 $Z_{n+1}$ 仅取决于其父代个数 $Z_{n}$ （以及 Offspring 分布）
 
 
 ![](./Stochastic/4-1.png)
 
 
 * 假设 
-    - $Y_{n,i}$ 表示第 $n$ 代第 $i$ 个个体的后代数
-    - $X_{n+1}=\sum\limits_{i=1}^{X_{n}}Y_{n,i}$ 表示第 $n+1$ 代的个体数目
-    - 已知 $P[X_{n+1}=S_{n+1} | X_{n}=S_{n} ] = P[\sum\limits_{r=1}^{X_{n}} Y_{n,r}=S_{n+1} | X_{n}=S_{n} ]= P[\sum\limits_{r=1}^{S_{n}} Y_{n,r}=S_{n+1}]$
-    - Transition matrix 元素 $P^n_{ij} = P(\sum\limits_{r=1}^{i}Y_{n,r}=j)$ 表示第 $n$ 代时 $i$ 个个体累计产生 $j$ 个后代的概率；设定 $P^n_{00}=1$
-    - Absorbing state = 0，即当 $X_n=0$ 时发生灭绝事件，其余 all nonzero states are transient
+    - $O_{n,i}$ 表示第 $n$ 代第 $i$ 个个体的后代数
+    - $Z_{n+1}=\sum\limits_{r=1}^{Z_{n}}O_{n,r}$ 表示第 $n+1$ 代的个体数目
+    - 已知 $P[Z_{n+1}=S_{n+1} | Z_{n}=S_{n} ] = P[\sum\limits_{r=1}^{Z_{n}} O_{n,r}=S_{n+1} | Z_{n}=S_{n} ]= P[\sum\limits_{r=1}^{S_{n}} O_{n,r}=S_{n+1}]$
+    - Transition matrix 元素 $P^n_{ij} = P(\sum\limits_{r=1}^{i}O_{n,r}=j)$ 表示第 $n$ 代时 $i$ 个个体累计产生 $j$ 个后代的概率；设定 $P^n_{00}=1$
+    - Absorbing state = 0，即当 $Z_n=0$ 时发生灭绝事件，其余 all nonzero states are transient
+    - 结局只能是灭绝/无限扩增
 
 
-
-* 假设单个个体的后代数目遵从某种概率分布（Offspring 分布），用 $a_k$ 表示 单个个体产生 $k$ 个后代的概率
+* 假设**单个个体的后代数目**遵从某种概率分布 $a = (a0, a1, a2,…)$，其中 $a_k$ 表示 单个个体产生 $k$ 个后代的概率
     - $a_0=0$ 则 Population 永远增加；
-    - $a_0=1$ 则 $X_n = 0$ for $n \ge 1$
+    - $a_0=1$ 则 $Z_n = 0$ for $n \ge 1$
     - 因此假设 $0 < a_0 < 1$ 且 $a_0+a_1 <1$ （即，有一定概率产生多个后代）
+    - **Offspring 分布** $a$ 可以是各种常见分布，比如 Poisson
 
 
-* 单个个体后代数目分布的均值 $\mu = \sum\limits_{k=0}^{\infty}ka_k$，则第 $n$ 代个数的均值 $E(X_n)=\mu^n$ （[推导过程](./Stochastic/4-2.png)）
-    - 灭绝事件 $E: X_n=0$ 最终发生的概率 $P(E)=\lim\limits_{n \rightarrow \infty}P(X_n=0)=\lim\limits_{n \rightarrow \infty}1-\mu^n$
-    - 故而，依据 $\mu$ 的取值，$X_n$最终可能趋向 $0,1,\infty$ 三种可能
+* 单个个体后代数目分布的均值 $\mu = \sum\limits_{k=0}^{\infty}ka_k$，则第 $n$ 代个数的均值 $E(Z_n)=\mu^n$ （[推导过程](./Stochastic/4-2.png)）
+    - 灭绝事件 $E: Z_n=0$ 最终发生的概率 $P(E)=\lim\limits_{n \rightarrow \infty}P(Z_n=0)=\lim\limits_{n \rightarrow \infty}1-\mu^n$
+    - 故而，依据 $\mu$ 的取值，$Z_n$最终可能趋向 $0,1,\infty$ 三种可能
 
 
 
-* Offspring 分布 $Y$的母函数是 $G(s)=\sum\limits_{k=0}^{\infty}s^ka_k$
-    - 当 $\mu>1$ 时，方程 $s=G_Y(s)$ 的最小解 $s=min(roots)$ 是走向灭绝结局的概率，[示例](./Stochastic/4-7.png)
-    - （当 $\mu \leq 1$ 时灭绝结局概率=1）
-* $G(s)$ 的 $n$ 重复合记为 $G^n(s)$
-    - $G^n(s)=G^{n-1}(G(s))=G(...G(G(s))...)$
-    - $G^n(s)=G_{Xn}(s)=\sum\limits_{k=0}^{\infty}s^kP(X_n=k)$
-    - $X_0=i$ 时，$X_n$的母函数 $=\sum\limits_{k=0}^{\infty}s^kP^n_{ik}=[G^n(s)]^i$ （可用于推算Transition matrix -- 出处百度，待查证）
+<details>
+  <summary> 数学提示: PGF 概率母函数/概率生成函数 Probability generating function $G(s)$</summary>
+
+PGF可用于：确认不同分布是否相互独立，计算期望、方差等
+
+$$G_x(s)=E(s^x)=\sum\limits_{x=0}^{\infty}s^xP(x)$$
+
+$$G^{(j)}(0)=j!P(j)$$
+
+$$G''(0)=2P(2)$$
+
+<img src="../Stochastic/4-3.png" alt="4-3.png" />
+<!-- ![](./Stochastic/4-3.png) -->
+</details>
 
 
+<details>
+  <summary> 数学提示: $G(s)$ 的 $n$ 重复合记为 $G^n(s)$ </summary>
+
+$$G^n(s)=G^{n-1}(G(s))=G(...G(G(s))...)$$
+
+</details>
+
+
+
+* [计算灭绝结局的概率](./Stochastic/4-7.png): 当 $\mu>1$ 时，方程 $s=G_k(s)$ 的最小解 $s=min(roots)$ 是走向灭绝结局的概率（当 $\mu \leq 1$ 时灭绝结局概率=1）
+    - 第 $n$ 代个体数目 $Z_n$ 的 
+    $$G_n(s)=\sum\limits_{k=0}^{\infty}s^kP(Z_n=k)$$
+    - Offspring 分布 $a$ 的 
+    $$G_a(s)=\sum\limits_{k=0}^{\infty}s^ka_k$$
+    - $$G_n(s)=E(s^{Z_n})=E(s^{\sum\limits_{k=0}^{Z_{n-1}}O_k})=E([G_a(s)]^{Z_{n-1}})=G_{n-1}(G_a(s))=G_a(G_{n-1}(s))$$
+    
+
+
+## Markov Chain Monte Carlo (MCMC)
+
+
+* Monte Carlo Simulation 是指重复实验/模拟多次后取结果的均值作为期望值的近拟
+
+* 虽然 Markov Chain 并非完全随机，但步数足够大时它的 Monte Carlo 也满足 [Strong Law](./Stochastic/5-1.png) 
+
+* [Metropolis–Hastings Algorithm](./Stochastic/5-2.png) 从 Stationary Distribution $\pi$ 模拟生成 Markov Chain: 
+    1. 假设某一步模拟从 state $i$ 开始
+    2. 根据 Transition Matrix 中 $P_{ij}$ 的概率，随机选取一个 $j$
+    3. Acceptance Ratio $\alpha = \frac{\pi_jP_{ji}}{\pi_iP_{ij}}$
+    4. 生成一个 uniform random number $u \sim U(0,1)$
+    5. 若 $u \leq \alpha$ 则下一步是 state $j$，否则下一步依旧停留在 $i$
+
+
+* Gibbs sampler 从 m-dimensional joint density $\pi(x_1, x_2, ..., x_m)$ 生成样本 $X^{(t)}=(X^{(t)}_1,X^{(t)}_2,...,X^{(t)}_m)$
+    - $X^{(t+1)}_i$ depends on $X^{(t+1)}_{[1,i-1]}$ and $X^{(t)}_{[i+1,m]}$
+
+
+* 希望少量模拟样本也符合期望分布？问问GPT：Perfect sampling of MCMC
+
+
+
+## Poisson Process
+
+
+* **Counting Process** $N(t)$ 是一组随机的正整数，若 $0 \le s \le t$ 意味着 $N(s) \le N(t)$
+
+* **Stationary increments** 指对于任意 $h,t > 0$，$(N_{t+h}-N_t)$的分布与 $t$ 无关
+    - $P(N_{t+h}-N_h=k)=P(N_t-N_0=k)$
+    - 可将 $N_t - N_0$ 视为 $[0，t]$ 间隔内事件发生的总数
+
+* **Independent increments** 指对于 $0 \le t1 \le t2 \le ... \le tn$，各个 $N_{t_n}-N_{t_{n-1}}$ 相互独立
+
+
+* 一个增速为 $\lambda$ 的 **Poisson Process** 满足
+    - $N_0 = 0$  
+    - $N_t  \sim Poisson(\lambda t)$   $$P(N_t=k)=\frac{e^{-\lambda t}(\lambda t)^k}{k!}$$
+    - Stationary increments 即 $$P(N_{t_n}-N_{t_{n-1}}=k) \\\\ =P(N_t-0=k) \\\\ =P(N_t=k)$$
+    - Independent increments
 
 
 
