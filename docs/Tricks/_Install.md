@@ -35,6 +35,9 @@ apt remove <package_name>
 apt-cache madison <package_name>    ## list version
 ```
 
+安装完毕后  ```apt-cache show``` 查看指定包的详细信息，命令
+
+
 
 ### conda
 

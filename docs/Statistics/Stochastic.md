@@ -219,7 +219,6 @@ $$G^n(s)=G^{n-1}(G(s))=G(...G(G(s))...)$$
 
 ## Poisson Process
 
-
 * **Counting Process** $N(t)$ 是一组随机的正整数，若 $0 \le s \le t$ 意味着 $N(s) \le N(t)$
 
 * **Stationary increments** 指对于任意 $h,t > 0$，$(N_{t+h}-N_t)$的分布与 $t$ 无关
@@ -229,17 +228,82 @@ $$G^n(s)=G^{n-1}(G(s))=G(...G(G(s))...)$$
 * **Independent increments** 指对于 $0 \le t1 \le t2 \le ... \le tn$，各个 $N_{t_n}-N_{t_{n-1}}$ 相互独立
 
 
-* 一个增速为 $\lambda$ 的 **Poisson Process** 满足
+* 一个增速为 $\lambda$ 的 **Poisson Process** 即是符合如下条件的 Counting Process
     - $N_0 = 0$  
-    - $N_t  \sim Poisson(\lambda t)$   $$P(N_t=k)=\frac{e^{-\lambda t}(\lambda t)^k}{k!}$$
+    - $N_t  \sim Poisson(\lambda t)$ 即 $t$ 个单位时间里发生的事件为 $\lambda t$ 次 $$P(N_t=k)=\frac{e^{-\lambda t}(\lambda t)^k}{k!}$$
     - Stationary increments 即 $$P(N_{t_n}-N_{t_{n-1}}=k) \\\\ =P(N_t-0=k) \\\\ =P(N_t=k)$$
     - Independent increments
 
 
-* 对于任意 $h,t > 0$ 若 $P(X > h+t | X > h) = P(X > t)$，则随机变量 $X$ 是 **Memoryless** 的
-    - 指数分布是唯一 Memoryless 的连续分布
+<details>
+  <summary> 数学提示: 无穷小算子 $o(h)$ 以及 $e^h$ 的泰勒级数 </summary>
+
+$f(h) = o(h)$ 意味着 <br>
+
+$$\lim\limits_{h \rightarrow 0}\frac{f(h)}{h} = 0$$ 
+
+$f(h) = o(g(h))$ 意味着 <br>
+
+$$\lim\limits_{h \rightarrow 0}\frac{f(h)}{g(h)} = 0$$ 
 
 
+$$e^h = 1 + h + \frac{h^2}{2}+ \frac{h^3}{6} + ... = 1 + h + \frac{h^2}{2}e^{z \in (-h,h)} = 1 + h +  o(h)$$
+
+</details>
+
+
+<details>
+  <summary> Poisson Process 关于 $o(h)$ 的另一种定义方式</summary>
+
+1. $N_0 = 0$         <br>
+2. Stationary increments          <br>
+3. Independent increments         <br>
+4. $P(N_h=0) =  1 - \lambda h + o(h)$       <br>
+5. $P(N_h=1) =  \lambda h + o(h)$       <br>
+6. $P(N_h>1) =  o(h)$     <br>
+
+</details>
+
+
+* **Thinned** Poisson Process 指，给定一个增速为 $\lambda$ 的泊松过程，每次事件都有概率为 $p_1 + p_2 + ... + p_n = 1$ 的 $n$ 种选项，则
+    - 选项 $n$ 是一个增速为 $p_n\lambda$ 的泊松过程，记为 $N^{(n)}_t$
+    - $N^{(1)}_t$, $N^{(2)}_t$, ..., $N^{(n)}_t$ 相互独立
+
+
+* 相应的，**Superposition** Poisson Process 指，增速为 $\lambda_1,...,\lambda_n$ 的一系列泊松过程可以总结为一个 增速为 $\lambda = \lambda_1 + ... + \lambda_n$ 的泊松过程
+
+
+<details>
+  <summary> Poisson Process 的到达时间、到达间隔</summary>
+
+<img src="../Stochastic/6-2.png" width="100%"  alt="6-2.png" />  <br>
+
+<strong>均匀</strong>分布：Poisson Process 的第n次到达发生的<strong>时间</strong> $S_n = X_1 + X_2 + ... + X_n$  <br>
+
+<strong>指数</strong>分布：Poisson Process 的到达<strong>间隔</strong> $X_n = S_n - S_{n-1}$   <br>
+
+</details>
+
+<details>
+  <summary> 数学提示: 指数分布是唯一 Memoryless 的连续分布 </summary>
+
+若对于任意 $h,t > 0$  <br>
+
+  $$P(X > h+t | X > h) = P(X > t)$$  <br> 
+  
+则随机变量 X 是 <strong>Memoryless</strong> 的
+
+</details>
+
+
+* 以上泊松过程在时间上采样，[Spatial Poisson Process](./Stochastic/6-6.png) 在空间上采样
+    - $N_{C}  \sim Poisson(\lambda |C|)$ 其中 $C$ 指采样面积
+
+
+* 以上泊松过程的$\lambda$保存恒定，[Nonhomogeneous Poisson Process](./Stochastic/6-7.png) 允许其变化
+
+
+## Continuous-time Markov Chain
 
 
 
