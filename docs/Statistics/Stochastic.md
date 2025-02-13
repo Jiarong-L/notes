@@ -20,17 +20,18 @@ img{
 
 ## 参考
 
-课本：INTRODUCTION TO STOCHASTIC PROCESSES WITH R
+课本：INTRODUCTION TO STOCHASTIC PROCESSES WITH R (略过7.7,8.6)
 
 * Branching Processes: [知乎](https://zhuanlan.zhihu.com/p/591192586)，[Stackexchange](https://math.stackexchange.com/questions/4533142/transition-matrix-of-a-single-type-branching-process)，[Lecture2](https://www.stat.berkeley.edu/~aldous/Networks/lec2.pdf)
 
 * [马尔可夫链](https://zhuanlan.zhihu.com/p/151683887)
 
 * [母函数和矩母函数的联系和区别？](https://www.zhihu.com/question/24952770) ，[概率母函数的意义](https://blog.csdn.net/weixin_45183579/article/details/108760536)
- 
-* Levy 过程
 
 * 泊松过程: [笔记一](https://zhuanlan.zhihu.com/p/537124844)，[笔记二](https://blog.csdn.net/weixin_41102519/article/details/122094419)
+
+* 连续时间马尔科夫链: [M/M/1排队模型](https://blog.csdn.net/zyx_bx/article/details/115219706)
+
 
 
 ## Review
@@ -124,7 +125,7 @@ $$=(\alpha P^{t1})_{s_1} (P^{t_2-t_1})\_{s_1,s_2} ... (P^{t_n-t\_{n-1}})\_{s\_{n
 
 
 * **Absorbing State** $i$ 满足：$P_{ii}=1$，如果 Markov Chain 含有多个 Absorbing State，则称其为 **Absorbing Chain**
-    - [计算 Absorbing Chain 跳转到 Absorbing State 的长期概率或时间](./Stochastic/3-11.png)
+    - [计算 Absorbing Time: Absorbing Chain 跳转到 Absorbing State 的长期概率或时间](./Stochastic/3-11.png)
     - [用法1：计算第一次遇见某个节点：将此节点视为Absorbing State](./Stochastic/3-30.png)
     - [用法2：计算第一次遇见某个Pattern：改写包含得到此Pattern路径的$P$，将Pattern视为Absorbing State](./Stochastic/3-33.png)
 
@@ -201,7 +202,7 @@ $$G^n(s)=G^{n-1}(G(s))=G(...G(G(s))...)$$
 
 * 虽然 Markov Chain 并非完全随机，但步数足够大时它的 Monte Carlo 也满足 [Strong Law](./Stochastic/5-1.png) 
 
-* [Metropolis–Hastings Algorithm](./Stochastic/5-2.png) 从 Stationary Distribution $\pi$ 模拟生成 Markov Chain: 
+* Metropolis–Hastings Algorithm 从 Stationary Distribution $\pi$ 模拟生成 Markov Chain: 
     1. 假设某一步模拟从 state $i$ 开始
     2. 根据 Transition Matrix 中 $P_{ij}$ 的概率，随机选取一个 $j$
     3. Acceptance Ratio $\alpha = \frac{\pi_jP_{ji}}{\pi_iP_{ij}}$
@@ -289,9 +290,9 @@ $$e^h = 1 + h + \frac{h^2}{2}+ \frac{h^3}{6} + ... = 1 + h + \frac{h^2}{2}e^{z \
 
 若对于任意 $h,t > 0$  <br>
 
-  $$P(X > h+t | X > h) = P(X > t)$$  <br> 
+  $$P(X > h+t | X > h) = P(X > t)$$ 
   
-则随机变量 X 是 <strong>Memoryless</strong> 的
+ <br> 则随机变量 X 是 <strong>Memoryless</strong> 的 
 
 </details>
 
@@ -303,11 +304,76 @@ $$e^h = 1 + h + \frac{h^2}{2}+ \frac{h^3}{6} + ... = 1 + h + \frac{h^2}{2}e^{z \
 * 以上泊松过程的$\lambda$保存恒定，[Nonhomogeneous Poisson Process](./Stochastic/6-7.png) 允许其变化
 
 
-## Continuous-time Markov Chain
+## Continuous-Time Markov Chain
+
+关心 Markov Chain **连续时间**下的表现，即状态在一段时间内（Duration=t）的持续或跳转。注意，此时的 Transient Matrix $P_{ij}(t)$ 区别于上文的 Chain Transient Matrix $P_{ij}(1)$
 
 
+```
+                t=t2-t1
+                |
+|---------|------|---------------|----------->
+0         tu     t1              t2
+```
+
+* 如果对于上述时间线，都有 $P(X_{t2}=j|X_{t1}=i,X_{tu}=u) = P(X_{t2}=j|X_{t1}=i)$，则 $X_{t}$ 是 Continuous-Time Markov Chain
+    - 若上式等于 $P(X_{t1-t2}=j|X_{0}=i)$ 则 Time-Homogeneous，即每个等长的时间模块都一致
+    - 假设 $T_i$ 是 state $i$ 的持续时间（跳入-跳出），它服从指数分布，其证明 ：$$P(T_i > h+t | X_0=i) = P(T_i > h | X_0=i)P(T_i > t | X_0=i)$$
 
 
+```
+              t
+              |
+|---------|-----[t]-----|----------->
+0         h            h+t 
+```
 
+* Chapman–Kolmogorov Equations
+
+$$P(h+t) = P(h)P(t)$$
+
+$$P_{ij}(h+t) = [P(h)P(t)]\_{ij} = \sum\limits_{k} P_{ik}(h)P_{kj}(t)$$
+
+
+* 生成 Poisson Process & Time-Homogeneous 过程的转移矩阵，其每一个元素 $P_{ij}(t)$
+$$= P(N_{h+t} = j | N_{h} = i) $$
+$$= \frac{P(N_{h+t} = j,N_{h} = i)}{P(N_{h} = i)} $$
+$$= P(N_{h+t} - N_{h} = j-i) $$
+$$= P(N_{t} = j-i) $$
+$$= \frac{e^{-\lambda t}(-\lambda t)^{j-i}}{(j-i)!}$$
+
+
+* 当间隔无限小的情况下，定义 initesimal generator $Q$，用法：[计算 Absorbing Time 的另一种方法](./Stochastic/7-4.png)
+$$Q_{ij} = P_{ij}'(0) = \lim\limits_{t \rightarrow 0}\frac{P_{ij}(t)-P_{ij}(0)}{h} = \lim\limits_{t \rightarrow 0}\frac{Count(i \rightarrow j) \in (h,h+t]}{h}$$
+
+$$P'(t) = P(t)Q$$
+
+$$P'(t) = QP(t)$$
+
+
+* Continuous-Time Markov Chain 也适用普通 Markov Chain 在 Long-term 情况下的定义：Reversible、Limiting、Stationary
+    - Stationary 意味着 $\pi Q = 0$
+
+## Gaussian Processes
+
+
+<details>
+  <summary>数学提示: 多元正态分布（多元高斯分布）</summary>
+
+<img src="../Stochastic/8-3.png" alt="8-3.png" />
+
+</details>
+
+
+* Gaussian Processes {$X_{t1},..,X_{tn}$} 服从 均值为$E(X_t)$，协方差矩阵为$V_{ij} = Cov(X_{i \in[1,n]},X_{j \in[1,n]})$ 的多元正态分布
+
+
+* [Brownian motion](./Stochastic/8-1.png) 是特殊的高斯分布: 均值为0，$Cov(i,j)=min(i,j)$
+    - (也类似 Poisson Process 的定义，只是将离散的泊松分布替换成了连续的正态分布)
+    - [Transformations of Brownian Motion](./Stochastic/8-4.png)
+    - [First Hitting Time](./Stochastic/8-5.png): $T_a = min(t: B_t=a)$
+
+
+[Martingale（鞅）](./Stochastic/8-6.png) 是达成 fair game 的概念/随机过程：（感觉就是指 Memoryless ？）
 
 
