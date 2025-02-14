@@ -38,6 +38,7 @@ img{
 
 ![](./System_Biology/1-1.png)![](./System_Biology/1-2.png)
 
+
 **Steady State** 时 $0 = \frac{dY}{dt} = \beta - \alpha Y$，即 $Y_{st} = \frac{\beta}{\alpha}$
 
 **假设**我们从乌有开始生成 $Y$，即突然使其 $\beta: (0 \rightarrow 1)$，则这个瞬间 
@@ -65,7 +66,30 @@ $$Y = Y_{st}^{Old} e^{-\alpha t}$$
 
 ## Lecture 2
 
+回顾 GNN 课程，我们一般会通过对比随机图（networkx里也提供多种模型）来获得一些显著的 Motif，我们也可以很容易的解释这些 Motif 的生物意义。
 
+Negative Auto-regulation 是一种重要的调节机制，其 Motif 就是一种 Self-Loop
+
+![](./System_Biology/2-0.png)
+
+
+已知 Negative Auto-regulation 情况下，随着时间的推进，Production Rate $\beta$ 随着产物浓度的升高而递减；想象 $\beta = f(Y) = \begin{cases} \beta \quad Y<k  \\\\ 0 \quad Y \ge k \end{cases} $ 的情况，此时 
+
+```
+    Y    bt
+    |   /
+  k |  /________ Yst = k 是最终平衡是状态  (Lecture2)
+    | /
+    |/___________
+    0            t
+```
+
+如下图所示，当 $\alpha$ 或 $\beta$ 发生变化时，Negative Auto-regulation 曲线的 $Y_{st}$ 变化较小（抵挡噪音），且未平衡时其 $\beta-\alpha$ 曲线间的 Gap 较恒定 $\beta$ 更大（加速达成 $Y_{st}$）
+
+![](./System_Biology/2-1.png)![](./System_Biology/2-2.png)
+
+
+## Lecture 3
 
 
 
