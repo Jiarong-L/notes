@@ -68,7 +68,7 @@ $$Y = Y_{st}^{Old} e^{-\alpha t}$$
 
 回顾 GNN 课程，我们一般会通过对比随机图（networkx里也提供多种模型）来获得一些显著的 Motif，我们也可以很容易的解释这些 Motif 的生物意义。
 
-Negative Auto-regulation 是一种重要的调节机制，其 Motif 就是一种 Self-Loop
+**Negative Auto-regulation** 是一种重要的调节机制，其 Motif 就是一种 Self-Loop
 
 ![](./System_Biology/2-0.png)
 
@@ -91,8 +91,31 @@ Negative Auto-regulation 是一种重要的调节机制，其 Motif 就是一种
 
 ## Lecture 3
 
+三元素的Motif中有8种 **Feed Forward Loop**，最主要的2种在E.coli网络中占80%
+
+![](./System_Biology/3-0.png)
 
 
+以第一种 Coherent Feed Forward Loop 为例，我们可以假设 $Z$ 通过一个 Gate 处理来自 $X$ 和 $Y$ 的信号。
+
+当 $X$ 打开或关闭的瞬间，其下游的 $Y^{+}$ 需要一段时间才能达到 k 浓度（开关阈值）。
+
+AND Gate 时，打开 $X$ 后由于需要等待达成 $Y^{+}$，因此生成 $Z$ 的时间相较于 $X$ 的变化有延迟。而关闭 $X$ 则对 $Z$ 即刻起效。这个机制可以过滤掉短暂的激活信号，但灵敏应对任何抑制信号。
+
+OR Gate 时，打开 $X$ 对 $Z$ 即刻起效，而关闭 $X$ 则效果延迟。
+
+![](./System_Biology/3-1.png)
+
+
+
+注意，当 Node 间是抑制作用时，Strong Supression 令下游产物归零，Partial Supression 虽然令下游产物的 $Z_{st}$ 降低，但事实上缩短了达成此 low $Z_{st}$ 水平所需的时间，因此也可以被视为一种加速手段。以下图 In-coherent Feed Forward Loop 为例
+
+![](./System_Biology/3-2.png)
+
+想象一下，在面对急性压力时，会唤起快速响应的Loop；当压力转变为长期状态时，打开了其它较慢的Loop。
+
+
+## Lecture 4
 
 
 
