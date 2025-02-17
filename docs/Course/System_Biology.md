@@ -23,6 +23,8 @@ img{
 
 下文默认公式中的 $X$、$Y$ 指它们的浓度
 
+研究手法：**x-nullcline** 即 $\frac{dx}{dt}=f(x,y)=0$ 的曲线，这条线上 x 方向的变化率为零；相似的还有 **y-nullcline** 。x/y-nullcline的交点是系统静止或平衡的状态
+
 ## Lecture 1
 
 人的 GRN 由约 4500 Gene、10k edge 组成，单个 TF 可以影响 1-1000 个基因，单个基因也可以由 0-6 个 TF 共同调控。
@@ -68,35 +70,47 @@ $$Y = Y_{st}^{Old} e^{-\alpha t}$$
 
 回顾 GNN 课程，我们一般会通过对比随机图（networkx里也提供多种模型）来获得一些显著的 Motif，我们也可以很容易的解释这些 Motif 的生物意义。
 
-**Negative Auto-regulation** 是一种重要的调节机制，其 Motif 就是一种 Self-Loop
+**Negative Auto-regulation (NAR)** 即是负反馈的 Self-Loop
 
 ![](./System_Biology/2-0.png)
 
 
-已知 Negative Auto-regulation 情况下，随着时间的推进，Production Rate $\beta$ 随着产物浓度的升高而递减；想象 $\beta = f(Y) = \begin{cases} \beta \quad Y<k  \\\\ 0 \quad Y \ge k \end{cases} $ 的情况，此时 
+已知 NAR 情况下，随着时间的推进，Production Rate $\beta = f(Y)$ 随着产物浓度 $Y$ 的升高而递减（左图）
 
-```
-    Y    bt
-    |   /
-  k |  /________ Yst = k 是最终平衡是状态  (Lecture2)
-    | /
-    |/___________
-    0            t
-```
-
-如下图所示，当 $\alpha$ 或 $\beta$ 发生变化时，Negative Auto-regulation 曲线的 $Y_{st}$ 变化较小（抵挡噪音），且未平衡时其 $\beta-\alpha$ 曲线间的 Gap 较恒定 $\beta$ 更大（加速达成 $Y_{st}$）
+相比于恒定的 $\beta = b$（右图），当 $\alpha$ 或 $\beta$ 发生变化时，NAR 曲线的 $Y_{st}$ 变化较小（抵挡噪音），且未平衡时其 $\beta-\alpha$ 曲线间的 Gap 较恒定 $\beta$ 更大（加速达成 $Y_{st}$）
 
 ![](./System_Biology/2-1.png)![](./System_Biology/2-2.png)
 
 
+再换一个角度，假设 $\alpha = 0$，想象 $\beta = f(Y) = \begin{cases} \beta \quad Y<k  \\\\ 0 \quad Y \ge k \end{cases} $ 的情况，此时 
+
+```
+    Y    bt
+    |   /
+    |  /________ Y_st = k 是最终平衡状态 
+    | /                  防止无止境的生成产物
+    |/___________
+    0            t
+```
+
+-------------------------------
+
+**Positive Auto-regulation (PAR)** 是一种正反馈的 Self-Loop，提供了某种惯性（或记忆），对于发育过程 GRN 而言很重要。
+
+一共有如图所示的 $Y_{low}$, $Y_{阈值}$, $Y_{high}$ 三个 Steady State。观察 $\frac{dy}{dt}=\beta-\alpha$ 的符号（哪一条线在上方），可知会有两种最终结局。
+
+具体来说，即使信号消失，但只要 $Y$ 跨越了阈值，它依然会上升至 $Y_{high}$，否则会下降回 $Y_{low}$
+
+![](./System_Biology/4-3.png)
+
 ## Lecture 3
 
-三元素的Motif中有8种 **Feed Forward Loop**，最主要的2种在E.coli网络中占80%
+三元素的Motif中有8种 **Feed Forward Loop (FFL)**，最主要的2种在E.coli网络中占80%
 
 ![](./System_Biology/3-0.png)
 
 
-以第一种 Coherent Feed Forward Loop 为例，我们可以假设 $Z$ 通过一个 Gate 处理来自 $X$ 和 $Y$ 的信号。
+以 Type-1 Coherent FFL (C1-FFL) 为例，我们可以假设 $Z$ 通过一个 Gate 处理来自 $X$ 和 $Y$ 的信号。
 
 当 $X$ 打开或关闭的瞬间，其下游的 $Y^{+}$ 需要一段时间才能达到 k 浓度（开关阈值）。
 
@@ -108,7 +122,7 @@ OR Gate 时，打开 $X$ 对 $Z$ 即刻起效，而关闭 $X$ 则效果延迟。
 
 
 
-注意，当 Node 间是抑制作用时，Strong Supression 令下游产物归零，Partial Supression 虽然令下游产物的 $Z_{st}$ 降低，但事实上缩短了达成此 low $Z_{st}$ 水平所需的时间，因此也可以被视为一种加速手段。以下图 In-coherent Feed Forward Loop 为例
+注意，当 Node 间是抑制作用时，Strong Supression 令下游产物归零，Partial Supression 虽然令下游产物的 $Z_{st}$ 降低，但事实上缩短了达成此 low $Z_{st}$ 水平所需的时间，因此也可以被视为一种加速手段。以下图 In-coherent FFL 为例
 
 ![](./System_Biology/3-2.png)
 
@@ -116,6 +130,42 @@ OR Gate 时，打开 $X$ 对 $Z$ 即刻起效，而关闭 $X$ 则效果延迟。
 
 
 ## Lecture 4
+
+**Single Input Model (SIM)** 常见于一系列基因的调控（e.g.操纵子中），以 Arg 生成为例，其生成需要一系列基因（$argA/B/C$）的参与。在 Arg 浓度充足的情况下，$argR^{+}$处于激活态，抑制这一系列基因，不再生成 Arg；而当 Arg 浓度不足时，$argR^{+}$ 在自抑制 Loop 的影响下逐渐衰减，$argA/B/C$ **依次**激活（对$argR^{+}$浓度耐受阈值不同），开始生成 Arg。
+
+![](./System_Biology/4-0.png)
+
+
+**Multi-output FFL** 类似于一种多层调控（总开关/小开关）
+
+![](./System_Biology/4-1.png)
+
+
+**Bifan** 一般组成 [Dense Overlapping Regulons](https://www.nature.com/articles/nrg2102)
+
+![](./System_Biology/4-2.png)
+
+
+此外，我们还需要注意速度的影响（e.g.转录速度不同），Graph 中```-->```可快可慢，组合在一起用则称为 **hybrid** network motif made of fast and slow interaction
+
+
+关于 Mutual Regulation 展开想象：
+```
+X <--> Y    常见，结局：(X AND Y)=High OR (X AND Y)=Low
+X |--| Y    常见，结局：(X OR Y)=High
+
+X |--> Y    不稳定，会形成(High,Low,..)震荡的曲线
+```
+
+## Lecture 5
+
+
+
+
+
+
+
+
 
 
 
