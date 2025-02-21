@@ -25,7 +25,7 @@ img{
 
 研究手法：**x-nullcline** 即 $\frac{dx}{dt}=f(x,y)=0$ 的曲线，这条线上 x 方向的变化率为零；相似的还有 **y-nullcline** 。x/y-nullcline的交点是系统静止或平衡的状态
 
-## Lecture 1
+## Lecture 1 Removal/Production
 
 人的 GRN 由约 4500 Gene、10k edge 组成，单个 TF 可以影响 1-1000 个基因，单个基因也可以由 0-6 个 TF 共同调控。
 
@@ -66,7 +66,7 @@ $$Y = Y_{st}^{Old} e^{-\alpha t}$$
 如此，Removal Rate $\alpha$ 才是达成 $\frac{Y_{st}}{2}$ 的关键。有丝分裂即 $Y_{st} \rightarrow \frac{Y_{st}}{2}$，可以根据 Cell Generation Time $T_{\frac{1}{2}}$ 来估算 $\alpha$
 
 
-## Lecture 2
+## Lecture 2 Self-Loop
 
 回顾 GNN 课程，我们一般会通过对比随机图（networkx里也提供多种模型）来获得一些显著的 Motif，我们也可以很容易的解释这些 Motif 的生物意义。
 
@@ -103,7 +103,7 @@ $$Y = Y_{st}^{Old} e^{-\alpha t}$$
 
 ![](./System_Biology/4-3.png)
 
-## Lecture 3
+## Lecture 3 FFL-三元素
 
 三元素的Motif中有8种 **Feed Forward Loop (FFL)**，最主要的2种在E.coli网络中占80%
 
@@ -129,9 +129,9 @@ OR Gate 时，打开 $X$ 对 $Z$ 即刻起效，而关闭 $X$ 则效果延迟。
 想象一下，在面对急性压力时，会唤起快速响应的Loop；当压力转变为长期状态时，打开了其它较慢的Loop。
 
 
-## Lecture 4
+## Lecture 4 FFL-四元素
 
-**Single Input Model (SIM)** 常见于一系列基因的调控（e.g.操纵子中），以 Arg 生成为例，其生成需要一系列基因（$argA/B/C$）的参与。在 Arg 浓度充足的情况下，$argR^{+}$处于激活态，抑制这一系列基因，不再生成 Arg；而当 Arg 浓度不足时，$argR^{+}$ 在自抑制 Loop 的影响下逐渐衰减，$argA/B/C$ **依次**激活（对$argR^{+}$浓度耐受阈值不同），开始生成 Arg。
+**Single Input Model (SIM)** 常见于一系列基因的调控（e.g.操纵子中），以 Arg 生成为例，其生成需要一系列基因（$argA/B/C$）的参与。在 Arg 浓度充足的情况下，$argR^{+}$处于激活态，抑制这一系列基因，不再生成 Arg；而当 Arg 浓度不足时，$argR^{+}$ 在自抑制 Loop 的影响下逐渐衰减，$argA/B/C$ **依次**激活（对$argR^{+}$浓度耐受**阈值**不同），开始生成 Arg。
 
 ![](./System_Biology/4-0.png)
 
@@ -157,15 +157,38 @@ X |--| Y    常见，结局：(X OR Y)=High
 X |--> Y    不稳定，会形成(High,Low,..)震荡的曲线
 ```
 
-## Lecture 5
+## Lecture 5 Bifunctional components
+
+细胞信号通路常见的一个模式是磷酸化：细胞膜表面受体 X 被外界的信号分子 S 激活、将 Y0 磷酸化为 Yp，同时有一组 Z 帮助 Yp 去磷酸化为 Y0。
+
+![](./System_Biology/5-0.png)
+
+我们可以假设上图的简单模型，平衡状态下
+$$\frac{dYp}{dt} = Vk \cdot Y0 \cdot X - Vz \cdot Yp \cdot Z = 0$$
+
+$$Yp = \frac{ Vk \cdot Y_{All} \cdot X}{Vz \cdot Z + Vk \cdot X}$$
+
+如此，最终的信号强度 Yp 受到细胞蛋白水平（X/Y/Z）的影响。而已知每个细胞内的蛋白分布并非一致，但它们可以对外界刺激保持同步的反应（同类型的细胞），简单模型无法对此进行解释。
 
 
+![](./System_Biology/5-1.png)
 
+上图的**双功能组件** X 可维持信号的 Robustness。每输入一个ATP则生成一个磷酸基(Pi)、由Xp向Y传递，X0则作用相反。
 
+只考虑模型的输入输出，平衡状态下
 
+$$\text{Phosphorylation}= \text{Dephosphorylation}$$
 
+$$\text{ATP Consumption}= \text{Dephosphorylation}$$
 
+$$Va \cdot X0 = Vp \cdot X0 \cdot Yp$$
 
+$$Yp = \frac{Va}{Vp}$$
 
+与细胞的蛋白水平无关了！
+
+（以上只是 seconds 尺度的概念模型，不属于长期调控；而且 ATP、Y总量、...不会是无限的，所以 Yp 会有一个上限）
+
+## Lecture 6 Chemotaxis
 
 
