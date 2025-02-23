@@ -157,9 +157,9 @@ X |--| Y    常见，结局：(X OR Y)=High
 X |--> Y    不稳定，会形成(High,Low,..)震荡的曲线
 ```
 
-## Lecture 5 Bifunctional components
+## Lecture 5 Bifunctional Components
 
-细胞信号通路常见的一个模式是磷酸化：细胞膜表面受体 X 被外界的信号分子 S 激活、将 Y0 磷酸化为 Yp，同时有一组 Z 帮助 Yp 去磷酸化为 Y0。
+细胞信号通路常见的一个模式是**磷酸化**：细胞膜表面受体 X 被外界的信号分子 S 激活、将 Y0 磷酸化为 Yp，同时有一组 Z 帮助 Yp 去磷酸化为 Y0。
 
 ![](./System_Biology/5-0.png)
 
@@ -187,8 +187,52 @@ $$Yp = \frac{Va}{Vp}$$
 
 与细胞的蛋白水平无关了！
 
-（以上只是 seconds 尺度的概念模型，不属于长期调控；而且 ATP、Y总量、...不会是无限的，所以 Yp 会有一个上限）
+（以上只是 **0.1 seconds 尺度**的概念模型，不属于长期调控；而且 ATP、Y总量、...不会是无限的，所以 Yp 会有一个上限）
 
-## Lecture 6 Chemotaxis
+## Lecture 6 Integral Feedback
+
+在漫游的过程中，细菌会依据化学物质的**梯度变化**调节其**翻滚转向的频率**，以此保证前进方向的正确，即是趋化性（Chemotaxis）。
+
+如果只是改变一次化学浓度，翻滚频率在最初的激烈变化后，将逐渐回复到最初的水平（Exact adaptation），即已逐渐适应新浓度。
+
+![](./System_Biology/6-0.png)
+
+
+这个适应过程是依靠 Methelylation/Demethelylation 达成的，注意，甲基化修饰较缓慢(**~min**)，曲线较为平缓。
+
+
+平衡状态下，$\frac{dm}{dt} = \text{Add M} - \text{Remove M}= 0$ 即
+
+$$\text{Add M [Const rate]}= \text{Remove M [Increase with Xm]}$$
+
+$$V_R \cdot R= V_B \cdot B \cdot Xm_{st}$$
+
+
+$$Xm_{st} = \frac{V_R \cdot R}{V_B \cdot B}$$
+
+换句话说，$\frac{dm}{dt} = V_B \cdot B (Xm_{st} - Xm)$，即 $m= \int error = \int (Xm_{st} - Xm)$ 是一种典型的 integral feedback，可以快速响应周围的变化直至达成新的平衡。
+
+![](./System_Biology/6-1.png)
+
+
+
+此外，**受体活性 Vk** 随着 Stimuli 的升高下降，其 $k \sim e^{\Delta G}$。而甲基化会增加自由能 $k \sim e^{\Delta G + m\gamma}$，即以指数级提高 $k$。
+
+从生物意义来讲，甲基化使得受体得以在更高浓度的刺激下保持活性。（在一定范围内，因为甲基化也不是无限的）
+
+![](./System_Biology/6-2.png)
+
+总之，在这个反馈中，Add Methyl 的速率是恒定的，由 Del Methyl 的速率来动态的适应刺激信号的强度。不同的个体可以有不同的甲基化能力，但终究还是会达成 Exact adaptation，区别只在于平衡时的 Flipping Rate，也算是种群的一种多样性吧。
+
+
+## Lecture 7 Fold Change Detection
+
+
+
+
+
+
+
+
 
 
