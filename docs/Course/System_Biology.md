@@ -122,7 +122,7 @@ OR Gate 时，打开 $X$ 对 $Z$ 即刻起效，而关闭 $X$ 则效果延迟。
 
 
 
-注意，当 Node 间是抑制作用时，Strong Supression 令下游产物归零，Partial Supression 虽然令下游产物的 $Z_{st}$ 降低，但事实上缩短了达成此 low $Z_{st}$ 水平所需的时间，因此也可以被视为一种加速手段。以下图 In-coherent FFL 为例
+注意，当 Node 间是抑制作用时，Strong Supression 令下游产物归零，Partial Supression 虽然令下游产物的 $Z_{st}$ 降低，但事实上缩短了达成此 low $Z_{st}$ 水平所需的时间，因此也可以被视为一种加速手段。以下图 Incoherent FFL 为例
 
 ![](./System_Biology/3-2.png)
 
@@ -215,10 +215,11 @@ $$Xm_{st} = \frac{V_R \cdot R}{V_B \cdot B}$$
 ![](./System_Biology/6-1.png)
 
 
+在这个模型中，原本活跃的受体被 Stimuli 抑制（如下图），其活跃度的 $k \sim e^{\Delta G}$。而甲基化会增加自由能，于是 $k \sim e^{\Delta G + m\gamma}$，即以指数级提高 $k$。
 
-此外，**受体活性 Vk** 随着 Stimuli 的升高下降，其 $k \sim e^{\Delta G}$。而甲基化会增加自由能 $k \sim e^{\Delta G + m\gamma}$，即以指数级提高 $k$。
+（**回忆一下**，$k$ 指 50% 受体被结合时的 Stimuli 浓度）
 
-从生物意义来讲，甲基化使得受体得以在更高浓度的刺激下保持活性。（在一定范围内，因为甲基化也不是无限的）
+从生物意义来讲，甲基化使得受体得以适应更高浓度的刺激，例如逐渐适应噪音/气味环境。（在一定范围内，因为甲基化也不是无限的）
 
 ![](./System_Biology/6-2.png)
 
@@ -227,9 +228,52 @@ $$Xm_{st} = \frac{V_R \cdot R}{V_B \cdot B}$$
 
 ## Lecture 7 Fold Change Detection
 
+![](./System_Biology/7-0.png)
+
+在安静环境中，我们或许可以感知到微小的声音；但在嘈杂环境中，只能感受到较大的音量。Fold Change Detection (FCD) 使我们能够基于环境决定感受的阈值，不至于对细小变化过于敏感。
+
+**FCD**: 如果 $s_0 \rightarrow Const \cdot s_0$，Reaction 幅度将保持不变
+
+面对不同的 Stimuli-Receptor 组合，细胞内可以整合它们的 FCD 信号（$C_1 \cdot C_2 \cdot ...$）
+
+---------------------------------------------
+
+简化一下 Lecture 6 的模型图：假设 $Xm \sim Action$，
+
+![](./System_Biology/7-1.png)![](./System_Biology/7-2.png)  
+
+已知，甲基化的 $k \sim e^{\Delta G + m\gamma}$，即 $k = k_0  e^{m\gamma}$，于是
+
+$$\frac{dk}{dt} = k_0 \gamma e^{m\gamma} \frac{dm}{dt} = \gamma k \frac{dm}{dt} = \gamma k \cdot V_B \cdot B (Xm_{st} - Xm) = Const \cdot k  (Xm_{st} - Xm)$$
 
 
+$$\text{即，在这个时刻 }\begin{cases}  \frac{dk}{dt}= C \cdot k(a_{st} -a)  \\\\ a = f(\frac{s}{k})   \quad  \text{即 HillFunc = } \frac{1}{1+(\frac{s}{k})^n}   \end{cases}  $$
 
+**证明这个机制可达成 FCD**：
+
+回忆一下，$k$ 指 $a = f(\frac{s}{k})$=50% 时的 Stimuli 浓度，$k$ 与 $s$ **共享一个 scaling factor**，**假设一次变换**是 $s_0 \rightarrow s$
+
+$$\text{rescale k and s，得到}\begin{cases}  \frac{d k'}{dt}= C \cdot k'(a_{st} -a)  \\\\ a = f(\frac{s/s_0}{k/s
+_0} ) = f(\frac{\text{Fold Change}}{k'})     \end{cases}  $$
+
+
+**这样来看，只要每次 $s$ 的 Fold Change 程度一致，Action $a$ 的烈度也会一致，而与变化的初始状态 $s_0$ 无关**
+
+
+---------------------------------------------
+
+另一方面，[Incoherent FFL I (Y-Strong)](./System_Biology/3-2.png) 时，若 ```Y >> k```  
+
+$$\begin{cases} \frac{dy}{dt} = \beta_1 X - \alpha_1 Y = 0  \quad \text{解得 } Y_{st} = \frac{\beta_1 X_{st}}{\alpha_1} \sim X_{st} \\\\   \frac{dz}{dt} = \frac{\beta_2 X}{k + Y} - \alpha_2 Z = 0 \quad \text{解得 }  Z_{st} = \frac{\beta_2 X_{st}}{(k + Y_{st})\alpha_2} \approx \frac{\beta_2 X_{st}}{Y_{st}\alpha_2} = \frac{\beta_2 X_{st} \alpha_1}{\beta_1 X_{st} \alpha_2} = Const  \end{cases}$$
+
+
+**证明这个机制可达成 FCD**：即如果每次 $x$ 的 Fold Change 程度保持不变，$z$ 将保持不变
+
+**假设一次变换**是 $x \rightarrow Cx$，，则此时 $(x,y,z) \rightarrow (Cx,Cy,z)$，且 $(\frac{dy}{dt},\frac{dz}{dt}) \rightarrow (C\frac{dy}{dt},\frac{dz}{dt})$
+
+将上述声明带入原式，约去C后，方程与上文一致
+
+$$\begin{cases} C\frac{dy}{dt} =  C \beta_1 X - C \alpha_1 Y   \\\\  \frac{dz}{dt} =  \frac{C \beta_2 X}{Ck + CY} - \alpha_2 Z  \end{cases}$$
 
 
 
