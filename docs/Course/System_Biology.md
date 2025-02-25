@@ -313,6 +313,30 @@ Glucotoxicity 某种意义上也避免生成过于敏感的 B cell，因为它�
 
 ## Lecture 9 Oscillator
 
+Oscillator 是形成节律的机制（e.g.心跳），Lecture 4 中提到过 ```X |--> Y ``` 会形成 [Damped oscillation](https://www.geeksforgeeks.org/damped-oscillation-definition-equation-types-examples/)（即 Undamped 的简谐运动时因阻尼而逐渐停止）
+
+![](./System_Biology/9-0.png)[![](./System_Biology/9-1.png)](https://blog.csdn.net/weixin_39753819/article/details/141129158)
+
+
+$$ \text{如图示 }\begin{cases}
+\frac{dx}{dt} = \beta_2 - \alpha_1x
+\quad \text{其中 } \beta_2 = f(y) \text{  递减，$y_{st}$ 处斜率 } \frac{\partial f}{\partial y} \vert_{y_{st}}= \beta_1
+\\\\
+\frac{dy}{dt} = \beta_1 - \alpha_2y
+\quad \text{其中 } \beta_1 = g(x)\text{ 递增，$x_{st}$ 处斜率 } \frac{\partial g}{\partial x} \vert_{x_{st}}= \beta_2 
+
+\end{cases}$$
+
+
+当 $(\alpha_1-\alpha_2)^2 < 4\beta_1\beta_2$ 时 **Underdamped**，即 $x$、$y$ 的留存时间不应相差过大，feedbacks $\beta$ 也不可以太微弱
+
+
+
+
+
+
+
+
 
 
 
