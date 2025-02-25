@@ -103,7 +103,7 @@ $$Y = Y_{st}^{Old} e^{-\alpha t}$$
 
 ![](./System_Biology/4-3.png)
 
-## Lecture 3 FFL-三元素
+## Lecture 3 FFL-Gate
 
 三元素的Motif中有8种 **Feed Forward Loop (FFL)**，最主要的2种在E.coli网络中占80%
 
@@ -129,7 +129,7 @@ OR Gate 时，打开 $X$ 对 $Z$ 即刻起效，而关闭 $X$ 则效果延迟。
 想象一下，在面对急性压力时，会唤起快速响应的Loop；当压力转变为长期状态时，打开了其它较慢的Loop。
 
 
-## Lecture 4 FFL-四元素
+## Lecture 4 FFL-More
 
 **Single Input Model (SIM)** 常见于一系列基因的调控（e.g.操纵子中），以 Arg 生成为例，其生成需要一系列基因（$argA/B/C$）的参与。在 Arg 浓度充足的情况下，$argR^{+}$处于激活态，抑制这一系列基因，不再生成 Arg；而当 Arg 浓度不足时，$argR^{+}$ 在自抑制 Loop 的影响下逐渐衰减，$argA/B/C$ **依次**激活（对$argR^{+}$浓度耐受**阈值**不同），开始生成 Arg。
 
@@ -284,13 +284,9 @@ $$\begin{cases} C\frac{dy}{dt} =  C \beta_1 X - C \alpha_1 Y   \\\\  \frac{dz}{d
 ![](./System_Biology/8-0.png)![](./System_Biology/8-1.png)
 
 $$ \text{如图示 }\begin{cases}
-
 \frac{dG}{dt} = meal - SIG   \quad    \text{血糖}\\\\
-
 \frac{dI}{dt} = qXf(G) - \alpha I = qXG^2 - \alpha I   \quad    \text{胰岛素}\\\\
-
 \frac{dX}{dt} = X (\text{proliferation} - \text{death})   \quad    \text{B cell 数量}
-
 \end{cases}$$
 
 
@@ -324,7 +320,6 @@ $$ \text{如图示 }\begin{cases}
 \\\\
 \frac{dy}{dt} = \beta_1 - \alpha_2y
 \quad \text{其中 } \beta_1 = g(x)\text{ 递增，$x_{st}$ 处斜率 } \frac{\partial g}{\partial x} \vert_{x_{st}}= \beta_2 
-
 \end{cases}$$
 
 
