@@ -19,7 +19,7 @@ img{
 </style>
 
 
-课程描述：[Systems Biology 2018 ／ Uri Alon](https://www.bilibili.com/video/BV1YT411c7Y9/)
+课程描述：[Systems Biology 2018 ／ Uri Alon](https://www.bilibili.com/video/BV1bE411372m/)
 
 下文默认公式中的 $X$、$Y$ 指它们的浓度
 
@@ -234,7 +234,7 @@ $$Xm_{st} = \frac{V_R \cdot R}{V_B \cdot B}$$
 
 **FCD**: 如果 $s_0 \rightarrow Const \cdot s_0$，Reaction 幅度将保持不变
 
-面对不同的 Stimuli-Receptor 组合，细胞内可以整合它们的 FCD 信号（$C_1 \cdot C_2 \cdot ...$）
+可以整合不同的 FCD 信号（$C_1 \cdot C_2 \cdot ...$）
 
 ---------------------------------------------
 
@@ -274,6 +274,45 @@ $$\begin{cases} \frac{dy}{dt} = \beta_1 X - \alpha_1 Y = 0  \quad \text{解得 }
 将上述声明带入原式，约去C后，方程与上文一致
 
 $$\begin{cases} C\frac{dy}{dt} =  C \beta_1 X - C \alpha_1 Y   \\\\  \frac{dz}{dt} =  \frac{C \beta_2 X}{Ck + CY} - \alpha_2 Z  \end{cases}$$
+
+
+
+## Lecture 8 Dynamic Compensation
+
+人体维持着动态的平衡，以血糖调控为例：进食后血糖升高，**胰岛B细胞**分泌胰岛素令体细胞储存 Glucose、以此降低血糖。
+
+![](./System_Biology/8-0.png)![](./System_Biology/8-1.png)
+
+$$ \text{如图示 }\begin{cases}
+
+\frac{dG}{dt} = meal - SIG   \quad    \text{血糖}\\\\
+
+\frac{dI}{dt} = qXf(G) - \alpha I = qXG^2 - \alpha I   \quad    \text{胰岛素}\\\\
+
+\frac{dX}{dt} = X (\text{proliferation} - \text{death})   \quad    \text{B cell 数量}
+
+\end{cases}$$
+
+
+解 $\frac{dG}{dt} = 0$ 得 $G_{st} = \frac{meal}{SI_{st}}$
+
+解 $\frac{dI}{dt} = 0$ 得 $G_{st}^2 = \frac{\alpha I_{st}}{qX} = \frac{\alpha}{qX} \frac{meal}{S G_{st}}$，即 $G_{st} = (\frac{\alpha  \cdot meal}{qXS})^{1/3}$
+
+
+由表达式可知，假如 B cell 数量恒定，Insulin resistance ($S \downarrow$) 的病人的血糖 $G$ 将异常高，然而事实上 80% 的病人在此阶段可以维持正常的 $G$，这是因为 **B cell 数量进行了代偿**（~ weeks）
+
+但血糖过高会造成 B cell 死亡，糖酵解造成的 oxidative stress 即 **Glucotoxicity**，每个人的耐受程度由基因决定。长期高糖会陷入某种 vicious cycle，最终造成二型糖尿病（T2DB）
+
+Glucotoxicity 某种意义上也避免生成过于敏感的 B cell，因为它们在低浓度时即被杀死
+
+![](./System_Biology/8-2.png)
+
+
+（注意，代偿需要约一周来生成细胞，在达成前的这段时间，Insulin resistance 患者的血糖依然会有异常波动）
+
+
+## Lecture 9 Oscillator
+
 
 
 
