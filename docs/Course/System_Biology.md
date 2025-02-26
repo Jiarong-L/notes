@@ -101,7 +101,9 @@ $$Y = Y_{st}^{Old} e^{-\alpha t}$$
 
 具体来说，即使信号消失，但只要 $Y$ 跨越了阈值，它依然会上升至 $Y_{high}$，否则会下降回 $Y_{low}$
 
-![](./System_Biology/4-3.png)
+![](./System_Biology/4-3.png)![](./System_Biology/4-4.png)
+
+注意，PAR 可以同时影响 $\alpha$ 和 $\beta$（图一），相较于只影响 $\beta$ 的情况（图二），此时它可以在更大程度的变化中保存三个交叉点
 
 ## Lecture 3 FFL-Gate
 
