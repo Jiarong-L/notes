@@ -309,12 +309,13 @@ Glucotoxicity 某种意义上也避免生成过于敏感的 B cell，因为它�
 
 ## Lecture 9 Oscillator
 
-Oscillator 是形成节律的机制（e.g.心跳），Lecture 4 中提到过 ```X |--> Y ``` 会形成 [Damped oscillation](https://www.geeksforgeeks.org/damped-oscillation-definition-equation-types-examples/)（即 Undamped 的简谐运动时因阻尼而逐渐停止）
 
-![](./System_Biology/9-0.png)[![](./System_Biology/9-1.png)](https://blog.csdn.net/weixin_39753819/article/details/141129158)
+![](./System_Biology/9-0a.png)![](./System_Biology/9-0b.png)
+
+Oscillator 是形成节律的机制（e.g.心跳、生物钟），Lecture 4 中提到过 ```X |--> Y ``` 会形成 [Damped oscillation](./System_Biology/9-1.png)（即 Undamped 的简谐运动时因阻尼而逐渐停止）
 
 
-$$ \text{如图示 }\begin{cases}
+$$ \text{见 Motif 1 }\begin{cases}
 \frac{dx}{dt} = \beta_2 - \alpha_1x
 \quad \text{其中 } \beta_2 = f(y) \text{  递减，$y_{st}$ 处斜率 } \frac{\partial f}{\partial y} \vert_{y_{st}}= \beta_1
 \\\\
@@ -323,8 +324,20 @@ $$ \text{如图示 }\begin{cases}
 \end{cases}$$
 
 
+![Underdamped](./System_Biology/9-2.png)![Overdamped](./System_Biology/9-3.png)
+
 当 $(\alpha_1-\alpha_2)^2 < 4\beta_1\beta_2$ 时 **Underdamped**，即 $x$、$y$ 的留存时间不应相差过大，feedbacks $\beta$ 也不可以太微弱
 
+
+Damped oscillation 最终将收敛，若想达成持续的节律，需要周期性的干预推动（施加外力的频率 = trapped in Fixed Point 的频率），即 **Noise-induced oscillation**. 这个外力可以是 X with PAR（Motif 2），在 X 浓度超过某一阈值后自加速生成 X、然后被抑制至低于阈值（过程类似一个 spike ```_|_```）
+
+此外，**Repressilator**（Motif 3）也可以产生周期曲线，不过此时 XYZ 曲线不再 in phase.
+
+
+**频率**，主要是由 **delay** 控制，即生物反应所需要的时间。Motif 2 中可以在维持恒定振幅的情况下调节频率，因为它受外力 Noise 的调节。但如果不减小 Motif 3 的振幅，就不能改变它的频率。
+
+
+## Lecture 10 
 
 
 
