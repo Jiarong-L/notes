@@ -339,12 +339,32 @@ Damped oscillation 最终将收敛，若想达成持续的节律，需要周期�
 **频率**，主要是由 **delay** 控制，即生物反应所需要的时间。Motif 2 中可以在维持恒定振幅的情况下调节频率，因为它受外力 Noise 的调节。但如果不减小 Motif 3 的振幅，就不能改变它的频率。
 
 
-## Lecture 10 
+## Lecture 10
+
+生物的进化过程，实际上就是通过改变基因型，不断提升自身在这个环境下的适应度。以 E.coli 为例，测算负责分解 lactose 的 ```lacZ``` 对 Fitness 的影响：定义 ```Fitness:  Growth Rate```，```Property: lacZ protein```
+
+注意，E.coli还可以分解其它营养物质，而 lacZ 的存在可以增加 Growth Rate。约定在 lactose 不限量的情况下，每一个 ```lacZ``` 带来的增速为 ```Bo```.
+
+对于 WildType E.coli 而言，培养皿中更多 lactose 时会生成更多 lacZ，lactose 不限量的情况下最高可达成 ```lacZ = 60k per cell```。
+
+IPTG 的结构近似 lactose，它可以诱导生成 lacZ，但不可用于细胞生长，即生成 lacZ 的 ```COST```。用 IPTG 取代 lactose 进行实验，在 ```lacZ = 60k``` 时，Growth Rate 下降了 5%，即 ```Co * 60k = 5%```；在 ```lacZ = 1.8 * 60k = M``` 时，细胞死亡。
 
 
+于是，在 ```lacZ = Z```,```lactose = L``` 时 
+```
+Fitness(Z,L) = BENEFIT(Z,L) - COST(Z)
 
+COST(Z)= Co * Z / (1 - Z/M)
+BENEFIT(Z,L)= Bo * Z * L / (K + L)
 
+其中 Binding coefficient K 即   Z+L <--(K)-->  ZL
+```
 
+计算 $\frac{dFitness}{dZ}=0$ 可得这个环境的最优 $Z_{opt} = M (1- [\frac{Co(K+L)}{Bo \cdot L}]^{1/2})$，也知从 lacZ 中获利的 lactose $L$ 阈值是 $Co(K+L)=Bo \cdot L$
+
+如果遇见 lactose 的几率很高，则 ```Fitness(Z,L)``` 在大多数情况下有利，即更加适应环境，进化过程将倾向于保留这个基因。
+
+## Lecture 11
 
 
 
