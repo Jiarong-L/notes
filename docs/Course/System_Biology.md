@@ -366,8 +366,63 @@ BENEFIT(Z,L)= Bo * Z * L / (K + L)
 
 ## Lecture 11
 
+为了在复杂环境中生存，生物性状是在对多个目标进行取舍后的结果
+```
+   [Gene1,2,3..]             ---> Performance(Task1) \
+     Genotype ---> Phenotype ---> Performance(Task2)   ---> Fitness(i.e. Offsprings)
+                             ---> Performance(Task3) /
+```
 
 
+
+以 ```Performance(TaskX)``` 为坐标轴组成一个空间，对于每个 ```Task``` 都有一个最优模型 ```Archetype```。综合 Fitness 最优的 Phenotype 可以分布在如图红色区域，即距离各 ```Archetype``` 欧氏距离之和最小的区域。
+
+一些生物选择均衡发展，另一些选择成为某方面的专家（图示中 靠近某一个 Archetype）
+
+![](./System_Biology/11-0.png)
+
+
+## Lecture 12
+
+在进行进化模拟时，最简单的方法是将个体视为 Gate 网络：
+
+```
+Genome ---------**********++++++++++........
+        Gene1     Gene2      Gene3     ...
+        Gate1     Gate2      Gate3     ...
+```
+
+Gate 设定为接收 2 个 ```0/1``` 输入:
+
+| InputA | InputB | AND | NAND | XOR | OR |
+| -- | -- | -- | -- | -- | -- |
+| 0 | 0 | 0 | 1 | 0 | -- |
+| 0 | 1 | 0 | 1 | 1 | -- |
+| 1 | 0 | 0 | 1 | 1 | -- |
+| 1 | 1 | 1 | 0 | 0 | -- |
+
+
+模拟步骤很简单：已知优化目标 ```OUTPUT``` 和一组可能的输入组合
+```
+0. 有一个初始群体的 Genome 网络
+
+1. Each Individual get 10 offsprings
+    - Rewire network     [Mutation]
+    - add/del Gate       [gene gain/lost]
+
+2. Each offspring: 
+  loop through all possible Input stress, 
+  then Calculate Fitness = C/A - gate_Err
+      C = num of Correct OUTPUTs
+      A = num of possible input set [1,1,0,1] (16 for 4 gates)
+      gate_Err = err * num_of_gates
+
+3. 选择 top 50% Fitness 的子代个体作为下一个 Loop 的初始群体
+```
+
+有趣的是，如果优化目标恒定不变 ```[GoalA]```，最终得到优化网络是 Non Modular（有点类似过拟合？），但如果每隔几代交替使用优化目标 ```[GoalA,GoalB]```，最终得到优化网络 Modular --- 更符合实际的生物网络
+
+![](./System_Biology/12-0.png)
 
 
 
