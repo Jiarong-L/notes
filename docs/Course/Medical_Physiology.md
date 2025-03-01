@@ -11,13 +11,13 @@ Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
 注：1. 部分笔记中可能混淆了secretion(**分泌**出细胞)和excretion(**排出**体外); 2. 感知受体的“激活”默认指产生动作电位; 3. 脑部/神经系统相关的一切都有待补充学习，至少需要先了解一下解剖结构; 4. [部分章节的中文翻译](https://www.bilibili.com/read/readlist/rl545260); 5. 简写：激活(+)/抑制(-)
 
-
 | 计划 | 已完成进度 |
 | -- | -- |
-| 第一轮-粗略笔记 | 55 |
+| 第一轮-粗略笔记 | 61 |
 | 第二轮-纠错补缺 | -- |
 | 第三轮-复习补充 | -- |
 
+或许需要重新梳理一下 神经递质/荷尔蒙 (+/-)，都加上符号
 
 ## Ch 1 概览
 
@@ -168,7 +168,7 @@ to form mRNA(去除introns)
     - ![Figure 7-5](Medical_Physiology/7-5.png)
 * 骨骼肌收缩
     - ![Figure 7-2](Medical_Physiology/7-2.png)
-    - 动作电位由 Nerve 传递至肌纤维，Nerve 分泌少量神经递质 乙酰胆碱(acetylcholine)
+    - 动作电位由 Nerve 传递至肌纤维，Nerve 分泌少量神经递质 乙酰胆碱(Acetylcholine)
     - 乙酰胆碱打开通道，大量Na离子涌入肌膜内侧、导致局部去极化，进一步打开钠离子通道，在膜上产生动作电位
     - 动作电位继续扩散，并且至肌纤维的中心、释放肌浆网内钙离子
     - 受钙离子刺激，Actin and Myosin filaments 开始滑动，肌肉收缩
@@ -502,7 +502,7 @@ to form mRNA(去除introns)
 | -- | -- | -- |
 | 代谢物 | -- | ADP <br> Ions... |
 | Endothelium-Derived | Endothelin: 受伤时产生，防止失血过多 | [Nitric Oxide](Medical_Physiology/17-6.png): 因 Shear stress 产生；也可能当 angiotensin II 收缩血管时释放少量 NO 以防过度收缩 |
-| Humoral | Norepinephrine and Epinephrine(alpha receptor) <br> Angiotensin II <br> Vasopressin | Epinephrine(beta receptor) <br>Bradykinin <br> Histamine |
+| Humoral | (alpha receptor) Norepinephrine & Epinephrine <br> Angiotensin II <br> Vasopressin | (beta receptor) Epinephrine (special case & mild) <br>Bradykinin <br> Histamine |
 | Ions | calcium <br>  <br>  <br>  <br>  <br>  <br>  | potassium <br> magnesium <br> hydrogen ion <br> Anions: acetate and citrate <br> carbon dioxide |
 | -- | -- | ！静脉容量更大，所以其收缩影响更大 |
 
@@ -647,8 +647,8 @@ to form mRNA(去除introns)
 * (Ch 17)根据需氧量，Precapillary sphincters 控制进入肌肉毛细血管的血流量；也受代谢产物、盐离子等 Vasodilator 的影响
 
 * (Ch 20)[交感系统提高了右心房压力，升高了心输出量，所以提高了涌向肌肉的血液量](Medical_Physiology/21-2.png)
-    - Norepinephrine(Vasoconstrictor - alpha receptor)
-    - Epinephrine(Vasodilator - beta receptor)
+    - 去甲肾上腺素 Norepinephrine (**Vasoconstrictor** - alpha receptor)
+    - 肾上腺素 Epinephrine (**Vasodilator** - beta receptor) --- A special case
 
 * 冠状动脉([Coronary arteries](Medical_Physiology/21-3.png))为心肌供血
     - 收缩时，心内膜下动脉丛(Subendocardial)收缩程度更强；舒张时其重新充血(故而很多时候 ischemia 起始于 Subendocardial，而不是 Epicardial)
@@ -1324,10 +1324,10 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - [Spatial v.s. Temporal](Medical_Physiology/47-7.png)
 
 
-* 小分子、快速响应的 Neurotransmitter  -----当前神经元对下一个神经元的信号(**+刺激/-抑制**)
-    1. Acetylcholine(+/-)
-    2. (胺) Norepinephrine(+/-), Epinephrine, Dopamine(-), Serotonin(-), Melatonin, Histamine
-    3. (氨基酸) Gamma-aminobutyric acid(Adult -), Glycine(-), Glutamate(+), Aspartate
+* 小分子、快速响应的 Neurotransmitter  -----当前神经元对下一个神经元的信号(**+刺激/-抑制** 对于不同受体可能作用不同)
+    1. Acetylcholine(+, 部分副交感神经元中 -)
+    2. (胺) Norepinephrine(+/ rarely -), Epinephrine, Dopamine(-), Serotonin(- 脊柱, + 皮层), Melatonin, Histamine
+    3. (氨基酸) Gamma-aminobutyric acid(Adult -), Glycine(-), Glutamate(+), Aspartate(+)
     4. ATP, Arachidonic acid, NO(记忆：即刻合成、改变细胞内代谢功能、长期效果), CO
 
 
@@ -1528,7 +1528,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
     - 舌前部2/3 --> 舌神经(lingual nerve) --> 鼓室索(chorda tympani) --> 面神经(facial nerve) --> NTS
     - 舌后部/喉咙 --> 舌咽神经(glossopharyngeal nerve) --> NTS
     - 舌根部/咽区 --> 迷走神经 --> NTS
-    - NTS(孤束核, Nucleus of solitary tract)之后信号传递至皮层，也可以传递给泌涎核(salivatory nuclei,控制唾液分泌)
+    - NTS(孤束核, Nucleus of solitary tract / Tractus solitarius)之后信号传递至皮层，也可以传递给泌涎核(salivatory nuclei,控制唾液分泌)
 
 
 * [嗅觉(Olfactory)信号](Medical_Physiology/54-3.png): Olfactory cell 接触到溶于 Mucus layer 的气味分子、被激活
@@ -1633,7 +1633,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 * [基底神经节(Basal ganglia)](Medical_Physiology/57-9.png) 位于丘脑两侧，侧看如图示蜗牛壳。控制动作持续的时间及幅度
     - Putamen circuit 与下意识的熟练行为有关，例如投篮；相关疾病：Parkinson’s disease（多巴胺分泌受损，肌肉收缩的抑制信号(-)受损，致使肌肉僵硬）
     - Caudate circuit 参与动作的认知控制，例如写字画画
-    - [分泌神经递质](Medical_Physiology/57-14.png)：多巴胺(-)，乙酰胆碱(+)，GABA(-)，去甲肾上腺素，...
+    - [分泌神经递质](Medical_Physiology/57-14.png)：多巴胺(-)，乙酰胆碱(+)，GABA(-)，去甲肾上腺素(+)，...
 
 总结：皮层学习如何激活脊髓活动以达成目标动作
 
@@ -1702,7 +1702,92 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 * 边缘皮层(Limbic Cortex)：刺激特定区域可以引发相关行为模式
 
 
-## Ch 60 睡眠 (TBA)
+## Ch 60 脑电波
+
+![](Medical_Physiology/60-4.png)
+
+* [脑电波(Brain waves)](Medical_Physiology/60-2.png)指脑部测得的电极信号（神经元放电的总和），思虑越多时信号更密集、幅度越小，单位是 cycles/sec
+    - Alpha waves (8~13), 清醒放松时
+    - Beta waves (14~80), 专注时
+    - Theta waves (4~7), 情绪压力、失望时，或 brain disorder
+    - Delta waves (~3.5), 深度睡眠时
+
+
+* 不同于昏迷(coma)，睡眠指可唤醒的无意识状态。REM 占 25% 的睡眠时间，一般 90min 就会循环一次，可从[睡眠的脑电波](Medical_Physiology/60-1.png)中观测。其作用是**恢复中枢神经系统的平衡**
+    - Rapid eye movement sleep (REM) 较活跃，此时会做梦，比较难以唤醒
+    - Slow-wave sleep (NREM) 脑电波强力但低频（慢波），较宁静
+
+* 睡眠的机制是一种 **Active Inhibitory Process** 的循环：```助眠(-) <——被唤醒几小时后神经元变疲劳——> 唤醒(+)``` 一旦 switch mode 信号随后扩散增强，回顾 [控制(+/-)大脑活动的激素(神经递质)](Medical_Physiology/59-1.png)
+    - Reticular ```唤醒(+)```，下丘脑的 Orexin neurons 抑制睡意、维持清醒（异常则导致 嗜睡narcolepsy-猝倒cataplexy）
+    - Sleep Centers ```助眠(+)``` 
+        * (脑干 Medulla/Pon) **Raphe nuclei** 向大脑和脊柱分泌 Serotonin(- 脊柱) 下调神经活动
+        * (脑干 Medulla/Pon) 孤束核（接收迷走神经、舌咽神经的信号）似乎也参与
+        * (间脑 下丘脑/丘脑) 刺激其中部分区域也可助眠
+        * 多日不睡后，体液中可检测一些助眠物质，注入第三脑室后几分钟内入睡，e.g. muramyl peptide
+
+
+* Seizures 指不受控的、过度的神经元活动，5-10% 人应该都经历过（短暂的意识空白），但若频繁发作则是癫痫(Epilepsy)。
+    - 可能来自颅内病变(疤痕、肿瘤、电路混乱)，也可能是外部因素(低血压、光线、发烧)
+    - 增加神经元兴奋/减少抑制的药物可致癫痫(Epileptogenic)，若需 Anti-epileptogenic 就应该做相反的事：阻断Na通道、增加GABA(-)、抑制(+)受体、...
+    - Seizures 进行程度: **Focal** 皮层某一个焦点 ---> **Generalized** 扩散至整个皮层
+    - 神经元疲劳后 Seizures 停止(~ minutes)，这时候神经系统处于被抑制状态，患者昏迷
+
+
+* Brain Disorders 潜在的原因是特定神经递质的异常
+
+| Brain Disorders | 病理 | 症状 |
+| -- | -- | -- |
+| Parkinson | **loss of secreting neurons** Dopamine(-) | 肌肉僵硬 |
+| Huntington | **loss of secreting neurons** GABA(-) Acetylcholine(+) | 运动模式异常、痴呆 |
+| Depression <br> Manic-Depressive Psychoses | **loss of secreting neurons** Norepinephrine(+) Serotonin(+ 皮层) | 不快乐，无食欲，失眠 （双相则正相反） |
+| Schizophrenia | 前额叶中 Glutamate(+) 突触失效，过多 Dopamine(-)，海马体/边缘系统异常 | (Thoughts & Working Memary) 幻觉、谵妄、情感淡漠 |
+| Alzheimer | -- | 遗忘型记忆障碍，语言退化，视空间能力受损 |
+| ADHD | -- | 注意力无法持久集中、过度活跃、情绪易冲动 |
+
+
+## Ch 61 自主神经系统
+
+[自主神经系统(Autonomic Nervous System)](Medical_Physiology/61-1.png)控制基本生理功能（内脏/呼吸/心跳），反应迅速而激烈。它主要通过```脊柱-脑干-下丘脑-皮层```控制，是一种潜意识的反应，即我们一般不会意识到它。
+
+其中，**交感**神经系统(Sympathetic)主导战斗、逃跑（血压上升/应激），**副交感**神经系统(Parasympathetic)主导休息、消化。详见[自主神经系统对不同部位的影响](Medical_Physiology/61-t2.pdf)
+
+
+**交感**神经系统从 T1-L2 节脊柱发出（*post*较长）：Cord —— *pre*ganglionic fibers ```Acetylcholine(+)``` *Myelinated* —— Ganglion —— *post*ganglionic fibers ```Norepinephrine(+)``` *UnMyelinated* —— Organ 
+
+(特例：Sweat gland 的 *post*ganglionic 递质是 ```Acetylcholine(+)```)
+
+
+**副交感**神经系统从脊柱上下端发出（*pre*较长）：Cord —— *pre*ganglionic fibers ```Acetylcholine(+)``` *Myelinated* —— Ganglion —— *post*ganglionic fibers ```Acetylcholine(+)``` *UnMyelinated* —— Organ  
+
+
+```Norepinephrine(+)``` 对应有 [**Alpha**/Beta Receptors (G蛋白偶联)](Medical_Physiology/61-t1.png)。```Acetylcholine(+)```的受体有 Muscarinic Receptors (G蛋白偶联) 以及 **Nicotinic** Receptors (ligand-gated ion channels)
+
+注意，考虑到其合成路径，Norepinephrine (alpha receptor) & Epinephrine (alpha/beta receptor) 本质上应该差不多，只是对应的 Receptor 不同
+
+
+<details>
+<summary>关于 Norepinephrine(+) 与 Acetylcholine(+) 在 Varicosities 中的合成 </summary>
+
+<img src="../Medical_Physiology/61-4.png" alt="61-4.png" /><br>
+Norepinephrine(+):
+```
+1. Vesicles中，由 (Acetyl-coenzyme_A + Choline) 合成 Acetylcholine
+2. 释放出神经元
+3. 被分解回 Choline
+4. Choline被运送回Vesicles
+```
+Acetylcholine(+)
+```
+  (Hydroxylation)  (Decarboxylation)
+1. Tyrosine -> Dopa -> Dopamine
+2. 转运至 Vesicles
+3. Dopamine -> Norepinephrine -> Epinephrine
+     (Hydroxylation)      (Methylation，80%)
+```
+</details>
+
+
+## Ch 62 脑代谢(TBA)
 
 
 
@@ -1715,8 +1800,11 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 
-## Ch 61 自主神经系统(TBA)
-## Ch 62 脑循环(TBA)
+
+
+
+
+
 ## Ch 63 GI(TBA)
 ## Ch 64 (TBA)
 ## Ch 65 (TBA)
