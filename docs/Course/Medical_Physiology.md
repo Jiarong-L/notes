@@ -1813,11 +1813,73 @@ Acetylcholine(+)
     - 治疗：通过注射高渗物质提高静脉渗透压、将水分吸出来；或直接引流
 
 
-## Ch 63 GI(TBA)
+## Ch 63 GI tract
+
+* 肠胃道(Gastrointestinal tract)，即[消化道(alimentary tract)](Medical_Physiology/63-1.png)是起自口腔终于肛管的肌性管道。其[横截面](Medical_Physiology/63-2.png)如图示
+
+```
+    - 肠系膜
+    - 平滑肌，纵向传递动作电位，也与环肌横向交流
+    - 环肌，控制收缩 --- 伴有肌间神经丛(Myenteric plexus)
+    - Submucosa，控制分泌 -- 伴有Meissner神经丛
+    - 粘膜，进行吸收/分泌：酸/中和，胆汁(挤压胆囊)，胰岛素(胰腺)
+```
+
+* 平滑肌的[膜电位](Medical_Physiology/63-3.png)有 slow waves (伴有节律起伏的未激活状态) 以及 spike (激活) 
+    - spike电位由细胞外Ca流引起（而不是骨骼肌中的Na，也无内质网储Ca），所以需要 slow waves 作为准备时间 --- slow waves 越久、spike 越久
+    - 去极化/静息电位更高/更易兴奋的因素：副交感神经(乙酰胆碱)，肌肉拉伸，[gastrointestinal hormones](Medical_Physiology/63-t1.png)
+    - 超极化/静息电位更负/更难兴奋的因素：交感神经(去甲肾上腺素)，肾上腺
+    
+
+* 肠壁的[神经丛](Medical_Physiology/63-4.png)分布在环肌与Submucosa处，接收自主神经系统的调控，也有自己的节律(gut wall enteric nervous system)
+    - enteric -- 局部作用：分泌、蠕动、混合收缩、局部抑制
+    - 交感 -- 长距离信号传输：来自胃的信号引起结肠的排泄（胃结肠反射），来自结肠和小肠的信号抑制胃运动和胃分泌（肠胃反射），来自结肠的信号抑制回肠内容物排入结肠（结肠镜反射）
+    - 脊髓/脑干：控制胃的运动和分泌活动，疼痛反射抑制整个胃肠道，结肠/直肠/腹部收缩（排便反射）
+
+
+* 肠道的[收缩模式](Medical_Physiology/63-5.png)大体上分为蠕动(推进)和分割(混合)，蠕动的速度决定了消化/排空的时间
+
+* 在进入体循环之前，需经历[内脏血流循环(Splanchnic circulation)](Medical_Physiology/63-6.png)：GI的静脉血流从门静脉汇总至肝脏，由肝脏清除其中的病原，并合成、储存糖原和脂肪
+    - [Villi的毛细血管](Medical_Physiology/63-8.png)中80%的氧气会直接进入静脉、不能使用，在缺氧/疾病时这个机制容易导致 Villi 钝化，吸收效率下降（注：吸收/转运物质也需要消耗较多氧气和ATP）
+    - 失血过多时，内脏血液也可被挤出约400ml应急（交感--急剧收缩血管）
+
+
 ## Ch 64 (TBA)
+
+
+
+
+
+
+
+
+
+
+
+
 ## Ch 65 (TBA)
+
+
+
+
+
+
+
 ## Ch 66 (TBA)
+
+
+
+
+
 ## Ch 67 (TBA)
+
+
+
+
+
+
+
+
 
 
 ## Ch 68 (TBA)
