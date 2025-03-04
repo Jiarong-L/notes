@@ -1749,7 +1749,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 [自主神经系统(Autonomic Nervous System)](Medical_Physiology/61-1.png)控制基本生理功能（内脏/呼吸/心跳），反应迅速而激烈。它主要通过```脊柱-脑干-下丘脑-皮层```控制，是一种潜意识的反应，即我们一般不会意识到它。
 
-其中，**交感**神经系统(Sympathetic)主导战斗、逃跑（血压上升/应激），**副交感**神经系统(Parasympathetic)主导休息、消化。详见[自主神经系统对不同部位的影响](Medical_Physiology/61-t2.pdf)
+其中，**交感**神经系统(Sympathetic)主导战斗、逃跑（血压上升/应激），**副交感**神经系统(Parasympathetic)主导休息、消化。详见[自主神经系统对不同部位的影响](Medical_Physiology/61-t2.pdf) --- 二者的相互拮抗维持着稳态
 
 
 **交感**神经系统从 T1-L2 节脊柱发出（*post*较长）：Cord —— *pre*ganglionic fibers ```Acetylcholine(+)``` *Myelinated* —— Ganglion —— *post*ganglionic fibers ```Norepinephrine(+)``` *UnMyelinated* —— Organ 
@@ -1787,22 +1787,30 @@ Acetylcholine(+)
 </details>
 
 
-## Ch 62 脑代谢(TBA)
+## Ch 62 脑代谢
+
+* 大脑的神经元持续活跃，其代谢是非神经组织的7.5倍（尤其是突触所在的灰质），且只由有氧呼吸供给（且直接依赖血糖、不储存葡萄糖）。失去血流供给后的5-10秒内即失去意识（其它器官切换至无氧呼吸后还可以再坚持约30min）
+    - 中风：血栓阻塞部分脑区的供血
+    - 低血糖：没有足够的血糖供大脑代谢，会导致昏迷
 
 
+* [脑部血管](Medical_Physiology/62-1.png): 四条大动脉(2 carotid + 2 vertebral)在大脑底部合并形成大脑动脉环(circle of Willis)，其分支遍布大脑表面、再分支为枕动脉(pial)、再分成更小的穿支(小)动脉(penetrating arteries/arterioles)进入内部
+    - Astrocyte 提供营养、支撑，并连接 Excitatory neuron、感受到神经元活动时令动脉扩增（按需调配局部血流）
+    - 其它血管舒缩的因素包括 氧、H浓度（代谢需求），血压（交感系统），...
+    
+    
+* 脑毛细血管由于被 Astrocyte 等神经胶质细胞的 'glial feet' 包裹而显得 'less leaky'，即是与体循环间的**血脑屏障(Blood–Brain Barriers)**。
+    - 屏障基本只能渗透：水、氧气、二氧化碳、脂溶物（酒精/麻醉/...），不能渗透蛋白、非脂溶性大分子（因此有时给药困难）
+    - 部分稳态调控区域需要知道体液中的代谢状况/化学物浓度，因此例外：some areas of the hypothalamus, pineal gland, area postrema
 
 
+* [脑脊液(cerebrospinal fluid, CSF)](Medical_Physiology/62-5.png) 填充各脑室、血管周围间隙(Virchow-Robin space, VRS)，悬停大脑（缓冲）、调控压力、清除代谢产物及炎性渗出物（类似淋巴液）
+    - 自侧脑室、第四脑室以及第三脑室内的[脉络丛(Choroid plexus)](Medical_Physiology/62-6.png)中生成，由**Na**/Cl/K/Glu调控渗透压
+    - 从 [蛛网膜小丘(Arachnoid villi)](Medical_Physiology/62-7.png) 流出至静脉系统（有时细胞会阻塞出口，导致颅内压增高/脑积水）
 
 
-
-
-
-
-
-
-
-
-
+* 一种恶性循环：毛细血管破裂/流出阻塞导致颅内压增高，压迫脑部血管 <---> 局部供血不足，血管扩张/提高通透性，进一步提高压力
+    - 治疗：通过注射高渗物质提高静脉渗透压、将水分吸出来；或直接引流
 
 
 ## Ch 63 GI(TBA)
@@ -1810,6 +1818,8 @@ Acetylcholine(+)
 ## Ch 65 (TBA)
 ## Ch 66 (TBA)
 ## Ch 67 (TBA)
+
+
 ## Ch 68 (TBA)
 ## Ch 69 (TBA)
 ## Ch 70 (TBA)
