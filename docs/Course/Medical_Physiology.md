@@ -1014,7 +1014,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 * [多能造血干细胞 -> RBCs](Medical_Physiology/33-2.png)
     - growth inducers 促进对应种类干细胞的生长(interleukin-3作用于所有种类)，differentiation inducers 诱导分化
     - 长期暴露于低氧水平的血液中会[诱导红细胞的生长、分化](Medical_Physiology/33-4.png)，主要由肾脏、肝脏生成促红细胞生成素 (erythropoietin,EPO)，过程需要约4-5天
-    - RBCs的成熟需要 vitamin B12 (其肠道吸收需要intrinsic factor，不过肝脏一般会储备B12，长期缺乏才会导致 pernicious anemia) 和 folic acid (绿色蔬菜中富含，但烹饪中易丢失)
+    - RBCs的成熟需要 vitamin B12 (其肠道吸收需要Intrinsic Factor，不过肝脏一般会储备B12，长期缺乏才会导致 pernicious anemia) 和 folic acid (绿色蔬菜中富含，但烹饪中易丢失)
     - RBCs的成熟需要Fe(由transferrin运输至各处)，每个hemoglobin有四个链，每链有一个Fe、可松散地配位结合一个O2
 
 * 成熟的RBCs寿命约120天，没有细胞核、线粒体、内质网，但可代谢葡萄糖生成ATP以维持：细胞膜的柔韧性、跨膜运输、Fe维持亚铁形式、防止蛋白质氧化
@@ -1891,7 +1891,7 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
     - 副交感系统（接收面部/咽部信号）刺激唾液腺分泌
 
 
-* [胃腺(Gastric/Oxyntic gland)](Medical_Physiology/65-4.png)中**壁细胞**(parietal cell)分泌盐酸和内因子(Intrinsic Factor 维生素B12吸收)，**主细胞**(chief cell)分泌胃蛋白酶原，mucous neck cells 分泌粘液。胃部也分布：G细胞-Gastrin，ECL细胞-Histamine，D细胞-Somatostatin
+* [胃腺(Gastric/Oxyntic gland)](Medical_Physiology/65-4.png)中**壁细胞**(parietal cell)分泌盐酸和Intrinsic Factor，**主细胞**(chief cell)分泌胃蛋白酶原，mucous neck cells 分泌粘液。胃部也分布：G细胞-Gastrin，ECL细胞-Histamine，D细胞-Somatostatin
     - [胃部泌酸的调控](Medical_Physiology/65-7.png)：进食前 Cephalic phase(30%) -- 胃中 Gastric phase(60%) -- 肠中 Intestinal phase(10%)
     - Acetylcholine(副交感)/Gastrin/Histamine可刺激壁细胞，其中乙酰胆碱也可刺激粘液细胞
     - Hints：胃的前半段同时需要酸和粘液，后半段的幽门就只需要粘液
@@ -1945,15 +1945,36 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 小肠中，钙的吸收需要甲状旁腺激素(Parathyroid hormone)激活维生素D，铁的吸收与需求相关，钾、镁、磷酸盐也可以被肠粘膜吸收。一般来说，单价离子很容易被大量吸收。二价离子通常只被少量吸收
 
 
-## Ch 67 肠胃-疾病(TBA)
+## Ch 67 肠胃-疾病
+
+* 吞咽困难
+    - 咽部/脑干/神经病变/麻醉，不能控制肌肉进行吞咽的自主或不自主阶段(Ch 64)
+    - 贲门失弛缓症(Achalasia)堵塞进入胃部的通道，食物堆积在食管中，造成无法下咽。同时也可能造成食管扩张(Megaesophagus)
+
+* 胃部疾病主要与粘膜和酸相关，腐蚀成溃疡
+    - 幽门螺杆菌：栖息在粘膜中，破坏粘膜且刺激排酸(histamine)
+    - 胃炎(Gastritis)：炎症/药物刺激导致粘膜萎缩
+    - 恶性贫血：异常的胃分泌物中缺乏 Intrinsic Factor 导致维生素B12无法被吸收，长期如此会耗尽肝中储备，导致骨髓中红细胞无法成熟
+    
+* 胰腺炎(Pancreatitis)可能是因饮酒/油腻/导管阻塞导致酶原在胰腺中堆积，超过抑制阈值后蛋白酶原自激活，开始攻击胰腺（或者由于自身免疫导致炎症）。同时，由于酶原无法流入十二指肠，会影响蛋白质的消化
 
 
+* 小肠的吸收面积被破坏而导致消化减少(sprue)
+    - Nontropical Sprue: 麸质(gluten)直接破坏肠道的吸收面积
+    - Tropical Sprue: 不明感染源引起的肠黏膜炎症
+    - Steatorrhea: 脂肪吸收不良，在严重的情况下，蛋白质、碳水化合物、钙、维生素K、叶酸和维生素B12的吸收也会受损
 
 
+* 大肠疾病：外部刺激或自主神经影响蠕动、吸收
+    - 液体吸收过多，或长期抑制排便反射，或缺乏蠕动所需的神经元会导致便秘(Constipation)，长期可能造成结肠扩张(Megacolon)
+    - 蠕动过于剧烈会导致腹泻(Diarrhea)，失去过多水分及电解质
+    - 脊髓损伤会破坏排便的自控，不过反射尚在
+    
+* 化学气味或胃肠道的刺激反馈至 [vomiting center 造成呕吐](Medical_Physiology/67-2.png)
 
+* 各种原因造成的各处[肠道阻塞(Obstruction)的后果](Medical_Physiology/67-3.png)
 
-
-
+* 肠胃中的气体可能来自吞咽，也可能来自细菌代谢
 
 
 ## Ch 68 (TBA)
