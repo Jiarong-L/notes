@@ -1840,7 +1840,7 @@ Acetylcholine(+)
 * 肠道的[收缩模式](Medical_Physiology/63-5.png)大体上分为蠕动(Propulsive 推进)和分割(Mixing 混合)，蠕动的速度决定了消化/排空的时间
 
 * 在进入体循环之前，需经历[内脏血流循环(Splanchnic circulation)](Medical_Physiology/63-6.png)：GI的静脉血流从门静脉汇总至肝脏，由肝脏清除其中的病原，并合成、储存糖原和脂肪
-    - [Villi的毛细血管](Medical_Physiology/63-8.png)中80%的氧气会直接进入静脉、不能使用，在缺氧/疾病时这个机制容易导致 Villi 钝化，吸收效率下降（注：吸收/转运物质也需要消耗较多氧气和ATP）
+    - [villus的毛细血管](Medical_Physiology/66-6.png)中80%的氧气会直接进入静脉、不能使用，在缺氧/疾病时这个机制容易导致villus钝化，吸收效率下降（注：吸收/转运物质也需要消耗较多氧气和ATP）
     - 失血过多时，内脏血液也可被挤出约400ml应急（交感--急剧收缩血管）
 
 
@@ -1891,10 +1891,11 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
     - 副交感系统（接收面部/咽部信号）刺激唾液腺分泌
 
 
-* [胃腺(Gastric/Oxyntic gland)](Medical_Physiology/65-4.png)中**壁细胞**(parietal cell)分泌盐酸和内因子(Intrinsic Factor 维生素B12吸收)，**主细胞**(chief cell)分泌胃蛋白酶原(epsinogen 蛋白分解)，mucous neck cells 分泌粘液。胃部也分布：G细胞-Gastrin，ECL细胞-Histamine，D细胞-Somatostatin
+* [胃腺(Gastric/Oxyntic gland)](Medical_Physiology/65-4.png)中**壁细胞**(parietal cell)分泌盐酸和内因子(Intrinsic Factor 维生素B12吸收)，**主细胞**(chief cell)分泌胃蛋白酶原，mucous neck cells 分泌粘液。胃部也分布：G细胞-Gastrin，ECL细胞-Histamine，D细胞-Somatostatin
     - [胃部泌酸的调控](Medical_Physiology/65-7.png)：进食前 Cephalic phase(30%) -- 胃中 Gastric phase(60%) -- 肠中 Intestinal phase(10%)
     - Acetylcholine(副交感)/Gastrin/Histamine可刺激壁细胞，其中乙酰胆碱也可刺激粘液细胞
     - Hints：胃的前半段同时需要酸和粘液，后半段的幽门就只需要粘液
+    - Hints：强酸下，胃蛋白酶原(epsinogen) --> 胃蛋白酶(pepsin) 强力水解蛋白
 
 
 * 胰腺(Pancreas)直接向血液释放胰岛素，并向十二指肠释放含碳酸氢盐以及多种消化酶原的碱性溶液（酶原到肠道中才会被肠粘膜分泌物激活，蛋白酶原虽可自激活但胰腺中有其抑制机制）。
@@ -1917,22 +1918,31 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 * 大肠主要分泌粘液
 
 
-## Ch 66 肠胃-消化吸收(TBA)
+## Ch 66 肠胃-消化吸收
+
+如下图，淀粉被淀粉酶水解为双/多糖后，进一步被水解为单糖。乳糖和蔗糖也相应的被转化为单糖。最终吸收的糖分中，葡萄糖占80%，半乳糖和果糖各占10%
+
+![](Medical_Physiology/66-1.png)
 
 
 
+如下图，蛋白先在胃中由 Pepsin 初步水解，再于小肠中被胰液中的酶水解、裂解，最终小肽链由变成单氨基酸。饮食中，最主要的部分是结缔组织中胶原蛋白，主要由强酸环境下的 Pepsin 水解。如果蛋白/肽段没有完全水解，很可能会变成某种过敏原
+
+![](Medical_Physiology/66-2.png)
 
 
 
+如下图(小肠中)，脂肪主要由胆汁乳化、再由胰液中的酶水解。饮食中，主要的部分是甘油三酯，磷脂，胆固醇。唾液酶也承担约10%的脂肪分解（但由于没有乳化，只能分解脂肪团的表面）
+
+![](Medical_Physiology/66-4.png)![](Medical_Physiology/66-3.png)
 
 
+(Active transport) 除了酒精、阿司匹林等脂溶性物质，大部分消化物被小肠吸收，而大肠（主要是结肠的上半部分）吸收其余的水和电解质
+
+小肠具有被[villus](Medical_Physiology/66-6.png)覆盖的环状褶皱，使其吸收面积实际增加。**脂肪**溶入villus的中央乳糜管，于内质网中处理为甘油三酯的乳糜微粒，随后经由胸淋巴管(thoracic lymph duct)进入血液循环。溶于水的**糖/氨基酸/Na/Cl**则被[跨细胞转运](Medical_Physiology/66-8.png)，由门静脉途径肝脏后正式进入血液循环。
 
 
-
-
-
-
-
+小肠中，钙的吸收需要甲状旁腺激素(Parathyroid hormone)激活维生素D，铁的吸收与需求相关，钾、镁、磷酸盐也可以被肠粘膜吸收。一般来说，单价离子很容易被大量吸收。二价离子通常只被少量吸收
 
 
 ## Ch 67 肠胃-疾病(TBA)
