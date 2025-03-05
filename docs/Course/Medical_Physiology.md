@@ -1813,9 +1813,9 @@ Acetylcholine(+)
     - 治疗：通过注射高渗物质提高静脉渗透压、将水分吸出来；或直接引流
 
 
-## Ch 63 GI tract
+## Ch 63 肠胃
 
-* 肠胃道(Gastrointestinal tract)，即[消化道(alimentary tract)](Medical_Physiology/63-1.png)是起自口腔终于肛管的肌性管道。其[横截面](Medical_Physiology/63-2.png)如图示
+* 肠胃道(Gastrointestinal/GI tract)，即[消化道(alimentary tract)](Medical_Physiology/63-1.png)是起自口腔终于肛管的肌性管道。其[横截面](Medical_Physiology/63-2.png)如图示
 
 ```
     - 肠系膜
@@ -1833,18 +1833,91 @@ Acetylcholine(+)
 
 * 肠壁的[神经丛](Medical_Physiology/63-4.png)分布在环肌与Submucosa处，接收自主神经系统的调控，也有自己的节律(gut wall enteric nervous system)
     - enteric -- 局部作用：分泌、蠕动、混合收缩、局部抑制
-    - 交感 -- 长距离信号传输：来自胃的信号引起结肠的排泄（胃结肠反射），来自结肠和小肠的信号抑制胃运动和胃分泌（肠胃反射），来自结肠的信号抑制回肠内容物排入结肠（结肠镜反射）
+    - 交感/副交感 -- 长距离信号传输：来自胃的信号引起结肠的排泄（[胃结肠反射](Medical_Physiology/64-6.png)），来自结肠和小肠的信号抑制胃运动和胃分泌（肠胃反射），来自结肠的信号抑制回肠内容物排入结肠（结肠镜反射）
     - 脊髓/脑干：控制胃的运动和分泌活动，疼痛反射抑制整个胃肠道，结肠/直肠/腹部收缩（排便反射）
 
 
-* 肠道的[收缩模式](Medical_Physiology/63-5.png)大体上分为蠕动(推进)和分割(混合)，蠕动的速度决定了消化/排空的时间
+* 肠道的[收缩模式](Medical_Physiology/63-5.png)大体上分为蠕动(Propulsive 推进)和分割(Mixing 混合)，蠕动的速度决定了消化/排空的时间
 
 * 在进入体循环之前，需经历[内脏血流循环(Splanchnic circulation)](Medical_Physiology/63-6.png)：GI的静脉血流从门静脉汇总至肝脏，由肝脏清除其中的病原，并合成、储存糖原和脂肪
     - [Villi的毛细血管](Medical_Physiology/63-8.png)中80%的氧气会直接进入静脉、不能使用，在缺氧/疾病时这个机制容易导致 Villi 钝化，吸收效率下降（注：吸收/转运物质也需要消耗较多氧气和ATP）
     - 失血过多时，内脏血液也可被挤出约400ml应急（交感--急剧收缩血管）
 
 
-## Ch 64 (TBA)
+## Ch 64 肠胃-混合食物
+
+(Ch 56)**脑干**控制相关运动：咀嚼、吞咽、肠胃、...
+
+hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下的步骤：
+
+
+* 咀嚼(mastication)：前牙切碎(incisors)，后牙研磨(molars)
+    - 三叉神经(5th [cranial nerve](Medical_Physiology/64-a1.png), Trigeminal nerve)控制负责咀嚼的肌肉
+    - chewing reflex：食物抑制咀嚼肌肌肉（拉伸/张嘴） --- 肌肉收缩(stretch reflex)
+
+* 自主开始吞咽(deglutition)后，进入咽(pharynx)的食物刺激吞咽受体区域，向吞咽中枢传递信号，激活[吞咽的不自主阶段](Medical_Physiology/64-1.png)。咽-食管的运动由 5/9/10/12th cranial nerve 传递，食管-胃的运动由迷走神经支配
+    - 上拉软腭，防止食物反流进入鼻腔
+    - 咽收缩为小缝，阻止大食物
+    - 喉部声带(vocal cords)上拉，关闭会厌(epiglottis)，防止食物进入声带和气管。上拉也可扩大通往食管(esophagus)的开口，同时 Upper Esophageal Sphincter 松弛，食物进入食管
+    - 咽食管括约肌恢复收缩状态，防止呼吸时空气进入食道
+    - 食物蠕动至胃部(喉部的运动也可推动食管中的食物蠕动，即 primary peristalsis)，若有残余会激起 secondary peristalsis
+
+* Lower Esophageal Sphincter 防止胃内容物反流至食道，仅在接收食物时打开
+
+* [胃部(stomach)](Medical_Physiology/64-2.png)将食物消化至半流体食糜(Chyme)，并一定程度上充当储存区：贲门(Cardia)---基底(Fundus)---主体(Body)/腔(Antrum)---幽门(Pyloris)。一般幽门对流体是开放，但受胃壁压力/十二指肠的信号控制
+    - 蠕动(peristaltic waves/pyloric pump)80%时间处于温和状态以混合食物，20%时间剧烈以排空胃部。胃壁的拉伸/胃泌激素(Gastrin)增强它、促进胃排空
+    - 极度饥饿时的强力收缩(Hunger Contractions)   
+
+
+* 小肠(small intestine)会将流质分割(混合)成小段吸收，当然也有蠕动(推进)。正常的蠕动只有几厘米，但强力刺激下也会快速蠕动
+    - 十二指肠(Duodenum)中和酸度、脂肪，且控制食糜进入的速度不超过小肠消化和吸收的速度，过多/过酸/蛋白or脂肪含量过多/非等渗流体/其它刺激可引发抑制胃排空的反射（信号路径参考 Ch 63 肠壁的神经丛，以及[激素](Medical_Physiology/63-t1.png)）
+    - [回盲瓣(Ileocecal valve)](Medical_Physiology/64-4.png)防止回流
+
+
+* [大肠(large intestine)](Medical_Physiology/64-5.png)：随着水分的吸收，流体粪便在直肠(rectum)中已转为转为固体
+    - 结肠(colon)负责水和电解质的初次吸收。一天约两次：缓慢混合(8-10h Haustrations)，蠕动(15min Mass Movements)
+    - (Ch 63 肠壁的神经丛) 排便反射的一种是直肠壁受压的信号经 enteric nervous system 传递给结肠，产生蠕动直至放松 internal anal sphincter（[另一种](Medical_Physiology/64-6.png)经交感/副交感）。注意，external anal sphincter 受意识控制。
+
+
+其它反射：对腹膜/肾脏/膀胱的刺激会抑制肠道活动
+
+## Ch 65 肠胃-分泌腺
+
+消化道中的腺体受到局部刺激和自主神经系统的调控，它们分泌粘液（缓冲/保护/粘合）或酶（消化），一些[主要分泌物](Medical_Physiology/65-t1.png)：
+
+
+* 唾液(Saliva)主要由腮腺(parotid)、下颌腺(submandibular)、舌下腺(sublingual)、细小的颊腺(buccal)分泌，主要含有α-淀粉酶(α-amylase)、粘蛋白(mucin)、K/HCO3，低Na
+    - [唾液腺](Medical_Physiology/65-2.png)端顶分泌蛋白，管部吸收/分泌离子
+    - 副交感系统（接收面部/咽部信号）刺激唾液腺分泌
+
+
+* [胃腺(Gastric/Oxyntic gland)](Medical_Physiology/65-4.png)中**壁细胞**(parietal cell)分泌盐酸和内因子(Intrinsic Factor 维生素B12吸收)，**主细胞**(chief cell)分泌胃蛋白酶原(epsinogen 蛋白分解)，mucous neck cells 分泌粘液。胃部也分布：G细胞-Gastrin，ECL细胞-Histamine，D细胞-Somatostatin
+    - [胃部泌酸的调控](Medical_Physiology/65-7.png)：进食前 Cephalic phase(30%) -- 胃中 Gastric phase(60%) -- 肠中 Intestinal phase(10%)
+    - Acetylcholine(副交感)/Gastrin/Histamine可刺激壁细胞，其中乙酰胆碱也可刺激粘液细胞
+    - Hints：胃的前半段同时需要酸和粘液，后半段的幽门就只需要粘液
+
+
+* 胰腺(Pancreas)直接向血液释放胰岛素，并向十二指肠释放含碳酸氢盐以及多种消化酶原的碱性溶液（酶原到肠道中才会被肠粘膜分泌物激活，蛋白酶原虽可自激活但胰腺中有其抑制机制）。
+    - 蛋白质：trypsin/chymotrypsin 水解蛋白，carboxypolypeptidase 切割肽链
+    - 糖：pancreatic amylase 水解大多数碳水化合物至双糖
+    - 脂肪：pancreatic lipase 水解中性脂肪，cholesterol esterase 水解胆固醇，phospholipase 拆解磷脂
+    - [刺激胰腺分泌的机制](Medical_Physiology/65-10.png)
+        1. Cephalic/Gastric phase：副交感系统释放的乙酰胆碱
+        2. Intestinal phase：十二指肠感受到食物/酸后释放胆囊收缩素(cholecystokinin CCK)/胰泌素(Secretin)
+
+
+* 胆汁(bile)由肝脏分泌，存于胆囊(gallbladder)，可乳化脂肪颗粒
+    - 十二指肠感受到食物后释放[CCK，挤压胆囊](Medical_Physiology/65-11.png)，胆汁进入十二指肠
+    - 94%胆盐随后重新被吸收、回到肝脏（回收过多水/胆汁酸/胆固醇，或若有炎症，可能造成胆结石）
+
+
+* 除了碱性的胰液和胆汁，十二指肠本身也会通过 Brunner's glands 分泌碱性粘液
+    - 整个小肠表面都分布肠隐窝(crypts of Lieberkühn)，位于肠绒毛之间。分泌粘液、酶(调节肠道菌群)、分泌/吸收大量的水和电解质(增加流动性 辅助吸收消化产物)
+
+* 大肠主要分泌粘液
+
+
+## Ch 66 肠胃-消化吸收(TBA)
 
 
 
@@ -1857,21 +1930,12 @@ Acetylcholine(+)
 
 
 
-## Ch 65 (TBA)
 
 
 
 
 
-
-
-## Ch 66 (TBA)
-
-
-
-
-
-## Ch 67 (TBA)
+## Ch 67 肠胃-疾病(TBA)
 
 
 
@@ -1889,6 +1953,7 @@ Acetylcholine(+)
 ## Ch 72 (TBA)
 ## Ch 73 (TBA)
 ## Ch 74 (TBA)
+
 ## Ch 75 (TBA)
 ## Ch 76 (TBA)
 ## Ch 77 (TBA)
