@@ -2015,7 +2015,7 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 脂质的最终吸收形态是(中性脂肪)甘油三酯的乳糜微粒([Chylomicrons](Medical_Physiology/69-1.png))，约2h内[从血液中清除](Medical_Physiology/69-2.png)：内含物甘油三酯被存入脂肪组织或被外周组织的使用，作为其外壳的胆固醇(cholesterol)、磷脂(phospholipids)、载脂蛋白(apolipoproteins)则被肝脏回收。脂蛋白(lipoproteins)即消耗部分甘油三酯的乳糜微粒，随着甘油三酯的含量下降而增加密度：```VLDLs -> IDLs -> LDLs -> HDLs (protein≈50%)```
 
 
-当肝脏糖原耗尽时/在生长、压力激素的影响下，脂肪组织会分解中性脂肪为游离脂肪酸(FFA)，FFA与脂蛋白结合、存在于血液中，支持全身器官的持久活动（脑、红细胞除外）：以肉碱(carnitine)为载体将脂肪酸转运至线粒体中，通过 [beta-oxidation](Medical_Physiology/69-3.png) 生成 ```Acetyl-CoA <--> β-酮酸```，运输至其它组织后、可加入[TCA循环](Medical_Physiology/68-6.png)（注意，开启TCA循环需足量 Oxaloacetic acid，这是葡萄糖的分解产物，否则脂肪分解的产物堆积、会获得很多酮）
+当肝脏糖原耗尽时/在生长、交感/压力激素的影响下（ACTH/glucocorticoids/Thyroxine/...），脂肪组织会分解中性脂肪为游离脂肪酸(FFA)，FFA与血浆蛋白albumin结合、存在于血液中，支持全身器官的持久活动（脑、红细胞除外）：以肉碱(carnitine)为载体将脂肪酸转运至线粒体中，通过 [beta-oxidation](Medical_Physiology/69-3.png) 生成 ```Acetyl-CoA <--> β-酮酸```，运输至其它组织后、可加入[TCA循环](Medical_Physiology/68-6.png)（注意，开启TCA循环需足量 Oxaloacetic acid，这是葡萄糖的分解产物，否则脂肪分解的产物堆积、会获得很多酮 --- 生酮饮食/Insulin不敏感）
 
 肝脏中，也可将[多余糖分转化为甘油三酯](Medical_Physiology/69-5.png)
 
@@ -2026,14 +2026,32 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 动脉粥样硬化斑块(atherosclerotic plaque)：(饱和脂肪-高胆固醇-)LDLs + Macrophage = Macrophage foam cell，堆积在动脉中、释放炎性物质，最终纤维化
 
 
-## Ch 70 蛋白代谢(TBA)
+## Ch 70 蛋白代谢
+
+各组织都需要氨基酸以合成组织特异性的蛋白质，氨基酸的合成与能量代谢主要在肝脏中进行
 
 
+[人体所需的20种 Amino acids 中](Medical_Physiology/70-1.png)，有10种不能合成，必须从饮食中获取（以单氨基酸或小肽的形式被吸收）。血液中的氨基酸含量相对恒定，肝脏是其重要调节器。
 
 
+各种α-酮酸(α-keto acids)是合成各种氨基酸的前体，可以来自糖、脂代谢的中间产物。由转氨酶(Aminotransferase)从谷氨酸中（组织中大量存在/作为氨基仓库）[将氨基赋予α-酮酸](Medical_Physiology/70-3.png)
+
+反之，去除氨基(Deamination)可生成```NADH + H```与酮，另一个产物 ```NH3```与CO2、鸟氨酸(Ornithine)一起[生成尿素(Urea)、瓜氨酸(Citrulline)、精氨酸(Arginine)](Medical_Physiology/70-a1.png)
+
+
+由于其前体与糖代谢相关，使用糖的能力/Insulin敏感度会影响蛋白合成。Glucocorticoids鼓励蛋白质分解为氨基酸，而Testosterone/Estrogen鼓励生成蛋白。Thyroxine增强代谢，加速蛋白的合成/分解
 
 
 ## Ch 71 肝脏(TBA)
+
+
+
+[](Medical_Physiology/70-.png)
+[](Medical_Physiology/70-.png)
+[](Medical_Physiology/70-.png)
+
+
+
 ## Ch 72 (TBA)
 ## Ch 73 (TBA)
 ## Ch 74 (TBA)
