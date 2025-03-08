@@ -9,7 +9,7 @@ img{
 
 Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
-注：1. 部分笔记中可能混淆了secretion(**分泌**出细胞)和excretion(**排出**体外); 2. 感知受体的“激活”默认指产生动作电位; 3. 脑部/神经系统相关的一切都有待补充学习，至少需要先了解一下解剖结构; 4. [部分章节的中文翻译](https://www.bilibili.com/read/readlist/rl545260); 5. 简写：激活(+)/抑制(-)
+注：1. 部分笔记中可能混淆了secretion(**分泌**出细胞)和excretion(**排出**体外); 2. 感知受体的“激活”默认指产生动作电位; 3. 脑部/神经系统相关的一切都有待补充学习，至少需要先了解一下解剖结构; 4. [部分章节的中文翻译](https://www.bilibili.com/read/readlist/rl545260)/[Study This Videos](https://www.bilibili.com/video/BV1fV411q7Px); 5. 简写：激活(+)/抑制(-)
 
 | 计划 | 已完成进度 |
 | -- | -- |
@@ -1939,7 +1939,7 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 (Active transport) 除了酒精、阿司匹林等脂溶性物质，大部分消化物被小肠吸收，而大肠（主要是结肠的上半部分）吸收其余的水和电解质
 
-小肠具有被[villus](Medical_Physiology/66-6.png)覆盖的环状褶皱，使其吸收面积实际增加。**脂肪**(脂肪酸、MG)溶入villus的中央乳糜管，于内质网中处理为甘油三酯的乳糜微粒，随后经由胸淋巴管(thoracic lymph duct)进入血液循环。溶于水的**糖/氨基酸/Na/Cl**则被[跨细胞转运](Medical_Physiology/66-8.png)，由门静脉途径肝脏后正式进入血液循环。
+小肠具有被[villus](Medical_Physiology/66-6.png)覆盖的环状褶皱，使其吸收面积实际增加。**脂肪酸、MG**溶入villus的中央乳糜管，于内质网中处理为甘油三酯的乳糜微粒，随后经由胸淋巴管(thoracic lymph duct)进入血液循环。溶于水的**糖/氨基酸/Na/Cl**则被[跨细胞转运](Medical_Physiology/66-8.png)，由门静脉途径肝脏后正式进入血液循环。
 
 
 小肠中，钙的吸收需要甲状旁腺激素(Parathyroid hormone)激活维生素D，铁的吸收与需求相关，钾、镁、磷酸盐也可以被肠粘膜吸收。一般来说，单价离子很容易被大量吸收。二价离子通常只被少量吸收
@@ -1979,6 +1979,14 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 ## Ch 68 糖代谢
 
+```
+肝脏中
+    1. 储存糖原
+    2. 转化: 半乳糖/果糖/葡萄糖
+    3. 糖酵解/TCA 产生能量与各种中间产物
+```
+
+
 细胞的[能量货币](Medical_Physiology/68-1.png) ```ATP <----> ADP + Pi ----> AMP + 2Pi``` 来自糖、脂、蛋白的氧化
 
 已知会以三种单糖的形式吸收糖分，此后在[肝脏中三种单糖可相互转换](Medical_Physiology/68-3.png)。
@@ -2012,7 +2020,17 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 ## Ch 69 脂代谢
 
-脂质的最终吸收形态是(中性脂肪)甘油三酯的乳糜微粒([Chylomicrons](Medical_Physiology/69-1.png))，约2h内[从血液中清除](Medical_Physiology/69-2.png)：内含物甘油三酯被存入脂肪组织或被外周组织的使用，作为其外壳的胆固醇(cholesterol)、磷脂(phospholipids)、载脂蛋白(apolipoproteins)则被肝脏回收。脂蛋白(lipoproteins)即消耗部分甘油三酯的乳糜微粒，随着甘油三酯的含量下降而增加密度：```VLDLs -> IDLs -> LDLs -> HDLs (protein≈50%)```
+```
+肝脏中
+    1. 将脂肪酸 beta-oxidation，生成β-酮酸运往其它身体组织
+    2. 将多余糖分合成甘油三酯
+    3. 合成胆固醇、磷脂和大多数脂蛋白           注：80%胆固醇——>bile salts
+（对于食物中的脂肪，肝脏提供胆汁将其乳化，以及分解/合成为甘油三酯后投入淋巴液，之后再从胸淋巴管进入血液循环）
+```
+
+注意：甘油三酯太大，细胞最多接收脂肪酸，在血液中二者处于某种相互转化的动态平衡？
+
+脂质的最终吸收形态是(中性脂肪)甘油三酯的乳糜微粒([Chylomicrons](Medical_Physiology/69-1.png))，[约2h内被吸收](Medical_Physiology/69-2.png)：内含物甘油三酯被存入脂肪组织或被外周组织的使用，作为其外壳的胆固醇(cholesterol)、磷脂(phospholipids)、载脂蛋白(apolipoproteins)则被肝脏回收。脂蛋白(lipoproteins)即消耗部分甘油三酯的乳糜微粒，随着甘油三酯的含量下降而增加密度：```VLDLs -> IDLs -> LDLs -> HDLs (protein≈50%)```
 
 
 当肝脏糖原耗尽时/在生长、交感/压力激素的影响下（ACTH/glucocorticoids/Thyroxine/...），脂肪组织会分解中性脂肪为游离脂肪酸(FFA)，FFA与血浆蛋白albumin结合、存在于血液中，支持全身器官的持久活动（脑、红细胞除外）：以肉碱(carnitine)为载体将脂肪酸转运至线粒体中，通过 [beta-oxidation](Medical_Physiology/69-3.png) 生成 ```Acetyl-CoA <--> β-酮酸```，运输至其它组织后、可加入[TCA循环](Medical_Physiology/68-6.png)（注意，开启TCA循环需足量 Oxaloacetic acid，这是葡萄糖的分解产物，否则脂肪分解的产物堆积、会获得很多酮 --- 生酮饮食/Insulin不敏感）
@@ -2028,7 +2046,14 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 ## Ch 70 蛋白代谢
 
-各组织都需要氨基酸以合成组织特异性的蛋白质，氨基酸的合成与能量代谢主要在肝脏中进行
+```
+肝脏中
+    1. Deamination 产生能量，副产物NH3 --- 以及，从体液中去除NH3，形成尿素
+    2. 合成多种氨基酸
+    3. 除抗体外，余下的 90% 血浆蛋白都由肝脏制造（包括凝血因子---需要维生素K）
+```
+
+各组织都需要氨基酸以合成组织特异性的蛋白质（功能或维持渗透压），氨基酸的合成与能量代谢主要在肝脏中进行
 
 
 [人体所需的20种 Amino acids 中](Medical_Physiology/70-1.png)，有10种不能合成，必须从饮食中获取（以单氨基酸或小肽的形式被吸收）。血液中的氨基酸含量相对恒定，肝脏是其重要调节器。
@@ -2036,23 +2061,39 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 各种α-酮酸(α-keto acids)是合成各种氨基酸的前体，可以来自糖、脂代谢的中间产物。由转氨酶(Aminotransferase)从谷氨酸中（组织中大量存在/作为氨基仓库）[将氨基赋予α-酮酸](Medical_Physiology/70-3.png)
 
-反之，去除氨基(Deamination)可生成```NADH + H```与酮，另一个产物 ```NH3```与CO2、鸟氨酸(Ornithine)一起[生成尿素(Urea)、瓜氨酸(Citrulline)、精氨酸(Arginine)](Medical_Physiology/70-a1.png)
+反之，去除氨基(Deamination)可生成```NADH + H```与酮，另一个产物 ```NH3```与CO2、鸟氨酸(Ornithine)一起[生成尿素(Urea)、瓜氨酸(Citrulline)、精氨酸(Arginine)](Medical_Physiology/70-a1.png)。如果尿素无法排出/血液中含量过高，会对脑部产生毒害 (hepatic coma)
 
 
 由于其前体与糖代谢相关，使用糖的能力/Insulin敏感度会影响蛋白合成。Glucocorticoids鼓励蛋白质分解为氨基酸，而Testosterone/Estrogen鼓励生成蛋白。Thyroxine增强代谢，加速蛋白的合成/分解
 
 
-## Ch 71 肝脏(TBA)
+## Ch 71 肝脏
+
+* 肝脏的主要功能
+    - 过滤、储存血液
+    - 消化：制造胆汁
+    - 糖、脂、蛋白的代谢
+    - 储存维生素A/D/B12、Fe离子    
+    - 形成凝血因子(coagulation factors)---需要维生素K
+
+* [肝小叶(liver lobule)](Medical_Physiology/71-1.png)是肝脏的基本结构和功能单位
+    - 门静脉(Portal vein)接收来自小肠的血液，肝血窦(Sinusoids)中进行过滤、代谢。随后血液流入中央静脉(Central vein)，合成的胆汁流入胆囊，脂肪以乳糜微粒的形式进入淋巴液 
+    - 巨噬细胞 Kupffer cell 清除外来的抗原、抗体
+
+* 门静脉堵塞/高压，可能造成腹水
+
+* 移除肝脏的一部分，可再生
+    - hepatocyte growth factor (HGF)
+    - 但持续损伤会阻碍再生能力，例如：长期炎症，纤维化
 
 
-
-[](Medical_Physiology/70-.png)
-[](Medical_Physiology/70-.png)
-[](Medical_Physiology/70-.png)
-
+* 胆汁中的主要色素[胆红素(Bilirubin)](Medical_Physiology/71-2.png)来自红细胞的降解
+    - 黄疸(Jaundice)即胆红素过量，通过评估血液/肠容物中它的含量，判断可能是某种溶血事件导致红细胞大量被破坏，或是由于肝病/胆汁生成被阻塞导致无法排出胆红素
 
 
 ## Ch 72 (TBA)
+[](Medical_Physiology/72-.png)
+[](Medical_Physiology/72-.png)
 ## Ch 73 (TBA)
 ## Ch 74 (TBA)
 
