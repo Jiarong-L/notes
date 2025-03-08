@@ -1932,14 +1932,14 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 
 
-如下图(小肠中)，脂肪主要由胆汁乳化、再由胰液中的酶水解。饮食中，主要的部分是甘油三酯，磷脂，胆固醇。唾液酶也承担约10%的脂肪分解（但由于没有乳化，只能分解脂肪团的表面）
+如下图(小肠中)，脂肪主要由胆汁乳化、再由胰液中的酶水解为[脂肪酸(fatty acids)](Medical_Physiology/69-a1.png)和单硬脂酸甘油酯(monoglycerides,MG)。饮食中，主要的部分是甘油三酯，磷脂，胆固醇。唾液酶也承担约10%的脂肪分解（但由于没有乳化，只能分解脂肪团的表面）
 
 ![](Medical_Physiology/66-4.png)![](Medical_Physiology/66-3.png)
 
 
 (Active transport) 除了酒精、阿司匹林等脂溶性物质，大部分消化物被小肠吸收，而大肠（主要是结肠的上半部分）吸收其余的水和电解质
 
-小肠具有被[villus](Medical_Physiology/66-6.png)覆盖的环状褶皱，使其吸收面积实际增加。**脂肪**溶入villus的中央乳糜管，于内质网中处理为甘油三酯的乳糜微粒，随后经由胸淋巴管(thoracic lymph duct)进入血液循环。溶于水的**糖/氨基酸/Na/Cl**则被[跨细胞转运](Medical_Physiology/66-8.png)，由门静脉途径肝脏后正式进入血液循环。
+小肠具有被[villus](Medical_Physiology/66-6.png)覆盖的环状褶皱，使其吸收面积实际增加。**脂肪**(脂肪酸、MG)溶入villus的中央乳糜管，于内质网中处理为甘油三酯的乳糜微粒，随后经由胸淋巴管(thoracic lymph duct)进入血液循环。溶于水的**糖/氨基酸/Na/Cl**则被[跨细胞转运](Medical_Physiology/66-8.png)，由门静脉途径肝脏后正式进入血液循环。
 
 
 小肠中，钙的吸收需要甲状旁腺激素(Parathyroid hormone)激活维生素D，铁的吸收与需求相关，钾、镁、磷酸盐也可以被肠粘膜吸收。一般来说，单价离子很容易被大量吸收。二价离子通常只被少量吸收
@@ -2010,8 +2010,29 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 糖异生(gluconeogenesis)指由氨基酸和脂肪的甘油部分形成葡萄糖，首先发生在肝脏、随后肾脏，可由 ACTH 增强。
 
 
-## Ch 69 脂代谢(TBA)
+## Ch 69 脂代谢
+
+脂质的最终吸收形态是(中性脂肪)甘油三酯的乳糜微粒([Chylomicrons](Medical_Physiology/69-1.png))，约2h内[从血液中清除](Medical_Physiology/69-2.png)：内含物甘油三酯被存入脂肪组织或被外周组织的使用，作为其外壳的胆固醇(cholesterol)、磷脂(phospholipids)、载脂蛋白(apolipoproteins)则被肝脏回收。脂蛋白(lipoproteins)即消耗部分甘油三酯的乳糜微粒，随着甘油三酯的含量下降而增加密度：```VLDLs -> IDLs -> LDLs -> HDLs (protein≈50%)```
+
+
+当肝脏糖原耗尽时/在生长、压力激素的影响下，脂肪组织会分解中性脂肪为游离脂肪酸(FFA)，FFA与脂蛋白结合、存在于血液中，支持全身器官的持久活动（脑、红细胞除外）：以肉碱(carnitine)为载体将脂肪酸转运至线粒体中，通过 [beta-oxidation](Medical_Physiology/69-3.png) 生成 ```Acetyl-CoA <--> β-酮酸```，运输至其它组织后、可加入[TCA循环](Medical_Physiology/68-6.png)（注意，开启TCA循环需足量 Oxaloacetic acid，这是葡萄糖的分解产物，否则脂肪分解的产物堆积、会获得很多酮）
+
+肝脏中，也可将[多余糖分转化为甘油三酯](Medical_Physiology/69-5.png)
+
+为何碳水充足时不会消耗脂肪？是脂肪生成/分解的平衡，可能是原材料增加、也可能是加速了生成过程中的酶
+
+肝脏中，可由脂肪酸合成胆固醇(多个Acetyl-CoA合成的sterol nucleus也可合成**胆汁酸**、类固醇激素)与磷脂(修饰甘油三酯而得)
+
+动脉粥样硬化斑块(atherosclerotic plaque)：(饱和脂肪-高胆固醇-)LDLs + Macrophage = Macrophage foam cell，堆积在动脉中、释放炎性物质，最终纤维化
+
+
 ## Ch 70 蛋白代谢(TBA)
+
+
+
+
+
+
 ## Ch 71 肝脏(TBA)
 ## Ch 72 (TBA)
 ## Ch 73 (TBA)
