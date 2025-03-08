@@ -1680,7 +1680,7 @@ e.g. 心肾相互作用中，右心过度充盈后使得 Renal venous congestion
 
 
 * [控制(+/-)大脑活动的激素(神经递质)](Medical_Physiology/59-1.png)，如图依次：多巴胺(-)，乙酰胆碱(+)，去甲肾上腺素(+)，血清素(-)
-    - 此外还有：enkephalins, gamma-aminobutyric acid, glutamate, vasopressin, adrenocorticotropic hormone, α-melanocyte stimulating hormone (α-MSH), neuropeptide-Y (NPY), epinephrine, histamine, endorphins, angiotensin II, and neurotensin
+    - 此外还有：enkephalins, gamma-aminobutyric acid, glutamate, vasopressin, adrenocorticotropic hormone (ACTH), α-melanocyte stimulating hormone (α-MSH), neuropeptide-Y (NPY), epinephrine, histamine, endorphins, angiotensin II, and neurotensin
     - 在特定突触中起作用，或释放到脑液中
 
 
@@ -1977,10 +1977,42 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 * 肠胃中的气体可能来自吞咽，也可能来自细菌代谢
 
 
-## Ch 68 (TBA)
-## Ch 69 (TBA)
-## Ch 70 (TBA)
-## Ch 71 (TBA)
+## Ch 68 糖代谢
+
+细胞的[能量货币](Medical_Physiology/68-1.png) ```ATP <----> ADP + Pi ----> AMP + 2Pi``` 来自糖、脂、蛋白的氧化
+
+已知会以三种单糖的形式吸收糖分，此后在[肝脏中三种单糖可相互转换](Medical_Physiology/68-3.png)。
+
+葡萄糖通过 facilitated diffusion 进入组织细胞，大部分情况下 protein carrier 的激活需要 insulin (肝、脑细胞除外)。肠、肾上皮需要逆梯度转运葡萄糖，此时通过 active sodium-glucose co-transport 进入细胞。
+
+
+葡萄糖进入细胞后被转化为 Glucose-6-phosphate，不会再出细胞 (肝、肠、肾除外)。之后将储存为糖原 (肝、肌肉)，或用于能量代谢：发生在细胞质中的糖酵解(Glycolysis)只是不完全的氧化，真正的氧化反应发生在线粒体中的三羧酸循环/柠檬酸循环(Citric Acid Cycle, TCA Cycle)。且 TCA Cycle 的中间产物是合成许多生物分子的前体：葡萄糖、脂质、氨基酸、卟啉
+
+1. [Glycolysis](Medical_Physiology/68-5.png): ```Glu + 2ADP + 2Pi --> 2 Pyruvic acid + 2ATP + 4H```
+2. Decarboxylation: 转化丙酮酸(Pyruvic acid)为乙酰CoA```2 Pyruvic acid + Coenzyme A --> 2 Acetyl-CoA + 2CO2 + 4H```
+3. [TCA Cycle](Medical_Physiology/68-6.png): ```2 Acetyl-CoA + 6H2O + 2ADP --> 4CO2 + 16H + 2CoA + 2ATP```
+4. Dehydrogenation: [每一组 ```NADH + H``` 可生成(2.5-3)个ATP](Medical_Physiology/68-7.png)，每一组 ```FADH2``` 可生成(1.5-2)个ATP，这个氧化磷酸化过程消耗氧气
+
+
+| -- | ATP | NADH + H | FADH2 |
+| -- | -- | -- | -- |
+| Glycolysis | 2 | 2 | -- |
+| Decarboxylation | -- | 2 | -- |
+| TCA Cycle | 2 | 6 | 2 |
+
+所以，有氧呼吸的情况下，一分子葡萄糖最后生成 4 + 10x3 + 2x2 = 38ATP，占 66% 的能量。其余能量则作为热量散逸。产物 ATP、中间产物 citrate ion 的浓度会抑制糖酵解的酶 phosphofructokinase
+
+很明显，形成大量ATP的步骤需要氧气的存在。当氧浓度不足时，Pyruvic acid 堆积至一定浓度时也会抑制糖酵解。此时，[Pyruvic acid 会被还原为乳酸(Lactic acid)](Medical_Physiology/68-a1.png)，至少让糖酵解可以进行下去，此即是无氧呼吸
+
+
+肝、脂肪、乳腺、肾上腺皮质中，可以通过[戊糖磷酸途径(Pentose phosphate pathway,PPP)](Medical_Physiology/68-8.png)分解葡萄糖，产生大量NADPH，为各种合成反应提供还原力（脂肪、血红素、...），中间产物是核糖、芳香族氨基酸的原料
+
+糖异生(gluconeogenesis)指由氨基酸和脂肪的甘油部分形成葡萄糖，首先发生在肝脏、随后肾脏，可由 ACTH 增强。
+
+
+## Ch 69 脂代谢(TBA)
+## Ch 70 蛋白代谢(TBA)
+## Ch 71 肝脏(TBA)
 ## Ch 72 (TBA)
 ## Ch 73 (TBA)
 ## Ch 74 (TBA)
