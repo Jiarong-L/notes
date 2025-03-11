@@ -2098,7 +2098,7 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
     - 可根据呼吸熵判断是否正在消耗糖：糖(1)、脂(0.7)、蛋白(0.8)
     - 可根据氮排放（尿素）计算消耗蛋白的量
 
-* 从食物中获取的能量大部分用于维持体温，仅27%被用于细胞功能
+* 从食物中获取的能量大部分用于维持体温(其中35%能量在形成ATP时散逸、另有在使用ATP时散逸)，仅27%被用于细胞功能
 
 * [下丘脑接收消化系统反馈的激素](Medical_Physiology/72-1.png)，调节食欲；杏仁核、前额皮质调节口味；脑干可控制唾液、咀嚼等反射
     - 进食的短期调控意在防止暴饮暴食（肠道是否填充--CCK、血糖是否正常--Insulin）
@@ -2144,13 +2144,68 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 | Fluorine F | 保护牙齿 |
 
 
-## Ch 73 (TBA)
+## Ch 73 代谢率
+
+![](Medical_Physiology/73-1.png)
 
 
-## Ch 74 体温调节(TBA)
-[](Medical_Physiology/72-.png)
-[](Medical_Physiology/72-.png)
+* 磷酸肌酸(Phosphocreatine)是 “ATP Buffer”，它的高能键负责向ADP转移Pi: ```Phosphocreatine + ADP <——> ATP + Creatine```
+    - 无氧情况下，buffer 大约也只能支持5-10秒，随后依靠糖酵解获取少量ATP、累积乳酸，提高呼吸后再补充血氧、将积累的乳酸仍回TCA循环 (repaying the oxygen debt)
+    - 心肌缺氧一段时间后坏死，但普通肌肉只是疲劳
+
+
+* 化学反应的速度由底物与酶的浓度决定，[如图](Medical_Physiology/73-2.png)
+    - 生物中一般是一系列的化学反应，最慢的一步/最少的一种底物即其速度瓶颈：ADP浓度限制了生成ATP的速率
+
+
+* 代谢即体内的化学反应，代谢率即其过程中释放热量的速率，大约分为[3个主要类别](Medical_Physiology/73-3.png)：体温/基础代谢、运动、消化
+    - 1 calorie = 提高1g水1度所需热量
+    - 直接测量：体表流失热量
+    - 间接测量：对于一般的饮食来说，1L氧气约释放4.825卡路里（糖代谢--5.01, 淀粉代谢--5.06, 脂肪代谢--4.70, 蛋白代谢--4.60）
+
+* 基础代谢影响因素：肌肉(性别)、免疫、年龄(甲状腺/生长激素)
+
+* 消化蛋白所需的能量较多
+
+* 寒冷时，Nonshivering thermogenesis 提高代谢以维持体温，这与棕色脂肪有关（含大量线粒体、脂肪球较小）--- 直接产生热量而不是ATP
+
+
+## Ch 74 体温调节
+
+* Skin Temperature 可随周围环境变化，但 Core Temperature (体温) 需维持在一定范围内 --- [通过 Rectal/Oral 测量](Medical_Physiology/74-1.png)
+    - 调节失败：中暑（体液紊乱），失温，冻伤（细胞坏死）
+
+
+* 皮肤是最大的散热器官，若需提高散热：
+    - 提高[皮肤血流循环](Medical_Physiology/74-2.png) --- 寒冷环境中会收缩血管、减少散热，炎热环境中会扩张血管、增加散热
+    - 减少隔热的脂肪层
+    - 出汗(蒸发)：加速[汗腺](Medical_Physiology/74-5.png)流速、于是减少重吸收 
+    - 脱衣以增强[对流、蒸发、Radiation](Medical_Physiology/74-4.png)
+
+
+* 对于皮毛上无汗腺的动物而言，肺部的蒸发、热量交换也是散热的手段
+
+
+* 下丘脑前部-视前区(anterior hypothalamic-preoptic area)中有感受温度的神经元：大量 heat-sensitive neurons 以及约三分之一的 cold-sensitive neurons
+    - 炎热-需**散热**：扩张动脉/大量出汗，减少新陈代谢
+    - 寒冷-需**产热**：收缩动脉/减少出汗，增加新陈代谢，颤抖，汗毛竖起/减少局部气体对流 --- 交感/**甲状腺激素**
+
+
+* 下丘脑有一区域负责颤抖，受下丘脑前部-视前区的冷热信号调控
+    - 颤抖即全身骨骼肌张力增强、刺激 stretch reflex
+
+
+* 皮肤、脊柱、内脏主要分布 cold-sensitive neurons，以防失温
+    - local信号将扩散加强：如果将手放入冰桶，腿部也停止出汗，也会全身寒颤
+
+
+* Set point 即希望维持的平衡点，体温低于其将激活产热，高于时激活散热
+    - [不同皮肤温度对应不同 Set point](Medical_Physiology/74-8.png)：当体温处于正常范围的边界处时减少操作，防止出现过于激烈的体温调节
+    - Fever，即体温过高，此时[某种因素提高了 Set point](Medical_Physiology/74-11.png)：下丘脑肿瘤、免疫/Cytokines
+
+
 ## Ch 75 (TBA)
+[](Medical_Physiology/75-.png)
 ## Ch 76 (TBA)
 ## Ch 77 (TBA)
 ## Ch 78 (TBA)
