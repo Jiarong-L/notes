@@ -2204,17 +2204,95 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
     - Fever，即体温过高，此时[某种因素提高了 Set point](Medical_Physiology/74-11.png)：下丘脑肿瘤、免疫/Cytokines
 
 
-## Ch 75 (TBA)
-[](Medical_Physiology/75-.png)
-## Ch 76 (TBA)
-## Ch 77 (TBA)
-## Ch 78 (TBA)
-## Ch 79 (TBA)
+## Ch 75 内分泌
+
+* 细胞因子(Cytokines)指由细胞分泌的肽
+    - 自分泌(Autocrines hormones)：释放到细胞外液中，影响**自身或邻近的同种类**细胞
+    - 旁分泌(Paracrines hormones)：释放到细胞外液中，影响**邻近的不同类型**的靶细胞
+    - 内分泌(Endocrine hormones)：释放到循环血液中，影响**身体其他部位**靶细胞的功能
+
+* 神经元的分泌
+    - 神经递质(Neurotransmitters)：由神经元的轴突末端释放到突触连接处
+    - 神经内分泌激素(Neuroendocrine hormones)：由神经元分泌到循环血液中，影响身体其他部位靶细胞的功能
+
+* 血液中激素浓度是其分泌/清除速率的平衡
+    - 水溶性的激素（小肽/儿茶酚胺）随着血流快速清除，脂溶性的激素在血流中时结合血浆蛋白运输、可保留稍长的时间
+    - 清除手段：被组织分解，与组织结合，由肝脏排至胆汁，由肾脏排至尿液
+
+* 调节细胞的敏感程度：上调/下调受体与内部信号通路蛋白的数量
+    - 下调：接收信号后，受体被占用/内吞/失活/...
+    - 上调：接收信号后，合成更多受体蛋白
+
+* 激素类型主要包括：蛋白/多肽，类固醇(Steroids)，酪氨酸衍生物(Tyrosine)
+
+* 激素与特定受体结合，激活下游反应
+    - 细胞表面受体：水溶性激素、蛋白类激素不能穿过膜、只能结合细胞膜表面的受体
+    - 细胞内受体：脂溶性激素可以穿透细胞膜、结合细胞内受体 --- 由于其易跨膜扩散，不能大量预备，最多预备其制作原料（e.g.胆固醇）
+
+| 受体位置 | 受体 | 结合受体后会发生 | 其它 |
+| -- | -- | -- | -- |
+| 细胞表面 | 离子通道偶联受体 <br> Ion Channel–Linked Receptors | 打开离子通道，传递动作电位 | 一般与G蛋白偶联受体一起出现 | 
+| 细胞表面 | G蛋白偶联受体 <br> [G Protein–Linked Hormone Receptors](Medical_Physiology/75-4.png) | G蛋白的膜内部分被激活(GDP->GTP) | - GTP的下游可以是某种信使蛋白/激酶，也可以是一个离子通道偶联受体 <br> - 常见的第二信使系统（[激酶/调节Ca](Medical_Physiology/75-7.png)）：Adenylyl cyclase-cAMP, Phospholipase C, Calcium-Calmodulin |
+| 细胞表面 | 酶联受体 <br> [Enzyme-Linked Hormone Receptors](Medical_Physiology/75-5.png) | 直接开始催化反应 | 其受体即是一种酶 |
+| 细胞质中 | 类固醇的受体 | 形成复合体后转运至细胞核，[结合DNA启动子区域](Medical_Physiology/75-6.png)，与已有的基因调控蛋白一起调控转录 | 激素的跨膜扩散不具有特异性，但不同组织有不同的调控蛋白，因此效果是特异的 |
+| 细胞核中 | 甲状腺激素的受体：一些转录因子 | 激活转录因子，调控转录 | 对大部分细胞起效、增加100多种蛋白的转录、可持续数天甚至数周 |
+
+
+
+
+| [主要来源](Medical_Physiology/75-1.png) | Hormones | 功能 | 化学类型 |
+| -- | -- | -- | -- |
+| 下丘脑(Hypothalamus) | Thyrotropin-releasing hormone (TRH) | 促TSH、PRL释放 | Peptide | -- |
+| | Corticotropin-releasing hormone (CRH) | 促ACTH释放 | Peptide | -- |
+| | Growth hormone-releasing hormone / Somatoliberin (GHRH) | 促GH释放 | Peptide | -- |
+| | Growth hormone inhibitory hormone / Somatostatin (SS) | 抑制GH释放 | Peptide | -- |
+| | Gonadotropin-releasing hormone (GnRH) | 促(性腺激素)LH、FSH释放 | Peptide | -- |
+| | Dopamine(DA) | prolactin inhibiting factor(PIF), 抑制PRL释放 | Amine (胺) | -- |
+| 垂体前叶(Anterior pituitary) | Growth hormone (GH,生长激素) | 刺激蛋白质合成、组织生长、整体生长 | Peptide | -- |
+| | Thyroid-stimulating hormone (TSH,促甲状腺激素) | 刺激甲状腺激素（T4、T3）的合成和分泌 | Peptide | -- |
+| | Adrenocorticotropic hormone (ACTH,促肾上腺皮质激素) | 刺激肾上腺皮质激素的合成和分泌 | Peptide | -- | 
+| | Prolactin (PRL,催乳素) | 促进女性乳房发育和乳汁分泌 | Peptide | -- |
+| | Follicle-stimulating hormone (FSH,促卵泡激素) | 卵泡生长/精子成熟 | Peptide | -- |
+| | Luteinizing hormone (LH,促黄体生成激素) | 合成睾酮/合成雌激素、黄体素，形成黄体(corpus luteum)，刺激排卵 | Peptide | -- |
+| 垂体后叶(Posterior pituitary) | Antidiuretic hormone (ADH,vasopressin,抗利尿激素) | 增加肾脏水分重吸收、收缩血管，导致血压升高 | Peptide | -- |
+| | Oxytocin (催产素) | 刺激泌乳和子宫收缩 | Peptide | -- |
+| 甲状腺(Thyroid) | Thyroxine (T4,甲状腺素) and triiodothyronine (T3,三碘甲状腺原氨酸) | 提高大部分细胞的代谢，即全身代谢率 | Amine | -- |
+| | Calcitonin (CT,降钙素) | 促进骨中钙盐沉积，降低血清中钙离子浓度 | Peptide | -- |
+| 肾上腺皮质(Adrenal cortex) | Cortisol (皮质醇) | 控制蛋白质、碳水、脂肪的代谢；也有抗炎作用 | Steroid | -- |
+| | Aldosterone (醛固酮) | 作用于肾脏，提高钠的重吸收、钾分泌、氢离子分泌 | Steroid | -- |
+| 肾上腺髓质(Adrenal medulla ) | Norepinephrine(NE/NA 去甲肾上腺素), Epinephrine (E/A 肾上腺素) | 交感刺激 | Amine | -- |
+| 胰腺(Pancreas) -- 胰岛β细胞 | Insulin (胰岛素) | 促进细胞吸收游离葡萄糖，降低血糖 | Peptide | -- |
+| 胰腺(Pancreas) -- 胰岛α细胞 |  Glucagon (胰高血糖素) | 与胰岛素相对抗，增加血糖 | Peptide | -- |
+| 甲状旁腺(Parathyroid) | Parathyroid hormone (PTH) | 提高血清钙离子浓度：增加肠道/肾脏的钙吸收，从骨骼中释放钙 | Peptide | -- |
+| Testes | Testosterone (睾酮) | 生殖系统和第二性征的发育 | Steroid | -- |
+| Ovaries/Placenta | Estrogens (雌激素) | 生殖系统和第二性征的发育 | Steroid | -- |
+| | Progesterone (黄体素) | 调节月经周期、助孕，第二性征发育 | Steroid | -- |
+| Placenta | Human chorionic gonadotropin (HCG,人绒毛膜促性腺激素) | 促进黄体生长 | Peptide | -- |
+| | Human somatomammotropin (HCS,人绒毛膜生长素) | 与生长素十分相似，也许促进胎儿发育 | Peptide | -- |
+| Kidney | Renin (肾素) | 将酶原血管紧张素I转换为其活性形式血管紧张素II | Peptide | -- |
+| | 1,25-Dihydroxycholecalciferol (维生素D的活性形式) | 增加肠道吸收钙和骨矿化 | Steroid | -- |
+| | Erythropoietin (EPO,促红细胞生成素) | 红细胞生成 | Peptide | -- |
+| Heart | Atrial natriuretic peptide (ANP,心房钠尿肽) | 利尿，降血压 | Peptide | -- |
+| Stomach | Secretin (胰泌素) | 刺激胰腺腺泡细胞释放碳酸氢盐和水 | Peptide | -- |
+| Small intestine | Cholecystokinin (CCK,胆囊收缩素) | 刺激胆囊收缩和胰酶的释放 | Peptide | -- |
+| 脂肪细胞(Adipocytes) | Leptin(瘦素) | 抑制食欲，刺激生热 | Peptide | -- |
+
+
+## Ch 76 下丘脑控制垂体(TBA)
+[](Medical_Physiology/76-.png)
+## Ch 77 甲状腺激素(TBA)
+## Ch 78 肾上腺皮质激素(TBA)
+## Ch 79 血糖激素(TBA)
 ## Ch 80 (TBA)
 ## Ch 81 (TBA)
 ## Ch 82 (TBA)
 ## Ch 83 (TBA)
 ## Ch 84 (TBA)
 ## Ch 85 (TBA)
+
+
+
+
+
 
 
