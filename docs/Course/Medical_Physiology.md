@@ -2235,34 +2235,34 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 | 细胞表面 | G蛋白偶联受体 <br> [G Protein–Linked Hormone Receptors](Medical_Physiology/75-4.png) | G蛋白的膜内部分被激活(GDP->GTP) | - GTP的下游可以是某种信使蛋白/激酶，也可以是一个离子通道偶联受体 <br> - 常见的第二信使系统（[激酶/调节Ca](Medical_Physiology/75-7.png)）：Adenylyl cyclase-cAMP, Phospholipase C, Calcium-Calmodulin |
 | 细胞表面 | 酶联受体 <br> [Enzyme-Linked Hormone Receptors](Medical_Physiology/75-5.png) | 直接开始催化反应 | 其受体即是一种酶 |
 | 细胞质中 | 类固醇的受体 | 形成复合体后转运至细胞核，[结合DNA启动子区域](Medical_Physiology/75-6.png)，与已有的基因调控蛋白一起调控转录 | 激素的跨膜扩散不具有特异性，但不同组织有不同的调控蛋白，因此效果是特异的 |
-| 细胞核中 | 甲状腺激素的受体：一些转录因子 | 激活转录因子，调控转录 | 对大部分细胞起效、增加100多种蛋白的转录、可持续数天甚至数周 |
+| 细胞核中 | 甲状腺激素的受体：一些转录因子 | [激活转录因子](Medical_Physiology/77-5.png)，调控转录 | 对大部分细胞起效、增加100多种蛋白的转录、可持续数天甚至数周 |
 
 
 
 
-| [主要来源](Medical_Physiology/75-1.png) | Hormones | 功能 | 化学类型 |
-| -- | -- | -- | -- |
+| [主要来源](Medical_Physiology/75-1.png) | Hormones | 功能 | 化学类型 | 分泌细胞 |
+| -- | -- | -- | -- | -- |
 | 下丘脑(Hypothalamus) | Thyrotropin-releasing hormone (TRH) | 促TSH、PRL释放 | Peptide | -- |
 | | Corticotropin-releasing hormone (CRH) | 促ACTH释放 | Peptide | -- |
-| | Growth hormone-releasing hormone / Somatoliberin (GHRH) | 促GH释放 | Peptide | -- |
-| | Growth hormone inhibitory hormone / Somatostatin (SS) | 抑制GH释放 | Peptide | -- |
+| | Growth hormone-releasing hormone (GHRH/Somatoliberin) | 促GH释放 | Peptide | -- |
+| | Growth hormone inhibitory hormone (GHIH/Somatostatin/SS) | 抑制GH释放 | Peptide | -- |
 | | Gonadotropin-releasing hormone (GnRH) | 促(性腺激素)LH、FSH释放 | Peptide | -- |
-| | Dopamine(DA) | prolactin inhibiting factor(PIF), 抑制PRL释放 | Amine (胺) | -- |
-| 垂体前叶(Anterior pituitary) | Growth hormone (GH,生长激素) | 刺激蛋白质合成、组织生长、整体生长 | Peptide | -- |
-| | Thyroid-stimulating hormone (TSH,促甲状腺激素) | 刺激甲状腺激素（T4、T3）的合成和分泌 | Peptide | -- |
-| | Adrenocorticotropic hormone (ACTH,促肾上腺皮质激素) | 刺激肾上腺皮质激素的合成和分泌 | Peptide | -- | 
-| | Prolactin (PRL,催乳素) | 促进女性乳房发育和乳汁分泌 | Peptide | -- |
-| | Follicle-stimulating hormone (FSH,促卵泡激素) | 卵泡生长/精子成熟 | Peptide | -- |
-| | Luteinizing hormone (LH,促黄体生成激素) | 合成睾酮/合成雌激素、黄体素，形成黄体(corpus luteum)，刺激排卵 | Peptide | -- |
+| | Dopamine(DA) | prolactin inhibiting hormone(PIH), 抑制PRL释放 | Amine (胺) | -- |
+| 垂体前叶(Anterior pituitary) | Growth hormone (GH,生长激素) | 节约糖原、消耗脂肪（可能会拮抗胰岛素），刺激蛋白质合成、细胞分裂：组织生长、整体生长，骨骼生长/增厚 | Peptide | Somatotropes |
+| | Thyroid-stimulating hormone (TSH,促甲状腺激素) | 刺激甲状腺激素（T4、T3）的合成和分泌 | Peptide | Thyrotropes |
+| | Adrenocorticotropic hormone (ACTH,促肾上腺皮质激素) | 刺激肾上腺皮质激素的合成和分泌 | Peptide | Corticotropes | 
+| | Prolactin (PRL,催乳素) | 促进女性乳房发育和乳汁分泌 | Peptide | Lactotropes |
+| | Follicle-stimulating hormone (FSH,促卵泡激素) | 卵泡生长/精子成熟 | Peptide | Gonadotropes |
+| | Luteinizing hormone (LH,促黄体生成激素) | 合成睾酮/合成雌激素、黄体素，形成黄体(corpus luteum)，刺激排卵 | Peptide | Gonadotropes |
 | 垂体后叶(Posterior pituitary) | Antidiuretic hormone (ADH,vasopressin,抗利尿激素) | 增加肾脏水分重吸收、收缩血管，导致血压升高 | Peptide | -- |
 | | Oxytocin (催产素) | 刺激泌乳和子宫收缩 | Peptide | -- |
-| 甲状腺(Thyroid) | Thyroxine (T4,甲状腺素) and triiodothyronine (T3,三碘甲状腺原氨酸) | 提高大部分细胞的代谢，即全身代谢率 | Amine | -- |
+| 甲状腺(Thyroid) | Thyroxine (T4,甲状腺素) and triiodothyronine (T3,三碘甲状腺原氨酸) | 提高大部分细胞的代谢，即全身代谢率：激活各种酶、结构蛋白的转录，加速血流 | Amine | -- |
 | | Calcitonin (CT,降钙素) | 促进骨中钙盐沉积，降低血清中钙离子浓度 | Peptide | -- |
 | 肾上腺皮质(Adrenal cortex) | Cortisol (皮质醇) | 控制蛋白质、碳水、脂肪的代谢；也有抗炎作用 | Steroid | -- |
 | | Aldosterone (醛固酮) | 作用于肾脏，提高钠的重吸收、钾分泌、氢离子分泌 | Steroid | -- |
 | 肾上腺髓质(Adrenal medulla ) | Norepinephrine(NE/NA 去甲肾上腺素), Epinephrine (E/A 肾上腺素) | 交感刺激 | Amine | -- |
-| 胰腺(Pancreas) -- 胰岛β细胞 | Insulin (胰岛素) | 促进细胞吸收游离葡萄糖，降低血糖 | Peptide | -- |
-| 胰腺(Pancreas) -- 胰岛α细胞 |  Glucagon (胰高血糖素) | 与胰岛素相对抗，增加血糖 | Peptide | -- |
+| 胰腺(Pancreas) | Insulin (胰岛素) | 促进细胞吸收游离葡萄糖，降低血糖 | Peptide | 胰岛β细胞 |
+| 胰腺(Pancreas) |  Glucagon (胰高血糖素) | 与胰岛素相对抗，增加血糖 | Peptide | 胰岛α细胞 |
 | 甲状旁腺(Parathyroid) | Parathyroid hormone (PTH) | 提高血清钙离子浓度：增加肠道/肾脏的钙吸收，从骨骼中释放钙 | Peptide | -- |
 | Testes | Testosterone (睾酮) | 生殖系统和第二性征的发育 | Steroid | -- |
 | Ovaries/Placenta | Estrogens (雌激素) | 生殖系统和第二性征的发育 | Steroid | -- |
@@ -2278,12 +2278,53 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 | 脂肪细胞(Adipocytes) | Leptin(瘦素) | 抑制食欲，刺激生热 | Peptide | -- |
 
 
-## Ch 76 下丘脑控制垂体(TBA)
-[](Medical_Physiology/76-.png)
-## Ch 77 甲状腺激素(TBA)
+## Ch 76 下丘脑-垂体
+
+回忆一下，下丘脑中存在各种监控中心（温度、化学... ），它的调控手段主要通过交感/副交感神经系统、以及控制垂体的激素分泌
+
+发育过程中，Anterior pituitary 起源自上皮，通过血流接收下丘脑的激素信号，合成后续调控激素；Posterior pituitary 起源自神经组织，可被视为下丘脑中神经胶质细胞的延续，分泌下丘脑中产生的神经激素 --- [图示](Medical_Physiology/76-4.png)
+
+
+[垂体前叶激素](Medical_Physiology/76-2.png)与代谢、生长十分相关 (详见 Ch 75 表格)，假设因 先天/肿瘤/血管压迫 导致垂体功能完全衰退(Panhypopituitarism)，即减少所有垂体前叶激素，儿童无法发育，成人会肥胖且昏昏欲睡。其中，生长激素(GH)随着年龄的增长而下降，可能是衰老表征的原因之一（肌肉/蛋白减少、脂肪堆积、没有力气）。但如果GH过多则会造成成人肢端肥大症(acromegaly)。运动、睡眠可促进GH分泌，GH浓度、胰岛素、糖、脂肪酸(脂肪分解物)可抑制GH分泌。
+
+
+垂体后叶激素则与血压调节、分娩有关
+
+
+## Ch 77 甲状腺激素
+
+
+甲状腺激素（T4、T3）由垂体分泌的 THS 刺激生成（其血液浓度也对THS形成负反馈）：[释放follicle中以球蛋白形式保存的激素、提高其内碘浓度以促使酪氨酸碘化](Medical_Physiology/77-1.png)。血液中与血浆蛋白结合的T4占93%，但组织中基本转换为更有效的T3。
+
+甲状腺激素作用于细胞核内受体，[激活各种酶、结构蛋白的转录因子](Medical_Physiology/77-5.png)，最终提高全身的新陈代谢：增加线粒体的数量和活性，增加血流，大量消耗脂肪、糖、维生素以供代谢（也避免固醇堆积在血管里），同时也增加进食、消化、吸收
+
+
+儿童需要充足的甲状腺素以保证生长所需的能量，但过量会导致骨骼/大脑提前终止生长。
+
+
+成人若甲状腺激素过量(e.g.甲亢)，可能会消瘦、过度兴奋（焦虑/失眠）、多汗、食欲亢进。若需减少剂量，可以通过阻塞碘离子泵、减少摄入碘等手段降低follicle中碘浓度。另一方面，甲状腺的自身免疫疾病、长期缺碘会导致缺乏甲状腺激素。
+
+
+此外，可考虑使用放射性碘定向杀死甲状腺肿瘤
+
+
 ## Ch 78 肾上腺皮质激素(TBA)
-## Ch 79 血糖激素(TBA)
-## Ch 80 (TBA)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Ch 79 血糖调节(TBA)
+## Ch 80 血钙调节(TBA)
 ## Ch 81 (TBA)
 ## Ch 82 (TBA)
 ## Ch 83 (TBA)
@@ -2295,4 +2336,4 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 
 
-
+[](Medical_Physiology/78-.png)
