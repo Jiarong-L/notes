@@ -13,7 +13,7 @@ Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
 | 计划 | 已完成进度 |
 | -- | -- |
-| 第一轮-粗略笔记 | 61 |
+| 第一轮-粗略笔记 | 77 |
 | 第二轮-纠错补缺 | -- |
 | 第三轮-复习补充 | -- |
 
@@ -569,7 +569,7 @@ to form mRNA(去除introns)
     - [高盐+肾脏功能损坏](Medical_Physiology/19-8.png)：对动物喂食大量盐，初期是由于细胞外液(Extracellular fluid)过多造成动脉压升高，后期则是因为 Peripheral Resistance 保持动脉高压；因此若肾脏功能不佳，应饮食清淡
     - 醛固酮(Aldosterone，促使Na留在体内)过多：可能由于肿瘤等原因
 
-* [Renin-Angiotensin System (RAS)](Medical_Physiology/19-9.png) 应对低压，20 min 内即可完全起效：
+* [Renin-Angiotensin System (RAS)](Medical_Physiology/19-9.png) 应对低压，20 min 内即可完全起效（提高血压）：
     - Angiotensin Levels 正常的情况下，动脉压不会受盐摄入量的影响
     - 当 Angiotensin II 过度表达时，盐摄入量增加会造成动脉压升高
     - 当 ACE inhibition 发生时则没有 RAS(Angiotensin I 由 ACE 转化为 Angiotensin II)，动脉压较低
@@ -2240,7 +2240,7 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 
 
-| [主要来源](Medical_Physiology/75-1.png) | Hormones | 功能 | 化学类型 | 分泌细胞 |
+| [主要来源](Medical_Physiology/75-1.png) | Hormones | 功能 | 化学类型 | 分泌细胞/其它 |
 | -- | -- | -- | -- | -- |
 | 下丘脑(Hypothalamus) | Thyrotropin-releasing hormone (TRH) | 促TSH、PRL释放 | Peptide | -- |
 | | Corticotropin-releasing hormone (CRH) | 促ACTH释放 | Peptide | -- |
@@ -2258,8 +2258,8 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 | | Oxytocin (催产素) | 刺激泌乳和子宫收缩 | Peptide | -- |
 | 甲状腺(Thyroid) | Thyroxine (T4,甲状腺素) and triiodothyronine (T3,三碘甲状腺原氨酸) | 提高大部分细胞的代谢，即全身代谢率：激活各种酶、结构蛋白的转录，加速血流 | Amine | -- |
 | | Calcitonin (CT,降钙素) | 促进骨中钙盐沉积，降低血清中钙离子浓度 | Peptide | -- |
-| 肾上腺皮质(Adrenal cortex) | Cortisol (皮质醇) | 控制蛋白质、碳水、脂肪的代谢；也有抗炎作用 | Steroid | -- |
-| | Aldosterone (醛固酮) | 作用于肾脏，提高钠的重吸收、钾分泌、氢离子分泌 | Steroid | -- |
+| 肾上腺皮质(Adrenal cortex) | Cortisol (皮质醇) | 提高血糖（糖异生：消耗脂肪、蛋白质）；也有抗炎作用 | Steroid | -- |
+| | Aldosterone (醛固酮) | 水/电解质：作用于肾脏，提高钠的重吸收、钾分泌、氢离子分泌 | Steroid | -- |
 | 肾上腺髓质(Adrenal medulla ) | Norepinephrine(NE/NA 去甲肾上腺素), Epinephrine (E/A 肾上腺素) | 交感刺激 | Amine | -- |
 | 胰腺(Pancreas) | Insulin (胰岛素) | 促进细胞吸收游离葡萄糖，降低血糖 | Peptide | 胰岛β细胞 |
 | 胰腺(Pancreas) |  Glucagon (胰高血糖素) | 与胰岛素相对抗，增加血糖 | Peptide | 胰岛α细胞 |
@@ -2269,7 +2269,7 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 | | Progesterone (黄体素) | 调节月经周期、助孕，第二性征发育 | Steroid | -- |
 | Placenta | Human chorionic gonadotropin (HCG,人绒毛膜促性腺激素) | 促进黄体生长 | Peptide | -- |
 | | Human somatomammotropin (HCS,人绒毛膜生长素) | 与生长素十分相似，也许促进胎儿发育 | Peptide | -- |
-| Kidney | Renin (肾素) | 将酶原血管紧张素I转换为其活性形式血管紧张素II | Peptide | -- |
+| Kidney | Renin (肾素) | 转换 AGT 为 Angiotensin I (无活性)  | Peptide | [RAS](Medical_Physiology/19-9.png): 肝中生成的AGT进入血流，血流中被Renin转换；于肺部被 ACE 转换为 Angiotensin II (活性形式) |
 | | 1,25-Dihydroxycholecalciferol (维生素D的活性形式) | 增加肠道吸收钙和骨矿化 | Steroid | -- |
 | | Erythropoietin (EPO,促红细胞生成素) | 红细胞生成 | Peptide | -- |
 | Heart | Atrial natriuretic peptide (ANP,心房钠尿肽) | 利尿，降血压 | Peptide | -- |
@@ -2278,6 +2278,8 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 | 脂肪细胞(Adipocytes) | Leptin(瘦素) | 抑制食欲，刺激生热 | Peptide | -- |
 
 
+ (此表格内容尽量不在后续章节中重复) 
+
 ## Ch 76 下丘脑-垂体
 
 回忆一下，下丘脑中存在各种监控中心（温度、化学... ），它的调控手段主要通过交感/副交感神经系统、以及控制垂体的激素分泌
@@ -2285,13 +2287,13 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 发育过程中，Anterior pituitary 起源自上皮，通过血流接收下丘脑的激素信号，合成后续调控激素；Posterior pituitary 起源自神经组织，可被视为下丘脑中神经胶质细胞的延续，分泌下丘脑中产生的神经激素 --- [图示](Medical_Physiology/76-4.png)
 
 
-[垂体前叶激素](Medical_Physiology/76-2.png)与代谢、生长十分相关 (详见 Ch 75 表格)，假设因 先天/肿瘤/血管压迫 导致垂体功能完全衰退(Panhypopituitarism)，即减少所有垂体前叶激素，儿童无法发育，成人会肥胖且昏昏欲睡。其中，生长激素(GH)随着年龄的增长而下降，可能是衰老表征的原因之一（肌肉/蛋白减少、脂肪堆积、没有力气）。但如果GH过多则会造成成人肢端肥大症(acromegaly)。运动、睡眠可促进GH分泌，GH浓度、胰岛素、糖、脂肪酸(脂肪分解物)可抑制GH分泌。
+[垂体前叶激素](Medical_Physiology/76-2.png)与代谢、生长十分相关，假设因 先天/肿瘤/血管压迫 导致垂体功能完全衰退(Panhypopituitarism)，即减少所有垂体前叶激素，儿童无法发育，成人会肥胖且昏昏欲睡。其中，生长激素(GH)随着年龄的增长而下降，可能是衰老表征的原因之一（肌肉/蛋白减少、脂肪堆积、没有力气）。GH过多则会导致成人肢端肥大症(acromegaly)。运动、睡眠可促进GH分泌，GH浓度、胰岛素、糖、脂肪酸(脂肪分解物)可抑制GH分泌。
 
 
 垂体后叶激素则与血压调节、分娩有关
 
 
-## Ch 77 甲状腺激素
+## Ch 77 甲状腺
 
 
 甲状腺激素（T4、T3）由垂体分泌的 THS 刺激生成（其血液浓度也对THS形成负反馈）：[释放follicle中以球蛋白形式保存的激素、提高其内碘浓度以促使酪氨酸碘化](Medical_Physiology/77-1.png)。血液中与血浆蛋白结合的T4占93%，但组织中基本转换为更有效的T3。
@@ -2308,7 +2310,52 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 此外，可考虑使用放射性碘定向杀死甲状腺肿瘤
 
 
-## Ch 78 肾上腺皮质激素(TBA)
+## Ch 78 肾上腺
+
+* [肾上腺](Medical_Physiology/78-1.png)中
+    - 髓质分泌儿茶酚胺(Catecholamines)
+    - 皮质分泌甾体类化合物（[前体都是LDLs中的胆固醇](Medical_Physiology/78-2.png)），依照其调控对象可称为[糖/盐皮质激素](Medical_Physiology/78-a1.png)。于肝中降解为盐后进入胆汁或血流、经肠道或肾脏排出   --- 需要ACTH信号才能分泌，即受到下丘脑、垂体的调控，且有昼夜节律
+
+
+| 位置 | 分泌 | (参考 Ch 75) | -- |
+| -- | -- | -- | -- |
+| Zona glomerulosa | Aldosterone (醛固酮) | 水/电解质：作用于肾脏，提高钠的重吸收、钾分泌、氢离子分泌 | 60%与血浆蛋白结合，半衰期相对稍短 |
+| Zona fasciculata | Cortisol (皮质醇) | 提高血糖（糖异生：消耗脂肪、蛋白质，拮抗胰岛素）；也有抗炎作用 | 与血浆蛋白结合，缓慢代谢 |
+| Zona reticularis | Androgens (雄激素s) | 主要包括：甾体雄激素，睾酮及其代谢物 DHT | -- |
+| Medulla |  Norepinephrine/Epinephrine (去甲/肾上腺素) | 交感刺激 | -- |
+
+
+
+* 失去 Aldosterone 后即失去重吸收，低Na、高K、高H、血压下降，导致休克 
+    - 高血钾令静息电位更负、更难激活，心肌收缩功能降低
+    - 短期看，会激活 [Renin-Angiotensin System (RAS)](Medical_Physiology/19-9.png) 
+    - 单单增加 ACTH 不会立刻增加 Aldosterone，因为Aldosterone 的分泌同时接收其调控对象的负反馈（但ACTH是必须的、有影响的）
+
+
+* 感受到压力时会分泌 糖皮质激素，提高血糖以应对可能的消耗，Cortisol 是其中一种
+    - 长期过度分泌 Cortisol 会在消耗脂肪（主要发生在肝脏中），但增加了血液中的游离脂肪酸，可能导致脂肪不均匀的沉淀在头部、胸部
+    - 抑制炎症：阻止溶酶体膜破裂，降低毛细血管通透性，**抑制免疫**系统/信号（T-cell/interleukin-1），加速提供能量以供组织修复
+    - 可以作为过敏反应的应急药物，不过只是抑制了炎症反应 --- 起效需要45-60分钟，因为它的受体位于细胞质中、合成蛋白需要时间
+
+
+* 基因组上，ACTH附近有许多相似化学结构的激素，它们伴随着ACTH一起转录、分泌，称为 [pro-opiomelanocortin (POMC)](Medical_Physiology/78-10.png)
+    - 包括：MSH（促进黑色素合成），内啡肽（让人感到欣快满足和平静）
+
+
+* Addison’s Disease：由于肾上腺功能损坏，不能生成所有皮质激素
+    - 电解质、血压、血糖... 都降低
+    - 因为ACTH会增加，以试图调控：副作用是皮肤变黑
+
+* Cushing’s Syndrome：糖皮质激素过量
+    - 肾上腺自主分泌，或长期接收过量ACTH
+    - 面部肥胖、蛋白过度降解、...
+    - 注意，[Cortisol也是较弱的盐皮质激素](Medical_Physiology/78-a1.png)，因此也会发生高血压、电解质紊乱
+
+
+Conn’s Syndrome (Aldosterone过量)，Adrenogenital Syndrome (androgens过量)
+
+
+## Ch 79 胰岛(TBA)
 
 
 
@@ -2321,14 +2368,20 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 
 
+## Ch 80 甲状旁腺(TBA)
+
+血钙调节
 
 
-## Ch 79 血糖调节(TBA)
-## Ch 80 血钙调节(TBA)
+
 ## Ch 81 (TBA)
 ## Ch 82 (TBA)
 ## Ch 83 (TBA)
 ## Ch 84 (TBA)
+
+https://www.msdmanuals.cn/home/women-s-health-issues/normal-pregnancy/anemia-during-pregnancy
+
+
 ## Ch 85 (TBA)
 
 
@@ -2336,4 +2389,4 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 
 
 
-[](Medical_Physiology/78-.png)
+[](Medical_Physiology/79-.png)
