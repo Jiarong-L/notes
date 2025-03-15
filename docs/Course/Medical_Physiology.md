@@ -9,7 +9,7 @@ img{
 
 Guyton and Hall Textbook of Medical Physiology 摘要、笔记
 
-注：1. 部分笔记中可能混淆了secretion(**分泌**出细胞)和excretion(**排出**体外); 2. 感知受体的“激活”默认指产生动作电位; 3. 脑部/神经系统相关的一切都有待补充学习，至少需要先了解一下解剖结构; 4. [部分章节的中文翻译](https://www.bilibili.com/read/readlist/rl545260)/[Study This Videos](https://www.bilibili.com/video/BV1fV411q7Px); 5. 简写：激活(+)/抑制(-)
+注：1. 部分笔记中可能混淆了secretion(**分泌**出细胞)和excretion(**排出**体外); 2. 感知受体的“激活”默认指产生动作电位; 3. 脑部/神经系统相关的一切都有待补充学习，至少需要先了解一下解剖结构; 4. [部分章节的中文翻译](https://www.bilibili.com/read/readlist/rl545260)/[Study This Videos](https://www.bilibili.com/video/BV1fV411q7Px)/[Pathophysiology](https://www.bilibili.com/video/BV1ws4y1571T); 5. 简写：激活(+)/抑制(-)
 
 | 计划 | 已完成进度 |
 | -- | -- |
@@ -2261,8 +2261,8 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 | 肾上腺皮质(Adrenal cortex) | Cortisol (皮质醇) | 提高血糖（糖异生：消耗脂肪、蛋白质）；也有抗炎作用 | Steroid | -- |
 | | Aldosterone (醛固酮) | 水/电解质：作用于肾脏，提高钠的重吸收、钾分泌、氢离子分泌 | Steroid | -- |
 | 肾上腺髓质(Adrenal medulla ) | Norepinephrine(NE/NA 去甲肾上腺素), Epinephrine (E/A 肾上腺素) | 交感刺激 | Amine | -- |
-| 胰腺(Pancreas) | Insulin (胰岛素) | 促进细胞吸收游离葡萄糖，降低血糖 | Peptide | 胰岛β细胞 |
-| 胰腺(Pancreas) |  Glucagon (胰高血糖素) | 与胰岛素相对抗，增加血糖 | Peptide | 胰岛α细胞 |
+| 胰腺(Pancreas) | Insulin (胰岛素) | 促进细胞吸收游离葡萄糖，降低血糖（生成脂肪、蛋白） | Peptide | 胰岛β细胞 |
+| 胰腺(Pancreas) |  Glucagon (胰高血糖素) | 与胰岛素相对抗，增加血糖（分解脂肪） | Peptide | 胰岛α细胞 |
 | 甲状旁腺(Parathyroid) | Parathyroid hormone (PTH) | 提高血清钙离子浓度：增加肠道/肾脏的钙吸收，从骨骼中释放钙 | Peptide | -- |
 | Testes | Testosterone (睾酮) | 生殖系统和第二性征的发育 | Steroid | -- |
 | Ovaries/Placenta | Estrogens (雌激素) | 生殖系统和第二性征的发育 | Steroid | -- |
@@ -2355,17 +2355,28 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 Conn’s Syndrome (Aldosterone过量)，Adrenogenital Syndrome (androgens过量)
 
 
-## Ch 79 胰岛(TBA)
+## Ch 79 胰腺
+
+(Ch 65 胰腺在消化过程中的作用)
+
+* [胰腺(Pancreas)](Medical_Physiology/79-1.png)包括
+    - 腺泡(acini)：分泌胰液，由腺管排入十二指肠
+    - 胰岛(islet)：大小不同的细胞团组成的内分泌腺
+        * PP cell - 胰多肽(PP,Pancreatic polypeptide)：抑制餐后胰液和胆汁分泌
+        * α cell - 胰高血糖素(Glucagon)
+        * β cell - 胰岛素(Insulin)
+        * δ cell - 生长抑素(SS)：以旁分泌的方式抑制 α/β cell
 
 
+* [Insulin 结合受体](Medical_Physiology/79-3.png)，帮助细胞吸收血液中的糖（Glu磷酸化变为 [glucose-6-phosphate](Medical_Physiology/68-3.png) ），并将糖转化便于储存的形式：肌肉中为糖原，肝中则**转化为脂肪**、蛋白质。Glucagon 则与胰岛素相对抗，作用是分解脂肪、向血液中释放糖（去除Glu上的Pi）：在两餐的间隔，由于 Insulin、血糖、酶活性(Glu磷酸化) 的缓慢下降，会从肝中缓慢释放葡萄糖
+    - 总之 Insulin-Glucagon + 肝储存 起到了稳定血糖的作用。如果血糖严重偏低，肾上腺会分泌 epinephrine 刺激肝脏中葡萄糖的释放。对于长期低血糖，GH、cortisol 会提高脂质代谢以补足葡萄糖缺口
+    - Diabetes 后期会消瘦，因为脂肪不能新合成、只有消耗 --- 且由于总体上脂肪消耗的增加，会产生许多丙酮/酮酸
+    - (Ch 68) 葡萄糖通过 facilitated diffusion 进入组织细胞，大部分情况下 protein carrier 的激活需要 insulin (肝、脑细胞除外)
 
 
-
-
-
-
-
-
+* Diabetes mellitus: 一种代谢疾病，且长期高糖/高渗透压会伤害各种阻止
+    - Type 1 diabetes 缺失 Insulin，可能由于免疫系统攻击胰腺所致
+    - Type 2 diabetes [对 Insulin 不反应](Medical_Physiology/79-t2.png)，可能是由于肥胖/长期高糖导致下调了受体水平（或 Insulin 分泌）？
 
 
 ## Ch 80 甲状旁腺(TBA)
