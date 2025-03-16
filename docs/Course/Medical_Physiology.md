@@ -2257,20 +2257,20 @@ hunger 指进食的愿望，而 appetite 针对某种食物。进食需要以下
 | 垂体后叶(Posterior pituitary) | Antidiuretic hormone (ADH,vasopressin,抗利尿激素) | 增加肾脏水分重吸收、收缩血管，导致血压升高 | Peptide | -- |
 | | Oxytocin (催产素) | 刺激泌乳和子宫收缩 | Peptide | -- |
 | 甲状腺(Thyroid) | Thyroxine (T4,甲状腺素) and triiodothyronine (T3,三碘甲状腺原氨酸) | 提高大部分细胞的代谢，即全身代谢率：激活各种酶、结构蛋白的转录，加速血流 | Amine | -- |
-| | Calcitonin (CT,降钙素) | 促进骨中钙盐沉积，降低血清中钙离子浓度 | Peptide | -- |
+| | Calcitonin (CT,降钙素) | 促进骨中钙盐沉积，降低血清中钙离子浓度 | Peptide | parafollicular cells (C cells) |
 | 肾上腺皮质(Adrenal cortex) | Cortisol (皮质醇) | 提高血糖（糖异生：消耗脂肪、蛋白质）；也有抗炎作用 | Steroid | -- |
 | | Aldosterone (醛固酮) | 水/电解质：作用于肾脏，提高钠的重吸收、钾分泌、氢离子分泌 | Steroid | -- |
 | 肾上腺髓质(Adrenal medulla ) | Norepinephrine(NE/NA 去甲肾上腺素), Epinephrine (E/A 肾上腺素) | 交感刺激 | Amine | -- |
 | 胰腺(Pancreas) | Insulin (胰岛素) | 促进细胞吸收游离葡萄糖，降低血糖（生成脂肪、蛋白） | Peptide | 胰岛β细胞 |
 | 胰腺(Pancreas) |  Glucagon (胰高血糖素) | 与胰岛素相对抗，增加血糖（分解脂肪） | Peptide | 胰岛α细胞 |
-| 甲状旁腺(Parathyroid) | Parathyroid hormone (PTH) | 提高血清钙离子浓度：增加肠道/肾脏的钙吸收，从骨骼中释放钙 | Peptide | -- |
+| 甲状旁腺(Parathyroid) | [Parathyroid hormone (PTH)](Medical_Physiology/80-14.png) | 提高血清钙离子浓度：增加肠道/肾脏的钙吸收，从骨骼中释放钙 | Peptide | Chief cell |
 | Testes | Testosterone (睾酮) | 生殖系统和第二性征的发育 | Steroid | -- |
 | Ovaries/Placenta | Estrogens (雌激素) | 生殖系统和第二性征的发育 | Steroid | -- |
 | | Progesterone (黄体素) | 调节月经周期、助孕，第二性征发育 | Steroid | -- |
 | Placenta | Human chorionic gonadotropin (HCG,人绒毛膜促性腺激素) | 促进黄体生长 | Peptide | -- |
 | | Human somatomammotropin (HCS,人绒毛膜生长素) | 与生长素十分相似，也许促进胎儿发育 | Peptide | -- |
 | Kidney | Renin (肾素) | 转换 AGT 为 Angiotensin I (无活性)  | Peptide | [RAS](Medical_Physiology/19-9.png): 肝中生成的AGT进入血流，血流中被Renin转换；于肺部被 ACE 转换为 Angiotensin II (活性形式) |
-| | 1,25-Dihydroxycholecalciferol (维生素D的活性形式) | 增加肠道吸收钙和骨矿化 | Steroid | -- |
+| | 1,25-Dihydroxycholecalciferol ([维生素D的活性形式](Medical_Physiology/80-8.png)) | （肠道、肾脏）增加钙、磷的吸收 --- 帮助骨矿化 | Steroid | -- |
 | | Erythropoietin (EPO,促红细胞生成素) | 红细胞生成 | Peptide | -- |
 | Heart | Atrial natriuretic peptide (ANP,心房钠尿肽) | 利尿，降血压 | Peptide | -- |
 | Stomach | Secretin (胰泌素) | 刺激胰腺腺泡细胞释放碳酸氢盐和水 | Peptide | -- |
@@ -2379,25 +2379,82 @@ Conn’s Syndrome (Aldosterone过量)，Adrenogenital Syndrome (androgens过量)
     - Type 2 diabetes [对 Insulin 不反应](Medical_Physiology/79-t2.png)，可能是由于肥胖/长期高糖导致下调了受体水平（或 Insulin 分泌）？
 
 
-## Ch 80 甲状旁腺(TBA)
+## Ch 80 甲状旁腺：破骨
 
-血钙调节
+钙吸收需要（维生素D、PTH）：皮肤、肾脏、甲状旁腺、饮食中的脂肪
 
-
-
-## Ch 81 (TBA)
-## Ch 82 (TBA)
-## Ch 83 (TBA)
-## Ch 84 (TBA)
-
-https://www.msdmanuals.cn/home/women-s-health-issues/normal-pregnancy/anemia-during-pregnancy
+维持骨骼还需要压力、雌激素、蛋白(matrix)、维生素C(所有分泌细胞都需要)：与代谢疾病关联
 
 
-## Ch 85 (TBA)
+* 钙敏感受体(CaSR)主要分布在人体的甲状腺、甲状旁腺、骨骼、肠道系统、肾脏中
+    - [甲状旁腺(Parathyroid)](Medical_Physiology/80-11.png)分泌[PTH](Medical_Physiology/80-14.png)（增加血钙），高血钙时减少/无PTH的分泌
+        * 注意，虽然破骨、肠道吸收来源的磷增加了，但肾脏重吸收的磷减少了（维生素D增加重吸收的效果十分微弱），因此磷总体而言是减少了的
+    - 甲状腺(Thyroid)分泌的 Calcitonin 作用 PTH 相反，不过作用更加轻微
+
+
+* 85%的磷游离在血浆中，余下大部分位于细胞内，少于1% 位于骨中
+
+* 绝大部分钙位于骨中，仅0.1%游离在血浆中。血浆中钙离子含量相对稳定，其中9%与与阴离子络合，41%与蛋白结合，50%以磷酸盐等离子结合
+    - Hypocalcemia/Hypercalcemia：低/高血钙会是神经与肌肉活动过度兴奋/被抑制
+    - 与离子结合的钙溶于血浆，会经历肾的过滤与重吸收，会损失一小部分(100 mg/day) **--- PTH调控**，高钙情况易引起肾结石
+
+
+* [骨组织](Medical_Physiology/80-4.png)一般有两种：
+    - cortical (compact) 为坚固的外壳
+        * 30% matrix 抗拉强度佳：主要成分为 collagen fibers
+        * 70% salts 抗压强度佳：主要成分是 hydroxyapatite 晶体，即一种磷酸钙盐 Ca10(PO4)6(OH)2 -- 也有镁/钠/钾/碳酸盐
+    - trabecular (spongy) 填充有红骨髓，生成血液细胞(hematopoiesis)
+
+
+* Bone Calcification 时，collagen fibers 有助于控制钙盐的沉积、数周至数月内转化为晶体。焦磷酸盐(pyrophosphate)抑制晶体的转化，受成骨细胞(Osteo**b**lasts)调控：
+    - 分泌 nonspecific alkaline phosphatase (TNAP) 中和焦磷酸盐 --- 碱性磷酸酶，轻度甲状旁腺功能亢进的特征之一：极端破骨后需要大量成骨，平衡尚可维持
+    - 分泌 nucleotide pyrophosphatase phosphodiesterase 1 (NPP1) 于胞外产生焦磷酸盐
+    - 分泌 ankylosis protein (ANK) 促进磷酸盐从胞内至胞外的转运
+ 
+
+* 破骨细胞(Osteo**c**lasts)分泌酶与酸，溶解 matrix 与 salts **--- PTH调控**
+    - [成骨细胞接收PTH信号后，激活 RANKL(OPGL)](Medical_Physiology/80-6.png)，向破骨细胞前体发出信号，形成成熟的破骨细胞
+    - 不需要破骨时，在**雌激素**的影响下，成骨细胞分泌 OPG，占取 RANKL(OPGL)，防止其激活
+
+* 成骨-破骨大体处于一种动态平衡，儿童代谢速率最快
+    - 通常会根据骨骼承受的压力程度来调整其强度，长期失去压力的部分会脱钙，运动员的骨骼则增密增厚
+    - 替换脆弱的旧骨
+        
+
+* 在**PTH调控**下，皮肤、肾脏一步步[将维生素D转换为其活性形式](Medical_Physiology/80-8.png)
+    - （肠道 Strong effect）增加钙、磷的吸收
+    - （肾脏 Weak effect）增加钙、磷的重吸收
+
+
+* [牙齿](Medical_Physiology/80-16.png) 成分和骨类似，即 hydroxyapatite 晶体以及蛋白纤维 --- 牙本质(dentin)和牙骨质(cementum)中发生持续的矿物质交换，牙釉质(enamel)中则近无：磨损/生齿过程中缺钙会导致脱矿
+    - 牙釉质(Enamel)：致密版本的骨？且其蛋白纤维耐酸、酶和其他腐蚀剂，但长期附着细菌，通过糖代谢产生的酸会造成腐蚀、导致龋齿
+    - 牙本质(Dentin)：主要成分与骨的基本相同
+    - 牙骨质(Cementum)：由牙周膜细胞分泌的骨质，受力会增厚
+    - 牙髓(Pulp)：由结缔组织和丰富的神经纤维、血管和淋巴管组成
+
+
+## Ch 81-84 两性
+
+胎儿时期育受 HCG 刺激会产生性激素、帮助分化，儿童时期不会产生性激素，直到开始发育：下丘脑 GnRH --- 垂体 LH FSH --- 性激素 (见 Ch 75 表格)
+
+
+* [男性生殖系统](Medical_Physiology/81-1.png)：Seminiferous tubules 中 [精子形成(spermatogenesis)](Medical_Physiology/81-3.png)
+    - Semen PH 7.5
+    - 男性生殖道中，精子被大量胆固醇包裹，仅进行微弱的起伏运动
+
+
+* [女性生殖系统](Medical_Physiology/82-1.png)： [卵子形成(Oogenesis)](Medical_Physiology/82-3.png)
+    - [卵泡发育(follicle development)](Medical_Physiology/82-9.png)：周期性的 [Estradiol / Progesterone](Medical_Physiology/82-11.png) 水平
+
+
+孕期母体变化、[胎儿的发育阶段](https://www.msdmanuals.cn/home/women-s-health-issues/normal-pregnancy/stages-of-fetal-development)
+
+（Ch 83 略过，关于胚胎着床）
+
+
+## Ch 85 运动(TBA)
 
 
 
 
-
-
-[](Medical_Physiology/79-.png)
+[](Medical_Physiology/85-.png)
