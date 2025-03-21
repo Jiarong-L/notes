@@ -155,6 +155,43 @@ AI也许会在达成目标的途径中做出一些违反常识的决策
 
 
 
+## ADHD 
 
+ADHD是由多种生物学因素、心理因素及社会因素单独或协同作用造成的一种综合征。表现为注意力缺失、易冲动（不能抑制冲动），儿童时期的多动似乎在成年期会改善
+
+* [一个图片识别测试示例：不同种类任务耗费的时间](https://pmc.ncbi.nlm.nih.gov/articles/PMC6987009/)
+    - Information processing demands: 不同难度的推断Task，无需记忆，即 recognition
+    - Working Memory: counting，难度=广度，即 span
+
+* [药物治疗](https://zhuanlan.zhihu.com/p/230979308)：增加前额叶皮层（PFC）中 DA NE 水平 --- DA药物容易上瘾！
+    - [心理行为治疗](https://psych.dxy.cn/article/495042)
+    - [应对 Working Memory 受损这个问题](https://www.psychologytoday.com/us/blog/on-your-way-with-adhd/202402/understanding-adhd-working-memory-challenges)
+
+
+* [ADHD 共病抑郁障碍](https://pediatr.dxy.cn/article/518873) comorbidity 可能来自挫折，不过生理机制都是神经递质的不平衡
+
+
+* 数据集/Atlas
+    - [ADHD-200](http://preprocessed-connectomes-project.org/adhd200/index.html): MRI 数据，[fMRI处理流程示例（AthenaPipeline）](https://www.sciencedirect.com/science/article/abs/pii/S0925492723000999)
+    - [Neurosynth](http://neurosynth.org/) fMRI 数据库，在线进行 meta-analysis
+    - [BrainSpan](https://www.brainspan.org/) 健康人，Developmental Atlas 
+    - [Brain Map](https://portal.brain-map.org/) 健康人
+
+
+* [Nature Portfolio / 论文速览](https://www.nature.com/subjects/adhd)
+    -  GWAS/meta-analyses 发现 aggressive behavior 相关基因，用 BrainSpan Atlas 展示这些基因的定位：特定的大脑区域（额叶，前额叶，初级感觉皮层，杏仁核）、细胞类型和发育时间点 [link](https://www.nature.com/articles/s41380-020-00903-3)
+    - **iPSYCH cohort** 寻找多基因评分特征(PGS)、预测认知表现: ADHD中 自闭症 v.s. 非自闭症 [link](https://pmc.ncbi.nlm.nih.gov/articles/PMC11439085/)
+    - ADHD风险之一：Epigenetic age acceleration (EAA)，即实际年龄与（妊娠）表观遗传预测年龄之间的差异 [link](https://www.nature.com/articles/s41380-024-02544-2)
+    - 其它：
+        * AutoMorph管道提取视网膜特征：为什么眼部血管密度可以用来预测ADHD？视网膜多巴胺受体 [link](https://www.nature.com/articles/s41746-025-01547-9) 
+        * Med23是转录中介体(Mediator complex)的一个亚基，与包括小头畸形、癫痫和智力残疾在内的几种脑部疾病有关，敲除它的小鼠表现ADHD症状、且可用ADHD药物治疗改善 [link](https://www.nature.com/articles/s41386-025-02088-1)
+        * 无创脑刺激（NIBS）治疗ADHD的新靶点（刺激部位）：Neurosynth fMRI 荟萃分析（overlapped ROI） [link](https://www.nature.com/articles/s41398-025-03303-9)
+        * 当发生被动控制（检测到干扰时抑制自动反应）/主动控制（基于先验信息实施准备策略）时出现的信号即 stop-signal，用 fMRI 检测发现：相比正常儿童，ADHD儿童信号出现的空间飘忽不定（variance大），提示相关回路被破坏 [link](https://www.nature.com/articles/s41467-025-57685-x)
+        * cohort 评估孕妇饮食与神经发育障碍关联时候发现饮食模式与ADHD和自闭症显著相关，西方饮食模式代谢物评分（适用多个时间点）、 15种孕期代谢物可以用于改善ADHD的预测 （此文数据不公开）[link](https://www.nature.com/articles/s42255-025-01230-z#)
+
+
+[功能连通性MRI](https://blog.csdn.net/cc1609130201/article/details/120502328)：RS-FC 即当被试躺在扫描仪中休息而不执行任何特定任务时，测量大脑区域之间的rs-fMRI信号的同步
+        
+        
 
 

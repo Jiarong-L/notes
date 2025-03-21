@@ -211,10 +211,55 @@ Peto悖论：同一物种中，癌症的风险随着身高的增加而增加；�
 
 
 
+## Immunosenescence 免疫衰老
+
+Aging/Aged 指正常衰老过程/状态，即随着时间推进而失去功能
+
+Senescence 泛指呈现 Aged 特征的状态，也许不是正常的衰老
+
+但感觉各处都在混用/没有固定定义
 
 
+### 数据库: [Immunosenescence Inventory](https://pmc.ncbi.nlm.nih.gov/articles/PMC11701554/)
 
 
+[![Immunosenescence Inventory site map](https://ngdc.cncb.ac.cn/iaa/assets/sitemap4.05d1dcd9.png)](https://ngdc.cncb.ac.cn/iaa/help)
+
+
+[Age-related changes of immune cells](https://ngdc.cncb.ac.cn/iaa/knowledge/ImmuneCellChanges)，但 load 不出来：看介绍是各种免疫细胞上调/下调，包含组织信息
+
+似乎还可以根据细胞谱推断免疫年龄
+
+
+### 特征
+
+* [综述一](https://pmc.ncbi.nlm.nih.gov/articles/PMC10182360/)/[**综述二** T cell](https://www.jianshu.com/p/d61662ffe931)/[综述三](https://www.mdpi.com/2076-393X/12/12/1314)
+
+
+* 适应性免疫系统受到年龄影响更为严重：T cell 系统更加虚弱、更加缺乏弹性
+    - 线粒体功能障碍 --> 蛋白稳定性丧失 --> 功能受损（CD8+ 细胞毒性活动下降、naïve细胞端粒缩短、活化功能下降）、DNA/表观变化
+    - 炎症、胸腺退化 --> 干性/naïve↓，终末分化/memory↑，亚群分布发生改变
+    - TCR多样性下降
+
+```
+              Memory T
+naïve T  ---  
+              Effector  ----  T_EMRA / Exhausted / Senescent
+```
+
+
+T/B cells 都源自造血干细胞(HSC)，其中 B cells 在骨髓中发育，而 T cells 需移动至胸腺中发育。HSC dysfunctions以及 thymic involution **减少了 naïve T 的生成**，改变其 naïve↓/memory↑ ratio。不过胸腺与**TCR多样性的下降**无关，个人猜测是否是因为 HSC 失去干细胞特性？对自身抗原的过度反应？
+
+
+老年人对新抗原反应不灵敏的原因，可能是由于 naive T cells 对于刺激不再敏感，或是因为 naïve↓/memory↑ ratio 失衡（因为占用大量naïve潜力）。除开胸腺的原因，[暴露的抗原负担也会累计消耗 naive T-cell pool](https://pmc.ncbi.nlm.nih.gov/articles/PMC5573867/)，其总量不是无尽的、在年老时见底。（注：naive细胞减少后，终末细胞的平均寿命会延长一些）
+
+
+免疫衰老的标志之一是“全身慢性炎症”(inflammaging): 见上文 Chronic inflammation 节，种种原因累积受损的大分子/细胞碎片
+
+癌症、慢性感染中，持续的抗原刺激会推动 T-cell exhaustion。会耗竭的T细胞(Tex)特征是共抑制受体的上调(PD-1/TIM-3/LAG-3)，可由其前体 Tpex 进行补充。[mitochondrial dysfunction 推动 Tpex 向 Tex 转化](https://www.nature.com/articles/s41467-023-42634-3)，而衰老细胞中异常蛋白的累积会导致溶酶体异常、最终导致线粒体功能障碍
+
+
+免疫功能下降后，更加容易发生癌症的逃逸，年老也意味着积累了更多突变、更多衰老细胞
 
 
 
