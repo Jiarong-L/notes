@@ -202,12 +202,14 @@ JS中先执行完同步任务后再执行异步任务队列。常见的异步：
 function onSucc () {console.log('Succ')}
 function onFail () {console.log('Fail')}
 
-const p1 = Promise.resolve()  // 'Succ' 'Succ' 'Succ'
-.then(onSucc).then(onSucc).then(onSucc).catch(onFail)
+const p1 = Promise.resolve()  // 'Succ' 'Succ' 'Succ'  -  'Succ'         不推荐catch后再加then
+.then(onSucc).then(onSucc).then(onSucc).catch(onFail).then(onSucc)
 
-const p2 = Promise.reject()   // 'Fail'
-.then(onSucc).then(onSucc).then(onSucc).catch(onFail)
+const p2 = Promise.reject()   //  - - - 'Fail' 'Succ'                    不推荐catch后再加then
+.then(onSucc).then(onSucc).then(onSucc).catch(onFail).then(onSucc)
 ```
+
+
 Promise.resolve()相当于
 ```js
 const p1 = new Promise((resolve,reject)=>{
@@ -215,8 +217,8 @@ const p1 = new Promise((resolve,reject)=>{
 }).then(...).catch(...)
 ```
 
+**模拟resolve/resolve轮流进行的情况**，适合使用 then(onSucc,onFail) 而不是 catch(onFail) ---- catch 适合放在结尾，但是为何同样是加在 catch后，p1 正常但 p2 会出现 UnhandledPromiseRejection？
 
-**似乎**(?)如果使用catch(onFail)，then序列中有一次失败就会结束(不再返回Promise，哪怕onFail返回Promise)；不过如果改用then(onSucc,onFail)则可以继续then
 ```js
 function onSucc () {
     console.log('Succ')
@@ -227,10 +229,10 @@ function onFail () {
     return Promise.resolve()
 }
 
-// 'Fail'
-const p1 = Promise.reject().then(onSucc).then(onSucc).then(onSucc).catch(onFail)
-// 'Fail'  'Succ'  'Fail'
-const p2 = Promise.reject().then(onSucc,onFail).then(onSucc,onFail).then(onSucc,onFail).catch(onFail)
+//                               -             -           -          'Fail'       'Succ'      'Fail' 
+const p1 = Promise.reject().then(onSucc).then(onSucc).then(onSucc).catch(onFail).then(onSucc).catch(onFail)
+//                                 'Fail'              'Succ'         'Fail'       'Succ'+UnhandledPromiseRejection
+const p2 = Promise.reject().then(onSucc,onFail).then(onSucc,onFail).catch(onFail).then(onSucc)
 ```
 
 

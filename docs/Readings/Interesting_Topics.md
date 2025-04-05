@@ -194,4 +194,26 @@ ADHD是由多种生物学因素、心理因素及社会因素单独或协同作�
         
         
 
+## Treatment-resistant depression (TRD)
+
+* [抑郁症](https://www.msdmanuals.cn/home/mental-health-disorders/mood-disorders/depression)药物似乎是提高 5-HT / NE  / DA 水平，不过会受代谢影响
+
+
+* [难治性抑郁症是抑郁症导致疾病负担沉重的重要原因之一](https://rs.yiigle.com/CN2021/1342734.htm)
+    - 指抑郁症患者在接受足量足疗程（至少>6周）的两种不同作用机制的抗抑郁治疗后，仍未达到临床缓解（remission）标准
+    - 
+
+* [氯胺酮](https://www.x-mol.com/paper/1704030464102912000/t?adv)
+    - [Ketamine and esketamine](https://www.nature.com/articles/s41591-024-03063-x)
+
+
+
+
+
+
+
+
+
+
+
 

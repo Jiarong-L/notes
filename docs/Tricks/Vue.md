@@ -1,9 +1,8 @@
 
 
-
 vue是JS库框架，可自动更新页面，简化了DOM操作，更适合中大型项目  
 
-关联：React (TBA)
+关联：[React（直接返回JSX）](./React.md)
 
 ## Vue2
 ### 核心功能
