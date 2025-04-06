@@ -235,6 +235,41 @@ const p1 = Promise.reject().then(onSucc).then(onSucc).then(onSucc).catch(onFail)
 const p2 = Promise.reject().then(onSucc,onFail).then(onSucc,onFail).catch(onFail).then(onSucc)
 ```
 
+当 Promise 处于 pending状态时，不能参与计算，可以使用 .all() 或者等待其一先完成
+
+```js
+
+const slowNum = async (time,val) => {
+    return new Promise(
+        (resolve, reject) => {resolve(val)},
+        time
+    )
+}
+
+
+const A = slowNum(3000,1)
+const B = slowNum(1000,2)
+
+
+// Not working: [object Promise][object Promise]
+console.log( A + B)
+
+
+// Ok: get 3
+console.log( await A + await B)
+
+
+// Ok: get 3
+Promise.all([A,B]).then( ([valA,valB]) => {console.log( valA + valB)}    )
+
+
+// Ok: get 3 --- nested
+A.then((valA) => {
+        B.then(    (valB) => {console.log( valA + valB)}    )
+    }
+)
+```
+
 
 ### [Async](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function)
 异步处理的语法糖，无需刻意地链式调用 promise。  
