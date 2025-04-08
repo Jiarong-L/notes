@@ -2,7 +2,7 @@
 
 直接返回JSX，所以或许更适合较简单的网站？
 
-其它前端框架：：[Vue](./Vue.md)，[Svelte（跟踪、响应式状态、... 超级简化）](https://svelte.yayujs.com/docs/svelte/overview)
+其它前端框架：[React（直接返回JSX）](./React.md)，[Svelte（简洁易用）](./Svelte.md)
 
 后端框架：[Express (NodeJS)](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)/Django/Flask/SpringBoot/...
 
@@ -19,7 +19,7 @@ npm 是 Node.js 的包管理器，[npx 是运行器](https://dev.nodejs.cn/learn
 ## 创建 React 项目
 
 ```bash
-npm install create-react-app     ## 本地安装 React & router
+npm install create-react-app     ## 本地安装 React 
 npx create-react-app myapp       ## 创建项目
 cd myapp
 npm i --save-dev @types/react
