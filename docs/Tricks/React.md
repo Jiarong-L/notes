@@ -1,10 +1,10 @@
 
 
-直接返回JSX，所以或许更适合较简洁的网站？
+直接返回JSX，所以或许更适合较简单的网站？
 
-关联：[Vue](./Vue.md)，JS/ES6
+其它前端框架：：[Vue](./Vue.md)，[Svelte（跟踪、响应式状态、... 超级简化）](https://svelte.yayujs.com/docs/svelte/overview)
 
-后端框架：[Express](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)/Django/Flask/...
+后端框架：[Express (NodeJS)](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)/Django/Flask/SpringBoot/...
 
 ## 关于 node
 

@@ -2,7 +2,9 @@
 
 vue是JS库框架，可自动更新页面，简化了DOM操作，更适合中大型项目  
 
-关联：[React（直接返回JSX）](./React.md)
+其它前端框架：[React（直接返回JSX）](./React.md)，[Svelte（跟踪、响应式状态、... 超级简化）](https://svelte.yayujs.com/docs/svelte/overview)
+
+后端框架：[Express (NodeJS)](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)/Django/Flask/SpringBoot/...
 
 ## Vue2
 ### 核心功能

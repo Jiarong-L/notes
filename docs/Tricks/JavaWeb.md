@@ -1,7 +1,9 @@
 
-此教程是为了理解 Jeecg-库存管理网站 进行的学习，业务只需普通的 HTTP 单次请求
+此教程是为了理解 Jeecg-库存管理网站 的后端部分，只需普通的 HTTP 单次请求  
 
 如果希望制作 Chatbot（会话/即时交互），建立连接--多次交互--断开，即需要搭建 Socket 长连接（TCP/IP），建议使用 [Socket.IO](https://socket.io/zh-CN/docs/v4/) 
+
+**推荐**： [SpringBoot清晰教程](https://blog.csdn.net/m0_74436895/article/details/140792098)
 
 
 ## 工具
