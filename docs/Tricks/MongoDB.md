@@ -8,7 +8,7 @@ NoSQL数据库：可以类似关系型数据库，但不需要预先创建Table�
 可通过 [Mongoose](https://mongoose.nodejs.cn/docs/index.html) 与 NodeJS 交互，也有与 R 交互的 mongolite 包 [(GIS示例)](https://www.mongodb.com/resources/languages/mongodb-and-r-example)，与 [SpringBoot 的交互示例](https://blog.csdn.net/qq_46112274/article/details/117425532)
 
 
-GeoJson -- GIS 数据：[示例一](https://www.cnblogs.com/oloroso/p/9777141.html)，游戏地图...
+应用：[GeoJson -- GIS/游戏地图 数据](https://www.cnblogs.com/oloroso/p/9777141.html)，在线chatbot会话储存...
 
 
 | SQL | MongoDB |
