@@ -2,7 +2,9 @@
 
 直接返回JSX，所以或许更适合较简洁的网站？
 
-关联：[Vue](./Vue.md)，JS/ES6，[Express 框架](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)/Django 框架
+关联：[Vue](./Vue.md)，JS/ES6
+
+后端框架：[Express](https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Extensions/Server-side/Express_Nodejs)/Django/Flask/...
 
 ## 关于 node
 
