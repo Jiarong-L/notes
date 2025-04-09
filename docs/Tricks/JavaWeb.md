@@ -20,26 +20,62 @@
 
 ## 概念
 
-* MVC
+### MVC
+
 ```
        Model   处理数据逻辑----JavaBean
   Controller   对请求选择合适的Model和View----Servlet (url)
        View    用于数据展示、与用户交互----前端
 ```
 
-* SSM框架-三层架构
+### 规范-SSM框架
+
+[SSM = Spring + SpringMVC + MyBatis 概览](./JavaWeb/15.png)
+
 ```
-SpringMVC   表现层       Controller+View 处理用户界面和交互逻辑
-   Spring   业务逻辑层    Model  应用的核心框架，管理对象及其生命周期
   MyBatis   持久层       与数据库进行交互，增删改查
+   Spring   业务逻辑层    Model  应用的核心框架，管理对象及其生命周期
+SpringMVC   表现层       Controller+View 处理用户界面和交互逻辑
 ```
 
-* [Dao层、Entity层、Service层、Servlet层、Utils层](https://blog.csdn.net/Restarting2019/article/details/122296373)
 
-* [POJO、DTO、DAO、PO、BO、VO、QO、ENTITY](https://blog.csdn.net/qq_40610003/article/details/109007539)
+| 层 | -- | 获得的POJO | MyBatis 项目中（见SSM教程） |
+| -- | -- | -- | -- |
+| Dao | 封装对数据库的操作：增删改查 | Entity：严格对应数据库表的字段 | 设置SQL语句的Mapper |
+| Service | Do something | Domain/Model：综合/节选多张表的字段与信息 | Service接口 -> Impl实现类 -> Bean |
+| Controller | 根据url请求参数，调用不同的 Service | View：发送给前端展示的字段 | @Controller |
 
-* [Token、Cookie for Session](https://blog.csdn.net/weixin_52376041/article/details/134309318) 
+注: POJO 指普通Java对象，包括私有字段、对应的 getter/setter
 
+
+### [Cookie/SessionID/Token](https://www.bilibili.com/video/BV1kLqhY9EGR/)
+
+假设用户登陆后，需要维持一段时间的登录状态，可有如下三种选择。
+
+1. 登录成功后，Server 向浏览器发送简单 Cookie，此后用户每次发送请求都 ```Request + Cookie {username:xx}```；随后，Server 根据 Cookie 中的用户名获取对应的登录信息
+    - 由于 Cookie 仅存储于浏览器中，有被篡改的风险
+    - ...
+
+2. 登录成功后，Server 对此次登录生成 SessionID、发送给浏览器，此后用户每次发送请求都 ```Request + Cookie {SessionID}```；随后，Server 根据 Cookie 中的 SessionID 获取对应的用户和登录信息
+    - 多台服务器的情况下，登录信息可能不能共通
+
+
+3. 登录成功后，JWT 加密 ```algorithm - userinfo - signature``` 生成 Token 发送给浏览器，此后用户每次发送请求都带上 ```{Authorization:token}```；随后，Server 进行解密、检查 signature 后决定放行
+
+
+注：关于对文件/信息进行加密
+```
+keygen() -> (public_key, private_key)
+
+encrypt(PlainT, public_key) -> Cipher         //非对称加密
+decrypt(Cipher, private_key) -> PlainT
+
+sign(Msg, private_key) -> signature           //对文件进行签名
+varify(Msg, signature, public_key) -> OK? 
+
+encrypt(PlainT, key) -> Cipher                //对称加密
+decrypt(Cipher, key) -> PlainT
+```
 
 
 ## 教程导航
@@ -264,5 +300,9 @@ public interface UserDao{
 
 
 
+## 参考
 
-
+* [项目结构](https://blog.csdn.net/weixin_43899069/article/details/118379803)
+* [Dao层、Entity层、Service层、Servlet层、Utils层](https://blog.csdn.net/Restarting2019/article/details/122296373)
+* [POJO、DTO、DAO、PO、BO、VO、QO、ENTITY](https://blog.csdn.net/qq_40610003/article/details/109007539)
+* [Cookie/SessionID/Token 文字版](https://blog.csdn.net/weixin_52376041/article/details/134309318) 

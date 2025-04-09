@@ -1,7 +1,7 @@
 
 一款基于内存的分布式NoSQL数据库（Key:Value），Python/JS/Java 都有它的API。
 
-使用场景：缓存热门商品数据（内存加速），计数排序，分布式会话管理、通知推送、实时聊天（发布/订阅/消息队列），附近商家查询（地理空间）
+[使用场景](https://www.bilibili.com/video/BV1yPpwetEuq/)：缓存SessionID/热门访问数据（内存加速），Redisson/RedLock/.. [分布式锁](https://www.cnblogs.com/liuqingzheng/p/11080501.html)，计数排序，分布式会话管理、通知推送、实时聊天（发布/订阅/消息队列），附近商家查询（地理空间）
 
 
 
@@ -14,7 +14,7 @@
     - String/List/Set/SortedSet/Hash （键值对）
     - HyperLogLog（粗略统计）
     - Bitmaps/Bitfields
-    - Geospatial （空间距离统计）
+    - Geospatial （地理空间距离统计）
 
 
 
