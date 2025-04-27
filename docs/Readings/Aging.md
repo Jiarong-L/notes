@@ -269,7 +269,7 @@ naïve T  ---
 T/B cells 都源自造血干细胞(HSC)，其中 B cells 在骨髓中发育，而 T cells 需移动至胸腺中发育。HSC dysfunctions以及 thymic involution **减少了 naïve T 的生成**，改变其 naïve↓/memory↑ ratio。不过胸腺与**TCR多样性的下降**无关，个人猜测是否是因为 HSC 失去干细胞特性？对自身抗原的过度反应？
 
 
-老年人对新抗原反应不灵敏的原因，可能是由于 naive T cells 对于刺激不再敏感，或是因为 naïve↓/memory↑ ratio 失衡（因为占用大量naïve潜力）。除开胸腺的原因，[暴露的抗原负担也会累计消耗 naive T-cell pool](https://pmc.ncbi.nlm.nih.gov/articles/PMC5573867/)，其总量不是无尽的、在年老时见底。（注：naive细胞减少后，终末细胞的平均寿命会延长一些）
+老年人对新抗原反应不灵敏的原因，可能是由于 naive T cells 对于刺激不再敏感，或是因为 naïve↓/memory↑ ratio 失衡（因为占用大量naïve潜力）。除开胸腺的原因，[暴露的抗原负担也会消耗 naive T-cell pool](https://pmc.ncbi.nlm.nih.gov/articles/PMC5573867/)，初期可以代偿naïve/memory间的平衡，但年老时反而会加剧消耗naïve。（注：naive细胞减少后，终末细胞的平均寿命会延长一些）
 
 
 免疫衰老的标志之一是“全身慢性炎症”(inflammaging): 见上文 Chronic inflammation 节，种种原因累积受损的大分子/细胞碎片
