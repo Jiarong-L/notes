@@ -245,9 +245,11 @@ ATLAS很适合ML训练(预测年龄/部位/..)，或作为干扰试验的模拟�
 ## Immunosenescence 免疫衰老
 
 * [Immunosenescence in autoimmune diseases](https://www.sciencedirect.com/science/article/abs/pii/S1568997225000655)
-* [Hacking the immune system could slow ageing](https://news.qq.com/rain/a/20240509A06M7S00)
+* Hacking the immune system could slow ageing - [link1](https://news.qq.com/rain/a/20240509A06M7S00)/[link2](https://news.qq.com/rain/a/20241025A04FH200)
 * [综述一](https://pmc.ncbi.nlm.nih.gov/articles/PMC10182360/)/[**综述二** T cell](https://www.jianshu.com/p/d61662ffe931)/[综述三](https://www.mdpi.com/2076-393X/12/12/1314)
 
+* [ 巨噬细胞 & T_reg 可以有效调节干细胞](https://www.cn-healthcare.com/articlewm/20210401/content-1205454.html)
+* [骨髓Treg通过维持骨髓免疫稳态调节造血干细胞的分化平衡](https://www.ctae.cn/show-18-4947-1.html)
 
 ### 背景知识
 
