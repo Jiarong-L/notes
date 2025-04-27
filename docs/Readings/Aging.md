@@ -208,32 +208,50 @@ Peto悖论：同一物种中，癌症的风险随着身高的增加而增加；�
 
 
 [中文翻译](https://m.thepaper.cn/baijiahao_25845662)
+ 
 
+## 数据库
+
+ATLAS很适合ML训练(预测年龄/部位/..)，或作为干扰试验的模拟细胞，或更深入的研究特定细胞谱系(e.g.免疫)
+
+* [GenAge 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC5753192/) -- 人/模式物种，整合为长寿基因、饮食限制相关基因、...
+
+* [Aging Atlas 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC7779027/) -- [在线交互](https://ngdc.cncb.ac.cn/aging/index)，部分功能需要登录
+    - 分为不同的子库，e.g. [细胞类型的衰老marker](https://ngdc.cncb.ac.cn/aging/age_related_genes)；搜索基因，可查看特定基因干预下的多组学信息（包括原论文 DOI）
+
+* [Immunosenescence Inventory 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC11701554/) -- 整合的多物种数据库，维护中，打不开
+    - 知识库 (e.g.各种免疫细胞的上调/下调，包含组织信息)，多组学数据，似乎还可以在线根据细胞谱推断免疫年龄
+    - 详细功能见 [help / sitemap](https://ngdc.cncb.ac.cn/iaa/assets/sitemap4.05d1dcd9.png)
+
+
+* [mouse-pansci 单细胞图谱](https://www.science.org/doi/10.1126/science.adn3949) --  取样自 13 organs/tissue，5 个年龄段（也包括其中的免疫细胞），[在线交互](https://cells.ucsc.edu/?ds=mouse-pansci)提供下载选项
+    - 似乎使用哺乳动物特制的单细胞测序方法 [EasySci](https://digitalcommons.rockefeller.edu/student_theses_and_dissertations/778/)/[的数据处理脚本](https://github.com/JunyueCaoLab/EasySci)
+    - 雄性和雌性小鼠在每个器官中都有数百种不同的细胞状态：其中，衰老相关B细胞的雌性特异性扩增，可能有助于解释为什么老年女性患自身免疫疾病的几率高于男性
+    - [这一篇 mouse-pansci 的评论](http://dx.doi.org/10.1016/j.immuni.2025.01.015)中提到，人衰老并非匀速，而是在 34-60-78 这三个节点快速发生；小鼠特定细胞亚型的显著变化也集中在3个节点。淋巴细胞(T/B)随时间的变化最为剧烈，其次是肾尿路上皮细胞和肠巨噬细胞
+
+| 小鼠年龄/月 | 事件 | 
+| -- | -- | 
+| 3 - 成年早期 | 脂肪、肌肉和上皮组织中的特定细胞亚型数量明显下降 | 
+| 6 - 成年早期 | naïve CD4 T 细胞明显减少 | 
+| 12 - 成年晚期 | 肾脏、肺和脂肪组织、脾脏中 -- 终末分化免疫群体累积？ | 
+| 16 - 成年晚期 | 肠道特异/炎症 -- 终末分化免疫群体累积？ | 
+
+
+* [人类 scTCR/BCR-seq](https://www.nature.com/articles/s41590-024-02059-6) -- 13个年龄段(0-90岁) PBMCs，论文中提供数据下载，不过锁区了
+    - T 细胞受年龄影响最大，在特定年龄段细胞间相互作用的重塑最为剧烈
+    - [siAge](https://pu-lab.sjtu.edu.cn/shiny/siage-model/)：ML预测免疫年龄，基于24个marker [R代码](https://github.com/shanzha9/siAgeModel)
 
 
 ## Immunosenescence 免疫衰老
 
-Aging/Aged 指正常衰老过程/状态，即随着时间推进而失去功能
-
-Senescence 泛指呈现 Aged 特征的状态，也许不是正常的衰老
-
-但感觉各处都在混用/没有固定定义
-
-
-### 数据库: [Immunosenescence Inventory](https://pmc.ncbi.nlm.nih.gov/articles/PMC11701554/)
-
-
-[![Immunosenescence Inventory site map](https://ngdc.cncb.ac.cn/iaa/assets/sitemap4.05d1dcd9.png)](https://ngdc.cncb.ac.cn/iaa/help)
-
-
-[Age-related changes of immune cells](https://ngdc.cncb.ac.cn/iaa/knowledge/ImmuneCellChanges)，但 load 不出来：看介绍是各种免疫细胞上调/下调，包含组织信息
-
-似乎还可以根据细胞谱推断免疫年龄
-
-
-### 特征
-
+* [Immunosenescence in autoimmune diseases](https://www.sciencedirect.com/science/article/abs/pii/S1568997225000655)
+* [Hacking the immune system could slow ageing](https://news.qq.com/rain/a/20240509A06M7S00)
 * [综述一](https://pmc.ncbi.nlm.nih.gov/articles/PMC10182360/)/[**综述二** T cell](https://www.jianshu.com/p/d61662ffe931)/[综述三](https://www.mdpi.com/2076-393X/12/12/1314)
+
+
+### 背景知识
+
+Aging/Aged 指正常衰老过程/状态，即随着时间推进而失去功能；Senescence 泛指呈现 Aged 特征的状态，也许不是正常的衰老；但感觉各处都在混用/没有固定定义
 
 
 * 适应性免疫系统受到年龄影响更为严重：T cell 系统更加虚弱、更加缺乏弹性
