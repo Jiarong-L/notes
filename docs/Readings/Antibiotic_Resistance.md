@@ -63,7 +63,6 @@ Tandem gene amplifications - 在基因组中的某一特定基因或基因片段
 ## 各研究话题
 
 * 环境中ARG分布
-* 婴儿肠道中 MGEs 
 * [cohort study](https://pmc.ncbi.nlm.nih.gov/articles/PMC12004506/) 显示 E coli bloodstream infections 在乌普萨拉地区耐用性情况 (2025)
 
 
