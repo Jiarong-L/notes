@@ -16,7 +16,7 @@ Spatial Transcriptomics 常见方法可分为以下3类 In situ：
     - **10x Xenium**：对n种目标RNA设计n种padlock（padlock首尾与RNA互补，中间有ID barcode），将padlock与目标RNA进行杂交，随后通过滚换复制得到几百倍的padlock序列；随后，对padlock进行多轮荧光探针的原位杂交进行定位 ----- n种padlock的集合称为paddle，似乎可以达成 5000-gene panels ----- Xenium 的荧光探针是特定序列的寡核苷酸（针对poadlock ID），但染料只有4种颜色，故需分多轮进行杂交定位：清洗后再放入下一轮针对不同ID的荧光探针
 
 * Spot-based（ST）原位捕获：将样本平铺在一片Spot上，裂解细胞后遗传物质落入相应的 Spot 中获得空间标签，随后进行**NGS测序**
-    - Spot的大小为其分辨率，可以是多细胞水平（**10x Visum**），也可以是亚细胞水平（**BGI Stereo-seq**）
+    - Spot的大小为其分辨率，可以是多细胞水平（**10x Visium**），也可以是亚细胞水平（**BGI Stereo-seq**）
 
 
 Xenium 对基因表达的检出灵敏度比 Visium 高 8～9 倍
@@ -29,7 +29,7 @@ Xenium 对基因表达的检出灵敏度比 Visium 高 8～9 倍
     - 可以根据 k-hoop neighbor embedding 信息进行 binning
     - 直接从染色图像中识别细胞边界（STCellbin for Stereo-seq）
 
-* 对于 10x Visum，每个Spot可能跨越几个细胞，也可能切割一些细胞，故而如何将spots中reads分配给单个细胞也是一种挑战
+* 对于 10x Visium，每个Spot可能跨越几个细胞，也可能切割一些细胞，故而如何将spots中reads分配给单个细胞也是一种挑战
     - 常见将单细胞数据作为reference，预测每个spot中的细胞组成（deconvolution）
 
 * 如何将空间坐标（Spatial landmark）与组织照片对齐
@@ -50,7 +50,7 @@ BGI已为其开发了 [SAW workflow](https://www.stomics.tech/col447/list) 以�
 
 
 
-## 10x Visum
+## 10x Visium
 
 
 [Space Ranger](https://www.10xgenomics.com/support/software/space-ranger/latest)(10x Visium; each spot contains several cells) + Seurat.   
