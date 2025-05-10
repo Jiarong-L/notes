@@ -6,21 +6,20 @@ Spatial Omics 可以提供基因表达的空间定位
 
 ## Spatial Omics
 
-Spatial Transcriptomics 常见方法可分为以下3类：
+Spatial Transcriptomics 常见方法可分为以下3类 In situ：
 
-* 原位杂交 FISH：为n种目标RNA设计n种荧光探针以进行原位杂交，根据荧光信号达成高度精确定位
-    - 亚细胞水平的分辨率
+* 荧光原位杂交（FISH）：为n种目标RNA设计n种荧光探针以进行原位杂交，根据荧光信号达成高度精确**定位、定量** ----- 亚细胞水平的分辨率
     - MERFISH（**MERSCOPE**平台）使用多轮杂交的信号组合（一组二进制vector）为身份标识，最多可以同时支持155个基因的探测
     - **CosMx**成像系统原理为FISH，得到3D空间的表达（3cm*3cm*3cm）
 
-* 原位测序（ISS）：信号放大版的FISH
-    - 亚细胞水平的分辨率
-    - **10x Xenium**：对n种目标RNA设计n种padlock（padlock首尾与RNA互补，中间有ID barcode），将padlock与目标RNA进行杂交，随后通过滚换复制得到几百倍的padlock序列；随后，对padlock进行多轮荧光探针的原位杂交进行定位
-        - n种padlock的集合称为paddle 
-        - Xenium 的荧光探针是特定序列的寡核苷酸（针对poadlock ID），但染料只有4种颜色，故需分多轮进行杂交定位：清洗后再放入下一轮针对不同ID的荧光探针
+* 原位测序（ISS）：探针结合靶基因后，原位扩增、荧光探针杂交（每种基因有其荧光特征条码），**NGS测序** ----- 亚细胞水平的分辨率
+    - **10x Xenium**：对n种目标RNA设计n种padlock（padlock首尾与RNA互补，中间有ID barcode），将padlock与目标RNA进行杂交，随后通过滚换复制得到几百倍的padlock序列；随后，对padlock进行多轮荧光探针的原位杂交进行定位 ----- n种padlock的集合称为paddle，似乎可以达成 5000-gene panels ----- Xenium 的荧光探针是特定序列的寡核苷酸（针对poadlock ID），但染料只有4种颜色，故需分多轮进行杂交定位：清洗后再放入下一轮针对不同ID的荧光探针
 
-* Spot-based（ST）原位捕获：将样本平铺在一片Spot上，裂解细胞后遗传物质落入相应的 Spot 中获得空间标签，随后进行NGS测序
+* Spot-based（ST）原位捕获：将样本平铺在一片Spot上，裂解细胞后遗传物质落入相应的 Spot 中获得空间标签，随后进行**NGS测序**
     - Spot的大小为其分辨率，可以是多细胞水平（**10x Visum**），也可以是亚细胞水平（**BGI Stereo-seq**）
+
+
+Xenium 对基因表达的检出灵敏度比 Visium 高 8～9 倍
 
 
 ## 一些技术问题
