@@ -138,7 +138,7 @@ ROP 眼部检查（视网膜的血管发育情况）始于出生后6周，且不
         2. 对每个蛋白靶点建立线性回归模型(protein ~ confounding factors)，计算各变量可解释的 protein variability（PNA占比最高）
         3. 降维，以 PND 为时间轴，按9个时间节点的分组。组内距离定义为variability/diversity，图示 Day 7 时距离显著最大。--- 内部或外部因素开始发力？？可能来自第一天接收的环境影响
         4. 降维，若以 GA 为时间轴、同理分组，则无显著差异，观察图示 GA 较小的婴儿往往生长速度较慢 --- 因为趋势对应的是 PND 所以坐标轴平移了？？（根据这个说“但在头一个月里 GA 显著影响 protein variability”就有点奇怪
-    - （此队列还有血清脂肪酸谱）[link](https://gup.ub.gu.se/publication/327305)
+    - （此队列是为了测试肠道肪酸补充治疗/对照是否减少ROP，也包括：血清脂肪酸谱）[link](https://gup.ub.gu.se/publication/327305)
         
 
 

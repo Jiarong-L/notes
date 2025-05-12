@@ -55,3 +55,12 @@
     - 问题：仅有动物实验数据
 
 
+## 菌群 - 免疫发育
+
+* [IBD](https://pmc.ncbi.nlm.nih.gov/articles/PMC6759048/)
+    - 幼儿在生命早期缺乏接触微生物的机会，导致负调控通路的缺失，引发对共生肠道微生物群的免疫反应过度活跃 --- 抗生素滥用
+
+* [菌群 - 训练免疫系统发育](https://www.nature.com/articles/s41577-023-00874-w)
+
+* [生命最初的 1000 天](https://www.sciencedirect.com/science/article/pii/S2667009724000307)
+
