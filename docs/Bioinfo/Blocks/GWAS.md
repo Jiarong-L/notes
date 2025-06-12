@@ -2,6 +2,7 @@
 
 [GATK](GATK.md)/芯片获取SNP信息后，可以进行全基因组关联分析
 
+推荐 [GWASLab 系列笔记](https://gwaslab.org/2021/03/29/ld-score-regression/)
 
 ## 预处理
 
@@ -9,11 +10,11 @@
 
 1. 合并数据：snpflip 统一正负链方向，对于芯片数据需要进行 Genotype-Imputation（因为非全测序的数据覆盖区域不一）
 
-2. 去除低质量样本(```--remove xx.txt(FID IID)```)：样本缺失率大于5%的个体(```--mind 0.05```)，杂合个体(```--het```)，性别不一致个体(```--check-sex```)
+2. 去除低质量样本(```--remove xx.txt(FID IID)```)：样本缺失率大于5%的个体(```--mind 0.05```)，杂合个体(```--het```)，性别不一致个体(```--check-sex```)，缺失率大于20%的位点，不符合HW平衡的位点(case/control设计中)
 
 3. 去除低质量SNP: ```plink --bfile xxx --hwe 0.00001 --geno 0.02 --maf 0.01 --make-bed --out yyy```
 
-4. 进行群体分层校正: 按分层切割群体、独立分析，或者将eigenvector作为covariance
+4. 进行群体分层校正: 按分层切割群体、独立分析，或者将混杂因素（年龄，性别，PCA的若干PCs...）作为协变量添加入模型
 
 5. 分析：关联分析，MR分析，...
 
@@ -227,6 +228,30 @@ dat <- harmonise_data(
 
 
 
+## LD
+
+连锁不平衡(Linkage Disequilibrium, LD) 指群体内，不同位点处等位基因间的非随机关联。例如，对于 Aa/Bb 这两个位点，其相应表型的频率可以是：
+
+| 表型 | 完全独立(```r^2 = 0```) | 完全连锁(```r^2 = 1```) |
+| -- | -- | -- |
+| AB | 0.25 | 0.5 |
+| Ab | 0.25 | 0 |
+| aB | 0.25 | 0 |
+| ab | 0.25 | 0.5 |
+
+度量 LD 的基本指标为 ```D = P(AB) - P(A)P(B) = P(AB)P(ab) - P(aB)P(Ab)```，标准化后得到系数  ```r^2 = D^2 / [P(A)P(B)P(a)P(b)]```。假如 ```r^2 = 1```，即说明基因型(A)与基因型(B)总是同时出现。
+
+一般而言，由于染色体重组等机制，两个位点在基因组上离得越远，相关性越弱(```r^2 < 0.1```即可被认为没有相关性)。
+
+
+* GWAS研究通常会绘制LD衰减曲线，其x轴为标记的物理距离(kb)，其y轴为物种的LD系数(```r^2```)，取```r^2 = 0.1```时的距离为```LD衰减距离```。GWAS研究的标记间隔不能超过这个距离，因为间隔过大可能会导致遗漏潜在的信号。
+
+* GWAS检验中，某个SNP的效应(effect)通常也会包含与其高度相关的位点的效应（遗传因素），有可能受到分层等因素的干扰（混杂因素），二者都会造成更高的卡方检验量。LD score regression (LDSC) 设定对卡方统计量设定回归公式（遗传+混杂），以定量区分二者的大小 ----- 主要关心SNP的遗传力
+  - ```LD score``` 即某SNP与一定范围内其他SNP的```r^2```之和，公式中‘遗传项’的一部分
+  - ldsc库可实现，需提供 SWAS statistics + 研究群体的LD参考
+
+* S-LDSC同理，公式中基于注释分层（功能/细胞类型/组织...）
+  - gsMap: 空间转录组中，选取了 Marker Gene 后可获得它们对应调控区域内的SNP，S-LDSC 得到对应细胞中这些SNP的遗传力（针对表型的解释中）
 
 
 
@@ -241,4 +266,6 @@ PLINK        https://www.jianshu.com/p/2bf82e596e45
 PLINK        https://zhuanlan.zhihu.com/p/157291097  关联分析/...
 Meta分析     https://www.sciencedirect.com/science/article/pii/S2772594422001169  
 Meta示例     https://blog.csdn.net/m0_37228052/article/details/133026057
+gsMap        https://www.bilibili.com/video/BV1aGTtzeENM/
+S-LDSC       https://gwaslab.org/2021/03/29/ld-score-regression/
 ```
