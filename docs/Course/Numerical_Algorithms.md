@@ -96,7 +96,7 @@ $
 A可解的前提是**方阵**（且可逆，即 ```det(A) ≠ 0```）。从维度看，m = 方程数量，n = 未知数数量
 
 
-**Gaussian Elimination**求解时，通过交换/加减/缩放行（利用 Permutation Matrix），一步步构建上三角状的增广矩阵：
+**Gaussian Elimination**时，通过交换/加减/缩放行（利用 Permutation Matrix），利用上方行的主元消解下方行的元素，一步步构建上三角状的增广矩阵(Forward Substitution $O(n^3)$)：--- 随后可回溯求解方程(Backward Substitution $O(n^2)$)
 
 $(A|b)  =\begin{bmatrix}
 1 & ? & ? & ? & ? & | b?\\\\
@@ -125,22 +125,128 @@ $
 
 
 
-## Lecture 3
+## Lecture 3 LU Factorization
+
+LU分解 (A = LU) 将一个矩阵分解为下三角矩阵(L)和上三角矩阵(U)的乘积，PLU指进行了行交换的LU。
+
+想象可以通过 Gaussian Elimination 的一系列步骤将矩阵(A)转换为上三角矩阵(U): $\overbrace{E_n...E_3E_2E_1}^{L^{-1}}A = U $
+
+这些步骤中，可以有 row scaling (Diagnal Matrix) 与 row substitution ($I + c e_j e_i^T$，其逆为 $I - c e_j e_i^T$，由于消元的过程总是 j>i，它们都是下三角矩阵)。易得其乘积 $L^{-1}$、其逆的乘积 $L$ 也都是下三角矩阵。
+
+
+为何进行LU分解？假设对于 $Ax=b$，A固定，每次根据b求解x。LU分解的过程消耗为 $O(n^3)$，但分解结果可以将 $Ax=LUx=b$ 分解为 $Lz = b$ 与 $Ux = z$ 这两个上三角状的矩阵求解问题，此时每次求解消耗为 $O(n^2)$
+
+不过，考虑到数据中的各种噪音，一般会将这个问题改写为 MSE 优化问题 $\min\limits_{x} ||Ax -b||_2$，可向优化式中加入正则项 $\alpha ||x||_2$ (Ridge) 或 $\alpha ||x||_1$ (Lasso) 或 $\alpha ||x||_2 + \beta ||x||_1$ (Elastic Net)，随后取优化式的导数为 0 时的 x 
+
+
+## Lecture 4 Cholesky Factorization
+
+
+如果矩阵 C 是正定的对称矩阵，则可对其进行Cholesky分解 ($C = LL^{-1}$) 
+
+
+每次求一列，可以递归地求得Cholesky分解：
+
+$C = \begin{bmatrix}
+c_{11} & C_{21}^T \\\\
+C_{21} & C_{22}
+\end{bmatrix} = \begin{bmatrix}
+l_{11} & 0 \\\\
+L_{21} & L_{22}
+\end{bmatrix}  \begin{bmatrix}
+l_{11} & L_{21}^T \\\\
+0 & L_{22}^T
+\end{bmatrix} = \begin{bmatrix}
+l_{11}^2 & l_{11}L_{21}^T \\\\
+l_{11}L_{21} & L_{21}L_{21}^T + L_{22}L_{22}^T
+\end{bmatrix}$
+
+1. 求得 $l_{11} = \sqrt{c_{11}}$
+2. 求得 $L_{21} = C_{21}/l_{11}$
+3. 求得 $ L_{22}L_{22}^T = C_{22} - L_{21}L_{21}^T$
+4. 下一个Loop的 $C = L_{22}L_{22}^T$ ，直到分块不能再变小
+
+
+<details>
+  <summary> 其它过程表示：用第k行分块 </summary>
+
+$C = \begin{bmatrix}
+C_{11} & C_{12} & C_{13} \\\\
+c_{k.}^T & c_{kk} & C_{23} \\\\
+C_{31} & C_{32} & C_{33} 
+\end{bmatrix}= \begin{bmatrix}
+ / & / & / \\\\
+ l_{k.}^TL_{11}^T & l_{k.}^Tl_{k.} + l_{kk}^2 & / \\\\
+ / & / & / 
+\end{bmatrix}$
+
+于是可得 $l_{kk} = \sqrt{ c_{kk} - ||l_{k.}||_2^2}$ 与 $c_{k.} = L_{11}l_{k.}$ 
+
+
+</details>
 
 
 
+<details>
+  <summary> Hint 1 : $x^TCx = x^TLL^Tx = |Lx|_2^2$ </summary>
+
+L2 范数？本章节末介绍了一些常见的范数及其图形 (1:05:25)
+
+</details>
 
 
 
+<details>
+  <summary> Hint 2 : $ECE^T$ 也是对称矩阵</summary>
+
+对于 $C = \begin{bmatrix}
+c_{11} & v^T \\\\
+v & \widetilde{C}
+\end{bmatrix}$  以及   $E = \begin{bmatrix}
+1/\sqrt{c_{11}} & 0^T \\\\
+r & I_{(n-1)(n-1)} 
+\end{bmatrix}$ ， $ECE^T = \begin{bmatrix}
+1 & \sqrt{c_{11}}r^T + v^T/\sqrt{c_{11}} \\\\
+0 & rv^T +  \widetilde{C}
+\end{bmatrix}$， 由于它是对称矩阵，则 $ECE^T = \begin{bmatrix}
+1 & 0 \\\\
+0 & rv^T +  \widetilde{C}
+\end{bmatrix}$
+
+
+</details>
 
 
 
+稀疏矩阵有节约空间的储存方式（只储存非零值），因此过程中应当尽量使用稀疏的矩阵类型，但高斯消元会破坏矩阵的稀疏性("Fill")
+
+
+这是一个 NP-complete 命题：最小化Cholesky分解中的非零条目数量
 
 
 
-
-## Lecture 4
 ## Lecture 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Lecture 6
 ## Lecture 7
 ## Lecture 8
