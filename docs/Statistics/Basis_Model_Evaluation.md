@@ -99,6 +99,8 @@ ROC的曲线画法类似PR曲线，假设真实值的不同情况；下图为偷
     - $LR(+) = \frac{P(+|H_+)}{P(+|H_-)} = \frac{TP}{FP} \frac{(TN+FP)}{(TP+FN)} = \frac{Sensitivity}{1-Specifity}$
     - $LR(-) = \frac{P(-|H_+)}{P(-|H_-)} = \frac{FN}{TN} \frac{(TN+FP)}{(TP+FN)}  = \frac{1-Sensitivity}{Specifity}$
 
+LR检验可以用于模型对数据的拟合效果，例如，简化模型(H0) v.s. 复杂模型(H1)，其统计量为 $\lambda = -2\ln (\frac{P(D|\theta_0)}{P(D|\theta_1)})$，自由度 $df = H1 - H0$，然后进行 $\chi^2$ 检验
+
 
 
 ## 实验评估方法
