@@ -89,6 +89,16 @@ ROC的曲线画法类似PR曲线，假设真实值的不同情况；下图为偷
 * $cost_{norm}=\frac{FNR \times p \times cost_{FN} + FPR \times (1-p) \times cost_{FP}}{p \times cost_{FN} + (1-p) \times cost_{FP}}$
 
 
+### Likelihood Ratio
+
+* Sensitivity = $\frac{TP}{TP+FN}$ --- TP Rate 是否找出病人，减少漏诊
+
+* Specifity = $\frac{TN}{TN+FP}$ --- TN Rate 识别是否正确，减少误诊
+
+* $LR= \frac{P(D|H_1)}{P(D|H_0)}$
+    - $LR(+) = \frac{P(+|H_+)}{P(+|H_-)} = \frac{TP}{FP} \frac{(TN+FP)}{(TP+FN)} = \frac{Sensitivity}{1-Specifity}$
+    - $LR(-) = \frac{P(-|H_+)}{P(-|H_-)} = \frac{FN}{TN} \frac{(TN+FP)}{(TP+FN)}  = \frac{1-Sensitivity}{Specifity}$
+
 
 
 ## 实验评估方法
