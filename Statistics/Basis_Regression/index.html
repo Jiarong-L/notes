@@ -1,0 +1,6279 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Basis_Model_Evaluation/">
+      
+      
+        <link rel="next" href="../Ecology/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Basis Regression - Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Notes" class="md-header__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basis Regression
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Bioinfo/Blocks/ANI/" class="md-tabs__link">
+          
+  
+  
+  Bioinfo
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Course/CADD/" class="md-tabs__link">
+          
+  
+  
+  Course
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Readings/Aging/" class="md-tabs__link">
+          
+  
+  
+  Readings
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Basis/" class="md-tabs__link">
+          
+  
+  
+  Statistics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Tricks/2048/" class="md-tabs__link">
+          
+  
+  
+  Tricks
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Whistle/Inuyasha/" class="md-tabs__link">
+          
+  
+  
+  Whistle
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Notes" class="md-nav__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bioinfo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Bioinfo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blocks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Blocks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/ANI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ANI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/BLAST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BLAST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/BWA_Samtools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BWA Samtools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/Bedtools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bedtools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/CDHIT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CDHIT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/CellRanger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CellRanger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/FastQC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FastQC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/GATK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GATK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/GWAS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GWAS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/HiCBin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HiCBin
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/MaSuRCA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MaSuRCA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/Mummer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mummer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/OrthoFinder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OrthoFinder
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/Prodigal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prodigal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/RDKit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RDKit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/SPAdes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SPAdes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/Scanpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scanpy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/Seurat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Seurat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/Signac/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signac
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/Trimmomatic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trimmomatic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Blocks/WGCNA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WGCNA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Databases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Databases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/ARG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ARG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/CAZy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAZy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/GO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/GTDB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GTDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/Homologous/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homologous
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/ID_Mapper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ID Mapper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/KEGG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KEGG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/NT_NR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NT NR
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/PHI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PHI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/SRA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SRA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/Taxonony/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Taxonony
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Databases/_Tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Tips
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Gallary
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Gallary
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/Gallary_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gallary overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/Python/Matplotlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Matplotlib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/Python/NGLView/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NGLView
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    R
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            R
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/Bar_Alluvium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bar Alluvium
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/CMplot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CMplot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/Circos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Circos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/ColorMap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ColorMap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/GGMSA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GGMSA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/Heatmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Heatmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/Point/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Point
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/RIdeogram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RIdeogram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/TimeSeries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TimeSeries
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/UpSet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UpSet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/R/trackViewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    trackViewer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_4" id="__nav_2_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Toolkit
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Toolkit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/Toolkit/Krona/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Krona
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Gallary/Toolkit/PyMOL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PyMOL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    OtherInfo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            OtherInfo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/OtherInfo/Coden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Coden
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/OtherInfo/FileFormats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FileFormats
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/OtherInfo/Normalization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Normalization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/OtherInfo/PAM_BLOSUM/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PAM BLOSUM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipelines
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Pipelines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Pipelines_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipelines overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/SingleCell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SingleCell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Spatial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spatial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_4" id="__nav_2_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bulk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Bulk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Bulk/ATAC-seq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ATAC seq
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Bulk/BS-seq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BS seq
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Bulk/Chip-seq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Chip seq
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Bulk/Genome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Genome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Bulk/HiC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HiC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Bulk/Metabolomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metabolomics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Bulk/Proteomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proteomics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Bulk/RNA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RNA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bioinfo/Pipelines/Bulk/Re-seq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Re seq
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Course
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Course
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/CADD/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CADD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/Calculus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Calculus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/Causal_Inference_I/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Causal Inference I
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/Causal_Inference_II/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Causal Inference II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/GNN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GNN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/Immunology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Immunology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/Linear_Algebra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linear Algebra
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/Medical_Physiology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Medical Physiology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/Numerical_Algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Numerical Algorithms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/RL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Course/System_Biology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Biology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Readings
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Readings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Aging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Aging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Antibiotic_Resistance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Antibiotic Resistance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/BioDL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BioDL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Cancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cancer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Cardiometabolism/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cardiometabolism
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Diabetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Diabetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/FL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Farm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Farm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/GRN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GRN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Interesting_Tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interesting Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Interesting_Topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interesting Topics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Metagenomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metagenomics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Neonatology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Neonatology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Nephrology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nephrology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/Regenerative/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Regenerative
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/XAI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    XAI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Readings/cfDNA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    cfDNA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Statistics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basis_Categorical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basis Categorical
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basis_Model_Evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basis Model Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Basis Regression
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basis Regression
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      简单线性回归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="简单线性回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      分析步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准差估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      评估模型效用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      非参数分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="非参数分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spearman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spearman
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      泰尔零斜率检验
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      多重回归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多重回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      分析步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准差估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      评估模型效用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      定性变量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      嵌套模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      试验设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="试验设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      多重比较的矫正
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      完全随机化设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机化区组设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      析因设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="析因设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    <span class="md-ellipsis">
+      双因素 ANOVA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anova_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      多因素 ANOVA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      套式设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="套式设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      二阶套式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      三阶套式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ecology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ecology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ecology_Path/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ecology Path
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Meta_Analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Meta Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Public_Health/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Public Health
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Stochastic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stochastic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Survival/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Survival
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tricks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tricks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/2048/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Game 2048
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/AJAX/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AJAX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/ArkTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ArkTS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/CSS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CSS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Crawler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Crawler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/ES6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ES6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/HuggingFace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HuggingFace
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/JS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/JavaWeb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaWeb
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Jax/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jax
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Make/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Make
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/MkDocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/MongoDB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MongoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Mysql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mysql
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/NodeJS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NodeJS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/OpenCV/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenCV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/PyTorch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PyTorch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/React/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Redis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Redis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/RegEx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RegEx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/SSH_Tunnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSH Tunnel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Svelte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Svelte
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/TS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Vue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/Workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/_Git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+     Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/_Install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+     Install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/_Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+     Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/_Others/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+     Others
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tricks/_R/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+     R
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Whistle
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Whistle
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/Inuyasha/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inuyasha
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/Isara/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Isara
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/Kaer_Morhen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kaer Morhen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/Lough_Guitane/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lough Guitane
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/The_Wolven_Storm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    The Wolven Storm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/Tictactoe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tictactoe
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/Titanic_Dance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Titanic Dance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/%E5%8D%97%E7%AE%AB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    南箫
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/%E5%8D%97%E9%9F%B3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    南音
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/%E5%93%A8%E7%AC%9B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    哨笛
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/%E6%B4%9E%E7%AE%AB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    洞箫
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/%E7%BA%A2%E8%B1%86%E6%9B%B2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    红豆曲
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Whistle/%E9%A3%9F%E8%B0%B1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    食谱
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      简单线性回归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="简单线性回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      分析步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准差估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      评估模型效用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      非参数分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="非参数分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spearman" class="md-nav__link">
+    <span class="md-ellipsis">
+      Spearman
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      泰尔零斜率检验
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      多重回归
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多重回归">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      分析步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      参数估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      标准差估计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      评估模型效用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      模型设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="模型设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      定性变量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      嵌套模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      试验设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="试验设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      多重比较的矫正
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      完全随机化设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      随机化区组设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      析因设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="析因设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anova" class="md-nav__link">
+    <span class="md-ellipsis">
+      双因素 ANOVA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anova_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      多因素 ANOVA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      套式设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="套式设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      二阶套式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      三阶套式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Basis Regression</h1>
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\\\(', '\\\\)']]
+  },
+  svg: {
+    fontCache:   'global'   // 'local',or 'global' or 'none'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+<style>
+img{
+    width: 60%;
+}
+</style>
+
+<p>教材：《统计学（原书第五版）》  <br />
+<strong>关联：<a href="../Basis/#10">点估计$\hat{\theta}$、置信区间</a>，<a href="../Basis/#5">离散分布</a></strong>，<a href="../Basis/#16">非参数检验</a>**</p>
+<ul>
+<li>因变量：被预测的变量，也称响应变量；一般用符号 $y$ 表示</li>
+<li>
+<p>自变量：用来预测因变量 $y$ 的变量；一般用符号 $x_1, x_2, x_3, ...$ 表示</p>
+</li>
+<li>
+<p>笔记一</p>
+<ul>
+<li>误差(Error)：模型的$\epsilon$</li>
+<li>离差(Deviation)：$d_i = y_i - \overline{y}$，与均值的差</li>
+<li>残差(Residual)：$e_i = y_i - \hat{y}$，与预测值的差</li>
+</ul>
+</li>
+<li>
+<p>笔记二</p>
+<ul>
+<li>$SSE=\sum\limits_{i=1}^{n}w_i(y_i-\hat{y_i})^2$，和方差、残差平方和</li>
+<li>$MSE=SSE/n$，均方误差</li>
+<li>$RMSE=\sqrt{MSE}$，均方根误差</li>
+<li>$RMS=\sqrt{\frac{\sum\limits^n_{i=1}{x_i}}{n}}$，均方根值、有效值</li>
+</ul>
+</li>
+<li>
+<p>笔记三</p>
+<ul>
+<li>ANOVA：一次针对<strong>单个</strong>因变量<strong>y</strong>进行方差分析</li>
+<li>MANOVA：一次针对<strong>多个</strong>因变量<strong>y</strong>进行方差分析，可参考 <a href="https://www.ibm.com/docs/zh/spss-statistics/beta?topic=statistics-multivariate-analysis-variance-manova">IBM-SPSS</a>, <a href="http://staff.ustc.edu.cn/~zwp/teach/MVA/Lec8_slides.pdf">Slide 7</a></li>
+</ul>
+</li>
+<li>
+<p>n阶模型：模型中最高含有$\beta x^n$项；不是指套式设计中的n阶</p>
+</li>
+<li>k元模型：模型中有多少个$x_i$</li>
+<li>二元三阶模型示例：$E(y)=\beta_0 + \beta_1x_1+ \beta_2x_2 + \beta_3x_1^2x_2$</li>
+</ul>
+<h2 id="_1">简单线性回归</h2>
+<p><img alt="" src="../Basis/10-1.png" /> </p>
+<ul>
+<li>n为样本大小</li>
+<li>$SS_{xy}=\sum\limits_{i=1}^{n}(x_i-\overline{x})(y_i-\overline{y})$</li>
+<li>$SS_{xx}=\sum\limits_{i=1}^{n}(x_i-\overline{x})^2$</li>
+<li>$SS_{yy}=\sum\limits_{i=1}^{n}(y_i-\overline{y})^2$</li>
+<li>$SSE=\sum\limits_{i=1}^{n}(y_i-\hat{y_i})^2=\sum\limits_{i=1}^{n}(y_i-(\hat\beta_0+\hat\beta_1x))^2$；误差平方和 </li>
+</ul>
+<h3 id="_2">分析步骤</h3>
+<ol>
+<li>假设联系y与x的概率模型 $y=\beta_0+\beta_1x+\epsilon$</li>
+<li>最小二乘法估计模型参数 $\beta_0$, $\beta_1$，得到最小二乘模型 $\hat{y}=\hat\beta_0+\hat\beta_1x$</li>
+<li>估计误差 $\epsilon$ 的分布的标准差 $\sigma_{\epsilon} \approx s_{\epsilon}$</li>
+<li>评估（最小二乘）模型效用：相关系数$r$，决定系数$r^2$，斜率$\beta_1$</li>
+<li>使用（最小二乘）模型</li>
+</ol>
+<h3 id="_3">参数估计</h3>
+<p>使用最小二乘法：令 $SSE$ 最小</p>
+<ul>
+<li>$\frac{\partial SSE}{\partial \hat{\beta_1}}=0$</li>
+<li>$\frac{\partial SSE}{\partial \hat{\beta_0}}=0$</li>
+</ul>
+<p>化简得到 $\beta_0$, $\beta_1$ 的点估计：</p>
+<ul>
+<li>$\hat{\beta_1}=\frac{SS_{xy}}{SS_{xx}}$</li>
+<li>$\hat{\beta_0}=\overline{y}-\hat{\beta_1}\overline{x}$</li>
+</ul>
+<h3 id="_4">标准差估计</h3>
+<p>$\epsilon$ 的 假定</p>
+<ol>
+<li>$\epsilon$ 概率分布的均值为0，i.e.对无限长试验序列误差的平均是0 </li>
+<li>$\epsilon$ 概率分布的方差为一个常数，即 $\sigma^2$</li>
+<li>$\epsilon$ 概率分布是正态的</li>
+<li>任意两个不同观测值关联的误差是独立的，即：与一个y值关联的$\epsilon$不会影响与其它y值关联的$\epsilon$</li>
+</ol>
+<p>推断（见363）</p>
+<ul>
+<li>$\sigma^2$ 的点估计 $s^2=\frac{SSE}{df}=\frac{SSE}{n-2}$</li>
+<li>y值符合正态分布：均值为 $E(y)=\beta_0+\beta_1x $，方差为 $\sigma^2$</li>
+<li>$\hat\beta_0$, $\hat\beta_1$ 符合正态分布的抽样分布：均值为0，方差为 $\sigma^2_{\hat{\beta_0}}=\frac{\sigma^2}{n}\frac{\sum x^2_i}{SS_{xx}}$，$\sigma^2_{\hat{\beta_1}}=\frac{\sigma^2}{SS_{xx}}$</li>
+</ul>
+<h3 id="_5">评估模型效用</h3>
+<table>
+<thead>
+<tr>
+<th>$\hat\theta$</th>
+<th>$\sigma_{\hat\theta}$</th>
+<th>$H_0$</th>
+<th>统计检验量</th>
+<th>$(1-\alpha)$置信区间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\hat\beta_1$</td>
+<td>$\sigma_{\hat{\beta_1}}=\sqrt\frac{\sigma^2}{SS_{xx}}\approx\frac{s}{\sqrt{SS_{xx}}}=s_{\hat{\beta_1}}$</td>
+<td>$\beta_1=0$，x对y的预测不贡献信息</td>
+<td>$T=\frac{\hat\beta_1 -0}{s_{\hat{\beta_1}}}$</td>
+<td>$\hat\beta_1 \pm t_{\alpha/2}s_{\hat\beta_1}$</td>
+</tr>
+<tr>
+<td>$r$</td>
+<td>--</td>
+<td>$r=0$，x与y无相关性，意味着$\beta_1=0$</td>
+<td>$T=\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}$</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Pearson 相关系数 $r=\frac{SS_{xy}}{\sqrt{ SS_{xx}SS_{yy} }}=\hat{\beta_1}\sqrt{SS_{xx}/SS{yy}}$  表示x与y间线性关系强度；与$\hat{\beta_1}$<strong>只是尺度不同</strong></li>
+<li>决定系数 $r^2=\frac{SSR回归平方和}{SST离差平方和}=\frac{SS_{yy}-SSE}{SS_{yy}}=1-\frac{SSE}{SS_{yy}}$；$r^2=0.6$表示模型可以解释60%的Variance</li>
+</ul>
+<h3 id="_6">非参数分析</h3>
+<p>在非参数回归分析中(p633)，不需要对 $\epsilon$ 的概率分布进行假定</p>
+<h4 id="spearman">Spearman</h4>
+<ol>
+<li>对 X，Y 的值<strong>分别</strong>进行从小到大排序，得到的排序称为<strong>秩</strong></li>
+<li>Spearman 相关系数 $r_s = 1- \frac{6\sum d_i^2}{n(n^2-1)}$，第i个观测值中，$d_i = (x_i秩-y_i秩)$</li>
+<li>统计检验<ul>
+<li>无假定</li>
+<li>$H0: \rho=0$ （总体相关系数）</li>
+<li>上侧$Ha: \rho&gt;0$，拒绝阈：$r_s &gt; r_{\alpha}$</li>
+<li>下侧$Ha: \rho&lt;0$，拒绝阈：$r_s &lt; -r_{\alpha}$</li>
+<li>双侧$Ha: \rho \neq 0$，拒绝阈：$|r_s| &gt; r_{\alpha/2}$</li>
+</ul>
+</li>
+</ol>
+<h4 id="_7">泰尔零斜率检验</h4>
+<ol>
+<li>按 X 的值从小到大排序，得到有序对$(x_i,y_i)$</li>
+<li>对$y_i$，计算$j&gt;i$中(i.e.比yi更低秩的yj中)，负差$(y_j-y_i)&lt;0$的个数、正差$(y_j-y_i)&gt;0$的个数</li>
+<li>$C = 正差个数 - 负差个数$</li>
+<li>统计检验<ul>
+<li>假定 $\epsilon$ 是独立的</li>
+<li>上侧$H_a: \beta_1&gt;0$，p值 = $P(x \ge C)$</li>
+<li>下侧$H_a: \beta_1&lt;0$，p值 = $P(x \le C)$</li>
+<li>双侧$H_a: \beta_1 \neq 0$，p值 = $2*min(P(x \ge C),P(x \le C))$</li>
+</ul>
+</li>
+</ol>
+<h3 id="_8">使用模型</h3>
+<p><img alt="" src="../Basis/10-2.png" /></p>
+<p>对单个x值$x=x_p$，估计<strong>y的均值</strong>E(y)</p>
+<table>
+<thead>
+<tr>
+<th>$E(y)$的估计量$\hat{y}$的抽样分布的标准差</th>
+<th>$(1-\alpha)$<strong>置信区间</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\sigma_{\hat{y}}=\sigma\sqrt{\frac{1}{n}+\frac{(x_p-\overline{x})^2}{SS_{xx}}} \approx s_{\hat{y}}=s\sqrt{\frac{1}{n}+\frac{(x_p-\overline{x})^2}{SS_{xx}}}$</td>
+<td>$\hat{y} \pm t_{\alpha/2}s_{\hat{y}}$</td>
+</tr>
+</tbody>
+</table>
+<p>对单个x值$x=x_p$，预测<strong>单个y值</strong>$\hat{y}$</p>
+<table>
+<thead>
+<tr>
+<th>单次预测误差$(y-\hat{y})$的抽样分布的标准差</th>
+<th>$(1-\alpha)$<strong>预测区间</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\sigma_{(y-\hat{y})}=\sigma\sqrt{1+\frac{1}{n}+\frac{(x_p-\overline{x})^2}{SS_{xx}}} \approx s_{(y-\hat{y})}=s\sqrt{1+\frac{1}{n}+\frac{(x_p-\overline{x})^2}{SS_{xx}}}$</td>
+<td>$\hat{y} \pm t_{\alpha/2}s_{(y-\hat{y})}$</td>
+</tr>
+</tbody>
+</table>
+<p>其中$\sigma$指误差 $\epsilon$ 的标准差</p>
+<h2 id="_9">多重回归</h2>
+<h3 id="_10">分析步骤</h3>
+<ol>
+<li>选择与y相关的自变量x...(e.g. 对参数$\beta$进行统计检验)</li>
+<li>假设<strong>一般线性模型</strong> $y=\beta_0+\beta_1x_1+\beta_2x_2+...+\beta_kx_k+\epsilon$；或含<strong>交互</strong>作用项、<strong>高阶</strong>项的模型 $y=\beta_0+\beta_1x_1x_2+\beta_2x_2^2+...+\beta_kx_k^k+\epsilon$</li>
+<li>最小二乘法估计模型参数 $\beta_0,\beta_1,...,\beta_k$</li>
+<li>估计误差 $\epsilon$ 的标准差 $\sigma_{\epsilon} \approx s_{\epsilon}$</li>
+<li>评估（最小二乘）模型效用</li>
+<li>使用（最小二乘）模型</li>
+</ol>
+<h3 id="_11">参数估计</h3>
+<p>使用最小二乘法：令 $SSE$ 最小</p>
+<ul>
+<li>$\frac{\partial SSE}{\partial \hat{\beta_1}}=0$</li>
+<li>$\frac{\partial SSE}{\partial \hat{\beta_0}}=0$</li>
+<li>....</li>
+</ul>
+<p>解法：将一般线性模型表示为矩阵形式：$Y=XB+E$</p>
+<p>$
+\begin{bmatrix}
+y_1 \\
+y_2 \\
+y_3 \\
+... \\
+y_n
+\end{bmatrix} = \begin{bmatrix}
+1 &amp; x_{11} &amp; x_{12} &amp; ... &amp; x_{1k} \\
+1 &amp; x_{21} &amp; x_{22} &amp; ... &amp; x_{2k} \\
+... \\
+1 &amp; x_{n1} &amp; x_{n2} &amp; ... &amp; x_{nk} 
+\end{bmatrix}
+\begin{bmatrix}
+\hat\beta_0 \\
+\hat\beta_1 \\
+... \\
+\hat\beta_k
+\end{bmatrix} +
+\begin{bmatrix}
+\epsilon_1 \\
+\epsilon_2 \\
+\epsilon_3 \\
+... \\
+\epsilon_n
+\end{bmatrix}
+$ </p>
+<p>转写为最小二乘矩阵方程：$(X'X)\hat{B}=X'Y$</p>
+<p>得到最小二乘矩解：$\hat{B}=(X'X)^{-1}X'Y$</p>
+<h3 id="_12">标准差估计</h3>
+<p>$\epsilon$ 的假定<a href="#_4">同上文</a>，$SSE=Y'Y-\hat{B}'X'Y'$，$\epsilon$ 标准差的点估计为 $s=\frac{SSE}{n-模型中\beta参数个数}$</p>
+<p>将矩阵记为：$ (X'X)^{-1} = 
+\begin{bmatrix}
+c_{00} &amp; c_{01} &amp; c_{02} &amp; ... &amp; c_{0k} \\
+c_{10} &amp; c_{11} &amp; c_{12} &amp; ... &amp; c_{1k} \\
+c_{20} &amp; c_{21} &amp; c_{22} &amp; ... &amp; c_{2k} \\
+... \\
+c_{k0} &amp; c_{k1} &amp; c_{k2} &amp; ... &amp; c_{kk} 
+\end{bmatrix}
+$</p>
+<p>$\hat\beta_i$的抽样分布是正态分布，且有：$E(\hat\beta_i)=\beta_i$，$\sigma_{\hat\beta_i}=\sigma\sqrt{c_{ii}}$，$Cov(\hat\beta_i,\hat\beta_j)=c_{ij}\sigma^2$</p>
+<h3 id="_13">评估模型效用</h3>
+<table>
+<thead>
+<tr>
+<th>$\hat\theta$</th>
+<th>$\sigma_{\hat\theta}$</th>
+<th>$H_0$</th>
+<th>统计检验量</th>
+<th>$(1-\alpha)$置信区间</th>
+<th>--</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\hat\beta_i$</td>
+<td>$\sigma_{\hat\beta_i}=\sigma\sqrt{c_{ii}}$<br>$\approx s_{\hat\beta_i}=s\sqrt{c_{ii}}$</td>
+<td>$\beta_i=0$</td>
+<td>$T=\frac{\hat\beta_i}{s_{\hat\beta_i}}$</td>
+<td>$\hat\beta_i \pm t_{\alpha/2}s_{\hat\beta_i}$</td>
+<td>单个模型参数的检验</td>
+</tr>
+<tr>
+<td>$R^2$</td>
+<td>--</td>
+<td>$R^2=0$，意味着$\beta_1=..=\beta_k=0$</td>
+<td>$F=\frac{MS_{Model}}{MSE}$<br>$=\frac{(SS_{yy}-SSE)/k}{SSE/(n-k-1)}$<br>$=\frac{R^2/k}{(1-R^2)/[n-(k+1)]}$</td>
+<td>（拒绝阈：$F &gt; F_{\alpha}$）</td>
+<td>全局检验</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>样本多重决定系数 $R^2=1-\frac{SSE}{SS_{yy}}$ 定义同上文<a href="#_5">决定系数 $r^2$</a></li>
+<li>调整后的多重决定系数 $R_a^2 = 1- \frac{(n-1)}{n-(k+1)}(\frac{SSE}{SS_{yy}})= 1- \frac{(n-1)}{n-(k+1)}(1-R^2)$</li>
+</ul>
+<h3 id="_14">使用模型</h3>
+<p>一组样本$(y,a)$的参数的记为：$a=[1,x_1,x_2,...,x_k]$，代入最小二乘模型后得到 $\hat{y}=\hat\beta_0+\hat\beta_1x_1+...+\hat\beta_kx_k$</p>
+<p>估计E(y)</p>
+<table>
+<thead>
+<tr>
+<th>$E(y)$的估计量$\hat{y}$的抽样分布的标准差</th>
+<th>$(1-\alpha)$<strong>置信区间</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\sigma_{\hat{y}}\approx s_{\hat{y}}=s\sqrt{a'(X'X)^{-1}a}$</td>
+<td>$\hat{y} \pm t_{\alpha/2}s_{\hat{y}}$</td>
+</tr>
+</tbody>
+</table>
+<p>预测<strong>单个y值</strong>$\hat{y}$</p>
+<table>
+<thead>
+<tr>
+<th>单次预测误差$(y-\hat{y})$的抽样分布的标准差</th>
+<th>$(1-\alpha)$<strong>预测区间</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\sigma_{y-\hat{y}}\approx s_{y-\hat{y}}=s\sqrt{1+a'(X'X)^{-1}a}$</td>
+<td>$\hat{y} \pm t_{\alpha/2}s_{(y-\hat{y})}$</td>
+</tr>
+</tbody>
+</table>
+<p>其中$\sigma、s$指误差 $\epsilon$ 的标准差、的点估计</p>
+<h3 id="tips">Tips</h3>
+<ul>
+<li>模型效力的显著性可以通过F检验计算</li>
+<li>$x_k=p$ 时 $y$ 的<strong>边际</strong> 指 $E(y)=\beta_0+\beta_1x_1x_2+\beta_2x_2^2+...+\beta_kx_k^k$ 关于 $x_k$ 的变化率在 $x_k=p$ 的估值：$\frac{dE(y)}{dx_k}$ 代入$x_k=p$</li>
+<li>异方差性（见463）：<strong>残差</strong> $e_i = y_i - \hat{y}$ 随 $\hat{y}$ 的增大而增大 (即$y$的方差随之增大)；此时考虑变换$y$：<ul>
+<li>$y$ 服从泊松分布：$y^{\ast}=\sqrt{y}$</li>
+<li>$y$ 服从二项分布：$y^{\ast}=sin^{-1}\sqrt{y}$</li>
+<li>$y$ 服从乘积分布：$y^{\ast}=ln(y)$</li>
+</ul>
+</li>
+<li>绝对值大于$3s$的<strong>残差</strong>是异常的，可以切除这个样本来评价它对回归分析的影响（刀切法）</li>
+<li>数据为<strong>时间序列</strong>时，误差$\epsilon$ 的<strong>独立性经常不成立</strong>（<strong>残差分布</strong>可看出趋势），故模型受到怀疑</li>
+<li>参数的<strong>可估性</strong>：不同数值的$x$至少比 $\beta_{0,1,2,..k}$数目多1，即 $\ge (k+1)$</li>
+<li>参数解释：相关性不保证因果，需要通过<a href="#_14">试验设计</a>确定$y$变化的真正原因</li>
+<li><strong>多重共线性</strong>：当两个及以上自变量相关时候，可能它们单个$\beta$的t值不显著、但交互项的$\beta$的t值显著，此时应该保留它们</li>
+<li><strong>外推</strong>至样本数据范围外的预测可能会有各种问题</li>
+</ul>
+<h2 id="_15">模型设计</h2>
+<ul>
+<li>各种示例见467-</li>
+<li>
+<p><strong>编码</strong>指将一个自变量集变换为一个新的自变量集，例如：$Normalize(x)$</p>
+</li>
+<li>
+<p>数据分离（或交叉确认）评估模型：模型的<strong>有效性</strong>(Validation) 需要通过新数据进行评估，可以考虑用新数据进行预测后得到的$\hat{y}$计算$R^2_{pred}, MSE_{pred}$等 （见505）</p>
+</li>
+<li>刀切估计评估模型：用删除观察值 $i$ 后计算得到的 $\hat{y_{(i)}}$ 代替$\hat{y}$以计算$R^2_{jackknife}, MSE_{jackknife}$等</li>
+<li>逐步回归筛选潜在自变量（见506）：一步一步加入使新模型最优（根据每个$\beta_i$的T值，或模型F值）的$\beta_i$，过程中还会删除不再显著的$\beta_i$</li>
+</ul>
+<h3 id="_16">定性变量</h3>
+<ul>
+<li>对于<strong>定性</strong>变量，可以0/1组合编码，例如：（见486）<ul>
+<li>描写$k个水平(A,B,C,...)$的一阶定性变量模型$E(y)=\beta_0+\beta_1x_1+...+\beta_{k-1}x_{k-1}$</li>
+<li>其中虚拟变量 $ x_i= \begin{cases} 1 \quad 定性变量取i水平  \\ 0 \quad Otherwise \end{cases} $，若$x_{1...(k-1)}$=0则表示取中基准水平k（即对应$\beta_0$的水平，例如可以是Z）</li>
+</ul>
+</li>
+<li>（见492）主效应($\beta_1x_1+\beta_2x_2$)、交互作用($\beta_3x_1x_2+\beta_4x_2x_3$)</li>
+<li>使用嵌套模型的F检验（下文）来检验此变量</li>
+</ul>
+<h3 id="_17">嵌套模型</h3>
+<ul>
+<li>嵌套：完全模型包括了简化模型及至少一个附加项<ul>
+<li>简化模型：$E(y)=\beta_0+\beta_1x_1+...+\beta_gx_g$</li>
+<li>完全模型：$E(y)=\beta_0+\beta_1x_1+...+\beta_gx_g+\beta_{g+1}x_{g+1}+...+\beta_{k}x_{k}$</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>F检验</th>
+<th>--</th>
+<th>嵌套模型间的比较可以用F检验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>$H_0: \beta_{g+1}=...=\beta_{k}=0$</td>
+</tr>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>$H_a: \beta_{g+1},...,\beta_{k}$ 至少一个不为0</td>
+</tr>
+<tr>
+<td>$SSE_R$</td>
+<td>简化模型的<a href="#_1">误差平方和</a></td>
+<td>$SSE_R=\sum(y-\hat{y_R})^2$</td>
+</tr>
+<tr>
+<td>$SSE_C$</td>
+<td>完全模型的<a href="#_1">误差平方和</a></td>
+<td>$SSE_C=\sum(y-\hat{y_C})^2$</td>
+</tr>
+<tr>
+<td>$F$</td>
+<td>--</td>
+<td>$F=\frac{（SSE_R-SSE_C）/(k-g)}{SSE_C/[n-(k+1)]}$</td>
+</tr>
+<tr>
+<td>其它写法</td>
+<td>--</td>
+<td>$F=\frac{MS_{模型}}{MSE_C} =\frac{SS_{模型}/(k-g)}{MSE_C}$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>如果不能拒绝$H_0$，基于节俭原则，选择简化模型（虽然II型错误率未知）</li>
+<li>注意，<strong>非</strong>嵌套模型间的比较<strong>不</strong>能使用F检验！！，必须基于$R_a^2,s$等统计量选择最优模型</li>
+<li>$\beta_1=...=\beta_i=0$ 意味着 $\mu_1=...=\mu_i$（定性变量），即 这些项对应的因素（变量）对y的预测无作用</li>
+</ul>
+<h2 id="_18">试验设计</h2>
+<ul>
+<li>选择样本容量: 见 <a href="../Basis/#12">Basis</a></li>
+<li>与响应变量y可能有联系的自变量x称为<strong>因素</strong>，一次试验中（多个/单个）因素取值（<strong>水平</strong>）的某种组合称为<strong>处理</strong>，用来测量响应变量y的对象称为<strong>试验单位</strong>(e.g.一名工人)</li>
+</ul>
+<p><img alt="" src="../Basis/13.1.png" /> </p>
+<ul>
+<li>
+<p>收集到试验数据后，就可以对与各种处理相联系的总体均值进行推断；用于<strong>比较</strong>处理<strong>均值</strong>的方法传统上称为<strong>方差分析(ANOVA)</strong>，原理是$F=\frac{组间方差}{组内方差}=\frac{SST/df_{SST}}{SSE/df_{SSE}}$</p>
+</li>
+<li>
+<p><strong>检验ANOVA的假定</strong>(p595)</p>
+<ul>
+<li>正态总体</li>
+<li>方差齐次性（组间方差相等）：巴特利特检验(Bartlett)，莱文检验(Levene, F=MST/MSE)</li>
+</ul>
+</li>
+</ul>
+<h3 id="_19">多重比较的矫正</h3>
+<ul>
+<li>多重比较的矫正(p589)：<ul>
+<li>事前检验（Planned）：试验设计之初就设计要进行的比较分析</li>
+<li><a href="https://www.ibm.com/docs/zh/spss-statistics/saas?topic=analysis-glm-post-hoc-comparisons">后续检验（Post-hoc test）</a>：整体分析完毕后，进一步设计的检验；e.g.A=B=C=D不成立，所以比较它们的两两组合、找出有差异的组</li>
+<li>进行多次检验后累计的I型错误将大于可接受的$\alpha$值，因此需要对统计量的p值进行矫正（一般称矫正后的p值为q值），或修正统计量和临界值表</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>k组间 Multiple test</th>
+<th>修正方法</th>
+<th>使用/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LSD</td>
+<td>修正T检验量中$S_p^2=\frac{\sum\limits_{i=1}^k(n_i-1)S_i^2}{\sum\limits_{i=1}^k(n_i-1)}$，即所有样本的联合方差</td>
+<td>k较少时（宽松）</td>
+</tr>
+<tr>
+<td>Sidak</td>
+<td>基于LSD法，$$\alpha_{adj}=1-(1-\alpha)^{1/k}$$ 即 $$p_{adj}=1-(1-p)^{1/k}$$</td>
+<td>k较少时（保守）</td>
+</tr>
+<tr>
+<td><strong>Bonferroni</strong></td>
+<td>基于LSD法，$$\alpha_{adj}=\alpha/k$$</td>
+<td>k较少时（非常保守）</td>
+</tr>
+<tr>
+<td><strong>Dunnett</strong></td>
+<td>同LSD，但有特殊的临界值表</td>
+<td>用于多组 v.s 1组 均数</td>
+</tr>
+<tr>
+<td><strong>Tukey's HSD</strong></td>
+<td>统计量：$q=\frac{(\overline{Y_{max}}-\overline{Y_{min}})}{\sqrt{S_p^2/n}}$（$S_p^2$同上文），比照<strong>学生化极差分布</strong>$q_{\alpha}(k,df)$的临界值表</td>
+<td><strong>各组别样本数相同</strong></td>
+</tr>
+<tr>
+<td>SNK Q</td>
+<td>修正Tukey法：对不同步长（最大/小组间的均数差异）采用不同的临界值表</td>
+<td>（保守）</td>
+</tr>
+<tr>
+<td>Duncan</td>
+<td>改进SNK：改查SSR表</td>
+<td>比SNK宽松，适用于农业研究</td>
+</tr>
+<tr>
+<td>Tamhane T2</td>
+<td>--</td>
+<td><strong>方差不齐次</strong>（保守）</td>
+</tr>
+<tr>
+<td>Games-Howell</td>
+<td>--</td>
+<td><strong>方差不齐次</strong>（宽松）</td>
+</tr>
+<tr>
+<td><strong>Scheffe</strong></td>
+<td>--</td>
+<td>支持1v1，也支持多组 v.s 1组 的综合比较（保守）</td>
+</tr>
+<tr>
+<td>--</td>
+<td>一般假设各组样本都来自同一正态分布$(\sigma,\mu)$，特殊者于表格中说明</td>
+<td>宽松：增加type I error <br>保守：增加type II error</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_20">完全随机化设计</h3>
+<p>将处理随机指派给试验单位；若有p处理（水平）的<strong>单因素</strong>，模型设计为p水平的<a href="#_13">一阶定性变量模型</a>：</p>
+<p>$$ E(y)=\beta_0+\beta_1x_1+...+\beta_{p-1}x_{p-1} \text{ 其中 } x_i= \begin{cases} 1 \quad 取水平i  \\ 0 \quad Otherwise \end{cases} $$</p>
+<table>
+<thead>
+<tr>
+<th>F检验</th>
+<th>见上文<a href="#_15">嵌套模型</a></th>
+<th>单因素p处理（水平）r重复 共 $n=rp$ 观测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>比较处理均值</td>
+<td>H0：简化模型=完全模型删除(p-1)个处理项</td>
+<td>$F=\frac{(SSE_R-SSE_C)/(p-1)}{SSE_C/df_C}$</td>
+</tr>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>$df_C=(n-1)-(p-1)=n-p$</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ANOVA参数</th>
+<th>--</th>
+<th>单因素p处理（水平）r重复 共 $n=rp$ 观测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$CM$</td>
+<td>均值的修正</td>
+<td>$CM=\frac{(所有观测值的和)^2}{所有观测值个数}=\frac{(\sum{y_i})^2}{n}$</td>
+</tr>
+<tr>
+<td>$SS_{总}$</td>
+<td>总平方和</td>
+<td>$SS_{总}=(所有观测值的平方和)-CM=\sum{y_i}^2-CM$</td>
+</tr>
+<tr>
+<td>$SST$</td>
+<td>处理平方和</td>
+<td>$SST=\sum{\frac{(T_p)^2}{n_p}}-CM$，$T_p$表示<strong>处理p</strong>中观测值的和，$n_p=b$表示<strong>处理p</strong>中观测值个数</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ANOVA检验目标</th>
+<th>df</th>
+<th>SS</th>
+<th>MS=SS/df</th>
+<th>F=MS/MSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>处理</td>
+<td>$(p-1)$</td>
+<td>$SST$</td>
+<td>$MST=\frac{SST}{p-1}$</td>
+<td>$F=\frac{MST}{MSE}$</td>
+</tr>
+<tr>
+<td><strong>误差</strong></td>
+<td>$(n-p)$</td>
+<td>$SSE=SS_{总}-SST$</td>
+<td>$MSE=\frac{SSE}{n-p}$</td>
+<td>--</td>
+</tr>
+<tr>
+<td><strong>总和</strong></td>
+<td>$(n-1)$</td>
+<td>$SS_{总}$</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_21">随机化区组设计</h3>
+<p>（为减小处理本身性质的干扰，设计中包含处理因素与区组因素）将处理随机指派给每个区组中的试验单位；<strong>单因素</strong>p处理（水平） $\times$ b区组 的模型设计为：</p>
+<p>$$ E(y)=\beta_0+\beta_1x_1+...+\beta_{p-1}x_{p-1}+...+\beta_{p+b-2}x_{p+b-2}   \text{ 其中 }$$ 
+ $$ \text{ 处理变量 } x_{i \in [1,p-1]}= \begin{cases} 1 \quad 取处理i  \\ 0 \quad Otherwise \end{cases} \text{ 区组变量 } x_{j \in [p,p+b-2]}= \begin{cases} 1 \quad 取区组j  \\ 0 \quad Otherwise \end{cases} $$</p>
+<table>
+<thead>
+<tr>
+<th>F检验</th>
+<th>见上文<a href="#_15">嵌套模型</a></th>
+<th>单因素p处理（水平） $\times$ b区组(重复) ，共 $n=bp$ 观测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>比较处理均值</td>
+<td>H0：简化模型=完全模型删除(p-1)个处理项，保留(b-1)个区组项</td>
+<td>$F=\frac{(SSE_R-SSE_C)/(p-1)}{SSE_C/df_C}$</td>
+</tr>
+<tr>
+<td>比较区组均值</td>
+<td>H0：简化模型=完全模型删除(b-1)个区组项，保留(p-1)个处理项</td>
+<td>$F=\frac{(SSE_R-SSE_C)/(b-1)}{SSE_C/df_C}$</td>
+</tr>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>$df_C=(n-1)-(p-1)-(b-1)=n-p-b+1$</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ANOVA参数</th>
+<th>--</th>
+<th>单因素p处理（水平） $\times$ b区组(重复) ，共 $n=bp$ 观测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$CM$</td>
+<td>均值的修正</td>
+<td>$CM=\frac{(所有观测值的和)^2}{所有观测值个数}=\frac{(\sum{y_i})^2}{n}$</td>
+</tr>
+<tr>
+<td>$SS_{总}$</td>
+<td>总平方和</td>
+<td>$SS_{总}=(所有观测值的平方和)-CM=\sum{y_i}^2-CM$</td>
+</tr>
+<tr>
+<td>$SST$</td>
+<td>处理平方和</td>
+<td>$SST=\sum{\frac{(T_p)^2}{n_p}}-CM$，$T_p$表示<strong>处理p</strong>中观测值的和，$n_p=b$表示<strong>处理p</strong>中观测值个数</td>
+</tr>
+<tr>
+<td>$SSB$</td>
+<td>区组平方和</td>
+<td>$SSB=\sum{\frac{(B_b)^2}{n_b}}-CM$，$B_b$表示<strong>区组b</strong>中观测值的和，$n_b=p$表示<strong>区组b</strong>中观测值个数</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ANOVA检验目标</th>
+<th>df</th>
+<th>SS</th>
+<th>MS=SS/df</th>
+<th>F=MS/MSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>处理</td>
+<td>$(p-1)$</td>
+<td>$SST$</td>
+<td>$MST=\frac{SST}{p-1}$</td>
+<td>$F=\frac{MST}{MSE}$</td>
+</tr>
+<tr>
+<td>区组</td>
+<td>$(b-1)$</td>
+<td>$SSB$</td>
+<td>$MSB=\frac{SSB}{b-1}$</td>
+<td>$F=\frac{MSB}{MSE}$</td>
+</tr>
+<tr>
+<td><strong>误差</strong></td>
+<td>$(n-p-b+1)$</td>
+<td>$SSE=SS_{总}-SST-SSB$</td>
+<td>$MSE=\frac{SSE}{n-p-b+1}$</td>
+<td>--</td>
+</tr>
+<tr>
+<td><strong>总和</strong></td>
+<td>$(n-1)$</td>
+<td>$SS_{总}$</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_22">析因设计</h3>
+<p>选择所有可能的处理（<strong>多因素</strong>的取值组合），随机指派给试验单位；若有三因素共 $a \times b \times c$ 处理（水平）（分别来自<a href="../Basis/13.1.png">示意图</a>中因素A,B,C）：</p>
+<p>$$ E(y)=\beta_0+\beta_1x_1+...+\beta_{d}x_{1}x_{3}+...+\beta_{e}x_{1}x_{3}x_{4}   \text{ 其中 }$$ 
+ $$ \text{ 处理变量（主效应） } x_{i}= \begin{cases} 1 \quad 取X因素水平i  \\ 0 \quad Otherwise \end{cases} \text{ 交互变量 } x_{j}= \begin{cases} 1 \quad 取交互项j  \\ 0 \quad Otherwise \end{cases} $$</p>
+<p>，其中主效应A有(a-1)项，主效应b有(b-1)项，主效应c有(c-1)项；AB交互作用项有(a-1)$\times$(b-1)项,其余同理；ABC交互作用项有(a-1)$\times$(b-1)$\times$(c-1)项；共计k=(abc-1)个$x$项</p>
+<table>
+<thead>
+<tr>
+<th>F检验</th>
+<th>见上文<a href="#_15">嵌套模型</a></th>
+<th>3因素$a \times b \times c$ 处理（水平）r重复，共 $n=abcr$ 观测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>检验主效应A</td>
+<td>H0：简化模型=完全模型删除(a-1)个主效应A项</td>
+<td>$F=\frac{(SSE_R-SSE_C)/(a-1)}{SSE_C/df_C}$</td>
+</tr>
+<tr>
+<td>检验AB交互作用</td>
+<td>H0：简化模型=完全模型删除(a-1)(b-1)个AB交互项</td>
+<td>$F=\frac{(SSE_R-SSE_C)/[(a-1)(b-1)]}{SSE_C/df_C}$</td>
+</tr>
+<tr>
+<td>检验ABC交互作用</td>
+<td>H0：简化模型=完全模型删除(a-1)(b-1)(c-1)个ABC交互项</td>
+<td>$F=\frac{(SSE_R-SSE_C)/[(a-1)(b-1)(c-1)]}{SSE_C/df_C}$</td>
+</tr>
+<tr>
+<td>--</td>
+<td>--</td>
+<td>$df_C=n-1-k=(abcr-abc)=abc(r-1)$</td>
+</tr>
+</tbody>
+</table>
+<h4 id="anova">双因素 ANOVA</h4>
+<table>
+<thead>
+<tr>
+<th>ANOVA参数</th>
+<th>--</th>
+<th><strong>双因素</strong>$a \times b$ 处理（水平）r重复，共 $n=abr$ 观测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$CM$</td>
+<td>均值的修正</td>
+<td>$CM=\frac{(所有观测值的和)^2}{所有观测值个数}=\frac{(\sum{y_i})^2}{n}$</td>
+</tr>
+<tr>
+<td>$SS_{总}$</td>
+<td>总平方和</td>
+<td>$SS_{总}=(所有观测值的平方和)-CM=\sum{y_i}^2-CM$</td>
+</tr>
+<tr>
+<td>$SS_A$</td>
+<td>主变量因素A的平方和</td>
+<td>$SS_A=\sum{\frac{(A_i)^2}{n_i}}-CM$，$A_i$表示<strong>因素A 处理i</strong>中观测值的和，$n_i=br$表示 <strong>因素A 处理i</strong> 中观测值个数</td>
+</tr>
+<tr>
+<td>$SS_{AB}$</td>
+<td>AB交互作用的平方和</td>
+<td>$SS_{AB}=\frac{\sum\sum (A_iB_j)^2}{r}-SS_A-SS_B-CM$</td>
+</tr>
+<tr>
+<td>$SSE$</td>
+<td>误差平方和</td>
+<td>$SSE=SS_{总}-SS_A-SS_B-SS_{AB}$</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Two-way ANOVA</th>
+<th>df</th>
+<th>SS</th>
+<th>MS=SS/df</th>
+<th>F=MS/MSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主效应A</td>
+<td>$(a-1)$</td>
+<td>$SS_A$</td>
+<td>$MS_A$</td>
+<td>略</td>
+</tr>
+<tr>
+<td>主效应B</td>
+<td>$(b-1)$</td>
+<td>$SS_B$</td>
+<td>$MS_B$</td>
+<td>略</td>
+</tr>
+<tr>
+<td>AB交互作用</td>
+<td>$(a-1)(b-1)$</td>
+<td>$SS_{AB}$</td>
+<td>$MS_{AB}$</td>
+<td>略</td>
+</tr>
+<tr>
+<td>误差</td>
+<td>$ab(r-1)$</td>
+<td>$SSE$</td>
+<td>$MSE$</td>
+<td>--</td>
+</tr>
+<tr>
+<td>总和</td>
+<td>$abr-1$</td>
+<td>$SS_{总}$</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<p>双因素ANOVA可能有用的参考：<a href="https://support.minitab.com/en-us/minitab/20/help-and-how-to/statistical-modeling/doe/how-to/factorial/analyze-factorial-design/methods-and-formulas/analysis-of-variance/">minitab</a></p>
+<h4 id="anova_1">多因素 ANOVA</h4>
+<p>书中只提供了析因设计双因素的ANOVA方法，p573提供了三因素情况下的参数示意</p>
+<table>
+<thead>
+<tr>
+<th>ANOVA检验目标</th>
+<th>df</th>
+<th>SS</th>
+<th>MS=SS/df</th>
+<th>F=MS/MSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主效应A</td>
+<td>$(a-1)$</td>
+<td>$SS_A$</td>
+<td>$MS_A$</td>
+<td>略</td>
+</tr>
+<tr>
+<td>AB交互作用</td>
+<td>$(a-1)(b-1)$</td>
+<td>?</td>
+<td>略</td>
+<td>略</td>
+</tr>
+<tr>
+<td>ABC交互作用</td>
+<td>$(a-1)(b-1)(c-1)$</td>
+<td>?</td>
+<td>略</td>
+<td>略</td>
+</tr>
+<tr>
+<td>误差</td>
+<td>$abc(r-1)$</td>
+<td>$SSE$</td>
+<td>$MSE$</td>
+<td>--</td>
+</tr>
+<tr>
+<td>总和</td>
+<td>$abcr-1$</td>
+<td>$SS_{总}$</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_23">套式设计</h3>
+<p>见580</p>
+<p><img alt="" src="../Basis/13.2.png" /> </p>
+<p>将$n_1$个样本随机分配给Rank1(A,B,...)，然后分别对A、B、...组内样本进行$n_2$次测量/试验 得到Rank2，然后对分别对Rank2组内样本进行$n_3$次测量/试验 得到Rank3，...</p>
+<h4 id="_24">二阶套式</h4>
+<p>令$y_{ij}$表示第i个一阶单位中，第j个二阶单位的相应；二阶套式模型设计为：</p>
+<p>$$E(y_{ij})=\mu+两个随机分量=\mu+E(\alpha_i)+E(\epsilon_{ij})=\mu+0+0=\mu$$</p>
+<table>
+<thead>
+<tr>
+<th>ANOVA参数</th>
+<th>--</th>
+<th>--</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$CM$</td>
+<td>均值的修正</td>
+<td>$CM=\frac{(所有观测值的和)^2}{所有观测值个数}=\frac{(\sum\sum{y_{ij}})^2}{n}$</td>
+</tr>
+<tr>
+<td>$SS_{总}$</td>
+<td>总平方和</td>
+<td>$SS_{总}=(所有观测值的平方和)-CM=\sum\sum{y_{ij}}^2-CM$</td>
+</tr>
+<tr>
+<td>$SS(A)$</td>
+<td>--</td>
+<td>$SS(A)=\sum\limits^{n_1}\frac{(A_i)^2}{n_2}-CM$</td>
+</tr>
+<tr>
+<td>$SS(B_{\in A})$</td>
+<td>--</td>
+<td>$SS(B_{\in A})=SS_{总}-SS(A)$</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ANOVA检验目标</th>
+<th>df</th>
+<th>SS</th>
+<th>MS=SS/df</th>
+<th>E(MS)</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一阶：A</td>
+<td>$(n_1-1)$</td>
+<td>$SS(A)$</td>
+<td>$MS(A)$</td>
+<td>$V(\epsilon_{ij})+n_2V(\alpha_i)$</td>
+<td>$MS(A)/MS(B_{\in A})$</td>
+</tr>
+<tr>
+<td>第二阶：B in A</td>
+<td>$n_1(n_2-1)$</td>
+<td>$SS(B_{\in A})$</td>
+<td>$MS(B_{\in A})$</td>
+<td>$V(\epsilon_{ij})$</td>
+<td>--</td>
+</tr>
+<tr>
+<td>总和</td>
+<td>$n_1n_2-1$</td>
+<td>$SS_{总}$</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_25">三阶套式</h4>
+<p>令$y_{ijk}$表示第i个一阶单位中，第j个二阶单位的相应，第k个三阶单位的相应；三阶套式模型设计为：</p>
+<p>$$E(y_{ijk})=\mu+三个随机分量=\mu+E(\alpha_i)+E(\gamma_{ij})+E(\epsilon_{ijk})=\mu+0+0+0=\mu$$</p>
+<table>
+<thead>
+<tr>
+<th>ANOVA参数</th>
+<th>--</th>
+<th>--</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$CM$</td>
+<td>均值的修正</td>
+<td>$CM=\frac{(所有观测值的和)^2}{所有观测值个数}=\frac{(\sum\sum\sum{y_{ijk}})^2}{n}$</td>
+</tr>
+<tr>
+<td>$SS_{总}$</td>
+<td>总平方和</td>
+<td>$SS_{总}=(所有观测值的平方和)-CM=\sum\sum\sum{y_{ijk}}^2-CM$</td>
+</tr>
+<tr>
+<td>$SS(A)$</td>
+<td>--</td>
+<td>$SS(A)=\sum\limits^{n_1}\frac{(A_i)^2}{n_2n_3}-CM$</td>
+</tr>
+<tr>
+<td>$SS(B_{\in A})$</td>
+<td>--</td>
+<td>$SS(B_{\in A})=\sum\limits^{i=n_1}\sum\limits^{j=n_2}\frac{B^2_{ij}}{n_3}-SS(A)-CM$</td>
+</tr>
+<tr>
+<td>$SS(C_{\in B})$</td>
+<td>--</td>
+<td>$SS(C_{\in B})=SS_{总}-SS(A)-SS(B_{\in A})$</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ANOVA检验目标</th>
+<th>df</th>
+<th>SS</th>
+<th>MS=SS/df</th>
+<th>E(MS)</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一阶：A</td>
+<td>$(n_1-1)$</td>
+<td>$SS(A)$</td>
+<td>$MS(A)$</td>
+<td>$V(\epsilon_{ijk})+n_3V(\gamma_{ij})+n_2n_3V(\alpha_i)$</td>
+<td>$MS(A)/MS(B_{\in A})$</td>
+</tr>
+<tr>
+<td>第二阶：B in A</td>
+<td>$n_1(n_2-1)$</td>
+<td>$SS(B_{\in A})$</td>
+<td>$MS(B_{\in A})$</td>
+<td>$V(\epsilon_{ijk})+n_3V(\gamma_{ij})$</td>
+<td>$MS(B_{\in A})/MS(C_{\in B})$</td>
+</tr>
+<tr>
+<td>第三阶：C in B</td>
+<td>$n_1n_2(n_3-1)$</td>
+<td>$SS(C_{\in B})$</td>
+<td>$MS(C_{\in B})$</td>
+<td>$V(\epsilon_{ijk})$</td>
+<td>--</td>
+</tr>
+<tr>
+<td>总和</td>
+<td>$n_1n_2n_3-1$</td>
+<td>$SS_{总}$</td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "search.suggest"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
