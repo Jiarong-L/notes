@@ -59,3 +59,36 @@ wet：与“人类外蛋白的酵母文库”结合的生物素化的菌株 （B
     - SinCMatDB, a manually curated database with experimentally validated cell maturation cues from literature
 
 
+## 引物探针
+
+[引物探针的设计流程](http://www.cebsit.cas.cn/ggpt/ggjsfwzx/zyjspt/fzxbjspt/yqlb_154652/201906/W020190620571716878509.pdf)
+
+```
+• 引物尽可能地接近探针，但是不可与探针重叠 
+• 引物长度9-40bp，最优20bp，GC含量保持在30-80%之间 
+• 避免同一碱基重复过多，特别是连续4个或更多的G 
+• 引物Tm值在58-60C之间，上下游引物Tm不要超过2C 
+• 引物3’端的5个碱基中，G和C加起来不要超过2个 
+• 引物3’端不要是碱基A，避免出现3个以上相同碱基 
+• 避免引物自身或与引物之间形成4个或4个以上连续配对 
+• 避免引物自身形成环状发卡结构 
+• 扩增片段的长度在50-150bp之间
+```
+
+我记得NCBI还是哪里可以计算序列的退火温度？？或者有个公式？？
+
+
+## 单细胞组成差异分析
+
+TODO: 确认一下统计方法
+
+* [scCODA](https://lishensuo.github.io/posts/bioinfo/038%E5%8D%95%E7%BB%86%E8%83%9E%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7--sccoda%E7%BB%86%E8%83%9E%E7%BB%84%E6%88%90%E6%AF%94%E8%BE%83/) -- 不同分组样本的细胞组成的差异
+
+
+## LLM 测试工具
+
+[Agentboard](https://engineering.westlake.edu.cn/NewsEvents/LatestNews/202410/t20241017_43042.shtml) 
+
+
+
+
