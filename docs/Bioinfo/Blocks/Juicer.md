@@ -63,7 +63,7 @@ Try: ```java -jar Juicebox.jar -m hg38.chrom.sizes -p fq_folder/aligned/inter.hi
 
 ## Juicertools
 
-Find Loops
+* Find Loops
 ```bash
 juicer_tools hiccups -m 512 -r 5000,10000 -k KR   fq_folder/aligned/inter.hic  loops_output
 
@@ -80,7 +80,7 @@ juicer_tools hiccups -m 512 -r 5000,10000 -k KR   fq_folder/aligned/inter.hic  l
 specified_loop_list
 ```
 
-Find TADs --- 其实是一些concat domain，更像是sub-TAD?
+* Find TADs --- 其实是一些concat domain，更像是sub-TAD?
 ```bash
 juicer_tools arrowhead -m 2000 -r 10000 -k KR   fq_folder/aligned/inter.hic  tads_output
 
@@ -93,4 +93,8 @@ juicer_tools arrowhead -m 2000 -r 10000 -k KR   fq_folder/aligned/inter.hic  tad
 feature_list
 control_list
 ```
+
+* 从 .hic 文件提取矩阵 ```juicer_tools dump  <hicFile(s)> <chr1>[:x1:x2] <chr2>[:y1:y2] <BP/FRAG/分辨率  binsize> [outfile]```
+  - 归一化 ```juicer_tools dump oe <NONE/VC/VC_SQRT/KR>  ```
+
 
