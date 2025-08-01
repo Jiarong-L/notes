@@ -7,3 +7,7 @@
     - Chip：Illumina提供[Infinium 芯片](https://www.illumina.com.cn/techniques/microarrays/methylation-arrays.html)，以bp分辨率检测CpG位点；[GenomeStudio软件](https://www.illumina.com.cn/techniques/microarrays/array-data-analysis-experimental-design/genomestudio.html )可对Illumina芯片平台生成的数据进行可视化与分析
 
 
+分析工具：[Bismark](https://docs.hpc.sjtu.edu.cn/app/bioinformatics/bismark.html)
+
+
+
