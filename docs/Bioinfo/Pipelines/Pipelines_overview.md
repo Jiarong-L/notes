@@ -69,7 +69,7 @@ RNA的转录后修饰（表观修饰）有：m6A（剪接/翻译/降解），m5C
 
 一般可以从 **RNA-seq 中获取可变剪接事件** (rMATS)、其突变信息（ANNOVAR）。 关于其调控机制，可通过 [SpliceAid 数据库](http://www.introni.it/splicing.html)预测剪接因子的结合位点，或使用 **CLIP-seq (蛋白-RNA互作)** 验证剪接因子（e.g. SRSF1）的结合位点（即调控剪接的顺式元件）。
 
-翻译调控（```RNA -> Peptide``` Translation）的研究。Ribo-seq 可获得与核糖体结合的RNA片段（正在翻译），其定位的密集程度暗示翻译的效率(ribosome footprints 密度高=速度慢)
+翻译调控（```RNA -> Peptide``` Translation）的研究。Ribo-seq 可获得与核糖体结合的RNA片段（正在翻译），其定位(ribosome footprints)的密集程度暗示翻译的效率：Translation Efficiency = Ribo-binding Reads (Ribo-seq) / mRNA reads (RNA-seq)
 
 
 关于 Ribo-seq，可以联合其它组学：
