@@ -27,10 +27,10 @@
 | Peak QC | samtools + ChIPQC + phantompeakqualtools + Greenscreen | 查看PeakCalling的大致的情况，确定数据是否合理<br> - InsertSize, FRiP, ...<br> - [ENCODE Blacklist](https://www.encodeproject.org/search/?searchTerm=exclusion+list): 去除因富含GC/重复片段而总是高信号的区域，有可能过度严格<br> - Greenscreen 去除假阳性Peaks  |
 | Merge Replicates | IDR | 寻找、合并重复样本间一致性的peaks |
 | ------- | Normalization + Analysis | ------- |
-| Diff Peak | DiffBind | 鉴定两个样本间差异结合位点，输入BED file |
+| Diff Peak | DiffBind | 两个样本间开放程度的差异（对peak进行deseq），输入BED file |
 | Peak Annotation | ChIPseeker | Peak位于promoter/gene/..处；如果Bioconductor没有合适的TxDb，则需要使用GenomicFeatures包```makeTxDbFromxxx```制作 |
 | Motif | MEME（All） <br> homer（denovo） <br> [chromvar](https://github.com/GreenleafLab/chromVAR)（Enrich） <br> TFBSTools（Scan） <br> ggmotif_plot（画图）  | - deNovo: 根据Peak序列从头预测Motif基序 <br>- Enrichment: 扫描Motif库（例如JASPAR数据库），获取本样品中富含的Motif基序 <br>-Scan: 已知晓Motif，扫描基因组寻找潜在TFBS |
-| Footprinting | HINT-ATAC | 验证潜在TFBS（寻找已结合TF的TFBS）：如果某一开放区域已经结合TF，则此区域不会被测得，表现为peak中间有凹陷 |
+| Footprinting | HINT-ATAC | 验证潜在TFBS（寻找已结合TF/Ribo的TFBS）：如果某一开放区域已经被结合，则此区域不会被测得，表现为peak中间有凹陷 |
 | GO, Pathway ... | -- | -- |
 
 
