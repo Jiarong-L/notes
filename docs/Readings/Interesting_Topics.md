@@ -221,9 +221,95 @@ ADHD是由多种生物学因素、心理因素及社会因素单独或协同作�
 
 
 
+## [Mathelier Lab](https://mathelierlab.com/publications/) 表观研究相关
+
+* [综述：Regulatory and systems genomics](https://academic.oup.com/bioinformaticsadvances/article/5/1/vbaf106/8128179?login=false)
+
+* [包：序列模拟](https://arxiv.org/html/2506.20769v1)：提供需要呈现的 motifs、描述如何生成，模拟生成 DNA 调控序列（e.g.以比较自然的方式生成cis元件？）；也可以对真实序列进行修改
+
+* Snakemake pipeline：检测 FI variants 在相关基因区域的富集，using all region-score combinations and two enrichment detection methods
+
+* 人白色脂肪细胞中，瞬时 SUMO 化的抑制诱导 Stable Epigenetic Beiging Fate [...](https://www.biorxiv.org/content/10.1101/2025.03.07.642034v2.full)
+
+
+### [(单样本水平 GRN + multiomics Mtx) 进行 JDR 可以更好地识别 survival 相关因素](https://academic.oup.com/bib/article/26/4/bbaf315/8188241)
+
+* 多组学的整合时机
+    - Late -- 各自分析，然后基于相关性整合：忽略分子层之间的相互作用
+    - Intermediate -- **联合降维(JDR)**重建 latent space（假设所有组学数据共享隐变量/某种特征）：**MOFA / JIVE / MCIA / RGCCA** 但可能bias向高维的组学数据
+    - Early -- 将所有组学层连接成一个矩阵再分析：能够捕捉相互作用，但会引入高维度和噪声
+
+* PANDA 使用如下三个先验信息推断群体水平的 GRN
+    - 先验信息：TFs间的PPI  --- 假设 cooperate TFs 可能靶向同一个基因
+    - 先验信息：gene co-expressed  --- 假设共表达的靶基因可能受相似TFs调控
+    - 先验信息：TFs的序列
+
+* lionessR（线性插值以获取**单样本水平GRN**），其假设：群体网络是N个单样本网络的线性组合，移除1个样本后，网络的变化反映了该样本的贡献
+    1. 使用N个样本，构建群体网络 e(N) --- 这里指：基因对的关联强度（如相关系数）
+    2. 移除1个样本q，构建群体网络 e(-q)
+    3. e(q) = N * e(N) - (N-1) * e(-q)
+    4. 把q放回，loop
+
+
+### [how TFs cooperatively bind DNA](https://academic.oup.com/nar/article/52/18/e85/7747208?login=false)
+
+co-binding：多个TF同时或顺序结合到同一调控区域
+
+67% of the TFs shared a co-binding motif with other TFs from the same structural family
+
+
+* seqArchR 非负矩阵分解 V = WH  得到对应多种信息的矩阵
+```bash
+输入X --- ATAC-seq 信号矩阵（值：peak中reads计数）
+RegionID × SampleID   =>   RegionID × LatentFactorID    LatentFactorID × SampleID
+
+输入S --- 序列特征矩阵（值：Motif匹配计数）
+RegionID × MotifID   =>   RegionID × LatentFactorID    LatentFactorID × MotifID
+
+LatentFactor 此处指共开放模式，可以是一组协同开放的调控元件（增强子/启动子/..）
+
+协同NMF模型： min( ||X - WH||² + α||S - WC||² )         
+
+如何使用这些矩阵？ 假如 LatentFactor1 设置为 TF 协同作用（CTCF + RAD21），其对应的 Motif 信息可以从 C 矩阵中获得
+```
+
+
+* 本文：发现高质量TFBS（Anchors）周围的 TF co-binding patterns，即**寻找TFBS的上下游motif**
+    1. 提取 Anchors 上/下游各 nbp 序列，分别形成2个矩阵，形状  ```AnchorID × Seq```
+    2. 原位将ATCG改成4位独热编码，现在矩阵有 4n 宽
+    3. 非负矩阵分解(NMF)  ```LatentFactor(Len=4k) × Seq``` 可拆成 k 个 PMF 矩阵，即 k 个 序列组合 / Motif
+    4. 过滤掉信息含量（IC）小于 2 的 Motif
+    5. Trim Motif
+    6. 对于使用不同k值得到的Motif，基于序列相似性聚类去重
+
+示意 Step3
+```bash
+H矩阵（pattern matrices）有 4k 行，可以拆成 k 个 PMF 矩阵
+
+而 Motif 可以从 PFM 统计中总结出      
+     pos1   pos2   pos3   pos4 ....
+A    freq   freq   freq   freq   
+T    freq   freq   freq   freq   
+C    freq   freq   freq   freq   
+G    freq   freq   freq   freq   
+```
 
 
 
+
+## [paulsen-group](https://www.mn.uio.no/bils/english/groups/paulsen-group) /  [HiC研究相关](https://www.lifeomics.com/?p=36533)
+
+* Chrom3D：基于Hi-C数据模拟染色体在细胞核中的位置（3D结构），可加入 lamin ChIP-seq data（核包膜距离信息）
+    - 核外围：被抑制，更中心：有活性
+
+* Manifold Based Optimization：减少结构冲突
+    - 从 3C 数据中重建"consensus"三维基因组是一个具有挑战性的问题，因为数据是跨越数百万个细胞的聚合数据
+
+* [综述/挑战：单细胞 4D nucleomes (3D + 时空信息)](https://link.springer.com/article/10.1186/s13059-016-0923-2)
+    - 获得群体 HiC 构象图
+    - HiC Map Deconvolution: bulk -> single cell  但理论上可能的总连接数中大约只有 2.5%被恢复，稀疏性可能会妨碍高置信度的 3D 结构重建
+    - 二倍体细胞：或许可区分XY，但常染色体...
+    - 4D：伪时间 3D 构象轨迹？活细胞中追踪？
 
 
 
