@@ -110,7 +110,7 @@ rawReads数据处理的流程：QC/UMI Filtering-->Mapping-->PISA Gene anno-->Be
 
 ## scATAC
 
-[![](./SingleCell/scATACFeatureMatrix.png)](https://doi.org/10.1186/s13059-019-1854-5)
+[![](./Single_Cell/scATACFeatureMatrix.png)](https://doi.org/10.1186/s13059-019-1854-5)
 
 推荐ArchR(Bin)一站式分析。此外常见[Signac(Peak)+Seurat](../_Blocks/Signac.md)。
 
@@ -159,21 +159,15 @@ Clustering后，[10x 提供关于CellType Anno的建议](https://www.10xgenomics
 
 ## 参考
 
+```bash
 各种单细胞测序技术： https://zhuanlan.zhihu.com/p/569346733
-
 数据集汇总： https://www.jianshu.com/p/49e5cf91f819  
-
 NBIS: https://www.jianshu.com/p/1e29e3b9a4ab  
-
 Doublet: https://zhuanlan.zhihu.com/p/376439628
-
 HVGs: https://www.jianshu.com/p/3d40c56e5fc8
-
 Cell Circle： https://zhuanlan.zhihu.com/p/82654538   
-
 Batch: https://www.jianshu.com/p/ebc328f9fb73   
-
 GREAT: https://www.jianshu.com/p/7f6ce4f238cb   
-
+```
 
 

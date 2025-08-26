@@ -100,7 +100,7 @@ Alternative Promoter  --> TSS 变化  --> pre-mRNA 变化，如何影响翻译�
 
 | -- | 说明 | -- |
 | -- | -- | -- |
-| [SingleCell](SingleCell.md) | Reads 带有 Cell Barcode 和 UMI | -- |
+| [Single_Cell](Single_Cell.md) | Reads 带有 Cell Barcode 和 UMI | -- |
 | [Spatial](Spatial.md) | Reads 带有空间信息 | -- |
 
 
