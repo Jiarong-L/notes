@@ -50,7 +50,7 @@ tar -xzf pbmc3k_filtered_gene_bc_matrices.tar.gz
 ls filtered_gene_bc_matrices/hg19
 ### barcodes.tsv  genes.tsv  matrix.mtx
 ```
-示例代码：[tutorial: pbmc3k](https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html)，操作记录：[Scanpy.ipynb](https://github.com/Jiarong-L/notes/tree/main/docs/Bioinfo/Blocks/Scanpy/Scanpy.ipynb)
+示例代码：[tutorial: pbmc3k](https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html)，操作记录：[Scanpy.ipynb](https://github.com/Jiarong-L/notes/tree/main/docs/Bioinfo/_Blocks/Scanpy/Scanpy.ipynb)
 
 与 [Seurat](Seurat.md)基本操作类似，得到Cluster与Markers；```sc.tl.paga``` 提供轨迹分析
 

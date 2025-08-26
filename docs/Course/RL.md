@@ -28,7 +28,21 @@ img{
 
 ## 符号表
 
-TBA
+*t* - timestep *t*  
+$s_t$ - state     
+$o_t$ - observation   
+$a_t$ - action   
+$\pi_\theta(a_t|o_t)$ - policy (partially observed)  
+$\pi_\theta(a_t|s_t)$ - policy (fully observed)    
+$p_{data}(o_t)$ - 符合data分布的数据，i.e. 采样得到的observation   
+$p_{\pi_\theta}(o_t)$ - 符合$\pi_\theta$分布的数据，i.e. 运行model得到的新observation    
+$\tau$ - Trajectory，运行model得到的一系列($s_t$,$a_t$)组合
+
+
+
+## 基本知识
+
+
 
 
 

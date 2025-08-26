@@ -24,7 +24,7 @@ seqkit grep -f cazy.all.acc  nr.fa -o ncbi.fa            ## also download nr!!
 cat ncbi.fa jgi.fa > cazy.fa
 ```
 
-之后可以[Dimond](../Blocks/BLAST.md)注释
+之后可以[Dimond](../_Blocks/BLAST.md)注释
 
 
 

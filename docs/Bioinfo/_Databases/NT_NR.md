@@ -30,6 +30,6 @@ tar -xzf nucl_gb.accession2taxid.gz
 ```
 
 
-随后：[BLAST(NT)/Dimond(NR)](../Blocks/BLAST.md) --> accession2taxid --> [NCBI Taxonomy](Taxonony.md)进行注释
+随后：[BLAST(NT)/Dimond(NR)](../_Blocks/BLAST.md) --> accession2taxid --> [NCBI Taxonomy](Taxonony.md)进行注释
 
 

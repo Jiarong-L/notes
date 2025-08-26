@@ -1,5 +1,5 @@
 ---
-title: Pipelines overview
+title: Overview
 ---
 
 <style>
@@ -31,7 +31,7 @@ img{
 
 这里有一篇[流程/工具总结](https://www.sciencedirect.com/science/article/pii/S2001037024001430)
 
-[![Meta](./Pipelines_overview/Meta.png)]()
+[![Meta](./Overview/Meta.png)]()
 
 
 病毒由于含量少，另有工具（VirSorter/VirFinder/...）

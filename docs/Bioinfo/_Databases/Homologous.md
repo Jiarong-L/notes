@@ -17,7 +17,7 @@ SpeZ    SpeX    SpeY
 
 **获取基因家族的方式**有2种：(预测CDS后，or工具内置Prodigal)
 
-1. [OrthoFinder](../Blocks/OrthoFinder.md)/OrthoMCL 建 Species Tree & Gene Tree
+1. [OrthoFinder](../_Blocks/OrthoFinder.md)/OrthoMCL 建 Species Tree & Gene Tree
 2. 比对数据库，最基础：
     - [Pfam](http://pfam.xfam.org/): A large collection of protein families & ID-mapping to PDB.
     - [COG/KOG](https://ftp.ncbi.nih.gov/pub/COG/): Cluster of Orthologous Groups of proteins (**prokaryotic**-COG/**eukaryotic complete genomes**-KOG)

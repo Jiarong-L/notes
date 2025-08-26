@@ -34,7 +34,7 @@ AIDD: 从 **ChEMBL** 等数据库中获取化合物的生物功能（e.g.CBSIs�
 * 在线绘制1：http://www.swissadme.ch/
 * 在线绘制2： https://chemaxon.com/marvin
 * MarvinSketch 绘制   
-* 1D/2D可在线绘制，1D/2D to 3D的转换可使用[RDKit](../Bioinfo/Blocks/RDKit.md)（加H、力场优化、etc）或者Discovery Studio（Chemistry Tab 处理）、Schrödinger(LigPrep:计算化合物在活性位点的不同构象时的结合自由能)等。  
+* 1D/2D可在线绘制，1D/2D to 3D的转换可使用[RDKit](../Bioinfo/_Blocks/RDKit.md)（加H、力场优化、etc）或者Discovery Studio（Chemistry Tab 处理）、Schrödinger(LigPrep:计算化合物在活性位点的不同构象时的结合自由能)等。  
 ![Chemical1](CADD/img/Chemical1.png)
 ![Chemical2](CADD/img/Chemical2.png)  
 ![Chemical3](CADD/img/Chemical3.png)

@@ -45,7 +45,7 @@ CTCF位点是指CTCF（CCCTC-binding factor）蛋白结合的特定DNA序列，�
 | 工具 | 用途 | -- |
 | -- | -- | -- |
 | HiC-Pro | fq生成交互矩阵 | -- |
-| [Juicer](../../Blocks/Juicer.md) | fq生成交互矩阵，TAD/Loop | .hic格式与可视化工具 Juicebox 无缝集成 |
+| [Juicer](../../_Blocks/Juicer.md) | fq生成交互矩阵，TAD/Loop | .hic格式与可视化工具 Juicebox 无缝集成 |
 | Cooler | 格式转换，矩阵缩放/归一化 | 对于.cool格式，HiGlass支持可视化，cooltools支持TAD/diff |
 | cworld-dekker | 主要下游分析 | 输入矩阵格式：```bin1 bin2 count``` |
 | [HiCExplorer](https://blog.csdn.net/hzau_yang/article/details/100031590) | bam生成交互矩阵，主要下游分析 | ```hicPlotxxx```值得一试，```--BED H3K27ac_peaks.bed``` 可叠加 Chip-seq peak |
@@ -224,7 +224,7 @@ HiC可用来辅助进行染色体级别基因组的组装；不过HiC组装的�
 * 评估方法：准确度(how?)，挂载率(草图中有多少比例的base被包含在染色体中)
 
 ## Meta HiC
-[hicSPAdes](../../Blocks/SPAdes.md#hicspades-meta), [HiCBin](../../Blocks/HiCBin.md)等使用HiC技术辅助Binning
+[hicSPAdes](../../_Blocks/SPAdes.md#hicspades-meta), [HiCBin](../../_Blocks/HiCBin.md)等使用HiC技术辅助Binning
 
 
 ## 参考

@@ -17,7 +17,7 @@ img{
 ## Toolkit
 [![Krona](Toolkit/Krona/img/1.png)](Toolkit/Krona.md)
 [![PyMOL](Toolkit/PyMOL/img/1.png)](Toolkit/PyMOL.md)
-[![nucmerO](../Blocks/Mummer/img/nucmerO.png)](../Blocks/Mummer.md)
+[![nucmerO](../_Blocks/Mummer/img/nucmerO.png)](../_Blocks/Mummer.md)
 
 
 
@@ -26,7 +26,7 @@ img{
 [![donut_pie_plot](Python/Matplotlib/img/donut_pie_plot.png)](Python/Matplotlib.md)
 [![animation](Python/Matplotlib/img/animation_sin.gif)](Python/Matplotlib.md)
 [![NGLView](Python/NGLView/img/2.png)](Python/NGLView.md)
-[![RDKit](../Blocks/RDKit/img/2.png)](../Blocks/RDKit.md)
+[![RDKit](../_Blocks/RDKit/img/2.png)](../_Blocks/RDKit.md)
 
 ## R
 [![ColorMap](R/ColorMap/BrewerPal.png)](R/ColorMap.md)

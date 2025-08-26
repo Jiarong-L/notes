@@ -28,7 +28,7 @@ table th:nth-of-type(2) {
 
 ## Scaling
 
-[![](../Pipelines/Pipelines_overview/Scaling.png)](https://doi.org/10.1186/1471-2164-7-142)
+[![](../Pipelines/Overview/Scaling.png)](https://doi.org/10.1186/1471-2164-7-142)
 
 
 
