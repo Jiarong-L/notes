@@ -32,6 +32,12 @@ img{
 
 此处查看实现代码：[GNN_PyTorch.ipynb](https://github.com/Jiarong-L/GAN_tutorial/blob/main/Basis/GNN_PyTorch.ipynb), networkx 计算[基本特征](GNN/concepts.py)、[Pagerank](GNN/pagerank.py)
 
+
+## 图论
+
+[图论手写笔记(pdf)](GNN/图论_2020_笔记.pdf)  数学知识储备
+
+
 ## Traditional
 Uses Hand-designed features for:
 
