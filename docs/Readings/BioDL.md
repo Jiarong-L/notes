@@ -5,13 +5,14 @@ img{
 </style>
 
 
-
 ## 基本操作
 
-1. 序列：获取DNA/RNA/AA序列的表示 --- 使用facebook预训练的[ESM](https://blog.csdn.net/qq_52038588/article/details/134074662)可获取蛋白质序列的表示
+1. 序列：获取DNA/RNA/AA序列的表示
     - LSTM/Transformer（序列、Epi、结构） + Knowledge（GCN:PPI/BlastHits、...）随后可用CNN整合
     - 在缺失标签的情况下，可用 self/semi-supervised (AE/DAE/GAN) 获得表示
-
+    - 从预训练的PLM中获取蛋白质序列的表示
+        - [ESM-facebook](https://blog.csdn.net/qq_52038588/article/details/134074662)
+        - [SaProt-westlake](https://github.com/westlake-repl/SaProt) 需要输入Foldseek的 structure-aware sequence，可以搜索Foldseek的在线数据库，也可以从[ColabFold](https://docs.hpc.sjtu.edu.cn/app/bioinformatics/colabfold.html)预测结构、然后[convert](https://github.com/westlake-repl/SaProt?tab=readme-ov-file#convert-protein-structure-into-structure-aware-sequence) 
 
 | 以蛋白质为例 | 数据 | 评估 | 示例 |
 | -- | -- | -- | -- |
