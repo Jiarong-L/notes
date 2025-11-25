@@ -1,8 +1,8 @@
 
 
-得到高质量的MAGs后，鉴定出所有的酶和代谢反应(KEGG/MetaCyc)，即得到GEMs(Genome-scale metabolic model)。可以使用自动化工具[carveme](https://carveme.readthedocs.io/en/latest/index.html)/modelSEED/KBase，它从物种完整的GEM (默认使用[BiGG Models](http://bigg.ucsd.edu/data_access)，包含物种中大量经过手动验证的高质量反应)中选取符合基因组注释信息（基础功能！）、培养基成分约束、合成辅因子/自身脂质的约束，并尽可能让模型变得简洁（最小化模型中的总反应数量）
+得到高质量的MAGs后，鉴定出所有的酶和代谢反应(KEGG/MetaCyc)，即得到GEMs(Genome-scale metabolic model)。可以使用自动化工具[carveme](https://carveme.readthedocs.io/en/latest/index.html)，它从物种完整的GEM (默认使用[BiGG Models](http://bigg.ucsd.edu/data_access)，包含物种中大量经过手动验证的高质量反应)中选取符合基因组注释信息（基础功能！）、培养基成分约束、合成辅因子/自身脂质的约束，并尽可能让模型变得简洁（最小化模型中的总反应数量）
 
-得到GEMs（SBML格式 --> Edge/Path=Reactions,Node=Metabolites）后，即可开始 Flux Balance Analysis（FBA）。
+得到GEMs（SBML格式 --> Edge/Path=Reactions,Node=Metabolites）后，即可开始 [Flux Balance Analysis（FBA）](https://zhuanlan.zhihu.com/p/362498704)。
 
 Flux指代谢反应```A <-> B```在单位时间、单位细胞质量下的转化速率，```net = forward - reverse```。数值上，负数表示消耗、正数表示产出
 
@@ -68,5 +68,11 @@ flux_variability_analysis(model, model.reactions[:10], loopless=True)  ## FVA --
 如果有代谢组数据（一般是多个物种但暂且假设在一个整体循环内），可以根据其比例设置相关反应的通量约束bounds，或许也可以写一个壳子来优化这些约束（e.g.gradient）/其它Graph模拟。FBA模型本质上只是在拟合不同通路的权重，只能依据生产/消耗反应的通量来间接影响代谢物的预测浓度、模型中最多设置 ```model.add_boundary(model.metabolites.xx_c, type='demand')```
 
 除了最优解，flux sampling ```s = sample(model, 100)``` 可以探索（符合约束条件的）稳态下所有可能的Flux分布
+
+
+## 代谢模型 + 群落模拟
+
+[gapseq + BacArena ](https://gapseq.readthedocs.io/en/latest/tutorials/crossfeeding.html)
+
 
 
