@@ -12,6 +12,8 @@ title: Database Tips
 * 参考 [ID Mapper](ID_Mapper.md) 将不同数据库的ID对应起来；虽然大部分数据库的最终来源很可能都是NCBI，但由于时间版本不同、序号可能不一致，需要注意
 * 如果需要数据来测试工具，参考[此处笔记](SRA.md)
 * [ENCODE](https://www.encodeproject.org/) 内含众多Epi相关数据，适用于训练DL模型
+* [NCBI镜像](https://db.cngb.org/information/articles/fcd34a7e-6dc9-4659-8a2a-bdba87bcfa23?lang=zh-hans)
+
 
 
 | -- | DB数据类型 | 包含物种 | 查询数据 | 查询工具 | 其它说明 |

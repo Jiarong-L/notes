@@ -27,7 +27,7 @@ img{
 | [Re-seq](Bulk/Re-seq.md) | 对已知基因组序列信息的个体进行测序，获取SNP、InDel、SV等信息 | 群体遗传，下游：GWAS |
 
 ### Metagenomics
-关注环境中物种组成，或者功能基因的比例，或者物种/功能的Network
+关注环境中物种组成，或者功能基因的比例，或者物种/功能的Network，或者进行 [Flux 分析](../_Blocks/FBA.md)
 
 这里有一篇[流程/工具总结](https://www.sciencedirect.com/science/article/pii/S2001037024001430)
 
