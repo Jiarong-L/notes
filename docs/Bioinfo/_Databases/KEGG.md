@@ -4,6 +4,33 @@
 关联：NR SWissport GO KEGG 已实现相互注释；enrichment 可参考 [GO](./GO.md#enrichment)
 
 
+### 举例 -> sbml 格式
+
+KEGG 通路 [ko00020](https://rest.kegg.jp/get/ko00020) 包含多个 ORTHOLOGY 字段 (KO,KEGG Orthology)，任选 [K00024](https://rest.kegg.jp/get/K00024)->**[EC:1.1.1.37](https://rest.kegg.jp/get/ec:1.1.1.37)** 包含找到多条 REACTION 字段 [RN:R00342](https://rest.kegg.jp/get/R00342)，其中包含参与的 Compounds [C00149](https://rest.kegg.jp/get/C00149) ...
+
+```bash
+ENTRY       R00342                      Reaction
+NAME        (S)-malate:NAD+ oxidoreductase
+DEFINITION  (S)-Malate + NAD+ <=> Oxaloacetate + NADH + H+
+EQUATION    C00149 + C00003 <=> C00036 + C00004 + C00080
+RCLASS      RC00001  C00003_C00004
+            RC00031  C00036_C00149
+ENZYME      1.1.1.37        1.1.1.299
+```
+
+将 KEGG 注释转换为 SBML 时，推荐使用 EC 编号关联 REACTION ```Gene → KO → EC → Reaction```
+
+EC编号是酶的ID编码，可与外部数据库交叉引用：KEGG，UniProt，BRENDA，**MetaCyc/BioCyc(非冗余、实验阐明的代谢途径和酶的数据库)**
+
+```bash
+EC:a.b.c.d
+
+a. 反应类型
+b. 反应物性质
+c. 受体性质
+d. 序列号 - 具体酶
+```
+
 ### Links
 
 参考[KEGG REST API](https://www.kegg.jp/kegg/rest/keggapi.html)的提示，pathway prefix 主要包括：
