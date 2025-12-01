@@ -33,6 +33,9 @@ img{
 此处查看实现代码：[GNN_PyTorch.ipynb](https://github.com/Jiarong-L/GAN_tutorial/blob/main/Basis/GNN_PyTorch.ipynb), networkx 计算[基本特征](GNN/concepts.py)、[Pagerank](GNN/pagerank.py)
 
 
+推荐网上的详细课程笔记！ [‘小角龙’](https://zhang-each.github.io/My-CS-Notebook/CS224W/)，[‘王半仙’](https://banxian-w.com/article/2024/12/21/2816.html)
+
+
 ## 图论
 
 [图论手写笔记(pdf)](GNN/图论_2020_笔记.pdf)  数学知识储备
@@ -58,9 +61,9 @@ Uses Hand-designed features for:
 
 - **连通分量(Connected Components):** 无向图的一个极大连通子图，或有向图的一个极大强连通子图。‘极大’意为：连通图只有一个连通分量，即其自身；非连通图有多个连通分量。
 
-- **最短路径**d(i,j): v<sub>i</sub>到v<sub>j</sub>所经过的边
+- **最短路径(Minimal Path) d(i,j)=** v<sub>i</sub>到v<sub>j</sub>所经过的边
 
-- **图直径:** max(最短路径)
+- **图直径(Diameter):** max(最短路径)
 
 - **Motifs:** G中反复出现的重要互连模式(i.e.子图)，其出现频率比随即网络更高(Significance:Z-score)；允许motif间部分重叠
 
@@ -68,7 +71,7 @@ Uses Hand-designed features for:
 ![graphlets](GNN/img/graphlets.png) 
 
 
-### Matrix
+### Matrix (详见图论笔记)
 Matrix 元素 a<sub>ij</sub> 表示 (i 行，j 列) 的值
 
 - **邻接矩阵(Adjacency):** a<sub>ij</sub> 表示v<sub>i</sub>指向v<sub>j</sub>的边数；行和(列和)为Node的出(入)度。
@@ -98,7 +101,7 @@ Importance-based / Structure-based Features
 
 - **Clustering coefficient:** 顶点v的 $e_v = \frac{相邻节点集内部的Edge数目之和}{相邻节点集内部的两两组合数}$
 
-- **PageRank**: $PR(u)$ = $ \frac{1-d}{N} + d * \sum_{v\in B}\frac{PR(v)}{L(v)}$， 其中$B$表示所有指向u的顶点，L(v)表示顶点v的出链数目，d为阻尼因子(damping factor)。  
+- **PageRank** 衡量节点重要性的某种权重: $PR(u)$ = $ \frac{1-d}{N} + d * \sum_{v\in B}\frac{PR(v)}{L(v)}$， 其中$B$表示所有指向u的顶点，L(v)表示顶点v的出链数目，d为阻尼因子(damping factor)。  
 *d解决了Rank Leak、Rank Sink等问题；现实中，可以假设d为用户按照跳转链接来页面u的概率，余下的为通过u网址而来的概率。*
 
 - **HITS:** $Authority(u)=\sum_{v\in B}Hub(v)$，其中$B$表示所有-->u的顶点；$Hub(u)=\sum_{v\in B}Authority(v)$，其中$B$表示所有u-->的顶点；亦是不断迭代至稳态。
@@ -108,7 +111,7 @@ Importance-based / Structure-based Features
 
 
 ### Link-level Feature
-2个nodes间的link的feature: 
+2个nodes间的link的feature: Edge/Path的特征
 
 - Distance-based Features
     - 最短路径的长度
@@ -137,55 +140,62 @@ Kernel Methods: 基于种种kernel计算出feature频次vector、其dot product�
 - **Weisfeiler-Lehman kernel:** k+1时刻顶点v的颜色=HASH(k时刻顶点v的颜色、k时刻顶点v所有邻居的颜色); HASH可以是定义的任何操作(e.g. sum, 取余)。HASH完成后，统计两个G的颜色分布vector、计算WL kernel similarity。
 
 
+## Node Embedding
 
-
-
-## Graph Embedding
-- encoder: 将nodes表示为向量（representation vector）
-- decoder：计算embedding间的similarity   
-- similarity：可以是embedding vectors间的dot product
-
-- 特质相似的nodes的embedding应该更加相似。
+- Encoder: 将nodes表示为向量 (representation vector)，特质相似的nodes的embedding应该更加相似 (e.g. embedding vectors 间的 dot product 尽可能大)
     - 同质性(homophily)：节点与其邻居的embedding应该很相似   
     - 结构等价性(structural equivalence)：节点若在图上处于相似的结构位置，其embedding应该很相似
 
-- **一些Embedding算法：** 
-    - https://github.com/shenweichen/GraphEmbedding
-    - https://zhuanlan.zhihu.com/p/56733145
-    - DeepWalk、LINE、Node2Vec、Struc2Vec、SDNE
 
-### Deepwalk
-G中随机游走生成序列，以此序列集为SkipGram的训练资料，达成Node embedding。  
-![Deepwalk](GNN/img/Deepwalk.png)   
-![SkipGram](GNN/img/SkipGram.png)    
+有些时候，我们可以将 Encoder 视为一个矩阵 ```Z = d × |V|```，它可以将 ```G(V,E)``` 中的每一个顶点 ```v = [0 0 ... 1 0 ...]``` 都映射到d-维嵌入空间
 
 
-### LINE
-- 一阶：考虑节点的边
-      - 联合概率分布 $p_1(v_i,v_j) = \frac{1}{1+exp(-u_i^T*u_j)}$，其中$u_i$是顶点$v_i$的low-dimensional vector representation
+### Walks + SkipGram
+
+NLP中，Word2Vec 的两种建模方法都基于上下文词组获取 word embedding：经常一起出现的词，它们的Embedding也理应相似(dot product 尽可能大)
+
+```bash
+1. SkipGram: 给定 word，预测上下文词组        word --> [a,b,c,d]
+[word: one-hot] --> [word: Embd] --> [P(?|word): for the full dictionary]
+
+训练时，设定窗口大小为2时，输入语句 We are about to study the idea of deep learning
+
+于是某个单词 study 窗口内的上下游词组可组成训练集-正样本对：(目标词,上下文词)
+(study, about)
+(study, to)
+(study, the)
+(study, idea)
+
+2. CBOW: 给定上下文词组，预测 word            [a,b,c,d] --> word
+[a: one-hot] --> [a: Embd] --> Merged / [word: Embd] --> [P(?|abcd): for the full dictionary]
+[b: one-hot]     [b: Embd]
+    .....          .....
+```
+
+[Deepwalk](GNN/img/Deepwalk.png): G中随机游走生成序列，以此序列集为[SkipGram](GNN/img/SkipGram.png) 的训练资料，达成Node embedding
+
+[Node2Vec](GNN/img/node2vec.png) : [Biased Walks](GNN/img/biasedWalks.png)生成序列(p大-倾向于DFS，q大-倾向于BFS)，以此序列集为SkipGram的训练资料
+
+
+### LINE: 1st/2nd-Order
+
+1. 一阶相似度：两个顶点间（顶点向量的内积 -> 顶点相似度 -> 边权）
+    - 联合概率分布 $p_1(v_i,v_j) = \frac{1}{1+exp(-u_i^T*u_j)}$，其中$u_i$是顶点$v_i$的低维向量表示
     - 经验概率分布 $\tilde{p}_1(v_i,v_j) = \frac{w_{ij}}{W}$，其中$w_{ij}$是Edge(i,j)的权重(若无设定，则都是1)，W是G中所有w之和
-    - $O_1 = \sum _{(i,j) \in E} distance(\tilde{p}_1(*,*)||p_1(*,*))$ 为两个分布的距离，distance可以是KL-divergence  
-    ![KL](GNN/img/KL.png)   
-    ![LINE1](GNN/img/LINE1.png) 
+    - 优化目标为最小化两个分布的距离 $O_1 =  distance(\tilde{p}_1(*,*)||p_1(*,*))$，distance可以是[KL-divergence](GNN/img/KL.png)，忽略常数项后 $O_1 = - \sum _{(i,j) \in E} w_{ij} \log p_1(v_i,v_j)$
 
-- 二阶：考虑节点的Neighbor
-    - $u_j$: 该顶点本身的representation vector
-    - $u_j'$: 该顶点作为其它节点邻居时的representation vector
-    - $p_2(v_j|v_i) = \frac{exp({u'}_j^T*u_i)}{\sum_{k=1}^{|V|}{exp({u'}_k^T*u_i)}}$
-    - $\tilde{p}_2(v_j|v_i) = \frac{w_{ij}}{W_i}$ W是$v_i$所有出链的w之和
-    - $O_2 = \sum _{(i,j) \in E} \lambda_i * distance(\tilde{p}_2(*,*)||p_2(*,*))$ 为两个分布的距离，$\lambda_i$是控制节点重要性的因子，distance可以是KL-divergence  
-    ![LINE2](GNN/img/LINE2.png) 
+2. [二阶相似度](GNN/img/LINE2.png)：顶点Neighbors的重合程度（与所有其他顶点间的1阶相似度向量 -> 内积 -> 邻居相似度）
+    - $p_2(v_j|v_i) = \frac{exp({u'}_j^T*u_i)}{\sum_{k=1}^{|V|}{exp({u'}_k^T*u_i)}}$，$u_j$: 该顶点本身的向量表示，$u_j'$: 该顶点作为其它节点邻居时的向量表示
+    - $\tilde{p}_2(v_j|v_i) = \frac{w_{ij}}{W_i}$ W是$v_i$所有出链/Degree的w之和
+    - 优化目标 $O_2 = \sum _{(i,j) \in E} \lambda_i * distance(\tilde{p}_2(*,v_i)||p_2(*,v_i))$ 为两个分布的距离，$\lambda_i$是控制节点重要性的因子，distance可以是KL-divergence，忽略常数项后 $O_2 = - \sum _{(i,j) \in E} w_{ij} \log p_2(v_j|v_i)$
 
 
+[SDNE (Structural Deep Network Embedding)](https://www.cnblogs.com/BlairGrowing/p/15622594.html) 简单的来说就是用邻接矩阵作为输入（Neighbor信息），训练一个AutoEncoder来进行Embedding，它的一/二阶相似度定义和LINE一样 (Loss_1 = 相邻顶点Embedding_y的距离，Loss_2 = 邻接向量_x的重构误差)且加入正则与稀疏图的应对
 
 
-### node2vec
-Biased Walks生成序列(p大-倾向于DFS，q大-倾向于BFS)，以此序列集为SkipGram的训练资料   
-![biasedWalks](GNN/img/biasedWalks.png)   
-![node2vec](GNN/img/node2vec.png)  
+### Struc2Vec: k-hop
 
-### Struc2Vec
-基于空间结构相似性    
+对不同距离的邻接信息建立图层，然后再图中或图层之间游走（空间结构相似性 - 指远处的邻居信息？）    
 
 ![Struc2Vec1](GNN/img/Struc2Vec1.png) 
 
@@ -193,7 +203,7 @@ Biased Walks生成序列(p大-倾向于DFS，q大-倾向于BFS)，以此序列�
     - $f_{k}(u,v)$为顶点u、v间k-hop结构距离
     - $R_k(u)$为顶点u的k-hop邻居集，例如：$R_1(u)$ = {A,C,F,D}
     - $s(R_k(u))$为顶点u的k-hop邻居集对应的度，例如：$s(R_1(u))$ = {1,2,2,2}
-    - $g(D1,D2)$为D1,D2之间距离函数，可用DWT
+    - $g(D1,D2)$为D1,D2之间距离函数，可用[DWT](GNN/img/DWT.png)
 - 根据$f_{k}(u,v)$距离，构建k-hop Weighted Graph，每个hop为一个layer、layer之间也由weighted edge
     - hop内边的权重$w_k(u,v)=e^{-f_{k}(u,v)}$
     - hop之间边的权重
@@ -204,13 +214,21 @@ Biased Walks生成序列(p大-倾向于DFS，q大-倾向于BFS)，以此序列�
 ![Struc2Vec3](GNN/img/Struc2Vec3.png)   
 
 
-### SDNE
-简单的来说就是用邻接矩阵的每一行作为输入，训练一个Auto Encoder来进行embedding。
+### GCN
 
-### Embed Entire Graph
+我们不建议将G的接邻矩阵和特征矩阵直接作为DL模型的输入，因为这对节点的顺序非常敏感
 
-- sum / average Node Embeddings
-- 用一个横跨(sub)graph的'virtal node'来表示(sub)graph，然后embed这个node
+GCN/**GraphSAGE** 本质上可以视为对 k-hop neighbors 的层级加权聚合，从(k-1)层起、每一个的顶点都由其邻居聚合而来、直到0层的目标顶点（以一种确定计算图/**采样邻居、训练每一层的Aggregator**），获得的 node embedding 可被投入后续DL模型
+
+![GraphSAGE](GNN/img/GraphSAGE.png) 
+
+Graph Attention Network (GAT) 用注意力定义估邻居节点的权重
+
+
+## Graph Embedding
+
+- 整合所有Nodes的嵌入向量 (e.g.Sum/Concat)
+- 将(sub)graph视为一个'virtal node'
 - **Anonymous Walk**: 设定node index为在随机游走中第一次被访问时候的index。匿名方法有助于得到网络的全局拓扑结构    
     ![AnonymousWalk](GNN/img/AnonymousWalk.png) 
     - 一次Anonymous Walk后得到一条图示index vector
@@ -219,10 +237,11 @@ Biased Walks生成序列(p大-倾向于DFS，q大-倾向于BFS)，以此序列�
 
 
 ### Use Embedding
+
+可以是对于 Node/Graph 某种特征的判断或预测、是否有异常的节点或结构，Nodes间是否有关系、关系的方向
+
 ![useEmbed](GNN/img/useEmbed.png) 
 
-
-其它GNN：/GCN/GraphSAGE/GAT
 
 
 ## 参考
@@ -231,6 +250,11 @@ Biased Walks生成序列(p大-倾向于DFS，q大-倾向于BFS)，以此序列�
 中心性：https://www.cnblogs.com/yanFlyBlog/articles/14728305.html#度中心性degrree-centrality   
 networkx: https://networkx.org/documentation/stable/tutorial.html   
 pagerank: https://zhuanlan.zhihu.com/p/137561088     
-pagerank: https://zhuanlan.zhihu.com/p/120962803   
-**Graph Embedding：** https://zhuanlan.zhihu.com/p/56733145     
+pagerank: https://zhuanlan.zhihu.com/p/120962803        
 
+其它GNN：/GCN/GraphSAGE/GAT
+
+- **一些Embedding算法：** 
+    - https://github.com/shenweichen/GraphEmbedding
+    - https://zhuanlan.zhihu.com/p/56733145
+    - DeepWalk、LINE、Node2Vec、Struc2Vec、SDNE
