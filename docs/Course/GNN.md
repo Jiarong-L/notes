@@ -35,7 +35,7 @@ img{
 
 ## 图论
 
-[图论手写笔记(pdf)](GNN/图论_2020_笔记.pdf)  数学知识储备
+[Graph Theory - 图论手写笔记(pdf)](GNN/图论_2020_笔记.pdf)  数学知识储备
 
 
 ## Traditional
@@ -190,9 +190,9 @@ NLP中，Word2Vec 的两种建模方法都基于上下文词组获取 word embed
 [SDNE (Structural Deep Network Embedding)](https://www.cnblogs.com/BlairGrowing/p/15622594.html) 简单的来说就是用邻接矩阵作为输入（Neighbor信息），训练一个AutoEncoder来进行Embedding，它的1st/2nd-Order定义和LINE一样 (Loss_1 = 相邻顶点Embedding_y的距离，Loss_2 = 邻接向量_x的重构误差)且加入正则与稀疏图的应对
 
 
-### Struc2Vec: k-hop
+### Struc2Vec: k-hop + walk
 
-注：[这个笔记更清晰](https://banxian-w.com/article/2024/3/22/2696.html)
+注：[这个笔记更清晰](https://banxian-w.com/article/2024/3/22/2696.html) & k应该不会需要很大，毕竟有时候3-hop的邻居就会覆盖全图了
 
 对不同距离的邻接信息建立图层（1/边权 = 顶点间距离 = 上一层距离 + 本层邻居集差异），然后在图层中或图层之间游走，得到的序列输入SkipGram（空间结构相似性 - 指远处的邻居信息？）    
 
@@ -242,18 +242,43 @@ Graph Attention Network (GAT) 用注意力定义估邻居节点的权重
 ![useEmbed](GNN/img/useEmbed.png) 
 
 
+## Heterogeneous Graph
 
-## 参考
-拉普拉斯矩阵: https://zhuanlan.zhihu.com/p/362416124   
-连通分量：https://zhuanlan.zhihu.com/p/37792015   
-中心性：https://www.cnblogs.com/yanFlyBlog/articles/14728305.html#度中心性degrree-centrality   
-networkx: https://networkx.org/documentation/stable/tutorial.html   
-pagerank: https://zhuanlan.zhihu.com/p/137561088     
-pagerank: https://zhuanlan.zhihu.com/p/120962803        
+异构图（Heterogeneous Graph）中，存在不同类型的节点和边 --- 定义```(源节点类型,边类型,目标节点类型)```为一种**关系**，不再自由跳转全图、而是限定在相应关系可达的子图中
 
-其它GNN：/GCN/GraphSAGE/GAT
+想象 Heterogeneous Edge (Relation) 的情况，共有三种不同的边类型(A/B/C)、存储于相应的三个矩阵中；NodeX 的多条边中，三种边类型所对应的邻节点也可相应的分为三种；**对每个种类分别进行**聚合、再聚合A/B/C类型的结果 ([RGCN](GNN/img/RGCN.png) ) 
 
-- **一些Embedding算法：** 
-    - https://github.com/shenweichen/GraphEmbedding
-    - https://zhuanlan.zhihu.com/p/56733145
-    - DeepWalk、LINE、Node2Vec、Struc2Vec、SDNE
+原版GAT不支持异构图，因为为每种关系引入一组注意力神经网络代价太高。[Heterogeneous Graph Transformer (HGT) Fig2](https://arxiv.org/pdf/2003.01332)将注意力机制分解为节点注意力和边注意力，因而可行
+
+```bash
+想象有 N=3 种节点和 E=2 种边，(源节点,边,目标节点)的可能组合有 N*E*N = 3*2*3 种，即需要18种注意力
+但HGT只需要 5 种
+```
+
+### Knowledge graph
+
+![KG](GNN/img/KG.png)
+
+知识图（Knowledge graph）也算是一种异构图，节点表示实体（n.药/蛋白/基因）、边表示两个实体之间的关联（v.治愈/抑制/编码）写作三元组 ```(h,r,t)```；实体、关系都嵌入同一个k维空间：```(h,r)```的表示应该尽可能接近```t```的表示
+
+如何定义接近？不同算法设计了不同的 $f_r(h,t)$ score
+
+![KGE](GNN/img/KGE.png)
+
+(离散数学二元关系的一些性质-图论笔记P5: Sym, Antisym, Compos/Transitive)
+
+
+KG的常见任务是图谱补全 ```(h,r) -> t``` 即**推理任务(Reasoning)**，表述为一系列的Query：[Query嵌入表示 q = h + r1 + r2 + ...](GNN/img/KGE-Path.png)
+
+
+| KG Queries | $(h,r) -> t$ | 说明 |
+| -- | -- | -- |
+| One-hop | $(h=Flu,(r=Causes))$ | Flu 造成了什么 |
+| Path | $(h=v_a,(r=r1,r=r2))$ | 从r1的结果中再查询r2的指向 |
+| Conjunctive | $(h=D1,(r=Treat)) , (h=D2,(r=Cause))$ | 两个 One-hop 查询结果的交集 |
+
+
+我们可以用一个 box (center,offset) 框住某个单次查询的结果，也可以将每个实体视为一种 zero-volume box；而关系则是一种投影运算 ```Box * r -> Box```；这样求交集的操作会变得简单（不过Box不支持Union操作，建议把合并挪到最后一步）：[Query2box](GNN/img/KGE-Box.png)
+
+一般采用实体与box的边界的距离；当实体在box内部时，距离值为负数
+
