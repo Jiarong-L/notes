@@ -22,12 +22,9 @@ img{
 ![MLtask](GNN/img/MLtask.png) 
 
 课程描述：cs224w    
-课程主页：https://web.stanford.edu/class/cs224w/index.html   
+课程主页：https://web.stanford.edu/class/cs224w/   
 课程笔记：https://snap-stanford.github.io/cs224w-notes/   
-
-
-课程描述：bilibili-图神经网络       
-视频链接：https://www.bilibili.com/video/BV1YB4y1S7An/  
+视频链接：https://www.bilibili.com/video/BV1YB4y1S7An/
 
 
 此处查看实现代码：[GNN_PyTorch.ipynb](https://github.com/Jiarong-L/GAN_tutorial/blob/main/Basis/GNN_PyTorch.ipynb), networkx 计算[基本特征](GNN/concepts.py)、[Pagerank](GNN/pagerank.py)
@@ -155,7 +152,7 @@ Kernel Methods: 基于种种kernel计算出feature频次vector、其dot product�
 NLP中，Word2Vec 的两种建模方法都基于上下文词组获取 word embedding：经常一起出现的词，它们的Embedding也理应相似(dot product 尽可能大)
 
 ```bash
-1. SkipGram: 给定 word，预测上下文词组        word --> [a,b,c,d]
+1. SkipGram: 给定word，预测上下文词组[a,b,c,d]  
 [word: one-hot] --> [word: Embd] --> [P(?|word): for the full dictionary]
 
 训练时，设定窗口大小为2时，输入语句 We are about to study the idea of deep learning
@@ -166,7 +163,7 @@ NLP中，Word2Vec 的两种建模方法都基于上下文词组获取 word embed
 (study, the)
 (study, idea)
 
-2. CBOW: 给定上下文词组，预测 word            [a,b,c,d] --> word
+2. CBOW: 给定上下文词组[a,b,c,d]，预测 word 
 [a: one-hot] --> [a: Embd] --> Merged / [word: Embd] --> [P(?|abcd): for the full dictionary]
 [b: one-hot]     [b: Embd]
     .....          .....
@@ -174,23 +171,23 @@ NLP中，Word2Vec 的两种建模方法都基于上下文词组获取 word embed
 
 [Deepwalk](GNN/img/Deepwalk.png): G中随机游走生成序列，以此序列集为[SkipGram](GNN/img/SkipGram.png) 的训练资料，达成Node embedding
 
-[Node2Vec](GNN/img/node2vec.png) : [Biased Walks](GNN/img/biasedWalks.png)生成序列(p大-倾向于DFS，q大-倾向于BFS)，以此序列集为SkipGram的训练资料
+[Node2Vec](GNN/img/node2vec.png) : [Biased Walks](GNN/img/biasedWalks.png)生成序列(p大-倾向于远处-DFS，q大-倾向于周边-BFS)，以此序列集为SkipGram的训练资料
 
 
-### LINE: 1st/2nd-Order
+### LINE: 1-hop
 
 1. 一阶相似度：两个顶点间（顶点向量的内积 -> 顶点相似度 -> 边权）
-    - 联合概率分布 $p_1(v_i,v_j) = \frac{1}{1+exp(-u_i^T*u_j)}$，其中$u_i$是顶点$v_i$的低维向量表示
-    - 经验概率分布 $\tilde{p}_1(v_i,v_j) = \frac{w_{ij}}{W}$，其中$w_{ij}$是Edge(i,j)的权重(若无设定，则都是1)，W是G中所有w之和
-    - 优化目标为最小化两个分布的距离 $O_1 =  distance(\tilde{p}_1(*,*)||p_1(*,*))$，distance可以是[KL-divergence](GNN/img/KL.png)，忽略常数项后 $O_1 = - \sum _{(i,j) \in E} w_{ij} \log p_1(v_i,v_j)$
+    - 联合概率分布 $p_1(v_i,v_j) = \frac{1}{1+exp(-u_i^T u_j)}$，其中$u_i$是顶点$v_i$的低维向量表示
+    - 经验概率分布 $\tilde{p}\_1(v_i,v_j) = \frac{w_{ij}}{W}$，其中$w_{ij}$是Edge(i,j)的权重(若无设定，则都是1)，W是G中所有w之和
+    - 优化目标为最小化两个分布的距离 $O_1 =  distance(\tilde{p}\_1(∙,∙) | p_1(∙,∙))$，distance可以是[KL-divergence](GNN/img/KL.png)，忽略常数项后 $O_1 = - \sum \_{(i,j) \in E} w_{ij} \log p_1(v_i,v_j)$
 
 2. [二阶相似度](GNN/img/LINE2.png)：顶点Neighbors的重合程度（与所有其他顶点间的1阶相似度向量 -> 内积 -> 邻居相似度）
-    - $p_2(v_j|v_i) = \frac{exp({u'}_j^T*u_i)}{\sum_{k=1}^{|V|}{exp({u'}_k^T*u_i)}}$，$u_j$: 该顶点本身的向量表示，$u_j'$: 该顶点作为其它节点邻居时的向量表示
-    - $\tilde{p}_2(v_j|v_i) = \frac{w_{ij}}{W_i}$ W是$v_i$所有出链/Degree的w之和
-    - 优化目标 $O_2 = \sum _{(i,j) \in E} \lambda_i * distance(\tilde{p}_2(*,v_i)||p_2(*,v_i))$ 为两个分布的距离，$\lambda_i$是控制节点重要性的因子，distance可以是KL-divergence，忽略常数项后 $O_2 = - \sum _{(i,j) \in E} w_{ij} \log p_2(v_j|v_i)$
+    - $p_2(v_j|v_i) = \frac{exp({u'}\_j^T u_i)}{\sum_{k=1}^{|V|}{exp({u'}\_k^T u_i)}}$，$u_j$: 该顶点本身的向量表示，$u_j'$: 该顶点作为其它节点邻居时的向量表示
+    - $\tilde{p}\_2(v_j|v_i) = \frac{w_{ij}}{W_i}$ W是$v_i$所有出链/Degree的w之和
+    - 优化目标 $O_2 = \sum \_{(i,j) \in E} \lambda_i * distance(\tilde{p}\_2(∙,v_i)||p_2(∙,v_i))$ 为两个分布的距离，$\lambda_i$是控制节点重要性的因子，distance可以是KL-divergence，忽略常数项后 $O_2 = - \sum \_{(i,j) \in E} w_{ij} \log p_2(v_j|v_i)$
 
 
-[SDNE (Structural Deep Network Embedding)](https://www.cnblogs.com/BlairGrowing/p/15622594.html) 简单的来说就是用邻接矩阵作为输入（Neighbor信息），训练一个AutoEncoder来进行Embedding，它的一/二阶相似度定义和LINE一样 (Loss_1 = 相邻顶点Embedding_y的距离，Loss_2 = 邻接向量_x的重构误差)且加入正则与稀疏图的应对
+[SDNE (Structural Deep Network Embedding)](https://www.cnblogs.com/BlairGrowing/p/15622594.html) 简单的来说就是用邻接矩阵作为输入（Neighbor信息），训练一个AutoEncoder来进行Embedding，它的1st/2nd-Order定义和LINE一样 (Loss_1 = 相邻顶点Embedding_y的距离，Loss_2 = 邻接向量_x的重构误差)且加入正则与稀疏图的应对
 
 
 ### Struc2Vec: k-hop
@@ -236,7 +233,7 @@ Graph Attention Network (GAT) 用注意力定义估邻居节点的权重
     - **data-driven model:** 借鉴NLP思想，将一次walk视为一个word，将G视为一篇document，经过同一node的walk视为co-occurring。对于每一个节点u，采样一组co-occurring SET，训练G的embedding，目标函数：$\underset{G_{embedding}}{max} \sum_{i \in coSET}{P(word_i | words_{cooccurring}, G_{embedding})}$    
 
 
-### Use Embedding
+## Use Embedding
 
 可以是对于 Node/Graph 某种特征的判断或预测、是否有异常的节点或结构，Nodes间是否有关系、关系的方向
 
