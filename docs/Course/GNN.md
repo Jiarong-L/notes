@@ -37,6 +37,7 @@ img{
 
 [Graph Theory - 图论手写笔记(pdf)](GNN/图论_2020_笔记.pdf)  数学知识储备
 
+e.g. 一些 Graph invarients 来初步判断是否同构
 
 ## Traditional
 Uses Hand-designed features for:
@@ -62,10 +63,17 @@ Uses Hand-designed features for:
 
 - **图直径(Diameter):** max(最短路径)
 
-- **Motifs:** G中反复出现的重要互连模式(i.e.子图)，其出现频率比随即网络更高(Significance:Z-score)；允许motif间部分重叠
+- **随机图(random graph):** 设定顶点数、边密度，随机生成的一张图(e.g.交换边链接的顶点/从完全图中随机删除边)
+
+- **Motifs:** G中反复出现的重要互连模式(i.e.子图)，其出现频率比随机图中更高(Significance:Z-score)；允许motif间部分重叠
 
 - **Graphlets:** ***Rooted*** connected non-isomorphic sunbraphs  
 ![graphlets](GNN/img/graphlets.png) 
+
+
+注：判断两个子图是否同构？从G中统计某种子图模式的频次？除了一些明显的Graph invarients信息，一般方法是子图中选定一个锚定顶点、遍历G寻找与其邻域结构相同的顶点，成本很高；GNN获取[邻居信息的“有序嵌入”](GNN/img/OrderE.png)可以判断两个顶点是否同构/包含
+
+搜寻Motifs的工具: [SPMiner](GNN/img/SPMiner.png) 为所有大小为 1~k 的子图建立“有序嵌入”空间；空间中，位于子图A右上方的其它图都包含A、因此它们的数目就是子图A的出现频次
 
 
 ### Matrix (详见图论笔记)
@@ -94,11 +102,11 @@ Importance-based / Structure-based Features
 
     - 介数中心性(Betweenness): 除去该顶点外、其余顶点两两间最短路径中，经过改顶点的比例 
 
-    - 连接中心性(Closeness): Closeness = 1/sum(此节点到其余所有节点最短路径)
+    - 连接中心性(Closeness): Closeness = 1/sum(此顶点到其余所有顶点最短路径)
 
-- **Clustering coefficient:** 顶点v的 $e_v = \frac{相邻节点集内部的Edge数目之和}{相邻节点集内部的两两组合数}$
+- **Clustering coefficient:** 顶点v的 $e_v = \frac{相邻顶点集内部的Edge数目之和}{相邻顶点集内部的两两组合数}$
 
-- **PageRank** 衡量节点重要性的某种权重: $PR(u)$ = $ \frac{1-d}{N} + d * \sum_{v\in B}\frac{PR(v)}{L(v)}$， 其中$B$表示所有指向u的顶点，L(v)表示顶点v的出链数目，d为阻尼因子(damping factor)。  
+- **PageRank** 衡量顶点重要性的某种权重: $PR(u)$ = $ \frac{1-d}{N} + d * \sum_{v\in B}\frac{PR(v)}{L(v)}$， 其中$B$表示所有指向u的顶点，L(v)表示顶点v的出链数目，d为阻尼因子(damping factor)。  
 *d解决了Rank Leak、Rank Sink等问题；现实中，可以假设d为用户按照跳转链接来页面u的概率，余下的为通过u网址而来的概率。*
 
 - **HITS:** $Authority(u)=\sum_{v\in B}Hub(v)$，其中$B$表示所有-->u的顶点；$Hub(u)=\sum_{v\in B}Authority(v)$，其中$B$表示所有u-->的顶点；亦是不断迭代至稳态。
@@ -136,12 +144,16 @@ Kernel Methods: 基于种种kernel计算出feature频次vector、其dot product�
 
 - **Weisfeiler-Lehman kernel:** k+1时刻顶点v的颜色=HASH(k时刻顶点v的颜色、k时刻顶点v所有邻居的颜色); HASH可以是定义的任何操作(e.g. sum, 取余)。HASH完成后，统计两个G的颜色分布vector、计算WL kernel similarity。
 
+- **Modularity Q** 衡量 Community Detection (e.g.Louvain算法) 的效果，若社区内部边的数目高于随机期望（即社区之间边的数目低于期望）、可能是顶点集中为社区
+
+![Community](GNN/img/Community.png)
+
 
 ## Node Embedding
 
 - Encoder: 将nodes表示为向量 (representation vector)，特质相似的nodes的embedding应该更加相似 (e.g. embedding vectors 间的 dot product 尽可能大)
-    - 同质性(homophily)：节点与其邻居的embedding应该很相似   
-    - 结构等价性(structural equivalence)：节点若在图上处于相似的结构位置，其embedding应该很相似
+    - 同质性(homophily)：顶点与其邻居的embedding应该很相似   
+    - 结构等价性(structural equivalence)：顶点若在图上处于相似的结构位置，其embedding应该很相似
 
 
 有些时候，我们可以将 Encoder 视为一个矩阵 ```Z = d × |V|```，它可以将 ```G(V,E)``` 中的每一个顶点 ```v = [0 0 ... 1 0 ...]``` 都映射到d-维嵌入空间
@@ -182,9 +194,9 @@ NLP中，Word2Vec 的两种建模方法都基于上下文词组获取 word embed
     - 优化目标为最小化两个分布的距离 $O_1 =  distance(\tilde{p}\_1(∙,∙) | p_1(∙,∙))$，distance可以是[KL-divergence](GNN/img/KL.png)，忽略常数项后 $O_1 = - \sum \_{(i,j) \in E} w_{ij} \log p_1(v_i,v_j)$
 
 2. [二阶相似度](GNN/img/LINE2.png)：顶点Neighbors的重合程度（与所有其他顶点间的1阶相似度向量 -> 内积 -> 邻居相似度）
-    - $p_2(v_j|v_i) = \frac{exp({u'}\_j^T u_i)}{\sum_{k=1}^{|V|}{exp({u'}\_k^T u_i)}}$，$u_j$: 该顶点本身的向量表示，$u_j'$: 该顶点作为其它节点邻居时的向量表示
+    - $p_2(v_j|v_i) = \frac{exp({u'}\_j^T u_i)}{\sum_{k=1}^{|V|}{exp({u'}\_k^T u_i)}}$，$u_j$: 该顶点本身的向量表示，$u_j'$: 该顶点作为其它顶点邻居时的向量表示
     - $\tilde{p}\_2(v_j|v_i) = \frac{w_{ij}}{W_i}$ W是$v_i$所有出链/Degree的w之和
-    - 优化目标 $O_2 = \sum \_{(i,j) \in E} \lambda_i * distance(\tilde{p}\_2(∙,v_i)||p_2(∙,v_i))$ 为两个分布的距离，$\lambda_i$是控制节点重要性的因子，distance可以是KL-divergence，忽略常数项后 $O_2 = - \sum \_{(i,j) \in E} w_{ij} \log p_2(v_j|v_i)$
+    - 优化目标 $O_2 = \sum \_{(i,j) \in E} \lambda_i * distance(\tilde{p}\_2(∙,v_i)||p_2(∙,v_i))$ 为两个分布的距离，$\lambda_i$是控制顶点重要性的因子，distance可以是KL-divergence，忽略常数项后 $O_2 = - \sum \_{(i,j) \in E} w_{ij} \log p_2(v_j|v_i)$
 
 
 [SDNE (Structural Deep Network Embedding)](https://www.cnblogs.com/BlairGrowing/p/15622594.html) 简单的来说就是用邻接矩阵作为输入（Neighbor信息），训练一个AutoEncoder来进行Embedding，它的1st/2nd-Order定义和LINE一样 (Loss_1 = 相邻顶点Embedding_y的距离，Loss_2 = 邻接向量_x的重构误差)且加入正则与稀疏图的应对
@@ -215,13 +227,13 @@ NLP中，Word2Vec 的两种建模方法都基于上下文词组获取 word embed
 
 ### GCN
 
-我们不建议将G的接邻矩阵和特征矩阵直接作为DL模型的输入，因为这对节点的顺序非常敏感
+我们不建议将G的接邻矩阵和特征矩阵直接作为DL模型的输入，因为这对顶点的顺序非常敏感
 
 GCN/**GraphSAGE** 本质上可以视为对 k-hop neighbors 的层级加权聚合，从(k-1)层起、每一个的顶点都由其邻居聚合而来、直到0层的目标顶点（以一种确定计算图/**采样邻居、训练每一层的Aggregator**），获得的 node embedding 可被投入后续DL模型
 
 ![GraphSAGE](GNN/img/GraphSAGE.png) 
 
-Graph Attention Network (GAT) 用注意力定义估邻居节点的权重
+Graph Attention Network (GAT) 用注意力定义估邻居顶点的权重
 
 
 ## Graph Embedding
@@ -232,26 +244,26 @@ Graph Attention Network (GAT) 用注意力定义估邻居节点的权重
     ![AnonymousWalk](GNN/img/AnonymousWalk.png) 
     - 一次Anonymous Walk后得到一条图示index vector
     - **feature-based model:** 统计index vector pattern为feature，有点统计graphlet这样的感觉  
-    - **data-driven model:** 借鉴NLP思想，将一次walk视为一个word，将G视为一篇document，经过同一node的walk视为co-occurring。对于每一个节点u，采样一组co-occurring SET，训练G的embedding，目标函数：$\underset{G_{embedding}}{max} \sum_{i \in coSET}{P(word_i | words_{cooccurring}, G_{embedding})}$    
+    - **data-driven model:** 借鉴NLP思想，将一次walk视为一个word，将G视为一篇document，经过同一node的walk视为co-occurring。对于每一个顶点u，采样一组co-occurring SET，训练G的embedding，目标函数：$\underset{G_{embedding}}{max} \sum_{i \in coSET}{P(word_i | words_{cooccurring}, G_{embedding})}$    
 
 
 ## Use Embedding
 
-可以是对于 Node/Graph 某种特征的判断或预测、是否有异常的节点或结构，Nodes间是否有关系、关系的方向
+可以是对于 Node/Graph 某种特征的判断或预测、是否有异常的顶点或结构，Nodes间是否有关系、关系的方向
 
 ![useEmbed](GNN/img/useEmbed.png) 
 
 
 ## Heterogeneous Graph
 
-异构图（Heterogeneous Graph）中，存在不同类型的节点和边 --- 定义```(源节点类型,边类型,目标节点类型)```为一种**关系**，不再自由跳转全图、而是限定在相应关系可达的子图中
+异构图（Heterogeneous Graph）中，存在不同类型的顶点和边 --- 定义```(源顶点类型,边类型,目标顶点类型)```为一种**关系**，不再自由跳转全图、而是限定在相应关系可达的子图中
 
-想象 Heterogeneous Edge (Relation) 的情况，共有三种不同的边类型(A/B/C)、存储于相应的三个矩阵中；NodeX 的多条边中，三种边类型所对应的邻节点也可相应的分为三种；**对每个种类分别进行**聚合、再聚合A/B/C类型的结果 ([RGCN](GNN/img/RGCN.png) ) 
+想象 Heterogeneous Edge (Relation) 的情况，共有三种不同的边类型(A/B/C)、存储于相应的三个矩阵中；NodeX 的多条边中，三种边类型所对应的邻顶点也可相应的分为三种；**对每个种类分别进行**聚合、再聚合A/B/C类型的结果 ([RGCN](GNN/img/RGCN.png) ) 
 
-原版GAT不支持异构图，因为为每种关系引入一组注意力神经网络代价太高。[Heterogeneous Graph Transformer (HGT) Fig2](https://arxiv.org/pdf/2003.01332)将注意力机制分解为节点注意力和边注意力，因而可行
+原版GAT不支持异构图，因为为每种关系引入一组注意力神经网络代价太高。[Heterogeneous Graph Transformer (HGT) Fig2](https://arxiv.org/pdf/2003.01332)将注意力机制分解为顶点注意力和边注意力，因而可行
 
 ```bash
-想象有 N=3 种节点和 E=2 种边，(源节点,边,目标节点)的可能组合有 N*E*N = 3*2*3 种，即需要18种注意力
+想象有 N=3 种顶点和 E=2 种边，(源顶点,边,目标顶点)的可能组合有 N*E*N = 3*2*3 种，即需要18种注意力
 但HGT只需要 5 种
 ```
 
@@ -259,7 +271,7 @@ Graph Attention Network (GAT) 用注意力定义估邻居节点的权重
 
 ![KG](GNN/img/KG.png)
 
-知识图（Knowledge graph）也算是一种异构图，节点表示实体（n.药/蛋白/基因）、边表示两个实体之间的关联（v.治愈/抑制/编码）写作三元组 ```(h,r,t)```；实体、关系都嵌入同一个k维空间：```(h,r)```的表示应该尽可能接近```t```的表示
+知识图（Knowledge graph）也算是一种异构图，顶点表示实体（n.药/蛋白/基因）、边表示两个实体之间的关联（v.治愈/抑制/编码）写作三元组 ```(h,r,t)```；实体、关系都嵌入同一个k维空间：```(h,r)```的表示应该尽可能接近```t```的表示
 
 如何定义接近？不同算法设计了不同的 $f_r(h,t)$ score
 
@@ -281,4 +293,16 @@ KG的常见任务是图谱补全 ```(h,r) -> t``` 即**推理任务(Reasoning)**
 我们可以用一个 box (center,offset) 框住某个单次查询的结果，也可以将每个实体视为一种 zero-volume box；而关系则是一种投影运算 ```Box * r -> Box```；这样求交集的操作会变得简单（不过Box不支持Union操作，建议把合并挪到最后一步）：[Query2box](GNN/img/KGE-Box.png)
 
 一般采用实体与box的边界的距离；当实体在box内部时，距离值为负数
+
+
+## Generative GNN
+
+* [GraphRNN](GNN/img/GraphRNN.png): 生成图的步骤是一系列顶点/边的添加，可以视为某种**序列生成**
+    - BFS排序最近生成的顶点、忽略早就完成的就顶点，减少边生成的遍历对象
+
+* RL 适用于某些小分子结构的生成，e.g. DrugLike?
+
+* 其它深度模型也可以用来：生成顶点特征，然后再预测边/生成图结构
+
+
 
