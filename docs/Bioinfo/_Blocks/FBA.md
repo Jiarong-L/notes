@@ -75,7 +75,10 @@ subject_to = {
 
 使用 [cobrapy](https://cobrapy.readthedocs.io/en/latest/building_model.html)，其中 ```model.objective``` 仅针对 Reactions，若希望优化某一代谢物，只能选取与其相关的 ```model.exchanges/.demands/``` 反应（e.g.代谢物在 ```rxn.metabolites``` 中）
 
-反应分为 ```exchanges 细胞与外部环境之间的双向交换```，```demands 细胞内代谢物的消耗或需求```，```sinks 模型填充时临时提供代谢物(？)```；设置了Bound的反应才有这三种分类，建模方式[教材](https://cobrapy-cdiener.readthedocs.io/en/latest/building_model.html#Exchanges,-Sinks-and-Demands)
+设置了Bound的反应才有这三种分类： ```exchanges 细胞与外部环境之间的双向交换```，```demands 细胞内代谢物的消耗或需求```，```sinks 模型填充时临时提供代谢物(？)```；对于反应 ```Exchange: co2_e ⇋ co2```/```Sink: glycogen_c ⇋ glycogen```，注意其代谢物 compartment 的设置，```_c 细胞质隔室/_e 外部隔室```
+
+总之，参考[建模教程](https://cobrapy-cdiener.readthedocs.io/en/latest/building_model.html#Exchanges,-Sinks-and-Demands)，查看标准SBML格式示例
+
 
 ```py
 import pandas as pd
@@ -127,9 +130,16 @@ flux_variability_analysis(model, model.reactions[:10], loopless=True)  ## FVA --
 
 此外，如果认为一些通量异常的高、或FVA范围异常大，需要考虑是否是loop造成的（对比Loopless模式的结果）
 
-如果有代谢组数据（一般是多个物种但暂且假设在一个整体循环内），可以根据其比例设置相关反应的通量约束bounds，或许也可以写一个壳子来优化这些约束（e.g.gradient）/其它Graph模拟。FBA模型本质上只是在拟合不同通路的权重，只能依据生产/消耗反应的通量来间接影响代谢物的预测浓度、模型中最多设置 ```model.add_boundary(model.metabolites.xx_c, type='demand')```
+如果有代谢组数据（一般是多个物种但暂且假设在一个整体循环内），可以根据其比例设置相关反应的通量约束bounds，或许也可以写一个壳子来优化这些约束（e.g.gradient）/其它Graph模拟。FBA模型本质上只是在拟合不同通路的权重，只能依据生产/消耗反应的通量来间接影响代谢物的预测浓度('flux-sum')、模型中最多设置 ```model.add_boundary(model.metabolites.xx_c, type='demand')```
 
 除了最优解，flux sampling ```s = sample(model, 100)``` 可以探索（符合约束条件的）稳态下所有可能的Flux分布
+
+Flux coupling analysis 则意在发现通路间的耦合：最大/最小化某个反应的通路、查看其它反应的变化
+```bash
+完全耦合：v₁ = k × v₂（k为常数）   e.g.糖酵解中的连续步骤
+方向耦合：如果v₂ > 0，则v₁ > 0；如果v₂ < 0，则v₁ < 0      e.g.一个反应为另一个反应提供必需底物
+部分耦合：如果v₁ ≠ 0，则v₂ ≠ 0     e.g.两个反应共享共同的代谢物池（如，辅因子NADH）
+```
 
 
 ## 代谢模型 + 群落模拟
