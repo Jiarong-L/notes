@@ -1,10 +1,72 @@
 
+得到高质量的MAGs后，鉴定出所有的酶和代谢反应(KEGG/MetaCyc/自动化工具)，即得到GEMs(Genome-scale metabolic model)。（有点像[MetaGEM流程](https://zhuanlan.zhihu.com/p/347347112)）
 
-得到高质量的MAGs后，鉴定出所有的酶和代谢反应(KEGG/MetaCyc)，即得到GEMs(Genome-scale metabolic model)。可以使用自动化工具[carveme](https://carveme.readthedocs.io/en/latest/index.html)，它从物种完整的GEM (默认使用[BiGG Models](http://bigg.ucsd.edu/data_access)，包含物种中大量经过手动验证的高质量反应)中选取符合基因组注释信息（基础功能！）、培养基成分约束、合成辅因子/自身脂质的约束，并尽可能让模型变得简洁（最小化模型中的总反应数量）
+得到GEMs (SBML格式 --> 超图) 后，即可开始 [Flux Balance Analysis（FBA）](https://zhuanlan.zhihu.com/p/362498704)。
 
-得到GEMs（SBML格式 --> Edge/Path=Reactions,Node=Metabolites）后，即可开始 [Flux Balance Analysis（FBA）](https://zhuanlan.zhihu.com/p/362498704)。
+FBA不修改代谢模型，它只是评估不同Flux分配方案带来的产出
 
-Flux指代谢反应```A <-> B```在单位时间、单位细胞质量下的转化速率，```net = forward - reverse```。数值上，负数表示消耗、正数表示产出
+## Metabolic Model 
+
+代谢模型是由一系列代谢反应组成的 Graph（Node=Metabolites,Edge=Reactions），**边权固定为化学系数**
+
+化学反应权重固定，但反应速率可以不同；**Flux/通量**指代谢反应在单位时间、单位细胞质量下的转化速率：e.g. 代谢反应```A ⇋ B```的```net_Flux = forward - reverse```，可能在某种情况更多```A → B```、另一种情况下更多```A ← B```
+
+数值上，负数表示消耗、正数表示产出，e.g. ```Reaction: A + 2B -> 3C``` 的反应系数可写作 ```{'A': -1,  'B': -2,  'C': +3}```
+
+代谢模型中一些常见的网络结构：
+```bash
+       ┌→ v2 (分流1)
+v1 → A ┼→ v3 (分流2)             分流点 
+       └→ v4 (分流3)
+
+
+v1 → ↘
+v2 → → B → v5                    汇聚点
+v3 → ↗
+
+
+A → B → C → D                     Loop
+↑           ↓
+└───────────┘
+
+
+         ┌→ R1 → R2 ┐
+Start → →           → → End       并行
+         └→ R3 → R4 ┘
+
+
+A ⇌ B                             可逆，flux可正可负
+```
+
+代谢模型重建 (```基因注释EC/KO → 反应 → 代谢网络 → gap_filling / 排除假阳性、不重要的反应```) 可以参考[这篇论文](https://pmc.ncbi.nlm.nih.gov/articles/PMC3125167/)。对于单个微生物物种，也可以基于基因组注释信息、从物种完整的GEM中进行删减（[BiGG Models](http://bigg.ucsd.edu/data_access)，包含物种中大量经过手动验证的高质量反应），自动化工具[carveme](https://carveme.readthedocs.io/en/latest/index.html)即是如此（其它：培养基成分约束、合成辅因子/自身脂质的约束、模型简洁/最小化反应数量）
+
+Gap Filling 指添加缺失反应（约束：基因组证据和生化合理性），使模型具备预期功能/使目标通路连通。有多种方式：[从生化反应数据库/相近GEMs中补足](https://www.pnas.org/doi/10.1073/pnas.2217400119)，比对其它组学注释，基于网络的拓扑特征 GNN [hyperlink prediction](https://www.nature.com/articles/s41467-023-38110-7)
+
+
+较新的GEM框架会加入生理/热力学约束，e.g.[GECKO 3.0](https://www.siat.ac.cn/siatxww/kyjz/202412/t20241213_7457217.html) 构建酶约束模型(ecModel -- Flux受限于酶活力kcat、浓度)
+
+![1](FBA/ecModel.png)
+
+对于以上话题，2025年综述总结了[ML如何辅助构建GEM](http://dianda.cqvip.com/Qikan/Article/Detail?id=7201252304) 《机器学习驱动的基因组规模代谢模型构建与优化 李斐然等》
+
+
+## FBA 的约束
+
+FBA 的约束与优化目标都是线性的 --- 混合整数线性规划(MILP)求解 [scipy - linprog](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html)
+
+
+```bash
+maximize = objective_function 
+
+subject_to = {
+    # 1. 质量平衡约束，必须满足！如上图，S--模型矩阵、v--Flux向量
+    'mass_balance': 'S·v = 0'
+    
+    # 2. Flux lower/upper Bounds，e.g. 不可逆反应的Flux≥0，环境/培养基约束（设置交换反应model.exchanges的bounds）           
+    'capacity_constraints': 'lb ≤ v ≤ ub'
+}
+```
+
 
 
 ## FBA 模拟示例
