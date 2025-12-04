@@ -1,7 +1,7 @@
 
-得到高质量的MAGs后，鉴定出所有的酶和代谢反应(KEGG/MetaCyc/自动化工具)，即得到GEMs(Genome-scale metabolic model)。（有点像[MetaGEM流程](https://zhuanlan.zhihu.com/p/347347112)）
+得到高质量的MAGs后，鉴定出所有的酶和代谢反应(KEGG/MetaCyc/自动化工具)，即得到GEMs(Genome-scale metabolic model)。（有点像[MetaGEM workflow](https://github.com/franciscozorrilla/metaGEM)，它加了一步[用 Smetana 进行 cross-feeding 模拟](https://smetana.readthedocs.io/en/latest/usage.html)，用 memote 生成[模型报告](https://asa-blog.netlify.app/p/gem/images/ReportSnapshot.webp)）
 
-得到GEMs (SBML格式 --> 超图) 后，即可开始 [Flux Balance Analysis（FBA）](https://zhuanlan.zhihu.com/p/362498704)。
+得到GEMs (SBML格式 --> 超图) 后，即可开始 Flux Balance Analysis（FBA）--- [What is flux balance analysis? - PDF](FBA/What_is_flux_balance_analysis.pdf) 
 
 FBA不修改代谢模型，它只是评估不同Flux分配方案带来的产出
 
@@ -52,7 +52,7 @@ Gap Filling 指添加缺失反应（约束：基因组证据和生化合理性�
 
 ## FBA 的约束
 
-FBA 的约束与优化目标都是线性的 --- 混合整数线性规划(MILP)求解 [scipy - linprog](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html)
+FBA 的约束与优化目标都是线性的 --- 混合整数线性规划(MILP)求解 [scipy - linprog](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html) 
 
 
 ```bash
@@ -67,6 +67,7 @@ subject_to = {
 }
 ```
 
+[The Art of Linear Programming - Video](https://www.bilibili.com/video/BV1tN411Y7Ly/)，[线性规划简介](https://zhuanlan.zhihu.com/p/509030805)，[线性规划基础](https://oi-wiki.org/math/linear-programming/)
 
 
 ## FBA 模拟示例
@@ -75,7 +76,7 @@ subject_to = {
 
 使用 [cobrapy](https://cobrapy.readthedocs.io/en/latest/building_model.html)，其中 ```model.objective``` 仅针对 Reactions，若希望优化某一代谢物，只能选取与其相关的 ```model.exchanges/.demands/``` 反应（e.g.代谢物在 ```rxn.metabolites``` 中）
 
-反应分为 ```exchanges 细胞与外部环境之间的双向交换```，```demands 细胞内代谢物的消耗或需求```，```sinks 模型填充时临时提供代谢物(？)```
+反应分为 ```exchanges 细胞与外部环境之间的双向交换```，```demands 细胞内代谢物的消耗或需求```，```sinks 模型填充时临时提供代谢物(？)```；设置了Bound的反应才有这三种分类，建模方式[教材](https://cobrapy-cdiener.readthedocs.io/en/latest/building_model.html#Exchanges,-Sinks-and-Demands)
 
 ```py
 import pandas as pd
