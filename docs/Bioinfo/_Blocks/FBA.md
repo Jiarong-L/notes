@@ -52,8 +52,7 @@ Gap Filling 指添加缺失反应（约束：基因组证据和生化合理性�
 
 ## FBA 的约束
 
-FBA 的约束与优化目标都是线性的 --- 混合整数线性规划(MILP)求解 [scipy - linprog](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html) 
-
+FBA 的约束与优化目标都是线性的，且方程式系数是整数 --- 混合整数线性规划(MILP)求解， COBRApy调用[optlang包](https://github.com/opencobra/optlang)提供的[优化器](https://cobrapy-cdiener.readthedocs.io/en/latest/solvers.html)
 
 ```bash
 maximize = objective_function 
@@ -67,7 +66,7 @@ subject_to = {
 }
 ```
 
-[The Art of Linear Programming - Video](https://www.bilibili.com/video/BV1tN411Y7Ly/)，[线性规划简介](https://zhuanlan.zhihu.com/p/509030805)，[线性规划基础](https://oi-wiki.org/math/linear-programming/)
+[整数线性规划概念 - Video](https://www.bilibili.com/video/BV1QK4y1C73U)，[The Art of Linear Programming - Video](https://www.bilibili.com/video/BV1tN411Y7Ly/)，[线性规划 standard form problem](https://zhuanlan.zhihu.com/p/509030805)，[线性规划基础](https://oi-wiki.org/math/linear-programming/)
 
 
 ## FBA 模拟示例
