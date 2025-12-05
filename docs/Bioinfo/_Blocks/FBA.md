@@ -13,8 +13,14 @@ FBA不修改代谢模型，它只是评估不同Flux分配方案带来的产出
 
 数值上，负数表示消耗、正数表示产出，e.g. ```Reaction: A + 2B -> 3C``` 的反应系数可写作 ```{'A': -1,  'B': -2,  'C': +3}```
 
-代谢模型中一些常见的网络结构：
+代谢模型 & 一些常见的网络结构：
 ```bash
+假设有一个Cell
+             ─────────
+Outside      ┼→A → B ┼→    共2个exchange反应、一个internal反应
+             ─────────
+
+
        ┌→ v2 (分流1)
 v1 → A ┼→ v3 (分流2)             分流点 
        └→ v4 (分流3)
@@ -40,14 +46,23 @@ A ⇌ B                             可逆，flux可正可负
 
 代谢模型重建 (```基因注释EC/KO → 反应 → 代谢网络 → gap_filling / 排除假阳性、不重要的反应```) 可以参考[这篇论文](https://pmc.ncbi.nlm.nih.gov/articles/PMC3125167/)。对于单个微生物物种，也可以基于基因组注释信息、从物种完整的GEM中进行删减（[BiGG Models](http://bigg.ucsd.edu/data_access)，包含物种中大量经过手动验证的高质量反应），自动化工具[carveme](https://carveme.readthedocs.io/en/latest/index.html)即是如此（其它：培养基成分约束、合成辅因子/自身脂质的约束、模型简洁/最小化反应数量）
 
-Gap Filling 指添加缺失反应（约束：基因组证据和生化合理性），使模型具备预期功能/使目标通路连通。有多种方式：[从生化反应数据库/相近GEMs中补足](https://www.pnas.org/doi/10.1073/pnas.2217400119)，比对其它组学注释，基于网络的拓扑特征 GNN [hyperlink prediction](https://www.nature.com/articles/s41467-023-38110-7)
+Gap Filling 指添加缺失反应（约束：基因组证据和生化合理性），使模型具备预期功能/使目标通路连通（因为MAGs组装并非完美）。有多种方式：[从生化反应数据库/相近GEMs中补足](https://www.pnas.org/doi/10.1073/pnas.2217400119)，比对其它组学注释，基于网络的拓扑特征 GNN [hyperlink prediction](https://www.nature.com/articles/s41467-023-38110-7)
 
 
-较新的GEM框架会加入生理/热力学约束，e.g.[GECKO 3.0](https://www.siat.ac.cn/siatxww/kyjz/202412/t20241213_7457217.html) 构建酶约束模型(ecModel -- Flux受限于酶活力kcat、浓度)
+较新的GEM框架会加入生理/热力学约束（i.e.可逆/单向），e.g.[GECKO 3.0](https://www.siat.ac.cn/siatxww/kyjz/202412/t20241213_7457217.html)/[sMOMENT](https://lcsb-biocore.github.io/COBREXA.jl/stable/examples/14_smoment/) 构建酶约束模型(ecModel -- Flux受限于：酶活力kcat、浓度)
 
 ![1](FBA/ecModel.png)
 
 对于以上话题，2025年综述总结了[ML如何辅助构建GEM](http://dianda.cqvip.com/Qikan/Article/Detail?id=7201252304) 《机器学习驱动的基因组规模代谢模型构建与优化 李斐然等》
+
+以上基于基因注释的是初代GSMM建模方法 ```单个细胞 / 隔间_互作: A-env-B / 物种泛基因组: 可变/核心```
+
+
+[第二代建模](https://blog.csdn.net/qq_64091900/article/details/141144830)，可以整合多组学约束：```RNA/蛋白 -> 真正被表达的酶的量 -> 通路删减/约束反应上限(×酶的表达系数)``` GIM3E，```代谢组 -> 代谢物浓度 = 反应热力学可行性(方向)``` mCADRE，```通量组数据（如¹³C标记通量） -> 直接校准通量分布```；可以整合其它生物网络，模拟不同层次的生理：[GSMM + GRN + STN_信号传导网络](https://academic.oup.com/bioinformatics/article/24/18/2044/190662)
+
+
+关于单细胞大模型/虚拟细胞，只是单纯的黑盒子，它的训练数据（疾病标签/某基因的扰动）并没有覆盖全部的可能，个人怀疑它的embedding能不能反应代谢扰动？
+
 
 
 ## FBA 的约束
@@ -64,9 +79,13 @@ subject_to = {
     # 2. Flux lower/upper Bounds，e.g. 不可逆反应的Flux≥0，环境/培养基约束（设置交换反应model.exchanges的bounds）           
     'capacity_constraints': 'lb ≤ v ≤ ub'
 }
+
+酶生成需要能量 --> 酶尽量少 --> internal Flux 总量尽量少
+parsimonious FBA (pFBA): minimize squared sum of all fluxes while maintaining the reached optimum
 ```
 
 [整数线性规划概念 - Video](https://www.bilibili.com/video/BV1QK4y1C73U)，[The Art of Linear Programming - Video](https://www.bilibili.com/video/BV1tN411Y7Ly/)，[线性规划 standard form problem](https://zhuanlan.zhihu.com/p/509030805)，[线性规划基础](https://oi-wiki.org/math/linear-programming/)
+
 
 
 ## FBA 模拟示例
@@ -75,7 +94,7 @@ subject_to = {
 
 使用 [cobrapy](https://cobrapy.readthedocs.io/en/latest/building_model.html)，其中 ```model.objective``` 仅针对 Reactions，若希望优化某一代谢物，只能选取与其相关的 ```model.exchanges/.demands/``` 反应（e.g.代谢物在 ```rxn.metabolites``` 中）
 
-设置了Bound的反应才有这三种分类： ```exchanges 细胞与外部环境之间的双向交换```，```demands 细胞内代谢物的消耗或需求```，```sinks 模型填充时临时提供代谢物(？)```；对于反应 ```Exchange: co2_e ⇋ co2```/```Sink: glycogen_c ⇋ glycogen```，注意其代谢物 compartment 的设置，```_c 细胞质隔室/_e 外部隔室```
+设置了Bound的反应才有这三种分类： ```exchanges 细胞与外部环境之间的双向交换```，```demands 细胞内代谢物的消耗或需求```，```sinks 模型填充时临时提供代谢物(BIOMASS:由各种产物汇成的输出、e.g.各种AA按细胞中比例汇成‘蛋白质集’)```；对于反应 ```Exchange: co2_e ⇋ co2```/```Sink: glycogen_c ⇋ glycogen```，注意其代谢物 compartment 的设置，```_c 细胞质隔室/_e 外部隔室```
 
 总之，参考[建模教程](https://cobrapy-cdiener.readthedocs.io/en/latest/building_model.html#Exchanges,-Sinks-and-Demands)，查看标准SBML格式示例
 
@@ -132,19 +151,50 @@ flux_variability_analysis(model, model.reactions[:10], loopless=True)  ## FVA --
 
 如果有代谢组数据（一般是多个物种但暂且假设在一个整体循环内），可以根据其比例设置相关反应的通量约束bounds，或许也可以写一个壳子来优化这些约束（e.g.gradient）/其它Graph模拟。FBA模型本质上只是在拟合不同通路的权重，只能依据生产/消耗反应的通量来间接影响代谢物的预测浓度('flux-sum')、模型中最多设置 ```model.add_boundary(model.metabolites.xx_c, type='demand')```
 
-除了最优解，flux sampling ```s = sample(model, 100)``` 可以探索（符合约束条件的）稳态下所有可能的Flux分布
+除了最优解，**flux sampling (MCMC:Hit-and-Run)** ```s = sample(model, 100)``` 可以探索（符合约束条件的）稳态下所有可能的Flux分布；FVA则是计算每个反应通量的极端取值范围
 
-Flux coupling analysis 则意在发现通路间的耦合：最大/最小化某个反应的通路、查看其它反应的变化
+Flux coupling analysis (FCA) 则意在发现通路间的耦合：最大/最小化某个反应的通路、查看其它反应的变化
 ```bash
 完全耦合：v₁ = k × v₂（k为常数）   e.g.糖酵解中的连续步骤
 方向耦合：如果v₂ > 0，则v₁ > 0；如果v₂ < 0，则v₁ < 0      e.g.一个反应为另一个反应提供必需底物
 部分耦合：如果v₁ ≠ 0，则v₂ ≠ 0     e.g.两个反应共享共同的代谢物池（如，辅因子NADH）
 ```
 
+[Flux-sum coupling --> 代谢物浓度之间的关系](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012972)
 
 ## 代谢模型 + 群落模拟
 
-[gapseq + BacArena ](https://gapseq.readthedocs.io/en/latest/tutorials/crossfeeding.html)
+[gapseq + R: BacArena](https://gapseq.readthedocs.io/en/latest/tutorials/crossfeeding.html)
 
+gapseq 基于通用反应数据库的序列比对注释(e.g.NR->MetaCyc) 建立 Draft Model、进行Gapfilling；但它手动整合了大量生化专业知识形成的规则（ATP能量耦合、NADH辅因子平衡、必需的合成途径完整 - 如氨基酸、核苷酸、脂质前体），检查每个反应的化学计量平衡与热力学方向 --- 也提供FBA模拟
+
+[BacArena](https://rdrr.io/cran/BacArena/man/) 一种微生物的代谢产物成为另一种微生物生长所需营养物质 (Cross-feeding)，可以在网格世界中(Arena)模拟这个过程
+
+```bash
+1. 将n个物种模型随机放入Grid中
+2. 定义初始的扩散基质（如葡萄糖、氧气--记得移除Cross-Feeding的代谢物以突显效果）及其在网格中的初始浓度、扩散系数
+3. 模拟T个timesteps
+    - dFBA：依据当前环境中代谢物浓度，得到最优生长速率μ的Flux分布
+    - 按当前FBA结果更新环境
+    - 生物量达到初始值两倍后细胞分裂（减半、扩散到相邻格子）
+```
+
+[![BacArena_Cheat_Sheet](FBA/BacArena_Cheat_Sheet.png)](https://blog.csdn.net/Mr_pork/article/details/139533101)
+
+
+[Virtual Colon](https://journals.asm.org/doi/10.1128/msystems.01391-25) 是 BacArena 的扩展，提供宿主结肠环境的设计：查看原文 TABLE 1
+
+```bash
+blood | cell | inner mucus | outer mucus | lumen
+有五个区隔，细菌只能生活在粘液层和空腔，粘液层越厚、分子扩散系数越小
+网格尺度、体积则参考解剖学
+
+营养基为标准膳食、另加入血液代谢物，仅匹配细菌的交换反应
+
+宿主模型则参考小鼠单细胞转录组的结肠细胞！！ -- 宿主细胞固定，细菌细胞游走
+The virtual host cells inherited the default human class settings of BacArena 指什么？
+
+一部分宿主细胞与放入的特定细菌物种交互，另一部分与默认肠道菌群的简化模型交互？
+```
 
 
