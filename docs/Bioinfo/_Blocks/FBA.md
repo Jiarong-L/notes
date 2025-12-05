@@ -17,7 +17,7 @@ FBA不修改代谢模型，它只是评估不同Flux分配方案带来的产出
 ```bash
 假设有一个Cell
              ─────────
-Outside      ┼→A → B ┼→    共2个exchange反应、一个internal反应
+Outside      ┼→A → B ┼→    2个exchange反应、1个internal反应
              ─────────
 
 
@@ -143,7 +143,7 @@ flux_variability_analysis(model, model.reactions[:10], loopless=True)  ## FVA --
 ```
 
 
-总之，设计不同的优化目标（e.g. 多产物合成=sum，碳利用效率=生长-葡萄糖消耗，...），计算理论得率，权衡不同通路的重要性/模拟不同环境下的代谢结果/模拟基因敲除后的结果（对包含这个基因的反应/这个基因```.knock_out()```，cobrapy提供单次敲除1-2个基因的批量模拟```single_gene_deletion(model)```），或筛查添加哪些反应能使模型变得可行 ```gapfill(failed_model, pan_model, demand_reactions=False, iterations=4)```
+总之，设计不同的优化目标（e.g. 多产物合成=sum，碳利用效率=生长-葡萄糖消耗，...），计算理论得率，**权衡不同通路的重要性/模拟不同环境下的代谢结果/模拟基因敲除后的结果**（对包含这个基因的反应/这个基因```.knock_out()```，cobrapy提供单次敲除1-2个基因的批量模拟```single_gene_deletion(model)```），或筛查添加哪些反应能使模型变得可行 ```gapfill(failed_model, pan_model, demand_reactions=False, iterations=4)```
 
 如果最优解的一致性不佳，可能存在 blocked reactions，用 ```cobra.flux_analysis.find_blocked_reactions(model)``` 查看
 
