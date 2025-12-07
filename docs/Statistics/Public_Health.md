@@ -64,7 +64,7 @@ img{
 
 * 多元线性回归/Log回归
 
-* 非线性回归: [限制性立方样条(RCS)](https://blog.csdn.net/weixin_43645790/article/details/125285467)，高次多项式模型？样条插值=分段？平滑连接？
+* 非线性回归: [限制性立方样条(RCS)](https://blog.csdn.net/weixin_43645790/article/details/125285467)，高次多项式模型？样条插值=用**分段**多项式函数连接数据点，并保证连接处的连续性和**光滑**性
 
 * 传统ML手段：LightGBM/[RF/XGBoost/SVM](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10598960/) 
 

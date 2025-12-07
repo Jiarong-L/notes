@@ -349,3 +349,58 @@ CDR3是TCR中变化最大的区域、也是抗原的重要识别区域。一个�
 
 **Risk？** 过量补充可能增加乳腺癌风险
 
+
+## 微生物代谢-宿主生理
+
+一个示例：[小鼠中，宿主-微生物群代谢相互作用随年龄的变化](https://www.nature.com/articles/s41564-025-01959-z)
+
+```bash
+DNA 鼠肠道菌群
+
+    组装MAGs后、用PTR来估计样本中MAGs的生长（即复制起始位点和复制终止位点附近的测序覆盖度之比，与相对丰度弱相关）
+
+    建立GEM、各样本中，计算六种生态关系在每种微生物群落中的频率（EcoGS&比较单菌生长速率）  交互类型与年龄、建立线性模型
+
+
+RNA  鼠器官（结肠、肝脏和大脑）
+
+    每个宿主转录本（GO注释）、与每个微生物反应（MetaCyc），成对进行Spearman相关性分析；查看强烈正/负相关在GO条目中的富集情况（超几何富集检验）
+    （以上过程  stratified by organ and age group --- 可以统计 ‘强烈正/负相关’ 在 age groups 之间是否有显著差异）
+
+    三个器官中，各有一部分转录本同时 microbiomeR-associated and aging-associated
+    !!!!!!存在 宿主转录水平、菌群功能 之间的全局关联
+
+
+每只小鼠的各个器官都有特定的 context-specific metabolic models，向 fastcore 输入以下二者：
+    -- StanDep基于转录本丰度/反应丰度，识别高置信度的 context-specific 反应 (core)
+    -- 通用 metamodel (host + microbiome) 包含两个 Compartment
+        Host organ metabolic model (Recon 2.2)
+        Microbiome GEMs 
+
+遍历宿主和微生物群之间交换的代谢物，（由各个小鼠的模拟结果综合决定、可以比对下三个器官间的不同
+    - 阻断微生物群吸收某个（宿主分泌的）化合物的通路，进行FVA、若其通量范围减少至小于10%、认为这个交换反应是微生物群所依赖的
+      反之，得到宿主所依赖的（微生物群生成的）化合物
+
+
+再细化一下，为确定 单个反应-对-单个反应 的相互作用、即两个反应是否经常出现在同一个通量中（注意，这里是 metamodel，宿主、微生物群 视为一体） 
+    - 以某个反应为‘提示’，在通量空间中进行随机采样（EFMSampler ElementaryFluxModes）、计算‘提示’在这些通量样本中的出现概率
+
+        Host_R1  ...  Microb_R1 
+Host_R1              (co_exist_freq_Mtx)
+Host_R2              包含Host_R2的EFM中，Microb_R1出现的频率
+
+    - 选取上文所述 ‘强烈正/负相关’的（宿主转录本-微生物反应）在这个矩阵中的得分状况
+      生成100个随机配对的（宿主转录本-微生物反应）在这个矩阵中的得分状况
+      Wilcoxon rank-sum test 可以证明 强烈/随机对的得分状况显著不同
+
+    - 查看其中 单个HostR-单个MicrobR 相互作用在各器官中的富集情况（所有metamodel中，co_exist > 0.5，则认为存在相互作用 !!!!!!
+
+    - 选取某个R的关联反应模块（行内 co_exist > 0.5，不限定来自Host/Microb），查看模块中是否富集了衰老诱导/抑制反应（注释自衰老基因）
+      对富集了衰老反应的模块，若其中包含至少20个MicrobR，则认为它依赖于微生物群
+
+```
+
+
+
+
+

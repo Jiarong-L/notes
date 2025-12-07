@@ -57,11 +57,11 @@ BackgroundG：物种/meta全部的基因 & 有GO注释                          
 GeneRatio = 富集到这个GO条目上的InputGene / 所有InputGene                  mf1|   *
 BgRatio = 富集到这个GO条目上的BackgroundG / 所有BackgroundG                 . |
                                                                           . |
-Enrichment Factor = GeneRatio/BgRatio                                     . |___________________
-也称 Fold enrichment                                                          Enrichment Factor
+Enrichment Factor = GeneRatio/BgRatio   > 1 表示有富集                     . |___________________
+也称 Fold enrichment                                                           Enrichment Factor
 ```
 
-goatools 也是常用的:
+goatools 也是常用的，超几何检验（配合Fisher精确检验--Gene/Bg两个属性是否独立）：设定Adjusted_P<0.05的功能类别（如某条通路）们感兴趣的基因列表（例如差异表达基因）中发生了显著富集
 ```bash
 ## pip install goatools
 ## wget http://current.geneontology.org/ontology/go-basic.obo
@@ -83,8 +83,4 @@ sed '1d' output_id2gos.tsv | awk '$2=="BP"{print $1}' > BP_goids.txt
 go_plot.py --go_file=BP_goids.txt --outfile=BP_goplot.pdf \
 --id2gos=association.txt --obo=go-basic.obo --title=BP_DAG
 ```
-
-
-
-
 
