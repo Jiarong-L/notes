@@ -1,11 +1,13 @@
 
 得到高质量的MAGs后，鉴定出所有的酶和代谢反应(KEGG/MetaCyc/自动化工具)，即得到GEMs(Genome-scale metabolic model)。（有点像[MetaGEM workflow](https://github.com/franciscozorrilla/metaGEM)，它加了一步[用 Smetana 进行 cross-feeding 模拟](https://smetana.readthedocs.io/en/latest/usage.html)，用 memote 生成[模型报告](https://asa-blog.netlify.app/p/gem/images/ReportSnapshot.webp)）
 
+如何评估GEM建造方法？可用使用包含表型信息的数据库（e.g.xx功能的酶活性），用方法重建GEM、预测表型、与原数据库信息对比
+
 得到GEMs (SBML格式 --> 超图) 后，即可开始 Flux Balance Analysis（FBA）--- [What is flux balance analysis? - PDF](FBA/What_is_flux_balance_analysis.pdf) 
 
 FBA不修改代谢模型，它只是评估不同Flux分配方案带来的产出
 
-## Metabolic Model 
+## Metabolic Model ∈ Virtual Cell
 
 代谢模型是由一系列代谢反应组成的 Graph（Node=Metabolites,Edge=Reactions），**边权固定为化学系数**
 
@@ -44,7 +46,13 @@ Start → →           → → End       并行
 A ⇌ B                             可逆，flux可正可负
 ```
 
-代谢模型重建 (```基因注释EC/KO → 反应 → 代谢网络 → gap_filling / 排除假阳性、不重要的反应```) 可以参考[这篇论文](https://pmc.ncbi.nlm.nih.gov/articles/PMC3125167/)。对于单个微生物物种，也可以基于基因组注释信息、从物种完整的GEM中进行删减（[BiGG Models](http://bigg.ucsd.edu/data_access)，包含物种中大量经过手动验证的高质量反应），自动化工具[carveme](https://carveme.readthedocs.io/en/latest/index.html)即是如此（其它：培养基成分约束、合成辅因子/自身脂质的约束、模型简洁/最小化反应数量）
+代谢模型重建 (```基因注释EC/KO → 反应 → 代谢网络 → gap_filling / 排除假阳性、不重要的反应``` ) 可以参考[这篇论文](https://pmc.ncbi.nlm.nih.gov/articles/PMC3125167/)。对于单个微生物物种，也可以基于基因组注释信息、从物种完整的GEM/'Universal Model'中进行删减（[BiGG Models](http://bigg.ucsd.edu/data_access)，包含物种中大量经过手动验证的高质量反应），自动化工具[carveme](https://carveme.readthedocs.io/en/latest/index.html)即是如此（其它：培养基成分约束、合成辅因子/自身脂质的约束、模型简洁/最小化反应数量）
+
+[工具综述(2024)](https://www.sciencedirect.com/science/article/pii/S1043276024000626)
+```bash
+'Bottom-Up': 根据基因注释，以环境上下文的需求（以及表型）加入反应   AGORA2
+'Top-Down': 根据基因注释，从'Universal Model'中进行删减   carveme、Gapseq
+```
 
 Gap Filling 指添加缺失反应（约束：基因组证据和生化合理性），使模型具备预期功能/使目标通路连通（因为MAGs组装并非完美）。有多种方式：[从生化反应数据库/相近GEMs中补足](https://www.pnas.org/doi/10.1073/pnas.2217400119)，比对其它组学注释，基于网络的拓扑特征 GNN [hyperlink prediction](https://www.nature.com/articles/s41467-023-38110-7)
 
@@ -61,7 +69,19 @@ Gap Filling 指添加缺失反应（约束：基因组证据和生化合理性�
 [第二代建模](https://blog.csdn.net/qq_64091900/article/details/141144830)，可以整合多组学约束：```RNA/蛋白 -> 真正被表达的酶的量 -> 通路删减/约束反应上限(×酶的表达系数)``` GIM3E，```代谢组 -> 代谢物浓度 = 反应热力学可行性(方向)``` mCADRE，```通量组数据（如¹³C标记通量） -> 直接校准通量分布```；可以整合其它生物网络，模拟不同层次的生理：[GSMM + GRN + STN_信号传导网络](https://academic.oup.com/bioinformatics/article/24/18/2044/190662)
 
 
-关于单细胞大模型/虚拟细胞，只是单纯的黑盒子，它的训练数据（疾病标签/某基因的扰动）并没有覆盖全部的可能，个人怀疑它的embedding能不能反应代谢扰动？
+关于虚拟细胞的概念其实很早就有，由相对独立的功能子系统组成、使用相应的扰动实验数据训练（子）模型：
+```bash
+GSMM_代谢网络
+GRN_基因调控网络：  TF -> Target Gene  
+STN_信号转导网络：  受体激活、激酶级联反应、第二信使
+蛋白质合成、翻译、折叠、修饰、蛋白酶体降解
+膜运输、细胞器间的物质交换
+细胞周期与生长：DNA复制、分裂、体积增长
+
+    根据复杂度和数据可用性，选择简单的ODE方程/复杂的随机过程模型
+```
+
+关于单细胞大模型/[Arc虚拟细胞挑战（预测基因敲除后的细胞表达谱）](https://hugging-face.cn/blog/virtual-cell-challenge)，只是单纯的黑盒子，它的训练数据（疾病标签/某基因的扰动）并没有覆盖全部的可能，个人怀疑它的embedding能不能反应代谢扰动？ Extrapolation的问题
 
 
 
@@ -166,7 +186,7 @@ Flux coupling analysis (FCA) 则意在发现通路间的耦合：最大/最小�
 
 [gapseq + R: BacArena](https://gapseq.readthedocs.io/en/latest/tutorials/crossfeeding.html)
 
-gapseq 基于通用反应数据库的序列比对注释(e.g.NR->MetaCyc) 建立 Draft Model、进行Gapfilling；但它手动整合了大量生化专业知识形成的规则（ATP能量耦合、NADH辅因子平衡、必需的合成途径完整 - 如氨基酸、核苷酸、脂质前体），检查每个反应的化学计量平衡与热力学方向 --- 也提供FBA模拟
+gapseq 也是基于通用反应数据库的序列比对注释(e.g.NR->MetaCyc)从通用模板中建立 Draft Model、进行化学计量和可逆性的修正（ATP能量耦合、NADH辅因子平衡），Gapfilling时也考虑用户定义的培养基（必需的合成途径完整 - 如氨基酸、核苷酸、脂质前体） --- 注释搜索范围更广、手动整合生化规则，但基于序列同源性的比对忽略了蛋白质结构域、对酶功能的预测不准确：gapseq 在预测阳性表型（功能存在）方面比其他方法表现更好，但在预测阴性表型（功能不存在）方面却与其他方法不相上下
 
 [BacArena](https://rdrr.io/cran/BacArena/man/) 一种微生物的代谢产物成为另一种微生物生长所需营养物质 (Cross-feeding)，可以在网格世界中(Arena)模拟这个过程
 

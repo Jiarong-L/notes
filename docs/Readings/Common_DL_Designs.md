@@ -21,6 +21,8 @@ img{
 
 一些经常被使用的设计
 
+关于DL的基础，可以参考 [CS231n 课程笔记](https://cs231n.github.io/) ，[深度学习（花书 Ian Goodfellow）](https://github.com/exacity/deeplearningbook-chinese)，[Easy-RL](https://datawhalechina.github.io/easy-rl/)
+
 
 ## Transformer
 
@@ -66,6 +68,24 @@ $PE_{(pos,2i+1)} = cos(pos/10000^{2i/d_{token}})$
 经典模型：[DDPM](https://zhuanlan.zhihu.com/p/563661713)的去噪过程通常需要迭代1000步、适合高质量图像生成；[DDIM](https://www.cnblogs.com/myhz/p/18265650)加快生成速度（通常只需50-100步）、但在复杂纹理上略逊
 
 （忽略论文的公式吧，反正图像loss最终还是MSE）
+
+最近好像流行 Flow Model？（[主流生成模型](https://1wata.github.io/2025/05/20/ai/generative_ai/normalizing_flow_models/)）
+
+
+## Autoregressive Models
+
+[什么是自回归模型？](https://aws.amazon.com/cn/what-is/autoregressive-models/)
+
+$p(x_t) = \prod \limits_{i=1}^{t-1} p(x_i|x_1, x_2, ... , x_{i-1})$
+
+$y_t = c + \sum \limits_{i=1}^{p}\phi_i y_{t-i} + \epsilon_t$
+
+对于文本：给定前面的词，预测下一个词（似乎很久之前RNN/LSTM就是这样）
+
+## Multimodel ML
+
+[多模态学习 - 知乎](https://zhuanlan.zhihu.com/p/582878508)
+
 
 
 

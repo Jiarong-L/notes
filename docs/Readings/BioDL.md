@@ -5,9 +5,7 @@ img{
 </style>
 
 
-关于DL的基础，可以参考 [CS231n 课程笔记](https://cs231n.github.io/) ，[深度学习（花书 Ian Goodfellow）](https://github.com/exacity/deeplearningbook-chinese)，[Easy-RL](https://datawhalechina.github.io/easy-rl/)
-
-也推荐查看偏ML基本概念的教材：西瓜书，统计学习方法（李航），[ESL](https://esl.hohoweiya.xyz/index.html)，[MLAPP/PML](https://github.com/probml/pml-book)，PRML
+关联笔记：[常见DL设计](./Common_DL_Designs.md)
 
 
 ## 基本操作

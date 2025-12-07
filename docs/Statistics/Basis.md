@@ -14,9 +14,6 @@ MathJax = {
 <script type="text/javascript" id="MathJax-script" async
   src="http://127.0.0.1:8000/Statistics/Basis/tex-svg.js">
 </script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://github.com/Jiarong-L/notes/blob/main/docs/Statistics/Basis/tex-svg.js">
-</script>
 
 <style>
 img{
@@ -28,6 +25,10 @@ table th:nth-of-type(5) {
 </style>
 
 教材：《统计学（原书第五版）》
+
+后续关联：[scikit-learn](https://scikit-learn.org/stable/user_guide.html)是Python常用的机器学习工具包，从[中文Doc](https://apachecn.github.io/sklearn-doc-zh/#/docs/master/2)中了解各种常见模型的原理
+
+也推荐查看偏ML基本概念的教材：西瓜书，统计学习方法（李航），[ESL](https://esl.hohoweiya.xyz/index.html)，[MLAPP/PML](https://github.com/probml/pml-book)，PRML
 
 ## 描述性统计
 

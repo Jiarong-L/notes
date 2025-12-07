@@ -267,6 +267,9 @@ Graph Attention Network (GAT) 用注意力定义估邻居顶点的权重
 但HGT只需要 5 种
 ```
 
+示例-[DeepMAPS](https://www.nature.com/articles/s41467-023-36559-0)：HGT迭代Cell(=RNA+ATAC)-Gene异构图、如是分别得到二者的Embedding矩阵；根据Embedding对Cell聚类、基于Attention信息得到得到Celltype(特定TF)-Gene的信息、即GRN？
+
+
 ### Knowledge graph
 
 ![KG](GNN/img/KG.png)

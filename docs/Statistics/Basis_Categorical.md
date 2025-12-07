@@ -14,9 +14,7 @@ MathJax = {
 <script type="text/javascript" id="MathJax-script" async
   src="http://127.0.0.1:8000/Bioinfo/Statistics/Basis/tex-svg.js">
 </script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://github.com/Jiarong-L/notes/blob/main/docs/Bioinfo/Statistics/Basis/tex-svg.js">
-</script>
+
 
 <style>
 img{
