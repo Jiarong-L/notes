@@ -116,7 +116,7 @@ parsimonious FBA (pFBA): minimize squared sum of all fluxes while maintaining th
 
 设置了Bound的反应才有这三种分类： ```exchanges 细胞与外部环境之间的双向交换```，```demands 细胞内代谢物的消耗或需求```，```sinks 模型填充时临时提供代谢物(BIOMASS:由各种产物汇成的输出、e.g.各种AA按细胞中比例汇成‘蛋白质集’)```；对于反应 ```Exchange: co2_e ⇋ co2```/```Sink: glycogen_c ⇋ glycogen```，注意其代谢物 compartment 的设置，```_c 细胞质隔室/_e 外部隔室```
 
-总之，参考[建模教程](https://cobrapy-cdiener.readthedocs.io/en/latest/building_model.html#Exchanges,-Sinks-and-Demands)，查看标准SBML格式示例
+总之，参考[建模教程](https://cobrapy-cdiener.readthedocs.io/en/latest/building_model.html#Exchanges,-Sinks-and-Demands)，查看 [Core Data Structures - GPR Rules](https://deepwiki.com/opencobra/cobrapy/2-core-data-structures)
 
 
 ```py
@@ -169,8 +169,6 @@ flux_variability_analysis(model, model.reactions[:10], loopless=True)  ## FVA --
 
 此外，如果认为一些通量异常的高、或FVA范围异常大，需要考虑是否是loop造成的（对比Loopless模式的结果）
 
-如果有代谢组数据（一般是多个物种但暂且假设在一个整体循环内），可以根据其比例设置相关反应的通量约束bounds，或许也可以写一个壳子来优化这些约束（e.g.gradient）/其它Graph模拟。FBA模型本质上只是在拟合不同通路的权重，只能依据生产/消耗反应的通量来间接影响代谢物的预测浓度('flux-sum')、模型中最多设置 ```model.add_boundary(model.metabolites.xx_c, type='demand')```
-
 除了最优解，**flux sampling (MCMC:Hit-and-Run)** ```s = sample(model, 100)``` 可以探索（符合约束条件的）稳态下所有可能的Flux分布；FVA则是计算每个反应通量的极端取值范围
 
 Flux coupling analysis (FCA) 则意在发现通路间的耦合：最大/最小化某个反应的通路、查看其它反应的变化
@@ -181,6 +179,22 @@ Flux coupling analysis (FCA) 则意在发现通路间的耦合：最大/最小�
 ```
 
 [Flux-sum coupling --> 代谢物浓度之间的关系](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1012972)
+
+
+### bounds设置 / context-specific
+
+如果有代谢组数据（一般是多个物种但暂且假设在一个整体循环内），可以根据其比例设置相关反应的通量约束bounds，或许也可以写一个壳子来优化这些约束（e.g.gradient）/其它Graph模拟。FBA模型本质上只是在拟合不同通路的权重，只能依据生产/消耗反应的通量来间接影响代谢物的预测浓度('flux-sum')、模型中最多设置 ```model.add_boundary(model.metabolites.xx_c, type='demand')```
+
+-----------------------------------------------------------------------------
+
+如果有转录组/蛋白组，则知道了酶的丰度，可以基于酶丰度、假设其参与的反应的流量：对于各反应的 GPR Rules ```Enzyme_A or Enzyme_B```（sum_abdance）, ```Enzyme_A and Enzyme_B```（min_abdance）
+
+获得各反应假定的流量后，选取其中高表达者作为 'core reaction' 投入 [FASTCORE](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003424)，得到 context-specific GEM
+
+（也可以：使用 StanDep 从转录组获取 'core'）
+
+把 宿主模型、微生物模型、core 都喂给 FASTCORE，那就可以建立 context-specific、Host-Microb **metamodel**，参考 ['微生物代谢-宿主生理'论文笔记](https://jiarong-l.github.io/notes/Readings/Interesting_Topics/#-_2)
+
 
 ## 代谢模型 + 群落模拟
 

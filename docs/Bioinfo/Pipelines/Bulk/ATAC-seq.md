@@ -10,6 +10,7 @@
 
 现成的流程：[ATAC-seq Pipeline](https://github.com/nf-core/atacseq)， [ChIP-seq Pipeline](https://github.com/nf-core/chipseq)
 
+表观组学的数据基本上是 genomic sites/regions 中出现与否的信息，主要看它周边的基因、或查看区域/点位周边的序列motif
 
 ## Pipeline
 
@@ -29,9 +30,10 @@
 | ------- | Normalization + Analysis | ------- |
 | Diff Peak | DiffBind | 两个样本间开放程度的差异（对peak进行deseq），输入BED file |
 | Peak Annotation | ChIPseeker | Peak位于promoter/gene/..处；如果Bioconductor没有合适的TxDb，则需要使用GenomicFeatures包```makeTxDbFromxxx```制作 |
+| -- | annotatr | 一般设置基因TSS上游1000bp为启动子区域，需提供该物种基因组的结构注释.gff/.bed |
 | Motif | MEME（All） <br> homer（denovo） <br> [chromvar](https://github.com/GreenleafLab/chromVAR)（Enrich） <br> TFBSTools（Scan） <br> ggmotif_plot（画图）  | - deNovo: 根据Peak序列从头预测Motif基序 <br>- Enrichment: 扫描Motif库（例如JASPAR数据库），获取本样品中富含的Motif基序 <br>-Scan: 已知晓Motif，扫描基因组寻找潜在TFBS |
 | Footprinting | HINT-ATAC | 验证潜在TFBS（寻找已结合TF/Ribo的TFBS）：如果某一开放区域已经被结合，则此区域不会被测得，表现为peak中间有凹陷 |
-| GO, Pathway ... | -- | -- |
+| GO, Pathway ... | -- | (基于基因组上距离)相关基因的功能信息 |
 
 
 注：可视化推荐用IGV。[deepTools - bamCoverage](https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html)可以将bam转换为BigWig.bw文件，作为IGV或UCSC的输入；deepTools本身也可以画展示TSS附近的coverage的图（UCSC下载refTSS），例如[plotProfile](https://deeptools.readthedocs.io/en/develop/content/tools/plotProfile.html)、plotHeatmap
