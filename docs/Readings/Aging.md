@@ -7,8 +7,6 @@ Gompertz风险函数：年龄和死亡率之间的关系
 
 ## [Hallmarks of aging: An expanding universe (2023.1)](https://www.sciencedirect.com/science/article/pii/S0092867422013770)
 
-
-
 确定衰老标志物，需满足以下三个特征：
 
 1. 与年龄具有相关性，
@@ -32,8 +30,8 @@ Gompertz风险函数：年龄和死亡率之间的关系
 4. delayed epigenetic clock：随着年龄的增加，不同基因的甲基化程度不同，因此可利用基因的甲基化图谱来判断生理年龄
 5. mRNA/aging-marker levels
 
-
-### Genomic instability
+---------------------------------------------------------------------------------------------------------------------
+**Genomic instability**
 
 细胞分裂时，nucleus DNA 可能经历各种突变：物理/化学刺激（外源）、DNA氧化损伤/复制错误/染色体分离失败/组蛋白修饰变化/转座重组（内源），造成：SNP，DNA断裂/重排，细胞核缺陷，Gene Disruption。即使存在DNA修复机制，个体也一直在累积体细胞突变，直到影响干细胞的功能，发生衰老。
 
@@ -43,8 +41,8 @@ nuclear lamina 是连接染色质和蛋白质复合物的支架，其缺陷（e.
 
 大多数哺乳动物体细胞不表达端粒酶（修复端粒），每次细胞分裂后会发生端粒磨损（Telomere attrition），可能是限制细胞寿命的手段，但也可能参与诸如肺纤维化、再生障碍性贫血和先天性角化不良等疾病的过早发展（可通过增加端粒长度来进行治疗）。
 
-
-### Epigenetic alterations
+---------------------------------------------------------------------------------------------------------------------
+**Epigenetic alterations**
 
 （调节相关基因的表达水平）
 
@@ -59,15 +57,15 @@ ncRNAs 可调控 longevity networks 或调节干细胞行为
 
 retrotransposons 可能在转座过程中损害 Genomic instability，因此抑制此类活动可能增加寿命
 
-
-### Loss of proteostasis
+---------------------------------------------------------------------------------------------------------------------
+**Loss of proteostasis**
 
 （蛋白水平的衰老特征，正常功能蛋白数量降低，功能失调导致衰老）
 
 蛋白质错误翻译/折叠、不完整表达、氧化、泛素化，通常累积形成细胞内包涵体或细胞外淀粉样斑块，破坏蛋白质稳态（并且大量占用蛋白质修复、降解机制）。衰老和一些与年龄相关的疾病，如肌萎缩性侧索硬化症(ALS)、阿尔茨海默病、帕金森病和白内障，都与蛋白质稳态受损有关。
 
-
-### Disabled macroautophagy
+---------------------------------------------------------------------------------------------------------------------
+**Disabled macroautophagy**
 
 （蛋白、DNA、脂质囊泡和糖原、细胞器的清除功能失效，不能更新导致功能失调）
 
@@ -76,8 +74,8 @@ retrotransposons 可能在转座过程中损害 Genomic instability，因此抑�
 
 Oral supplementation of spermidine to mice 可诱导自噬发生，延长寿命达25%，同时减少心脏老化
 
-
-### Deregulated nutrient-sensing
+---------------------------------------------------------------------------------------------------------------------
+**Deregulated nutrient-sensing**
 
 （过度摄入营养，可能减少寿命---因为促进成年人发育==衰老？？）
 
@@ -94,7 +92,8 @@ ALK 也增加 nutrient-sensing network 的活跃度
 营养过剩时，触发MTORC1；禁食时则抑制MTORC1
 ```
 
-### Mitochondrial dysfunction
+---------------------------------------------------------------------------------------------------------------------
+**Mitochondrial dysfunction**
 
 （产生保证身体正常功能的能量？？）
 
@@ -107,7 +106,8 @@ ALK 也增加 nutrient-sensing network 的活跃度
 血浆中 mitochondrial microproteins 水平随着年龄的增长而下降（mt数量减少？？）。
 
 
-### Cellular senescence
+---------------------------------------------------------------------------------------------------------------------
+**Cellular senescence**
 
 细胞衰老主要影响成纤维细胞、内皮细胞和免疫细胞，尽管所有细胞类型在衰老过程中都会发生衰老。35岁以下青年人累积衰老细胞的速度是65岁以上老年人的20倍。持续地从遗传或药理上消除衰老细胞可以延长自然衰老小鼠的寿命（HOw？？换血？？）。
 
@@ -141,15 +141,16 @@ ALK 也增加 nutrient-sensing network 的活跃度
 
 抗衰老剂（Senolytics）指杀死衰老细胞的小化合物，许多在临床试验阶段，如：exemplified by navitoclax (targeting BCL2 family), dual treatment with dasatinib and quercetin (D/Q), fisetin, cardiac glycosides, and others.
 
-
-### Stem cell exhaustion
+---------------------------------------------------------------------------------------------------------------------
+**Stem cell exhaustion**
 
 （干细胞向衰老组织及时补充功能细胞，但一般只能补充特定后代）
 
 诱导干细胞向多能性重编程，获得更多可塑性，修复胰腺内分泌、骨骼肌、神经纤维、眼睛、皮肤、心脏、肝脏等组织损伤
 
 
-### Altered intercellular communication
+---------------------------------------------------------------------------------------------------------------------
+**Altered intercellular communication**
 
 （衰老涉及中枢神经系统/内分泌/激素信号通路的缺陷，向稳态调节添加噪音，导致进一步混乱），注意：上文SASP
 
@@ -159,8 +160,8 @@ ALK 也增加 nutrient-sensing network 的活跃度
 
 衰老导致组织纤维化（ECM stiffness），细胞外基质刚度引起的力学变化会令少突胶质祖细胞的 ion channel PIEZO1 功能丧失
 
-
-### Chronic inflammation
+---------------------------------------------------------------------------------------------------------------------
+**Chronic inflammation**
 
 （失去免疫则无炎症，但依旧损伤身体导致衰老；过度炎症亦损伤身体）
 
@@ -168,8 +169,8 @@ ALK 也增加 nutrient-sensing network 的活跃度
 
 免疫功能下降后可能伴随慢性炎症：具有全身性表现，以及病理局部表型，包括动脉硬化、神经炎症、骨关节炎和椎间盘退变（IL-6水平升高）
 
-
-### Dysbiosis
+---------------------------------------------------------------------------------------------------------------------
+**Dysbiosis**
 
 （微生物及其代谢物与衰老的关联，肠道微生物群的代谢产物与其在血浆中的浓度趋同）
 
@@ -190,9 +191,7 @@ ELDERMET队列研究得知：
 ![Aging v.s. Cancer](https://ars.els-cdn.com/content/image/1-s2.0-S1550413122004922-gr1.jpg)
 
 
-
 [中文总结](https://mp.weixin.qq.com/s?__biz=MzU2NDYwMzA1NQ==&mid=2247484837&idx=1&sn=fe131dbbd3aafbcffe2e367826db750d&chksm=fc493465cb3ebd7351f7486dc5e18602472e074936ef23a572e7d7f5267710f76491b15cd323&scene=21#wechat_redirect)
-
 
 
 
@@ -210,38 +209,6 @@ Peto悖论：同一物种中，癌症的风险随着身高的增加而增加；�
 [中文翻译](https://m.thepaper.cn/baijiahao_25845662)
  
 
-## 数据库
-
-ATLAS很适合ML训练(预测年龄/部位/..)，或作为干扰试验的模拟细胞，或更深入的研究特定细胞谱系(e.g.免疫)
-
-* [GenAge 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC5753192/) -- 人/模式物种，整合为长寿基因、饮食限制相关基因、...
-
-* [Aging Atlas 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC7779027/) -- [在线交互](https://ngdc.cncb.ac.cn/aging/index)，部分功能需要登录
-    - 分为不同的子库，e.g. [细胞类型的衰老marker](https://ngdc.cncb.ac.cn/aging/age_related_genes)；搜索基因，可查看特定基因干预下的多组学信息（包括原论文 DOI）
-
-* [Immunosenescence Inventory 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC11701554/) -- 整合的多物种数据库，维护中，打不开
-    - 知识库 (e.g.各种免疫细胞的上调/下调，包含组织信息)，多组学数据，似乎还可以在线根据细胞谱推断免疫年龄
-    - 详细功能见 [help / sitemap](https://ngdc.cncb.ac.cn/iaa/assets/sitemap4.05d1dcd9.png)
-
-
-* [mouse-pansci 单细胞图谱](https://www.science.org/doi/10.1126/science.adn3949) --  取样自 13 organs/tissue，5 个年龄段（也包括其中的免疫细胞），[在线交互](https://cells.ucsc.edu/?ds=mouse-pansci)提供下载选项
-    - 似乎使用哺乳动物特制的单细胞测序方法 [EasySci](https://digitalcommons.rockefeller.edu/student_theses_and_dissertations/778/)/[的数据处理脚本](https://github.com/JunyueCaoLab/EasySci)
-    - 雄性和雌性小鼠在每个器官中都有数百种不同的细胞状态：其中，衰老相关B细胞的雌性特异性扩增，可能有助于解释为什么老年女性患自身免疫疾病的几率高于男性
-    - [这一篇 mouse-pansci 的评论](http://dx.doi.org/10.1016/j.immuni.2025.01.015)中提到，人衰老并非匀速，而是在 34-60-78 这三个节点快速发生；小鼠特定细胞亚型的显著变化也集中在3个节点。淋巴细胞(T/B)随时间的变化最为剧烈，其次是肾尿路上皮细胞和肠巨噬细胞
-
-| 小鼠年龄/月 | 事件 | 
-| -- | -- | 
-| 3 - 成年早期 | 脂肪、肌肉和上皮组织中的特定细胞亚型数量明显下降 | 
-| 6 - 成年早期 | naïve CD4 T 细胞明显减少 | 
-| 12 - 成年晚期 | 肾脏、肺和脂肪组织、脾脏中 -- 终末分化免疫群体累积？ | 
-| 16 - 成年晚期 | 肠道特异/炎症 -- 终末分化免疫群体累积？ | 
-
-
-* [人类 scTCR/BCR-seq](https://www.nature.com/articles/s41590-024-02059-6) -- 13个年龄段(0-90岁) PBMCs，论文中提供数据下载，不过锁区了
-    - T 细胞受年龄影响最大，在特定年龄段细胞间相互作用的重塑最为剧烈
-    - [siAge](https://pu-lab.sjtu.edu.cn/shiny/siage-model/)：ML预测免疫年龄，基于24个marker [R代码](https://github.com/shanzha9/siAgeModel)
-
-
 ## Immunosenescence 免疫衰老
 
 * [Immunosenescence in autoimmune diseases](https://www.sciencedirect.com/science/article/abs/pii/S1568997225000655)
@@ -251,7 +218,7 @@ ATLAS很适合ML训练(预测年龄/部位/..)，或作为干扰试验的模拟�
 * [ 巨噬细胞 & T_reg 可以有效调节干细胞](https://www.cn-healthcare.com/articlewm/20210401/content-1205454.html)
 * [骨髓Treg通过维持骨髓免疫稳态调节造血干细胞的分化平衡](https://www.ctae.cn/show-18-4947-1.html)
 
-### 背景知识
+---------------------------------------------------------------------------------------------------------------------
 
 Aging/Aged 指正常衰老过程/状态，即随着时间推进而失去功能；Senescence 泛指呈现 Aged 特征的状态，也许不是正常的衰老；但感觉各处都在混用/没有固定定义
 
@@ -283,4 +250,73 @@ T/B cells 都源自造血干细胞(HSC)，其中 B cells 在骨髓中发育，�
 
 
 
+## 更年期 menopause
+
+[更年期](https://www.who.int/zh/news-room/fact-sheets/detail/menopause)是女性衰老的自然过程，通常发生在45至55岁之间。其特征是月经停止一年，代表卵巢卵泡功能的永久丧失。从月经周期长度开始出现显著变化到月经停止(FMP)一年的这段时间被称为围绝经期(perimenopause)。
+
+menopausal transition 期间，激素水平剧烈波动。在早期绝经后(early postmenopause)，促卵泡激素(FSH)持续上升、雌二醇(estradiol)持续下降，至月经停止2年后才趋于稳定。
+
+绝经后，由于卵巢功能消退，雌激素水平较绝经前会显著降低。但卵巢并不是唯一产生雌激素的器官，脂肪组织也能产生少量的雌激素、肾上腺也会分泌一些雌激素前体，部分食物来源的植物性雌激素（如异黄酮）在人体内可以表现出一定的雌激素样活性
+
+虽然有癌症、血栓、肝代谢风险的顾虑（e.g.肿瘤细胞表达雌激素、孕激素受体），临床上可以[在围绝经期进行雌激素、孕激素的补充(MHT)](https://www.mdpi.com/1422-0067/26/22/11098)。[这个博客](https://docs.hrt.guide/parts/Part2.html)总结了各种雌激素的给药，非天然雌二醇的口服途径风险最高、注射给药最安全？[MHT的风险评估](https://cniw.org/%e4%b8%ad%e5%9b%bd%e5%a6%87%e4%ba%a7%e7%a7%91%e4%b8%93%e5%ae%b6%e8%b0%88%ef%bc%9a%e7%bb%9d%e7%bb%8f%e6%bf%80%e7%b4%a0%e6%b2%bb%e7%96%97%ef%bc%88mht%ef%bc%89%e7%9a%84%e9%a3%8e/)
+
+
+[Note: 菌群 - 更年期](./Metagenomics.md#-menopause) 有双向的关联，卵巢健康需要菌群（无菌小鼠繁育力不佳）、而人体代谢影响菌群组成（雌激素治疗可以逆转卵巢切除引起的肠道菌群变化）
+
+更年期的微生物补剂的起效途径：豆类饮食补充植物雌激素、从肠道回收雌激素(乳酸杆菌 ...)、SCFA、乳酸杆菌-->生殖道?
+
+---------------------------------------------------------------------------------------------------------------------
+
+**更年期 预测模型**
+
+卵巢储备（ovarian reserve，OR）是指卵巢内有潜力发育为成熟卵母细胞的原始卵泡的数量，反映卵巢的功能。原始卵泡的数量是固定的，随着年龄的增长，大部分原始卵泡会闭锁、卵泡数量急速下降(新生儿200万个、青春期后30—50万个、一生中一般只有400—500个卵泡发育成熟并排卵)。虽然人群的卵巢衰老速度相对固定，但卵巢储备具有较大的个体差异。
+
+促卵泡激素水平(FSH)、抗缪勒管激素水平(AMH)、超声评估窦卵泡计数(AFC)、年龄，这些因素可用于评估卵巢储备。[OvaRePred](https://bynews.bjmu.edu.cn/zhxw/2023/e4bcecab2cbe4b20b4544e72b1bc223f.htm)从人群数据中绘制了卵巢衰老曲线，基于当前的卵巢储备状态的评估，可用于预测 DOR（卵巢功能衰退）和围绝经可能发生的未来年龄。卵巢功能衰退通常发生在绝经前约10年（menopausal transition 期？）。
+
+还有一种猜想，若年轻时保留干细胞、年老移植卵子，[可以假设更年期能无限推迟？](http://www.kepu.gov.cn/kjrb_kpyd/2025-07/22/content_373839.html)
+
+---------------------------------------------------------------------------------------------------------------------
+
+雌激素已知与心血管、骨、代谢/肥胖、情绪/认知等有关。
+
+我觉得情绪脆弱可能来自激素([月经期/孕产期/更年期](https://news.qq.com/rain/a/20241127A07Q3O00))、达到抑郁可能也是因为社会压力、身体机能的下降，[lancet - review](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(23)02801-5/fulltext/) 也这么认为：只有风险组中的人群才更可能抑郁（心血管症状、慢性睡眠障碍、压力性生活事件、本身就有抑郁症），雌激素治疗可能同时在改善身体症状、因此缓和心情
+
+**雌激素(Estrogen,E)如何影响情绪？** 作为类固醇激素，内源性的E可以穿越BBB到达大脑（边缘系统-情绪/压力），作用于细胞内/外的各种受体、促进血清素（快乐感、平静感）/多巴胺（动力、愉悦）/GABA（缓解焦虑）的合成与释放、抑制皮质醇（压力激素、下丘脑->肾上腺）的过度分泌
+
+
+[使用基于雌二醇激素疗法的绝经后女性，其记忆得分高于未使用雌二醇激素疗法的绝经后妇女](https://zhuanlan.zhihu.com/p/1947957306936525362)
+
+
+
+
+## 数据库
+
+ATLAS很适合ML训练(预测年龄/部位/..)，或作为干扰试验的模拟细胞，或更深入的研究特定细胞谱系(e.g.免疫)
+
+* [GenAge 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC5753192/) -- 人/模式物种，整合为长寿基因、饮食限制相关基因、...
+
+* [Aging Atlas 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC7779027/) -- [在线交互](https://ngdc.cncb.ac.cn/aging/index)，部分功能需要登录
+    - 分为不同的子库，e.g. [细胞类型的衰老marker](https://ngdc.cncb.ac.cn/aging/age_related_genes)；搜索基因，可查看特定基因干预下的多组学信息（包括原论文 DOI）
+
+* [Immunosenescence Inventory 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC11701554/) -- 整合的多物种数据库，维护中，打不开
+    - 知识库 (e.g.各种免疫细胞的上调/下调，包含组织信息)，多组学数据，似乎还可以在线根据细胞谱推断免疫年龄
+    - 详细功能见 [help / sitemap](https://ngdc.cncb.ac.cn/iaa/assets/sitemap4.05d1dcd9.png)
+
+
+* [mouse-pansci 单细胞图谱](https://www.science.org/doi/10.1126/science.adn3949) --  取样自 13 organs/tissue，5 个年龄段（也包括其中的免疫细胞），[在线交互](https://cells.ucsc.edu/?ds=mouse-pansci)提供下载选项
+    - 似乎使用哺乳动物特制的单细胞测序方法 [EasySci](https://digitalcommons.rockefeller.edu/student_theses_and_dissertations/778/)/[的数据处理脚本](https://github.com/JunyueCaoLab/EasySci)
+    - 雄性和雌性小鼠在每个器官中都有数百种不同的细胞状态：其中，衰老相关B细胞的雌性特异性扩增，可能有助于解释为什么老年女性患自身免疫疾病的几率高于男性
+    - [这一篇 mouse-pansci 的评论](http://dx.doi.org/10.1016/j.immuni.2025.01.015)中提到，人衰老并非匀速，而是在 34-60-78 这三个节点快速发生；小鼠特定细胞亚型的显著变化也集中在3个节点。淋巴细胞(T/B)随时间的变化最为剧烈，其次是肾尿路上皮细胞和肠巨噬细胞
+
+| 小鼠年龄/月 | 事件 | 
+| -- | -- | 
+| 3 - 成年早期 | 脂肪、肌肉和上皮组织中的特定细胞亚型数量明显下降 | 
+| 6 - 成年早期 | naïve CD4 T 细胞明显减少 | 
+| 12 - 成年晚期 | 肾脏、肺和脂肪组织、脾脏中 -- 终末分化免疫群体累积？ | 
+| 16 - 成年晚期 | 肠道特异/炎症 -- 终末分化免疫群体累积？ | 
+
+
+* [人类 scTCR/BCR-seq](https://www.nature.com/articles/s41590-024-02059-6) -- 13个年龄段(0-90岁) PBMCs，论文中提供数据下载，不过锁区了
+    - T 细胞受年龄影响最大，在特定年龄段细胞间相互作用的重塑最为剧烈
+    - [siAge](https://pu-lab.sjtu.edu.cn/shiny/siage-model/)：ML预测免疫年龄，基于24个marker [R代码](https://github.com/shanzha9/siAgeModel)
 
