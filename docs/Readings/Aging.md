@@ -252,6 +252,8 @@ T/B cells 都源自造血干细胞(HSC)，其中 B cells 在骨髓中发育，�
 
 ## 更年期 menopause
 
+[生殖衰老分期（STRAW+10）、MHT的指导原则](https://cmab.yiigle.com/uploads/guide_html/%E7%BB%9D%E7%BB%8F%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BB%9D%E7%BB%8F%E6%BF%80%E7%B4%A0%E6%B2%BB%E7%96%97%E4%B8%AD%E5%9B%BD%E6%8C%87%E5%8D%97%EF%BC%882018%EF%BC%89.html)
+
 [更年期](https://www.who.int/zh/news-room/fact-sheets/detail/menopause)是女性衰老的自然过程，通常发生在45至55岁之间。其特征是月经停止一年，代表卵巢卵泡功能的永久丧失。从月经周期长度开始出现显著变化到月经停止(FMP)一年的这段时间被称为围绝经期(perimenopause)。
 
 menopausal transition 期间，激素水平剧烈波动。在早期绝经后(early postmenopause)，促卵泡激素(FSH)持续上升、雌二醇(estradiol)持续下降，至月经停止2年后才趋于稳定。
