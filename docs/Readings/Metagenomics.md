@@ -91,8 +91,9 @@
 
 ## 菌群 - 精准营养干预
 
-[Foodseq](https://mp.weixin.qq.com/s/U2Pl9tM2vAVQp90gAb0aYg)数据库，实现对食物种类的鉴定（基于粪便菌群的eDNA）
+[Foodseq](https://mp.weixin.qq.com/s/U2Pl9tM2vAVQp90gAb0aYg)数据库，实现对食物种类的鉴定（基于粪便中食物的eDNA）
 
+那菌群的模式是不是也可以用来推断营养组成？？
 
 
 ## 菌群 - 更年期 Menopause
