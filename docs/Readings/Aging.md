@@ -252,11 +252,11 @@ T/B cells 都源自造血干细胞(HSC)，其中 B cells 在骨髓中发育，�
 
 ## 更年期 menopause
 
-[生殖衰老分期（STRAW+10）、MHT的指导原则](https://cmab.yiigle.com/uploads/guide_html/%E7%BB%9D%E7%BB%8F%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BB%9D%E7%BB%8F%E6%BF%80%E7%B4%A0%E6%B2%BB%E7%96%97%E4%B8%AD%E5%9B%BD%E6%8C%87%E5%8D%97%EF%BC%882018%EF%BC%89.html)
+[生殖衰老分期（STRAW+10）、MHT的指导原则](https://cmab.yiigle.com/uploads/guide_html/%E7%BB%9D%E7%BB%8F%E7%AE%A1%E7%90%86%E4%B8%8E%E7%BB%9D%E7%BB%8F%E6%BF%80%E7%B4%A0%E6%B2%BB%E7%96%97%E4%B8%AD%E5%9B%BD%E6%8C%87%E5%8D%97%EF%BC%882018%EF%BC%89.html)、[FDA - MHT Risk](https://www.fda.gov/drugs/drug-safety-and-availability/fda-requests-labeling-changes-related-safety-information-clarify-benefitrisk-considerations)
 
 [更年期](https://www.who.int/zh/news-room/fact-sheets/detail/menopause)是女性衰老的自然过程，通常发生在45至55岁之间。其特征是月经停止一年，代表卵巢卵泡功能的永久丧失。从月经周期长度开始出现显著变化到月经停止(FMP)一年的这段时间被称为围绝经期(perimenopause)。
 
-menopausal transition 期间，激素水平剧烈波动。在早期绝经后(early postmenopause)，促卵泡激素(FSH)持续上升、雌二醇(estradiol)持续下降，至月经停止2年后才趋于稳定。
+menopausal transition 期间，激素水平剧烈波动。在早期绝经后(early postmenopause)，促卵泡激素(FSH--代偿性的希望刺激卵泡)持续上升、雌二醇(estradiol)持续下降，至月经停止2年后才趋于稳定。
 
 绝经后，由于卵巢功能消退，雌激素水平较绝经前会显著降低。但卵巢并不是唯一产生雌激素的器官，脂肪组织也能产生少量的雌激素、肾上腺也会分泌一些雌激素前体，部分食物来源的植物性雌激素（如异黄酮）在人体内可以表现出一定的雌激素样活性
 
@@ -281,14 +281,16 @@ menopausal transition 期间，激素水平剧烈波动。在早期绝经后(ear
 
 雌激素已知与心血管、骨、代谢/肥胖、情绪/认知等有关。
 
-我觉得情绪脆弱可能来自激素([月经期/孕产期/更年期](https://news.qq.com/rain/a/20241127A07Q3O00))、达到抑郁可能也是因为社会压力、身体机能的下降，[lancet - review](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(23)02801-5/fulltext/) 也这么认为：只有风险组中的人群才更可能抑郁（心血管症状、慢性睡眠障碍、压力性生活事件、本身就有抑郁症），雌激素治疗可能同时在改善身体症状、因此缓和心情
+我觉得情绪脆弱可能来自激素([月经期/孕产期/更年期](https://news.qq.com/rain/a/20241127A07Q3O00))、达到抑郁可能也是因为社会压力、身体机能的下降，[lancet - review](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(23)02801-5/fulltext/) 也这么认为：只有风险组中的人群才更可能**抑郁**（心血管症状、慢性睡眠障碍、压力性生活事件、本身就有抑郁症），雌激素治疗可能同时在改善身体症状、因此缓和心情
+
+[SWAN队列的研究](https://doi.org/10.1097/GME.0000000000001725)提示更年期妇女的**认知**下降似乎与绝经转变本身相关，而非仅仅是年龄增长的结果。似乎血管舒缩症状（如潮热、盗汗）与较差认知表现之间存在关联，可能症状明显也暗示着这个人的生理被严重影响（脑中生理稳态的部分、或许也影响了认知记忆相关区域的DA浓度？），也许也意味着更risky的认知问题？
 
 **雌激素(Estrogen,E)如何影响情绪？** 作为类固醇激素，内源性的E可以穿越BBB到达大脑（边缘系统-情绪/压力），作用于细胞内/外的各种受体、促进血清素（快乐感、平静感）/多巴胺（动力、愉悦）/GABA（缓解焦虑）的合成与释放、抑制皮质醇（压力激素、下丘脑->肾上腺）的过度分泌
 
+[一些MHT实验中](https://zhuanlan.zhihu.com/p/1947957306936525362)，使用基于雌二醇激素疗法的绝经后女性，其记忆得分高于未使用雌二醇激素疗法的绝经后妇女；但是有一些口服雌激素的实验中[安慰剂对认知的改善效果居然更好](http://eta.health.usf.edu/publichealth/PHC6934_Epi_AD/readings/module22/Schumaker_JAMA-EXPRESS.pdf)？是个体差异，选样bias，还是因为植物雌激素确实无法通过肠道上皮？（或者，植物雌激素只是起到维持微生物组的功能？）
 
-[使用基于雌二醇激素疗法的绝经后女性，其记忆得分高于未使用雌二醇激素疗法的绝经后妇女](https://zhuanlan.zhihu.com/p/1947957306936525362)
 
-
+[UK Biobank (问卷信息 / 生物样本 / need Proposal,9000英镑) 的一项研究](https://pmc.ncbi.nlm.nih.gov/articles/PMC10663050/)显示，绝经年龄暗示暴露于内源性雌激素的时间较短，绝经年龄与痴呆风险之间存在 U 型关系，即更年期年龄靠近50-45岁这个区间痴呆风险最小？？为什么是这个特定的时间段？？
 
 
 ## 数据库
@@ -303,7 +305,6 @@ ATLAS很适合ML训练(预测年龄/部位/..)，或作为干扰试验的模拟�
 * [Immunosenescence Inventory 知识库](https://pmc.ncbi.nlm.nih.gov/articles/PMC11701554/) -- 整合的多物种数据库，维护中，打不开
     - 知识库 (e.g.各种免疫细胞的上调/下调，包含组织信息)，多组学数据，似乎还可以在线根据细胞谱推断免疫年龄
     - 详细功能见 [help / sitemap](https://ngdc.cncb.ac.cn/iaa/assets/sitemap4.05d1dcd9.png)
-
 
 * [mouse-pansci 单细胞图谱](https://www.science.org/doi/10.1126/science.adn3949) --  取样自 13 organs/tissue，5 个年龄段（也包括其中的免疫细胞），[在线交互](https://cells.ucsc.edu/?ds=mouse-pansci)提供下载选项
     - 似乎使用哺乳动物特制的单细胞测序方法 [EasySci](https://digitalcommons.rockefeller.edu/student_theses_and_dissertations/778/)/[的数据处理脚本](https://github.com/JunyueCaoLab/EasySci)

@@ -87,6 +87,10 @@ $y_t = c + \sum \limits_{i=1}^{p}\phi_i y_{t-i} + \epsilon_t$
 [多模态学习 - 知乎](https://zhuanlan.zhihu.com/p/582878508)
 
 
+## Few Shot Learning
+
+[小样本学习](https://www.ibm.com/cn-zh/think/topics/few-shot-learning)只有极少量的标签可被用于进行训练，一般采用[半监督学习](https://www.ibm.com/cn-zh/think/topics/semi-supervised-learning)策略、或从预训练模型进行迁移学习
+
 
 
 
