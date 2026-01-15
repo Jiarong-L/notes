@@ -39,8 +39,10 @@ Planning --- 由LLM决定一些功能的行动顺序，开发者无需硬编码�
 Multi-agent collaboration --- 多个agent协调工作
 ```
 
+为什么 Reflection 流程的效果会比之间输出更好？因为在迭代中LLM接收了更多提示，这比 [Zero-Shot Prompting](https://www.tipkay.com/institute/article/748928354799177728) 更可控
 
-### 评估优化
+
+### Eval and Optimize
 
 
 
@@ -60,19 +62,14 @@ Multi-agent collaboration --- 多个agent协调工作
 
 
 
-### Use Cases
+### Where to use
+
+
 
 [AI4Protein -- Antibody Design](./Agentic_AI/Antibody_Design.png)
 
 
+[检索增强生成(RAG)](https://syhya.github.io/zh/posts/2025-02-03-rag/)
 
-
-
-
-
-
-
-
-TBA
 
 
