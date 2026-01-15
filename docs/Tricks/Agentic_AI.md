@@ -23,9 +23,13 @@ Loop:
 
 一些流程设计技巧，用以提升最终输出的质量
 
+e.g. 为什么 Reflection 流程的效果会比之间输出更好？因为在迭代中LLM接收了更多反馈和提示词样本，[这比 Zero-Shot Prompting 更可控](https://www.tipkay.com/institute/article/748920162618822656) --- 关于如何获得更好的提示词样本，建议参考优秀开源软件作者的示例写法？
+
+
 ```bash
 
 Reflection --- 让 LLM自己/另一个LLM/用户/运行结果/... 评价输出，所得反馈可用于迭代的优化输出
+              （当然，考虑到步骤的额外消耗，一般也不会迭代太多次）
 
     "Write code"  →  LLM  →  "Code"  →  LLM/Execute  →  "Suggest/ErrLog" or "Code Final"
                       ↑                                           
@@ -39,25 +43,11 @@ Planning --- 由LLM决定一些功能的行动顺序，开发者无需硬编码�
 Multi-agent collaboration --- 多个agent协调工作
 ```
 
-为什么 Reflection 流程的效果会比之间输出更好？因为在迭代中LLM接收了更多反馈和提示样本，[这比 Zero-Shot Prompting 更可控](https://www.tipkay.com/institute/article/748920162618822656) --- 关于如何获得更好的提示样本，建议参考优秀开源软件作者的示例写法？
+根据测试结果（LLM Judge & 基于使用体验设计的硬指标 & Accuracy/Speed/...）的对比，决定是否选取某种设计
 
+评估优化可以是：端到端 / by component 检测中间输出
 
-### Eval and Optimize
-
-
-
-基于使用体验设计硬指标，或使用另一个模型作为 Judge
-
-
-端到端 / by component 检测中间输出
-
-
-
-
-
-
-
-
+对于一些主观评价，推荐使用 LLM Judge (e.g.图片是否美观)；对于客观评价，建议为测试集提供标签、进行硬指标的评估
 
 
 
