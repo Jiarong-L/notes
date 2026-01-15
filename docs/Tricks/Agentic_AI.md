@@ -39,7 +39,7 @@ Planning --- 由LLM决定一些功能的行动顺序，开发者无需硬编码�
 Multi-agent collaboration --- 多个agent协调工作
 ```
 
-为什么 Reflection 流程的效果会比之间输出更好？因为在迭代中LLM接收了更多提示，这比 [Zero-Shot Prompting](https://www.tipkay.com/institute/article/748928354799177728) 更可控
+为什么 Reflection 流程的效果会比之间输出更好？因为在迭代中LLM接收了更多反馈和提示样本，[这比 Zero-Shot Prompting 更可控](https://www.tipkay.com/institute/article/748920162618822656) --- 关于如何获得更好的提示样本，建议参考优秀开源软件作者的示例写法？
 
 
 ### Eval and Optimize
