@@ -1,3 +1,9 @@
+<style>
+img{
+    width: 60%;
+}
+</style>
+
 
 
 ## 吴恩达 [Agentic AI](https://www.bilibili.com/video/BV1aaxyz8ELY/)
@@ -51,6 +57,63 @@ Multi-agent collaboration --- 多个agent协调工作
 
 
 
+### Trick: Use Servers
+
+个人电脑不太可能跑得动大模型，但好在它们的 Server 一般会提供兼容 OpenAI 格式的 API（虽然付费），e.g. 申请一个 [deepseek API-key](https://api-docs.deepseek.com/zh-cn/)，就可以调用模型
+
+通常至少会有 python / curl / 前端框架（nodejs）的接口；不会编程的人也可以用[Cherry Studio](https://www.cherry-ai.com/)或在线chatbot体验一下不同模型的效果
+
+以 python 为例：
+```bash
+from openai import OpenAI
+
+client = OpenAI.Client(api_key = 'XXX', base_url = 'https://api.deepseek.com') 
+
+def show_stream(response):
+    for chunk in response:
+        print(chunk.choices[0].message.content)  ## 打印模型的回复
+
+# Round 1
+response = client.chat.completions.create(
+    model="deepseek-chat",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant"},   ## 系统给模型的提示
+        {"role": "user", "content": "what is a basketball?"},   ## 用户的输入
+    ],
+    stream=True   ## 此例中设置流式输出，文档示例为非流式输出
+)
+show_stream(response)
+
+# Round 2
+response = client.chat.completions.create(
+    model="deepseek-chat",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant"},   
+        {"role": "user", "content": "what is a basketball?"},  
+        response.choices[0].message,    ## 模型在之前回合的回复
+        {"role": "user", "content": "say more"},  ## 用户的新输入
+    ],
+    stream=True  
+)
+show_stream(response)
+
+# Round ...  总之应该用一个list来保存这个chat的messages历史
+```
+
+### Trick: MCP or exec Tools
+
+课程中的工具 [aisuite](https://pypi.org/project/aisuite/) 整合了常见大模型的 API 接口，用法类似上文；同时它支持 Tools 的传递调用，可以由用户提供[符合 OpenAI tool format 的代码](./Agentic_AI/Tools.png)、或由 MCP server 提供调用方法（见aisuite主页示例）
+
+MCP 指某工具或数据源的统一访问标准（args/output 格式），例如 [github-mcp-server Toolsets](https://github.com/github/github-mcp-server?tab=readme-ov-file#tools) 可以提供查询动作 ```'get_me'```
+
+可以[使用官方 SDK 自行构建 MCP Server/Client](https://modelcontextprotocol.io/docs/learn/server-concepts)
+
+
+---------------------------------
+
+除了提供工具库，也可以选择让大模型输出可执行的代码（"Return you answer as python code delimited with <exec> and </exec> tag"），提取后[直接运行 ```exec("CODE")```](https://www.runoob.com/python3/python3-func-exec.html)
+
+但这样无法保证安全，因为无法预料它对系统文件造成的影响，建议在sandbox中运行（docker/E2B）
 
 ### Where to use
 
