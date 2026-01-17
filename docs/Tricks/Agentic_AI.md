@@ -5,6 +5,8 @@ img{
 </style>
 
 
+[普通人的Agent开发感受](https://www.bilibili.com/video/BV1nPq2BoEf3/)，可以看看评论区
+
 
 ## 吴恩达 [Agentic AI](https://www.bilibili.com/video/BV1aaxyz8ELY/)
 
@@ -22,14 +24,14 @@ Loop:
         若缺失，返回搜索阶段补足，或由Reviewer补全
 ```
 
-工作流的优势在于可以组合各模型的长处、组合成新的功能（“像人一样拆解任务”），且对于一些耗时步骤可以并行处理（e.g.网页搜索）；它需要在自动化与灵活性之间进行权衡，因为AI并不一直准确、对于一些关键步骤还需要人工规范（e.g. 人为指定流程/用一个LLM灵活设计步骤，限制工具库/由AI自行生成工具 ...）
+工作流的优势在于可以组合各模型的长处、组合成新的功能（“像人一样拆解任务”），且对于一些耗时步骤可以并行处理（e.g.网页搜索）；它需要在自动化与灵活性之间进行权衡，因为AI并不一直准确、对于一些关键步骤还需要人工规范（e.g. 人为指定流程/用一个LLM灵活设计步骤，在系统提示词里指定工具库/由AI自行生成工具 ...）
 
 
 ### Workflow Designs
 
 一些流程设计技巧，用以提升最终输出的质量
 
-e.g. 为什么 Reflection 流程的效果会比之间输出更好？因为在迭代中LLM接收了更多反馈和提示词样本，[这比 Zero-Shot Prompting 更可控](https://www.tipkay.com/institute/article/748920162618822656) --- 关于如何获得更好的提示词样本，建议参考优秀开源软件作者的示例写法？
+e.g. 为什么 Reflection 流程的效果会比之间输出更好？因为在迭代中LLM接收了更多反馈和提示词样本，[这比 Zero-Shot Prompting 更可控](https://www.tipkay.com/institute/article/748920162618822656) --- 关于如何获得更好的（系统）提示词样本，建议参考优秀开源软件作者的示例写法？（简洁就行了）
 
 
 ```bash
@@ -51,10 +53,11 @@ Multi-agent collaboration --- 多个agent协调工作
 
 根据测试结果（LLM Judge & 基于使用体验设计的硬指标 & Accuracy/Speed/...）的对比，决定是否选取某种设计
 
-评估优化可以是：端到端 / by component 检测中间输出
+评估可以是：端到端 / **by component 检测中间输出** 且关注经常出现的错误类型
+
+对于表现不良的步骤，优化操作：换参数/提示词，换工具、拆解任务、微调模型，加限制（e.g.规范输出格式，过滤上下文 -- 人工设置或LLM）
 
 对于一些主观评价，推荐使用 LLM Judge (e.g.图片是否美观)；对于客观评价，建议为测试集提供标签、进行硬指标的评估
-
 
 
 ### Trick: Use Servers
@@ -100,6 +103,9 @@ show_stream(response)
 # Round ...  总之应该用一个list来保存这个chat的messages历史
 ```
 
+鉴于 Token 的输入和输出都需要收钱，有些复用/转手多次的内容可以写在disk里、流程中传递文件地址即可（Memory）
+
+
 ### Trick: MCP or exec Tools
 
 课程中的工具 [aisuite](https://pypi.org/project/aisuite/) 整合了常见大模型的 API 接口，用法类似上文；同时它支持 Tools 的传递调用，可以由用户提供[符合 OpenAI tool format 的代码](./Agentic_AI/Tools.png)、或由 MCP server 提供调用方法（见aisuite主页示例）
@@ -117,6 +123,8 @@ MCP 指某工具或数据源的统一访问标准（args/output 格式），例�
 
 ### Where to use
 
+
+[Claude](https://claude.com/resources/tutorials) 通常被用于 Vibe [Coding](https://claude.com/product/claude-code)（国内推荐使用 [MiniMax M2](https://www.minimaxi.com/news/minimax-m2)），现在它也可以辅助[生命科学的研究](https://claude.com/resources/tutorials/getting-started-with-claude-for-life-sciences)（论文搜索总结，[ToolUniverse](https://zitniklab.hms.harvard.edu/ToolUniverse/zh-CN/index.html)，10x数据的分析流程）
 
 
 [AI4Protein -- Antibody Design](./Agentic_AI/Antibody_Design.png)
