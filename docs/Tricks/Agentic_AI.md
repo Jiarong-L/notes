@@ -123,14 +123,30 @@ MCP 指某工具或数据源的统一访问标准（args/output 格式），例�
 
 ### Where to use
 
-
-[Claude](https://claude.com/resources/tutorials) 通常被用于 Vibe [Coding](https://claude.com/product/claude-code)（国内推荐使用 [MiniMax M2](https://www.minimaxi.com/news/minimax-m2)），现在它也可以辅助[生命科学的研究](https://claude.com/resources/tutorials/getting-started-with-claude-for-life-sciences)（论文搜索总结，[ToolUniverse](https://zitniklab.hms.harvard.edu/ToolUniverse/zh-CN/index.html)，10x数据的分析流程）
-
-
-[AI4Protein -- Antibody Design](./Agentic_AI/Antibody_Design.png)
+[Claude](https://claude.com/resources/tutorials) 通常被用于 Vibe [Coding](https://claude.com/product/claude-code)，现在它也可以辅助[生命科学的研究](https://claude.com/resources/tutorials/getting-started-with-claude-for-life-sciences)（论文搜索总结，[ToolUniverse](https://zitniklab.hms.harvard.edu/ToolUniverse/zh-CN/index.html)，10x数据的分析流程）
 
 
-[检索增强生成(RAG)](https://syhya.github.io/zh/posts/2025-02-03-rag/)
+国内可以用npm安装Claude Code（或目前更常用的 [codex CLI](https://developers.openai.com/codex/cli)），但即使翻墙也有可能链接不了claude server；但是可以在CC中改用 [MiniMax M2](https://platform.minimaxi.com/docs/coding-plan/claude-code) --- 'API 配置 - 手动编辑配置文件'
+
+![claude_MiniMax](./Agentic_AI/claude_MiniMax.png)
+
+
+然后，可以搜索示例在CLAUDE.md里设置各种系统提示词；但最简单的方法就是交互的聊几句，让Claude自己创建它：“我需要在claude中建立一个开发团队，包括产品经理、网页设计、开发工程师，帮我重新生成CLAUDE.md；其中CLAUDE.md作为开发团队的协调者，三个角色的提示放在各自单独的文档中” --- 于是生成：
+
+```bash
+vibe_coding/
+  ├── CLAUDE.md                    # 开发团队协调者入口
+  └── .claude/
+      ├── product-manager.md       # 产品经理提示词
+      ├── designer.md              # 网页设计师提示词
+      └── engineer.md              # 开发工程师提示词
+```
+
+命令行中呼唤相关角色，即可与虚拟AI员工交互
+
+-------------------------------------------------------------
+
+其它应用方向：[AI4Protein -- Antibody Design](./Agentic_AI/Antibody_Design.png)，[检索增强生成(RAG)](https://syhya.github.io/zh/posts/2025-02-03-rag/)
 
 
 
