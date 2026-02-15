@@ -1,6 +1,9 @@
 
+关联：用 [Ollama](https://ollama.com/search) 在本机部署开源的LLM
 
-需要[科学上网](https://www.cnblogs.com/xyz/p/17938947)，但是暂时可以使用[镜像网站 hf-mirror](https://hf-mirror.com/)
+--------------------------
+
+Huggingface 需要[科学上网](https://www.cnblogs.com/xyz/p/17938947)，但是暂时可以使用[镜像网站 hf-mirror](https://hf-mirror.com/)
 
 参照[官方视频教程](https://www.bilibili.com/video/BV1acqAY8Ehh/?p=15)
 
@@ -10,7 +13,6 @@ HF_ENDPOINT=https://hf-mirror.com python your_script.py
 ```
 
 已有许多 scRNA-seq 应用，比如说 [Cell2Sentence](https://hf-mirror.com/vandijklab/C2S-Pythia-410m-diverse-single-and-multi-cell-tasks) - [Tutorials](https://github.com/vandijklab/cell2sentence) 可从 cell_sentences 生成逼真细胞 (expression)
-
 
 
 ## 使用
