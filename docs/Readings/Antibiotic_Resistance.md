@@ -4,12 +4,30 @@
 ARG注释是宏基因组项目中较常见的需求，曾经的我只是简单的通过它与可移动原件间距离来假设其HGT的可能性...
 
 
-## ARG数据库
+## ARG注释
 
-CARD，以及基于此整合的SARG等，或[AI预测病原微生物耐药性](https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2024.1482186/full)，[47种ARG注释工具测评](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2019.00242/full)
+* “基因型-表型”关联
+    - ResFinder 4.0 的数据库（ ```data_resfinder.json```）
+    - AMR Portal/**BV-BRC**（```一个分离株（BioSample ID）+ 一种抗生素 -> AST实验记录_MIC值```）
+    - CARD（```基因-耐药机制-关联的抗生素类别```）
 
 
-其中，ResFinder 似乎目前比较常用
+* [47种ARG注释工具测评（2019）](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2019.00242/full)，直到2022年，宏基因组常用：（似乎，kmer计数对已知基因的鉴定非常准确，比对计数能识别一些新同源物）
+    - CARD 数据库（官方工具RGI：```输入contigs -> 用Prodigal预测CDS -> blastn```，但一般和其它注释一起复用CDS/蛋白序列）
+    - SARG 数据库，整合自CARD、带层级（ARGs-OAP：```输入reads -> UBLAST粗筛 -> BLASTX精细比对、计数 -> 用保守遗传标记（16S_rRNA、严格单拷贝的基因 recA 等，用HMM识别）的计数推算细胞总数，对ARG丰度进行标准化```）
+    - ResFinder 4.0 的数据库，从NCBI和论文中整理。包含多个按药物类别存储的ARG序列（```aminoglycoside.fsa```）。支持 ```输入reads -> KMA算法基于kmer计数、将reads比对至参考序列）``` 或 ```输入contigs -> 整条blast参考序列）```  --- 单菌比较准确，但偏向已经成功传播的基因（可以HGT的这些）、新突变/嵌入染色体的序列可能不在记录中？宏基因组中的使用参考（但依旧警惕假阳性）：[MEGAISurv-Namaste](https://utrechtuniversity.github.io/MEGAISurv-Namaste/index.html)
+    - AMRFinderPlus NCBI组件实时更新，也包含其它抗性基因，公共卫生监测中应用广泛？
+
+
+* [AI预测病原微生物耐药性（2024 待读）](https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2024.1482186/full)
+    - 从基因组的整体特征（如k-mers、SNPs）中预测耐药表型，但都针对培养分离株而不是宏基因组MAGs，e.g. [amR](https://github.com/JRaviLab/amR)
+
+
+
+
+
+
+
 
 
 ## Bacterial Heteroresistance
