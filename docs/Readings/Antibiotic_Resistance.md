@@ -6,28 +6,53 @@ ARG注释是宏基因组项目中较常见的需求，曾经的我只是简单�
 
 ## ARG注释
 
+* [47种ARG注释工具测评（2019）](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2019.00242/full)，直到2022年，宏基因组常用：（似乎，k-mer计数对已知基因的鉴定非常准确，比对计数能识别一些新同源物）
+    - CARD 数据库（官方工具RGI：```输入contigs -> 用Prodigal预测CDS -> blastn```，但一般和其它注释一起复用CDS/蛋白序列）
+    - SARG 数据库，整合自CARD、带层级（ARGs-OAP：```输入reads -> UBLAST粗筛 -> BLASTX精细比对、计数 -> 用保守遗传标记（16S_rRNA、严格单拷贝的基因 recA 等，用HMM识别）的计数推算细胞总数，对ARG丰度进行标准化```）
+    - ResFinder 4.0 的数据库，从NCBI和论文中整理。包含多个按药物类别存储的ARG序列（```aminoglycoside.fsa```）。支持 ```输入reads -> KMA算法基于k-mer计数、将reads比对至参考序列）``` 或 ```输入contigs -> 整条blast参考序列）```  --- 单菌比较准确，但偏向已经成功传播的基因（可以HGT的这些）、新突变/嵌入染色体的序列可能不在记录中？宏基因组中的使用参考（但依旧警惕假阳性）：[MEGAISurv-Namaste](https://utrechtuniversity.github.io/MEGAISurv-Namaste/index.html)
+    - AMRFinderPlus NCBI组件实时更新，也包含其它抗性基因，公共卫生监测中应用广泛？
+
+
+
+DeepARG-DB 也是一个精校过的数据库，存有分属30个抗生素类别的抗性基因序列。对于一条查询序列，DeepARG会先将之与数据库进行比对，得到的相似性向量将作为下游分类器的输入
+
+也可以直接记忆序列的特征，resLens 微调了预训练的序列基础模型（DNA语言模型seqLens），实现对ARG的分类和检测
+
+这两种方法学习了已知抗性基因类别中普遍的序列特征和模式，即使查询序列与数据库的整体相似度不高、这些特征也可以被准确识别。注意，由于可包含的信息量的不同，AI模型对长/短序列分别有复杂度不同的分类器
+
+
+## 菌株耐药表型预测
+
 * “基因型-表型”关联
     - ResFinder 4.0 的数据库（ ```data_resfinder.json```）
     - AMR Portal/**BV-BRC**（```一个分离株（BioSample ID）+ 一种抗生素 -> AST实验记录_MIC值```）
     - CARD（```基因-耐药机制-关联的抗生素类别```）
 
+----------------------------------------------------------------------
 
-* [47种ARG注释工具测评（2019）](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2019.00242/full)，直到2022年，宏基因组常用：（似乎，kmer计数对已知基因的鉴定非常准确，比对计数能识别一些新同源物）
-    - CARD 数据库（官方工具RGI：```输入contigs -> 用Prodigal预测CDS -> blastn```，但一般和其它注释一起复用CDS/蛋白序列）
-    - SARG 数据库，整合自CARD、带层级（ARGs-OAP：```输入reads -> UBLAST粗筛 -> BLASTX精细比对、计数 -> 用保守遗传标记（16S_rRNA、严格单拷贝的基因 recA 等，用HMM识别）的计数推算细胞总数，对ARG丰度进行标准化```）
-    - ResFinder 4.0 的数据库，从NCBI和论文中整理。包含多个按药物类别存储的ARG序列（```aminoglycoside.fsa```）。支持 ```输入reads -> KMA算法基于kmer计数、将reads比对至参考序列）``` 或 ```输入contigs -> 整条blast参考序列）```  --- 单菌比较准确，但偏向已经成功传播的基因（可以HGT的这些）、新突变/嵌入染色体的序列可能不在记录中？宏基因组中的使用参考（但依旧警惕假阳性）：[MEGAISurv-Namaste](https://utrechtuniversity.github.io/MEGAISurv-Namaste/index.html)
-    - AMRFinderPlus NCBI组件实时更新，也包含其它抗性基因，公共卫生监测中应用广泛？
+注意，由于基因组中的ARG不一定能成功地表达或留存，耐药表型还可能与其它特征有关：非ARG基因的表达（是否会消解ARG的表达产物）、ARG基因的位置（邻近基因是否活跃/上游调控序列）、...
 
-
-* [AI预测病原微生物耐药性（2024 待读）](https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2024.1482186/full)
-    - 从基因组的整体特征（如k-mers、SNPs）中预测耐药表型，但都针对培养分离株而不是宏基因组MAGs，e.g. [amR](https://github.com/JRaviLab/amR)
+感谢大量AST实验记录，我们可以训练AI/ML模型、从基因组的整体特征（如k-mers、SNPs）中预测耐药性表型。注意，如果训练数据中有许多菌亲缘关系非常近（Clonal Bias），模型记住的只是克隆群的特征。训练数据中也可能不包含新出现/罕见的突变、或者训练数据与现实存在偏差，导致无法迁徙到现实使用场景（比如，基于**纯菌株**WGS数据训练的模型，**无法迁徙到宏基因组MAGs的情形**，因为后者的序列往往带有污染或缺失）。
 
 
+* 传统ML模型手动设计特征向量、然后再训练分类器（预测：耐药/不耐药）。优点在于可解释性强、而且还可以与CNN进一步集成。以下为一些工具包：
+    - [amR](https://github.com/JRaviLab/amR)：```amRdata(自动：此细菌中、泛基因组基因的(存/失)向量) -> amRml(Regress/SVM/RandomForest/...) -> amRviz(Shiny互动)```
+    - [Kover](https://github.com/aldro61/kover)/[PhenotypeSeeker](https://github.com/bioinfo-ut/PhenotypeSeeker)：```统计检验筛选特征k-mers -> k-mers的0/1向量 -> 布尔逻辑规则/逻辑回归```
+
+对于传统ML，[用基因拷贝数特征(0/1)、似乎比用SNP特征更稳健](https://www.nature.com/articles/s44259-025-00172-6)。保守区域SNP的差异反映的是亲缘菌株之间微观的、逐渐积累的突变，k-mer差异（某种意义上反应了携带那种基因）捕捉的是HGT获得的相似性。
 
 
+* AI 模型
+    - 使用预训练的基础模型（ESM等）提取序列的特征
+    - AMR-GNN：以样本为节点，两个图结构（SNP/k-mer的差异定义边）共享相同的节点特征。神经网络负责在两个图结构中各自 ```Node = GCN_merge(neighbors)```，以及 ```encoder = NN_merge(Node,Edge_snp,Edge_kmer)```，训练目标 ```NN(encoder) -> resist/not```
 
 
+* 一些细菌基因组的基础模型，训练时使用了包括宏基因组MAGs在内的细菌基因组
+    - Bacformer（蛋白）：使用ESM-2生成每个蛋白质的初始表示，然后由Transformer模型在基因组层面进行上下文学习
+    - GenomeOcean（DNA）：BPE分词（高效压缩token量，e.g. 将高频出现的碱基片段合并成一个token），然后输入LLM进行上下文学习
 
+
+[（2024 待读综述）](https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2024.1482186/full)
 
 
 ## Bacterial Heteroresistance
