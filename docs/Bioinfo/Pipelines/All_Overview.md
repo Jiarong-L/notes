@@ -26,30 +26,15 @@ img{
 | [Metabolomics](Bulk/Metabolomics.md) | 代谢组 | -- |
 | [Re-seq](Bulk/Re-seq.md) | 对已知基因组序列信息的个体进行测序，获取SNP、InDel、SV等信息 | 群体遗传，下游：GWAS |
 
-### Metagenomics
+### Metagenomics / Metatranscriptomics
 
-这里有一篇[流程/工具总结](https://www.sciencedirect.com/science/article/pii/S2001037024001430)
+微生物种类繁多且无处不在，不太可能在实验室中全部培养鉴定，因此才选择直接测量环境中的微生物和它们的代谢物。 [MetaOmics流程（包括定量测序）](Bulk/MetaOmics.md) 的预处理流程中，许多工具针对宏基因组的序列进行了优化（尤其是组装方面）
 
-[![Meta](./Overview/Meta.png)]()
+此类研究已被广泛应用于医学和环境的监测，参考[我的论文泛读](../../Readings/Metagenomics.md)
 
-```bash
-病毒由于含量少，另有工具（VirSorter/VirFinder/geNomad/...checkv）
+一般研究可能会关注：样本中的物种组成（/关联/共现/溯源），群落的生长和功能（Network/ [Flux 分析](../_Blocks/FBA.md)），基因的转移（/进化）
 
-对于Binning质量，一般使用checkm/busco进行检测 --- 注意，这俩是基于数据库的，其外的污染/缺失不能被检出
-
-cd-hit 去除冗余序列，dRep去除冗余细胞
-```
-
-关注环境中物种组成，或者功能基因的比例，或者物种/功能的Network，或者进行 [Flux 分析](../_Blocks/FBA.md)
-
-需要注意的是，由于这类研究的结果通常使用比例的方式呈现，可能会出现一些虚假的相关性，例如下例：看起来A下降了、B/C/D的丰度上涨了，它们负相关？但其实只是A变少了，其它没变 （已经有一些定量的生态学数据库？）
-
-```bash
-AAAA BB  CC  DD  ==>  AA  BB  CC  DD
- 40% 20% 20% 20%      25% 25% 25% 25% 
-```
-
-而且微生物可能是处于动态平衡中，一次采样只是得到一个瞬时snapshot；再者MAGs本质上也是一堆相似基因组的cluster，高质量MAGs之外还有些没被归类的序列可能有功能
+在One-Health视角下的研究会关注不同生境之间的交互（“土-水-人”、“野生动物-养殖场-人”），尤其关注耐药基因(ARG)和致病菌。医学类的研究则比较关心菌群代谢对人类宿主的影响。
 
 
 ### Epi & Regulome
