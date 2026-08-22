@@ -245,9 +245,12 @@ MICOM 会设定“最大化整体生长”，同时约束单菌不能为集体�
 
 
 
-## 扩展至dFBA
+### [COMETS](https://www.runcomets.org/)：在变化的时间与空间中模拟群落
+
 
 参考 [SynComMethods 的笔记](https://syntheticcommunity.github.io/SynComMethods/metabolic-model.html)：动态流平衡分析 (dFBA) 在离散的时间步长求解 FBA 问题以确定最优代谢速率、然后相应地更新环境状态，时空通量平衡分析（sFBA）进一步考虑到营养物质和代谢产物在空间中的异质性。
 
 数学模型的设计参考笔记原文
+
+
 
