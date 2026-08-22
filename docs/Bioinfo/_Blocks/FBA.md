@@ -108,7 +108,7 @@ parsimonious FBA (pFBA): minimize squared sum of all fluxes while maintaining th
 
 
 
-## FBA 模拟示例
+## FBA 模拟单菌
 
 假设有一个大肠杆菌的GEM [iML1515](http://bigg.ucsd.edu/models/iML1515)，模拟它在葡萄糖基本培养基中的好氧生长，希望预测最生长速率
 
@@ -198,7 +198,7 @@ Flux coupling analysis (FCA) 则意在发现通路间的耦合：最大/最小�
 
 ## 代谢模型 + 群落模拟
 
-[gapseq + R: BacArena](https://gapseq.readthedocs.io/en/latest/tutorials/crossfeeding.html)
+### [gapseq + R: BacArena](https://gapseq.readthedocs.io/en/latest/tutorials/crossfeeding.html)
 
 gapseq 也是基于通用反应数据库的序列比对注释(e.g.NR->MetaCyc)从通用模板中建立 Draft Model、进行化学计量和可逆性的修正（ATP能量耦合、NADH辅因子平衡），Gapfilling时也考虑用户定义的培养基（必需的合成途径完整 - 如氨基酸、核苷酸、脂质前体） --- 注释搜索范围更广、手动整合生化规则，但基于序列同源性的比对忽略了蛋白质结构域、对酶功能的预测不准确：gapseq 在预测阳性表型（功能存在）方面比其他方法表现更好，但在预测阴性表型（功能不存在）方面却与其他方法不相上下
 
@@ -231,4 +231,23 @@ The virtual host cells inherited the default human class settings of BacArena �
 一部分宿主细胞与放入的特定细菌物种交互，另一部分与默认肠道菌群的简化模型交互？
 ```
 
+### [MICOM](https://micom-dev.github.io/micom/high_level.html)
+
+MICOM 会设定“最大化整体生长”，同时约束单菌不能为集体过度牺牲（权衡个体的资源分配：生长 v.s. 牺牲 -- 分泌/交叉喂养）
+
+1. 输入物种分类和丰度信息，指定GEMs数据库（COBRA模型列表，官方推荐AGORA数据库）
+2. 为样本生成一个`Community对象`
+3. 模拟个体之间以及个体与环境之间的交换通量
+    - 如何选择 `tradeoff 参数`（达到理论上群落最大生长速率的程度）？参考不同 tradeoff 设置下群落整体生长、物种共存（growing taxa 的比例）
+
+
+应用：推算群落整体/各个物种的生长速率，查看交叉喂养的情况，评估各个物种的重要程度（e.g.去掉某一个后，量化群落生长受到的影响）
+
+
+
+## 扩展至dFBA
+
+参考 [SynComMethods 的笔记](https://syntheticcommunity.github.io/SynComMethods/metabolic-model.html)：动态流平衡分析 (dFBA) 在离散的时间步长求解 FBA 问题以确定最优代谢速率、然后相应地更新环境状态，时空通量平衡分析（sFBA）进一步考虑到营养物质和代谢产物在空间中的异质性。
+
+数学模型的设计参考笔记原文
 
