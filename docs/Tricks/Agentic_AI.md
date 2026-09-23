@@ -59,6 +59,22 @@ Multi-agent collaboration --- 多个agent协调工作
 
 对于一些主观评价，推荐使用 LLM Judge (e.g.图片是否美观)；对于客观评价，建议为测试集提供标签、进行硬指标的评估
 
+### Trick: Ollama
+
+个人电脑可以用[Ollama](https://ollama.com/library/deepseek-r1)部署一些较小的蒸馏模型，比如 3060 6GB 显卡的游戏本可以 ```ollama run deepseek-r1:7b```，然后可以用Insomnia/Postman测试 ```http://localhost:11434/api/chat```
+
+-------------------------
+
+如果是server中部署模型（```http://192.168.xx.xx:11434/``` 用 ipconfig 查地址、浏览器尝试能否访问）让其它电脑访问，需要：
+
+1. 设置 Ollama 监听所有网络接口：`Win + R` -> `sysdm.cpl` -> `“高级”选项卡` -> `环境变量` -> `新建“系统变量”:  OLLAMA_HOST  0.0.0.0:11434` -> `重启Ollama`
+
+2. 设置Windows防火墙规则
+    - 宽泛 `New-NetFirewallRule -DisplayName "Ollama" -Direction Inbound -Protocol TCP -LocalPort 11434 -Action Allow`
+    - 只允许 192.168.x.x `New-NetFirewallRule -DisplayName "Ollama-Allow-192.168" -Direction Inbound -Protocol TCP -LocalPort 11434 -RemoteAddress 192.168.0.0/16 -Action Allow -Profile Any`
+    - 删除某条规则 `Remove-NetFirewallRule -DisplayName "Ollama"`,注意：若不删除，防火墙会遵照宽泛规则
+    - 验证某条规则 `Get-NetFirewallRule -DisplayName "Ollama-Allow-192.168" | Format-List`
+
 
 ### Trick: Use Servers
 

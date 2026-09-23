@@ -13,6 +13,7 @@ JetBrains全家桶激活: powershell中 ```irm ckey.run|iex``` 然后一直回�
 * [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/other.html) 中通过 [Maven](https://maven.apache.org/) 管理包：.pom文件
     - 本地安装Maven后: IDEA中File--Settings--搜索maven--设置home/cfg/repo等信息
     - 随后可以创建Maven项目
+    - 需要联网，因为需要调用[Spring Initializr](https://start.spring.io/)初始化项目pom
 
 * Mysql 数据库运行后，可以用 Navicat 可视化管理其中的 table
 
