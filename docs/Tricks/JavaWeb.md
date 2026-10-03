@@ -3,7 +3,7 @@
 
 如果希望制作 Chatbot（会话/即时交互），建立连接--多次交互--断开，即需要搭建 Socket 长连接（TCP/IP），建议使用 [Socket.IO](https://socket.io/zh-CN/docs/v4/) 
 
-**推荐**： [SpringBoot清晰教程](https://blog.csdn.net/m0_74436895/article/details/140792098)
+推荐 [SpringBoot清晰教程](https://blog.csdn.net/m0_74436895/article/details/140792098)，但更加建议直接阅读中文版**官方文档**：[Spring系列](https://springdoc.cn/docs/)，[MyBatis](https://mybatis.org/mybatis-3/zh_CN/getting-started.html)，[MyBatis-Plus](https://baomidou.com/introduce/) 
 
 
 ## 工具
