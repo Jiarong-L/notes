@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script> -->
+    <script src="vue.min.js"></script>
+</head>
+<body>
+    <div id="box">
+        <!-- 插值表达式 -->
+        <p>{{ ValA }}</p>
+        <p>{{ ValB }}</p>
+        <p>{{ 1+2+3 }}</p>
+        <p>{{ true ? 'yes':'no' }}</p>
+        <p>{{ func1 () }}</p>
+        <p>{{ func1 () }}</p>
+        <p>{{ comp1 }}</p>
+        <p>{{ comp1 }}</p>
+        <p>{{ comp2 }}</p>
+        <!-- 指令 -->
+        <p v-text="ValC">123</p>
+        <p v-html="ValC">123</p>
+
+        <p v-for="item in 5">v-for: num's {{item}}</p>
+        <p v-for="item in arr">v-for: arr's {{item}}</p>
+        <p v-for="(item,key,index) in obj">v-for: obj's {{item}} {{key}} {{index}}</p>
+        <p v-if="false">v-if:p标签是否存在/销毁</p>
+        <p v-show="false">v-if:p标签是否显示(style="display:none")</p>
+
+        <p v-bind:title="ValA">v-bind:title</p>
+        <p :title="ValA">v-bind:title</p>
+
+        <button v-on:click="func2">func2 click</button><br>
+        <button @click="func2">func2 click</button><br>
+
+        
+        <!-- 数据、视图双向绑定 -->
+         <!-- 修饰符: 用于简单内容处理, trim,...   -->
+        <input type="text" v-model="myinputVal">
+        <input type="text" v-model.trim="myinputVal">
+        <p>{{ myinputVal }}</p>
+        <p v-text="myinputVal">123</p>
+
+
+    </div>
+    <script>
+        const vm = new Vue({
+            // 0. Vue的生效位置（响应式，后续语法功能...）
+            el: '#box',     
+            // 1. 相应式数据：配合插值表达式；若数值变化则页面同步更新
+            // Vue（）内通过this.ValA引用，控制台vm.ValA
+            data () {
+                return {
+                    ValA: 'Title A',
+                    ValB: 'Title B',
+                    ValC: 'B<span>SS</span>B',
+                    arr: ['a','b','c'],
+                    obj: {a:'aa',b:'bb',c:'cc'},
+                    myinputVal: 'Default Input'
+                }
+            },
+            // 2. 
+            methods: {
+                func1 () {console.log('methods执行了');return 'ValA=' + this.ValA },
+                func2 () {console.log('click执行了');}
+            },
+            // 3. 计算属性：可理解为缓存的methods结果
+            // 缓存的意思：如果return的结果没有变化，就不会重复计算；变化一次则执行一次
+            computed: {
+                comp1 () {console.log('computed1执行了');return 'ValA=' + this.ValA },
+                comp2 () {this.ValB+='-';console.log('computed2执行了');return 'ValB=' + this.ValB }
+            },
+            // 4. 侦听器：监听某个数据是否出现变化，若出现变化则再干点什么
+            watch: {
+                ValB (newV, oldV) {console.log('computed2执行了:',newV, oldV)}
+            }
+
+        })
+    </script>
+</body>
+</html>

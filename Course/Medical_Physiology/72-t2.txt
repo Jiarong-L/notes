@@ -1,0 +1,12 @@
+| Decrease Feeding  (Anorexigenic)  | Increase Feeding(Orexigenic)  |
+| -- | -- |
+| α-MSH                             |  Neuropeptide Y |
+| **Leptin**                        | Agouti-related protein  |
+| Serotonin                         |  Melanin-concentrating hormone |  
+| Norepinephrine                    | Orexins A and B  |       
+| Corticotropin-releasing hormone   | Endorphins  |                        
+| **Insulin**                       | Galanin  |
+| **CCK**                           |  Amino acids (glutamate and γ-aminobutyric acid) |        
+| Glucagon-like peptide             | Cortisol  |              
+| Cocaine-/amphetamine-regulated transcript  |  **Ghrelin** |                  
+| Peptide YY                        | Endocannabinoids  | 
