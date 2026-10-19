@@ -3,12 +3,12 @@
 
 如果希望制作 Chatbot（会话/即时交互），建立连接--多次交互--断开，即需要搭建 Socket 长连接（TCP/IP），建议使用 [Socket.IO](https://socket.io/zh-CN/docs/v4/) 
 
-推荐 [SpringBoot清晰教程](https://blog.csdn.net/m0_74436895/article/details/140792098)，但更加建议直接阅读中文版**官方文档**：[Spring系列](https://springdoc.cn/docs/)，[MyBatis](https://mybatis.org/mybatis-3/zh_CN/getting-started.html)，[MyBatis-Plus](https://baomidou.com/introduce/) 
+推荐 [厦门大学JavaEE视频课程](https://www.bilibili.com/video/BV1pzYV6fEpR/)，[SpringBoot文字教程](https://blog.csdn.net/m0_74436895/article/details/140792098)，但更加建议直接阅读中文版**官方文档**：[Spring系列](https://springdoc.cn/docs/)，[MyBatis](https://mybatis.org/mybatis-3/zh_CN/getting-started.html)，[MyBatis-Plus](https://baomidou.com/introduce/) 
 
 
 ## 工具
 
-JetBrains全家桶激活: powershell中 ```irm ckey.run|iex``` 然后一直回车，或者直接访问[ckey.run](https://ckey.run/);[公司会提供正版IDEA](https://www.idejihuo.com/)
+JetBrains全家桶激活: powershell中 ```irm ckey.run|iex``` 然后一直回车，或者直接访问[ckey.run](https://ckey.run/)；[公司会提供正版IDEA](https://www.idejihuo.com/)
 
 * [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/other.html) 中通过 [Maven](https://maven.apache.org/) 管理包：.pom文件
     - 本地安装Maven后: IDEA中File--Settings--搜索maven--设置home/cfg/repo等信息
@@ -17,15 +17,49 @@ JetBrains全家桶激活: powershell中 ```irm ckey.run|iex``` 然后一直回�
 
 * Mysql 数据库运行后，可以用 Navicat 可视化管理其中的 table
 
-* [Postman](https://www.postman.com/) 测试 server API
+* [Postman](https://www.postman.com/)/[Insomnia](https://insomnia.rest/download) 测试 server API
+
+* [Lombok](https://projectlombok.org/)：有时候懒得写构造器或者getter/setter，引入 Lombok 注释后会在编译阶段补全 Java 代码
 
 
 ## 概念
 
+### IoC/DI/AOP
+
+DI（依赖注入）是实现 [IoC（控制反转）](https://docs.springframework.org.cn/spring-framework/reference/core/beans/introduction.html)的方式，即：当对象 BeanA 的创建需要依赖另一个对象时 BeanB，不再由 BeanA 自己 New，而是将 BeanB 作为参数传入构造函数
+
+[AOP（面向切面编程）](https://docs.springframework.org.cn/spring-framework/reference/core/aop/introduction-defn.html)指把日志/事务/权限从业务逻辑中剥离（最好写成可被许多业务方法复用的```@Aspect```类）
+
+```java
+@Service
+public class OrderService {
+    private final OrderRepository orderRepository;           // IoC_DI：不需要 ... = new OrderRepository();
+
+    public OrderService(OrderRepository orderRepository) {   // IoC_DI：作为参数传入
+        this.orderRepository = orderRepository;
+    }
+
+    public void createOrder() {
+        // 移除日志: System.out.println("创建订单"); 
+        orderRepository.save(); 
+    }
+}
+// -----------------------日志不再混在 createOrder() 业务代码里
+@Aspect
+@Component
+public class LogAspect {    // ← 整个类 = 切面
+
+    @Before("execution(* com.example.*.createOrder(..))")   // ← 切入点：一个筛选规则
+    public void before() {      // ← 通知：具体逻辑
+        System.out.println("创建订单"); 
+    }
+}
+```
+
 ### MVC
 
 ```
-       Model   处理数据逻辑----JavaBean
+       Model   封装数据和处理数据逻辑----JavaBean
   Controller   对请求选择合适的Model和View----Servlet (url)
        View    用于数据展示、与用户交互----前端
 ```
@@ -36,7 +70,7 @@ JetBrains全家桶激活: powershell中 ```irm ckey.run|iex``` 然后一直回�
 
 ```
   MyBatis   持久层       与数据库进行交互，增删改查
-   Spring   业务逻辑层    Model  应用的核心框架，管理对象及其生命周期
+   Spring   业务逻辑层    Model 应用的核心框架：管理 Bean 生命周期，提供 IoC/AOP，贯穿各层
 SpringMVC   表现层       Controller+View 处理用户界面和交互逻辑
 ```
 
@@ -44,7 +78,7 @@ SpringMVC   表现层       Controller+View 处理用户界面和交互逻辑
 | 层 | -- | 获得的POJO | MyBatis 项目中（见SSM教程） |
 | -- | -- | -- | -- |
 | Dao | 封装对数据库的操作：增删改查 | Entity：严格对应数据库表的字段 | 设置SQL语句的Mapper |
-| Service | Do something | Domain/Model：综合/节选多张表的字段与信息 | Service接口 -> Impl实现类 -> Bean |
+| Service | 编排业务逻辑、事务控制、参数校验 | 返回业务对象 | Service接口 -> Impl实现类 -> Bean |
 | Controller | 根据url请求参数，调用不同的 Service | View：发送给前端展示的字段 | @Controller |
 
 注: POJO 指普通Java对象，包括私有字段、对应的 getter/setter
