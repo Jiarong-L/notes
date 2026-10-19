@@ -1,8 +1,14 @@
 
-一款基于内存的分布式NoSQL数据库（Key:Value），Python/JS/Java 都有它的API。
+一款基于内存的分布式NoSQL数据库（Key:Value），Python/JS/Java([Spring Data Redis](https://docs.springframework.org.cn/spring-data/redis/reference/index.html)) 都有它的API。
 
-[使用场景](https://www.bilibili.com/video/BV1yPpwetEuq/)：缓存SessionID/热门访问数据（内存加速），Redisson/RedLock/.. [分布式锁](https://www.cnblogs.com/liuqingzheng/p/11080501.html)，计数排序，分布式会话管理、通知推送、实时聊天（发布/订阅/消息队列），附近商家查询（地理空间）
+[使用场景](https://www.bilibili.com/video/BV1yPpwetEuq/)：
+    
+1. 分布式会话管理：[缓存SessionID](https://blog.csdn.net/qq_34207422/article/details/144747200)（[Spring Session](https://docs.springframework.org.cn/spring-session/reference/guides/java-redis.html)）& Redisson/RedLock/.. [分布式锁](https://www.cnblogs.com/liuqingzheng/p/11080501.html)
 
+2. 热门访问数据：内存加速 [@Cacheable](https://blog.csdn.net/CompiShoal/article/details/154135010)、计数排序（[ZSetOperations](https://blog.csdn.net/zhangbeizhen18/article/details/130119763)）、附近商家查询（地理空间 @GeoIndexed）
+
+
+3. 通知推送、实时聊天（发布/订阅/消息队列）
 
 
 ## 简易示例
