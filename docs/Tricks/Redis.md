@@ -50,22 +50,6 @@
     - ```XREADGROUP GROUP mygroup customerA COUNT 2 STREAMS mystream >``` 投递2条**未被这个组投递过的消息**(```>```)给```customerA```（自动创建）
     - ```XACK mystream mygroup 1792384461852-0``` 业务确认处理完成后，按照 StreamID **移除某条 Pending** 消息
 
-请参考 [Redis Streams](https://docs.springframework.org.cn/spring-data/redis/reference/redis/redis-streams.html) 查看 Spring 中 Redis 功能的写法，例如上述命令对应的 Java 代码：
-
-```java
-List<MapRecord<String, Object, Object>> records = template.opsForStream().read(
-        Consumer.from("mygroup", "customerA"),                      // GROUP mygroup customerA
-        StreamReadOptions.empty().count(2),                         // COUNT 2
-        StreamOffset.create("mystream", ReadOffset.lastConsumed())  // STREAMS mystream >
-);
-
-// ------------------
-for (MapRecord<String, Object, Object> record : records) {
-    // 业务处理：略
-    // record.getId() ，record.getValue() 
-    template.opsForStream().acknowledge("mygroup", record); // 对应 XACK mystream mygroup <id>
-}
-```
 
 投递后但未确认的消息显示 Pending ，会一直留在 mygroup 的 PEL 里，不会再被 ```>``` 读到，除非 ```XCLAIM mystream mygroup customerB 3600000 1792384461852-0``` 在阻塞 3600000ms 后将这条消息转移给另一个消费者B
     
@@ -127,6 +111,27 @@ pidfile /var/run/redis/redis_1111.pid
 sentinel monitor master 127.0.0.1  6333  1
 ```
 
+
+## Java: Spring API
+
+[Spring Data Redis](https://docs.springframework.org.cn/spring-data/redis/reference/index.html) 提供调用 Redis 功能的接口
+
+以**消息队列**为例，可参考 [Redis Streams](https://docs.springframework.org.cn/spring-data/redis/reference/redis/redis-streams.html) 查看 Spring 中 Redis 功能的写法，上述命令对应的 Java 代码：
+
+```java
+List<MapRecord<String, Object, Object>> records = template.opsForStream().read(
+        Consumer.from("mygroup", "customerA"),                      // GROUP mygroup customerA
+        StreamReadOptions.empty().count(2),                         // COUNT 2
+        StreamOffset.create("mystream", ReadOffset.lastConsumed())  // STREAMS mystream >
+);
+
+// ------------------
+for (MapRecord<String, Object, Object> record : records) {
+    // 业务处理：略
+    // record.getId() ，record.getValue() 
+    template.opsForStream().acknowledge("mygroup", record); // 对应 XACK mystream mygroup <id>
+}
+```
 
 
 ## 参考
