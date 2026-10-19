@@ -47,10 +47,8 @@
 
 3. XGROUP 协调对 Stream 的读取，避免被不同 customer（可以指定映射给一个固定IP/pid）重复读取
     - ```XGROUP CREATE mystream mygroup $``` 在指定的 Stream 上创建一个消费者组、**指定从**```$```开始消费
-    - ```XREADGROUP GROUP mygroup customerA COUNT 2 STREAMS mystream >``` 投递2条**未被这个组投递过的消息**(```>```)给```customerA```（注意：6.2.0版本前只有 DELCONSUMER 而没有 CREATECONSUMER，CheatSheet里手动```XGROUP CREATECONSUMER mystream mygroup customerA```的用法是新版本）
-    - 投递后但未确认的消息显示 Pending ，```XPENDING mystream mygroup``` 查看各消费者的 Pending 分布，```XPENDING mystream mygroup - + 1000000``` 列出 Pending 消息 ---- 这些消息会一直留在 mygroup 的 PEL 里，不会再被 ```>``` 读到，除非 ```XCLAIM mystream mygroup customerB 3600000 1792384461852-0``` 在阻塞3600000ms后将这条消息转移给另一个消费者B 
+    - ```XREADGROUP GROUP mygroup customerA COUNT 2 STREAMS mystream >``` 投递2条**未被这个组投递过的消息**(```>```)给```customerA```（自动创建）
     - ```XACK mystream mygroup 1792384461852-0``` 业务确认处理完成后，按照 StreamID **移除某条 Pending** 消息
-
 
 请参考 [Redis Streams](https://docs.springframework.org.cn/spring-data/redis/reference/redis/redis-streams.html) 查看 Spring 中 Redis 功能的写法，例如上述命令对应的 Java 代码：
 
@@ -69,9 +67,13 @@ for (MapRecord<String, Object, Object> record : records) {
 }
 ```
 
-此外，也可以利用 Lists 的基本操作制作最简单的先进先出队列（LPUSH/RPOP）
+投递后但未确认的消息显示 Pending ，会一直留在 mygroup 的 PEL 里，不会再被 ```>``` 读到，除非 ```XCLAIM mystream mygroup customerB 3600000 1792384461852-0``` 在阻塞 3600000ms 后将这条消息转移给另一个消费者B
+    
+```XPENDING mystream mygroup``` 查看各消费者的 Pending 分布，```XPENDING mystream mygroup - + 1000000``` 列出 Pending 消息 
 
-其它消息中间件：[RabbitMQ](https://rabbitmq.cn/), [Kafka](https://kafka.apache.org/)
+---------------------------
+
+版本事项：6.2.0版本前只有 DELCONSUMER 而没有 CREATECONSUMER，CheatSheet里手动```XGROUP CREATECONSUMER mystream mygroup customerA```的用法是新版本，但不常用、可忽略
 
 ### 事务
 
@@ -131,4 +133,7 @@ sentinel monitor master 127.0.0.1  6333  1
 [Redis中文教程](https://redis.com.cn/tutorial.html)     
 [教程-GeekHour](https://www.bilibili.com/video/BV1Jj411D7oG)    
 [教程-讲解](https://www.bilibili.com/video/BV1ZVW6efEbD)      
-[使用场景](https://blog.csdn.net/finally_vince/article/details/139499195)   
+[使用场景](https://blog.csdn.net/finally_vince/article/details/139499195)      
+其它消息中间件：[RabbitMQ](https://rabbitmq.cn/), [Kafka](https://kafka.apache.org/), 利用 Lists 的基本操作制作最简单的先进先出队列（LPUSH/RPOP）
+
+
