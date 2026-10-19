@@ -17,7 +17,7 @@
 2. 服务端维持运行 ```redis-server --bind 127.0.0.1 --port 6333```
 3. 另启客户端 ```redis-cli -h 127.0.0.1 -p 6333```
 4. 数据库基本操作见 [RedisCheatSheet-ByGeekHour.pdf](Redis/RedisCheatSheet-ByGeekHour.pdf)
-    - String/List/Set/SortedSet/Hash （键值对）
+    - String/List/Set/SortedSet(zSet)/Hash(键值对) 
     - HyperLogLog（粗略统计）
     - Bitmaps/Bitfields
     - Geospatial （地理空间距离统计）
@@ -39,11 +39,39 @@
 
 ### 消息队列
 
-1. 客户端C ```XADD mystream * field value```
-2. 客户端A/B/C都可以不限次数的查看/添加/删除/计数stream中信息 ```XRANGE mystream - +```
+1. XADD 创建 Stream 并写入消息：客户端C ```XADD mystream * field value```，其中 ```*``` 表示自动生成StreamID
 
-其中 XGROUP 可用于创建、管理消费者组，不过我的 6.0.16 版本似乎只有 DELCONSUMER 而没有 CREATECONSUMER
+2. XREAD 读取 Stream 中消息
+    - 客户端A/B/C都可以XADD/XDEL/不限次数的查看 Stream 中信息：```XREAD COUNT 2 BLOCK 1000 STREAMS mystream 0``` 返回 2 条 ```StreamID > 0``` 的消息（改成 ```$``` 则表示此XREAD命令之后新写入的StreamID）
 
+
+3. XGROUP 协调对 Stream 的读取，避免被不同 customer（可以指定映射给一个固定IP/pid）重复读取
+    - ```XGROUP CREATE mystream mygroup $``` 在指定的 Stream 上创建一个消费者组、**指定从**```$```开始消费
+    - ```XREADGROUP GROUP mygroup customerA COUNT 2 STREAMS mystream >``` 投递2条**未被这个组投递过的消息**(```>```)给```customerA```（注意：6.2.0版本前只有 DELCONSUMER 而没有 CREATECONSUMER，CheatSheet里手动```XGROUP CREATECONSUMER mystream mygroup customerA```的用法是新版本）
+    - 投递后但未确认的消息显示 Pending ，```XPENDING mystream mygroup``` 查看各消费者的 Pending 分布，```XPENDING mystream mygroup - + 1000000``` 列出 Pending 消息 ---- 这些消息会一直留在 mygroup 的 PEL 里，不会再被 ```>``` 读到，除非 ```XCLAIM mystream mygroup customerB 3600000 1792384461852-0``` 在阻塞3600000ms后将这条消息转移给另一个消费者B 
+    - ```XACK mystream mygroup 1792384461852-0``` 业务确认处理完成后，按照 StreamID **移除某条 Pending** 消息
+
+
+请参考 [Redis Streams](https://docs.springframework.org.cn/spring-data/redis/reference/redis/redis-streams.html) 查看 Spring 中 Redis 功能的写法，例如上述命令对应的 Java 代码：
+
+```java
+List<MapRecord<String, Object, Object>> records = template.opsForStream().read(
+        Consumer.from("mygroup", "customerA"),                      // GROUP mygroup customerA
+        StreamReadOptions.empty().count(2),                         // COUNT 2
+        StreamOffset.create("mystream", ReadOffset.lastConsumed())  // STREAMS mystream >
+);
+
+// ------------------
+for (MapRecord<String, Object, Object> record : records) {
+    // 业务处理：略
+    // record.getId() ，record.getValue() 
+    template.opsForStream().acknowledge("mygroup", record); // 对应 XACK mystream mygroup <id>
+}
+```
+
+此外，也可以利用 Lists 的基本操作制作最简单的先进先出队列（LPUSH/RPOP）
+
+其它消息中间件：[RabbitMQ](https://rabbitmq.cn/), [Kafka](https://kafka.apache.org/)
 
 ### 事务
 
