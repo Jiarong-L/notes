@@ -61,7 +61,7 @@ Multi-agent collaboration --- 多个agent协调工作
 
 ### Trick: Ollama
 
-个人电脑可以用[Ollama](https://ollama.com/library/deepseek-r1)部署一些较小的蒸馏模型，比如 3060 6GB 显卡的游戏本可以 ```ollama run deepseek-r1:7b```，然后可以用Insomnia/Postman测试 ```http://localhost:11434/api/chat``` --- 具体查看 [Ollama RestAPIs](https://ollama.readthedocs.io/api/)
+个人电脑可以用[Ollama](https://ollama.com/library/deepseek-r1)部署一些较小的蒸馏模型，比如 3060 6GB 显卡的游戏本可以 ```ollama run deepseek-r1:7b```，然后可以用Insomnia/Postman测试 ```http://localhost:11434/api/chat``` --- 具体查看 [Ollama RestAPIs](https://docs.ollama.ac.cn/api/generate)
 
 -------------------------
 
