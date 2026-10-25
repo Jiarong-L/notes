@@ -61,7 +61,7 @@ Multi-agent collaboration --- 多个agent协调工作
 
 ### Trick: Ollama
 
-个人电脑可以用[Ollama](https://ollama.com/library/deepseek-r1)部署一些较小的蒸馏模型，比如 3060 6GB 显卡的游戏本可以 ```ollama run deepseek-r1:7b```，然后可以用Insomnia/Postman测试 ```http://localhost:11434/api/chat```
+个人电脑可以用[Ollama](https://ollama.com/library/deepseek-r1)部署一些较小的蒸馏模型，比如 3060 6GB 显卡的游戏本可以 ```ollama run deepseek-r1:7b```，然后可以用Insomnia/Postman测试 ```http://localhost:11434/api/chat``` --- 具体查看 [Ollama RestAPIs](https://ollama.readthedocs.io/api/)
 
 -------------------------
 
@@ -74,6 +74,10 @@ Multi-agent collaboration --- 多个agent协调工作
     - 只允许 192.168.x.x `New-NetFirewallRule -DisplayName "Ollama-Allow-192.168" -Direction Inbound -Protocol TCP -LocalPort 11434 -RemoteAddress 192.168.0.0/16 -Action Allow -Profile Any`
     - 删除某条规则 `Remove-NetFirewallRule -DisplayName "Ollama"`,注意：若不删除，防火墙会遵照宽泛规则
     - 验证某条规则 `Get-NetFirewallRule -DisplayName "Ollama-Allow-192.168" | Format-List`
+
+-------------------------
+
+如果希望模型更加个性化，可以使用 [Unsloth UI（直接导出GGUF格式）](https://unsloth.ai/docs/zh/kuai-su-kai-shi/fine-tuning-llms-guide/datasets-guide)、[Transformers 包](https://transformers.run/c2/2021-12-17-transformers-note-4/) 进行微调训练，并且通过 [Ollama Modelfile](https://ollama.readthedocs.io/modelfile/) 指定部署时的设置（e.g. 模型.gguf、模型的超参数、提示词/模板、外部训练好的 LoRA 适配器） --- 参考：[AceFenix笔记](https://www.cnblogs.com/ukzq/p/19805025)
 
 
 ### Trick: Use Servers
