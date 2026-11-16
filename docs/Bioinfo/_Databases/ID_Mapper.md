@@ -16,7 +16,7 @@
 | ```org.xx.eg.db + bitr()``` | ENTREZID/ENSEMBL/SYMBOL | R:clusterProfiler |
 | ```getBM()``` | Ensemble:Gene/Transcript | R:biomaRt |
 | [GO Cross-references](https://geneontology.org/docs/download-mappings/) | GO/... | -- |
-| Ensemble [New API - xrefs/id](https://rest.ensembl.org/ ) | EntrezGene/HGNC/Uniprot/RefSeq_mRNA... | ```GET /info/external_dbs/:species}``` 查询"homo_sapiens"可转换的外部数据库ID |
+| Ensemble [Old rest API - xrefs/id](https://rest.ensembl.org/) / [New rest API](https://www.ensembl.org/data/refget/docs) or [GraphQL services](https://www.ensembl.org/data/graphql) | EntrezGene/HGNC/Uniprot/RefSeq_mRNA... | ```GET /info/external_dbs/:species}``` 查询"homo_sapiens"可转换的外部数据库ID |
 
 
 
