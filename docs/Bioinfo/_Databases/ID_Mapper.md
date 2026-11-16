@@ -16,15 +16,14 @@
 | ```org.xx.eg.db + bitr()``` | ENTREZID/ENSEMBL/SYMBOL | R:clusterProfiler |
 | ```getBM()``` | Ensemble:Gene/Transcript | R:biomaRt |
 | [GO Cross-references](https://geneontology.org/docs/download-mappings/) | GO/... | -- |
-
-
+| Ensemble [New API - xrefs/id](https://rest.ensembl.org/ ) | EntrezGene/HGNC/Uniprot/RefSeq_mRNA... | ```GET /info/external_dbs/:species}``` 查询"homo_sapiens"可转换的外部数据库ID |
 
 
 
 | ID | 说明 | 示例 |
 | -- | -- | -- |
 | Taxid | NCBI Taxonomy 所用ID | ```1``` root |
-| [Ensemble ID](http://asia.ensembl.org/info/genome/stable_ids/prefixes.html) | ```ENS[SPE][X][11 number].[V]``` | ```ENSP00000339754.1``` P=Protein |
+| [Ensemble ID](https://jun2026.archive.ensembl.org/info/genome/stable_ids/prefixes.html)  | ```ENS[SPE][X][11 number].[V]``` | ```ENSP00000339754.1``` P=Protein |
 | [GI Number](https://www.ncbi.nlm.nih.gov/genbank/sequenceids/) | GenBank 核苷酸序列的序列标识号，Accession的不同版本会有不同GI号 | ```GI: 2462602239``` RNF180 |
 | [RefSeq Accession Number](https://www.ncbi.nlm.nih.gov/guide/howto/find-func-gene/) | refseq，nt，nr，(非冗余+人工review) | ```GenBank: XM_054352456.1``` RNF180 |
 | **Entrez ID** | 也称Gene ID；不同物种同源基因对应不同Entrez ID；而对于同一Entrez ID，不同Assembly可对应不同RefSeq Accession | ```GeneID: 285671``` RNF180 |
