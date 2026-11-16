@@ -366,3 +366,4 @@ public interface UserDao{
 * [Dao层、Entity层、Service层、Servlet层、Utils层](https://blog.csdn.net/Restarting2019/article/details/122296373)
 * [POJO、DTO、DAO、PO、BO、VO、QO、ENTITY](https://blog.csdn.net/qq_40610003/article/details/109007539)
 * [Cookie/SessionID/Token 文字版](https://blog.csdn.net/weixin_52376041/article/details/134309318) 
+* [生成 JWT Token 用于用户认证](https://www.cnblogs.com/28Blog/p/19210187)
