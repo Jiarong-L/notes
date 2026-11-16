@@ -1,7 +1,7 @@
 
-此教程是为了理解 Jeecg-库存管理网站 的后端部分，只需普通的 HTTP 单次请求  
+此教程是为了理解 Jeecg-库存管理网站 的后端部分，只需普通的 HTTP 单次请求，使用 Spring MVC 设计（Servlet：一个请求，一个线程，等待 I/O 操作时阻塞）而不是 Spring WebFlux (Reactive: 非阻塞 I/O) 
 
-如果希望制作 Chatbot（会话/即时交互），建立连接--多次交互--断开，即需要搭建 Socket 长连接（TCP/IP），建议使用 [Socket.IO](https://socket.io/zh-CN/docs/v4/) 
+如果希望制作 Chatbot（会话/即时交互），建立连接--多次交互--断开，即需要搭建 Socket 长连接（TCP/IP 三次握手），建议使用 [Socket.IO](https://socket.io/zh-CN/docs/v4/)
 
 推荐 [厦门大学JavaEE视频课程](https://www.bilibili.com/video/BV1pzYV6fEpR/)，[SpringBoot文字教程](https://blog.csdn.net/m0_74436895/article/details/140792098)，但更加建议直接阅读中文版**官方文档**：[Spring系列](https://springdoc.cn/docs/)，[MyBatis](https://mybatis.org/mybatis-3/zh_CN/getting-started.html)，[MyBatis-Plus](https://baomidou.com/introduce/) 
 
@@ -23,6 +23,26 @@ JetBrains全家桶激活: powershell中 ```irm ckey.run|iex``` 然后一直回�
 
 
 ## 概念
+
+### 网络编程
+
+[Restful API](https://www.runoob.com/restfulapi/restful-api-intro.html) 是一种设计风格，通常借用 [HTTP 协议标准](https://developer.mozilla.org/zh-CN/docs/Web/HTTP)的语义（参数、方法、状态码...），参考：[azure - RESTful Web API 设计的最佳做法](https://learn.microsoft.com/zh-cn/azure/architecture/best-practices/api-design)
+
+
+网络分层模型：OSI 是理论上的七层参考模型（略），TCP/IP 四层模型是互联网实际使用的协议栈模型
+```bash
+应用层：HTTP（短链接策略）、WebSocket（长连接策略）、DNS域名解析、SMTP/POP3/IMAP邮件、FTP/SSH
+        │
+        ▼
+传输层：TCP / UDP    ----- 寻址方式：端口号（HTTP 80，HTTPS 443，DNS 53 等）      
+        │  
+        ▼
+网络层：IP           ----- 寻址方式：IP 地址
+        │
+        ▼
+网络接口层：光纤、Wi-Fi  ----- 寻址方式：MAC 地址  
+```
+
 
 ### IoC/DI/AOP
 
