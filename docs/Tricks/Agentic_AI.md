@@ -5,7 +5,7 @@ img{
 </style>
 
 
-[普通人的Agent开发感受](https://www.bilibili.com/video/BV1nPq2BoEf3/)，可以看看评论区
+[普通人的Agent开发感受](https://www.bilibili.com/video/BV1nPq2BoEf3/)，可以看看评论区，同时参考[智能体工具/教程](https://www.runoob.com/ai-agent/ai-agent-tutorial.html)（尤其是 Deep Agents 等开发框架）
 
 
 ## 吴恩达 [Agentic AI](https://www.bilibili.com/video/BV1aaxyz8ELY/)
@@ -29,7 +29,7 @@ Loop:
 
 ### Workflow Designs
 
-一些流程设计技巧，用以提升最终输出的质量
+一些流程设计技巧，用以提升最终输出的质量 --- 其它参考：[Agent 架构模式](https://blog.csdn.net/m0_46642164/article/details/161265769)
 
 e.g. 为什么 Reflection 流程的效果会比之间输出更好？因为在迭代中LLM接收了更多反馈和提示词样本，[这比 Zero-Shot Prompting 更可控](https://www.tipkay.com/institute/article/748920162618822656) --- 关于如何获得更好的（系统）提示词样本，建议参考优秀开源软件作者的示例写法？（简洁就行了）
 
