@@ -31,8 +31,8 @@ JetBrains全家桶激活: powershell中 ```irm ckey.run|iex``` 然后一直回�
 
 网络分层模型：OSI 是理论上的七层参考模型（略），TCP/IP 四层模型是互联网实际使用的协议栈模型
 ```bash
-应用层：HTTP（短链接策略）、WebSocket（长连接策略）、DNS域名解析、SMTP/POP3/IMAP邮件、FTP/SSH
-        │
+应用层：HTTP、WebSocket、DNS域名解析、SMTP/POP3/IMAP邮件、FTP/SSH
+        │通过 Socket API 调用传输层能力
         ▼
 传输层：TCP / UDP    ----- 寻址方式：端口号（HTTP 80，HTTPS 443，DNS 53 等）      
         │  
@@ -42,6 +42,10 @@ JetBrains全家桶激活: powershell中 ```irm ckey.run|iex``` 然后一直回�
         ▼
 网络接口层：光纤、Wi-Fi  ----- 寻址方式：MAC 地址  
 ```
+
+如图所示，TCP是传输层协议，特点是：通信前需建立连接（三次握手）、可靠（不丢、不重、按序到达）、数据形式为字节流（没有消息边界）；UDP在这些特性上与之相反、但快速
+
+常规的 HTTP（单向请求，长/短连接 ```TCP三次握手 → 发送HTTP请求 → 接收HTTP响应 → 关闭/复用```）和 WebSocket（双向通信，长连接策略 ```TCP三次握手 → HTTP Upgrade握手 → 服务器返回 101 Switching Protocols  → 连接成功，双方随时互发帧 → 关闭```）
 
 
 ### IoC/DI/AOP
