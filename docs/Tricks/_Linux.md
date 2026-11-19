@@ -9,6 +9,8 @@ alias cdd='cd /mnt/d/WSL_dir/workdir/'
 ```
 每次修改后记得 ```source .bashrc``` 或重启 session
 
+可参考 [.bashrc](https://github.com/Jiarong-L/notes/docs/Tricks/Linux/.bashrc) 
+
 
 ## PATH
 ```
