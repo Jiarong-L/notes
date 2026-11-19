@@ -12,10 +12,44 @@
 | SV | BreakDancer | dbVar |
 | CNV | CNVnator | -- |
 
-此外还有常用突变频率数据库（G1000/ExAC/ESP6500/dbSNP），功能预测数据库（dbNSPF），突变治病信息与表型数据库（HGMD/dbGap/ClinVar）
+
+随后，针对不同的实验设计，可进行群体分析/GWAS/[Binmap](https://www.limfx.pro/readarticle/1255/binmap)/QTL/... ** TBA**
 
 
-随后，针对不同的实验设计，可进行群体分析/GWAS/Binmap/QTL/...  TBA
+## Annotation
+
+我们可能会关心 Variants 位于哪里，从生物意义上推导可能的后果
+
+在使用 [ensembl VEP](https://www.ensembl.org/Tools/VEP) 注释 VCF 时，工具会寻找与位点重叠的 （基因、转录本、调控区域、motif）并且返回相应的 [Sequence Ontology 术语](https://www.sequenceontology.org/browser/current_release/term/SO:0002220/)，并且可以叠加外部注释：
+
+
+- 突变频率：这个变异在人群里有多常见，**GnomAD** / G1000 
+- 功能预测：这个变异会不会破坏功能（保守性），**dbNSFP**
+- 临床信息与表型：这个变异和疾病什么关系，ClinVar (公开、胚系为主) / COSMIC (体细胞、癌症驱动) / HGMD (ClinVar)
+
+另外，还可以关注 dbGap (原始研究归档：也可以从中找出一些疾病关联)，以及 dbSNP (分发**rsID**，可能提供一些频率信息)
+
+### GnomAD
+
+全部基于 GRCh38，
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
