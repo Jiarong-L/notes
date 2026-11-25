@@ -41,7 +41,7 @@ http {
 
 ## Server
 
-假设一台服务器上可以部署多个静态网站以节约资源，给每一个网站分配一个端口号即可（以及各自的域名）。conf中每一个Server相当于一台虚拟主机。
+假设一台服务器上可以部署多个静态网站以节约资源，给每一个网站分配一个端口号即可（以及各自的域名）。conf中每一个Server相当于一台虚拟主机，写多个Server就可以在一台机器上部署多个静态资源网站。
 
 ```conf
 server {
@@ -78,11 +78,14 @@ server {
         listen  7777;            ## 也可以加上ip；需要注意：是否已在此前的conf中被匹配占用，是则不会生效
         server_name  _;          ## 域名
 
-        location /withalias {       ##   http://localhost:7777/withalias/mytext.html    网址 ip/alias/mytext.html      访问本地地址 alias/mytext.html
+        location /withalias {       ##   网址 ip/<alias>/mytext.html     http://localhost:7777/withalias/mytext.html    
+                                    ##   访问本地地址 <alias>/mytext.html  --- <alias>/网址<location>之后的部分
+
             alias           /mnt/l/WSL_DIR/WORKDIR/testNginx/htmlFolder/;     
         }
 
-        location /htmlFolder {       ##   http://localhost:7777/htmlFolder/mytext.html  网址 ip/location/mytext.html   访问本地地址 root/location/mytext.html
+        location /htmlFolder {      ##   网址 ip/<location>/mytext.html   http://localhost:7777/htmlFolder/mytext.html  
+                                    ##   访问本地地址 <root>/<location>/mytext.html  --- <root>/[URI:<location>/mytext.html]
             root           /mnt/l/WSL_DIR/WORKDIR/testNginx/;    
         }
 }
