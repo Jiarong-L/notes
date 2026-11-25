@@ -92,8 +92,55 @@ server {
 ## 访问内容为  /mnt/l/WSL_DIR/WORKDIR/testNginx/htmlFolder/mytext.html
 ```
 
-为了[避免静态资源被其它网站盗用](https://nginx.org/en/docs/http/ngx_http_referer_module.html)而产生额外流量压力，可以设定 ```location ~* \.(jpg|jpeg|png|gif|mp4|mov|flv)$ {valid_referers none blocked <server_names>}``` 来规定可以访问这些资源的网址。但它是通过判断 Request Headers - Referer 信息进行匹配的，如果对方在HTML```<header>```中设置 ```<meta name="referrer" content="no-referrer"/>```则可以[避开限制](https://www.bilibili.com/video/BV1YG411T7mK/?p=5)
+为了[避免静态资源被其它网站盗用](https://nginx.org/en/docs/http/ngx_http_referer_module.html)而产生额外流量压力，可以设定 ```valid_referers``` 来规定可以访问这些资源的网址。但它是通过判断 Request Headers - Referer 信息进行匹配的，如果对方在HTML```<header>```中设置 ```<meta name="referrer" content="no-referrer"/>```则可以[避开限制](https://www.bilibili.com/video/BV1YG411T7mK/?p=5)
 
+```conf
+## 记得先编辑etc/hosts，记得 ipconfig /flushdns
+## 127.0.0.1       myServerName
+
+server {
+        listen  7777;            ## 也可以加上ip；需要注意：是否已在此前的conf中被匹配占用，是则不会生效
+        server_name  myServerName;          ## 域名
+
+        ##  http://myServerName:7777/protect.html  可以显示图片
+        ##  http://localhost:7777/protect.html     不能图片
+        location / {
+            root           /mnt/l/WSL_DIR/WORKDIR/testNginx/htmlFolder/;  
+        }
+
+        ##  protect.html   =>  <img src="http://127.0.0.1:7777/test.png">
+        location ~* \.(jpg|jpeg|png|gif|mp4|mov|flv)$ {
+            root           /mnt/l/WSL_DIR/WORKDIR/testNginx/img/;  
+            valid_referers none blocked myServerName; 
+            if ($invalid_referer) {
+                return 403;
+            }
+            }
+}
+```
+
+
+另外，可以设置共享内存区域 ```limit_req_zone/limit_conn_zone``` 记录特定客户的连接状态，用于[限流（请求/并发连接）](https://juejin.cn/post/7368372944584474665)
+
+```conf
+###############待测试####################
+## 1. 设置共享内存区域，记录客户端的连接状态
+##      $.... 将remote_addr(IP)或server_name用作客户端的标识
+##      zone=.... 定义区域标识
+limit_req_zone  $binary_remote_addr zone=reqlimitIP:10m rate=1r/s; 
+limit_conn_zone $binary_remote_addr zone=connlimitIP:10m;
+limit_conn_zone $server_name zone=connlimitName:10m;
+
+server {
+    ## 2. 限流（请求/并发连接）
+    location / {
+        limit_req zone=reqlimitIP burst=5 nodelay;
+        limit_conn connlimitIP 3;
+        limit_conn connlimitName 3;
+        ...
+    }
+}
+```
 
 ## 反向代理
 
