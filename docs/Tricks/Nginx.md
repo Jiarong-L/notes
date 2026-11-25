@@ -92,6 +92,8 @@ server {
 ## 访问内容为  /mnt/l/WSL_DIR/WORKDIR/testNginx/htmlFolder/mytext.html
 ```
 
+为了[避免静态资源被其它网站盗用](https://nginx.org/en/docs/http/ngx_http_referer_module.html)而产生额外流量压力，可以设定 ```location ~* \.(jpg|jpeg|png|gif|mp4|mov|flv)$ {valid_referers none blocked <server_names>}``` 来规定可以访问这些资源的网址。但它是通过判断 Request Headers - Referer 信息进行匹配的，如果对方在HTML```<header>```中设置 ```<meta name="referrer" content="no-referrer"/>```则可以[避开限制](https://www.bilibili.com/video/BV1YG411T7mK/?p=5)
+
 
 ## 反向代理
 
@@ -173,5 +175,6 @@ server {
 [location 配置1](https://segmentfault.com/a/1190000041217732)     
 [location 配置2](https://segmentfault.com/a/1190000022315733)      
 [Seajs + Nginx](https://blog.csdn.net/cookcyq__/article/details/129783405)     
-[Nginx的工作流程](https://blog.csdn.net/qq_28567955/article/details/129261216)   
+[Nginx的工作流程](https://blog.csdn.net/qq_28567955/article/details/129261216)    
+
 
